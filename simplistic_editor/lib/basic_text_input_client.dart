@@ -545,6 +545,20 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   @override
+  bool get cutEnabled => !textEditingValue.selection.isCollapsed;
+
+  @override
+  bool get copyEnabled => !textEditingValue.selection.isCollapsed;
+
+  @override
+  bool get pasteEnabled =>
+      _clipboardStatus == null ||
+      _clipboardStatus!.value == ClipboardStatus.pasteable;
+
+  @override
+  bool get selectAllEnabled => textEditingValue.text.isNotEmpty;
+
+  @override
   void copySelection(SelectionChangedCause cause) {
     final TextSelection copyRange = textEditingValue.selection;
     if (!copyRange.isValid || copyRange.isCollapsed) return;
@@ -789,10 +803,18 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
               return widget.contextMenuBuilder!(
                 context,
                 _clipboardStatus!.value,
-                () => copySelection(SelectionChangedCause.toolbar),
-                () => cutSelection(SelectionChangedCause.toolbar),
-                () => pasteText(SelectionChangedCause.toolbar),
-                () => selectAll(SelectionChangedCause.toolbar),
+                copyEnabled
+                    ? () => copySelection(SelectionChangedCause.toolbar)
+                    : null,
+                cutEnabled
+                    ? () => cutSelection(SelectionChangedCause.toolbar)
+                    : null,
+                pasteEnabled
+                    ? () => pasteText(SelectionChangedCause.toolbar)
+                    : null,
+                selectAllEnabled
+                    ? () => selectAll(SelectionChangedCause.toolbar)
+                    : null,
                 _contextMenuAnchors,
               );
             },

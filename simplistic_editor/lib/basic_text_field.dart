@@ -131,6 +131,9 @@ class _BasicTextFieldState extends State<BasicTextField> {
         onPanStart: (dragStartDetails) => _onDragStart(dragStartDetails),
         onPanUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
         onSecondaryTapDown: (secondaryTapDownDetails) {
+          _renderEditable.selectWordsInRange(
+              from: secondaryTapDownDetails.globalPosition,
+              cause: SelectionChangedCause.tap);
           _renderEditable.handleSecondaryTapDown(secondaryTapDownDetails);
           _textInputClient!.hideToolbar();
           _textInputClient!.showToolbar();
