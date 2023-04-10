@@ -27,7 +27,7 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.12.0
+  flutter_launcher_icons: ^0.13.0
 
 flutter:
   assets:
