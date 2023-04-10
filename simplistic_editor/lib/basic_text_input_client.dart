@@ -640,6 +640,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       ),
       cause,
     );
+    if (cause == SelectionChangedCause.toolbar) hideToolbar();
   }
 
   @override
