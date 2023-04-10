@@ -83,12 +83,6 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     super.dispose();
   }
 
-  void _onChangedClipboardStatus() {
-    setState(() {
-      // Inform the widget that the value of clipboardStatus has changed.
-    });
-  }
-
   /// [DeltaTextInputClient] method implementations.
   @override
   void connectionClosed() {
@@ -317,6 +311,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       style: widget.style,
       withComposing: true,
     );
+  }
+
+  void _onChangedClipboardStatus() {
+    setState(() {
+      // Inform the widget that the value of clipboardStatus has changed.
+    });
   }
 
   /// Keyboard text editing actions.
