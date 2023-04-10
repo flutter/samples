@@ -793,7 +793,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 () => cutSelection(SelectionChangedCause.toolbar),
                 () => pasteText(SelectionChangedCause.toolbar),
                 () => selectAll(SelectionChangedCause.toolbar),
-                contextMenuAnchors,
+                _contextMenuAnchors,
               );
             },
       magnifierConfiguration: TextMagnifierConfiguration.disabled,
@@ -870,7 +870,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   /// Returns the anchor points for the default context menu.
-  TextSelectionToolbarAnchors get contextMenuAnchors {
+  TextSelectionToolbarAnchors get _contextMenuAnchors {
     if (renderEditable.lastSecondaryTapDownPosition != null) {
       return TextSelectionToolbarAnchors(
         primaryAnchor: renderEditable.lastSecondaryTapDownPosition!,
