@@ -107,20 +107,30 @@ class _BasicTextFieldState extends State<BasicTextField> {
   @override
   Widget build(BuildContext context) {
     switch (Theme.of(this.context).platform) {
+      // ignore: todo
+      // TODO(Renzo-Olivares): Remove use of deprecated members once
+      // TextSelectionControls.buildToolbar has been deleted.
+      // See https://github.com/flutter/flutter/pull/124611 and
+      // https://github.com/flutter/flutter/pull/124262 for more details.
       case TargetPlatform.iOS:
+        // ignore: deprecated_member_use
         _textSelectionControls = cupertinoTextSelectionHandleControls;
         break;
       case TargetPlatform.macOS:
+        // ignore: deprecated_member_use
         _textSelectionControls = cupertinoDesktopTextSelectionHandleControls;
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
+        // ignore: deprecated_member_use
         _textSelectionControls = materialTextSelectionHandleControls;
         break;
       case TargetPlatform.linux:
+        // ignore: deprecated_member_use
         _textSelectionControls = desktopTextSelectionHandleControls;
         break;
       case TargetPlatform.windows:
+        // ignore: deprecated_member_use
         _textSelectionControls = desktopTextSelectionHandleControls;
         break;
     }
