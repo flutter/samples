@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  audioplayers: ^3.0.0
+  audioplayers: ^4.0.0
   cupertino_icons: ^1.0.2
   go_router: ^6.0.1
   logging: ^1.1.0
