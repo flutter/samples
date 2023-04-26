@@ -1546,6 +1546,7 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
             ),
             onPressed: () {
               showModalBottomSheet<void>(
+                showDragHandle: true,
                 context: context,
                 // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
                 constraints: const BoxConstraints(maxWidth: 640),
