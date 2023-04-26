@@ -1,6 +1,7 @@
 # Flutter samples index generator
 
-This tool is used to generate the visual samples index for Flutter samples.
+This tool is used to generate the visual 
+[samples index for Flutter samples](https://flutter.github.io/samples/).
 
 ## Generating the index
 

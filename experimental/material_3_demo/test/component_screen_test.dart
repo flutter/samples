@@ -93,6 +93,9 @@ void main() {
     // Tabs
     expect(find.byType(TabBar), findsOneWidget);
 
+    // Search
+    expect(find.byType(SearchBar), findsOneWidget);
+
     // Top app bars
     expect(find.byType(AppBar), findsNWidgets(6));
 

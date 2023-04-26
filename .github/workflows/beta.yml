@@ -26,11 +26,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f
-      - uses: actions/setup-java@3f07048e3d294f56e9b90ac5ea2c6f74e9ad0f98
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - uses: actions/setup-java@5ffc13f4174014e2d4d4572b3d74c3fa61aeb2c2
         with:
           distribution: 'zulu'
-          java-version: '12.x'
+          java-version: '17'
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: beta
@@ -41,11 +41,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f
-      - uses: actions/setup-java@3f07048e3d294f56e9b90ac5ea2c6f74e9ad0f98
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - uses: actions/setup-java@5ffc13f4174014e2d4d4572b3d74c3fa61aeb2c2
         with:
           distribution: 'zulu'
-          java-version: '12.x'
+          java-version: '17'
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: beta
@@ -56,11 +56,11 @@ jobs:
     runs-on: macos-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f
-      - uses: actions/setup-java@3f07048e3d294f56e9b90ac5ea2c6f74e9ad0f98
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - uses: actions/setup-java@5ffc13f4174014e2d4d4572b3d74c3fa61aeb2c2
         with:
           distribution: 'zulu'
-          java-version: '12.x'
+          java-version: '17'
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: beta

@@ -44,18 +44,18 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.green[700],
         ),
         body: GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 11.0,
-            ),
-            markers: {
-              // ignore: prefer_const_constructors
-              Marker(
-                markerId: const MarkerId('Sydney'),
-                position: const LatLng(-33.86, 151.20),
-              )
-            }),
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 11.0,
+          ),
+          markers: {
+            const Marker(
+              markerId: MarkerId('Sydney'),
+              position: LatLng(-33.86, 151.20),
+            )
+          },
+        ),
       ),
     );
   }

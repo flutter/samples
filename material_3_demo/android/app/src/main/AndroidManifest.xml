@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.material_3_demo">
-   <application
+    <application
         android:label="material_3_demo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

@@ -11,11 +11,32 @@ class BasicTextField extends StatefulWidget {
     required this.controller,
     required this.style,
     required this.focusNode,
+    this.contextMenuBuilder = _defaultContextMenuBuilder,
   });
 
   final TextEditingController controller;
   final TextStyle style;
   final FocusNode focusNode;
+  final BasicTextFieldContextMenuBuilder? contextMenuBuilder;
+
+  static Widget _defaultContextMenuBuilder(
+    BuildContext context,
+    ClipboardStatus clipboardStatus,
+    VoidCallback? onCopy,
+    VoidCallback? onCut,
+    VoidCallback? onPaste,
+    VoidCallback? onSelectAll,
+    TextSelectionToolbarAnchors anchors,
+  ) {
+    return AdaptiveTextSelectionToolbar.editable(
+      clipboardStatus: clipboardStatus,
+      onCopy: onCopy,
+      onCut: onCut,
+      onPaste: onPaste,
+      onSelectAll: onSelectAll,
+      anchors: anchors,
+    );
+  }
 
   @override
   State<BasicTextField> createState() => _BasicTextFieldState();
@@ -86,21 +107,31 @@ class _BasicTextFieldState extends State<BasicTextField> {
   @override
   Widget build(BuildContext context) {
     switch (Theme.of(this.context).platform) {
+      // ignore: todo
+      // TODO(Renzo-Olivares): Remove use of deprecated members once
+      // TextSelectionControls.buildToolbar has been deleted.
+      // See https://github.com/flutter/flutter/pull/124611 and
+      // https://github.com/flutter/flutter/pull/124262 for more details.
       case TargetPlatform.iOS:
-        _textSelectionControls = cupertinoTextSelectionControls;
+        // ignore: deprecated_member_use
+        _textSelectionControls = cupertinoTextSelectionHandleControls;
         break;
       case TargetPlatform.macOS:
-        _textSelectionControls = cupertinoDesktopTextSelectionControls;
+        // ignore: deprecated_member_use
+        _textSelectionControls = cupertinoDesktopTextSelectionHandleControls;
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
-        _textSelectionControls = materialTextSelectionControls;
+        // ignore: deprecated_member_use
+        _textSelectionControls = materialTextSelectionHandleControls;
         break;
       case TargetPlatform.linux:
-        _textSelectionControls = desktopTextSelectionControls;
+        // ignore: deprecated_member_use
+        _textSelectionControls = desktopTextSelectionHandleControls;
         break;
       case TargetPlatform.windows:
-        _textSelectionControls = desktopTextSelectionControls;
+        // ignore: deprecated_member_use
+        _textSelectionControls = desktopTextSelectionHandleControls;
         break;
     }
 
@@ -109,8 +140,17 @@ class _BasicTextFieldState extends State<BasicTextField> {
         behavior: HitTestBehavior.translucent,
         onPanStart: (dragStartDetails) => _onDragStart(dragStartDetails),
         onPanUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
+        onSecondaryTapDown: (secondaryTapDownDetails) {
+          _renderEditable.selectWordsInRange(
+              from: secondaryTapDownDetails.globalPosition,
+              cause: SelectionChangedCause.tap);
+          _renderEditable.handleSecondaryTapDown(secondaryTapDownDetails);
+          _textInputClient!.hideToolbar();
+          _textInputClient!.showToolbar();
+        },
         onTap: () {
           _textInputClient!.requestKeyboard();
+          _textInputClient!.hideToolbar();
         },
         onTapDown: (tapDownDetails) {
           _renderEditable.handleTapDown(tapDownDetails);
@@ -160,6 +200,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
               selectionControls: _textSelectionControls,
               onSelectionChanged: _handleSelectionChanged,
               showSelectionHandles: _showSelectionHandles,
+              contextMenuBuilder: widget.contextMenuBuilder,
             ),
           ),
         ),

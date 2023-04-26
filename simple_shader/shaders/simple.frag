@@ -4,11 +4,11 @@
 
 precision mediump float;
 
-layout(location = 0) out vec4 fragColor;
-layout(location = 0) uniform vec2 resolution;
+uniform vec2 resolution;
+out vec4 fragColor;
 
-vec3 flutterNavy = vec3(4, 43, 89) / 255;
 vec3 flutterBlue = vec3(5, 83, 177) / 255;
+vec3 flutterNavy = vec3(4, 43, 89) / 255;
 vec3 flutterSky = vec3(2, 125, 253) / 255;
 
 void main() {

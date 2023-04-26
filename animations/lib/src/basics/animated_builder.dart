@@ -23,7 +23,6 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   @override
   void initState() {
     super.initState();
-
     controller = AnimationController(vsync: this, duration: duration);
     animation =
         ColorTween(begin: beginColor, end: endColor).animate(controller);
@@ -49,10 +48,10 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
         child: AnimatedBuilder(
           animation: animation,
           builder: (context, child) {
-            return MaterialButton(
-              color: animation.value,
-              height: 50,
-              minWidth: 100,
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: animation.value,
+              ),
               child: child,
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {

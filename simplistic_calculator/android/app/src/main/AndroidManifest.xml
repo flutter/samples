@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.simplistic_calculator">
-   <application
+    <application
         android:label="simplistic_calculator"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
