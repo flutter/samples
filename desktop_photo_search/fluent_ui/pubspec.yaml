@@ -11,7 +11,9 @@ dependencies:
   built_value: ^8.3.0
   cupertino_icons: ^1.0.2
   file_selector: ^0.9.1
-  fluent_ui: ^4.0.0
+  # TODO: revert to published version when 'pkg:intl' fix is available.
+  fluent_ui:
+    git: https://github.com/bdlukaa/fluent_ui
   fluentui_system_icons: ^1.1.168
   flutter:
     sdk: flutter
