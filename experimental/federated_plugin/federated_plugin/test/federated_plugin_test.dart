@@ -11,11 +11,16 @@ void main() {
 
   group('Federated Plugin Test', () {
     const batteryLevel = 34;
-    const MethodChannel('battery').setMockMethodCallHandler((call) async {
-      if (call.method == 'getBatteryLevel') {
-        return batteryLevel;
-      }
-    });
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+      const MethodChannel('battery'),
+      (message) async {
+        if (message.method == 'getBatteryLevel') {
+          return batteryLevel;
+        }
+        return null;
+      },
+    );
 
     test('getBatteryLevel method test', () async {
       final result = await getBatteryLevel();
