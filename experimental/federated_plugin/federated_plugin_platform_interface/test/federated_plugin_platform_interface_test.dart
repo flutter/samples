@@ -11,11 +11,16 @@ void main() {
 
   group('MethodChannel test', () {
     const batteryLevel = 89;
-    const MethodChannel('battery').setMockMethodCallHandler((call) async {
-      if (call.method == 'getBatteryLevel') {
-        return batteryLevel;
-      }
-    });
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+      const MethodChannel('battery'),
+      (message) async {
+        if (message.method == 'getBatteryLevel') {
+          return batteryLevel;
+        }
+        return null;
+      },
+    );
 
     test('getBatteryLevel method test', () async {
       final locationMethodChannel = BatteryMethodChannel();
