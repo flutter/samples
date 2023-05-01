@@ -52,7 +52,8 @@ declare -ar PROJECT_NAMES=(
     "jsonexample"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "material_3_demo"
-    "navigation_and_routing"
+    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
+    # "navigation_and_routing"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "place_tracker"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
