@@ -26,7 +26,6 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
     # "experimental/context_menus"
-    "experimental/element_embedding_demo"
     # TODO: https://github.com/flutter/samples/issues/1769
     # "experimental/federated_plugin/federated_plugin"
     # TODO: https://github.com/flutter/samples/issues/1769
@@ -68,6 +67,7 @@ declare -ar PROJECT_NAMES=(
     "simplistic_editor"
     "testing_app"
     "veggieseasons"
+    "web_embedding/element_embedding_demo"
     "web/_tool"
     "web/samples_index"
 )
