@@ -24,7 +24,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): version solving failed
     # "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/context_menus"
+    # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
+    # "experimental/context_menus"
     "experimental/element_embedding_demo"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
     # "experimental/federated_plugin/federated_plugin"
@@ -51,7 +52,8 @@ declare -ar PROJECT_NAMES=(
     "jsonexample"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "material_3_demo"
-    "navigation_and_routing"
+    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
+    # "navigation_and_routing"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "place_tracker"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
