@@ -24,7 +24,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): version solving failed
     # "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/context_menus"
+    # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
+    # "experimental/context_menus"
     "experimental/element_embedding_demo"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
     # "experimental/federated_plugin/federated_plugin"
