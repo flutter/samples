@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  go_router: ^6.0.0
+  go_router: ^7.0.0
   provider: ^6.0.2
   window_size:
     git:
