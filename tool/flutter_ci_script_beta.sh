@@ -36,7 +36,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/linting_tool"
     # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
     # "experimental/material_3_demo"
-    "experimental/pedometer"
+    # TODO(DomesticMouse): The type 'ObjCSel' must be 'base', 'final' or 'sealed' because the supertype 'Opaque' is 'base'.
+    # "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
