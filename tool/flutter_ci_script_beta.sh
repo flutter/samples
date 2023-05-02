@@ -24,10 +24,13 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/element_embedding_demo"
-    "experimental/federated_plugin/federated_plugin"
-    "experimental/federated_plugin/federated_plugin/example"
+    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # "experimental/federated_plugin/federated_plugin"
+    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
-    "experimental/federated_plugin/federated_plugin_platform_interface"
+    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
