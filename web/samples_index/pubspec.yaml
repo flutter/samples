@@ -4,7 +4,7 @@ homepage: https://github.com/flutter/samples/tree/main/web/samples_index
 version: 0.0.1
 
 environment:
-  sdk: '>=2.19.5 <4.0.0'
+  sdk: ^3.0.0-0
 
 dependencies:
   json_annotation: ^4.7.0
