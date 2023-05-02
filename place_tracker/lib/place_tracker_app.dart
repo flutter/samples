@@ -44,7 +44,7 @@ class PlaceTrackerApp extends StatelessWidget {
             GoRoute(
               path: 'place/:id',
               builder: (context, state) {
-                final id = state.params['id']!;
+                final id = state.pathParameters['id']!;
                 final place = context
                     .read<AppState>()
                     .places
