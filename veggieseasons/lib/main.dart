@@ -214,7 +214,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
       parentNavigatorKey: _rootNavigatorKey,
       path: 'details/:id',
       pageBuilder: (context, state) {
-        final veggieId = int.parse(state.params['id']!);
+        final veggieId = int.parse(state.pathParameters['id']!);
         return CupertinoPage(
           restorationId: 'route.details',
           fullscreenDialog: true,
