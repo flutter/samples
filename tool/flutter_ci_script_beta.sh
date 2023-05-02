@@ -34,7 +34,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): integrate fix from https://github.com/flutter/samples/pull/1764
+    # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
     # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
@@ -47,7 +47,8 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    "material_3_demo"
+    # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
+    # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
