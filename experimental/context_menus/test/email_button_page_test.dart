@@ -51,20 +51,16 @@ void main() {
       case TargetPlatform.iOS:
         expect(
             find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
-        break;
       case TargetPlatform.macOS:
         expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
             findsNWidgets(2));
-        break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(3));
-        break;
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(
             find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(3));
-        break;
     }
 
     // Click on "Copy" to hide the context menu.
@@ -99,20 +95,16 @@ void main() {
       case TargetPlatform.iOS:
         expect(
             find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(3));
-        break;
       case TargetPlatform.macOS:
         expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
             findsNWidgets(3));
-        break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(4));
-        break;
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(
             find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(4));
-        break;
     }
   });
 }
