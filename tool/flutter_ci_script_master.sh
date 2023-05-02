@@ -37,10 +37,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO: https://github.com/flutter/samples/issues/1768
-    # "experimental/material_3_demo"
-    # TODO: https://github.com/flutter/samples/issues/1767
-    # "experimental/pedometer"
+    "experimental/material_3_demo"
+    "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
@@ -52,8 +50,7 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    # TODO: https://github.com/flutter/samples/issues/1766
-    # "material_3_demo"
+    "material_3_demo"
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
     "place_tracker"
