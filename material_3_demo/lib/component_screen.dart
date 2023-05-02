@@ -187,7 +187,7 @@ class Buttons extends StatefulWidget {
 class _ButtonsState extends State<Buttons> {
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Common buttons',
       tooltipMessage:
           'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
@@ -195,7 +195,7 @@ class _ButtonsState extends State<Buttons> {
         scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const <Widget>[
+          children: <Widget>[
             ButtonsWithoutIcon(isDisabled: false),
             ButtonsWithIcon(),
             ButtonsWithoutIcon(isDisabled: true),
@@ -681,11 +681,11 @@ class Dividers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Dividers',
       tooltipMessage: 'Use Divider or VerticalDivider',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           Divider(key: Key('divider')),
         ],
       ),
@@ -698,11 +698,11 @@ class Switches extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Switches',
       tooltipMessage: 'Use SwitchListTile or Switch',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           SwitchRow(isEnabled: true),
           SwitchRow(isEnabled: false),
         ],
@@ -1093,7 +1093,7 @@ class IconToggleButtons extends StatefulWidget {
 class _IconToggleButtonsState extends State<IconToggleButtons> {
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Icon buttons',
       tooltipMessage: 'Use IconButton',
       child: Row(
@@ -1101,7 +1101,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
         children: <Widget>[
           Column(
             // Standard IconButton
-            children: const <Widget>[
+            children: <Widget>[
               IconToggleButton(
                 isEnabled: true,
                 tooltip: 'Standard',
@@ -1114,7 +1114,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Filled IconButton
               IconToggleButton(
                 isEnabled: true,
@@ -1130,7 +1130,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Filled Tonal IconButton
               IconToggleButton(
                 isEnabled: true,
@@ -1146,7 +1146,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Outlined IconButton
               IconToggleButton(
                 isEnabled: true,
@@ -1376,11 +1376,11 @@ class SegmentedButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Segmented buttons',
       tooltipMessage: 'Use SegmentedButton<T>',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           SingleChoice(),
           colDivider,
           MultipleChoice(),
@@ -2075,9 +2075,9 @@ class _MenusState extends State<Menus> {
       tooltipMessage: 'Use MenuAnchor or DropdownMenu<T>',
       child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               ButtonAnchorExample(),
               rowDivider,
               IconButtonAnchorExample(),
