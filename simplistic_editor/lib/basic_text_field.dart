@@ -115,24 +115,19 @@ class _BasicTextFieldState extends State<BasicTextField> {
       case TargetPlatform.iOS:
         // ignore: deprecated_member_use
         _textSelectionControls = cupertinoTextSelectionHandleControls;
-        break;
       case TargetPlatform.macOS:
         // ignore: deprecated_member_use
         _textSelectionControls = cupertinoDesktopTextSelectionHandleControls;
-        break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         // ignore: deprecated_member_use
         _textSelectionControls = materialTextSelectionHandleControls;
-        break;
       case TargetPlatform.linux:
         // ignore: deprecated_member_use
         _textSelectionControls = desktopTextSelectionHandleControls;
-        break;
       case TargetPlatform.windows:
         // ignore: deprecated_member_use
         _textSelectionControls = desktopTextSelectionHandleControls;
-        break;
     }
 
     return TextFieldTapRegion(
@@ -164,7 +159,6 @@ class _BasicTextFieldState extends State<BasicTextField> {
                 from: longPressMoveUpdateDetails.globalPosition,
                 cause: SelectionChangedCause.longPress,
               );
-              break;
             case TargetPlatform.android:
             case TargetPlatform.fuchsia:
             case TargetPlatform.linux:
@@ -175,7 +169,6 @@ class _BasicTextFieldState extends State<BasicTextField> {
                 to: longPressMoveUpdateDetails.globalPosition,
                 cause: SelectionChangedCause.longPress,
               );
-              break;
           }
         },
         onLongPressEnd: (longPressEndDetails) =>

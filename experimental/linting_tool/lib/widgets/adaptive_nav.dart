@@ -331,7 +331,6 @@ class _NavigationRailTrailingSection extends StatelessWidget {
             ),
           ],
         );
-        break;
       default:
         break;
     }

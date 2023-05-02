@@ -135,27 +135,22 @@ class WonkyCharState extends State<WonkyChar>
             {
               _scaleAnimation = animation;
             }
-            break;
           case 'rotation':
             {
               _rotationAnimation = animation;
             }
-            break;
           case 'offsetX':
             {
               _offsetXAnimation = animation;
             }
-            break;
           case 'offsetY':
             {
               _offsetYAnimation = animation;
             }
-            break;
           case 'color':
             {
               _colorAnimation = animation;
             }
-            break;
           default:
             {
               if (kDebugMode) {

@@ -164,16 +164,12 @@ class TextEditingDeltaView extends StatelessWidget {
     switch (deltaType) {
       case 'Insertion':
         rowColor = Colors.greenAccent.shade100;
-        break;
       case 'Deletion':
         rowColor = Colors.redAccent.shade100;
-        break;
       case 'Replacement':
         rowColor = Colors.yellowAccent.shade100;
-        break;
       case 'NonTextUpdate':
         rowColor = Colors.blueAccent.shade100;
-        break;
       default:
         rowColor = Colors.white;
     }
