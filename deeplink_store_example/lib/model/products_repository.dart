@@ -265,7 +265,7 @@ class ProductsRepository {
 }
 
 String getCategoryTitle(Category category) {
-  switch(category) {
+  switch (category) {
     case Category.all:
       return 'All';
     case Category.accessories:

@@ -30,12 +30,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: GoRouter(
         routes: [
-          GoRoute(path: '/', builder: (_, __) => const ProductList(),
+          GoRoute(
+            path: '/',
+            builder: (_, __) => const ProductList(),
             routes: [
               GoRoute(path: ':id', builder: (_, __) => const ProductDetails()),
             ],
           ),
-          GoRoute(path: '/category/:category', builder: (_, __) => const ProductCategoryList()),
+          GoRoute(
+              path: '/category/:category',
+              builder: (_, __) => const ProductCategoryList()),
         ],
       ),
     );
