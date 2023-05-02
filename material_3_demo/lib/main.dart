@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 import 'constants.dart';
 import 'home.dart';

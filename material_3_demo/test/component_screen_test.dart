@@ -351,8 +351,7 @@ void main() {
 void widgetSetup(WidgetTester tester, double windowWidth,
     {double? windowHeight}) {
   final height = windowHeight ?? 846;
-  tester.binding.window.devicePixelRatioTestValue = (2);
-  final dpi = tester.binding.window.devicePixelRatio;
-  tester.binding.window.physicalSizeTestValue =
-      Size(windowWidth * dpi, height * dpi);
+  tester.view.devicePixelRatio = 2;
+  final dpi = tester.view.devicePixelRatio;
+  tester.view.physicalSize = Size(windowWidth * dpi, height * dpi);
 }
