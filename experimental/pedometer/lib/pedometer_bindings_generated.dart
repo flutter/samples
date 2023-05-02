@@ -26224,13 +26224,13 @@ class NSObject extends _ObjCWrapper {
   }
 }
 
-class ObjCSel extends ffi.Opaque {}
+final class ObjCSel extends ffi.Opaque {}
 
-class ObjCObject extends ffi.Opaque {}
+final class ObjCObject extends ffi.Opaque {}
 
 typedef instancetype = ffi.Pointer<ObjCObject>;
 
-class _NSZone extends ffi.Opaque {}
+final class _NSZone extends ffi.Opaque {}
 
 class Protocol extends _ObjCWrapper {
   Protocol._(ffi.Pointer<ObjCObject> id, PedometerBindings lib,
@@ -29340,7 +29340,7 @@ class NSData extends NSObject {
   }
 }
 
-class _NSRange extends ffi.Struct {
+final class _NSRange extends ffi.Struct {
   @ffi.UnsignedLong()
   external int location;
 
@@ -31651,7 +31651,7 @@ class ObjCBlock extends _ObjCBlockBase {
   ffi.Pointer<_ObjCBlock> get pointer => _id;
 }
 
-class _ObjCBlockDesc extends ffi.Struct {
+final class _ObjCBlockDesc extends ffi.Struct {
   @ffi.UnsignedLong()
   external int reserved;
 
@@ -31665,7 +31665,7 @@ class _ObjCBlockDesc extends ffi.Struct {
   external ffi.Pointer<ffi.Char> signature;
 }
 
-class _ObjCBlock extends ffi.Struct {
+final class _ObjCBlock extends ffi.Struct {
   external ffi.Pointer<ffi.Void> isa;
 
   @ffi.Int()
@@ -33583,7 +33583,7 @@ class ObjCBlock10 extends _ObjCBlockBase {
   ffi.Pointer<_ObjCBlock> get pointer => _id;
 }
 
-class NSFastEnumerationState extends ffi.Struct {
+final class NSFastEnumerationState extends ffi.Struct {
   @ffi.UnsignedLong()
   external int state;
 
@@ -46210,7 +46210,7 @@ class NSScanner extends NSObject {
   }
 }
 
-class NSDecimal extends ffi.Opaque {}
+final class NSDecimal extends ffi.Opaque {}
 
 class NSException extends NSObject {
   NSException._(ffi.Pointer<ObjCObject> id, PedometerBindings lib,
@@ -46608,7 +46608,7 @@ class NSRunLoop extends NSObject {
   }
 }
 
-class __CFRunLoop extends ffi.Opaque {}
+final class __CFRunLoop extends ffi.Opaque {}
 
 class NSTimer extends NSObject {
   NSTimer._(ffi.Pointer<ObjCObject> id, PedometerBindings lib,
@@ -51184,7 +51184,7 @@ abstract class NSOperationQueuePriority {
   static const int NSOperationQueuePriorityVeryHigh = 8;
 }
 
-class dispatch_queue_s extends ffi.Opaque {}
+final class dispatch_queue_s extends ffi.Opaque {}
 
 class NSPointerArray extends NSObject {
   NSPointerArray._(ffi.Pointer<ObjCObject> id, PedometerBindings lib,
@@ -51956,7 +51956,7 @@ class NSProcessInfo extends NSObject {
   }
 }
 
-class NSOperatingSystemVersion extends ffi.Struct {
+final class NSOperatingSystemVersion extends ffi.Struct {
   @ffi.Long()
   external int majorVersion;
 
@@ -54304,9 +54304,9 @@ abstract class NSURLCredentialPersistence {
   static const int NSURLCredentialPersistenceSynchronizable = 3;
 }
 
-class __SecIdentity extends ffi.Opaque {}
+final class __SecIdentity extends ffi.Opaque {}
 
-class __SecTrust extends ffi.Opaque {}
+final class __SecTrust extends ffi.Opaque {}
 
 /// !
 /// @class NSURLProtectionSpace
