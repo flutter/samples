@@ -72,6 +72,6 @@ declare -ar PROJECT_NAMES=(
     "web/samples_index"
 )
 
-ci_projects "beta" "${PROJECT_NAMES[@]}"
+ci_projects "master" "${PROJECT_NAMES[@]}"
 
 echo "-- Success --"
