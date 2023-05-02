@@ -26,7 +26,8 @@ class ProductCategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     final GoRouterState state = GoRouterState.of(context);
     final Category category = Category.values.firstWhere(
-      (Category value) => value.toString().contains(state.params['category']!),
+      (Category value) =>
+          value.toString().contains(state.pathParameters['category']!),
       orElse: () => Category.all,
     );
     final List<Widget> children =
