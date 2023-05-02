@@ -37,7 +37,8 @@ void main() {
     expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
 
     // Icon buttons
-    expect(find.widgetWithIcon(IconButton, Icons.settings_outlined), findsNWidgets(8));
+    expect(find.widgetWithIcon(IconButton, Icons.settings_outlined),
+        findsNWidgets(8));
 
     // Segmented buttons
     expect(find.byType(SegmentedButton<Calendar>), findsOneWidget);
