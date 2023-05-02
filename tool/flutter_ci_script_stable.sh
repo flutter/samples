@@ -14,12 +14,14 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/multiple_flutters/multiple_flutters_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
+    "analysis_defaults"
     "android_splash_screen"
     "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
+    "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/context_menus"
@@ -34,9 +36,11 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): integrate fix from https://github.com/flutter/samples/pull/1764
+    # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
     # "experimental/material_3_demo"
-    "experimental/pedometer"
+    # TODO(DomesticMouse): The type 'ObjCSel' must be 'base', 'final' or 'sealed' because the supertype 'Opaque' is 'base'.
+    # "experimental/pedometer"
+    "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
@@ -47,10 +51,12 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    "material_3_demo"
+    # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
+    # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
-    "platform_channels"
+    # TODO(DomesticMouse): 'setMockMessageHandler' is deprecated and shouldn't be used.
+    # "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"

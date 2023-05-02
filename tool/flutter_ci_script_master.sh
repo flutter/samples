@@ -14,12 +14,14 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/multiple_flutters/multiple_flutters_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
+    "analysis_defaults"
     "android_splash_screen"
     "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
+    "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
@@ -39,6 +41,7 @@ declare -ar PROJECT_NAMES=(
     # "experimental/material_3_demo"
     # TODO(DomesticMouse): The type 'ObjCSel' must be 'base', 'final' or 'sealed' because the supertype 'Opaque' is 'base'.
     # "experimental/pedometer"
+    "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
