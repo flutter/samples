@@ -22,8 +22,7 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    # TODO(DomesticMouse): uncomment on next Flutter stable increment
-    # "experimental/context_menus"
+    "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
@@ -31,8 +30,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): uncomment on next Flutter stable increment
-    # "experimental/material_3_demo"
+    "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"

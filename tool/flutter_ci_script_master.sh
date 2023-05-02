@@ -17,28 +17,21 @@ declare -ar PROJECT_NAMES=(
     "android_splash_screen"
     "animations"
     "background_isolate_channels"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "code_sharing/client"
+    "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
-    # TODO(DomesticMouse): version solving failed
-    # "desktop_photo_search/fluent_ui"
+    "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
-    # "experimental/context_menus"
+    "experimental/context_menus"
     "experimental/element_embedding_demo"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "experimental/federated_plugin/federated_plugin"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "experimental/federated_plugin/federated_plugin/example"
+    "experimental/federated_plugin/federated_plugin"
+    "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "experimental/federated_plugin/federated_plugin_platform_interface"
+    "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "experimental/material_3_demo"
+    "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
@@ -50,21 +43,16 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "material_3_demo"
-    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
-    # "navigation_and_routing"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "place_tracker"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "platform_channels"
+    "material_3_demo"
+    "navigation_and_routing"
+    "place_tracker"
+    "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    # TODO(DomesticMouse): version solving failed
-    # "simplistic_calculator"
+    "simplistic_calculator"
     "simplistic_editor"
     "testing_app"
     "veggieseasons"
