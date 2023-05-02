@@ -50,9 +50,11 @@ declare -ar PROJECT_NAMES=(
     "jsonexample"
     # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
     # "material_3_demo"
-    "navigation_and_routing"
+    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
+    # "navigation_and_routing"
     "place_tracker"
-    "platform_channels"
+    # TODO(DomesticMouse): 'setMockMessageHandler' is deprecated and shouldn't be used.
+    # "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
