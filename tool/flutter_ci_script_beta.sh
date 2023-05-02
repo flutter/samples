@@ -26,19 +26,19 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/element_embedding_demo"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # TODO: https://github.com/flutter/samples/issues/1769
     # "experimental/federated_plugin/federated_plugin"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # TODO: https://github.com/flutter/samples/issues/1769
     # "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # TODO: https://github.com/flutter/samples/issues/1769
     # "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
+    # TODO: https://github.com/flutter/samples/issues/1768
     # "experimental/material_3_demo"
-    # TODO(DomesticMouse): The type 'ObjCSel' must be 'base', 'final' or 'sealed' because the supertype 'Opaque' is 'base'.
+    # TODO: https://github.com/flutter/samples/issues/1767
     # "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
@@ -51,11 +51,11 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    # TODO(DomesticMouse): 'window' is deprecated and shouldn't be used.
+    # TODO: https://github.com/flutter/samples/issues/1766
     # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
-    # TODO(DomesticMouse): 'setMockMessageHandler' is deprecated and shouldn't be used.
+    # TODO: https://github.com/flutter/samples/issues/1765
     # "platform_channels"
     "platform_design"
     "platform_view_swift"
