@@ -15,7 +15,7 @@ dependencies:
 
   audioplayers: ^4.0.0
   cupertino_icons: ^1.0.2
-  go_router: ^6.0.1
+  go_router: ^7.0.0
   logging: ^1.1.0
   provider: ^6.0.2
   shared_preferences: ^2.0.13
