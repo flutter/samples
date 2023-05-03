@@ -26,13 +26,10 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
     # "experimental/context_menus"
-    # TODO: https://github.com/flutter/samples/issues/1769
-    # "experimental/federated_plugin/federated_plugin"
-    # TODO: https://github.com/flutter/samples/issues/1769
-    # "experimental/federated_plugin/federated_plugin/example"
+    "experimental/federated_plugin/federated_plugin"
+    "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
-    # TODO: https://github.com/flutter/samples/issues/1769
-    # "experimental/federated_plugin/federated_plugin_platform_interface"
+    "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
