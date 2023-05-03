@@ -16,7 +16,7 @@ dependencies:
 
 dev_dependencies:
   ffigen: ^7.2.1
-  jnigen: ^0.3.0
+  jnigen: ^0.4.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
