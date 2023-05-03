@@ -9,23 +9,20 @@ import 'package:platform_channels/src/method_channel_demo.dart';
 
 void main() {
   group('MethodChannelDemo tests', () {
-    setUpAll(() {
-      const methodChannel = MethodChannel('methodChannelDemo');
-
-      // Register a mock MethodCallHandler.
-      methodChannel.setMockMethodCallHandler((call) async {
-        var count = call.arguments['count'] as int;
-        if (call.method == 'increment') {
-          return ++count;
-        } else if (call.method == 'decrement') {
-          return --count;
-        }
-
-        return MissingPluginException();
-      });
-    });
-
     testWidgets('MethodChannelDemo count test', (tester) async {
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        const MethodChannel('methodChannelDemo'),
+        (call) async {
+          var count = call.arguments['count'] as int;
+          if (call.method == 'increment') {
+            return ++count;
+          } else if (call.method == 'decrement') {
+            return --count;
+          }
+
+          return MissingPluginException();
+        },
+      );
       await tester.pumpWidget(const MaterialApp(
         home: MethodChannelDemo(),
       ));
