@@ -213,3 +213,15 @@ updates:
     directory: "web/samples_index/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "web_embedding/element_embedding_demo"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "web_embedding/ng-flutter/flutter"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "web_embedding/ng-flutter"
+    schedule:
+      interval: "daily"
