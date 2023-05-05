@@ -27,13 +27,10 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
     # "experimental/context_menus"
     "experimental/element_embedding_demo"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "experimental/federated_plugin/federated_plugin"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "experimental/federated_plugin/federated_plugin/example"
+    "experimental/federated_plugin/federated_plugin"
+    "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
-    # "experimental/federated_plugin/federated_plugin_platform_interface"
+    "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
