@@ -6,13 +6,12 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:next_gen_ui_demo/main.dart';
 import 'package:next_gen_ui_demo/assets.dart';
+import 'package:next_gen_ui_demo/main.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  testWidgets('Smoke test', (WidgetTester tester) async {
+  testWidgets('Smoke test', (tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
       FutureProvider<Shaders?>(
