@@ -49,6 +49,7 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "material_3_demo"
     "navigation_and_routing"
+    "next_gen_ui_demo"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "place_tracker"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.

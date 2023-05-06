@@ -51,6 +51,7 @@ declare -ar PROJECT_NAMES=(
     # "material_3_demo"
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
+    "next_gen_ui_demo"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "place_tracker"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
