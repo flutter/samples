@@ -25,6 +25,7 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/context_menus"
+    "experimental/element_embedding_demo"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
