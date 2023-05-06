@@ -57,8 +57,20 @@ class OrbShaderWidgetState extends State<OrbShaderWidget>
     ],
   );
 
-  late final _heartbeatAnim =
-      AnimationController(vsync: this, duration: 3000.ms)..repeat();
+  late final AnimationController _heartbeatAnim;
+
+  @override
+  void initState() {
+    super.initState();
+    _heartbeatAnim = AnimationController(vsync: this, duration: 3000.ms)
+      ..repeat();
+  }
+
+  @override
+  void dispose() {
+    _heartbeatAnim.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) => Consumer<Shaders?>(

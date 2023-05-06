@@ -62,12 +62,7 @@ class _TitleScreenState extends State<TitleScreen>
     return lerpDouble(_minEmitLightAmt, _maxEmitLightAmt, _orbEnergy) ?? 0;
   }
 
-  late final _pulseEffect = AnimationController(
-    vsync: this,
-    duration: _getRndPulseDuration(),
-    lowerBound: -1,
-    upperBound: 1,
-  );
+  late final AnimationController _pulseEffect;
 
   Duration _getRndPulseDuration() => 100.ms + 200.ms * Random().nextDouble();
 
@@ -83,8 +78,20 @@ class _TitleScreenState extends State<TitleScreen>
   @override
   void initState() {
     super.initState();
+    _pulseEffect = AnimationController(
+      vsync: this,
+      duration: _getRndPulseDuration(),
+      lowerBound: -1,
+      upperBound: 1,
+    );
     _pulseEffect.forward();
     _pulseEffect.addListener(_handlePulseEffectUpdate);
+  }
+
+  @override
+  void dispose() {
+    _pulseEffect.dispose();
+    super.dispose();
   }
 
   void _handlePulseEffectUpdate() {
@@ -135,116 +142,113 @@ class _TitleScreenState extends State<TitleScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: MouseRegion(
-          onHover: _handleMouseMove,
-          child: _AnimatedColors(
-            orbColor: _orbColor,
-            emitColor: _emitColor,
-            builder: (_, orbColor, emitColor) {
-              return Stack(
-                children: [
-                  /// Bg-Base
-                  Image.asset(AssetPaths.titleBgBase),
+    return Center(
+      child: MouseRegion(
+        onHover: _handleMouseMove,
+        child: _AnimatedColors(
+          orbColor: _orbColor,
+          emitColor: _emitColor,
+          builder: (_, orbColor, emitColor) {
+            return Stack(
+              children: [
+                /// Bg-Base
+                Image.asset(AssetPaths.titleBgBase),
 
-                  /// Bg-Receive
-                  _LitImage(
-                    color: orbColor,
-                    imgSrc: AssetPaths.titleBgReceive,
-                    pulseEffect: _pulseEffect,
-                    lightAmt: _finalReceiveLightAmt,
-                  ),
+                /// Bg-Receive
+                _LitImage(
+                  color: orbColor,
+                  imgSrc: AssetPaths.titleBgReceive,
+                  pulseEffect: _pulseEffect,
+                  lightAmt: _finalReceiveLightAmt,
+                ),
 
-                  /// Orb
-                  Positioned.fill(
-                    child: Stack(
-                      children: [
-                        // Orb
-                        OrbShaderWidget(
-                          key: _orbKey,
-                          mousePos: _mousePos,
-                          minEnergy: _minOrbEnergy,
-                          config: OrbShaderConfig(
-                            ambientLightColor: orbColor,
-                            materialColor: orbColor,
-                            lightColor: orbColor,
-                          ),
-                          onUpdate: (energy) => setState(() {
-                            _orbEnergy = energy;
-                          }),
+                /// Orb
+                Positioned.fill(
+                  child: Stack(
+                    children: [
+                      // Orb
+                      OrbShaderWidget(
+                        key: _orbKey,
+                        mousePos: _mousePos,
+                        minEnergy: _minOrbEnergy,
+                        config: OrbShaderConfig(
+                          ambientLightColor: orbColor,
+                          materialColor: orbColor,
+                          lightColor: orbColor,
                         ),
-                      ],
-                    ),
-                  ),
-
-                  /// Mg-Base
-                  _LitImage(
-                    imgSrc: AssetPaths.titleMgBase,
-                    color: orbColor,
-                    pulseEffect: _pulseEffect,
-                    lightAmt: _finalReceiveLightAmt,
-                  ),
-
-                  /// Mg-Receive
-                  _LitImage(
-                    imgSrc: AssetPaths.titleMgReceive,
-                    color: orbColor,
-                    pulseEffect: _pulseEffect,
-                    lightAmt: _finalReceiveLightAmt,
-                  ),
-
-                  /// Mg-Emit
-                  _LitImage(
-                    imgSrc: AssetPaths.titleMgEmit,
-                    color: emitColor,
-                    pulseEffect: _pulseEffect,
-                    lightAmt: _finalEmitLightAmt,
-                  ),
-
-                  /// Particle Field
-                  Positioned.fill(
-                    child: IgnorePointer(
-                      child: ParticleOverlay(
-                        color: orbColor,
-                        energy: _orbEnergy,
+                        onUpdate: (energy) => setState(() {
+                          _orbEnergy = energy;
+                        }),
                       ),
+                    ],
+                  ),
+                ),
+
+                /// Mg-Base
+                _LitImage(
+                  imgSrc: AssetPaths.titleMgBase,
+                  color: orbColor,
+                  pulseEffect: _pulseEffect,
+                  lightAmt: _finalReceiveLightAmt,
+                ),
+
+                /// Mg-Receive
+                _LitImage(
+                  imgSrc: AssetPaths.titleMgReceive,
+                  color: orbColor,
+                  pulseEffect: _pulseEffect,
+                  lightAmt: _finalReceiveLightAmt,
+                ),
+
+                /// Mg-Emit
+                _LitImage(
+                  imgSrc: AssetPaths.titleMgEmit,
+                  color: emitColor,
+                  pulseEffect: _pulseEffect,
+                  lightAmt: _finalEmitLightAmt,
+                ),
+
+                /// Particle Field
+                Positioned.fill(
+                  child: IgnorePointer(
+                    child: ParticleOverlay(
+                      color: orbColor,
+                      energy: _orbEnergy,
                     ),
                   ),
+                ),
 
-                  /// Fg-Rocks
-                  Image.asset(AssetPaths.titleFgBase),
+                /// Fg-Rocks
+                Image.asset(AssetPaths.titleFgBase),
 
-                  /// Fg-Receive
-                  _LitImage(
-                    imgSrc: AssetPaths.titleFgReceive,
-                    color: orbColor,
-                    pulseEffect: _pulseEffect,
-                    lightAmt: _finalReceiveLightAmt,
+                /// Fg-Receive
+                _LitImage(
+                  imgSrc: AssetPaths.titleFgReceive,
+                  color: orbColor,
+                  pulseEffect: _pulseEffect,
+                  lightAmt: _finalReceiveLightAmt,
+                ),
+
+                /// Fg-Emit
+                _LitImage(
+                  imgSrc: AssetPaths.titleFgEmit,
+                  color: emitColor,
+                  pulseEffect: _pulseEffect,
+                  lightAmt: _finalEmitLightAmt,
+                ),
+
+                /// UI
+                Positioned.fill(
+                  child: TitleScreenUi(
+                    difficulty: _difficulty,
+                    onDifficultyFocused: _handleDifficultyFocused,
+                    onDifficultyPressed: _handleDifficultyPressed,
+                    onStartPressed: _handleStartPressed,
                   ),
-
-                  /// Fg-Emit
-                  _LitImage(
-                    imgSrc: AssetPaths.titleFgEmit,
-                    color: emitColor,
-                    pulseEffect: _pulseEffect,
-                    lightAmt: _finalEmitLightAmt,
-                  ),
-
-                  /// UI
-                  Positioned.fill(
-                    child: TitleScreenUi(
-                      difficulty: _difficulty,
-                      onDifficultyFocused: _handleDifficultyFocused,
-                      onDifficultyPressed: _handleDifficultyPressed,
-                      onStartPressed: _handleStartPressed,
-                    ),
-                  ),
-                ],
-              ).animate().fadeIn(duration: 1.seconds, delay: .3.seconds);
-            },
-          ),
+                ),
+              ],
+            ).animate().fadeIn(duration: 1.seconds, delay: .3.seconds);
+          },
         ),
       ),
     );
