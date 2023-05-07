@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 
@@ -86,17 +87,39 @@ class _NextGenAppState extends State<NextGenApp> {
         colorSchemeSeed: colorSchemeSeed,
       ),
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.arrow_forward),
-          onPressed: () {
-            setState(() {
-              step++;
-              if (step >= steps.length) {
-                step = 0;
-              }
-              debugPrint('Step = $step');
-            });
-          },
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Visibility(
+              visible: step > 0,
+              child: FloatingActionButton(
+                child: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  setState(() {
+                    if (step > 0) step--;
+                    debugPrint('Step = $step');
+                  });
+                },
+              ),
+            ),
+            Visibility(
+              visible: step > 0 && step + 1 < steps.length,
+              child: const Gap(24),
+            ),
+            Visibility(
+              visible: step + 1 < steps.length,
+              child: FloatingActionButton(
+                child: const Icon(Icons.arrow_forward),
+                onPressed: () {
+                  setState(() {
+                    if (step + 1 < steps.length) step++;
+                    debugPrint('Step = $step');
+                  });
+                },
+              ),
+            ),
+          ],
         ),
         backgroundColor: Colors.black,
         body: steps[step](

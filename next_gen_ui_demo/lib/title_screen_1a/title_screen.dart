@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
+import '../styles.dart';
 import '../title_screen/title_screen.dart';
 
 class TitleScreen extends TitleScreenBase {
@@ -17,6 +18,9 @@ class TitleScreen extends TitleScreenBase {
 class _TitleScreenState extends State<TitleScreen> {
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+        (duration) => widget.callback(AppColors.orbColors[0]));
+
     return Center(
       child: Stack(
         children: [
