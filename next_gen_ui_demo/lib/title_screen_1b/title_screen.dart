@@ -5,10 +5,16 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
+import '../title_screen/title_screen.dart';
 
-class TitleScreen extends StatelessWidget {
-  const TitleScreen({super.key});
+class TitleScreen extends TitleScreenBase {
+  const TitleScreen({super.key, required super.callback});
 
+  @override
+  State<TitleScreen> createState() => _TitleScreenState();
+}
+
+class _TitleScreenState extends State<TitleScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(

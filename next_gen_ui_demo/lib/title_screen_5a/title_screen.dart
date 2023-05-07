@@ -7,10 +7,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 
 import '../assets.dart';
 import '../styles.dart';
+import '../title_screen/title_screen.dart';
 import 'title_screen_ui.dart';
 
-class TitleScreen extends StatefulWidget {
-  const TitleScreen({super.key});
+class TitleScreen extends TitleScreenBase {
+  const TitleScreen({super.key, required super.callback});
 
   @override
   State<TitleScreen> createState() => _TitleScreenState();
@@ -28,12 +29,21 @@ class _TitleScreenState extends State<TitleScreen> {
   /// Currently focused difficulty (if any)
   int? _difficultyOverride;
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((duration) => widget.callback(_orbColor));
+  }
+
   void _handleDifficultyPressed(int value) {
     setState(() => _difficulty = value);
+    widget.callback(_orbColor);
   }
 
   void _handleDifficultyFocused(int? value) {
     setState(() => _difficultyOverride = value);
+    widget.callback(_orbColor);
   }
 
   final _finalReceiveLightAmt = 0.7;

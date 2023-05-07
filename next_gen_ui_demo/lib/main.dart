@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 
 import 'assets.dart';
+import 'title_screen/title_screen.dart';
 import 'title_screen_1a/title_screen.dart' as title_screen_1a;
 import 'title_screen_1b/title_screen.dart' as title_screen_1b;
 import 'title_screen_2a/title_screen.dart' as title_screen_2a;
@@ -49,31 +50,41 @@ class NextGenApp extends StatefulWidget {
   State<NextGenApp> createState() => _NextGenAppState();
 }
 
-List<Widget> steps = [
-  const title_screen_1a.TitleScreen(),
-  const title_screen_1b.TitleScreen(),
-  const title_screen_2a.TitleScreen(),
-  const title_screen_2c.TitleScreen(),
-  const title_screen_3a.TitleScreen(),
-  const title_screen_3b.TitleScreen(),
-  const title_screen_3c.TitleScreen(),
-  const title_screen_4a.TitleScreen(),
-  const title_screen_4b.TitleScreen(),
-  const title_screen_4c.TitleScreen(),
-  const title_screen_4d.TitleScreen(),
-  const title_screen_4e.TitleScreen(),
-  const title_screen_5a.TitleScreen(),
-  const title_screen_5b.TitleScreen(),
-  const title_screen_6.TitleScreen(),
+List<
+    TitleScreenBase Function(
+        {required void Function(Color) callback, Key? key})> steps = [
+  title_screen_1a.TitleScreen.new,
+  title_screen_1b.TitleScreen.new,
+  title_screen_2a.TitleScreen.new,
+  title_screen_2c.TitleScreen.new,
+  title_screen_3a.TitleScreen.new,
+  title_screen_3b.TitleScreen.new,
+  title_screen_3c.TitleScreen.new,
+  title_screen_4a.TitleScreen.new,
+  title_screen_4b.TitleScreen.new,
+  title_screen_4c.TitleScreen.new,
+  title_screen_4d.TitleScreen.new,
+  title_screen_4e.TitleScreen.new,
+  title_screen_5a.TitleScreen.new,
+  title_screen_5b.TitleScreen.new,
+  title_screen_6.TitleScreen.new,
 ];
+
+typedef ColorCallback = void Function(Color colorSchemeSeed);
 
 class _NextGenAppState extends State<NextGenApp> {
   int step = 0;
+  Color? colorSchemeSeed;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+        colorSchemeSeed: colorSchemeSeed,
+      ),
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.arrow_forward),
@@ -83,11 +94,18 @@ class _NextGenAppState extends State<NextGenApp> {
               if (step >= steps.length) {
                 step = 0;
               }
+              debugPrint('Step = $step');
             });
           },
         ),
         backgroundColor: Colors.black,
-        body: steps[step],
+        body: steps[step](
+          callback: (color) {
+            setState(() {
+              colorSchemeSeed = color;
+            });
+          },
+        ),
       ),
     );
   }

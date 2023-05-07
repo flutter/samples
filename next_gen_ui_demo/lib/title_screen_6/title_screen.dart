@@ -13,11 +13,12 @@ import '../assets.dart';
 import '../orb_shader/orb_shader_config.dart';
 import '../orb_shader/orb_shader_widget.dart';
 import '../styles.dart';
+import '../title_screen/title_screen.dart';
 import 'particle_overlay.dart';
 import 'title_screen_ui.dart';
 
-class TitleScreen extends StatefulWidget {
-  const TitleScreen({super.key});
+class TitleScreen extends TitleScreenBase {
+  const TitleScreen({super.key, required super.callback});
 
   @override
   State<TitleScreen> createState() => _TitleScreenState();
@@ -149,6 +150,9 @@ class _TitleScreenState extends State<TitleScreen>
           orbColor: _orbColor,
           emitColor: _emitColor,
           builder: (_, orbColor, emitColor) {
+            WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+              widget.callback(orbColor);
+            });
             return Stack(
               children: [
                 /// Bg-Base
