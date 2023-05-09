@@ -58,9 +58,8 @@ class SongDetailTab extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount: 10,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return const Padding(
+              itemBuilder: (context, index) => switch (index) {
+                0 => const Padding(
                     padding: EdgeInsets.only(left: 15, top: 16, bottom: 8),
                     child: Text(
                       'You might also like:',
@@ -69,10 +68,8 @@ class SongDetailTab extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                  );
-                }
-                // Just a bunch of boxes that simulates loading song choices.
-                return const SongPlaceholderTile();
+                  ),
+                _ => const SongPlaceholderTile(),
               },
             ),
           ),
