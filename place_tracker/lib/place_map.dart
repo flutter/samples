@@ -401,21 +401,16 @@ class _PlaceMapState extends State<PlaceMap> {
   }
 
   static Future<BitmapDescriptor> _getPlaceMarkerIcon(
-      BuildContext context, PlaceCategory category) async {
-    switch (category) {
-      case PlaceCategory.favorite:
-        return BitmapDescriptor.fromAssetImage(
+          BuildContext context, PlaceCategory category) =>
+      switch (category) {
+        PlaceCategory.favorite => BitmapDescriptor.fromAssetImage(
             createLocalImageConfiguration(context, size: const Size.square(32)),
-            'assets/heart.png');
-      case PlaceCategory.visited:
-        return BitmapDescriptor.fromAssetImage(
+            'assets/heart.png'),
+        PlaceCategory.visited => BitmapDescriptor.fromAssetImage(
             createLocalImageConfiguration(context, size: const Size.square(32)),
-            'assets/visited.png');
-      case PlaceCategory.wantToGo:
-      default:
-        return BitmapDescriptor.defaultMarker;
-    }
-  }
+            'assets/visited.png'),
+        PlaceCategory.wantToGo => Future.value(BitmapDescriptor.defaultMarker),
+      };
 
   static List<Place> _getPlacesForCategory(
       PlaceCategory category, List<Place> places) {
