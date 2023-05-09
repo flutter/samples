@@ -121,13 +121,13 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   void listen() {
     _incomingReceivePort.listen((dynamic message) {
-      switch(message) {
-        case SendPort:
-          _outgoingSendPort = message as SendPort;
-        case int:
+      switch (message) {
+        case SendPort():
+          _outgoingSendPort = message;
+        case int():
           currentProgress.insert(
               0, '$message% - ${_timer.elapsedMilliseconds / 1000} seconds');
-          progressPercent = (message as int) / 100;
+          progressPercent = message / 100;
         case 'done':
           runningTest = 0;
           _timer.stop();
