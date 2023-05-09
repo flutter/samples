@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // [sharedPreferencesSet] does not happen before opening the
     // [SimpleDatabase] there has to be a way to refresh
     // [_SimpleDatabaseServer]'s [SharedPreferences] cached values.
-    Future.wait([sharedPreferencesSet, tempDirFuture]).then((values) {
+    [sharedPreferencesSet, tempDirFuture].wait.then((values) {
       final Directory? tempDir = values[1] as Directory?;
       final String dbPath = path.join(tempDir!.path, 'database.db');
       SimpleDatabase.open(dbPath).then((database) {
