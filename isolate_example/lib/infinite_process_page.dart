@@ -131,13 +131,12 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
 
   void listen() {
     receivePort.listen((dynamic message) {
-      switch(message){
+      switch (message) {
         case SendPort():
           newIceSP = message;
           newIceSP.send(_currentMultiplier);
         case int():
           setCurrentResults(message);
-
       }
     });
   }

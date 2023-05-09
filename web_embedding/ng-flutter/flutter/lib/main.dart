@@ -20,7 +20,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final ValueNotifier<DemoScreen> _screen = ValueNotifier<DemoScreen>(DemoScreen.counter);
+  final ValueNotifier<DemoScreen> _screen =
+      ValueNotifier<DemoScreen>(DemoScreen.counter);
   final ValueNotifier<int> _counter = ValueNotifier<int>(0);
   final ValueNotifier<String> _text = ValueNotifier<String>('');
 

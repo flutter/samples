@@ -28,7 +28,7 @@ class _CounterDemoState extends State<CounterDemo> {
               'You have pushed the button this many times:',
             ),
             ValueListenableBuilder(
-              valueListenable: widget.counter, 
+              valueListenable: widget.counter,
               builder: (context, value, child) => Text(
                 '$value',
                 style: Theme.of(context).textTheme.headlineMedium,
@@ -38,7 +38,9 @@ class _CounterDemoState extends State<CounterDemo> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () { widget.counter.value++; },
+        onPressed: () {
+          widget.counter.value++;
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
