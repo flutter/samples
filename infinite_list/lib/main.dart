@@ -81,7 +81,7 @@ class MyHomePage extends StatelessWidget {
 
             // Catalog provides a single synchronous method for getting the
             // current data.
-            return switch(catalog.getByIndex(index)) {
+            return switch (catalog.getByIndex(index)) {
               Item(isLoading: true) => const LoadingItemTile(),
               var item => ItemTile(item: item)
             };
