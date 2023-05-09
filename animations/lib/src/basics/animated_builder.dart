@@ -54,7 +54,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
               ),
               child: child,
               onPressed: () {
-                switch(controller.status) {
+                switch (controller.status) {
                   case AnimationStatus.completed:
                     controller.reverse();
                   default:

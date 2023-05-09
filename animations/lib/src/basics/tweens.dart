@@ -62,7 +62,7 @@ class _TweenDemoState extends State<TweenDemo>
                 },
               ),
               onPressed: () {
-                switch(controller.status) {
+                switch (controller.status) {
                   case AnimationStatus.completed:
                     controller.reverse();
                   default:

@@ -72,7 +72,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
             ElevatedButton(
               child: const Text('animate'),
               onPressed: () {
-                switch(controller.status) {
+                switch (controller.status) {
                   case AnimationStatus.completed:
                     controller.reverse();
                   default:
