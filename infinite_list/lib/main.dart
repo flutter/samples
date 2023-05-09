@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 
+import 'src/api/item.dart';
 import 'src/catalog.dart';
 import 'src/item_tile.dart';
 
@@ -78,15 +79,12 @@ class MyHomePage extends StatelessWidget {
             // to the catalog.
             var catalog = Provider.of<Catalog>(context);
 
-            // Catalog provides a single synchronous method for getting
-            // the current data.
-            var item = catalog.getByIndex(index);
-
-            if (item.isLoading) {
-              return const LoadingItemTile();
-            }
-
-            return ItemTile(item: item);
+            // Catalog provides a single synchronous method for getting the
+            // current data.
+            return switch(catalog.getByIndex(index)) {
+              Item(isLoading: true) => const LoadingItemTile(),
+              var item => ItemTile(item: item)
+            };
           },
         ),
       ),
