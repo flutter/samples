@@ -26,7 +26,6 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
     # "experimental/context_menus"
-    "experimental/element_embedding_demo"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
