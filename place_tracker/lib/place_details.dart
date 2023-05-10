@@ -272,9 +272,9 @@ class _Reviews extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       '5',
                       style: TextStyle(

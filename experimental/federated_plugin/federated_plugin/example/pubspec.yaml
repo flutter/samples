@@ -4,7 +4,7 @@ description: Demonstrates how to use the federated_plugin plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: '>=2.19.5 <4.0.0'
+  sdk: ^3.0.0-0
 
 dependencies:
   flutter:

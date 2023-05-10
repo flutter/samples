@@ -585,7 +585,6 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
             ),
             cause,
           );
-          break;
       }
       hideToolbar();
     }
@@ -759,12 +758,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       case SelectionChangedCause.tap:
       case SelectionChangedCause.toolbar:
         requestKeyboard();
-        break;
       case SelectionChangedCause.keyboard:
         if (_hasFocus) {
           requestKeyboard();
         }
-        break;
     }
     if (widget.selectionControls == null && widget.contextMenuBuilder == null) {
       _selectionOverlay?.dispose();

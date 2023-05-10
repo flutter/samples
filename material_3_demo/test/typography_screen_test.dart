@@ -15,7 +15,7 @@ void main() {
       'Typography screen shows correctly when the corresponding icon is '
       'selected on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
-    addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
 
     expect(find.text('Display Large'), findsNothing);
@@ -39,7 +39,7 @@ void main() {
       'selected on NavigationRail', (tester) async {
     widgetSetup(
         tester, 1200); // NavigationRail shows only when width is > 1000.
-    addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
     expect(find.text('Display Large'), findsNothing);
     Finder textIconOnRail = find.descendant(
@@ -57,8 +57,8 @@ void main() {
   });
 
   testWidgets('Typography screen shows correct content', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(body: Row(children: const [TypographyScreen()])),
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(body: Row(children: [TypographyScreen()])),
     ));
     expect(find.text('Display Large'), findsOneWidget);
     expect(find.text('Display Medium'), findsOneWidget);

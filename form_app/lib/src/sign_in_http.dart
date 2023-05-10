@@ -85,13 +85,11 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                           body: json.encode(formData.toJson()),
                           headers: {'content-type': 'application/json'});
 
-                      if (result.statusCode == 200) {
-                        _showDialog('Successfully signed in.');
-                      } else if (result.statusCode == 401) {
-                        _showDialog('Unable to sign in.');
-                      } else {
-                        _showDialog('Something went wrong. Please try again.');
-                      }
+                      _showDialog(switch (result.statusCode) {
+                        200 => 'Successfully signed in.',
+                        401 => 'Unable to sign in.',
+                        _ => 'Something went wrong. Please try again.'
+                      });
                     },
                   ),
                 ].expand(

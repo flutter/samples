@@ -15,12 +15,9 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
   void initState() {
     super.initState();
     // Initial value of the text box
-    textController = TextEditingController.fromValue(
-      TextEditingValue(
+    textController = TextEditingController.fromValue(TextEditingValue(
         text: widget.text.value,
-        selection: TextSelection.collapsed(offset: widget.text.value.length)
-      )
-    );
+        selection: TextSelection.collapsed(offset: widget.text.value.length)));
     // Report changes
     textController.addListener(_onTextControllerChange);
     // Listen to changes from the outside

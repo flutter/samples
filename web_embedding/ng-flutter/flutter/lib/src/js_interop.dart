@@ -1,4 +1,3 @@
-
 /// Exposes useful functions to interop with JS from our Flutter app.
 library example_js_interop;
 

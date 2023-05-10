@@ -45,19 +45,15 @@ void main() {
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
           expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.android:
           expect(find.byType(TextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.fuchsia:
         case TargetPlatform.linux:
         case TargetPlatform.windows:
           expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.macOS:
           expect(find.byType(CupertinoDesktopTextSelectionToolbar),
               findsOneWidget);
-          break;
       }
 
       // Tap the next field to hide the context menu.
@@ -84,13 +80,11 @@ void main() {
         case TargetPlatform.android:
         case TargetPlatform.fuchsia:
           expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.macOS:
         case TargetPlatform.linux:
         case TargetPlatform.windows:
           expect(find.byType(CupertinoDesktopTextSelectionToolbar),
               findsOneWidget);
-          break;
       }
 
       // Tap the next field to hide the context menu.
@@ -114,19 +108,15 @@ void main() {
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
           expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.android:
           expect(find.byType(TextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.fuchsia:
         case TargetPlatform.linux:
         case TargetPlatform.windows:
           expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.macOS:
           expect(find.byType(CupertinoDesktopTextSelectionToolbar),
               findsOneWidget);
-          break;
       }
 
       // Tap the next field to hide the context menu.
@@ -171,19 +161,15 @@ void main() {
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
           expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.android:
           expect(find.byType(TextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.fuchsia:
         case TargetPlatform.linux:
         case TargetPlatform.windows:
           expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
-          break;
         case TargetPlatform.macOS:
           expect(find.byType(CupertinoDesktopTextSelectionToolbar),
               findsOneWidget);
-          break;
       }
     },
     variant: TargetPlatformVariant.all(),

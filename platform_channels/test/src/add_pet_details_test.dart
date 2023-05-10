@@ -11,15 +11,14 @@ void main() {
   group('AddPetDetails tests', () {
     var petList = <Map>[];
 
-    setUpAll(() {
-      const BasicMessageChannel<dynamic>(
-              'jsonMessageCodecDemo', JSONMessageCodec())
-          .setMockMessageHandler((dynamic message) async {
-        petList.add(message as Map);
-      });
-    });
-
     testWidgets('Enter pet details', (tester) async {
+      tester.binding.defaultBinaryMessenger.setMockDecodedMessageHandler(
+        const BasicMessageChannel<dynamic>(
+            'jsonMessageCodecDemo', JSONMessageCodec()),
+        (dynamic message) async {
+          petList.add(message as Map);
+        },
+      );
       var router = app.router('/petListScreen/addPetDetails');
       await tester.pumpWidget(
         MaterialApp.router(

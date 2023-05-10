@@ -109,9 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             if (isWriting) ...[
               const SizedBox(height: 10),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
+                children: <Widget>[
                   Text(
                     'Communicating with server...',
                     style: TextStyle(fontSize: 32, color: Colors.blue),

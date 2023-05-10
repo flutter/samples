@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 import 'constants.dart';
 import 'home.dart';
@@ -32,7 +31,7 @@ class _AppState extends State<App> {
   bool get useLightMode {
     switch (themeMode) {
       case ThemeMode.system:
-        return SchedulerBinding.instance.window.platformBrightness ==
+        return View.of(context).platformDispatcher.platformBrightness ==
             Brightness.light;
       case ThemeMode.light:
         return true;

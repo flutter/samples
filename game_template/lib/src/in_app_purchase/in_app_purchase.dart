@@ -139,7 +139,6 @@ class InAppPurchaseController extends ChangeNotifier {
         case PurchaseStatus.pending:
           _adRemoval = const AdRemovalPurchase.pending();
           notifyListeners();
-          break;
         case PurchaseStatus.purchased:
         case PurchaseStatus.restored:
           bool valid = await _verifyPurchase(purchaseDetails);
@@ -155,16 +154,13 @@ class InAppPurchaseController extends ChangeNotifier {
                 StateError('Purchase could not be verified'));
             notifyListeners();
           }
-          break;
         case PurchaseStatus.error:
           _log.severe('Error with purchase: ${purchaseDetails.error}');
           _adRemoval = AdRemovalPurchase.error(purchaseDetails.error!);
           notifyListeners();
-          break;
         case PurchaseStatus.canceled:
           _adRemoval = const AdRemovalPurchase.notStarted();
           notifyListeners();
-          break;
       }
 
       if (purchaseDetails.pendingCompletePurchase) {
