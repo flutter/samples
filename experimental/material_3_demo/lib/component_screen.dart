@@ -49,22 +49,19 @@ class FirstComponentList extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: showSecondList
-              ? const EdgeInsetsDirectional.only(end: smallSpacing)
-              : EdgeInsets.zero,
-            sliver: SliverList(
-              delegate: BuildSlivers(
-                heights: heights,
-                builder: (context, index) {
-                  return _CacheHeight(
-                    heights: heights,
-                    index: index,
-                    child: children[index],
-                  );
-                }
-              )
-            )
-          ),
+              padding: showSecondList
+                  ? const EdgeInsetsDirectional.only(end: smallSpacing)
+                  : EdgeInsets.zero,
+              sliver: SliverList(
+                  delegate: BuildSlivers(
+                      heights: heights,
+                      builder: (context, index) {
+                        return _CacheHeight(
+                          heights: heights,
+                          index: index,
+                          child: children[index],
+                        );
+                      }))),
         ],
       ),
     );
@@ -98,15 +95,14 @@ class SecondComponentList extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(end: smallSpacing),
             sliver: SliverList(
               delegate: BuildSlivers(
-                heights: heights,
-                builder: (context, index) {
-                  return _CacheHeight(
-                    heights: heights,
-                    index: index,
-                    child: children[index],
-                  );
-                }
-              ),
+                  heights: heights,
+                  builder: (context, index) {
+                    return _CacheHeight(
+                      heights: heights,
+                      index: index,
+                      child: children[index],
+                    );
+                  }),
             ),
           ),
         ],
@@ -138,7 +134,8 @@ class _CacheHeight extends SingleChildRenderObjectWidget {
   }
 
   @override
-  void updateRenderObject(BuildContext context, _RenderCacheHeight renderObject) {
+  void updateRenderObject(
+      BuildContext context, _RenderCacheHeight renderObject) {
     renderObject
       ..heights = heights
       ..index = index;
@@ -149,7 +146,7 @@ class _RenderCacheHeight extends RenderProxyBox {
   _RenderCacheHeight({
     required List<double?> heights,
     required int index,
-  }) : _heights = heights,
+  })  : _heights = heights,
         _index = index,
         super();
 
@@ -191,7 +188,8 @@ class BuildSlivers extends SliverChildBuilderDelegate {
   final List<double?> heights;
 
   @override
-  double? estimateMaxScrollOffset(int firstIndex, int lastIndex, double leadingScrollOffset, double trailingScrollOffset) {
+  double? estimateMaxScrollOffset(int firstIndex, int lastIndex,
+      double leadingScrollOffset, double trailingScrollOffset) {
     return heights.reduce((sum, height) => (sum ?? 0) + (height ?? 0))!;
   }
 }
