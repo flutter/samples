@@ -635,7 +635,7 @@ samples:
     type: demo
 
   - name: Web Embedding
-    author: Flutter
+    author: Flutter and Angular
     screenshots:
       - url: images/web_embedding1.png
         alt: A Flutter app embedded in an Angular app
