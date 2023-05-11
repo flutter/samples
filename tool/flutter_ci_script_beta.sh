@@ -22,10 +22,11 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/server"
     "code_sharing/shared"
     "deeplink_store_example"
-    # TODO(DomesticMouse): pkg:fluent_ui requires Dart =< 3.0..0
+    # TODO(DomesticMouse): pkg:fluent_ui requires Dart =< 3.0.0
     # "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/context_menus"
+    # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
+    # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
@@ -47,7 +48,8 @@ declare -ar PROJECT_NAMES=(
     "isolate_example"
     "jsonexample"
     "material_3_demo"
-    "navigation_and_routing"
+    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
+    # "navigation_and_routing"
     "place_tracker"
     # TODO: https://github.com/flutter/samples/issues/1765
     # "platform_channels"
