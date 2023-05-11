@@ -49,19 +49,22 @@ class FirstComponentList extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-              padding: showSecondList
-                  ? const EdgeInsetsDirectional.only(end: smallSpacing)
-                  : EdgeInsets.zero,
-              sliver: SliverList(
-                  delegate: BuildSlivers(
-                      heights: heights,
-                      builder: (context, index) {
-                        return _CacheHeight(
-                          heights: heights,
-                          index: index,
-                          child: children[index],
-                        );
-                      }))),
+            padding: showSecondList
+                ? const EdgeInsetsDirectional.only(end: smallSpacing)
+                : EdgeInsets.zero,
+            sliver: SliverList(
+              delegate: BuildSlivers(
+                heights: heights,
+                builder: (context, index) {
+                  return _CacheHeight(
+                    heights: heights,
+                    index: index,
+                    child: children[index],
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -95,14 +98,15 @@ class SecondComponentList extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(end: smallSpacing),
             sliver: SliverList(
               delegate: BuildSlivers(
-                  heights: heights,
-                  builder: (context, index) {
-                    return _CacheHeight(
-                      heights: heights,
-                      index: index,
-                      child: children[index],
-                    );
-                  }),
+                heights: heights,
+                builder: (context, index) {
+                  return _CacheHeight(
+                    heights: heights,
+                    index: index,
+                    child: children[index],
+                  );
+                },
+              ),
             ),
           ),
         ],
