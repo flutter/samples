@@ -22,7 +22,8 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/server"
     "code_sharing/shared"
     "deeplink_store_example"
-    "desktop_photo_search/fluent_ui"
+    # TODO(DomesticMouse): pkg:fluent_ui requires Dart =< 3.0..0
+    # "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
