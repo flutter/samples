@@ -224,4 +224,6 @@ updates:
   - package-ecosystem: "npm"
     directory: "web_embedding/ng-flutter"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    allow:
+      - dependency-type: "direct"
