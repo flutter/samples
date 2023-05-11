@@ -115,10 +115,15 @@ class SecondComponentList extends StatelessWidget {
   }
 }
 
-// Based on the fact that the list content is fixed, we cache
-// the height of the content during the first-time scrolling.
-// The cached height can be used to override
-// `SliverChildDelegate.estimateMaxScrollOffset`, to avoid a shaking scrollbar.
+// If the content of a CustomScrollView does not change, then it's
+// safe to cache the heights of each item as they are laid out. The
+// sum of the cached heights are returned by an override of
+// `SliverChildDelegate.estimateMaxScrollOffset`. The default version
+// of this method bases its estimate on the average height of the
+// visible items. The override ensures that the scrollbar thumb's
+// size, which depends on the max scroll offset, will shrink smoothly
+// as the contents of the list are exposed for the first time, and
+// then remain fixed.
 class _CacheHeight extends SingleChildRenderObjectWidget {
   const _CacheHeight({
     super.child,
