@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.varfont_shader_puzzle">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:label="varfont_shader_puzzle"
         android:name="${applicationName}"

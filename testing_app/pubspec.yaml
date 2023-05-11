@@ -4,7 +4,7 @@ description: A sample that shows testing in Flutter.
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.0.0-0
+  sdk: ^3.0.0
 
 dependencies:
   flutter:

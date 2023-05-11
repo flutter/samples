@@ -3,7 +3,7 @@ description: Analysis defaults for flutter/samples
 publish_to: none
 
 environment:
-  sdk: ^3.0.0-0
+  sdk: ^3.0.0
 
 # NOTE: Code is not allowed in this package. Do not add dependencies.
 dependencies:
