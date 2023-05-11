@@ -19,7 +19,7 @@
     "@angular/forms": "^16.0.1",
     "@angular/material": "^16.0.0",
     "@angular/platform-browser": "^16.0.1",
-    "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/platform-browser-dynamic": "^16.0.1",
     "@angular/router": "^16.0.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.0",
