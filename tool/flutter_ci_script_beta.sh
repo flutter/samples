@@ -58,7 +58,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    "simplistic_calculator"
+    # TODO(DomesticMouse): pkg:fluent_ui requires Dart =< 3.0.0
+    # "simplistic_calculator"
     "simplistic_editor"
     "testing_app"
     "veggieseasons"
