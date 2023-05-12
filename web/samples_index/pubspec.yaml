@@ -27,7 +27,6 @@ dev_dependencies:
   build_runner: ^2.4.2
   build_web_compilers: ^4.0.3
   image: ">=3.2.0 <5.0.0"
-  webdev: ^3.0.4
 
 # waiting for the next material-components-web release.
 # Once released, it will need to be rolled into package:mdc_web.
