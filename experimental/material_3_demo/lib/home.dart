@@ -129,11 +129,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         return const TypographyScreen();
       case ScreenSelected.elevation:
         return const ElevationScreen();
-      default:
-        return FirstComponentList(
-            showNavBottomBar: showNavBarExample,
-            scaffoldKey: scaffoldKey,
-            showSecondList: showMediumSizeLayout || showLargeSizeLayout);
     }
   }
 
