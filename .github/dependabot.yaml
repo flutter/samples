@@ -225,5 +225,6 @@ updates:
     directory: "web_embedding/ng-flutter"
     schedule:
       interval: "weekly"
-    allow:
-      - dependency-type: "direct"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
