@@ -24,8 +24,8 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = ProductsRepository.loadProducts()
-      .map<Widget>((Product p) => RowItem(product: p))
-      .toList();
+        .map<Widget>((Product p) => RowItem(product: p))
+        .toList();
     return Scaffold(
       backgroundColor: Styles.scaffoldBackground,
       body: CustomScrollView(

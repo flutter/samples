@@ -110,10 +110,8 @@ class _SavedLintsPageState extends State<SavedLintsPage> {
                                 );
                               }
 
-                              break;
                             case 'Delete':
                               await profilesStore.deleteProfile(profile);
-                              break;
                             default:
                           }
                         },

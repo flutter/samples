@@ -42,9 +42,9 @@ a moderately recent version of Angular:
 ```console
 $ ng version
 
-Angular CLI: 15.2.4
-Node: 18.13.0
-Package Manager: npm 9.4.2
+Angular CLI: 16.0.1
+Node: 18.16.0
+Package Manager: npm 9.5.1
 OS: linux x64
 ```
 

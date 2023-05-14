@@ -37,7 +37,8 @@ void main() {
     expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
 
     // Icon buttons
-    expect(find.byType(IconToggleButton), findsNWidgets(8));
+    expect(find.widgetWithIcon(IconButton, Icons.settings_outlined),
+        findsNWidgets(8));
 
     // Segmented buttons
     expect(find.byType(SegmentedButton<Calendar>), findsOneWidget);
@@ -93,6 +94,9 @@ void main() {
     // Tabs
     expect(find.byType(TabBar), findsOneWidget);
 
+    // Search
+    expect(find.byType(SearchBar), findsOneWidget);
+
     // Top app bars
     expect(find.byType(AppBar), findsNWidgets(6));
 
@@ -105,6 +109,9 @@ void main() {
         findsNWidgets(4)); // includes Assist and Suggestion chip.
     expect(find.byType(FilterChip), findsNWidgets(2));
     expect(find.byType(InputChip), findsNWidgets(2));
+
+    // Date pickers
+    expect(find.widgetWithText(TextButton, 'Show date picker'), findsOneWidget);
 
     // Menus
     expect(find.byType(MenuAnchor), findsNWidgets(5));
@@ -120,6 +127,9 @@ void main() {
 
     // Switches
     expect(find.byType(Switch), findsNWidgets(4));
+
+    // Time pickers
+    expect(find.widgetWithText(TextButton, 'Show time picker'), findsOneWidget);
 
     // TextFields
     expect(find.widgetWithText(TextField, 'Disabled'), findsNWidgets(2));
@@ -341,8 +351,7 @@ void main() {
 void widgetSetup(WidgetTester tester, double windowWidth,
     {double? windowHeight}) {
   final height = windowHeight ?? 846;
-  tester.binding.window.devicePixelRatioTestValue = (2);
-  final dpi = tester.binding.window.devicePixelRatio;
-  tester.binding.window.physicalSizeTestValue =
-      Size(windowWidth * dpi, height * dpi);
+  tester.view.devicePixelRatio = 2;
+  final dpi = tester.view.devicePixelRatio;
+  tester.view.physicalSize = Size(windowWidth * dpi, height * dpi);
 }

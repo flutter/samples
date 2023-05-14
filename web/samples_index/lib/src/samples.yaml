@@ -633,3 +633,23 @@ samples:
     tags: ['demo', 'animation']
     web: https://z.flutter.gallery/#/dice
     type: demo
+
+  - name: Web Embedding
+    author: Flutter and Angular
+    screenshots:
+      - url: images/web_embedding1.png
+        alt: A Flutter app embedded in an Angular app
+      - url: images/web_embedding2.png
+        alt: A Flutter app embedded in an Angular app
+    source: https://github.com/flutter/samples/tree/main/web_embedding
+    description: >
+      An example app showing how to embed Flutter in a web application using Angular
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    links: []
+    tags: ['demo', 'web', 'add-to-app', 'embedding']
+    web: https://flutter-angular.web.app/
+    type: sample
+

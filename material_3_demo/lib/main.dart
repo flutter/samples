@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 import 'constants.dart';
 import 'home.dart';
@@ -25,11 +24,14 @@ class _AppState extends State<App> {
   bool useMaterial3 = true;
   ThemeMode themeMode = ThemeMode.system;
   ColorSeed colorSelected = ColorSeed.baseColor;
+  ColorImageProvider imageSelected = ColorImageProvider.leaves;
+  ColorScheme? imageColorScheme = const ColorScheme.light();
+  ColorSelectionMethod colorSelectionMethod = ColorSelectionMethod.colorSeed;
 
   bool get useLightMode {
     switch (themeMode) {
       case ThemeMode.system:
-        return SchedulerBinding.instance.window.platformBrightness ==
+        return View.of(context).platformDispatcher.platformBrightness ==
             Brightness.light;
       case ThemeMode.light:
         return true;
@@ -52,7 +54,20 @@ class _AppState extends State<App> {
 
   void handleColorSelect(int value) {
     setState(() {
+      colorSelectionMethod = ColorSelectionMethod.colorSeed;
       colorSelected = ColorSeed.values[value];
+    });
+  }
+
+  void handleImageSelect(int value) {
+    final String url = ColorImageProvider.values[value].url;
+    ColorScheme.fromImageProvider(provider: NetworkImage(url))
+        .then((newScheme) {
+      setState(() {
+        colorSelectionMethod = ColorSelectionMethod.image;
+        imageSelected = ColorImageProvider.values[value];
+        imageColorScheme = newScheme;
+      });
     });
   }
 
@@ -63,12 +78,19 @@ class _AppState extends State<App> {
       title: 'Material 3',
       themeMode: themeMode,
       theme: ThemeData(
-        colorSchemeSeed: colorSelected.color,
+        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? colorSelected.color
+            : null,
+        colorScheme: colorSelectionMethod == ColorSelectionMethod.image
+            ? imageColorScheme
+            : null,
         useMaterial3: useMaterial3,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: colorSelected.color,
+        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? colorSelected.color
+            : imageColorScheme!.primary,
         useMaterial3: useMaterial3,
         brightness: Brightness.dark,
       ),
@@ -76,9 +98,12 @@ class _AppState extends State<App> {
         useLightMode: useLightMode,
         useMaterial3: useMaterial3,
         colorSelected: colorSelected,
+        imageSelected: imageSelected,
         handleBrightnessChange: handleBrightnessChange,
         handleMaterialVersionChange: handleMaterialVersionChange,
         handleColorSelect: handleColorSelect,
+        handleImageSelect: handleImageSelect,
+        colorSelectionMethod: colorSelectionMethod,
       ),
     );
   }

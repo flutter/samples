@@ -15,7 +15,7 @@ void main() {
       'Surface Tones screen shows correctly when the corresponding icon is '
       'selected on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
-    addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
 
     expect(find.text('Surface Tint Color Only'), findsNothing);
@@ -40,7 +40,7 @@ void main() {
       'selected on NavigationRail', (tester) async {
     widgetSetup(
         tester, 1200); // NavigationRail shows only when width is > 1000.
-    addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
     expect(find.text('Surface Tint Color Only'), findsNothing);
     Finder tintIconOnRail = find.descendant(
@@ -57,8 +57,8 @@ void main() {
   });
 
   testWidgets('Surface Tones screen shows correct content', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(body: Row(children: const [ElevationScreen()])),
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(body: Row(children: [ElevationScreen()])),
     ));
     expect(find.text('Surface Tint Color Only'), findsOneWidget);
     expect(find.text('Surface Tint Color and Shadow Color'), findsOneWidget);

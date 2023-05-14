@@ -99,10 +99,8 @@ class _BooksScreenState extends State<BooksScreen>
     switch (_tabController.index) {
       case 1:
         _routeState.go('/books/new');
-        break;
       case 2:
         _routeState.go('/books/all');
-        break;
       case 0:
       default:
         _routeState.go('/books/popular');

@@ -264,18 +264,12 @@ class ProductsRepository {
   }
 }
 
-String getCategoryTitle(Category category) {
-  switch(category) {
-    case Category.all:
-      return 'All';
-    case Category.accessories:
-      return 'Accessories';
-    case Category.clothing:
-      return 'Clothing';
-    case Category.home:
-      return 'Home Decorations';
-  }
-}
+String getCategoryTitle(Category category) => switch (category) {
+      Category.all => 'All',
+      Category.accessories => 'Accessories',
+      Category.clothing => 'Clothing',
+      Category.home => 'Home Decorations'
+    };
 
 class Product {
   const Product({

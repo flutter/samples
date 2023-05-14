@@ -3,7 +3,7 @@
 // found in the LICENSE file
 
 /// Defines the data types for this project.
-library data;
+library;
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:path/path.dart' as path;

@@ -12,7 +12,8 @@ class DomCustomEvent {
   external factory DomCustomEvent.withOptions(JSString type, JSAny options);
   factory DomCustomEvent._(String type, [Object? options]) {
     if (options != null) {
-      return DomCustomEvent.withOptions(type.toJS, js_util.jsify(options) as JSAny);
+      return DomCustomEvent.withOptions(
+          type.toJS, js_util.jsify(options) as JSAny);
     }
     return DomCustomEvent.withType(type.toJS);
   }
@@ -31,6 +32,7 @@ dispatchCustomEvent(DomElement target, String type, Object data) {
 @JS()
 @staticInterop
 class DomEventTarget {}
+
 extension DomEventTargetExtension on DomEventTarget {
   @JS('dispatchEvent')
   external JSBoolean _dispatchEvent(DomCustomEvent event);
@@ -40,6 +42,7 @@ extension DomEventTargetExtension on DomEventTarget {
 @JS()
 @staticInterop
 class DomElement extends DomEventTarget {}
+
 extension DomElementExtension on DomElement {
   @JS('querySelector')
   external DomElement? _querySelector(JSString selectors);

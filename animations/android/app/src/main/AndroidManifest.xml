@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.flutter.animations">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:label="animations"
         android:name="${applicationName}"

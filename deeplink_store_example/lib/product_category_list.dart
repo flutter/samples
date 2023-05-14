@@ -26,18 +26,21 @@ class ProductCategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     final GoRouterState state = GoRouterState.of(context);
     final Category category = Category.values.firstWhere(
-      (Category value) => value.toString().contains(state.params['category']!),
+      (Category value) =>
+          value.toString().contains(state.pathParameters['category']!),
       orElse: () => Category.all,
     );
-    final List<Widget> children = ProductsRepository.loadProducts(category: category)
-        .map<Widget>((Product p) => RowItem(product: p))
-        .toList();
+    final List<Widget> children =
+        ProductsRepository.loadProducts(category: category)
+            .map<Widget>((Product p) => RowItem(product: p))
+            .toList();
     return Scaffold(
       backgroundColor: Styles.scaffoldBackground,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text(getCategoryTitle(category), style: Styles.productListTitle),
+            title: Text(getCategoryTitle(category),
+                style: Styles.productListTitle),
             backgroundColor: Styles.scaffoldAppBarBackground,
             pinned: true,
           ),

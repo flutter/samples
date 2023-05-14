@@ -33,31 +33,23 @@ final wordPairIterator = generateWordPairs();
 String generateRandomHeadline() {
   final artist = capitalizePair(wordPairIterator.first);
 
-  switch (_random.nextInt(10)) {
-    case 0:
-      return '$artist says ${nouns[_random.nextInt(nouns.length)]}';
-    case 1:
-      return '$artist arrested due to ${wordPairIterator.first.join(' ')}';
-    case 2:
-      return '$artist releases ${capitalizePair(wordPairIterator.first)}';
-    case 3:
-      return '$artist talks about his ${nouns[_random.nextInt(nouns.length)]}';
-    case 4:
-      return '$artist talks about her ${nouns[_random.nextInt(nouns.length)]}';
-    case 5:
-      return '$artist talks about their ${nouns[_random.nextInt(nouns.length)]}';
-    case 6:
-      return '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}';
-    case 7:
-      return '$artist says the world needs more ${nouns[_random.nextInt(nouns.length)]}';
-    case 8:
-      return '$artist calls their band ${adjectives[_random.nextInt(adjectives.length)]}';
-    case 9:
-      return '$artist finally ready to talk about ${nouns[_random.nextInt(nouns.length)]}';
-  }
-
-  assert(false, 'Failed to generate news headline');
-  return 'Failed to generate news headline';
+  return switch (_random.nextInt(10)) {
+    0 => '$artist says ${nouns[_random.nextInt(nouns.length)]}',
+    1 => '$artist arrested due to ${wordPairIterator.first.join(' ')}',
+    2 => '$artist releases ${capitalizePair(wordPairIterator.first)}',
+    3 => '$artist talks about his ${nouns[_random.nextInt(nouns.length)]}',
+    4 => '$artist talks about her ${nouns[_random.nextInt(nouns.length)]}',
+    5 => '$artist talks about their ${nouns[_random.nextInt(nouns.length)]}',
+    6 =>
+      '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}',
+    7 =>
+      '$artist says the world needs more ${nouns[_random.nextInt(nouns.length)]}',
+    8 =>
+      '$artist calls their band ${adjectives[_random.nextInt(adjectives.length)]}',
+    9 =>
+      '$artist finally ready to talk about ${nouns[_random.nextInt(nouns.length)]}',
+    _ => 'Failed to generate news headline',
+  };
 }
 
 List<MaterialColor> getRandomColors(int amount) {
