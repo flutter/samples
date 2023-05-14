@@ -47,12 +47,12 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "material_3_demo"
-    "navigation_and_routing"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "place_tracker"
-    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    "material_3_demo"
+    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
+    # "navigation_and_routing"
+    "next_gen_ui_demo"
+    "place_tracker"
+    # TODO: https://github.com/flutter/samples/issues/1765
     # "platform_channels"
     "platform_design"
     "platform_view_swift"

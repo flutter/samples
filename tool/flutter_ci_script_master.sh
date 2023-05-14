@@ -51,8 +51,7 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
     "next_gen_ui_demo"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "place_tracker"
+    "place_tracker"
     # TODO: https://github.com/flutter/samples/issues/1765
     # "platform_channels"
     "platform_design"

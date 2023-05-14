@@ -47,8 +47,7 @@ declare -ar PROJECT_NAMES=(
     "jsonexample"
     "material_3_demo"
     "navigation_and_routing"
-    # TODO(DomesticMouse): uncomment on next Flutter stable increment
-    # "next_gen_ui_demo"
+    "next_gen_ui_demo"
     "place_tracker"
     # TODO: https://github.com/flutter/samples/issues/1765
     # "platform_channels"
