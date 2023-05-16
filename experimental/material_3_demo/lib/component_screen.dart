@@ -1464,6 +1464,14 @@ class _TimePickersState extends State<TimePickers> {
           final TimeOfDay? time = await showTimePicker(
             context: context,
             initialTime: selectedTime ?? TimeOfDay.now(),
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  alwaysUse24HourFormat: true,
+                ),
+                child: child!,
+              );
+            },
           );
           setState(() {
             selectedTime = time;
