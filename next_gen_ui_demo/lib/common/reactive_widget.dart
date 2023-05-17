@@ -9,6 +9,8 @@ import 'ticking_builder.dart';
 typedef ReactiveWidgetBuilder = Widget Function(
     BuildContext context, double time, Size bounds);
 
+/// ReactiveWidget forces repainting a subtree on
+/// each frame for ambient animation.
 class ReactiveWidget extends StatefulWidget {
   const ReactiveWidget({
     super.key,

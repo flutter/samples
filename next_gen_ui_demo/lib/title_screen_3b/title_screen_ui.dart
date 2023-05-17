@@ -147,7 +147,7 @@ class _DifficultyBtn extends StatelessWidget {
             height: 60,
             child: Stack(
               children: [
-                /// Bg with fill and outline
+                // Bg with fill and outline
                 Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFF00D1FF).withOpacity(.1),

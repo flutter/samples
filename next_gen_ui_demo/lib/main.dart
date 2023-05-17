@@ -87,6 +87,16 @@ class _NextGenAppState extends State<NextGenApp> {
         colorSchemeSeed: colorSchemeSeed,
       ),
       home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Step ${step + 1} of ${steps.length}',
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: colorSchemeSeed),
+          ),
+          backgroundColor: Colors.black38,
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Row(
           mainAxisSize: MainAxisSize.min,

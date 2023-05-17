@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+/// TickingBuilder is for ambient animation to be run
+/// on each frame.
 class TickingBuilder extends StatefulWidget {
   const TickingBuilder({super.key, required this.builder});
   final Widget Function(BuildContext context, double time) builder;
