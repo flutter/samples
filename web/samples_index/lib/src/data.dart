@@ -68,9 +68,6 @@ class Sample {
   /// 'web'
   final List<String> platforms;
 
-  /// Links to display on the details page
-  final List<Link> links;
-
   /// The type of the sample. Supported values are either 'sample' or
   /// 'cookbook'.
   final String type;
@@ -94,7 +91,6 @@ class Sample {
     this.packages = const [],
     this.tags = const [],
     this.platforms = const [],
-    this.links = const [],
     required this.type,
     this.date,
     this.channel,
@@ -171,17 +167,4 @@ class Screenshot {
       _$ScreenshotFromJson(json);
 
   Map<String, dynamic> toJson() => _$ScreenshotToJson(this);
-}
-
-/// An external link displayed next to a sample
-@JsonSerializable(anyMap: true, checked: true)
-class Link {
-  final String text;
-  final String href;
-
-  Link(this.text, this.href);
-
-  factory Link.fromJson(Map<dynamic, dynamic> json) => _$LinkFromJson(json);
-
-  Map<String, dynamic> toJson() => _$LinkToJson(this);
 }

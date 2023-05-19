@@ -83,7 +83,6 @@ samples:
       - scoped_model
     tags: ['intermediate', 'sample', 'gallery', 'material', 'design', 'vignettes']
     platforms: ['web', 'ios', 'android']
-    links: []
     type: demo
 
   - name: Add to App
@@ -106,7 +105,6 @@ samples:
       - provider
     tags: ['advanced', 'sample', 'add-to-app', 'android', 'ios', 'native', 'embedding']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: Code Sharing
@@ -124,7 +122,6 @@ samples:
       - shelf
     tags: ['intermediate', 'sample', 'code-sharing', 'dart', 'server']
     platforms: ['android', 'ios', 'linux', 'macos', 'web', 'windows']
-    links: []
     type: sample
 
   - name: Animations
@@ -153,7 +150,6 @@ samples:
       - flutter/material
     tags: ['intermediate', 'sample', 'animation']
     platforms: ['ios', 'android', 'web']
-    links: []
     type: sample
     web: web/animations
 
@@ -178,7 +174,6 @@ samples:
       - google_maps_webservice
     tags: ['intermediate', 'sample', 'firebase', 'maps']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: Isolate Example
@@ -203,7 +198,6 @@ samples:
       - dart:math
     tags: ['intermediate', 'sample', 'isolates', 'concurrency']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: jsonexample
@@ -232,7 +226,6 @@ samples:
       - built_value_generator
     tags: ['beginner', 'sample']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: Place Tracker
@@ -259,7 +252,6 @@ samples:
       - google_maps_flutter
     tags: ['intermediate', 'sample', 'json', 'serialization']
     platforms: ['android']
-    links: []
     type: sample
 
   - name: Platform Design
@@ -291,7 +283,6 @@ samples:
       - flutter/cupertino
     tags: ['advanced', 'sample', 'ios']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: Platform View Swift
@@ -313,7 +304,6 @@ samples:
       - flutter/services
     tags: ['advanced', 'sample', 'ios']
     platforms: ['ios']
-    links: []
     type: sample
 
   - name: Infinite List
@@ -338,7 +328,6 @@ samples:
       - meta
     tags: ['sample', 'material', 'design', 'android', 'ios']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: IOS App Clip
@@ -359,7 +348,6 @@ samples:
       - device_info
     tags: ['sample', 'Device Info', 'ios']
     platforms: ['ios']
-    links: []
     type: sample
 
   - name: Testing App
@@ -382,7 +370,6 @@ samples:
       - provider
     tags: ['sample', 'material', 'android', 'ios']
     platforms: ['ios', 'android']
-    links: []
     type: sample
 
   - name: Provider Shopper
@@ -406,7 +393,6 @@ samples:
       - provider
     tags: ['intermediate', 'sample', 'provider']
     platforms: ['ios', 'android', 'web']
-    links: []
     type: sample
     web: web/provider_shopper
 
@@ -433,7 +419,6 @@ samples:
       - firebase
     tags: ['intermediate', 'sample', 'firebase']
     platforms: ['ios', 'android', 'web']
-    links: []
     type: sample
     web: web/web_dashboard
 
@@ -455,7 +440,6 @@ samples:
     packages: []
     tags: ['intermediate', 'sample', 'forms']
     platforms: ['ios', 'android', 'web']
-    links: []
     type: sample
     web: web/form_app
     
@@ -480,7 +464,6 @@ samples:
     packages: []
     tags: ['advanced', 'sample', 'navigation', 'router']
     platforms: ['ios', 'android', 'web']
-    links: []
     type: sample
     web: web/navigation_and_routing
     
@@ -522,7 +505,6 @@ samples:
     widgets: []
     packages: []
     platforms: ['web']
-    links: []
     tags: ['demo', 'game']
     type: demo
 
@@ -546,7 +528,6 @@ samples:
     widgets:
       - TextInput
     packages: []
-    links: []
     tags: ["demo", "text"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
@@ -579,7 +560,6 @@ samples:
       - Card
       - AppBar
     packages: []
-    links: []
     tags: ["material", "design"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
@@ -611,7 +591,6 @@ samples:
       - logging
       - provider
       - shared_preferences
-    links: []
     tags: ["games", "firebase", "ads", "crashlytics", "routing"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
@@ -629,7 +608,6 @@ samples:
     widgets: []
     packages: []
     platforms: ['web']
-    links: []
     tags: ['demo', 'animation']
     web: https://z.flutter.gallery/#/dice
     type: demo
@@ -648,7 +626,6 @@ samples:
     widgets: []
     packages: []
     platforms: ['web']
-    links: []
     tags: ['demo', 'web', 'add-to-app', 'embedding']
     web: https://flutter-angular.web.app/
     type: sample
@@ -665,8 +642,5 @@ samples:
       - flutter_animate
     platforms:
       - Windows, macOS, Linux, web, Android, iOS
-    links:
-      - href: https://codelabs.developers.google.com/codelabs/flutter-next-gen-uis
-        text: Codelab
     type: sample
     web: web/next_gen_ui_demo
