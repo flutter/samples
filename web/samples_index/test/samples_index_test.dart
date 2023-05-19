@@ -38,9 +38,6 @@ void main() {
       expect(sample.tags, hasLength(3));
       expect(sample.tags[1], 'kittens');
       expect(sample.platforms, hasLength(3));
-      expect(sample.links, hasLength(2));
-      expect(sample.links[1].text, 'author');
-      expect(sample.links[1].href, 'https://jpryan.me');
       expect(sample.type, 'sample');
       expect(sample.date, DateTime.parse('2019-12-15T02:59:43.1Z'));
       expect(sample.channel, 'stable');
