@@ -666,6 +666,7 @@ samples:
     platforms:
       - Windows, macOS, Linux, web, Android, iOS
     links:
-      - https://codelabs.developers.google.com/codelabs/flutter-next-gen-uis
+      - href: https://codelabs.developers.google.com/codelabs/flutter-next-gen-uis
+        text: Codelab
     type: sample
     web: web/next_gen_ui_demo
