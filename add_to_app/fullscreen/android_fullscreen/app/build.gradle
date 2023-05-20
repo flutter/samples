@@ -1,8 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "dev.flutter.example.androidfullscreen"
@@ -24,8 +22,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility 11
+        targetCompatibility 11
     }
 }
 
