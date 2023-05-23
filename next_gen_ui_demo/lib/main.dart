@@ -129,6 +129,24 @@ class _NextGenAppState extends State<NextGenApp> {
                 },
               ),
             ),
+            Visibility(
+              visible: step + 1 == steps.length,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Gap(24),
+                  FloatingActionButton(
+                    child: const Icon(Icons.restart_alt),
+                    onPressed: () {
+                      setState(() {
+                        step = 0;
+                        debugPrint('Step = $step');
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
         backgroundColor: Colors.black,
