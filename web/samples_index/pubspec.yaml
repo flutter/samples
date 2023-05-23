@@ -11,9 +11,7 @@ dependencies:
   path: ^1.8.3
   yaml: ^3.1.2
   mdc_web: ^0.6.0
-  # ^2.1.5 is no longer compatible with our overridden sass version
-  # https://github.com/flutter/samples/issues/1472
-  sass_builder: 2.1.4
+  sass_builder: ^2.2.1
   checked_yaml: ^2.0.3
   webdriver: ^3.0.2
   html: ^0.15.3
@@ -28,10 +26,15 @@ dev_dependencies:
   build_web_compilers: ^4.0.3
   image: ">=3.2.0 <5.0.0"
 
-# waiting for the next material-components-web release.
-# Once released, it will need to be rolled into package:mdc_web.
-#
+# package:mdc_web needs to upgrade the version of material-components-web 12.0.0
+# or above, which includes this fix for the division operator:
+
 # https://github.com/material-components/material-components-web/pull/7158
-# https://github.com/flutter/samples/issues/1472
+#
+# Until then, dart-sass produces a warning that this operator is being removed
+# in favor of calc().
+#
+# See this issue for details:
+# https://github.com/dart-lang/dart-pad/issues/2388
 dependency_overrides:
-  sass: 1.32.10
+  sass: ^1.62.0
