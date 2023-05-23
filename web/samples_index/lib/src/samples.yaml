@@ -628,7 +628,7 @@ samples:
     platforms: ['web']
     tags: ['demo', 'web', 'add-to-app', 'embedding']
     web: https://flutter-angular.web.app/
-    type: sample
+    type: demo
 
   - name: Next Gen UI demo
     author: Flutter
