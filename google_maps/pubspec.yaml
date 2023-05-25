@@ -12,7 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.2.1
   google_maps_flutter_web: ^0.4.0+3
-  http: ^0.13.5
+  http: ^1.0.0
   json_annotation: ^4.7.0
   json_serializable: ^6.5.4
 
