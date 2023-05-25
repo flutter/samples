@@ -10,7 +10,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  http: ^0.13.5
+  http: ^1.0.0
   shared:
     path: ../shared
 
