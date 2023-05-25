@@ -20,7 +20,8 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding
       path: plugins/window_size
-  go_router: ^7.0.0
+  # Pin pkg:go_router until https://github.com/flutter/flutter/issues/127518 is fixed
+  go_router: 7.0.2
 
 dev_dependencies:
   analysis_defaults:
