@@ -38,17 +38,17 @@ enum ColorSeed {
 
 enum ColorImageProvider {
   leaves('Leaves',
-      'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_1.png'),
+      'https://github.com/flutter/assets-for-api-docs/blob/main/assets/material/content_based_color_scheme_1.png?raw=true'),
   peonies('Peonies',
-      'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png'),
+      'https://github.com/flutter/assets-for-api-docs/blob/main/assets/material/content_based_color_scheme_2.png?raw=true'),
   bubbles('Bubbles',
-      'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png'),
+      'https://github.com/flutter/assets-for-api-docs/blob/main/assets/material/content_based_color_scheme_3.png?raw=true'),
   seaweed('Seaweed',
-      'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_4.png'),
+      'https://github.com/flutter/assets-for-api-docs/blob/main/assets/material/content_based_color_scheme_4.png?raw=true'),
   seagrapes('Sea Grapes',
-      'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_5.png'),
+      'https://github.com/flutter/assets-for-api-docs/blob/main/assets/material/content_based_color_scheme_5.png?raw=true'),
   petals('Petals',
-      'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_6.png');
+      'https://github.com/flutter/assets-for-api-docs/blob/main/assets/material/content_based_color_scheme_6.png?raw=true');
 
   const ColorImageProvider(this.label, this.url);
   final String label;
