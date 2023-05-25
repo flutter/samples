@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.0
   intl: ^0.18.0
-  http: ^0.13.0
+  http: ^1.0.0
   json_annotation: any
   english_words: ^4.0.0
   window_size:
