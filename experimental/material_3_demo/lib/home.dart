@@ -521,9 +521,8 @@ class _ExpandedColorSeedAction extends StatelessWidget {
             isSelected: colorSelected.color == ColorSeed.values[i].color &&
                 colorSelectionMethod == ColorSelectionMethod.colorSeed,
             selectedIcon: const Icon(Icons.circle),
-            onPressed: () {
-              handleColorSelect(i);
-            },
+            onPressed: () => handleColorSelect(i),
+            tooltip: ColorSeed.values[i].label,
           ),
         ),
       ),
@@ -552,23 +551,26 @@ class _ExpandedImageColorAction extends StatelessWidget {
           crossAxisCount: 3,
           children: List.generate(
             ColorImageProvider.values.length,
-            (i) => InkWell(
-              borderRadius: BorderRadius.circular(4.0),
-              onTap: () => handleImageSelect(i),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Material(
-                  borderRadius: BorderRadius.circular(4.0),
-                  elevation: imageSelected == ColorImageProvider.values[i] &&
-                          colorSelectionMethod == ColorSelectionMethod.image
-                      ? 3
-                      : 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(4.0),
-                      child: Image(
-                        image: NetworkImage(ColorImageProvider.values[i].url),
+            (i) => Tooltip(
+              message: ColorImageProvider.values[i].label,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(4.0),
+                onTap: () => handleImageSelect(i),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(4.0),
+                    elevation: imageSelected == ColorImageProvider.values[i] &&
+                            colorSelectionMethod == ColorSelectionMethod.image
+                        ? 3
+                        : 0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4.0),
+                        child: Image(
+                          image: NetworkImage(ColorImageProvider.values[i].url),
+                        ),
                       ),
                     ),
                   ),
