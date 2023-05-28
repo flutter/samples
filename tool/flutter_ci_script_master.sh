@@ -43,7 +43,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
-    "game_template"
+    # TODO(DomesticMouse): The type 'AppLifecycleState' is not exhaustively matched by the switch cases since it doesn't match 'AppLifecycleState.hidden'.
+    # "game_template"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
