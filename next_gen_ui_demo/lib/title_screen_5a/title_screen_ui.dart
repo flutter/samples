@@ -287,7 +287,15 @@ class _StartBtnState extends State<_StartBtn> {
               ),
             ],
           )
-              .animate(autoPlay: false, onInit: (c) => _btnAnim = c)
+              .animate(
+                autoPlay: false,
+                onInit: (c) {
+                  if (_btnAnim != null && _btnAnim != c) {
+                    _btnAnim?.dispose();
+                  }
+                  _btnAnim = c;
+                },
+              )
               .shimmer(duration: .7.seconds, color: Colors.black),
         )
             .animate()
