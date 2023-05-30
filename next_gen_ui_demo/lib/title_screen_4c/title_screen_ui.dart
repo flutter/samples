@@ -258,9 +258,8 @@ class _StartBtnState extends State<_StartBtn> {
               .animate(
                 autoPlay: false,
                 onInit: (c) {
-                  final btnAnim = _btnAnim;
-                  if (btnAnim != null && btnAnim != c) {
-                    btnAnim.dispose();
+                  if (_btnAnim != null && _btnAnim != c) {
+                    _btnAnim?.dispose();
                   }
                   _btnAnim = c;
                 },

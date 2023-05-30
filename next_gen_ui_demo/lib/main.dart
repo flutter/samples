@@ -78,7 +78,17 @@ List<
 typedef ColorCallback = void Function(Color colorSchemeSeed);
 
 class _NextGenAppState extends State<NextGenApp> {
-  int step = 0;
+  int _step = 0;
+  int get step => _step;
+  set step(int i) {
+    _step = switch (i) {
+      (int a) when a < 0 => 0,
+      (int a) when a >= steps.length => steps.length - 1,
+      _ => i,
+    };
+    debugPrint('Step ${step + 1} of ${steps.length}');
+  }
+
   Color? colorSchemeSeed;
 
   @override
@@ -111,8 +121,7 @@ class _NextGenAppState extends State<NextGenApp> {
                 child: const Icon(Icons.arrow_back),
                 onPressed: () {
                   setState(() {
-                    if (step > 0) step--;
-                    debugPrint('Step = $step');
+                    step--;
                   });
                 },
               ),
@@ -127,8 +136,7 @@ class _NextGenAppState extends State<NextGenApp> {
                 child: const Icon(Icons.arrow_forward),
                 onPressed: () {
                   setState(() {
-                    if (step + 1 < steps.length) step++;
-                    debugPrint('Step = $step');
+                    step++;
                   });
                 },
               ),
@@ -144,7 +152,6 @@ class _NextGenAppState extends State<NextGenApp> {
                     onPressed: () {
                       setState(() {
                         step = 0;
-                        debugPrint('Step = $step');
                       });
                     },
                   ),
