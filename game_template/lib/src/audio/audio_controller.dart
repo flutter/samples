@@ -220,6 +220,8 @@ class AudioController {
             "Music should never be 'completed' as it's either not playing "
             "or looping forever.");
         await _playFirstSongInPlaylist();
+      default:
+        _log.warning('Unhandled PlayerState: ${_musicPlayer.state}');
     }
   }
 
