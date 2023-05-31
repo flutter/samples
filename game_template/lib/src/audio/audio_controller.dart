@@ -164,7 +164,8 @@ class AudioController {
         // No need to react to this state change.
         break;
       default:
-        _log.warning('Unhandled AppLifecycleState: ${_lifecycleNotifier!.value}');
+        _log.warning(
+            'Unhandled AppLifecycleState: ${_lifecycleNotifier!.value}');
     }
   }
 
