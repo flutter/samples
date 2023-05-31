@@ -163,6 +163,8 @@ class AudioController {
       case AppLifecycleState.inactive:
         // No need to react to this state change.
         break;
+      default:
+        _log.warning('Unhandled AppLifecycleState: ${_lifecycleNotifier!.value}');
     }
   }
 
