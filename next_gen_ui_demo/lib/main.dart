@@ -111,9 +111,17 @@ class _NextGenAppState extends State<NextGenApp> {
         floatingActionButton: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Visibility(
-              visible: step > 0,
-              child: FloatingActionButton(
+            if (step > 0) ...[
+              FloatingActionButton(
+                child: const Icon(Icons.first_page),
+                onPressed: () {
+                  setState(() {
+                    step = 0;
+                  });
+                },
+              ),
+              const Gap(24),
+              FloatingActionButton(
                 child: const Icon(Icons.arrow_back),
                 onPressed: () {
                   setState(() {
@@ -121,14 +129,10 @@ class _NextGenAppState extends State<NextGenApp> {
                   });
                 },
               ),
-            ),
-            Visibility(
-              visible: step > 0 && step + 1 < steps.length,
-              child: const Gap(24),
-            ),
-            Visibility(
-              visible: step + 1 < steps.length,
-              child: FloatingActionButton(
+            ],
+            if (step > 0 && step + 1 < steps.length) const Gap(24),
+            if (step + 1 < steps.length) ...[
+              FloatingActionButton(
                 child: const Icon(Icons.arrow_forward),
                 onPressed: () {
                   setState(() {
@@ -136,24 +140,16 @@ class _NextGenAppState extends State<NextGenApp> {
                   });
                 },
               ),
-            ),
-            Visibility(
-              visible: step + 1 == steps.length,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Gap(24),
-                  FloatingActionButton(
-                    child: const Icon(Icons.restart_alt),
-                    onPressed: () {
-                      setState(() {
-                        step = 0;
-                      });
-                    },
-                  ),
-                ],
+              const Gap(24),
+              FloatingActionButton(
+                child: const Icon(Icons.last_page),
+                onPressed: () {
+                  setState(() {
+                    step = steps.length - 1;
+                  });
+                },
               ),
-            ),
+            ],
           ],
         ),
         backgroundColor: Colors.black,
