@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "dev.flutter.example.books"
+        applicationId "dev.flutter.example.androidfullscreen"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -19,7 +19,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig debug.signingConfig
         }
     }
     compileOptions {
