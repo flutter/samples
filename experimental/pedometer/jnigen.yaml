@@ -1,9 +1,7 @@
 android_sdk_config:
   add_gradle_deps: true
+  add_gradle_sources: true
   android_example: 'example/'
-
-summarizer:
-  backend: asm
 
 suspend_fun_to_async: true
 
@@ -15,8 +13,6 @@ output:
     path: lib/health_connect.dart
     structure: single_file
 
-class_path:
-  - 'classes.jar'
 classes:
   - 'androidx.health.connect.client.HealthConnectClient'
   - 'androidx.health.connect.client.PermissionController'
@@ -26,8 +22,6 @@ classes:
   - 'android.content.Intent'
   - 'android.app.Activity'
   - 'java.time.Instant'
-  - 'java.lang.Long'
-  - 'java.util.Set'
   - 'androidx.health.connect.client.request'
   - 'androidx.health.connect.client.aggregate.AggregationResult'
   - 'androidx.health.connect.client.aggregate.AggregateMetric'
