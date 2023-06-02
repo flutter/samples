@@ -1,7 +1,16 @@
 include ':app'
-setBinding(new Binding([gradle: this]))
-evaluate(new File(
-  settingsDir,
-  '../flutter_module_books/.android/include_flutter.groovy'
-))
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 rootProject.name = "Android Books"
