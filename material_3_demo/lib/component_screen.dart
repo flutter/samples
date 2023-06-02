@@ -1475,9 +1475,12 @@ class _TimePickersState extends State<TimePickers> {
           );
           setState(() {
             selectedTime = time;
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text('Selected time: ${selectedTime!.format(context)}'),
-            ));
+            if (selectedTime != null) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content:
+                    Text('Selected time: ${selectedTime!.format(context)}'),
+              ));
+            }
           });
         },
         child: const Text(
