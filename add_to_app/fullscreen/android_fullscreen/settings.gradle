@@ -1,4 +1,3 @@
-include ':app'
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -14,3 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name='AndroidFullScreen'
+include ':app'
