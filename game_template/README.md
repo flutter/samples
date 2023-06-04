@@ -547,6 +547,25 @@ building the iOS or macOS app. A good first thing to try is to delete the `ios/P
 file (or `macos/Podfile.lock`, respectively), then trying to build again. (You can achieve
 a more thorough cleanup by running `flutter clean` instead.)
 
+If this doesn't help, here are some more methods:
+
+- See if everything is still okay with your Flutter and CocoaPods installation
+  by running `flutter doctor`. Revisit the macOS 
+  [Flutter installation guide](https://docs.flutter.dev/get-started/install/macos)
+  if needed.
+- Update CocoaPods specs directory:
+
+  ```sh
+  cd ios
+  pod repo update
+  cd ..
+  ```
+
+  (Substitute `ios` for `macos` when appropriate.)
+- Open the project in Xcode, 
+  [increase the build target](https://stackoverflow.com/a/38602597/1416886),
+  then select _Product_ > _Clean Build Folder_.
+
 ## Warnings in console
 
 When running the game for the first time, you might see warnings like the following:
