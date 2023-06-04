@@ -157,6 +157,16 @@ class MyApp extends StatelessWidget {
                   ),
                   GoRoute(
                     path: 'won',
+                    redirect: (context, state) {
+                      if (state.extra == null) {
+                        // Trying to navigate to a win screen without any data.
+                        // Possibly by using the browser's back button.
+                        return '/';
+                      }
+
+                      // Otherwise, do not redirect.
+                      return null;
+                    },
                     pageBuilder: (context, state) {
                       final map = state.extra! as Map<String, dynamic>;
                       final score = map['score'] as Score;
