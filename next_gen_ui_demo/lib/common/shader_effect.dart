@@ -296,6 +296,8 @@ class _RenderShaderSamplerBuilderWidget extends RenderProxyBox {
 class _ShaderSamplerBuilderLayer extends OffsetLayer {
   _ShaderSamplerBuilderLayer(this._callback);
 
+  ui.Picture? _lastPicture;
+
   Size get size => _size;
   Size _size = Size.zero;
   set size(Size value) {
@@ -353,7 +355,8 @@ class _ShaderSamplerBuilderLayer extends OffsetLayer {
     } finally {
       image.dispose();
     }
-    final ui.Picture picture = pictureRecorder.endRecording();
-    builder.addPicture(offset, picture);
+    _lastPicture?.dispose();
+    _lastPicture = pictureRecorder.endRecording();
+    builder.addPicture(offset, _lastPicture!);
   }
 }
