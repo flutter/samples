@@ -19,7 +19,7 @@ dependencies:
   google_fonts: ^4.0.0
   hive: ^2.0.4
   hive_flutter: ^1.1.0
-  http: ^0.13.3
+  http: ^1.0.0
   json2yaml: ^3.0.0
   json_annotation: ^4.5.0
   mockito: ^5.0.13
