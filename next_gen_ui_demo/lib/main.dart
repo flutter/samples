@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
+import 'package:leak_tracker/leak_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 
@@ -30,6 +31,10 @@ import 'title_screen_5b/title_screen.dart' as title_screen_5b;
 import 'title_screen_6/title_screen.dart' as title_screen_6;
 
 void main() {
+  enableLeakTracking();
+  MemoryAllocations.instance
+      .addListener((event) => dispatchObjectEvent(event.toMap()));
+
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowMinSize(const Size(800, 500));
