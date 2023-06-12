@@ -283,10 +283,10 @@ class _RenderShaderSamplerBuilderWidget extends RenderProxyBox {
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    if (size.isEmpty || !_enabled) {
+    if (size.isEmpty) {
       return;
     }
-    assert(offset == Offset.zero);
+    assert(!_enabled || offset == Offset.zero);
     return super.paint(context, offset);
   }
 }
@@ -358,5 +358,11 @@ class _ShaderSamplerBuilderLayer extends OffsetLayer {
     _lastPicture?.dispose();
     _lastPicture = pictureRecorder.endRecording();
     builder.addPicture(offset, _lastPicture!);
+  }
+
+  @override
+  void dispose() {
+    _lastPicture?.dispose();
+    super.dispose();
   }
 }
