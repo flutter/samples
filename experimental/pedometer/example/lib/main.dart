@@ -154,7 +154,7 @@ class _HomeState extends State<Home> {
               aspectRatio: 1.2,
               child: BarChart(
                 BarChartData(
-                  titlesData: FlTitlesData(
+                  titlesData: const FlTitlesData(
                     show: true,
                     // Top titles are null
                     topTitles:
@@ -178,7 +178,7 @@ class _HomeState extends State<Home> {
                     show: false,
                   ),
                   barGroups: barGroups,
-                  gridData: FlGridData(show: false),
+                  gridData: const FlGridData(show: false),
                   alignment: BarChartAlignment.spaceAround,
                 ),
               ),
