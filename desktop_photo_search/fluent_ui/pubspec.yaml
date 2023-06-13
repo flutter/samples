@@ -15,7 +15,7 @@ dependencies:
   fluentui_system_icons: ^1.1.200
   flutter:
     sdk: flutter
-  http: ^0.13.6
+  http: ^1.0.0
   logging: ^1.1.1
   menubar:
     git:

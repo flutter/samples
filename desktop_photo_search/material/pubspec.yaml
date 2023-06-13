@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_simple_treeview: ^3.0.0-nullsafety.1
-  http: ^0.13.4
+  http: ^1.0.0
   logging: ^1.0.2
   menubar:
     git:

@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^4.0.0
+  google_fonts: ^5.0.0
 
 dev_dependencies:
   analysis_defaults:

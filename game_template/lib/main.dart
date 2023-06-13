@@ -8,7 +8,6 @@
 // import 'firebase_options.dart';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -64,16 +63,6 @@ Future<void> main() async {
 
 /// Without logging and crash reporting, this would be `void main()`.
 void guardedMain() {
-  if (kReleaseMode) {
-    // Don't log anything below warnings in production.
-    Logger.root.level = Level.WARNING;
-  }
-  Logger.root.onRecord.listen((record) {
-    debugPrint('${record.level.name}: ${record.time}: '
-        '${record.loggerName}: '
-        '${record.message}');
-  });
-
   WidgetsFlutterBinding.ensureInitialized();
 
   _log.info('Going full screen');
@@ -134,8 +123,10 @@ class MyApp extends StatelessWidget {
             GoRoute(
                 path: 'play',
                 pageBuilder: (context, state) => buildMyTransition<void>(
+                      key: ValueKey('play'),
                       child: const LevelSelectionScreen(
-                          key: Key('level selection')),
+                        key: Key('level selection'),
+                      ),
                       color: context.watch<Palette>().backgroundLevelSelection,
                     ),
                 routes: [
@@ -147,6 +138,7 @@ class MyApp extends StatelessWidget {
                       final level = gameLevels
                           .singleWhere((e) => e.number == levelNumber);
                       return buildMyTransition<void>(
+                        key: ValueKey('level'),
                         child: PlaySessionScreen(
                           level,
                           key: const Key('play session'),
@@ -157,11 +149,22 @@ class MyApp extends StatelessWidget {
                   ),
                   GoRoute(
                     path: 'won',
+                    redirect: (context, state) {
+                      if (state.extra == null) {
+                        // Trying to navigate to a win screen without any data.
+                        // Possibly by using the browser's back button.
+                        return '/';
+                      }
+
+                      // Otherwise, do not redirect.
+                      return null;
+                    },
                     pageBuilder: (context, state) {
                       final map = state.extra! as Map<String, dynamic>;
                       final score = map['score'] as Score;
 
                       return buildMyTransition<void>(
+                        key: ValueKey('won'),
                         child: WinGameScreen(
                           score: score,
                           key: const Key('win game'),

@@ -141,22 +141,19 @@ class _AndroidStepsRepo implements StepsRepo {
       final end =
           DateTime(now.year, now.month, now.day, h + 1).millisecondsSinceEpoch;
       final request = hc.AggregateRequest(
-        hc.Set.of1(
-          hc.AggregateMetric.type(hc.Long.type),
-          hc.StepsRecord.COUNT_TOTAL,
-        ),
+        {hc.StepsRecord.COUNT_TOTAL}
+            .toJSet(hc.AggregateMetric.type(jni.JLong.type)),
         hc.TimeRangeFilter.between(
           hc.Instant.ofEpochMilli(start),
           hc.Instant.ofEpochMilli(end),
         ),
-        hc.Set.of(jni.JObject.type),
+        jni.JSet.hash(jni.JObject.type),
       );
       futures.add(client.aggregate(request));
     }
     final data = await Future.wait(futures);
     return data.asMap().entries.map((entry) {
-      final stepsLong =
-          entry.value.get0(hc.Long.type, hc.StepsRecord.COUNT_TOTAL);
+      final stepsLong = entry.value.get0(hc.StepsRecord.COUNT_TOTAL);
       final steps = stepsLong.isNull ? 0 : stepsLong.intValue();
       return Steps(entry.key.toString().padLeft(2, '0'), steps);
     }).toList();

@@ -44,7 +44,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   ffi: ^2.0.1
   intl: ^0.18.0
-  jni: ^0.3.0
+  jni: ^0.5.0
   fl_chart: ^0.62.0
 
 dev_dependencies:

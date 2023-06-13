@@ -283,10 +283,10 @@ class _RenderShaderSamplerBuilderWidget extends RenderProxyBox {
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    if (size.isEmpty || !_enabled) {
+    if (size.isEmpty) {
       return;
     }
-    assert(offset == Offset.zero);
+    assert(!_enabled || offset == Offset.zero);
     return super.paint(context, offset);
   }
 }
@@ -295,6 +295,8 @@ class _RenderShaderSamplerBuilderWidget extends RenderProxyBox {
 /// every time it is added to a scene.
 class _ShaderSamplerBuilderLayer extends OffsetLayer {
   _ShaderSamplerBuilderLayer(this._callback);
+
+  ui.Picture? _lastPicture;
 
   Size get size => _size;
   Size _size = Size.zero;
@@ -353,7 +355,14 @@ class _ShaderSamplerBuilderLayer extends OffsetLayer {
     } finally {
       image.dispose();
     }
-    final ui.Picture picture = pictureRecorder.endRecording();
-    builder.addPicture(offset, picture);
+    _lastPicture?.dispose();
+    _lastPicture = pictureRecorder.endRecording();
+    builder.addPicture(offset, _lastPicture!);
+  }
+
+  @override
+  void dispose() {
+    _lastPicture?.dispose();
+    super.dispose();
   }
 }
