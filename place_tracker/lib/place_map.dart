@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 import 'dart:math';
 
@@ -134,6 +136,7 @@ class _PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> onMapCreated(GoogleMapController controller) async {
+    if (!context.mounted) return;
     mapController.complete(controller);
     _lastMapPosition = widget.center;
 
@@ -180,6 +183,7 @@ class _PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _confirmAddPlace(BuildContext context) async {
+    if (!context.mounted) return;
     if (_pendingMarker != null) {
       // Create a new Place and map it to the marker we just added.
       final appState = Provider.of<AppState>(context, listen: false);
