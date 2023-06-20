@@ -26,15 +26,18 @@ void main() {
 
     setUpAll(() {
       // Mock for the pet list received from the platform.
-      basicMessageChannel.setMockMessageHandler((message) async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockDecodedMessageHandler(basicMessageChannel, (message) async {
         petListModel = PetListModel.fromJson(message!);
         return null;
       });
 
       // Mock for the index received from the Dart to delete the pet details,
       // and send the updated pet list back to Dart.
-      const BasicMessageChannel<ByteData?>('binaryCodecDemo', BinaryCodec())
-          .setMockMessageHandler((message) async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockDecodedMessageHandler(
+              const BasicMessageChannel<ByteData?>(
+                  'binaryCodecDemo', BinaryCodec()), (message) async {
         // Convert the ByteData to String.
         final index = utf8.decoder.convert(message!.buffer
             .asUint8List(message.offsetInBytes, message.lengthInBytes));
