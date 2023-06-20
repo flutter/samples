@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:async';
 import 'dart:math';
 
@@ -137,14 +135,15 @@ class _PlaceMapState extends State<PlaceMap> {
 
   Future<void> onMapCreated(GoogleMapController controller) async {
     if (!context.mounted) return;
+    final appState = Provider.of<AppState>(context, listen: false);
     mapController.complete(controller);
     _lastMapPosition = widget.center;
 
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
     var markers = <Marker>{};
-    for (var place in Provider.of<AppState>(context, listen: false).places) {
-      markers.add(await _createPlaceMarker(context, place));
+    for (var place in appState.places) {
+      markers.add(await _createPlaceMarker(place, appState.selectedCategory));
     }
     setState(() {
       _markers.addAll(markers);
@@ -196,8 +195,7 @@ class _PlaceMapState extends State<PlaceMap> {
 
       final scaffoldMessenger = ScaffoldMessenger.of(context);
 
-      var placeMarker =
-          await _getPlaceMarkerIcon(context, appState.selectedCategory);
+      var placeMarker = await _getPlaceMarkerIcon(appState.selectedCategory);
 
       setState(() {
         final updatedMarker = _pendingMarker!.copyWith(
@@ -241,7 +239,10 @@ class _PlaceMapState extends State<PlaceMap> {
     }
   }
 
-  Future<Marker> _createPlaceMarker(BuildContext context, Place place) async {
+  Future<Marker> _createPlaceMarker(
+    Place place,
+    PlaceCategory selectedCategory,
+  ) async {
     final marker = Marker(
       markerId: MarkerId(place.latLng.toString()),
       position: place.latLng,
@@ -250,9 +251,8 @@ class _PlaceMapState extends State<PlaceMap> {
         snippet: '${place.starRating} Star Rating',
         onTap: () => context.go('/place/${place.id}'),
       ),
-      icon: await _getPlaceMarkerIcon(context, place.category),
-      visible: place.category ==
-          Provider.of<AppState>(context, listen: false).selectedCategory,
+      icon: await _getPlaceMarkerIcon(place.category),
+      visible: place.category == selectedCategory,
     );
     _markedPlaces[marker] = place;
     return marker;
@@ -404,8 +404,7 @@ class _PlaceMapState extends State<PlaceMap> {
     });
   }
 
-  static Future<BitmapDescriptor> _getPlaceMarkerIcon(
-          BuildContext context, PlaceCategory category) =>
+  Future<BitmapDescriptor> _getPlaceMarkerIcon(PlaceCategory category) =>
       switch (category) {
         PlaceCategory.favorite => BitmapDescriptor.fromAssetImage(
             createLocalImageConfiguration(context, size: const Size.square(32)),
