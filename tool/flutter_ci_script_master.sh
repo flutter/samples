@@ -56,8 +56,7 @@ declare -ar PROJECT_NAMES=(
     # TODO: Dependency 'gap-3.0.0' fails to compile
     # "next_gen_ui_demo"
     "place_tracker"
-    # TODO: https://github.com/flutter/samples/issues/1765
-    # "platform_channels"
+    "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
