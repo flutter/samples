@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                     batteryLevel = result;
                   });
                 } catch (error) {
+                  if (!context.mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: Theme.of(context).primaryColor,
