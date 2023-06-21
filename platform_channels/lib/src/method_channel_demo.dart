@@ -46,6 +46,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                     final value = await Counter.increment(counterValue: count);
                     setState(() => count = value);
                   } catch (error) {
+                    if (!mounted) return;
                     showErrorMessage(
                       context,
                       (error as PlatformException).message!,
@@ -64,6 +65,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                     final value = await Counter.decrement(counterValue: count);
                     setState(() => count = value);
                   } catch (error) {
+                    if (!mounted) return;
                     showErrorMessage(
                       context,
                       (error as PlatformException).message!,

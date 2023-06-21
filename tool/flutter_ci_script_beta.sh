@@ -55,8 +55,7 @@ declare -ar PROJECT_NAMES=(
     # "navigation_and_routing"
     "next_gen_ui_demo"
     "place_tracker"
-    # TODO: https://github.com/flutter/samples/issues/1765
-    # "platform_channels"
+    "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
