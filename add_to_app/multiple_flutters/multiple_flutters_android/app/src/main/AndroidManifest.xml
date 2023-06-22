@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.flutter.multipleflutters">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Provide required visibility configuration for API level 30 and above -->
     <queries>
@@ -18,7 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MultipleFlutters">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,12 +32,14 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
+            android:exported="true"
             />
         <activity
             android:name=".DoubleFlutterActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
+            android:exported="true"
             />
         <!-- Whether leave or clean up the VM after the last shell shuts down. If your want to let
              your app destroy the last shell and re-create shells more quickly, set it to true,
