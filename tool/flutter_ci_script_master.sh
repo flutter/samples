@@ -22,7 +22,7 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/server"
     "code_sharing/shared"
     "deeplink_store_example"
-    # TODO(DomesticMouse): pkg:fluent_ui requires Dart =< 3.0.0
+    # TODO(DomesticMouse): Dependency 'fluent_ui' fails to compile. https://github.com/bdlukaa/fluent_ui/issues/865
     # "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
@@ -53,7 +53,7 @@ declare -ar PROJECT_NAMES=(
     "material_3_demo"
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
-    # TODO: Dependency 'gap-3.0.0' fails to compile
+    # TODO(DomesticMouse): Dependency 'gap-3.0.0' fails to compile. https://github.com/letsar/gap/issues/16
     # "next_gen_ui_demo"
     "place_tracker"
     "platform_channels"
@@ -62,7 +62,7 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    # TODO(DomesticMouse): pkg:fluent_ui requires Dart =< 3.0.0
+    # TODO(DomesticMouse): Dependency 'flutter_layout_grid' fails to compile. https://github.com/shyndman/flutter_layout_grid/issues/91
     # "simplistic_calculator"
     "simplistic_editor"
     "testing_app"
