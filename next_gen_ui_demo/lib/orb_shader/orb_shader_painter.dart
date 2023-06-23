@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:math';
-import 'dart:ui';
+import 'dart:ui' show FragmentShader;
 
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as v64;

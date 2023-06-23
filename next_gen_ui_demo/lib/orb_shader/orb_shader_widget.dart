@@ -4,7 +4,7 @@
 
 import 'dart:async';
 import 'dart:math';
-import 'dart:ui';
+import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
