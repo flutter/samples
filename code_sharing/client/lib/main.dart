@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io' show Platform;
 import 'package:http/http.dart' as http;
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
