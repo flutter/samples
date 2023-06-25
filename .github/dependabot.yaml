@@ -58,6 +58,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "deeplink_store_example/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "desktop_photo_search/fluent_ui/"
     schedule:
       interval: "daily"
@@ -67,10 +71,6 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "experimental/context_menus/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/element_embedding_demo/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -162,6 +162,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "next_gen_ui_demo/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "place_tracker/"
     schedule:
       interval: "daily"
@@ -214,11 +218,11 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "web_embedding/element_embedding_demo"
+    directory: "web_embedding/element_embedding_demo/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "web_embedding/ng-flutter/flutter"
+    directory: "web_embedding/ng-flutter/flutter/"
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
