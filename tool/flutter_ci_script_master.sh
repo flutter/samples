@@ -53,8 +53,7 @@ declare -ar PROJECT_NAMES=(
     "material_3_demo"
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
-    # TODO(DomesticMouse): Dependency 'gap-3.0.0' fails to compile. https://github.com/letsar/gap/issues/16
-    # "next_gen_ui_demo"
+    "next_gen_ui_demo"
     "place_tracker"
     "platform_channels"
     "platform_design"
