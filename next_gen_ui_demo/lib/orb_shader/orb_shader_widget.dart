@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:math';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -95,7 +95,7 @@ class OrbShaderWidgetState extends State<OrbShaderWidget>
                                 widget.mousePos)
                             .distance;
                         final hitSize = size.shortestSide * .5;
-                        energyLevel = 1 - min(1, (d / hitSize));
+                        energyLevel = 1 - math.min(1, (d / hitSize));
                         scheduleMicrotask(
                             () => widget.onUpdate?.call(energyLevel));
                       }
