@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:math';
-import 'dart:ui' show FragmentShader;
+import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as v64;
@@ -18,7 +18,7 @@ class OrbShaderPainter extends CustomPainter {
     required this.mousePos,
     required this.energy,
   });
-  final FragmentShader shader;
+  final ui.FragmentShader shader;
   final OrbShaderConfig config;
   final double time;
   final Offset mousePos;
@@ -26,7 +26,8 @@ class OrbShaderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    double fov = v64.mix(pi / 4.3, pi / 2.0, config.zoom.clamp(0.0, 1.0));
+    double fov =
+        v64.mix(math.pi / 4.3, math.pi / 2.0, config.zoom.clamp(0.0, 1.0));
 
     v64.Vector3 colorToVector3(Color c) =>
         v64.Vector3(
@@ -37,16 +38,16 @@ class OrbShaderPainter extends CustomPainter {
         255.0;
 
     v64.Vector3 lightLumP = colorToVector3(config.lightColor).normalized() *
-        max(0.0, config.lightBrightness);
+        math.max(0.0, config.lightBrightness);
     v64.Vector3 albedo = colorToVector3(config.materialColor);
 
     v64.Vector3 ambientLight = colorToVector3(config.ambientLightColor) *
-        max(0.0, config.ambientLightBrightness);
+        math.max(0.0, config.ambientLightBrightness);
 
     shader.setFloat(0, size.width);
     shader.setFloat(1, size.height);
     shader.setFloat(2, time);
-    shader.setFloat(3, max(0.0, config.exposure));
+    shader.setFloat(3, math.max(0.0, config.exposure));
     shader.setFloat(4, fov);
     shader.setFloat(5, config.roughness.clamp(0.0, 1.0));
     shader.setFloat(6, config.metalness.clamp(0.0, 1.0));

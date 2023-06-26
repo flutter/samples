@@ -2,15 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' show FragmentShader;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
 class ShaderPainter extends CustomPainter {
   ShaderPainter(this.shader, {this.update});
 
-  final FragmentShader shader;
-  final void Function(FragmentShader, Size)? update;
+  final ui.FragmentShader shader;
+  final void Function(ui.FragmentShader, Size)? update;
 
   @override
   void paint(Canvas canvas, Size size) {

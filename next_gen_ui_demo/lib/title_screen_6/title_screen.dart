@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:math';
-import 'dart:ui' show lerpDouble;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,12 +55,13 @@ class _TitleScreenState extends State<TitleScreen>
 
   double get _finalReceiveLightAmt {
     final light =
-        lerpDouble(_minReceiveLightAmt, _maxReceiveLightAmt, _orbEnergy) ?? 0;
+        ui.lerpDouble(_minReceiveLightAmt, _maxReceiveLightAmt, _orbEnergy) ??
+            0;
     return light + _pulseEffect.value * .05 * _orbEnergy;
   }
 
   double get _finalEmitLightAmt {
-    return lerpDouble(_minEmitLightAmt, _maxEmitLightAmt, _orbEnergy) ?? 0;
+    return ui.lerpDouble(_minEmitLightAmt, _maxEmitLightAmt, _orbEnergy) ?? 0;
   }
 
   late final AnimationController _pulseEffect;

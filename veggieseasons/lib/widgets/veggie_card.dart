@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' show ImageFilter;
+import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +25,7 @@ class FrostyBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRect(
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: intensity, sigmaY: intensity),
+        filter: ui.ImageFilter.blur(sigmaX: intensity, sigmaY: intensity),
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: color,
