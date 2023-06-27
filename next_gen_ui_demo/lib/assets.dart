@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui';
+import 'dart:ui' as ui;
 
 class AssetPaths {
   /// Images
@@ -29,13 +29,13 @@ class AssetPaths {
   static const String uiShader = '$_shaders/ui_glitch.frag';
 }
 
-typedef Shaders = ({FragmentShader orb, FragmentShader ui});
+typedef Shaders = ({ui.FragmentShader orb, ui.FragmentShader ui});
 
 Future<Shaders> loadShaders() async => (
       orb: (await _loadShader(AssetPaths.orbShader)),
       ui: (await _loadShader(AssetPaths.uiShader)),
     );
 
-Future<FragmentShader> _loadShader(String path) async {
-  return (await FragmentProgram.fromAsset(path)).fragmentShader();
+Future<ui.FragmentShader> _loadShader(String path) async {
+  return (await ui.FragmentProgram.fromAsset(path)).fragmentShader();
 }

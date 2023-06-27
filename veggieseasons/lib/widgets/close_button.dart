@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui';
+import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:veggieseasons/styles.dart';
@@ -19,7 +19,7 @@ class FrostedBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+      filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
       child: DecoratedBox(
         decoration: const BoxDecoration(
           color: Styles.frostedBackground,

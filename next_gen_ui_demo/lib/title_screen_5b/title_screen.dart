@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:math';
-import 'dart:ui';
+import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -54,17 +54,19 @@ class _TitleScreenState extends State<TitleScreen>
 
   double get _finalReceiveLightAmt {
     final light =
-        lerpDouble(_minReceiveLightAmt, _maxReceiveLightAmt, _orbEnergy) ?? 0;
+        ui.lerpDouble(_minReceiveLightAmt, _maxReceiveLightAmt, _orbEnergy) ??
+            0;
     return light + _pulseEffect.value * .05 * _orbEnergy;
   }
 
   double get _finalEmitLightAmt {
-    return lerpDouble(_minEmitLightAmt, _maxEmitLightAmt, _orbEnergy) ?? 0;
+    return ui.lerpDouble(_minEmitLightAmt, _maxEmitLightAmt, _orbEnergy) ?? 0;
   }
 
   late final AnimationController _pulseEffect;
 
-  Duration _getRndPulseDuration() => 100.ms + 200.ms * Random().nextDouble();
+  Duration _getRndPulseDuration() =>
+      100.ms + 200.ms * math.Random().nextDouble();
 
   double _getMinEnergyForDifficulty(int difficulty) {
     if (difficulty == 1) {

@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:math';
-import 'dart:ui';
+import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -95,13 +95,13 @@ class OrbShaderWidgetState extends State<OrbShaderWidget>
                                 widget.mousePos)
                             .distance;
                         final hitSize = size.shortestSide * .5;
-                        energyLevel = 1 - min(1, (d / hitSize));
+                        energyLevel = 1 - math.min(1, (d / hitSize));
                         scheduleMicrotask(
                             () => widget.onUpdate?.call(energyLevel));
                       }
                       energyLevel +=
                           (1.3 - energyLevel) * heartbeatEnergy * 0.1;
-                      energyLevel = lerpDouble(minEnergy, 1, energyLevel)!;
+                      energyLevel = ui.lerpDouble(minEnergy, 1, energyLevel)!;
                       return CustomPaint(
                         size: size,
                         painter: OrbShaderPainter(
