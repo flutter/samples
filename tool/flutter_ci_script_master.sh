@@ -63,7 +63,8 @@ declare -ar PROJECT_NAMES=(
     "simple_shader"
     # TODO(DomesticMouse): Dependency 'flutter_layout_grid' fails to compile. https://github.com/shyndman/flutter_layout_grid/issues/91
     # "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(DomesticMouse): Undefined class 'CaretChangedHandler'. https://github.com/flutter/samples/issues/1923
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
