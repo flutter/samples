@@ -24,6 +24,9 @@ Configuration for JNIgen is [here](/jnigen.yaml) for the [HealthConnect API](htt
 
 
 ## Running the example app
+The example app is located in the `experimental/pedometer/example` directory,
+and the commands below assume they are being run from that location.
+
 Note that step counting is only available on physical devices. 
 
 ### iOS
@@ -49,6 +52,3 @@ Note that step counting is only available on physical devices.
 
 * `example`: Contains the native source code for building
   that source code into a dynamic library.
-
-
-
