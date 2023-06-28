@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:platform_channels/main.dart' as app;
 
 void main() {
@@ -26,6 +27,8 @@ void main() {
         ),
       );
 
+      final BuildContext context = tester.element(find.byType(MaterialApp));
+
       // Enter the breed of cat.
       await tester.enterText(find.byType(TextField), 'Persian');
       // Select cat from the pet type.
@@ -39,7 +42,7 @@ void main() {
       expect(petList.last['breed'], 'Persian');
 
       // Navigate back to /petListScreen
-      expect(router.location, '/petListScreen');
+      expect(GoRouterState.of(context).location, '/petListScreen');
     });
   });
 }
