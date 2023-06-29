@@ -319,6 +319,36 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     });
   }
 
+  // These actions have yet to be implemented for this sample.
+  static final Map<Type, Action<Intent>> _unsupportedActions =
+      <Type, Action<Intent>>{
+    DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
+    DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
+    ExtendSelectionToNextWordBoundaryIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+    ExtendSelectionVerticallyToAdjacentLineIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionVerticallyToAdjacentPageIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionToNextParagraphBoundaryIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionToDocumentBoundaryIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
+    ExpandSelectionToDocumentBoundaryIntent:
+        DoNothingAction(consumesKey: false),
+    ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+    ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
+    RedoTextIntent: DoNothingAction(consumesKey: false),
+    ReplaceTextIntent: DoNothingAction(consumesKey: false),
+    UndoTextIntent: DoNothingAction(consumesKey: false),
+    UpdateSelectionIntent: DoNothingAction(consumesKey: false),
+    TransposeCharactersIntent: DoNothingAction(consumesKey: false),
+  };
+
   /// Keyboard text editing actions.
   // The Handling of the default text editing shortcuts with deltas
   // needs to be in the framework somehow. This should go through some kind of
@@ -348,6 +378,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     DoNothingAndStopPropagationTextIntent: DoNothingAction(
       consumesKey: false,
     ),
+    ..._unsupportedActions,
   };
 
   void _delete(bool forward) {
