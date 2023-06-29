@@ -46,9 +46,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Sydney'),
-          backgroundColor: Colors.green[700],
-
-        ),
+          backgroundColor: Colors.green[700]),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
