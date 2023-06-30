@@ -27,7 +27,7 @@ void main() {
         ),
       );
 
-      final BuildContext context = tester.element(find.byType(MaterialApp));
+      final BuildContext context = tester.element(find.byType(TextField));
 
       // Enter the breed of cat.
       await tester.enterText(find.byType(TextField), 'Persian');
