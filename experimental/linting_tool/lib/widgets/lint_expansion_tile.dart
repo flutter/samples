@@ -79,11 +79,11 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
           TextSpan(
             children: [
               TextSpan(
-                text: 'Maturity:',
+                text: 'State:',
                 style: textTheme.titleSmall,
               ),
               TextSpan(
-                text: ' ${rule.maturity}',
+                text: ' ${rule.state}',
               ),
             ],
           ),

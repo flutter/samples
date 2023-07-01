@@ -18,7 +18,7 @@ class Rule extends Equatable {
   @HiveField(2)
   final String group;
   @HiveField(3)
-  final String maturity;
+  final String state;
   @HiveField(4)
   final List<String> incompatible;
   @HiveField(5)
@@ -30,7 +30,7 @@ class Rule extends Equatable {
     required this.name,
     required this.description,
     required this.group,
-    required this.maturity,
+    required this.state,
     required this.incompatible,
     required this.sets,
     required this.details,

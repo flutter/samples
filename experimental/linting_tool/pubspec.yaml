@@ -21,7 +21,7 @@ dependencies:
   hive_flutter: ^1.1.0
   http: ^1.0.0
   json2yaml: ^3.0.0
-  json_annotation: ^4.5.0
+  json_annotation: ^4.8.1
   mockito: ^5.0.13
   provider: ^6.0.2
   yaml: ^3.1.0
@@ -36,9 +36,9 @@ dev_dependencies:
     path: ../../analysis_defaults
   flutter_test:
     sdk: flutter
-  build_runner: ^2.0.6
+  build_runner: ^2.4.6
   hive_generator: ^2.0.0
-  json_serializable: ^6.2.0
+  json_serializable: ^6.7.1
 
 flutter:
   uses-material-design: true
