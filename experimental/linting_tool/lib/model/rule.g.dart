@@ -20,7 +20,7 @@ class RuleAdapter extends TypeAdapter<Rule> {
       name: fields[0] as String,
       description: fields[1] as String,
       group: fields[2] as String,
-      maturity: fields[3] as String,
+      state: fields[3] as String,
       incompatible: (fields[4] as List).cast<String>(),
       sets: (fields[5] as List).cast<String>(),
       details: fields[6] as String,
@@ -38,7 +38,7 @@ class RuleAdapter extends TypeAdapter<Rule> {
       ..writeByte(2)
       ..write(obj.group)
       ..writeByte(3)
-      ..write(obj.maturity)
+      ..write(obj.state)
       ..writeByte(4)
       ..write(obj.incompatible)
       ..writeByte(5)
@@ -66,7 +66,7 @@ Rule _$RuleFromJson(Map<String, dynamic> json) => Rule(
       name: json['name'] as String,
       description: json['description'] as String,
       group: json['group'] as String,
-      maturity: json['maturity'] as String,
+      state: json['state'] as String,
       incompatible: (json['incompatible'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -78,7 +78,7 @@ Map<String, dynamic> _$RuleToJson(Rule instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'group': instance.group,
-      'maturity': instance.maturity,
+      'state': instance.state,
       'incompatible': instance.incompatible,
       'sets': instance.sets,
       'details': instance.details,
