@@ -49,7 +49,6 @@ declare -ar PROJECT_NAMES=(
     "navigation_and_routing"
     "next_gen_ui_demo"
     "place_tracker"
-    "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
