@@ -10,7 +10,7 @@ dependencies:
   built_collection: ^5.1.1
   built_value: ^8.5.0
   cupertino_icons: ^1.0.5
-  file_selector: ^0.9.3
+  file_selector: ^1.0.0
   fluent_ui: ^4.6.0
   fluentui_system_icons: ^1.1.200
   flutter:
