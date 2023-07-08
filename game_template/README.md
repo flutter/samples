@@ -23,9 +23,30 @@ and in-app payments, read the _Integrations_ section below.
 
 # Development
 
-To run the app in debug mode:
+To run the app:
+1. Goto pubspec.yaml file, goto dev_dependencies:
 
-    flutter run
+```
+dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.0
+  test: ^1.19.0
+``` 
+2. Remove the analysis dependency shown below, this is a dependancy from parent [samples](https://github.com/flutter/samples/tree/main) directory, you won't have [analysis_defaults](https://github.com/flutter/samples/tree/main/analysis_defaults) after copying only the game_template project.
+
+```
+  analysis_defaults:
+    path: ../analysis_defaults
+```
+
+now run the app:
+```
+flutter pub get
+flutter run 
+```
 
 This assumes you have an Android emulator,
 iOS Simulator, or an attached physical device.
