@@ -68,7 +68,8 @@ declare -ar PROJECT_NAMES=(
     "veggieseasons"
     "web_embedding/element_embedding_demo"
     "web/_tool"
-    "web/samples_index"
+    "web/samples_index",
+    "flutter_rocket_example"
 )
 
 ci_projects "beta" "${PROJECT_NAMES[@]}"
