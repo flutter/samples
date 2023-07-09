@@ -1,7 +1,7 @@
 
 
 
-#  <img src="https://github.com/JahezAcademy/flutter_rocket/blob/dev/images/logo.png" width="35">  Flutter Rocket <img src="https://github.com/JahezAcademy/flutter_rocket/blob/dev/images/logo.png" width="35"> 
+#  🚀 Flutter Rocket  🚀  
 ## Fly high with Flutter Rocket - the ultimate package for Flutter developers
 
 # Author: [Jahez team](https://github.com/JahezAcademy)
@@ -9,10 +9,6 @@
 [![Pub](https://img.shields.io/pub/v/flutter_rocket.svg)](https://pub.dartlang.org/packages/flutter_rocket)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brown.svg)](https://opensource.org/licenses/MIT)
 [![Flutter CI](https://github.com/JahezAcademy/flutter_rocket/actions/workflows/flutter-ci.yml/badge.svg)](https://github.com/JahezAcademy/flutter_rocket/actions/workflows/flutter-ci.yml)
-
-## Graphic tutorial 
-![JPG](https://github.com/JahezAcademy/flutter_rocket/blob/dev/images/flutter_rocket_schema.jpg)
-[explain graphic](https://miro.com/app/board/uXjVPndHj2s=/?share_link_id=249635815532)
 
 ---
 
