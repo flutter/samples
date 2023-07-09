@@ -232,3 +232,7 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+  - package-ecosystem: "pub"
+    directory: "flutter_rocket_example/"
+    schedule:
+      interval: "daily"
