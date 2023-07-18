@@ -1,0 +1,23 @@
+name: ng_companion
+description: A flutter app with a counter that can be manipulated from JS.
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  js: ^0.6.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
