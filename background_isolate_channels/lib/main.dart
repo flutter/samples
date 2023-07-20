@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Background Isolate Channels',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Background Isolate Channels'),
     );
