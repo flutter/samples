@@ -27,7 +27,7 @@ class _PlatformSelectorState extends State<PlatformSelector> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 160.0,
+      width: 170.0,
       child: DropdownButton<TargetPlatform>(
         value: defaultTargetPlatform,
         icon: const Icon(Icons.arrow_downward),
