@@ -50,7 +50,7 @@ class SettingsContent extends StatelessWidget {
               'Settings',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            ElevatedButton(
+            FilledButton(
               onPressed: () {
                 BookstoreAuthScope.of(context).signOut();
               },
