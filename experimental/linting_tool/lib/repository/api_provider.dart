@@ -14,7 +14,7 @@ class APIProvider {
 
   Future<List<Rule>> getRulesList() async {
     final response = await httpClient.get(Uri.parse(
-      'https://raw.githubusercontent.com/dart-lang/linter/main/tool/machine/rules.json',
+      'https://raw.githubusercontent.com/dart-lang/site-www/main/src/_data/linter_rules.json',
     ));
 
     if (response.statusCode == 200) {
