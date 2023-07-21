@@ -88,7 +88,7 @@ class _SignInButtonState extends State<SignInButton> {
           _showError();
         }
 
-        return ElevatedButton(
+        return FilledButton(
           child: const Text('Sign In with Google'),
           onPressed: () => _signIn(),
         );
