@@ -19,6 +19,7 @@ class TypePuzzle extends StatelessWidget {
       title: 'Type Jam',
       theme: ThemeData(
         primarySwatch: Colors.grey,
+        useMaterial3: true,
       ),
       home: const Scaffold(
         appBar: null,
