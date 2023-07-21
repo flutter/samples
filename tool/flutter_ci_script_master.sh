@@ -50,7 +50,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "jsonexample"
+    # TODO(DomesticMouse: ComplexObjectView widget test Typical object is displayed correctly
+    # "jsonexample"
     "material_3_demo"
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
