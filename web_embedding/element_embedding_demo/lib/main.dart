@@ -65,6 +65,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Element embedding',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       home: demoScreenRouter(_currentDemoScreen),
