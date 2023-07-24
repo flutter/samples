@@ -126,9 +126,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         bottom: PreferredSize(
-          preferredSize: const Size(double.infinity, kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: SearchBar(
               hintText: 'Search',
               onChanged:
