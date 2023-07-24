@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.flutter.platform_channels">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:label="platform_channels"
         android:name="${applicationName}"

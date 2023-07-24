@@ -18,7 +18,7 @@ steps:
     patch-u: |
       --- b/place_tracker/android/app/build.gradle
       +++ a/place_tracker/android/app/build.gradle
-      @@ -46,9 +46,8 @@ android {
+      @@ -43,9 +43,8 @@ android {
            defaultConfig {
                // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
                applicationId "dev.flutter.place_tracker"
@@ -108,7 +108,7 @@ steps:
       +
          <script>
            // The value below is injected by flutter build, do not touch.
-           var serviceWorkerVersion = null;
+           const serviceWorkerVersion = null;
   - name: Build iOS simulator bundle
     platforms: [ macos ]
     flutter: build ios --simulator
