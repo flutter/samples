@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Element embedding',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
