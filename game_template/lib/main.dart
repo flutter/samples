@@ -123,7 +123,7 @@ class MyApp extends StatelessWidget {
             GoRoute(
                 path: 'play',
                 pageBuilder: (context, state) => buildMyTransition<void>(
-                      key: ValueKey('play'),
+                      key: const ValueKey('play'),
                       child: const LevelSelectionScreen(
                         key: Key('level selection'),
                       ),
@@ -138,7 +138,7 @@ class MyApp extends StatelessWidget {
                       final level = gameLevels
                           .singleWhere((e) => e.number == levelNumber);
                       return buildMyTransition<void>(
-                        key: ValueKey('level'),
+                        key: const ValueKey('level'),
                         child: PlaySessionScreen(
                           level,
                           key: const Key('play session'),
@@ -164,7 +164,7 @@ class MyApp extends StatelessWidget {
                       final score = map['score'] as Score;
 
                       return buildMyTransition<void>(
-                        key: ValueKey('won'),
+                        key: const ValueKey('won'),
                         child: WinGameScreen(
                           score: score,
                           key: const Key('win game'),
