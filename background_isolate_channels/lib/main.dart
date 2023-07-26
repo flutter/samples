@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Background Isolate Channels',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Background Isolate Channels'),
     );
@@ -124,26 +125,24 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: SearchBar(
+              hintText: 'Search',
+              onChanged:
+                  _database == null ? null : (query) => _refresh(query: query),
+              trailing: const [Icon(Icons.search), SizedBox(width: 8)],
+            ),
+          ),
+        ),
       ),
-      body: Column(
-        children: [
-          TextField(
-            onChanged:
-                _database == null ? null : (query) => _refresh(query: query),
-            decoration: const InputDecoration(
-              labelText: 'Search',
-              suffixIcon: Icon(Icons.search),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return ListTile(title: Text(_entries![index]));
-              },
-              itemCount: _entries?.length ?? 0,
-            ),
-          ),
-        ],
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return ListTile(title: Text(_entries![index]));
+        },
+        itemCount: _entries?.length ?? 0,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _database == null ? null : _addDate,

@@ -60,9 +60,9 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    # TODO(DomesticMouse): Dependency 'flutter_layout_grid' fails to compile. https://github.com/shyndman/flutter_layout_grid/issues/91
-    # "simplistic_calculator"
-    "simplistic_editor"
+    "simplistic_calculator"
+    # TODO(DomesticMouse): The named parameter 'onLiveTextInput' is required, but there's no corresponding argument.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"

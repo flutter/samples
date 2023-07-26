@@ -16,7 +16,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "analysis_defaults"
     "android_splash_screen"
-    "animations"
+    # TODO(DomesticMouse): 'textScaleFactor' is deprecated and shouldn't be used.
+    # "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
@@ -49,7 +50,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "jsonexample"
+    # TODO(DomesticMouse: ComplexObjectView widget test Typical object is displayed correctly
+    # "jsonexample"
     "material_3_demo"
     # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
     # "navigation_and_routing"
@@ -60,9 +62,9 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    # TODO(DomesticMouse): Dependency 'flutter_layout_grid' fails to compile. https://github.com/shyndman/flutter_layout_grid/issues/91
-    # "simplistic_calculator"
-    "simplistic_editor"
+    "simplistic_calculator"
+    # TODO(DomesticMouse): The named parameter 'onLiveTextInput' is required, but there's no corresponding argument.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"

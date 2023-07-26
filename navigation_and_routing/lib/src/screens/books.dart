@@ -52,6 +52,7 @@ class _BooksScreenState extends State<BooksScreen>
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Books'),
+          elevation: 8,
           bottom: TabBar(
             controller: _tabController,
             tabs: const [

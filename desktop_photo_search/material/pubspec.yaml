@@ -10,7 +10,7 @@ dependencies:
   built_collection: ^5.1.1
   built_value: ^8.3.0
   cupertino_icons: ^1.0.2
-  file_selector: ^0.9.1
+  file_selector: ^1.0.0
   flutter:
     sdk: flutter
   flutter_simple_treeview: ^3.0.0-nullsafety.1
