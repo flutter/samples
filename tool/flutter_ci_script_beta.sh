@@ -56,7 +56,8 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO: https://github.com/flutter/samples/issues/1976
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
