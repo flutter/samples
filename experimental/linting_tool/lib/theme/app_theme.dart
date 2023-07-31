@@ -9,7 +9,7 @@ import 'package:linting_tool/theme/colors.dart';
 
 abstract class AppTheme {
   static ThemeData buildReplyLightTheme(BuildContext context) {
-    final base = ThemeData.light();
+    final base = ThemeData.light(useMaterial3: true);
     return base.copyWith(
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.blue700,
@@ -45,7 +45,6 @@ abstract class AppTheme {
       textTheme: _buildReplyLightTextTheme(base.textTheme),
       scaffoldBackgroundColor: AppColors.blue50,
       bottomAppBarTheme: const BottomAppBarTheme(color: AppColors.blue700),
-      useMaterial3: true,
     );
   }
 
