@@ -1016,7 +1016,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 expands: false, // expands to height of parent.
                 strutStyle: null,
                 selectionColor: Colors.blue.withOpacity(0.40),
-                textScaleFactor: MediaQuery.textScaleFactorOf(context),
+                textScaler: MediaQuery.textScalerOf(context),
                 textAlign: TextAlign.left,
                 textDirection: _textDirection,
                 locale: Localizations.maybeLocaleOf(context),
@@ -1068,7 +1068,7 @@ class _Editable extends MultiChildRenderObjectWidget {
     required this.expands,
     this.strutStyle,
     this.selectionColor,
-    required this.textScaleFactor,
+    required this.textScaler,
     required this.textAlign,
     required this.textDirection,
     this.locale,
@@ -1117,7 +1117,7 @@ class _Editable extends MultiChildRenderObjectWidget {
   final bool expands;
   final StrutStyle? strutStyle;
   final Color? selectionColor;
-  final double textScaleFactor;
+  final TextScaler textScaler;
   final TextAlign textAlign;
   final TextDirection textDirection;
   final Locale? locale;
@@ -1156,7 +1156,7 @@ class _Editable extends MultiChildRenderObjectWidget {
       expands: expands,
       strutStyle: strutStyle,
       selectionColor: selectionColor,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
       textAlign: textAlign,
       textDirection: textDirection,
       locale: locale ?? Localizations.maybeLocaleOf(context),
@@ -1197,7 +1197,7 @@ class _Editable extends MultiChildRenderObjectWidget {
       ..expands = expands
       ..strutStyle = strutStyle
       ..selectionColor = selectionColor
-      ..textScaleFactor = textScaleFactor
+      ..textScaler= textScaler
       ..textAlign = textAlign
       ..textDirection = textDirection
       ..locale = locale ?? Localizations.maybeLocaleOf(context)
