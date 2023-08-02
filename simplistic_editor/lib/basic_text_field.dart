@@ -26,6 +26,7 @@ class BasicTextField extends StatefulWidget {
     VoidCallback? onCut,
     VoidCallback? onPaste,
     VoidCallback? onSelectAll,
+    VoidCallback? onLiveTextInput,
     TextSelectionToolbarAnchors anchors,
   ) {
     return AdaptiveTextSelectionToolbar.editable(
@@ -34,6 +35,7 @@ class BasicTextField extends StatefulWidget {
       onCut: onCut,
       onPaste: onPaste,
       onSelectAll: onSelectAll,
+      onLiveTextInput: onLiveTextInput,  
       anchors: anchors,
     );
   }
