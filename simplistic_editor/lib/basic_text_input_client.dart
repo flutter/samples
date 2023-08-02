@@ -24,6 +24,7 @@ typedef BasicTextFieldContextMenuBuilder = Widget Function(
   VoidCallback? onCut,
   VoidCallback? onPaste,
   VoidCallback? onSelectAll,
+  VoidCallback? onLookUp,
   VoidCallback? onLiveTextInput,
   TextSelectionToolbarAnchors anchors,
 );
@@ -860,9 +861,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 selectAllEnabled
                     ? () => selectAll(SelectionChangedCause.toolbar)
                     : null,
-                liveTextInputEnabled
-                    ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
-                    : null,
+                lookUpEnabled ? () => _lookUpSelection(SelectionChangedCause.toolbar) : null,
+                liveTextInputEnabled ? () => _startLiveTextInput(SelectionChangedCause.toolbar) : null,
                 _contextMenuAnchors,
               );
             },
@@ -986,6 +986,29 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     if (cause == SelectionChangedCause.toolbar) {
       hideToolbar();
     }
+  }
+
+  /// For lookup support.
+  @override
+  bool get lookUpEnabled {
+    if (defaultTargetPlatform != TargetPlatform.iOS) {
+      return false;
+    }
+    return !textEditingValue.selection.isCollapsed;
+  }
+
+  /// Look up the current selection, as in the "Look Up" edit menu button on iOS.
+  /// Currently this is only implemented for iOS.
+  /// Throws an error if the selection is empty or collapsed.
+  Future<void> _lookUpSelection(SelectionChangedCause cause) async {
+    final String text = textEditingValue.selection.textInside(textEditingValue.text);
+    if (text.isEmpty) {
+      return;
+    }
+    await SystemChannels.platform.invokeMethod(
+      'LookUp.invoke',
+      text,
+    );
   }
 
   @override
