@@ -860,7 +860,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 selectAllEnabled
                     ? () => selectAll(SelectionChangedCause.toolbar)
                     : null,
-                liveTextInputEnabled ? () => _startLiveTextInput(SelectionChangedCause.toolbar) : null,
+                liveTextInputEnabled
+                    ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
+                    : null,
                 _contextMenuAnchors,
               );
             },

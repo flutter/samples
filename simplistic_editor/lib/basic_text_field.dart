@@ -35,7 +35,7 @@ class BasicTextField extends StatefulWidget {
       onCut: onCut,
       onPaste: onPaste,
       onSelectAll: onSelectAll,
-      onLiveTextInput: onLiveTextInput,  
+      onLiveTextInput: onLiveTextInput,
       anchors: anchors,
     );
   }
