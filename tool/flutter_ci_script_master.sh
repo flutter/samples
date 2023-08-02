@@ -64,8 +64,7 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    # TODO(DomesticMouse): The named parameter 'onLiveTextInput' is required, but there's no corresponding argument.
-    # "simplistic_editor"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
