@@ -9,3 +9,18 @@ This directory contains examples of how to embed Flutter in web apps (without if
 
 Check the `README.md` of each example for more details on how to run it, and the
 "Points of Interest" it may contain.
+
+## Community Contributions
+
+Members of the community have graciously ported and contributed the following examples
+of Flutter Web embedding into other web frameworks:
+
+| Author | Host Framework | Code |
+|--------|----------------|------|
+| [@p-mazhnik](https://github.com/p-mazhnik) | **React JS** | [p-mazhnik/flutter-embedding cra-flutter](https://github.com/p-mazhnik/flutter-embedding/tree/main/cra-flutter) |
+| [@p-mazhnik](https://github.com/p-mazhnik) | **React Native** | [p-mazhnik/flutter-embedding expo-flutter](https://github.com/p-mazhnik/flutter-embedding/tree/main/expo-flutter) |
+
+
+_(All contributions are welcome! Please, [create an issue](https://github.com/flutter/samples/issues/new)
+or open a PR to let us know how you've embedded a Flutter Web app with your favorite web framework_
+(Vue? Svelte? Ember? Aurelia? jQuery? MooTools? Prototype?), _so it can be added to the table above!)_
