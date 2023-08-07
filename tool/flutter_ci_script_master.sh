@@ -49,7 +49,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): ComplexObjectView widget test Typical object is displayed correctly
     # "jsonexample"
     "material_3_demo"
-    "navigation_and_routing"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "navigation_and_routing"
     "next_gen_ui_demo"
     "place_tracker"
     "platform_channels"
