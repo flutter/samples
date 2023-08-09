@@ -54,7 +54,7 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
@@ -86,7 +86,7 @@ class _$Location extends Location {
   final Position? position;
 
   factory _$Location([void Function(LocationBuilder)? updates]) =>
-      (new LocationBuilder()..update(updates)).build();
+      (new LocationBuilder()..update(updates))._build();
 
   _$Location._({this.city, this.country, this.position}) : super._();
 
@@ -108,13 +108,17 @@ class _$Location extends Location {
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, city.hashCode), country.hashCode), position.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, city.hashCode);
+    _$hash = $jc(_$hash, country.hashCode);
+    _$hash = $jc(_$hash, position.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Location')
+    return (newBuiltValueToStringHelper(r'Location')
           ..add('city', city)
           ..add('country', country)
           ..add('position', position))
@@ -162,7 +166,9 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   }
 
   @override
-  _$Location build() {
+  Location build() => _build();
+
+  _$Location _build() {
     _$Location _$result;
     try {
       _$result = _$v ??
@@ -175,7 +181,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
         _position?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Location', _$failedField, e.toString());
+            r'Location', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -184,4 +190,4 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

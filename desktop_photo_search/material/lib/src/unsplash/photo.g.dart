@@ -146,13 +146,13 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'created_at':
           result.createdAt = serializers.deserialize(value,
@@ -266,7 +266,7 @@ class _$Photo extends Photo {
   final User? user;
 
   factory _$Photo([void Function(PhotoBuilder)? updates]) =>
-      (new PhotoBuilder()..update(updates)).build();
+      (new PhotoBuilder()..update(updates))._build();
 
   _$Photo._(
       {required this.id,
@@ -287,7 +287,7 @@ class _$Photo extends Photo {
       this.links,
       this.user})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'Photo', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'Photo', 'id');
   }
 
   @override
@@ -322,49 +322,31 @@ class _$Photo extends Photo {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    $jc(
-                                                                        0,
-                                                                        id
-                                                                            .hashCode),
-                                                                    createdAt
-                                                                        .hashCode),
-                                                                updatedAt
-                                                                    .hashCode),
-                                                            width.hashCode),
-                                                        height.hashCode),
-                                                    color.hashCode),
-                                                downloads.hashCode),
-                                            likes.hashCode),
-                                        likedByUser.hashCode),
-                                    description.hashCode),
-                                exif.hashCode),
-                            location.hashCode),
-                        tags.hashCode),
-                    currentUserCollections.hashCode),
-                urls.hashCode),
-            links.hashCode),
-        user.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, createdAt.hashCode);
+    _$hash = $jc(_$hash, updatedAt.hashCode);
+    _$hash = $jc(_$hash, width.hashCode);
+    _$hash = $jc(_$hash, height.hashCode);
+    _$hash = $jc(_$hash, color.hashCode);
+    _$hash = $jc(_$hash, downloads.hashCode);
+    _$hash = $jc(_$hash, likes.hashCode);
+    _$hash = $jc(_$hash, likedByUser.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, exif.hashCode);
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jc(_$hash, tags.hashCode);
+    _$hash = $jc(_$hash, currentUserCollections.hashCode);
+    _$hash = $jc(_$hash, urls.hashCode);
+    _$hash = $jc(_$hash, links.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Photo')
+    return (newBuiltValueToStringHelper(r'Photo')
           ..add('id', id)
           ..add('createdAt', createdAt)
           ..add('updatedAt', updatedAt)
@@ -500,12 +482,14 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
   }
 
   @override
-  _$Photo build() {
+  Photo build() => _build();
+
+  _$Photo _build() {
     _$Photo _$result;
     try {
       _$result = _$v ??
           new _$Photo._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'Photo', 'id'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Photo', 'id'),
               createdAt: createdAt,
               updatedAt: updatedAt,
               width: width,
@@ -541,7 +525,7 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
         _user?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Photo', _$failedField, e.toString());
+            r'Photo', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -550,4 +534,4 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint
