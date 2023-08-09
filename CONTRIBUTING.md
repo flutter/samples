@@ -71,7 +71,7 @@ Each app should:
   file used throughout the repo. This file include a base set of analyzer
   conventions and lints.
 * Have no analyzer errors or warnings.
-* Be formatted with `flutter format`.
+* Be formatted with `dart format`.
 * Include at least one working test in its `test` folder.
 * Be wired into the list of projects in the CI scripts for [stable](tool/flutter_ci_script_stable.sh), 
   [beta](tool/flutter_ci_script_beta.sh), and [master](tool/flutter_ci_script_master.sh), 

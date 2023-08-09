@@ -38,7 +38,7 @@ If you have a general question about one of these samples or how to adapt its
 techniques for one of your own apps, try one of these resources:
 
 * [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
-* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
+* [The FlutterDev Discord](https://discord.gg/rflutterdev)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
 
 If you run into a bug in one of the samples, please file an issue in the
