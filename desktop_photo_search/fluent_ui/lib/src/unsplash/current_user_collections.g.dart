@@ -64,13 +64,13 @@ class _$CurrentUserCollectionsSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int))! as int;
           break;
         case 'title':
           result.title = serializers.deserialize(value,
@@ -103,12 +103,12 @@ class _$CurrentUserCollections extends CurrentUserCollections {
 
   factory _$CurrentUserCollections(
           [void Function(CurrentUserCollectionsBuilder)? updates]) =>
-      (new CurrentUserCollectionsBuilder()..update(updates)).build();
+      (new CurrentUserCollectionsBuilder()..update(updates))._build();
 
   _$CurrentUserCollections._(
       {required this.id, this.title, this.publishedAt, this.updatedAt})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'CurrentUserCollections', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'CurrentUserCollections', 'id');
   }
 
   @override
@@ -132,14 +132,18 @@ class _$CurrentUserCollections extends CurrentUserCollections {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc(0, id.hashCode), title.hashCode), publishedAt.hashCode),
-        updatedAt.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, publishedAt.hashCode);
+    _$hash = $jc(_$hash, updatedAt.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CurrentUserCollections')
+    return (newBuiltValueToStringHelper(r'CurrentUserCollections')
           ..add('id', id)
           ..add('title', title)
           ..add('publishedAt', publishedAt)
@@ -194,11 +198,13 @@ class CurrentUserCollectionsBuilder
   }
 
   @override
-  _$CurrentUserCollections build() {
+  CurrentUserCollections build() => _build();
+
+  _$CurrentUserCollections _build() {
     final _$result = _$v ??
         new _$CurrentUserCollections._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, 'CurrentUserCollections', 'id'),
+                id, r'CurrentUserCollections', 'id'),
             title: title,
             publishedAt: publishedAt,
             updatedAt: updatedAt);
@@ -207,4 +213,4 @@ class CurrentUserCollectionsBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

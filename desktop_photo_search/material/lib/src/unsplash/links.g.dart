@@ -61,7 +61,7 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
@@ -99,7 +99,7 @@ class _$Links extends Links {
   final String? downloadLocation;
 
   factory _$Links([void Function(LinksBuilder)? updates]) =>
-      (new LinksBuilder()..update(updates)).build();
+      (new LinksBuilder()..update(updates))._build();
 
   _$Links._({this.self, this.html, this.download, this.downloadLocation})
       : super._();
@@ -123,14 +123,18 @@ class _$Links extends Links {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc(0, self.hashCode), html.hashCode), download.hashCode),
-        downloadLocation.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, self.hashCode);
+    _$hash = $jc(_$hash, html.hashCode);
+    _$hash = $jc(_$hash, download.hashCode);
+    _$hash = $jc(_$hash, downloadLocation.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Links')
+    return (newBuiltValueToStringHelper(r'Links')
           ..add('self', self)
           ..add('html', html)
           ..add('download', download)
@@ -185,7 +189,9 @@ class LinksBuilder implements Builder<Links, LinksBuilder> {
   }
 
   @override
-  _$Links build() {
+  Links build() => _build();
+
+  _$Links _build() {
     final _$result = _$v ??
         new _$Links._(
             self: self,
@@ -197,4 +203,4 @@ class LinksBuilder implements Builder<Links, LinksBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint
