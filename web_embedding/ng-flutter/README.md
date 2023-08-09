@@ -71,8 +71,6 @@ In order to build this app, first fetch its `npm` dependencies:
 ```console
 $ npm install
 
-npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
-
 added 963 packages, and audited 964 packages in 17s
 
 93 packages are looking for funding
@@ -128,7 +126,8 @@ vendor.js             | vendor        |   4.38 MB |
 ✔ Compiled successfully.
 ```
 
-Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of its Angular source files.
+Navigate to `http://localhost:4200/`. The application will automatically reload
+if you change any of its Angular source files.
 
 ### Local Flutter web development
 
