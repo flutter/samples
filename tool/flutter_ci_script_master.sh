@@ -59,7 +59,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    "simplistic_calculator"
+    # TODO(DomesticMouse): Inferred type argument 'AutoPlacement' doesn't conform to the bound 'Enum?' of the type variable 'T' on 'EnumProperty'.
+    # "simplistic_calculator"
     # TODO(DomesticMouse): The named parameter 'onLookUp' is required
     # "simplistic_editor"
     "testing_app"
