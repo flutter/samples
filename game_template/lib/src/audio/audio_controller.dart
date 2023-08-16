@@ -155,6 +155,7 @@ class AudioController {
     switch (_lifecycleNotifier!.value) {
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
+      case AppLifecycleState.hidden:
         _stopAllSound();
       case AppLifecycleState.resumed:
         if (!_settings!.muted.value && _settings!.musicOn.value) {
