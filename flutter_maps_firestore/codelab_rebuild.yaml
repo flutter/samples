@@ -6,9 +6,6 @@ steps:
       - ios
   - name: Recreate runner
     flutter: create --platforms ios .
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Create GoogleService-Info.plist
     path: ios/GoogleService-Info.plist
     replace-contents: |
@@ -30,7 +27,7 @@ steps:
       @@ -1,5 +1,5 @@
        # Uncomment this line to define a global platform for your project
       -# platform :ios, '11.0'
-      +platform :ios, '13.0'
+      +platform :ios, '14.0'
        
        # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
        ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -39,7 +36,7 @@ steps:
          installer.pods_project.targets.each do |target|
            flutter_additional_ios_build_settings(target)
       +    target.build_configurations.each do |config|
-      +      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      +      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
       +     end
          end
        end
@@ -53,7 +50,7 @@ steps:
          <string>1.0</string>
          <key>MinimumOSVersion</key>
       -  <string>11.0</string>
-      +  <string>13.0</string>
+      +  <string>14.0</string>
        </dict>
        </plist>
   - name: Patch ios/Runner/AppDelegate.swift
@@ -99,9 +96,7 @@ steps:
        	<key>CFBundleExecutable</key>
        	<string>$(EXECUTABLE_NAME)</string>
        	<key>CFBundleIdentifier</key>
-  # - name: flutter doctor
-  #   flutter: doctor
   - name: flutter pub upgrade
     flutter: pub upgrade --major-versions
-  # - name: flutter build ios
-  #   flutter: build ios --simulator
+  - name: flutter build ios
+    flutter: build ios --simulator
