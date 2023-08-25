@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:platform_channels/main.dart' as app;
 
 void main() {
@@ -39,7 +40,8 @@ void main() {
       expect(petList.last['breed'], 'Persian');
 
       // Navigate back to /petListScreen
-      expect(router.location, '/petListScreen');
+      final context = tester.element(find.text('Persian'));
+      expect(GoRouterState.of(context).uri.toString(), '/petListScreen');
     });
   });
 }
