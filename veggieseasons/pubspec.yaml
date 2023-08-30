@@ -22,7 +22,7 @@ dependencies:
       path: plugins/window_size
   # TODO: https://github.com/flutter/samples/issues/1838
   # go_router ^7.1.0 is breaking the state restoration tests
-  go_router: 7.0.2
+  go_router: 10.1.2
 
 dev_dependencies:
   analysis_defaults:
