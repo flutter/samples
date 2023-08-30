@@ -861,8 +861,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 selectAllEnabled
                     ? () => selectAll(SelectionChangedCause.toolbar)
                     : null,
-                lookUpEnabled ? () => _lookUpSelection(SelectionChangedCause.toolbar) : null,
-                liveTextInputEnabled ? () => _startLiveTextInput(SelectionChangedCause.toolbar) : null,
+                lookUpEnabled
+                    ? () => _lookUpSelection(SelectionChangedCause.toolbar)
+                    : null,
+                liveTextInputEnabled
+                    ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
+                    : null,
                 _contextMenuAnchors,
               );
             },
@@ -1001,7 +1005,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   /// Currently this is only implemented for iOS.
   /// Throws an error if the selection is empty or collapsed.
   Future<void> _lookUpSelection(SelectionChangedCause cause) async {
-    final String text = textEditingValue.selection.textInside(textEditingValue.text);
+    final String text =
+        textEditingValue.selection.textInside(textEditingValue.text);
     if (text.isEmpty) {
       return;
     }
