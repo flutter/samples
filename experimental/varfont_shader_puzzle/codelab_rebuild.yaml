@@ -10,10 +10,7 @@ steps:
       - windows
   - name: Flutter recreate
     flutter: create . --platforms android,ios,linux,macos,windows
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Build for iOS
-    flutter: build ios
+    flutter: build ios --simulator
   - name: Build for macOS
     flutter: build macos

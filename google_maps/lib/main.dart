@@ -56,6 +56,10 @@ class _MyAppState extends State<MyApp> {
             const Marker(
               markerId: MarkerId('Sydney'),
               position: LatLng(-33.86, 151.20),
+              infoWindow: InfoWindow(
+                title: "Sydney",
+                snippet: "Capital of New South Wales",
+              ),
             )
           },
         ),

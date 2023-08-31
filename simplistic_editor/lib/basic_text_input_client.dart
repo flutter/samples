@@ -24,6 +24,7 @@ typedef BasicTextFieldContextMenuBuilder = Widget Function(
   VoidCallback? onCut,
   VoidCallback? onPaste,
   VoidCallback? onSelectAll,
+  VoidCallback? onLiveTextInput,
   TextSelectionToolbarAnchors anchors,
 );
 
@@ -65,6 +66,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   void initState() {
     super.initState();
     _clipboardStatus?.addListener(_onChangedClipboardStatus);
+    _liveTextInputStatus?.addListener(_onChangedLiveTextInputStatus);
     widget.focusNode.addListener(_handleFocusChanged);
     widget.controller.addListener(_didChangeTextEditingValue);
   }
@@ -78,6 +80,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   @override
   void dispose() {
     widget.controller.removeListener(_didChangeTextEditingValue);
+    widget.focusNode.removeListener(_handleFocusChanged);
+    _liveTextInputStatus?.removeListener(_onChangedLiveTextInputStatus);
+    _liveTextInputStatus?.dispose();
     _clipboardStatus?.removeListener(_onChangedClipboardStatus);
     _clipboardStatus?.dispose();
     super.dispose();
@@ -157,6 +162,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       return false;
     }
 
+    _liveTextInputStatus?.update();
     _selectionOverlay!.showToolbar();
 
     return true;
@@ -854,6 +860,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 selectAllEnabled
                     ? () => selectAll(SelectionChangedCause.toolbar)
                     : null,
+                liveTextInputEnabled
+                    ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
+                    : null,
                 _contextMenuAnchors,
               );
             },
@@ -948,6 +957,35 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       endGlyphHeight: glyphHeights.end,
       selectionEndpoints: points,
     );
+  }
+
+  /// For OCR Support.
+  /// Detects whether the Live Text input is enabled.
+  final LiveTextInputStatusNotifier? _liveTextInputStatus =
+      kIsWeb ? null : LiveTextInputStatusNotifier();
+
+  @override
+  bool get liveTextInputEnabled {
+    return _liveTextInputStatus?.value == LiveTextInputStatus.enabled &&
+        textEditingValue.selection.isCollapsed;
+  }
+
+  void _onChangedLiveTextInputStatus() {
+    setState(() {
+      // Inform the widget that the value of liveTextInputStatus has changed.
+    });
+  }
+
+  void _startLiveTextInput(SelectionChangedCause cause) {
+    if (!liveTextInputEnabled) {
+      return;
+    }
+    if (_hasInputConnection) {
+      LiveText.startLiveTextInput();
+    }
+    if (cause == SelectionChangedCause.toolbar) {
+      hideToolbar();
+    }
   }
 
   @override

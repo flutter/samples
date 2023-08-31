@@ -53,8 +53,8 @@ class HealthConnectClient extends jni.JObject {
   static const HEALTH_CONNECT_CLIENT_TAG = r"""HealthConnectClient""";
 
   static final _getPermissionController = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "HealthConnectClient__getPermissionController")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -468,9 +468,9 @@ class HealthConnectClient extends jni.JObject {
   }
 
   static final _isAvailable1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__isAvailable1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient__isAvailable1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public boolean isAvailable(android.content.Context context)
@@ -481,9 +481,9 @@ class HealthConnectClient extends jni.JObject {
   }
 
   static final _getOrCreate1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__getOrCreate1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient__getOrCreate1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context)
@@ -593,8 +593,8 @@ class PermissionController extends jni.JObject {
   }
 
   static final _createRequestPermissionResultContract = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "PermissionController__createRequestPermissionResultContract")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -759,9 +759,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _getCount = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getCount")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getCount")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final long getCount()
@@ -770,9 +770,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _getStartTime = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getStartTime")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getStartTime")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant getStartTime()
@@ -782,9 +782,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _getStartZoneOffset = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getStartZoneOffset")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getStartZoneOffset")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.ZoneOffset getStartZoneOffset()
@@ -795,9 +795,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _getEndTime = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getEndTime")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getEndTime")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant getEndTime()
@@ -807,9 +807,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _getEndZoneOffset = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getEndZoneOffset")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getEndZoneOffset")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.ZoneOffset getEndZoneOffset()
@@ -819,9 +819,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _getMetadata = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getMetadata")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getMetadata")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public androidx.health.connect.client.records.metadata.Metadata getMetadata()
@@ -846,9 +846,9 @@ class StepsRecord extends jni.JObject {
   }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
@@ -1002,9 +1002,9 @@ class TimeRangeFilter_Companion extends jni.JObject {
   }
 
   static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter_Companion__ctor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter_Companion__ctor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
@@ -1144,9 +1144,9 @@ class TimeRangeFilter extends jni.JObject {
   }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
@@ -1201,9 +1201,9 @@ class TimeRangeFilter extends jni.JObject {
   }
 
   static final _before = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__before")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__before")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.Instant instant)
@@ -1216,9 +1216,9 @@ class TimeRangeFilter extends jni.JObject {
   }
 
   static final _before1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__before1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__before1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.LocalDateTime localDateTime)
@@ -1231,9 +1231,9 @@ class TimeRangeFilter extends jni.JObject {
   }
 
   static final _after = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__after")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__after")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.Instant instant)
@@ -1246,9 +1246,9 @@ class TimeRangeFilter extends jni.JObject {
   }
 
   static final _after1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__after1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__after1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.LocalDateTime localDateTime)
@@ -1642,9 +1642,9 @@ class Context extends jni.JObject {
   }
 
   static final _getAssets = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAssets")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAssets")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.AssetManager getAssets()
@@ -1654,9 +1654,9 @@ class Context extends jni.JObject {
   }
 
   static final _getResources = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getResources")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getResources")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.Resources getResources()
@@ -1666,9 +1666,9 @@ class Context extends jni.JObject {
   }
 
   static final _getPackageManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.pm.PackageManager getPackageManager()
@@ -1679,9 +1679,9 @@ class Context extends jni.JObject {
   }
 
   static final _getContentResolver = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getContentResolver")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getContentResolver")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ContentResolver getContentResolver()
@@ -1692,9 +1692,9 @@ class Context extends jni.JObject {
   }
 
   static final _getMainLooper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getMainLooper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getMainLooper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.os.Looper getMainLooper()
@@ -1704,9 +1704,9 @@ class Context extends jni.JObject {
   }
 
   static final _getMainExecutor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getMainExecutor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getMainExecutor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.concurrent.Executor getMainExecutor()
@@ -1716,9 +1716,9 @@ class Context extends jni.JObject {
   }
 
   static final _getApplicationContext = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getApplicationContext")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getApplicationContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context getApplicationContext()
@@ -1865,9 +1865,9 @@ class Context extends jni.JObject {
   }
 
   static final _getTheme = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getTheme")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getTheme")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.Resources$Theme getTheme()
@@ -1958,9 +1958,9 @@ class Context extends jni.JObject {
   }
 
   static final _getClassLoader = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getClassLoader")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getClassLoader")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.ClassLoader getClassLoader()
@@ -1970,9 +1970,9 @@ class Context extends jni.JObject {
   }
 
   static final _getPackageName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageName()
@@ -1982,9 +1982,9 @@ class Context extends jni.JObject {
   }
 
   static final _getOpPackageName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getOpPackageName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getOpPackageName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getOpPackageName()
@@ -1994,9 +1994,9 @@ class Context extends jni.JObject {
   }
 
   static final _getAttributionTag = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAttributionTag")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAttributionTag")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getAttributionTag()
@@ -2007,9 +2007,9 @@ class Context extends jni.JObject {
   }
 
   static final _getAttributionSource = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAttributionSource")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAttributionSource")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.AttributionSource getAttributionSource()
@@ -2020,9 +2020,9 @@ class Context extends jni.JObject {
   }
 
   static final _getParams = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getParams")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getParams")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ContextParams getParams()
@@ -2032,9 +2032,9 @@ class Context extends jni.JObject {
   }
 
   static final _getApplicationInfo = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getApplicationInfo")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getApplicationInfo")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.pm.ApplicationInfo getApplicationInfo()
@@ -2045,9 +2045,9 @@ class Context extends jni.JObject {
   }
 
   static final _getPackageResourcePath = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageResourcePath")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageResourcePath")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageResourcePath()
@@ -2058,9 +2058,9 @@ class Context extends jni.JObject {
   }
 
   static final _getPackageCodePath = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageCodePath")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageCodePath")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageCodePath()
@@ -2193,9 +2193,9 @@ class Context extends jni.JObject {
   }
 
   static final _getDataDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getDataDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDataDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getDataDir()
@@ -2205,9 +2205,9 @@ class Context extends jni.JObject {
   }
 
   static final _getFilesDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getFilesDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getFilesDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getFilesDir()
@@ -2217,9 +2217,9 @@ class Context extends jni.JObject {
   }
 
   static final _getNoBackupFilesDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getNoBackupFilesDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getNoBackupFilesDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getNoBackupFilesDir()
@@ -2264,9 +2264,9 @@ class Context extends jni.JObject {
   }
 
   static final _getObbDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getObbDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getObbDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getObbDir()
@@ -2276,9 +2276,9 @@ class Context extends jni.JObject {
   }
 
   static final _getObbDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getObbDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getObbDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getObbDirs()
@@ -2289,9 +2289,9 @@ class Context extends jni.JObject {
   }
 
   static final _getCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getCacheDir()
@@ -2301,9 +2301,9 @@ class Context extends jni.JObject {
   }
 
   static final _getCodeCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getCodeCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getCodeCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getCodeCacheDir()
@@ -2313,9 +2313,9 @@ class Context extends jni.JObject {
   }
 
   static final _getExternalCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getExternalCacheDir()
@@ -2326,9 +2326,9 @@ class Context extends jni.JObject {
   }
 
   static final _getExternalCacheDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalCacheDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalCacheDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalCacheDirs()
@@ -2339,9 +2339,9 @@ class Context extends jni.JObject {
   }
 
   static final _getExternalMediaDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalMediaDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalMediaDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalMediaDirs()
@@ -2352,9 +2352,9 @@ class Context extends jni.JObject {
   }
 
   static final _fileList = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__fileList")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__fileList")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String[] fileList()
@@ -2486,9 +2486,9 @@ class Context extends jni.JObject {
   }
 
   static final _databaseList = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__databaseList")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__databaseList")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String[] databaseList()
@@ -2499,9 +2499,9 @@ class Context extends jni.JObject {
   }
 
   static final _getWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.graphics.drawable.Drawable getWallpaper()
@@ -2511,9 +2511,9 @@ class Context extends jni.JObject {
   }
 
   static final _peekWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__peekWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__peekWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.graphics.drawable.Drawable peekWallpaper()
@@ -2523,8 +2523,8 @@ class Context extends jni.JObject {
   }
 
   static final _getWallpaperDesiredMinimumWidth = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__getWallpaperDesiredMinimumWidth")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -2534,8 +2534,8 @@ class Context extends jni.JObject {
   }
 
   static final _getWallpaperDesiredMinimumHeight = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__getWallpaperDesiredMinimumHeight")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -2575,9 +2575,9 @@ class Context extends jni.JObject {
   }
 
   static final _clearWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__clearWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__clearWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void clearWallpaper()
@@ -4154,8 +4154,8 @@ class Context extends jni.JObject {
   }
 
   static final _createDeviceProtectedStorageContext = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__createDeviceProtectedStorageContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -4167,9 +4167,9 @@ class Context extends jni.JObject {
   }
 
   static final _getDisplay = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getDisplay")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDisplay")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.Display getDisplay()
@@ -4179,9 +4179,9 @@ class Context extends jni.JObject {
   }
 
   static final _isRestricted = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isRestricted")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isRestricted")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isRestricted()
@@ -4190,9 +4190,9 @@ class Context extends jni.JObject {
   }
 
   static final _isDeviceProtectedStorage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isDeviceProtectedStorage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isDeviceProtectedStorage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean isDeviceProtectedStorage()
@@ -4201,9 +4201,9 @@ class Context extends jni.JObject {
   }
 
   static final _isUiContext = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isUiContext")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isUiContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isUiContext()
@@ -5368,8 +5368,9 @@ class Intent extends jni.JObject {
   }
 
   static final _ctor1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__ctor1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__ctor1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(android.content.Intent intent)
@@ -5381,8 +5382,9 @@ class Intent extends jni.JObject {
   }
 
   static final _ctor2 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__ctor2")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__ctor2")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.lang.String string)
@@ -5492,8 +5494,9 @@ class Intent extends jni.JObject {
   }
 
   static final _clone = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__clone")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__clone")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object clone()
@@ -5503,9 +5506,9 @@ class Intent extends jni.JObject {
   }
 
   static final _cloneFilter = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__cloneFilter")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__cloneFilter")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent cloneFilter()
@@ -5515,9 +5518,9 @@ class Intent extends jni.JObject {
   }
 
   static final _makeMainActivity = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__makeMainActivity")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__makeMainActivity")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent makeMainActivity(android.content.ComponentName componentName)
@@ -5548,9 +5551,9 @@ class Intent extends jni.JObject {
   }
 
   static final _makeRestartActivityTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__makeRestartActivityTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__makeRestartActivityTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent makeRestartActivityTask(android.content.ComponentName componentName)
@@ -5563,9 +5566,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getIntent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getIntent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getIntent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent getIntent(java.lang.String string)
@@ -5592,9 +5595,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getIntentOld = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getIntentOld")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getIntentOld")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent getIntentOld(java.lang.String string)
@@ -5606,9 +5609,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getAction = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getAction")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getAction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getAction()
@@ -5618,8 +5621,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getData = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__getData")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getData")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri getData()
@@ -5629,9 +5633,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getDataString = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getDataString")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getDataString")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getDataString()
@@ -5641,9 +5645,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getScheme = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getScheme")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getScheme")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getScheme()
@@ -5653,8 +5657,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getType = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__getType")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getType")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getType()
@@ -5715,9 +5720,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getIdentifier = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getIdentifier")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getIdentifier")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getIdentifier()
@@ -5742,9 +5747,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getCategories = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getCategories")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getCategories")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.Set getCategories()
@@ -5755,9 +5760,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getSelector = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getSelector")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getSelector")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent getSelector()
@@ -5767,9 +5772,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getClipData = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getClipData")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getClipData")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ClipData getClipData()
@@ -5809,9 +5814,9 @@ class Intent extends jni.JObject {
   }
 
   static final _hasFileDescriptors = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__hasFileDescriptors")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__hasFileDescriptors")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean hasFileDescriptors()
@@ -6378,9 +6383,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getExtras = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getExtras")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getExtras")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.os.Bundle getExtras()
@@ -6390,9 +6395,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getFlags = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getFlags")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getFlags")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getFlags()
@@ -6401,9 +6406,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getPackage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getPackage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getPackage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getPackage()
@@ -6413,9 +6418,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getComponent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getComponent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getComponent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName getComponent()
@@ -6425,9 +6430,9 @@ class Intent extends jni.JObject {
   }
 
   static final _getSourceBounds = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getSourceBounds")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getSourceBounds")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.graphics.Rect getSourceBounds()
@@ -7491,9 +7496,9 @@ class Intent extends jni.JObject {
   }
 
   static final _filterHashCode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__filterHashCode")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__filterHashCode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int filterHashCode()
@@ -7502,9 +7507,9 @@ class Intent extends jni.JObject {
   }
 
   static final _toString1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__toString1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__toString1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toString()
@@ -7514,8 +7519,9 @@ class Intent extends jni.JObject {
   }
 
   static final _toURI = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__toURI")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__toURI")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toURI()
@@ -7539,9 +7545,9 @@ class Intent extends jni.JObject {
   }
 
   static final _describeContents = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__describeContents")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__describeContents")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int describeContents()
@@ -7603,9 +7609,9 @@ class Intent extends jni.JObject {
   }
 
   static final _normalizeMimeType = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__normalizeMimeType")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__normalizeMimeType")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.lang.String normalizeMimeType(java.lang.String string)
@@ -7700,9 +7706,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getIntent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getIntent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getIntent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent getIntent()
@@ -7746,9 +7752,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getApplication = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getApplication")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getApplication")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.app.Application getApplication()
@@ -7758,9 +7764,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isChild = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isChild")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isChild")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final boolean isChild()
@@ -7769,9 +7775,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getParent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getParent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getParent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.app.Activity getParent()
@@ -7781,9 +7787,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getWindowManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getWindowManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getWindowManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.WindowManager getWindowManager()
@@ -7793,9 +7799,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getWindow = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getWindow")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getWindow")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.Window getWindow()
@@ -7805,9 +7811,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getLoaderManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getLoaderManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getLoaderManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.LoaderManager getLoaderManager()
@@ -7817,9 +7823,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getCurrentFocus = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getCurrentFocus")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getCurrentFocus")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.View getCurrentFocus()
@@ -7930,9 +7936,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getSplashScreen = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getSplashScreen")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getSplashScreen")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.window.SplashScreen getSplashScreen()
@@ -8031,9 +8037,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onStart = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onStart")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onStart")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onStart()
@@ -8042,9 +8048,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onRestart = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onRestart")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onRestart")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onRestart()
@@ -8053,9 +8059,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onStateNotSaved = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onStateNotSaved")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onStateNotSaved")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onStateNotSaved()
@@ -8064,9 +8070,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onResume = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onResume")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onResume")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onResume()
@@ -8075,9 +8081,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onPostResume = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onPostResume")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onPostResume")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPostResume()
@@ -8099,9 +8105,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isVoiceInteraction = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isVoiceInteraction")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isVoiceInteraction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isVoiceInteraction()
@@ -8110,9 +8116,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isVoiceInteractionRoot = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isVoiceInteractionRoot")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isVoiceInteractionRoot")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isVoiceInteractionRoot()
@@ -8121,9 +8127,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getVoiceInteractor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getVoiceInteractor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getVoiceInteractor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.VoiceInteractor getVoiceInteractor()
@@ -8134,8 +8140,8 @@ class Activity extends jni.JObject {
   }
 
   static final _isLocalVoiceInteractionSupported = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__isLocalVoiceInteractionSupported")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8161,8 +8167,8 @@ class Activity extends jni.JObject {
   }
 
   static final _onLocalVoiceInteractionStarted = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onLocalVoiceInteractionStarted")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8172,8 +8178,8 @@ class Activity extends jni.JObject {
   }
 
   static final _onLocalVoiceInteractionStopped = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onLocalVoiceInteractionStopped")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8183,8 +8189,8 @@ class Activity extends jni.JObject {
   }
 
   static final _stopLocalVoiceInteraction = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__stopLocalVoiceInteraction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8244,9 +8250,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onPause = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onPause")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onPause")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPause()
@@ -8255,9 +8261,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onUserLeaveHint = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onUserLeaveHint")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onUserLeaveHint")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onUserLeaveHint()
@@ -8285,9 +8291,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onCreateDescription = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onCreateDescription")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onCreateDescription")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.CharSequence onCreateDescription()
@@ -8376,8 +8382,8 @@ class Activity extends jni.JObject {
   }
 
   static final _requestShowKeyboardShortcuts = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__requestShowKeyboardShortcuts")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8387,8 +8393,8 @@ class Activity extends jni.JObject {
   }
 
   static final _dismissKeyboardShortcutsHelper = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__dismissKeyboardShortcutsHelper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8435,9 +8441,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onStop = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onStop")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onStop")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onStop()
@@ -8446,9 +8452,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onDestroy = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onDestroy")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onDestroy")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onDestroy()
@@ -8457,9 +8463,9 @@ class Activity extends jni.JObject {
   }
 
   static final _reportFullyDrawn = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__reportFullyDrawn")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__reportFullyDrawn")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void reportFullyDrawn()
@@ -8499,9 +8505,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isInMultiWindowMode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isInMultiWindowMode")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isInMultiWindowMode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isInMultiWindowMode()
@@ -8560,9 +8566,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isInPictureInPictureMode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isInPictureInPictureMode")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isInPictureInPictureMode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isInPictureInPictureMode()
@@ -8571,8 +8577,8 @@ class Activity extends jni.JObject {
   }
 
   static final _enterPictureInPictureMode = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__enterPictureInPictureMode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8618,8 +8624,8 @@ class Activity extends jni.JObject {
   }
 
   static final _getMaxNumPictureInPictureActions = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getMaxNumPictureInPictureActions")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8629,8 +8635,8 @@ class Activity extends jni.JObject {
   }
 
   static final _onPictureInPictureRequested = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onPictureInPictureRequested")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8653,9 +8659,9 @@ class Activity extends jni.JObject {
   }
 
   static final _shouldDockBigOverlays = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__shouldDockBigOverlays")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__shouldDockBigOverlays")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean shouldDockBigOverlays()
@@ -8679,8 +8685,8 @@ class Activity extends jni.JObject {
   }
 
   static final _getChangingConfigurations = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getChangingConfigurations")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8690,8 +8696,8 @@ class Activity extends jni.JObject {
   }
 
   static final _getLastNonConfigurationInstance = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getLastNonConfigurationInstance")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8703,8 +8709,8 @@ class Activity extends jni.JObject {
   }
 
   static final _onRetainNonConfigurationInstance = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onRetainNonConfigurationInstance")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8716,9 +8722,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onLowMemory = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onLowMemory")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onLowMemory")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onLowMemory()
@@ -8740,9 +8746,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getFragmentManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getFragmentManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getFragmentManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.FragmentManager getFragmentManager()
@@ -8865,9 +8871,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getActionBar = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getActionBar")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getActionBar")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.ActionBar getActionBar()
@@ -8958,8 +8964,8 @@ class Activity extends jni.JObject {
   }
 
   static final _getContentTransitionManager = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getContentTransitionManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -8988,9 +8994,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getContentScene = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getContentScene")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getContentScene")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.transition.Scene getContentScene()
@@ -9091,9 +9097,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onBackPressed = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onBackPressed")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onBackPressed")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onBackPressed()
@@ -9163,9 +9169,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onUserInteraction = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onUserInteraction")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onUserInteraction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onUserInteraction()
@@ -9191,9 +9197,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onContentChanged = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onContentChanged")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onContentChanged")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onContentChanged()
@@ -9215,9 +9221,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onAttachedToWindow = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onAttachedToWindow")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onAttachedToWindow")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onAttachedToWindow()
@@ -9226,9 +9232,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onDetachedFromWindow = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onDetachedFromWindow")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onDetachedFromWindow")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onDetachedFromWindow()
@@ -9237,9 +9243,9 @@ class Activity extends jni.JObject {
   }
 
   static final _hasWindowFocus = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__hasWindowFocus")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__hasWindowFocus")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean hasWindowFocus()
@@ -9443,9 +9449,9 @@ class Activity extends jni.JObject {
   }
 
   static final _invalidateOptionsMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__invalidateOptionsMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__invalidateOptionsMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void invalidateOptionsMenu()
@@ -9499,9 +9505,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onNavigateUp = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onNavigateUp")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onNavigateUp")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onNavigateUp()
@@ -9574,9 +9580,9 @@ class Activity extends jni.JObject {
   }
 
   static final _openOptionsMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__openOptionsMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__openOptionsMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void openOptionsMenu()
@@ -9585,9 +9591,9 @@ class Activity extends jni.JObject {
   }
 
   static final _closeOptionsMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__closeOptionsMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__closeOptionsMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void closeOptionsMenu()
@@ -9663,9 +9669,9 @@ class Activity extends jni.JObject {
   }
 
   static final _closeContextMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__closeContextMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__closeContextMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void closeContextMenu()
@@ -9844,9 +9850,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onSearchRequested1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onSearchRequested1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onSearchRequested1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onSearchRequested()
@@ -9855,9 +9861,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getSearchEvent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getSearchEvent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getSearchEvent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.view.SearchEvent getSearchEvent()
@@ -9996,9 +10002,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getLayoutInflater = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getLayoutInflater")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getLayoutInflater")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.LayoutInflater getLayoutInflater()
@@ -10009,9 +10015,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getMenuInflater = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getMenuInflater")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getMenuInflater")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.MenuInflater getMenuInflater()
@@ -10150,8 +10156,8 @@ class Activity extends jni.JObject {
   }
 
   static final _isActivityTransitionRunning = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__isActivityTransitionRunning")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -10665,9 +10671,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getReferrer = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getReferrer")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getReferrer")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri getReferrer()
@@ -10677,9 +10683,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onProvideReferrer = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onProvideReferrer")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onProvideReferrer")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri onProvideReferrer()
@@ -10690,9 +10696,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getCallingPackage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getCallingPackage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getCallingPackage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getCallingPackage()
@@ -10703,9 +10709,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getCallingActivity = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getCallingActivity")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getCallingActivity")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName getCallingActivity()
@@ -10729,9 +10735,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isFinishing = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isFinishing")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isFinishing")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isFinishing()
@@ -10740,9 +10746,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isDestroyed = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isDestroyed")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isDestroyed")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isDestroyed()
@@ -10751,9 +10757,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isChangingConfigurations = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isChangingConfigurations")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isChangingConfigurations")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isChangingConfigurations()
@@ -10762,9 +10768,9 @@ class Activity extends jni.JObject {
   }
 
   static final _recreate = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__recreate")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__recreate")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void recreate()
@@ -10773,9 +10779,9 @@ class Activity extends jni.JObject {
   }
 
   static final _finish = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finish")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finish")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finish()
@@ -10784,9 +10790,9 @@ class Activity extends jni.JObject {
   }
 
   static final _finishAffinity = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finishAffinity")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finishAffinity")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishAffinity()
@@ -10810,9 +10816,9 @@ class Activity extends jni.JObject {
   }
 
   static final _finishAfterTransition = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finishAfterTransition")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finishAfterTransition")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishAfterTransition()
@@ -10852,9 +10858,9 @@ class Activity extends jni.JObject {
   }
 
   static final _finishAndRemoveTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finishAndRemoveTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finishAndRemoveTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishAndRemoveTask()
@@ -10863,9 +10869,9 @@ class Activity extends jni.JObject {
   }
 
   static final _releaseInstance = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__releaseInstance")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__releaseInstance")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean releaseInstance()
@@ -10945,9 +10951,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getRequestedOrientation = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getRequestedOrientation")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getRequestedOrientation")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getRequestedOrientation()
@@ -10956,9 +10962,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getTaskId = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getTaskId")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getTaskId")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getTaskId()
@@ -10967,9 +10973,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isTaskRoot = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isTaskRoot")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isTaskRoot")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isTaskRoot()
@@ -10991,9 +10997,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getLocalClassName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getLocalClassName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getLocalClassName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getLocalClassName()
@@ -11004,9 +11010,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getComponentName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getComponentName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getComponentName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName getComponentName()
@@ -11031,9 +11037,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isLaunchedFromBubble = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isLaunchedFromBubble")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isLaunchedFromBubble")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isLaunchedFromBubble()
@@ -11100,9 +11106,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getTitle = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getTitle")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getTitle")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final java.lang.CharSequence getTitle()
@@ -11112,9 +11118,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getTitleColor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getTitleColor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getTitleColor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final int getTitleColor()
@@ -11254,9 +11260,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getVolumeControlStream = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getVolumeControlStream")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getVolumeControlStream")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final int getVolumeControlStream()
@@ -11280,9 +11286,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getMediaController = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getMediaController")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getMediaController")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.media.session.MediaController getMediaController()
@@ -11392,9 +11398,9 @@ class Activity extends jni.JObject {
   }
 
   static final _isImmersive = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isImmersive")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isImmersive")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isImmersive()
@@ -11429,9 +11435,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onVisibleBehindCanceled = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onVisibleBehindCanceled")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onVisibleBehindCanceled")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onVisibleBehindCanceled()
@@ -11440,9 +11446,9 @@ class Activity extends jni.JObject {
   }
 
   static final _onEnterAnimationComplete = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onEnterAnimationComplete")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onEnterAnimationComplete")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onEnterAnimationComplete()
@@ -11636,9 +11642,9 @@ class Activity extends jni.JObject {
   }
 
   static final _getParentActivityIntent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getParentActivityIntent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getParentActivityIntent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent getParentActivityIntent()
@@ -11685,9 +11691,9 @@ class Activity extends jni.JObject {
   }
 
   static final _postponeEnterTransition = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__postponeEnterTransition")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__postponeEnterTransition")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void postponeEnterTransition()
@@ -11696,8 +11702,8 @@ class Activity extends jni.JObject {
   }
 
   static final _startPostponedEnterTransition = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__startPostponedEnterTransition")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -11725,9 +11731,9 @@ class Activity extends jni.JObject {
   }
 
   static final _startLockTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__startLockTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__startLockTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startLockTask()
@@ -11736,9 +11742,9 @@ class Activity extends jni.JObject {
   }
 
   static final _stopLockTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__stopLockTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__stopLockTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void stopLockTask()
@@ -11747,8 +11753,8 @@ class Activity extends jni.JObject {
   }
 
   static final _showLockTaskEscapeMessage = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__showLockTaskEscapeMessage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -11810,8 +11816,8 @@ class Activity extends jni.JObject {
   }
 
   static final _getOnBackInvokedDispatcher = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getOnBackInvokedDispatcher")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -11896,8 +11902,9 @@ class Instant extends jni.JObject {
   }
 
   static final _now1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__now1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__now1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant now(java.time.Clock clock)
@@ -11949,8 +11956,9 @@ class Instant extends jni.JObject {
   }
 
   static final _from = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__from")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__from")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant from(java.time.temporal.TemporalAccessor temporalAccessor)
@@ -11963,8 +11971,9 @@ class Instant extends jni.JObject {
   }
 
   static final _parse = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__parse")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__parse")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant parse(java.lang.CharSequence charSequence)
@@ -12053,9 +12062,9 @@ class Instant extends jni.JObject {
   }
 
   static final _getEpochSecond = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__getEpochSecond")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__getEpochSecond")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public long getEpochSecond()
@@ -12064,9 +12073,9 @@ class Instant extends jni.JObject {
   }
 
   static final _getNano = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__getNano")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__getNano")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getNano()
@@ -12367,9 +12376,9 @@ class Instant extends jni.JObject {
   }
 
   static final _toEpochMilli = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__toEpochMilli")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__toEpochMilli")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public long toEpochMilli()
@@ -12438,9 +12447,9 @@ class Instant extends jni.JObject {
   }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
@@ -12449,9 +12458,9 @@ class Instant extends jni.JObject {
   }
 
   static final _toString1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__toString1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__toString1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toString()
@@ -13101,9 +13110,9 @@ class ReadRecordsRequest<$T extends jni.JObject> extends jni.JObject {
   }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("ReadRecordsRequest__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "ReadRecordsRequest__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
@@ -13178,9 +13187,9 @@ class AggregationResult extends jni.JObject {
   }
 
   static final _getDataOrigins = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__getDataOrigins")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "AggregationResult__getDataOrigins")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final java.util.Set getDataOrigins()

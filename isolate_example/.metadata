@@ -1,11 +1,11 @@
 # This file tracks properties of this Flutter project.
 # Used by Flutter tool to assess capabilities and perform upgrades etc.
 #
-# This file should be version controlled.
+# This file should be version controlled and should not be manually edited.
 
 version:
-  revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-  channel: beta
+  revision: "ac71592bc605996f9376ec5b7607db52b64cabd0"
+  channel: "beta"
 
 project_type: app
 
@@ -13,23 +13,23 @@ project_type: app
 migration:
   platforms:
     - platform: root
-      create_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-      base_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
+      create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
+      base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
     - platform: android
-      create_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-      base_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
+      create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
+      base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
     - platform: ios
-      create_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-      base_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
+      create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
+      base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
     - platform: linux
-      create_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-      base_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
+      create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
+      base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
     - platform: macos
-      create_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-      base_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
+      create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
+      base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
     - platform: windows
-      create_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
-      base_revision: f732038a8cf4562ce38a1d7debb30209ae3da896
+      create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
+      base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
 
   # User provided section
 

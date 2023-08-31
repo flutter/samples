@@ -7,15 +7,15 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.1.0
 
 dependencies:
   flutter:
     sdk: flutter
 
-  audioplayers: ^5.0.0
+  audioplayers: ^5.1.0
   cupertino_icons: ^1.0.2
-  go_router: ^10.0.0
+  go_router: ^10.1.2
   logging: ^1.1.0
   provider: ^6.0.2
   shared_preferences: ^2.0.13
@@ -24,7 +24,7 @@ dependencies:
   # delete the relevant line below, and get rid of any Dart code
   # that references the dependency.
   firebase_core: ^2.1.1  # Needed for Crashlytics below
-  firebase_crashlytics: ^3.0.3  # Error reporting
+  firebase_crashlytics: ^3.3.5  # Error reporting
   games_services: ^3.0.0  # Achievements and leaderboards
   google_mobile_ads: ^3.0.0  # Ads
   in_app_purchase: ^3.0.1  # In-app purchases

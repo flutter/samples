@@ -20723,8 +20723,8 @@ class PedometerBindings {
       'objc_msgSend');
   late final __objc_msgSend_728 = __objc_msgSend_728Ptr.asFunction<
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>>
+              ffi
+              .NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>>
           Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
 
   late final _sel_setSizeFunction_1 = _registerName1("setSizeFunction:");
@@ -20732,8 +20732,8 @@ class PedometerBindings {
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<
-            ffi.NativeFunction<
-                ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>>
+            ffi
+            .NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>>
         value,
   ) {
     return __objc_msgSend_729(
@@ -32540,21 +32540,21 @@ class ObjCBlock7 extends _ObjCBlockBase {
   ObjCBlock7.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
+              ffi
+              .NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ObjCObject> arg1)>>
           ptr)
       : this._(
-            lib
-                ._newBlock1(
-                    _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                                ffi.Bool Function(
-                                    ffi.Pointer<_ObjCBlock> block,
-                                    ffi.Pointer<ObjCObject> arg0,
-                                    ffi.Pointer<ObjCObject> arg1)>(
-                            _ObjCBlock7_fnPtrTrampoline, false)
-                        .cast(),
-                    ptr.cast()),
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Bool Function(
+                                ffi.Pointer<_ObjCBlock> block,
+                                ffi.Pointer<ObjCObject> arg0,
+                                ffi.Pointer<ObjCObject> arg1)>(
+                        _ObjCBlock7_fnPtrTrampoline, false)
+                    .cast(),
+                ptr.cast()),
             lib);
   static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
 
@@ -32817,21 +32817,21 @@ class ObjCBlock8 extends _ObjCBlockBase {
   ObjCBlock8.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
+              ffi
+              .NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ObjCObject> arg1)>>
           ptr)
       : this._(
-            lib
-                ._newBlock1(
-                    _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                                ffi.Bool Function(
-                                    ffi.Pointer<_ObjCBlock> block,
-                                    ffi.Pointer<ObjCObject> arg0,
-                                    ffi.Pointer<ObjCObject> arg1)>(
-                            _ObjCBlock8_fnPtrTrampoline, false)
-                        .cast(),
-                    ptr.cast()),
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Bool Function(
+                                ffi.Pointer<_ObjCBlock> block,
+                                ffi.Pointer<ObjCObject> arg0,
+                                ffi.Pointer<ObjCObject> arg1)>(
+                        _ObjCBlock8_fnPtrTrampoline, false)
+                    .cast(),
+                ptr.cast()),
             lib);
   static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
 
@@ -33527,19 +33527,26 @@ class ObjCBlock10 extends _ObjCBlockBase {
   /// Creates a block from a C function pointer.
   ObjCBlock10.fromFunctionPointer(
       PedometerBindings lib,
-      ffi.Pointer<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1, ffi.Pointer<ffi.Bool> arg2)>>
+      ffi.Pointer<
+              ffi
+              .NativeFunction<
+                  ffi.Bool Function(
+                      ffi.Pointer<ObjCObject> arg0,
+                      ffi.Pointer<ObjCObject> arg1,
+                      ffi.Pointer<ffi.Bool> arg2)>>
           ptr)
       : this._(
-            lib._newBlock1(
-                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                            ffi.Bool Function(
-                                ffi.Pointer<_ObjCBlock> block,
-                                ffi.Pointer<ObjCObject> arg0,
-                                ffi.Pointer<ObjCObject> arg1,
-                                ffi.Pointer<ffi.Bool> arg2)>(
-                        _ObjCBlock10_fnPtrTrampoline, false)
-                    .cast(),
-                ptr.cast()),
+            lib
+                ._newBlock1(
+                    _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                                ffi.Bool Function(
+                                    ffi.Pointer<_ObjCBlock> block,
+                                    ffi.Pointer<ObjCObject> arg0,
+                                    ffi.Pointer<ObjCObject> arg1,
+                                    ffi.Pointer<ffi.Bool> arg2)>(
+                            _ObjCBlock10_fnPtrTrampoline, false)
+                        .cast(),
+                    ptr.cast()),
             lib);
   static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
 
@@ -35542,7 +35549,8 @@ class ObjCBlock17 extends _ObjCBlockBase {
   ObjCBlock17.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
+              ffi
+              .NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ffi.Bool> arg1)>>
           ptr)
@@ -36317,8 +36325,8 @@ class ObjCBlock18 extends _ObjCBlockBase {
   ObjCBlock18.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -36443,21 +36451,21 @@ class ObjCBlock19 extends _ObjCBlockBase {
   ObjCBlock19.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
+              ffi
+              .NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ObjCObject> arg1)>>
           ptr)
       : this._(
-            lib
-                ._newBlock1(
-                    _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                                ffi.Bool Function(
-                                    ffi.Pointer<_ObjCBlock> block,
-                                    ffi.Pointer<ObjCObject> arg0,
-                                    ffi.Pointer<ObjCObject> arg1)>(
-                            _ObjCBlock19_fnPtrTrampoline, false)
-                        .cast(),
-                    ptr.cast()),
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Bool Function(
+                                ffi.Pointer<_ObjCBlock> block,
+                                ffi.Pointer<ObjCObject> arg0,
+                                ffi.Pointer<ObjCObject> arg1)>(
+                        _ObjCBlock19_fnPtrTrampoline, false)
+                    .cast(),
+                ptr.cast()),
             lib);
   static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
 
@@ -38976,8 +38984,8 @@ class ObjCBlock21 extends _ObjCBlockBase {
   void call() {
     return _id.ref.invoke
         .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<_ObjCBlock> block)>>()
+            ffi
+            .NativeFunction<ffi.Void Function(ffi.Pointer<_ObjCBlock> block)>>()
         .asFunction<void Function(ffi.Pointer<_ObjCBlock> block)>()(_id);
   }
 
@@ -46915,8 +46923,8 @@ class ObjCBlock34 extends _ObjCBlockBase {
   ObjCBlock34.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -47572,8 +47580,8 @@ class ObjCBlock35 extends _ObjCBlockBase {
   ObjCBlock35.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -50030,8 +50038,8 @@ class ObjCBlock36 extends _ObjCBlockBase {
   ObjCBlock36.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -51501,8 +51509,8 @@ class NSPointerFunctions extends NSObject {
 
   set sizeFunction(
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>>
+              ffi
+              .NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>>
           value) {
     _lib._objc_msgSend_729(_id, _lib._sel_setSizeFunction_1, value);
   }
@@ -53504,8 +53512,8 @@ class ObjCBlock39 extends _ObjCBlockBase {
   ObjCBlock39.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -54881,8 +54889,8 @@ class ObjCBlock41 extends _ObjCBlockBase {
   ObjCBlock41.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -54951,8 +54959,8 @@ class ObjCBlock42 extends _ObjCBlockBase {
   ObjCBlock42.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(
@@ -57737,8 +57745,8 @@ class ObjCBlock44 extends _ObjCBlockBase {
   ObjCBlock44.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
           ptr)
       : this._(
             lib._newBlock1(

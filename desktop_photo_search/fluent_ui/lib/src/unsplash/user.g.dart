@@ -94,13 +94,13 @@ class _$UserSerializer implements StructuredSerializer<User> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'updated_at':
           result.updatedAt = serializers.deserialize(value,
@@ -108,11 +108,11 @@ class _$UserSerializer implements StructuredSerializer<User> {
           break;
         case 'username':
           result.username = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'name':
           result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'portfolio_url':
           result.portfolioUrl = serializers.deserialize(value,
@@ -174,7 +174,7 @@ class _$User extends User {
   final Links? links;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
-      (new UserBuilder()..update(updates)).build();
+      (new UserBuilder()..update(updates))._build();
 
   _$User._(
       {required this.id,
@@ -189,9 +189,9 @@ class _$User extends User {
       this.totalCollections,
       this.links})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'User', 'id');
-    BuiltValueNullFieldError.checkNotNull(username, 'User', 'username');
-    BuiltValueNullFieldError.checkNotNull(name, 'User', 'name');
+    BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
+    BuiltValueNullFieldError.checkNotNull(username, r'User', 'username');
+    BuiltValueNullFieldError.checkNotNull(name, r'User', 'name');
   }
 
   @override
@@ -220,31 +220,25 @@ class _$User extends User {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc($jc(0, id.hashCode),
-                                            updatedAt.hashCode),
-                                        username.hashCode),
-                                    name.hashCode),
-                                portfolioUrl.hashCode),
-                            bio.hashCode),
-                        location.hashCode),
-                    totalLikes.hashCode),
-                totalPhotos.hashCode),
-            totalCollections.hashCode),
-        links.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, updatedAt.hashCode);
+    _$hash = $jc(_$hash, username.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, portfolioUrl.hashCode);
+    _$hash = $jc(_$hash, bio.hashCode);
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jc(_$hash, totalLikes.hashCode);
+    _$hash = $jc(_$hash, totalPhotos.hashCode);
+    _$hash = $jc(_$hash, totalCollections.hashCode);
+    _$hash = $jc(_$hash, links.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('User')
+    return (newBuiltValueToStringHelper(r'User')
           ..add('id', id)
           ..add('updatedAt', updatedAt)
           ..add('username', username)
@@ -341,16 +335,19 @@ class UserBuilder implements Builder<User, UserBuilder> {
   }
 
   @override
-  _$User build() {
+  User build() => _build();
+
+  _$User _build() {
     _$User _$result;
     try {
       _$result = _$v ??
           new _$User._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'User', 'id'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
               updatedAt: updatedAt,
               username: BuiltValueNullFieldError.checkNotNull(
-                  username, 'User', 'username'),
-              name: BuiltValueNullFieldError.checkNotNull(name, 'User', 'name'),
+                  username, r'User', 'username'),
+              name:
+                  BuiltValueNullFieldError.checkNotNull(name, r'User', 'name'),
               portfolioUrl: portfolioUrl,
               bio: bio,
               location: location,
@@ -365,7 +362,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
         _links?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'User', _$failedField, e.toString());
+            r'User', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -374,4 +371,4 @@ class UserBuilder implements Builder<User, UserBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

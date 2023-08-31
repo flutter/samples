@@ -74,7 +74,7 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
@@ -124,7 +124,7 @@ class _$Exif extends Exif {
   final int? iso;
 
   factory _$Exif([void Function(ExifBuilder)? updates]) =>
-      (new ExifBuilder()..update(updates)).build();
+      (new ExifBuilder()..update(updates))._build();
 
   _$Exif._(
       {this.make,
@@ -156,19 +156,20 @@ class _$Exif extends Exif {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc($jc($jc(0, make.hashCode), model.hashCode),
-                    exposureTime.hashCode),
-                aperture.hashCode),
-            focalLength.hashCode),
-        iso.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, make.hashCode);
+    _$hash = $jc(_$hash, model.hashCode);
+    _$hash = $jc(_$hash, exposureTime.hashCode);
+    _$hash = $jc(_$hash, aperture.hashCode);
+    _$hash = $jc(_$hash, focalLength.hashCode);
+    _$hash = $jc(_$hash, iso.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Exif')
+    return (newBuiltValueToStringHelper(r'Exif')
           ..add('make', make)
           ..add('model', model)
           ..add('exposureTime', exposureTime)
@@ -234,7 +235,9 @@ class ExifBuilder implements Builder<Exif, ExifBuilder> {
   }
 
   @override
-  _$Exif build() {
+  Exif build() => _build();
+
+  _$Exif _build() {
     final _$result = _$v ??
         new _$Exif._(
             make: make,
@@ -248,4 +251,4 @@ class ExifBuilder implements Builder<Exif, ExifBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

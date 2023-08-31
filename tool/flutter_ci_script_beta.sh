@@ -16,16 +16,16 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "analysis_defaults"
     "android_splash_screen"
-    "animations"
+    # TODO(DomesticMouse): 'textScaleFactor' is deprecated and shouldn't be used.
+    # "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
     "deeplink_store_example"
-    # TODO(DomesticMouse): Dependency 'fluent_ui' fails to compile. https://github.com/bdlukaa/fluent_ui/issues/865
-    # "desktop_photo_search/fluent_ui"
+    "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    # TODO(DomesticMouse): The function can't be unconditionally invoked because it can be 'null'.
+    # TODO(DomesticMouse): Context Menu tests are flaky?
     # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
@@ -35,23 +35,21 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
     "experimental/material_3_demo"
-    # TODO(DomesticMouse): dart format required
-    # "experimental/pedometer"
-    # TODO(DomesticMouse): dart format required
-    # "experimental/pedometer/example"
+    "experimental/pedometer"
+    "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
-    # TODO(DomesticMouse): The type 'AppLifecycleState' is not exhaustively matched by the switch cases since it doesn't match 'AppLifecycleState.hidden'.
-    # "game_template"
+    "game_template"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "jsonexample"
+    # TODO(DomesticMouse): ComplexObjectView widget test Typical object is displayed correctly
+    # "jsonexample"
     "material_3_demo"
-    # TODO(DomesticMouse): The '!' will have no effect because the receiver can't be null.
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "navigation_and_routing"
     "next_gen_ui_demo"
     "place_tracker"
@@ -61,8 +59,9 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    "simplistic_calculator"
-    # TODO(DomesticMouse): The named parameter 'onLiveTextInput' is required, but there's no corresponding argument.
+    # TODO(DomesticMouse): Inferred type argument 'AutoPlacement' doesn't conform to the bound 'Enum?' of the type variable 'T' on 'EnumProperty'.
+    # "simplistic_calculator"
+    # TODO(DomesticMouse): The named parameter 'onLookUp' is required
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"

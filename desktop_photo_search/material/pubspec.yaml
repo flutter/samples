@@ -4,27 +4,27 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.1.0
 
 dependencies:
   built_collection: ^5.1.1
-  built_value: ^8.3.0
-  cupertino_icons: ^1.0.2
+  built_value: ^8.6.1
+  cupertino_icons: ^1.0.5
   file_selector: ^1.0.0
   flutter:
     sdk: flutter
-  flutter_simple_treeview: ^3.0.0-nullsafety.1
-  http: ^1.0.0
-  logging: ^1.0.2
+  flutter_simple_treeview: ^3.0.2
+  http: ^1.1.0
+  logging: ^1.2.0
   menubar:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/menubar
       ref: 6c66ad23ee79749f30a8eece542cf54eaf157ed8
-  provider: ^6.0.2
-  transparent_image: ^2.0.0
-  url_launcher: ^6.1.1
-  uuid: ^3.0.5
+  provider: ^6.0.5
+  transparent_image: ^2.0.1
+  url_launcher: ^6.1.12
+  uuid: ^3.0.7
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
@@ -34,14 +34,14 @@ dependencies:
 dev_dependencies:
   analysis_defaults:
     path: ../../analysis_defaults
-  async: ^2.8.2
-  build: ^2.2.1
-  build_runner: ^2.1.7
-  built_value_generator: ^8.3.0
+  async: ^2.11.0
+  build: ^2.4.1
+  build_runner: ^2.4.6
+  built_value_generator: ^8.6.1
   flutter_test:
     sdk: flutter
-  grinder: ^0.9.0
-  msix: ^3.9.2
+  grinder: ^0.9.4
+  msix: ^3.16.1
 
 flutter:
   uses-material-design: true

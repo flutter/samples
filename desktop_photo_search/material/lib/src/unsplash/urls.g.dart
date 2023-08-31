@@ -68,7 +68,7 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
@@ -112,7 +112,7 @@ class _$Urls extends Urls {
   final String? thumb;
 
   factory _$Urls([void Function(UrlsBuilder)? updates]) =>
-      (new UrlsBuilder()..update(updates)).build();
+      (new UrlsBuilder()..update(updates))._build();
 
   _$Urls._({this.raw, this.full, this.regular, this.small, this.thumb})
       : super._();
@@ -137,15 +137,19 @@ class _$Urls extends Urls {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc($jc(0, raw.hashCode), full.hashCode), regular.hashCode),
-            small.hashCode),
-        thumb.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, raw.hashCode);
+    _$hash = $jc(_$hash, full.hashCode);
+    _$hash = $jc(_$hash, regular.hashCode);
+    _$hash = $jc(_$hash, small.hashCode);
+    _$hash = $jc(_$hash, thumb.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Urls')
+    return (newBuiltValueToStringHelper(r'Urls')
           ..add('raw', raw)
           ..add('full', full)
           ..add('regular', regular)
@@ -205,7 +209,9 @@ class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
   }
 
   @override
-  _$Urls build() {
+  Urls build() => _build();
+
+  _$Urls _build() {
     final _$result = _$v ??
         new _$Urls._(
             raw: raw, full: full, regular: regular, small: small, thumb: thumb);
@@ -214,4 +220,4 @@ class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint
