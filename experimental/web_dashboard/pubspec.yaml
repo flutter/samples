@@ -20,7 +20,7 @@ dependencies:
   json_annotation: ^4.5.0
   path: ^1.8.1
   provider: ^6.0.0
-  uuid: ^3.0.0
+  uuid: ^4.0.0
 
 dev_dependencies:
   analysis_defaults:
