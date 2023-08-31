@@ -49,7 +49,6 @@ lib
 │   ├── ads
 │   ├── app_lifecycle
 │   ├── audio
-│   ├── crashlytics
 │   ├── game_internals
 │   ├── games_services
 │   ├── in_app_purchase
@@ -240,12 +239,9 @@ with their mouth.
 
 ## Crashlytics
 
-Crashlytics integration is disabled by default. But even if you don't
-enable it, you might find code in `lib/src/crashlytics` helpful.
-It gathers all log messages and errors, so that you can, at the very least,
-print them to the console.
+Crashlytics integration is disabled by default. 
 
-When enabled, this integration is a lot more powerful:
+When enabled, this integration is quite powerful:
 
 - Any crashes of your app are sent to the Firebase Crashlytics console.
 - Any uncaught exception thrown anywhere in your code is captured
@@ -256,14 +252,6 @@ When enabled, this integration is a lot more powerful:
   - Device model, orientation, RAM free, disk free
   - Operating system version
   - App version
-- In addition, log messages generated anywhere in your app 
-  (and from packages you use) are recorded in memory,
-  and are sent alongside the reports. This means that you can
-  learn what happened before the crash or exception
-  occurred.
-- Also, any generated log message with `Level.severe` or above
-  is also sent to Crashlytics.
-- You can customize these behaviors in `lib/src/crashlytics`.
 
 To enable Firebase Crashlytics, do the following:
 
@@ -273,7 +261,7 @@ To enable Firebase Crashlytics, do the following:
    You don't need to enable Analytics in the project if you don't want to.
 2. [Install `firebase-tools`](https://firebase.google.com/docs/cli?authuser=0#setup_update_cli)
    on your machine.
-3. [Install `flutterfire` CLI](https://firebase.flutter.dev/docs/cli#installation)
+3. [Install `flutterfire` CLI](https://firebase.google.com/docs/flutter/setup)
    on your machine.
 4. In the root of this project (the directory containing `pubspec.yaml`),
    run the following:
@@ -286,8 +274,7 @@ To enable Firebase Crashlytics, do the following:
           the correct code.
 5. Go to `lib/main.dart` and uncomment the lines that relate to Crashlytics.
 
-You should now be able to see crashes, errors, and 
-severe log messages in
+You should now be able to see crashes and errors in
 [console.firebase.google.com](https://console.firebase.google.com/).
 To test, add a button to your project, and throw whatever
 exception you like when the player presses it.
