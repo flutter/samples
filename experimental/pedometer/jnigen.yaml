@@ -3,8 +3,6 @@ android_sdk_config:
   add_gradle_sources: true
   android_example: 'example/'
 
-suspend_fun_to_async: true
-
 output:
   c:
     library_name: health_connect

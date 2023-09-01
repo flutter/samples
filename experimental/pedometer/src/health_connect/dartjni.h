@@ -45,6 +45,7 @@
 #include <windows.h>
 
 typedef CRITICAL_SECTION MutexLock;
+typedef CONDITION_VARIABLE ConditionVariable;
 
 static inline void init_lock(MutexLock* lock) {
   InitializeCriticalSection(lock);
@@ -58,15 +59,32 @@ static inline void release_lock(MutexLock* lock) {
   LeaveCriticalSection(lock);
 }
 
-static inline void _destroyLock(MutexLock* lock) {
+static inline void destroy_lock(MutexLock* lock) {
   DeleteCriticalSection(lock);
 }
 
-#elif defined __DARWIN__ || defined __LINUX__ || defined __ANDROID__ ||        \
+static inline void init_cond(ConditionVariable* cond) {
+  InitializeConditionVariable(cond);
+}
+
+static inline void signal_cond(ConditionVariable* cond) {
+  WakeConditionVariable(cond);
+}
+
+static inline void wait_for(ConditionVariable* cond, MutexLock* lock) {
+  SleepConditionVariableCS(cond, lock, INFINITE);
+}
+
+static inline void destroy_cond(ConditionVariable* cond) {
+  // Not available.
+}
+
+#elif defined __APPLE__ || defined __LINUX__ || defined __ANDROID__ ||         \
     defined __GNUC__
 #include <pthread.h>
 
 typedef pthread_mutex_t MutexLock;
+typedef pthread_cond_t ConditionVariable;
 
 static inline void init_lock(MutexLock* lock) {
   pthread_mutex_init(lock, NULL);
@@ -80,15 +98,38 @@ static inline void release_lock(MutexLock* lock) {
   pthread_mutex_unlock(lock);
 }
 
-static inline void _destroyLock(MutexLock* lock) {
+static inline void destroy_lock(MutexLock* lock) {
   pthread_mutex_destroy(lock);
+}
+
+static inline void init_cond(ConditionVariable* cond) {
+  pthread_cond_init(cond, NULL);
+}
+
+static inline void signal_cond(ConditionVariable* cond) {
+  pthread_cond_signal(cond);
+}
+
+static inline void wait_for(ConditionVariable* cond, MutexLock* lock) {
+  pthread_cond_wait(cond, lock);
+}
+
+static inline void destroy_cond(ConditionVariable* cond) {
+  pthread_cond_destroy(cond);
 }
 
 #else
 
-#error "No locking support; Possibly unsupported platform"
+#error "No locking/condition variable support; Possibly unsupported platform"
 
 #endif
+
+typedef struct CallbackResult {
+  MutexLock lock;
+  ConditionVariable cond;
+  int ready;
+  jobject object;
+} CallbackResult;
 
 typedef struct JniLocks {
   MutexLock classLoadingLock;
@@ -369,10 +410,15 @@ static inline JniResult to_global_ref_result(jobject ref) {
 
 FFI_PLUGIN_EXPORT intptr_t InitDartApiDL(void* data);
 
-JNIEXPORT void JNICALL
-Java_com_github_dart_1lang_jni_PortContinuation__1resumeWith(JNIEnv* env,
-                                                             jobject thiz,
-                                                             jlong port,
-                                                             jobject result);
+FFI_PLUGIN_EXPORT
+JniResult DartException__ctor(jstring message);
+
 FFI_PLUGIN_EXPORT
 JniResult PortContinuation__ctor(int64_t j);
+
+FFI_PLUGIN_EXPORT
+JniResult PortProxy__newInstance(jobject binaryName,
+                                 int64_t port,
+                                 int64_t functionPtr);
+
+FFI_PLUGIN_EXPORT void resultFor(CallbackResult* result, jobject object);

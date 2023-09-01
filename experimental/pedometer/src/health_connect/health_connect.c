@@ -15,6 +15,95 @@ void setJniGetters(JniContext* (*cg)(void), JNIEnv* (*eg)(void)) {
   env_getter = eg;
 }
 
+// androidx.health.connect.client.HealthConnectClient$Companion
+jclass _c_HealthConnectClient_Companion = NULL;
+
+jmethodID _m_HealthConnectClient_Companion__isAvailable = NULL;
+FFI_PLUGIN_EXPORT
+JniResult HealthConnectClient_Companion__isAvailable(jobject self_,
+                                                     jobject context,
+                                                     jobject list) {
+  load_env();
+  load_class_global_ref(
+      &_c_HealthConnectClient_Companion,
+      "androidx/health/connect/client/HealthConnectClient$Companion");
+  if (_c_HealthConnectClient_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_HealthConnectClient_Companion,
+              &_m_HealthConnectClient_Companion__isAvailable, "isAvailable",
+              "(Landroid/content/Context;Ljava/util/List;)Z");
+  if (_m_HealthConnectClient_Companion__isAvailable == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(
+      jniEnv, self_, _m_HealthConnectClient_Companion__isAvailable, context,
+      list);
+  return (JniResult){.value = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_HealthConnectClient_Companion__getOrCreate = NULL;
+FFI_PLUGIN_EXPORT
+JniResult HealthConnectClient_Companion__getOrCreate(jobject self_,
+                                                     jobject context,
+                                                     jobject list) {
+  load_env();
+  load_class_global_ref(
+      &_c_HealthConnectClient_Companion,
+      "androidx/health/connect/client/HealthConnectClient$Companion");
+  if (_c_HealthConnectClient_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_HealthConnectClient_Companion,
+              &_m_HealthConnectClient_Companion__getOrCreate, "getOrCreate",
+              "(Landroid/content/Context;Ljava/util/List;)Landroidx/health/"
+              "connect/client/HealthConnectClient;");
+  if (_m_HealthConnectClient_Companion__getOrCreate == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_HealthConnectClient_Companion__getOrCreate, context,
+      list);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_HealthConnectClient_Companion__isAvailable1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult HealthConnectClient_Companion__isAvailable1(jobject self_,
+                                                      jobject context) {
+  load_env();
+  load_class_global_ref(
+      &_c_HealthConnectClient_Companion,
+      "androidx/health/connect/client/HealthConnectClient$Companion");
+  if (_c_HealthConnectClient_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_HealthConnectClient_Companion,
+              &_m_HealthConnectClient_Companion__isAvailable1, "isAvailable",
+              "(Landroid/content/Context;)Z");
+  if (_m_HealthConnectClient_Companion__isAvailable1 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(
+      jniEnv, self_, _m_HealthConnectClient_Companion__isAvailable1, context);
+  return (JniResult){.value = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_HealthConnectClient_Companion__getOrCreate1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult HealthConnectClient_Companion__getOrCreate1(jobject self_,
+                                                      jobject context) {
+  load_env();
+  load_class_global_ref(
+      &_c_HealthConnectClient_Companion,
+      "androidx/health/connect/client/HealthConnectClient$Companion");
+  if (_c_HealthConnectClient_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_HealthConnectClient_Companion,
+              &_m_HealthConnectClient_Companion__getOrCreate1, "getOrCreate",
+              "(Landroid/content/Context;)Landroidx/health/connect/client/"
+              "HealthConnectClient;");
+  if (_m_HealthConnectClient_Companion__getOrCreate1 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_HealthConnectClient_Companion__getOrCreate1, context);
+  return to_global_ref_result(_result);
+}
+
 // androidx.health.connect.client.HealthConnectClient
 jclass _c_HealthConnectClient = NULL;
 
@@ -431,6 +520,65 @@ JniResult get_HealthConnectClient__Companion() {
   return to_global_ref_result(_result);
 }
 
+// androidx.health.connect.client.PermissionController$Companion
+jclass _c_PermissionController_Companion = NULL;
+
+jmethodID
+    _m_PermissionController_Companion__createRequestPermissionResultContract =
+        NULL;
+FFI_PLUGIN_EXPORT
+JniResult PermissionController_Companion__createRequestPermissionResultContract(
+    jobject self_,
+    jobject string) {
+  load_env();
+  load_class_global_ref(
+      &_c_PermissionController_Companion,
+      "androidx/health/connect/client/PermissionController$Companion");
+  if (_c_PermissionController_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(
+      _c_PermissionController_Companion,
+      &_m_PermissionController_Companion__createRequestPermissionResultContract,
+      "createRequestPermissionResultContract",
+      "(Ljava/lang/String;)Landroidx/activity/result/contract/"
+      "ActivityResultContract;");
+  if (_m_PermissionController_Companion__createRequestPermissionResultContract ==
+      NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_,
+      _m_PermissionController_Companion__createRequestPermissionResultContract,
+      string);
+  return to_global_ref_result(_result);
+}
+
+jmethodID
+    _m_PermissionController_Companion__createRequestPermissionResultContract1 =
+        NULL;
+FFI_PLUGIN_EXPORT
+JniResult
+PermissionController_Companion__createRequestPermissionResultContract1(
+    jobject self_) {
+  load_env();
+  load_class_global_ref(
+      &_c_PermissionController_Companion,
+      "androidx/health/connect/client/PermissionController$Companion");
+  if (_c_PermissionController_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(
+      _c_PermissionController_Companion,
+      &_m_PermissionController_Companion__createRequestPermissionResultContract1,
+      "createRequestPermissionResultContract",
+      "()Landroidx/activity/result/contract/ActivityResultContract;");
+  if (_m_PermissionController_Companion__createRequestPermissionResultContract1 ==
+      NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_,
+      _m_PermissionController_Companion__createRequestPermissionResultContract1);
+  return to_global_ref_result(_result);
+}
+
 // androidx.health.connect.client.PermissionController
 jclass _c_PermissionController = NULL;
 
@@ -538,12 +686,34 @@ JniResult get_PermissionController__Companion() {
   return to_global_ref_result(_result);
 }
 
+// androidx.health.connect.client.records.StepsRecord$Companion
+jclass _c_StepsRecord_Companion = NULL;
+
+jmethodID _m_StepsRecord_Companion__new0 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult StepsRecord_Companion__new0(jobject defaultConstructorMarker) {
+  load_env();
+  load_class_global_ref(
+      &_c_StepsRecord_Companion,
+      "androidx/health/connect/client/records/StepsRecord$Companion");
+  if (_c_StepsRecord_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_StepsRecord_Companion, &_m_StepsRecord_Companion__new0,
+              "<init>", "(Lkotlin/jvm/internal/DefaultConstructorMarker;)V");
+  if (_m_StepsRecord_Companion__new0 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_StepsRecord_Companion,
+                                         _m_StepsRecord_Companion__new0,
+                                         defaultConstructorMarker);
+  return to_global_ref_result(_result);
+}
+
 // androidx.health.connect.client.records.StepsRecord
 jclass _c_StepsRecord = NULL;
 
-jmethodID _m_StepsRecord__ctor = NULL;
+jmethodID _m_StepsRecord__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult StepsRecord__ctor(int64_t j,
+JniResult StepsRecord__new0(int64_t j,
                             jobject instant,
                             jobject zoneOffset,
                             jobject instant1,
@@ -554,42 +724,42 @@ JniResult StepsRecord__ctor(int64_t j,
                         "androidx/health/connect/client/records/StepsRecord");
   if (_c_StepsRecord == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_StepsRecord, &_m_StepsRecord__ctor, "<init>",
+  load_method(_c_StepsRecord, &_m_StepsRecord__new0, "<init>",
               "(JLjava/time/Instant;Ljava/time/ZoneOffset;Ljava/time/"
               "Instant;Ljava/time/ZoneOffset;Landroidx/health/connect/client/"
               "records/metadata/Metadata;)V");
-  if (_m_StepsRecord__ctor == NULL)
+  if (_m_StepsRecord__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_StepsRecord, _m_StepsRecord__ctor, j, instant, zoneOffset,
+      jniEnv, _c_StepsRecord, _m_StepsRecord__new0, j, instant, zoneOffset,
       instant1, zoneOffset1, metadata);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_StepsRecord__ctor1 = NULL;
+jmethodID _m_StepsRecord__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult StepsRecord__ctor1(int64_t j,
-                             jobject instant,
-                             jobject zoneOffset,
-                             jobject instant1,
-                             jobject zoneOffset1,
-                             jobject metadata,
-                             int32_t i,
-                             jobject defaultConstructorMarker) {
+JniResult StepsRecord__new1(int64_t j,
+                            jobject instant,
+                            jobject zoneOffset,
+                            jobject instant1,
+                            jobject zoneOffset1,
+                            jobject metadata,
+                            int32_t i,
+                            jobject defaultConstructorMarker) {
   load_env();
   load_class_global_ref(&_c_StepsRecord,
                         "androidx/health/connect/client/records/StepsRecord");
   if (_c_StepsRecord == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(
-      _c_StepsRecord, &_m_StepsRecord__ctor1, "<init>",
+      _c_StepsRecord, &_m_StepsRecord__new1, "<init>",
       "(JLjava/time/Instant;Ljava/time/ZoneOffset;Ljava/time/Instant;Ljava/"
       "time/ZoneOffset;Landroidx/health/connect/client/records/metadata/"
       "Metadata;ILkotlin/jvm/internal/DefaultConstructorMarker;)V");
-  if (_m_StepsRecord__ctor1 == NULL)
+  if (_m_StepsRecord__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_StepsRecord, _m_StepsRecord__ctor1, j, instant, zoneOffset,
+      jniEnv, _c_StepsRecord, _m_StepsRecord__new1, j, instant, zoneOffset,
       instant1, zoneOffset1, metadata, i, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -890,21 +1060,21 @@ JniResult TimeRangeFilter_Companion__after1(jobject self_,
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_TimeRangeFilter_Companion__ctor = NULL;
+jmethodID _m_TimeRangeFilter_Companion__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult TimeRangeFilter_Companion__ctor(jobject defaultConstructorMarker) {
+JniResult TimeRangeFilter_Companion__new0(jobject defaultConstructorMarker) {
   load_env();
   load_class_global_ref(
       &_c_TimeRangeFilter_Companion,
       "androidx/health/connect/client/time/TimeRangeFilter$Companion");
   if (_c_TimeRangeFilter_Companion == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_TimeRangeFilter_Companion, &_m_TimeRangeFilter_Companion__ctor,
+  load_method(_c_TimeRangeFilter_Companion, &_m_TimeRangeFilter_Companion__new0,
               "<init>", "(Lkotlin/jvm/internal/DefaultConstructorMarker;)V");
-  if (_m_TimeRangeFilter_Companion__ctor == NULL)
+  if (_m_TimeRangeFilter_Companion__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(jniEnv, _c_TimeRangeFilter_Companion,
-                                         _m_TimeRangeFilter_Companion__ctor,
+                                         _m_TimeRangeFilter_Companion__new0,
                                          defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -912,9 +1082,9 @@ JniResult TimeRangeFilter_Companion__ctor(jobject defaultConstructorMarker) {
 // androidx.health.connect.client.time.TimeRangeFilter
 jclass _c_TimeRangeFilter = NULL;
 
-jmethodID _m_TimeRangeFilter__ctor = NULL;
+jmethodID _m_TimeRangeFilter__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult TimeRangeFilter__ctor(jobject instant,
+JniResult TimeRangeFilter__new0(jobject instant,
                                 jobject instant1,
                                 jobject localDateTime,
                                 jobject localDateTime1) {
@@ -923,38 +1093,38 @@ JniResult TimeRangeFilter__ctor(jobject instant,
                         "androidx/health/connect/client/time/TimeRangeFilter");
   if (_c_TimeRangeFilter == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_TimeRangeFilter, &_m_TimeRangeFilter__ctor, "<init>",
+  load_method(_c_TimeRangeFilter, &_m_TimeRangeFilter__new0, "<init>",
               "(Ljava/time/Instant;Ljava/time/Instant;Ljava/time/"
               "LocalDateTime;Ljava/time/LocalDateTime;)V");
-  if (_m_TimeRangeFilter__ctor == NULL)
+  if (_m_TimeRangeFilter__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_TimeRangeFilter, _m_TimeRangeFilter__ctor,
+      (*jniEnv)->NewObject(jniEnv, _c_TimeRangeFilter, _m_TimeRangeFilter__new0,
                            instant, instant1, localDateTime, localDateTime1);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_TimeRangeFilter__ctor1 = NULL;
+jmethodID _m_TimeRangeFilter__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult TimeRangeFilter__ctor1(jobject instant,
-                                 jobject instant1,
-                                 jobject localDateTime,
-                                 jobject localDateTime1,
-                                 int32_t i,
-                                 jobject defaultConstructorMarker) {
+JniResult TimeRangeFilter__new1(jobject instant,
+                                jobject instant1,
+                                jobject localDateTime,
+                                jobject localDateTime1,
+                                int32_t i,
+                                jobject defaultConstructorMarker) {
   load_env();
   load_class_global_ref(&_c_TimeRangeFilter,
                         "androidx/health/connect/client/time/TimeRangeFilter");
   if (_c_TimeRangeFilter == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(
-      _c_TimeRangeFilter, &_m_TimeRangeFilter__ctor1, "<init>",
+      _c_TimeRangeFilter, &_m_TimeRangeFilter__new1, "<init>",
       "(Ljava/time/Instant;Ljava/time/Instant;Ljava/time/LocalDateTime;Ljava/"
       "time/LocalDateTime;ILkotlin/jvm/internal/DefaultConstructorMarker;)V");
-  if (_m_TimeRangeFilter__ctor1 == NULL)
+  if (_m_TimeRangeFilter__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_TimeRangeFilter, _m_TimeRangeFilter__ctor1, instant, instant1,
+      jniEnv, _c_TimeRangeFilter, _m_TimeRangeFilter__new1, instant, instant1,
       localDateTime, localDateTime1, i, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -993,19 +1163,19 @@ JniResult TimeRangeFilter__hashCode1(jobject self_) {
   return (JniResult){.value = {.i = _result}, .exception = check_exception()};
 }
 
-jmethodID _m_TimeRangeFilter__ctor2 = NULL;
+jmethodID _m_TimeRangeFilter__new2 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult TimeRangeFilter__ctor2() {
+JniResult TimeRangeFilter__new2() {
   load_env();
   load_class_global_ref(&_c_TimeRangeFilter,
                         "androidx/health/connect/client/time/TimeRangeFilter");
   if (_c_TimeRangeFilter == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_TimeRangeFilter, &_m_TimeRangeFilter__ctor2, "<init>", "()V");
-  if (_m_TimeRangeFilter__ctor2 == NULL)
+  load_method(_c_TimeRangeFilter, &_m_TimeRangeFilter__new2, "<init>", "()V");
+  if (_m_TimeRangeFilter__new2 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(jniEnv, _c_TimeRangeFilter,
-                                         _m_TimeRangeFilter__ctor2);
+                                         _m_TimeRangeFilter__new2);
   return to_global_ref_result(_result);
 }
 
@@ -1141,17 +1311,17 @@ JniResult get_TimeRangeFilter__Companion() {
 // android.content.Context
 jclass _c_Context = NULL;
 
-jmethodID _m_Context__ctor = NULL;
+jmethodID _m_Context__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Context__ctor() {
+JniResult Context__new0() {
   load_env();
   load_class_global_ref(&_c_Context, "android/content/Context");
   if (_c_Context == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Context, &_m_Context__ctor, "<init>", "()V");
-  if (_m_Context__ctor == NULL)
+  load_method(_c_Context, &_m_Context__new0, "<init>", "()V");
+  if (_m_Context__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Context, _m_Context__ctor);
+  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Context, _m_Context__new0);
   return to_global_ref_result(_result);
 }
 
@@ -3669,102 +3839,353 @@ JniResult Context__isUiContext(jobject self_) {
   return (JniResult){.value = {.z = _result}, .exception = check_exception()};
 }
 
+// android.content.Intent$FilterComparison
+jclass _c_Intent_FilterComparison = NULL;
+
+jmethodID _m_Intent_FilterComparison__new0 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_FilterComparison__new0(jobject intent) {
+  load_env();
+  load_class_global_ref(&_c_Intent_FilterComparison,
+                        "android/content/Intent$FilterComparison");
+  if (_c_Intent_FilterComparison == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_FilterComparison, &_m_Intent_FilterComparison__new0,
+              "<init>", "(Landroid/content/Intent;)V");
+  if (_m_Intent_FilterComparison__new0 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->NewObject(jniEnv, _c_Intent_FilterComparison,
+                           _m_Intent_FilterComparison__new0, intent);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_Intent_FilterComparison__getIntent = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_FilterComparison__getIntent(jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_Intent_FilterComparison,
+                        "android/content/Intent$FilterComparison");
+  if (_c_Intent_FilterComparison == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_FilterComparison,
+              &_m_Intent_FilterComparison__getIntent, "getIntent",
+              "()Landroid/content/Intent;");
+  if (_m_Intent_FilterComparison__getIntent == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_Intent_FilterComparison__getIntent);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_Intent_FilterComparison__equals1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_FilterComparison__equals1(jobject self_, jobject object) {
+  load_env();
+  load_class_global_ref(&_c_Intent_FilterComparison,
+                        "android/content/Intent$FilterComparison");
+  if (_c_Intent_FilterComparison == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_FilterComparison, &_m_Intent_FilterComparison__equals1,
+              "equals", "(Ljava/lang/Object;)Z");
+  if (_m_Intent_FilterComparison__equals1 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(
+      jniEnv, self_, _m_Intent_FilterComparison__equals1, object);
+  return (JniResult){.value = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Intent_FilterComparison__hashCode1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_FilterComparison__hashCode1(jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_Intent_FilterComparison,
+                        "android/content/Intent$FilterComparison");
+  if (_c_Intent_FilterComparison == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_FilterComparison,
+              &_m_Intent_FilterComparison__hashCode1, "hashCode", "()I");
+  if (_m_Intent_FilterComparison__hashCode1 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  int32_t _result = (*jniEnv)->CallIntMethod(
+      jniEnv, self_, _m_Intent_FilterComparison__hashCode1);
+  return (JniResult){.value = {.i = _result}, .exception = check_exception()};
+}
+
+// android.content.Intent$ShortcutIconResource
+jclass _c_Intent_ShortcutIconResource = NULL;
+
+jmethodID _m_Intent_ShortcutIconResource__new0 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_ShortcutIconResource__new0() {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_ShortcutIconResource,
+              &_m_Intent_ShortcutIconResource__new0, "<init>", "()V");
+  if (_m_Intent_ShortcutIconResource__new0 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Intent_ShortcutIconResource,
+                                         _m_Intent_ShortcutIconResource__new0);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_Intent_ShortcutIconResource__fromContext = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_ShortcutIconResource__fromContext(jobject context, int32_t i) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Intent_ShortcutIconResource,
+                     &_m_Intent_ShortcutIconResource__fromContext,
+                     "fromContext",
+                     "(Landroid/content/Context;I)Landroid/content/"
+                     "Intent$ShortcutIconResource;");
+  if (_m_Intent_ShortcutIconResource__fromContext == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Intent_ShortcutIconResource,
+      _m_Intent_ShortcutIconResource__fromContext, context, i);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_Intent_ShortcutIconResource__describeContents = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_ShortcutIconResource__describeContents(jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_ShortcutIconResource,
+              &_m_Intent_ShortcutIconResource__describeContents,
+              "describeContents", "()I");
+  if (_m_Intent_ShortcutIconResource__describeContents == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  int32_t _result = (*jniEnv)->CallIntMethod(
+      jniEnv, self_, _m_Intent_ShortcutIconResource__describeContents);
+  return (JniResult){.value = {.i = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Intent_ShortcutIconResource__writeToParcel = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_ShortcutIconResource__writeToParcel(jobject self_,
+                                                     jobject parcel,
+                                                     int32_t i) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_ShortcutIconResource,
+              &_m_Intent_ShortcutIconResource__writeToParcel, "writeToParcel",
+              "(Landroid/os/Parcel;I)V");
+  if (_m_Intent_ShortcutIconResource__writeToParcel == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  (*jniEnv)->CallVoidMethod(
+      jniEnv, self_, _m_Intent_ShortcutIconResource__writeToParcel, parcel, i);
+  return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Intent_ShortcutIconResource__toString1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Intent_ShortcutIconResource__toString1(jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Intent_ShortcutIconResource,
+              &_m_Intent_ShortcutIconResource__toString1, "toString",
+              "()Ljava/lang/String;");
+  if (_m_Intent_ShortcutIconResource__toString1 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_Intent_ShortcutIconResource__toString1);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_Intent_ShortcutIconResource__CREATOR = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_Intent_ShortcutIconResource__CREATOR() {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_Intent_ShortcutIconResource,
+                    &_f_Intent_ShortcutIconResource__CREATOR, "CREATOR",
+                    "Landroid/os/Parcelable$Creator;");
+  jobject _result =
+      (*jniEnv)->GetStaticObjectField(jniEnv, _c_Intent_ShortcutIconResource,
+                                      _f_Intent_ShortcutIconResource__CREATOR);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_Intent_ShortcutIconResource__packageName = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_Intent_ShortcutIconResource__packageName(jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_field(_c_Intent_ShortcutIconResource,
+             &_f_Intent_ShortcutIconResource__packageName, "packageName",
+             "Ljava/lang/String;");
+  jobject _result = (*jniEnv)->GetObjectField(
+      jniEnv, self_, _f_Intent_ShortcutIconResource__packageName);
+  return to_global_ref_result(_result);
+}
+
+FFI_PLUGIN_EXPORT
+JniResult set_Intent_ShortcutIconResource__packageName(jobject self_,
+                                                       jobject value) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_field(_c_Intent_ShortcutIconResource,
+             &_f_Intent_ShortcutIconResource__packageName, "packageName",
+             "Ljava/lang/String;");
+  (*jniEnv)->SetObjectField(jniEnv, self_,
+                            _f_Intent_ShortcutIconResource__packageName, value);
+  return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jfieldID _f_Intent_ShortcutIconResource__resourceName = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_Intent_ShortcutIconResource__resourceName(jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_field(_c_Intent_ShortcutIconResource,
+             &_f_Intent_ShortcutIconResource__resourceName, "resourceName",
+             "Ljava/lang/String;");
+  jobject _result = (*jniEnv)->GetObjectField(
+      jniEnv, self_, _f_Intent_ShortcutIconResource__resourceName);
+  return to_global_ref_result(_result);
+}
+
+FFI_PLUGIN_EXPORT
+JniResult set_Intent_ShortcutIconResource__resourceName(jobject self_,
+                                                        jobject value) {
+  load_env();
+  load_class_global_ref(&_c_Intent_ShortcutIconResource,
+                        "android/content/Intent$ShortcutIconResource");
+  if (_c_Intent_ShortcutIconResource == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_field(_c_Intent_ShortcutIconResource,
+             &_f_Intent_ShortcutIconResource__resourceName, "resourceName",
+             "Ljava/lang/String;");
+  (*jniEnv)->SetObjectField(
+      jniEnv, self_, _f_Intent_ShortcutIconResource__resourceName, value);
+  return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
 // android.content.Intent
 jclass _c_Intent = NULL;
 
-jmethodID _m_Intent__ctor = NULL;
+jmethodID _m_Intent__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Intent__ctor() {
+JniResult Intent__new0() {
   load_env();
   load_class_global_ref(&_c_Intent, "android/content/Intent");
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Intent, &_m_Intent__ctor, "<init>", "()V");
-  if (_m_Intent__ctor == NULL)
+  load_method(_c_Intent, &_m_Intent__new0, "<init>", "()V");
+  if (_m_Intent__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__ctor);
+  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__new0);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_Intent__ctor1 = NULL;
+jmethodID _m_Intent__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Intent__ctor1(jobject intent) {
+JniResult Intent__new1(jobject intent) {
   load_env();
   load_class_global_ref(&_c_Intent, "android/content/Intent");
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Intent, &_m_Intent__ctor1, "<init>",
+  load_method(_c_Intent, &_m_Intent__new1, "<init>",
               "(Landroid/content/Intent;)V");
-  if (_m_Intent__ctor1 == NULL)
+  if (_m_Intent__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__ctor1, intent);
+      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__new1, intent);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_Intent__ctor2 = NULL;
+jmethodID _m_Intent__new2 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Intent__ctor2(jobject string) {
+JniResult Intent__new2(jobject string) {
   load_env();
   load_class_global_ref(&_c_Intent, "android/content/Intent");
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Intent, &_m_Intent__ctor2, "<init>", "(Ljava/lang/String;)V");
-  if (_m_Intent__ctor2 == NULL)
+  load_method(_c_Intent, &_m_Intent__new2, "<init>", "(Ljava/lang/String;)V");
+  if (_m_Intent__new2 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__ctor2, string);
+      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__new2, string);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_Intent__ctor3 = NULL;
+jmethodID _m_Intent__new3 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Intent__ctor3(jobject string, jobject uri) {
+JniResult Intent__new3(jobject string, jobject uri) {
   load_env();
   load_class_global_ref(&_c_Intent, "android/content/Intent");
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Intent, &_m_Intent__ctor3, "<init>",
+  load_method(_c_Intent, &_m_Intent__new3, "<init>",
               "(Ljava/lang/String;Landroid/net/Uri;)V");
-  if (_m_Intent__ctor3 == NULL)
+  if (_m_Intent__new3 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__ctor3, string, uri);
+      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__new3, string, uri);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_Intent__ctor4 = NULL;
+jmethodID _m_Intent__new4 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Intent__ctor4(jobject context, jobject class) {
+JniResult Intent__new4(jobject context, jobject class) {
   load_env();
   load_class_global_ref(&_c_Intent, "android/content/Intent");
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Intent, &_m_Intent__ctor4, "<init>",
+  load_method(_c_Intent, &_m_Intent__new4, "<init>",
               "(Landroid/content/Context;Ljava/lang/Class;)V");
-  if (_m_Intent__ctor4 == NULL)
+  if (_m_Intent__new4 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__ctor4, context, class);
+      (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__new4, context, class);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_Intent__ctor5 = NULL;
+jmethodID _m_Intent__new5 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Intent__ctor5(jobject string,
-                        jobject uri,
-                        jobject context,
-                        jobject class) {
+JniResult Intent__new5(jobject string,
+                       jobject uri,
+                       jobject context,
+                       jobject class) {
   load_env();
   load_class_global_ref(&_c_Intent, "android/content/Intent");
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Intent, &_m_Intent__ctor5, "<init>",
+  load_method(_c_Intent, &_m_Intent__new5, "<init>",
               "(Ljava/lang/String;Landroid/net/Uri;Landroid/content/"
               "Context;Ljava/lang/Class;)V");
-  if (_m_Intent__ctor5 == NULL)
+  if (_m_Intent__new5 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__ctor5,
+  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Intent, _m_Intent__new5,
                                          string, uri, context, class);
   return to_global_ref_result(_result);
 }
@@ -4362,7 +4783,7 @@ JniResult Intent__getParcelableExtra(jobject self_, jobject string) {
   if (_c_Intent == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_Intent, &_m_Intent__getParcelableExtra, "getParcelableExtra",
-              "(Ljava/lang/String;)Ljava/lang/Object;");
+              "(Ljava/lang/String;)Landroid/os/Parcelable;");
   if (_m_Intent__getParcelableExtra == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->CallObjectMethod(
@@ -4488,7 +4909,7 @@ JniResult Intent__getSerializableExtra1(jobject self_,
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_Intent, &_m_Intent__getSerializableExtra1,
               "getSerializableExtra",
-              "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;");
+              "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;");
   if (_m_Intent__getSerializableExtra1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->CallObjectMethod(
@@ -5930,18 +6351,18 @@ JniResult get_Intent__CREATOR() {
 // android.app.Activity
 jclass _c_Activity = NULL;
 
-jmethodID _m_Activity__ctor = NULL;
+jmethodID _m_Activity__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult Activity__ctor() {
+JniResult Activity__new0() {
   load_env();
   load_class_global_ref(&_c_Activity, "android/app/Activity");
   if (_c_Activity == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_Activity, &_m_Activity__ctor, "<init>", "()V");
-  if (_m_Activity__ctor == NULL)
+  load_method(_c_Activity, &_m_Activity__new0, "<init>", "()V");
+  if (_m_Activity__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_Activity, _m_Activity__ctor);
+      (*jniEnv)->NewObject(jniEnv, _c_Activity, _m_Activity__new0);
   return to_global_ref_result(_result);
 }
 
@@ -7260,7 +7681,7 @@ JniResult Activity__findViewById(jobject self_, int32_t i) {
   if (_c_Activity == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_Activity, &_m_Activity__findViewById, "findViewById",
-              "(I)Ljava/lang/Object;");
+              "(I)Landroid/view/View;");
   if (_m_Activity__findViewById == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
@@ -7276,7 +7697,7 @@ JniResult Activity__requireViewById(jobject self_, int32_t i) {
   if (_c_Activity == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_Activity, &_m_Activity__requireViewById, "requireViewById",
-              "(I)Ljava/lang/Object;");
+              "(I)Landroid/view/View;");
   if (_m_Activity__requireViewById == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->CallObjectMethod(
@@ -11270,9 +11691,9 @@ JniResult get_Instant__MIN() {
 // androidx.health.connect.client.request.AggregateGroupByDurationRequest
 jclass _c_AggregateGroupByDurationRequest = NULL;
 
-jmethodID _m_AggregateGroupByDurationRequest__ctor = NULL;
+jmethodID _m_AggregateGroupByDurationRequest__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateGroupByDurationRequest__ctor(jobject set,
+JniResult AggregateGroupByDurationRequest__new0(jobject set,
                                                 jobject timeRangeFilter,
                                                 jobject duration,
                                                 jobject set1) {
@@ -11283,21 +11704,21 @@ JniResult AggregateGroupByDurationRequest__ctor(jobject set,
   if (_c_AggregateGroupByDurationRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_AggregateGroupByDurationRequest,
-              &_m_AggregateGroupByDurationRequest__ctor, "<init>",
+              &_m_AggregateGroupByDurationRequest__new0, "<init>",
               "(Ljava/util/Set;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/time/Duration;Ljava/util/Set;)V");
-  if (_m_AggregateGroupByDurationRequest__ctor == NULL)
+  if (_m_AggregateGroupByDurationRequest__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
       (*jniEnv)->NewObject(jniEnv, _c_AggregateGroupByDurationRequest,
-                           _m_AggregateGroupByDurationRequest__ctor, set,
+                           _m_AggregateGroupByDurationRequest__new0, set,
                            timeRangeFilter, duration, set1);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_AggregateGroupByDurationRequest__ctor1 = NULL;
+jmethodID _m_AggregateGroupByDurationRequest__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateGroupByDurationRequest__ctor1(
+JniResult AggregateGroupByDurationRequest__new1(
     jobject set,
     jobject timeRangeFilter,
     jobject duration,
@@ -11311,15 +11732,15 @@ JniResult AggregateGroupByDurationRequest__ctor1(
   if (_c_AggregateGroupByDurationRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_AggregateGroupByDurationRequest,
-              &_m_AggregateGroupByDurationRequest__ctor1, "<init>",
+              &_m_AggregateGroupByDurationRequest__new1, "<init>",
               "(Ljava/util/Set;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/time/Duration;Ljava/util/Set;ILkotlin/jvm/"
               "internal/DefaultConstructorMarker;)V");
-  if (_m_AggregateGroupByDurationRequest__ctor1 == NULL)
+  if (_m_AggregateGroupByDurationRequest__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
       jniEnv, _c_AggregateGroupByDurationRequest,
-      _m_AggregateGroupByDurationRequest__ctor1, set, timeRangeFilter, duration,
+      _m_AggregateGroupByDurationRequest__new1, set, timeRangeFilter, duration,
       set1, i, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -11327,9 +11748,9 @@ JniResult AggregateGroupByDurationRequest__ctor1(
 // androidx.health.connect.client.request.AggregateGroupByPeriodRequest
 jclass _c_AggregateGroupByPeriodRequest = NULL;
 
-jmethodID _m_AggregateGroupByPeriodRequest__ctor = NULL;
+jmethodID _m_AggregateGroupByPeriodRequest__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateGroupByPeriodRequest__ctor(jobject set,
+JniResult AggregateGroupByPeriodRequest__new0(jobject set,
                                               jobject timeRangeFilter,
                                               jobject period,
                                               jobject set1) {
@@ -11340,21 +11761,21 @@ JniResult AggregateGroupByPeriodRequest__ctor(jobject set,
   if (_c_AggregateGroupByPeriodRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_AggregateGroupByPeriodRequest,
-              &_m_AggregateGroupByPeriodRequest__ctor, "<init>",
+              &_m_AggregateGroupByPeriodRequest__new0, "<init>",
               "(Ljava/util/Set;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/time/Period;Ljava/util/Set;)V");
-  if (_m_AggregateGroupByPeriodRequest__ctor == NULL)
+  if (_m_AggregateGroupByPeriodRequest__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
       (*jniEnv)->NewObject(jniEnv, _c_AggregateGroupByPeriodRequest,
-                           _m_AggregateGroupByPeriodRequest__ctor, set,
+                           _m_AggregateGroupByPeriodRequest__new0, set,
                            timeRangeFilter, period, set1);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_AggregateGroupByPeriodRequest__ctor1 = NULL;
+jmethodID _m_AggregateGroupByPeriodRequest__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateGroupByPeriodRequest__ctor1(
+JniResult AggregateGroupByPeriodRequest__new1(
     jobject set,
     jobject timeRangeFilter,
     jobject period,
@@ -11368,15 +11789,15 @@ JniResult AggregateGroupByPeriodRequest__ctor1(
   if (_c_AggregateGroupByPeriodRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(_c_AggregateGroupByPeriodRequest,
-              &_m_AggregateGroupByPeriodRequest__ctor1, "<init>",
+              &_m_AggregateGroupByPeriodRequest__new1, "<init>",
               "(Ljava/util/Set;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/time/Period;Ljava/util/Set;ILkotlin/jvm/"
               "internal/DefaultConstructorMarker;)V");
-  if (_m_AggregateGroupByPeriodRequest__ctor1 == NULL)
+  if (_m_AggregateGroupByPeriodRequest__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
       jniEnv, _c_AggregateGroupByPeriodRequest,
-      _m_AggregateGroupByPeriodRequest__ctor1, set, timeRangeFilter, period,
+      _m_AggregateGroupByPeriodRequest__new1, set, timeRangeFilter, period,
       set1, i, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -11384,9 +11805,9 @@ JniResult AggregateGroupByPeriodRequest__ctor1(
 // androidx.health.connect.client.request.AggregateRequest
 jclass _c_AggregateRequest = NULL;
 
-jmethodID _m_AggregateRequest__ctor = NULL;
+jmethodID _m_AggregateRequest__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateRequest__ctor(jobject set,
+JniResult AggregateRequest__new0(jobject set,
                                  jobject timeRangeFilter,
                                  jobject set1) {
   load_env();
@@ -11395,38 +11816,38 @@ JniResult AggregateRequest__ctor(jobject set,
       "androidx/health/connect/client/request/AggregateRequest");
   if (_c_AggregateRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_AggregateRequest, &_m_AggregateRequest__ctor, "<init>",
+  load_method(_c_AggregateRequest, &_m_AggregateRequest__new0, "<init>",
               "(Ljava/util/Set;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/util/Set;)V");
-  if (_m_AggregateRequest__ctor == NULL)
+  if (_m_AggregateRequest__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(jniEnv, _c_AggregateRequest,
-                                         _m_AggregateRequest__ctor, set,
+                                         _m_AggregateRequest__new0, set,
                                          timeRangeFilter, set1);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_AggregateRequest__ctor1 = NULL;
+jmethodID _m_AggregateRequest__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateRequest__ctor1(jobject set,
-                                  jobject timeRangeFilter,
-                                  jobject set1,
-                                  int32_t i,
-                                  jobject defaultConstructorMarker) {
+JniResult AggregateRequest__new1(jobject set,
+                                 jobject timeRangeFilter,
+                                 jobject set1,
+                                 int32_t i,
+                                 jobject defaultConstructorMarker) {
   load_env();
   load_class_global_ref(
       &_c_AggregateRequest,
       "androidx/health/connect/client/request/AggregateRequest");
   if (_c_AggregateRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_AggregateRequest, &_m_AggregateRequest__ctor1, "<init>",
+  load_method(_c_AggregateRequest, &_m_AggregateRequest__new1, "<init>",
               "(Ljava/util/Set;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/util/Set;ILkotlin/jvm/internal/"
               "DefaultConstructorMarker;)V");
-  if (_m_AggregateRequest__ctor1 == NULL)
+  if (_m_AggregateRequest__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_AggregateRequest, _m_AggregateRequest__ctor1, set,
+      jniEnv, _c_AggregateRequest, _m_AggregateRequest__new1, set,
       timeRangeFilter, set1, i, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -11434,43 +11855,43 @@ JniResult AggregateRequest__ctor1(jobject set,
 // androidx.health.connect.client.request.ChangesTokenRequest
 jclass _c_ChangesTokenRequest = NULL;
 
-jmethodID _m_ChangesTokenRequest__ctor = NULL;
+jmethodID _m_ChangesTokenRequest__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult ChangesTokenRequest__ctor(jobject set, jobject set1) {
+JniResult ChangesTokenRequest__new0(jobject set, jobject set1) {
   load_env();
   load_class_global_ref(
       &_c_ChangesTokenRequest,
       "androidx/health/connect/client/request/ChangesTokenRequest");
   if (_c_ChangesTokenRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_ChangesTokenRequest, &_m_ChangesTokenRequest__ctor, "<init>",
+  load_method(_c_ChangesTokenRequest, &_m_ChangesTokenRequest__new0, "<init>",
               "(Ljava/util/Set;Ljava/util/Set;)V");
-  if (_m_ChangesTokenRequest__ctor == NULL)
+  if (_m_ChangesTokenRequest__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_ChangesTokenRequest, _m_ChangesTokenRequest__ctor, set, set1);
+      jniEnv, _c_ChangesTokenRequest, _m_ChangesTokenRequest__new0, set, set1);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_ChangesTokenRequest__ctor1 = NULL;
+jmethodID _m_ChangesTokenRequest__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult ChangesTokenRequest__ctor1(jobject set,
-                                     jobject set1,
-                                     int32_t i,
-                                     jobject defaultConstructorMarker) {
+JniResult ChangesTokenRequest__new1(jobject set,
+                                    jobject set1,
+                                    int32_t i,
+                                    jobject defaultConstructorMarker) {
   load_env();
   load_class_global_ref(
       &_c_ChangesTokenRequest,
       "androidx/health/connect/client/request/ChangesTokenRequest");
   if (_c_ChangesTokenRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_ChangesTokenRequest, &_m_ChangesTokenRequest__ctor1, "<init>",
+  load_method(_c_ChangesTokenRequest, &_m_ChangesTokenRequest__new1, "<init>",
               "(Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/"
               "DefaultConstructorMarker;)V");
-  if (_m_ChangesTokenRequest__ctor1 == NULL)
+  if (_m_ChangesTokenRequest__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(jniEnv, _c_ChangesTokenRequest,
-                                         _m_ChangesTokenRequest__ctor1, set,
+                                         _m_ChangesTokenRequest__new1, set,
                                          set1, i, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -11478,9 +11899,9 @@ JniResult ChangesTokenRequest__ctor1(jobject set,
 // androidx.health.connect.client.request.ReadRecordsRequest
 jclass _c_ReadRecordsRequest = NULL;
 
-jmethodID _m_ReadRecordsRequest__ctor = NULL;
+jmethodID _m_ReadRecordsRequest__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult ReadRecordsRequest__ctor(jobject kClass,
+JniResult ReadRecordsRequest__new0(jobject kClass,
                                    jobject timeRangeFilter,
                                    jobject set,
                                    uint8_t z,
@@ -11492,41 +11913,41 @@ JniResult ReadRecordsRequest__ctor(jobject kClass,
       "androidx/health/connect/client/request/ReadRecordsRequest");
   if (_c_ReadRecordsRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_ReadRecordsRequest, &_m_ReadRecordsRequest__ctor, "<init>",
+  load_method(_c_ReadRecordsRequest, &_m_ReadRecordsRequest__new0, "<init>",
               "(Lkotlin/reflect/KClass;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/util/Set;ZILjava/lang/String;)V");
-  if (_m_ReadRecordsRequest__ctor == NULL)
+  if (_m_ReadRecordsRequest__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(jniEnv, _c_ReadRecordsRequest,
-                                         _m_ReadRecordsRequest__ctor, kClass,
+                                         _m_ReadRecordsRequest__new0, kClass,
                                          timeRangeFilter, set, z, i, string);
   return to_global_ref_result(_result);
 }
 
-jmethodID _m_ReadRecordsRequest__ctor1 = NULL;
+jmethodID _m_ReadRecordsRequest__new1 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult ReadRecordsRequest__ctor1(jobject kClass,
-                                    jobject timeRangeFilter,
-                                    jobject set,
-                                    uint8_t z,
-                                    int32_t i,
-                                    jobject string,
-                                    int32_t i1,
-                                    jobject defaultConstructorMarker) {
+JniResult ReadRecordsRequest__new1(jobject kClass,
+                                   jobject timeRangeFilter,
+                                   jobject set,
+                                   uint8_t z,
+                                   int32_t i,
+                                   jobject string,
+                                   int32_t i1,
+                                   jobject defaultConstructorMarker) {
   load_env();
   load_class_global_ref(
       &_c_ReadRecordsRequest,
       "androidx/health/connect/client/request/ReadRecordsRequest");
   if (_c_ReadRecordsRequest == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_ReadRecordsRequest, &_m_ReadRecordsRequest__ctor1, "<init>",
+  load_method(_c_ReadRecordsRequest, &_m_ReadRecordsRequest__new1, "<init>",
               "(Lkotlin/reflect/KClass;Landroidx/health/connect/client/time/"
               "TimeRangeFilter;Ljava/util/Set;ZILjava/lang/String;ILkotlin/jvm/"
               "internal/DefaultConstructorMarker;)V");
-  if (_m_ReadRecordsRequest__ctor1 == NULL)
+  if (_m_ReadRecordsRequest__new1 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_ReadRecordsRequest, _m_ReadRecordsRequest__ctor1, kClass,
+      jniEnv, _c_ReadRecordsRequest, _m_ReadRecordsRequest__new1, kClass,
       timeRangeFilter, set, z, i, string, i1, defaultConstructorMarker);
   return to_global_ref_result(_result);
 }
@@ -11570,21 +11991,21 @@ JniResult ReadRecordsRequest__hashCode1(jobject self_) {
 // androidx.health.connect.client.aggregate.AggregationResult
 jclass _c_AggregationResult = NULL;
 
-jmethodID _m_AggregationResult__ctor = NULL;
+jmethodID _m_AggregationResult__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregationResult__ctor(jobject map, jobject map1, jobject set) {
+JniResult AggregationResult__new0(jobject map, jobject map1, jobject set) {
   load_env();
   load_class_global_ref(
       &_c_AggregationResult,
       "androidx/health/connect/client/aggregate/AggregationResult");
   if (_c_AggregationResult == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
-  load_method(_c_AggregationResult, &_m_AggregationResult__ctor, "<init>",
+  load_method(_c_AggregationResult, &_m_AggregationResult__new0, "<init>",
               "(Ljava/util/Map;Ljava/util/Map;Ljava/util/Set;)V");
-  if (_m_AggregationResult__ctor == NULL)
+  if (_m_AggregationResult__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result = (*jniEnv)->NewObject(
-      jniEnv, _c_AggregationResult, _m_AggregationResult__ctor, map, map1, set);
+      jniEnv, _c_AggregationResult, _m_AggregationResult__new0, map, map1, set);
   return to_global_ref_result(_result);
 }
 
@@ -11682,12 +12103,223 @@ JniResult AggregationResult__get0(jobject self_, jobject aggregateMetric) {
   return to_global_ref_result(_result);
 }
 
+// androidx.health.connect.client.aggregate.AggregateMetric$AggregationType
+jclass _c_AggregateMetric_AggregationType = NULL;
+
+jmethodID _m_AggregateMetric_AggregationType__getAggregationTypeString = NULL;
+FFI_PLUGIN_EXPORT
+JniResult AggregateMetric_AggregationType__getAggregationTypeString(
+    jobject self_) {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_AggregateMetric_AggregationType,
+              &_m_AggregateMetric_AggregationType__getAggregationTypeString,
+              "getAggregationTypeString", "()Ljava/lang/String;");
+  if (_m_AggregateMetric_AggregationType__getAggregationTypeString == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_,
+      _m_AggregateMetric_AggregationType__getAggregationTypeString);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_AggregateMetric_AggregationType__values = NULL;
+FFI_PLUGIN_EXPORT
+JniResult AggregateMetric_AggregationType__values() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_AggregateMetric_AggregationType,
+                     &_m_AggregateMetric_AggregationType__values, "values",
+                     "()[Landroidx/health/connect/client/aggregate/"
+                     "AggregateMetric$AggregationType;");
+  if (_m_AggregateMetric_AggregationType__values == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _m_AggregateMetric_AggregationType__values);
+  return to_global_ref_result(_result);
+}
+
+jmethodID _m_AggregateMetric_AggregationType__valueOf = NULL;
+FFI_PLUGIN_EXPORT
+JniResult AggregateMetric_AggregationType__valueOf(jobject string) {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_AggregateMetric_AggregationType,
+                     &_m_AggregateMetric_AggregationType__valueOf, "valueOf",
+                     "(Ljava/lang/String;)Landroidx/health/connect/client/"
+                     "aggregate/AggregateMetric$AggregationType;");
+  if (_m_AggregateMetric_AggregationType__valueOf == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _m_AggregateMetric_AggregationType__valueOf, string);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_AggregateMetric_AggregationType__DURATION = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_AggregateMetric_AggregationType__DURATION() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_AggregateMetric_AggregationType,
+                    &_f_AggregateMetric_AggregationType__DURATION, "DURATION",
+                    "Landroidx/health/connect/client/aggregate/"
+                    "AggregateMetric$AggregationType;");
+  jobject _result = (*jniEnv)->GetStaticObjectField(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _f_AggregateMetric_AggregationType__DURATION);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_AggregateMetric_AggregationType__AVERAGE = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_AggregateMetric_AggregationType__AVERAGE() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_AggregateMetric_AggregationType,
+                    &_f_AggregateMetric_AggregationType__AVERAGE, "AVERAGE",
+                    "Landroidx/health/connect/client/aggregate/"
+                    "AggregateMetric$AggregationType;");
+  jobject _result = (*jniEnv)->GetStaticObjectField(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _f_AggregateMetric_AggregationType__AVERAGE);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_AggregateMetric_AggregationType__MINIMUM = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_AggregateMetric_AggregationType__MINIMUM() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_AggregateMetric_AggregationType,
+                    &_f_AggregateMetric_AggregationType__MINIMUM, "MINIMUM",
+                    "Landroidx/health/connect/client/aggregate/"
+                    "AggregateMetric$AggregationType;");
+  jobject _result = (*jniEnv)->GetStaticObjectField(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _f_AggregateMetric_AggregationType__MINIMUM);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_AggregateMetric_AggregationType__MAXIMUM = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_AggregateMetric_AggregationType__MAXIMUM() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_AggregateMetric_AggregationType,
+                    &_f_AggregateMetric_AggregationType__MAXIMUM, "MAXIMUM",
+                    "Landroidx/health/connect/client/aggregate/"
+                    "AggregateMetric$AggregationType;");
+  jobject _result = (*jniEnv)->GetStaticObjectField(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _f_AggregateMetric_AggregationType__MAXIMUM);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_AggregateMetric_AggregationType__TOTAL = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_AggregateMetric_AggregationType__TOTAL() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_AggregateMetric_AggregationType,
+                    &_f_AggregateMetric_AggregationType__TOTAL, "TOTAL",
+                    "Landroidx/health/connect/client/aggregate/"
+                    "AggregateMetric$AggregationType;");
+  jobject _result = (*jniEnv)->GetStaticObjectField(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _f_AggregateMetric_AggregationType__TOTAL);
+  return to_global_ref_result(_result);
+}
+
+jfieldID _f_AggregateMetric_AggregationType__COUNT = NULL;
+FFI_PLUGIN_EXPORT
+JniResult get_AggregateMetric_AggregationType__COUNT() {
+  load_env();
+  load_class_global_ref(&_c_AggregateMetric_AggregationType,
+                        "androidx/health/connect/client/aggregate/"
+                        "AggregateMetric$AggregationType");
+  if (_c_AggregateMetric_AggregationType == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_static_field(_c_AggregateMetric_AggregationType,
+                    &_f_AggregateMetric_AggregationType__COUNT, "COUNT",
+                    "Landroidx/health/connect/client/aggregate/"
+                    "AggregateMetric$AggregationType;");
+  jobject _result = (*jniEnv)->GetStaticObjectField(
+      jniEnv, _c_AggregateMetric_AggregationType,
+      _f_AggregateMetric_AggregationType__COUNT);
+  return to_global_ref_result(_result);
+}
+
+// androidx.health.connect.client.aggregate.AggregateMetric$Companion
+jclass _c_AggregateMetric_Companion = NULL;
+
+jmethodID _m_AggregateMetric_Companion__new0 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult AggregateMetric_Companion__new0(jobject defaultConstructorMarker) {
+  load_env();
+  load_class_global_ref(
+      &_c_AggregateMetric_Companion,
+      "androidx/health/connect/client/aggregate/AggregateMetric$Companion");
+  if (_c_AggregateMetric_Companion == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  load_method(_c_AggregateMetric_Companion, &_m_AggregateMetric_Companion__new0,
+              "<init>", "(Lkotlin/jvm/internal/DefaultConstructorMarker;)V");
+  if (_m_AggregateMetric_Companion__new0 == NULL)
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->NewObject(jniEnv, _c_AggregateMetric_Companion,
+                                         _m_AggregateMetric_Companion__new0,
+                                         defaultConstructorMarker);
+  return to_global_ref_result(_result);
+}
+
+// androidx.health.connect.client.aggregate.AggregateMetric$Converter$FromDouble
+jclass _c_AggregateMetric_Converter_FromDouble = NULL;
+
+// androidx.health.connect.client.aggregate.AggregateMetric$Converter$FromLong
+jclass _c_AggregateMetric_Converter_FromLong = NULL;
+
+// androidx.health.connect.client.aggregate.AggregateMetric$Converter
+jclass _c_AggregateMetric_Converter = NULL;
+
 // androidx.health.connect.client.aggregate.AggregateMetric
 jclass _c_AggregateMetric = NULL;
 
-jmethodID _m_AggregateMetric__ctor = NULL;
+jmethodID _m_AggregateMetric__new0 = NULL;
 FFI_PLUGIN_EXPORT
-JniResult AggregateMetric__ctor(jobject converter,
+JniResult AggregateMetric__new0(jobject converter,
                                 jobject string,
                                 jobject aggregationType,
                                 jobject string1) {
@@ -11698,14 +12330,14 @@ JniResult AggregateMetric__ctor(jobject converter,
   if (_c_AggregateMetric == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   load_method(
-      _c_AggregateMetric, &_m_AggregateMetric__ctor, "<init>",
+      _c_AggregateMetric, &_m_AggregateMetric__new0, "<init>",
       "(Landroidx/health/connect/client/aggregate/"
       "AggregateMetric$Converter;Ljava/lang/String;Landroidx/health/connect/"
       "client/aggregate/AggregateMetric$AggregationType;Ljava/lang/String;)V");
-  if (_m_AggregateMetric__ctor == NULL)
+  if (_m_AggregateMetric__new0 == NULL)
     return (JniResult){.value = {.j = 0}, .exception = check_exception()};
   jobject _result =
-      (*jniEnv)->NewObject(jniEnv, _c_AggregateMetric, _m_AggregateMetric__ctor,
+      (*jniEnv)->NewObject(jniEnv, _c_AggregateMetric, _m_AggregateMetric__new0,
                            converter, string, aggregationType, string1);
   return to_global_ref_result(_result);
 }
