@@ -2615,6 +2615,7 @@ steps:
           }
       }
   - name: Add AccelerometerStreamHandler.swift to Xcode project
+    xcode-project-path: ios/Runner.xcodeproj
     xcode-add-file: AccelerometerStreamHandler.swift
   - name: Replace ios/Runner/AppDelegate.swift
     path: ios/Runner/AppDelegate.swift
