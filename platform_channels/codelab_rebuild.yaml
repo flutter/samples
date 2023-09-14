@@ -7,9 +7,6 @@ steps:
       - ios
   - name: Flutter recreate
     flutter: create --platform android,ios --org dev.flutter .
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Patch android/app/build.gradle
     path: android/app/build.gradle
     patch-u: |
@@ -2617,6 +2614,9 @@ steps:
               return nil
           }
       }
+  - name: Add AccelerometerStreamHandler.swift to Xcode project
+    xcode-project-path: ios/Runner.xcodeproj
+    xcode-add-file: AccelerometerStreamHandler.swift
   - name: Replace ios/Runner/AppDelegate.swift
     path: ios/Runner/AppDelegate.swift
     replace-contents: |
