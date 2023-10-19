@@ -30,9 +30,7 @@ class HealthConnectClient_Companion extends jni.JObject {
   @override
   late final jni.JObjType<HealthConnectClient_Companion> $type = type;
 
-  HealthConnectClient_Companion.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  HealthConnectClient_Companion.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $HealthConnectClient_CompanionType();
@@ -148,9 +146,7 @@ class HealthConnectClient extends jni.JObject {
   @override
   late final jni.JObjType<HealthConnectClient> $type = type;
 
-  HealthConnectClient.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  HealthConnectClient.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $HealthConnectClientType();
@@ -661,9 +657,7 @@ class PermissionController_Companion extends jni.JObject {
   @override
   late final jni.JObjType<PermissionController_Companion> $type = type;
 
-  PermissionController_Companion.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  PermissionController_Companion.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $PermissionController_CompanionType();
@@ -733,9 +727,7 @@ class PermissionController extends jni.JObject {
   @override
   late final jni.JObjType<PermissionController> $type = type;
 
-  PermissionController.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  PermissionController.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $PermissionControllerType();
@@ -860,9 +852,7 @@ class StepsRecord_Companion extends jni.JObject {
   @override
   late final jni.JObjType<StepsRecord_Companion> $type = type;
 
-  StepsRecord_Companion.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  StepsRecord_Companion.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $StepsRecord_CompanionType();
@@ -914,9 +904,7 @@ class StepsRecord extends jni.JObject {
   @override
   late final jni.JObjType<StepsRecord> $type = type;
 
-  StepsRecord.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  StepsRecord.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $StepsRecordType();
@@ -1149,9 +1137,7 @@ class TimeRangeFilter_Companion extends jni.JObject {
   @override
   late final jni.JObjType<TimeRangeFilter_Companion> $type = type;
 
-  TimeRangeFilter_Companion.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  TimeRangeFilter_Companion.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $TimeRangeFilter_CompanionType();
@@ -1312,9 +1298,7 @@ class TimeRangeFilter extends jni.JObject {
   @override
   late final jni.JObjType<TimeRangeFilter> $type = type;
 
-  TimeRangeFilter.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  TimeRangeFilter.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $TimeRangeFilterType();
@@ -1554,9 +1538,7 @@ class Context extends jni.JObject {
   @override
   late final jni.JObjType<Context> $type = type;
 
-  Context.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Context.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $ContextType();
@@ -4503,9 +4485,7 @@ class Intent_FilterComparison extends jni.JObject {
   @override
   late final jni.JObjType<Intent_FilterComparison> $type = type;
 
-  Intent_FilterComparison.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Intent_FilterComparison.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $Intent_FilterComparisonType();
@@ -4594,9 +4574,7 @@ class Intent_ShortcutIconResource extends jni.JObject {
   @override
   late final jni.JObjType<Intent_ShortcutIconResource> $type = type;
 
-  Intent_ShortcutIconResource.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Intent_ShortcutIconResource.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $Intent_ShortcutIconResourceType();
@@ -4766,9 +4744,7 @@ class Intent extends jni.JObject {
   @override
   late final jni.JObjType<Intent> $type = type;
 
-  Intent.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Intent.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $IntentType();
@@ -8178,9 +8154,7 @@ class Activity extends jni.JObject {
   @override
   late final jni.JObjType<Activity> $type = type;
 
-  Activity.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Activity.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $ActivityType();
@@ -12383,9 +12357,7 @@ class Instant extends jni.JObject {
   @override
   late final jni.JObjType<Instant> $type = type;
 
-  Instant.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Instant.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $InstantType();
@@ -13144,9 +13116,7 @@ class AggregateGroupByDurationRequest extends jni.JObject {
   @override
   late final jni.JObjType<AggregateGroupByDurationRequest> $type = type;
 
-  AggregateGroupByDurationRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateGroupByDurationRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateGroupByDurationRequestType();
@@ -13248,9 +13218,7 @@ class AggregateGroupByPeriodRequest extends jni.JObject {
   @override
   late final jni.JObjType<AggregateGroupByPeriodRequest> $type = type;
 
-  AggregateGroupByPeriodRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateGroupByPeriodRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateGroupByPeriodRequestType();
@@ -13352,9 +13320,7 @@ class AggregateRequest extends jni.JObject {
   @override
   late final jni.JObjType<AggregateRequest> $type = type;
 
-  AggregateRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateRequestType();
@@ -13442,9 +13408,7 @@ class ChangesTokenRequest extends jni.JObject {
   @override
   late final jni.JObjType<ChangesTokenRequest> $type = type;
 
-  ChangesTokenRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  ChangesTokenRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $ChangesTokenRequestType();
@@ -13684,9 +13648,7 @@ class AggregationResult extends jni.JObject {
   @override
   late final jni.JObjType<AggregationResult> $type = type;
 
-  AggregationResult.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregationResult.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregationResultType();
@@ -13827,9 +13789,7 @@ class AggregateMetric_AggregationType extends jni.JObject {
   @override
   late final jni.JObjType<AggregateMetric_AggregationType> $type = type;
 
-  AggregateMetric_AggregationType.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateMetric_AggregationType.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateMetric_AggregationTypeType();
@@ -13971,9 +13931,7 @@ class AggregateMetric_Companion extends jni.JObject {
   @override
   late final jni.JObjType<AggregateMetric_Companion> $type = type;
 
-  AggregateMetric_Companion.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateMetric_Companion.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateMetric_CompanionType();
