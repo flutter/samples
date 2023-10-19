@@ -30,7 +30,7 @@ dependencies:
   in_app_purchase: ^3.0.1  # In-app purchases
 
 dev_dependencies:
-  flutter_lints: ^2.0.2
+  flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.13.0
