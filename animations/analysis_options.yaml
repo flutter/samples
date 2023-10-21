@@ -1,6 +1,1 @@
-include: ../analysis_options.yaml
-
-linter:
-  rules:
-    # Required because of the numbered sources in  lib/src/basics
-    file_names: false
+include: package:analysis_defaults/flutter.yaml

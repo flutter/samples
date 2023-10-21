@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'anywhere_page.dart';
 import 'cascading_menu_page.dart';
@@ -36,6 +37,24 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    // On web, disable the browser's context menu everywhere so that the custom
+    // Flutter-rendered context menu shows.
+    if (kIsWeb) {
+      BrowserContextMenu.disableContextMenu();
+    }
+  }
+
+  @override
+  void dispose() {
+    if (kIsWeb) {
+      BrowserContextMenu.enableContextMenu();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -43,6 +62,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         platform: defaultTargetPlatform,
+        useMaterial3: true,
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{

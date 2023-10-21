@@ -101,11 +101,11 @@ class _SavedRuleTileState extends State<SavedRuleTile> {
               TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Maturity:',
+                    text: 'State:',
                     style: textTheme.titleSmall,
                   ),
                   TextSpan(
-                    text: ' ${rule.maturity}',
+                    text: ' ${rule.state}',
                   ),
                 ],
               ),

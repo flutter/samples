@@ -132,16 +132,12 @@ class SimpleDatabase {
         RootIsolateToken rootIsolateToken = RootIsolateToken.instance!;
         _sendPort
             .send(_Command(_Codes.init, arg0: _path, arg1: rootIsolateToken));
-        break;
       case _Codes.ack:
         _completers.removeLast().complete();
-        break;
       case _Codes.result:
         _resultsStream.last.add(command.arg0 as String);
-        break;
       case _Codes.done:
         _resultsStream.removeLast().close();
-        break;
       default:
         debugPrint('SimpleDatabase unrecognized command: ${command.code}');
     }
@@ -198,13 +194,10 @@ class _SimpleDatabaseServer {
         // ----------------------------------------------------------------------
         BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
         _sendPort.send(const _Command(_Codes.ack, arg0: null));
-        break;
       case _Codes.add:
         _doAddEntry(command.arg0 as String);
-        break;
       case _Codes.query:
         _doFind(command.arg0 as String);
-        break;
       default:
         debugPrint(
             '_SimpleDatabaseServer unrecognized command ${command.code}');

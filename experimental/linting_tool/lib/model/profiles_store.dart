@@ -140,7 +140,7 @@ class ProfilesStore extends ChangeNotifier {
     const name = 'analysis_options.yaml';
 
     /// Get file path using file picker.
-    final savePath = await file_selector.getSavePath(
+    final saveLocation = await file_selector.getSaveLocation(
       suggestedName: name,
     );
 
@@ -148,8 +148,8 @@ class ProfilesStore extends ChangeNotifier {
     final file = file_selector.XFile.fromData(data, name: name);
 
     /// Save file to disk if path was provided.
-    if (savePath != null) {
-      await file.saveTo(savePath);
+    if (saveLocation != null) {
+      await file.saveTo(saveLocation.path);
       return true;
     }
 

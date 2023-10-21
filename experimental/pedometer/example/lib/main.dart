@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       home: const Home(),
     );
@@ -40,9 +41,7 @@ class RoundClipper extends CustomClipper<Path> {
 }
 
 class Home extends StatefulWidget {
-  const Home({
-    Key? key,
-  }) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -154,7 +153,7 @@ class _HomeState extends State<Home> {
               aspectRatio: 1.2,
               child: BarChart(
                 BarChartData(
-                  titlesData: FlTitlesData(
+                  titlesData: const FlTitlesData(
                     show: true,
                     // Top titles are null
                     topTitles:
@@ -178,7 +177,7 @@ class _HomeState extends State<Home> {
                     show: false,
                   ),
                   barGroups: barGroups,
-                  gridData: FlGridData(show: false),
+                  gridData: const FlGridData(show: false),
                   alignment: BarChartAlignment.spaceAround,
                 ),
               ),

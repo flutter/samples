@@ -10,19 +10,21 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('federated plugin demo tests', () {
     const batteryLevel = 45;
-    setUpAll(() {
-      const MethodChannel('battery').setMockMethodCallHandler((call) async {
-        if (call.method == 'getBatteryLevel') {
-          return batteryLevel;
-        }
-      });
-    });
 
     testWidgets('get current battery level from platform', (tester) async {
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        const MethodChannel('battery'),
+        (call) async {
+          if (call.method == 'getBatteryLevel') {
+            return batteryLevel;
+          }
+          return 0;
+        },
+      );
       await tester.pumpWidget(const MyApp());
 
       // Tap button to retrieve current battery level from platform.
-      await tester.tap(find.byType(ElevatedButton));
+      await tester.tap(find.byType(FilledButton));
       await tester.pumpAndSettle();
 
       expect(find.text('Battery Level: $batteryLevel'), findsOneWidget);

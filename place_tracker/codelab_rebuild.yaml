@@ -13,12 +13,29 @@ steps:
     path: ios/Runner.xcodeproj/project.pbxproj
   - name: Update deps
     flutter: pub upgrade --major-versions
+  - name: Patch android/app/build.gradle
+    path: android/app/build.gradle
+    patch-u: |
+      --- b/place_tracker/android/app/build.gradle
+      +++ a/place_tracker/android/app/build.gradle
+      @@ -43,9 +43,8 @@ android {
+           defaultConfig {
+               // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+               applicationId "dev.flutter.place_tracker"
+      -        // You can update the following values to match your application needs.
+      -        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+      -        minSdkVersion flutter.minSdkVersion
+      +        // Google Maps requires a minimum SDK version of 20
+      +        minSdkVersion 20
+               targetSdkVersion flutter.targetSdkVersion
+               versionCode flutterVersionCode.toInteger()
+               versionName flutterVersionName
   - name: Patch android/app/src/main/AndroidManifest.xml
     path: android/app/src/main/AndroidManifest.xml
     patch-u: |
       --- b/place_tracker/android/app/src/main/AndroidManifest.xml
       +++ a/place_tracker/android/app/src/main/AndroidManifest.xml
-      @@ -4,6 +4,12 @@
+      @@ -3,6 +3,12 @@
                android:label="place_tracker"
                android:name="${applicationName}"
                android:icon="@mipmap/ic_launcher">
@@ -77,6 +94,21 @@ steps:
        
        # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
        ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+  - name: Patch web/index.html
+    path: web/index.html
+    patch-u: |
+      --- b/place_tracker/web/index.html
+      +++ a/place_tracker/web/index.html
+      @@ -32,6 +32,9 @@
+         <title>place_tracker</title>
+         <link rel="manifest" href="manifest.json">
+       
+      +  <!-- Google Maps: https://pub.dev/packages/google_maps_flutter_web -->
+      +  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+      +
+         <script>
+           // The value below is injected by flutter build, do not touch.
+           const serviceWorkerVersion = null;
   - name: Build iOS simulator bundle
     platforms: [ macos ]
     flutter: build ios --simulator

@@ -23,7 +23,10 @@ class ElevationScreen extends StatelessWidget {
               ),
             ),
           ),
-          ElevationGrid(surfaceTintColor: surfaceTint),
+          ElevationGrid(
+            surfaceTintColor: surfaceTint,
+            shadowColor: Colors.transparent,
+          ),
           SliverList(
             delegate: SliverChildListDelegate(<Widget>[
               const SizedBox(height: 10),
@@ -146,7 +149,7 @@ class _ElevationCardState extends State<ElevationCard> {
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               Text(
-                '${widget.info.level.toInt()} dp',
+                '${widget.info.elevation.toInt()} dp',
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               if (widget.surfaceTint != null)

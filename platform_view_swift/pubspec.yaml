@@ -4,7 +4,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: ^3.1.0
 
 dependencies:
   flutter:
@@ -13,9 +13,10 @@ dependencies:
   cupertino_icons: ^1.0.4
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true

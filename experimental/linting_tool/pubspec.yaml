@@ -6,7 +6,7 @@ version: 1.0.0+1
 publish_to: "none"
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: ^3.1.0
 
 dependencies:
   flutter:
@@ -14,14 +14,14 @@ dependencies:
   adaptive_breakpoints: ^0.1.1
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
-  file_selector: ^0.9.1
+  file_selector: ^1.0.0
   flutter_markdown: ^0.6.2
-  google_fonts: ^4.0.0
+  google_fonts: ^6.0.0
   hive: ^2.0.4
   hive_flutter: ^1.1.0
-  http: ^0.13.3
+  http: ^1.0.0
   json2yaml: ^3.0.0
-  json_annotation: ^4.5.0
+  json_annotation: ^4.8.1
   mockito: ^5.0.13
   provider: ^6.0.2
   yaml: ^3.1.0
@@ -32,12 +32,13 @@ dependencies:
       path: plugins/window_size
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   flutter_test:
     sdk: flutter
-  build_runner: ^2.0.6
-  flutter_lints: ^2.0.1
+  build_runner: ^2.4.6
   hive_generator: ^2.0.0
-  json_serializable: ^6.2.0
+  json_serializable: ^6.7.1
 
 flutter:
   uses-material-design: true

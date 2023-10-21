@@ -10,7 +10,10 @@
 // ignore_for_file: overridden_fields
 // ignore_for_file: unnecessary_cast
 // ignore_for_file: unused_element
+// ignore_for_file: unused_field
 // ignore_for_file: unused_import
+// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_shown_name
 
 import "dart:isolate" show ReceivePort;
 import "dart:ffi" as ffi;
@@ -22,44 +25,161 @@ import "package:jni/jni.dart" as jni;
 final ffi.Pointer<T> Function<T extends ffi.NativeType>(String sym) jniLookup =
     ProtectedJniExtensions.initGeneratedLibrary("health_connect");
 
+/// from: androidx.health.connect.client.HealthConnectClient$Companion
+class HealthConnectClient_Companion extends jni.JObject {
+  @override
+  late final jni.JObjType<HealthConnectClient_Companion> $type = type;
+
+  HealthConnectClient_Companion.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $HealthConnectClient_CompanionType();
+
+  /// from: static public final java.lang.String DEFAULT_PROVIDER_PACKAGE_NAME
+  static const DEFAULT_PROVIDER_PACKAGE_NAME =
+      r"""com.google.android.apps.healthdata""";
+
+  /// from: static public final java.lang.String HEALTH_CONNECT_CLIENT_TAG
+  static const HEALTH_CONNECT_CLIENT_TAG = r"""HealthConnectClient""";
+
+  static final _isAvailable = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient_Companion__isAvailable")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final boolean isAvailable(android.content.Context context, java.util.List list)
+  bool isAvailable(
+    Context context,
+    jni.JList<jni.JString> list,
+  ) {
+    return _isAvailable(reference, context.reference, list.reference).boolean;
+  }
+
+  static final _getOrCreate = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient_Companion__getOrCreate")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context, java.util.List list)
+  /// The returned object must be released after use, by calling the [release] method.
+  HealthConnectClient getOrCreate(
+    Context context,
+    jni.JList<jni.JString> list,
+  ) {
+    return const $HealthConnectClientType().fromRef(
+        _getOrCreate(reference, context.reference, list.reference).object);
+  }
+
+  static final _isAvailable1 = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient_Companion__isAvailable1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final boolean isAvailable(android.content.Context context)
+  bool isAvailable1(
+    Context context,
+  ) {
+    return _isAvailable1(reference, context.reference).boolean;
+  }
+
+  static final _getOrCreate1 = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient_Companion__getOrCreate1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context)
+  /// The returned object must be released after use, by calling the [release] method.
+  HealthConnectClient getOrCreate1(
+    Context context,
+  ) {
+    return const $HealthConnectClientType()
+        .fromRef(_getOrCreate1(reference, context.reference).object);
+  }
+}
+
+class $HealthConnectClient_CompanionType
+    extends jni.JObjType<HealthConnectClient_Companion> {
+  const $HealthConnectClient_CompanionType();
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/HealthConnectClient$Companion;";
+
+  @override
+  HealthConnectClient_Companion fromRef(jni.JObjectPtr ref) =>
+      HealthConnectClient_Companion.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($HealthConnectClient_CompanionType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($HealthConnectClient_CompanionType) &&
+        other is $HealthConnectClient_CompanionType;
+  }
+}
+
 /// from: androidx.health.connect.client.HealthConnectClient
 class HealthConnectClient extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<HealthConnectClient> $type = type;
 
-  HealthConnectClient.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  HealthConnectClient.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $HealthConnectClientType();
-
   static final _get_Companion =
       jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
               "get_HealthConnectClient__Companion")
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final androidx.health.connect.client.HealthConnectClient$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static HealthConnectClient_Companion get Companion =>
+      const $HealthConnectClient_CompanionType()
+          .fromRef(_get_Companion().object);
 
   /// from: static public final java.lang.String DEFAULT_PROVIDER_PACKAGE_NAME
   static const DEFAULT_PROVIDER_PACKAGE_NAME =
-      "com.google.android.apps.healthdata";
+      r"""com.google.android.apps.healthdata""";
+
+  /// from: static public final java.lang.String HEALTH_CONNECT_CLIENT_TAG
+  static const HEALTH_CONNECT_CLIENT_TAG = r"""HealthConnectClient""";
 
   static final _getPermissionController = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "HealthConnectClient__getPermissionController")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract androidx.health.connect.client.PermissionController getPermissionController()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  PermissionController getPermissionController() =>
-      const $PermissionControllerType()
-          .fromRef(_getPermissionController(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  PermissionController getPermissionController() {
+    return const $PermissionControllerType()
+        .fromRef(_getPermissionController(reference).object);
+  }
 
   static final _insertRecords = jniLookup<
           ffi.NativeFunction<
@@ -72,14 +192,17 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object insertRecords(java.util.List list, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> insertRecords(jni.JObject list) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> insertRecords(
+    jni.JList<jni.JObject> list,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _insertRecords(reference, list.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _insertRecords(reference, list.reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -96,14 +219,17 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object updateRecords(java.util.List list, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> updateRecords(jni.JObject list) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> updateRecords(
+    jni.JList<jni.JObject> list,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _updateRecords(reference, list.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _updateRecords(reference, list.reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -126,17 +252,21 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object deleteRecords(kotlin.reflect.KClass kClass, java.util.List list, java.util.List list1, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Future<jni.JObject> deleteRecords(
-      jni.JObject kClass, jni.JObject list, jni.JObject list1) async {
+    jni.JObject kClass,
+    jni.JList<jni.JString> list,
+    jni.JList<jni.JString> list1,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _deleteRecords(
-            reference, kClass.reference, list.reference, list1.reference, $c)
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _deleteRecords(reference, kClass.reference, list.reference, list1.reference,
+            $c.reference)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -155,16 +285,20 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object deleteRecords(kotlin.reflect.KClass kClass, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Future<jni.JObject> deleteRecords1(
-      jni.JObject kClass, TimeRangeFilter timeRangeFilter) async {
+    jni.JObject kClass,
+    TimeRangeFilter timeRangeFilter,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _deleteRecords1(reference, kClass.reference, timeRangeFilter.reference, $c)
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _deleteRecords1(reference, kClass.reference, timeRangeFilter.reference,
+            $c.reference)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -182,15 +316,20 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object readRecord(kotlin.reflect.KClass kClass, java.lang.String string, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> readRecord<T extends jni.JObject>(
-      jni.JObjType<T> $T, jni.JObject kClass, jni.JString string) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> readRecord<$T extends jni.JObject>(
+    jni.JObject kClass,
+    jni.JString string, {
+    required jni.JObjType<$T> T,
+  }) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _readRecord(reference, kClass.reference, string.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _readRecord(reference, kClass.reference, string.reference, $c.reference)
+        .object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -207,15 +346,21 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object readRecords(androidx.health.connect.client.request.ReadRecordsRequest readRecordsRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> readRecords<T extends jni.JObject>(
-      jni.JObjType<T> $T, ReadRecordsRequest<T> readRecordsRequest) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> readRecords<$T extends jni.JObject>(
+    ReadRecordsRequest<$T> readRecordsRequest, {
+    jni.JObjType<$T>? T,
+  }) async {
+    T ??= jni.lowestCommonSuperType([
+      (readRecordsRequest.$type as $ReadRecordsRequestType).T,
+    ]) as jni.JObjType<$T>;
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _readRecords(reference, readRecordsRequest.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _readRecords(reference, readRecordsRequest.reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -232,14 +377,17 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object aggregate(androidx.health.connect.client.request.AggregateRequest aggregateRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<AggregationResult> aggregate(AggregateRequest aggregateRequest) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<AggregationResult> aggregate(
+    AggregateRequest aggregateRequest,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _aggregate(reference, aggregateRequest.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _aggregate(reference, aggregateRequest.reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const $AggregationResultType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const $AggregationResultType().fromRef($o);
@@ -255,20 +403,22 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object aggregateGroupByDuration(androidx.health.connect.client.request.AggregateGroupByDurationRequest aggregateGroupByDurationRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> aggregateGroupByDuration(
-      AggregateGroupByDurationRequest aggregateGroupByDurationRequest) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JList<jni.JObject>> aggregateGroupByDuration(
+    AggregateGroupByDurationRequest aggregateGroupByDurationRequest,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
     _aggregateGroupByDuration(
-            reference, aggregateGroupByDurationRequest.reference, $c)
+            reference, aggregateGroupByDurationRequest.reference, $c.reference)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
+    final $k = const jni.JListType(jni.JObjectType()).getClass().reference;
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
-    return const jni.JObjectType().fromRef($o);
+    return const jni.JListType(jni.JObjectType()).fromRef($o);
   }
 
   static final _aggregateGroupByPeriod = jniLookup<
@@ -281,20 +431,22 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object aggregateGroupByPeriod(androidx.health.connect.client.request.AggregateGroupByPeriodRequest aggregateGroupByPeriodRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> aggregateGroupByPeriod(
-      AggregateGroupByPeriodRequest aggregateGroupByPeriodRequest) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JList<jni.JObject>> aggregateGroupByPeriod(
+    AggregateGroupByPeriodRequest aggregateGroupByPeriodRequest,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
     _aggregateGroupByPeriod(
-            reference, aggregateGroupByPeriodRequest.reference, $c)
+            reference, aggregateGroupByPeriodRequest.reference, $c.reference)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
+    final $k = const jni.JListType(jni.JObjectType()).getClass().reference;
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
-    return const jni.JObjectType().fromRef($o);
+    return const jni.JListType(jni.JObjectType()).fromRef($o);
   }
 
   static final _getChangesToken = jniLookup<
@@ -307,18 +459,80 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object getChangesToken(androidx.health.connect.client.request.ChangesTokenRequest changesTokenRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Future<jni.JString> getChangesToken(
-      ChangesTokenRequest changesTokenRequest) async {
+    ChangesTokenRequest changesTokenRequest,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _getChangesToken(reference, changesTokenRequest.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _getChangesToken(reference, changesTokenRequest.reference, $c.reference)
+        .object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JStringType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JStringType().fromRef($o);
+  }
+
+  static final _registerForDataNotifications = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient__registerForDataNotifications")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.lang.Object registerForDataNotifications(java.lang.String string, java.lang.Iterable iterable, kotlin.coroutines.Continuation continuation)
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> registerForDataNotifications(
+    jni.JString string,
+    jni.JObject iterable,
+  ) async {
+    final $p = ReceivePort();
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _registerForDataNotifications(
+            reference, string.reference, iterable.reference, $c.reference)
+        .object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
+    final $k = const jni.JObjectType().getClass().reference;
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
+      throw "Failed";
+    }
+    return const jni.JObjectType().fromRef($o);
+  }
+
+  static final _unregisterFromDataNotifications = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient__unregisterFromDataNotifications")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.lang.Object unregisterFromDataNotifications(java.lang.String string, kotlin.coroutines.Continuation continuation)
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> unregisterFromDataNotifications(
+    jni.JString string,
+  ) async {
+    final $p = ReceivePort();
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _unregisterFromDataNotifications(reference, string.reference, $c.reference)
+        .object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
+    final $k = const jni.JObjectType().getClass().reference;
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
+      throw "Failed";
+    }
+    return const jni.JObjectType().fromRef($o);
   }
 
   static final _getChanges = jniLookup<
@@ -332,14 +546,17 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object getChanges(java.lang.String string, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> getChanges(jni.JString string) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JObject> getChanges(
+    jni.JString string,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _getChanges(reference, string.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _getChanges(reference, string.reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
@@ -354,8 +571,12 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: static public boolean isAvailable(android.content.Context context, java.util.List list)
-  static bool isAvailable(Context context, jni.JObject list) =>
-      _isAvailable(context.reference, list.reference).boolean;
+  static bool isAvailable(
+    Context context,
+    jni.JList<jni.JString> list,
+  ) {
+    return _isAvailable(context.reference, list.reference).boolean;
+  }
 
   static final _getOrCreate = jniLookup<
           ffi.NativeFunction<
@@ -366,32 +587,42 @@ class HealthConnectClient extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: static public androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context, java.util.List list)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static HealthConnectClient getOrCreate(Context context, jni.JObject list) =>
-      const $HealthConnectClientType()
-          .fromRef(_getOrCreate(context.reference, list.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static HealthConnectClient getOrCreate(
+    Context context,
+    jni.JList<jni.JString> list,
+  ) {
+    return const $HealthConnectClientType()
+        .fromRef(_getOrCreate(context.reference, list.reference).object);
+  }
 
   static final _isAvailable1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__isAvailable1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient__isAvailable1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public boolean isAvailable(android.content.Context context)
-  static bool isAvailable1(Context context) =>
-      _isAvailable1(context.reference).boolean;
+  static bool isAvailable1(
+    Context context,
+  ) {
+    return _isAvailable1(context.reference).boolean;
+  }
 
   static final _getOrCreate1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__getOrCreate1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "HealthConnectClient__getOrCreate1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static HealthConnectClient getOrCreate1(Context context) =>
-      const $HealthConnectClientType()
-          .fromRef(_getOrCreate1(context.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static HealthConnectClient getOrCreate1(
+    Context context,
+  ) {
+    return const $HealthConnectClientType()
+        .fromRef(_getOrCreate1(context.reference).object);
+  }
 }
 
 class $HealthConnectClientType extends jni.JObjType<HealthConnectClient> {
@@ -404,43 +635,112 @@ class $HealthConnectClientType extends jni.JObjType<HealthConnectClient> {
   @override
   HealthConnectClient fromRef(jni.JObjectPtr ref) =>
       HealthConnectClient.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($HealthConnectClientType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($HealthConnectClientType) &&
+        other is $HealthConnectClientType;
+  }
 }
 
-extension $HealthConnectClientArray on jni.JArray<HealthConnectClient> {
-  HealthConnectClient operator [](int index) {
-    return (elementType as $HealthConnectClientType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
+/// from: androidx.health.connect.client.PermissionController$Companion
+class PermissionController_Companion extends jni.JObject {
+  @override
+  late final jni.JObjType<PermissionController_Companion> $type = type;
+
+  PermissionController_Companion.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $PermissionController_CompanionType();
+  static final _createRequestPermissionResultContract = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "PermissionController_Companion__createRequestPermissionResultContract")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final androidx.activity.result.contract.ActivityResultContract createRequestPermissionResultContract(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject createRequestPermissionResultContract(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _createRequestPermissionResultContract(reference, string.reference)
+            .object);
   }
 
-  void operator []=(int index, HealthConnectClient value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  static final _createRequestPermissionResultContract1 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "PermissionController_Companion__createRequestPermissionResultContract1")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final androidx.activity.result.contract.ActivityResultContract createRequestPermissionResultContract()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject createRequestPermissionResultContract1() {
+    return const jni.JObjectType()
+        .fromRef(_createRequestPermissionResultContract1(reference).object);
+  }
+}
+
+class $PermissionController_CompanionType
+    extends jni.JObjType<PermissionController_Companion> {
+  const $PermissionController_CompanionType();
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/PermissionController$Companion;";
+
+  @override
+  PermissionController_Companion fromRef(jni.JObjectPtr ref) =>
+      PermissionController_Companion.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($PermissionController_CompanionType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($PermissionController_CompanionType) &&
+        other is $PermissionController_CompanionType;
   }
 }
 
 /// from: androidx.health.connect.client.PermissionController
 class PermissionController extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<PermissionController> $type = type;
 
-  PermissionController.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  PermissionController.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $PermissionControllerType();
+  static final _get_Companion =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_PermissionController__Companion")
+          .asFunction<jni.JniResult Function()>();
 
-  static final _createRequestPermissionActivityContract = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "PermissionController__createRequestPermissionActivityContract")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract androidx.activity.result.contract.ActivityResultContract createRequestPermissionActivityContract()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject createRequestPermissionActivityContract() =>
-      const jni.JObjectType()
-          .fromRef(_createRequestPermissionActivityContract(reference).object);
+  /// from: static public final androidx.health.connect.client.PermissionController$Companion Companion
+  /// The returned object must be released after use, by calling the [release] method.
+  static PermissionController_Companion get Companion =>
+      const $PermissionController_CompanionType()
+          .fromRef(_get_Companion().object);
 
   static final _getGrantedPermissions = jniLookup<
               ffi.NativeFunction<
@@ -452,17 +752,20 @@ class PermissionController extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object getGrantedPermissions(java.util.Set set, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<Set<jni.JObject>> getGrantedPermissions(Set<jni.JObject> set0) async {
+  /// The returned object must be released after use, by calling the [release] method.
+  Future<jni.JSet<jni.JObject>> getGrantedPermissions(
+    jni.JSet<jni.JObject> set0,
+  ) async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _getGrantedPermissions(reference, set0.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
-    final $k = const $SetType(jni.JObjectType()).getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _getGrantedPermissions(reference, set0.reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
+    final $k = const jni.JSetType(jni.JObjectType()).getClass().reference;
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
-    return const $SetType(jni.JObjectType()).fromRef($o);
+    return const jni.JSetType(jni.JObjectType()).fromRef($o);
   }
 
   static final _revokeAllPermissions = jniLookup<
@@ -475,17 +778,45 @@ class PermissionController extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object revokeAllPermissions(kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Future<jni.JObject> revokeAllPermissions() async {
     final $p = ReceivePort();
-    final $c = jni.Jni.newPortContinuation($p);
-    _revokeAllPermissions(reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $c =
+        jni.JObject.fromRef(ProtectedJniExtensions.newPortContinuation($p));
+    _revokeAllPermissions(reference, $c.reference).object;
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
-    if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
+    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
       throw "Failed";
     }
     return const jni.JObjectType().fromRef($o);
+  }
+
+  static final _createRequestPermissionResultContract = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "PermissionController__createRequestPermissionResultContract")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public androidx.activity.result.contract.ActivityResultContract createRequestPermissionResultContract(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JObject createRequestPermissionResultContract(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _createRequestPermissionResultContract(string.reference).object);
+  }
+
+  static final _createRequestPermissionResultContract1 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "PermissionController__createRequestPermissionResultContract1")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public androidx.activity.result.contract.ActivityResultContract createRequestPermissionResultContract()
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JObject createRequestPermissionResultContract1() {
+    return const jni.JObjectType()
+        .fromRef(_createRequestPermissionResultContract1().object);
   }
 }
 
@@ -499,41 +830,93 @@ class $PermissionControllerType extends jni.JObjType<PermissionController> {
   @override
   PermissionController fromRef(jni.JObjectPtr ref) =>
       PermissionController.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($PermissionControllerType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($PermissionControllerType) &&
+        other is $PermissionControllerType;
+  }
 }
 
-extension $PermissionControllerArray on jni.JArray<PermissionController> {
-  PermissionController operator [](int index) {
-    return (elementType as $PermissionControllerType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+/// from: androidx.health.connect.client.records.StepsRecord$Companion
+class StepsRecord_Companion extends jni.JObject {
+  @override
+  late final jni.JObjType<StepsRecord_Companion> $type = type;
 
-  void operator []=(int index, PermissionController value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  StepsRecord_Companion.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $StepsRecord_CompanionType();
+  static final _new0 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord_Companion__new0")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void <init>(kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory StepsRecord_Companion(
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return StepsRecord_Companion.fromRef(
+        _new0(defaultConstructorMarker.reference).object);
+  }
+}
+
+class $StepsRecord_CompanionType extends jni.JObjType<StepsRecord_Companion> {
+  const $StepsRecord_CompanionType();
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/records/StepsRecord$Companion;";
+
+  @override
+  StepsRecord_Companion fromRef(jni.JObjectPtr ref) =>
+      StepsRecord_Companion.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($StepsRecord_CompanionType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($StepsRecord_CompanionType) &&
+        other is $StepsRecord_CompanionType;
   }
 }
 
 /// from: androidx.health.connect.client.records.StepsRecord
 class StepsRecord extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<StepsRecord> $type = type;
 
-  StepsRecord.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  StepsRecord.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $StepsRecordType();
-
   static final _get_Companion =
       jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
               "get_StepsRecord__Companion")
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final androidx.health.connect.client.records.StepsRecord$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static StepsRecord_Companion get Companion =>
+      const $StepsRecord_CompanionType().fromRef(_get_Companion().object);
 
   static final _get_COUNT_TOTAL =
       jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
@@ -541,12 +924,12 @@ class StepsRecord extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric COUNT_TOTAL
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static AggregateMetric<Long> get COUNT_TOTAL =>
-      const $AggregateMetricType($LongType())
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric<jni.JLong> get COUNT_TOTAL =>
+      const $AggregateMetricType(jni.JLongType())
           .fromRef(_get_COUNT_TOTAL().object);
 
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Int64,
@@ -554,7 +937,7 @@ class StepsRecord extends jni.JObject {
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__ctor")
+                  ffi.Pointer<ffi.Void>)>>("StepsRecord__new0")
       .asFunction<
           jni.JniResult Function(
               int,
@@ -565,13 +948,21 @@ class StepsRecord extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(long j, java.time.Instant instant, java.time.ZoneOffset zoneOffset, java.time.Instant instant1, java.time.ZoneOffset zoneOffset1, androidx.health.connect.client.records.metadata.Metadata metadata)
-  StepsRecord(int j, Instant instant, jni.JObject zoneOffset, Instant instant1,
-      jni.JObject zoneOffset1, jni.JObject metadata)
-      : super.fromRef(_ctor(j, instant.reference, zoneOffset.reference,
-                instant1.reference, zoneOffset1.reference, metadata.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory StepsRecord(
+    int j,
+    Instant instant,
+    jni.JObject zoneOffset,
+    Instant instant1,
+    jni.JObject zoneOffset1,
+    jni.JObject metadata,
+  ) {
+    return StepsRecord.fromRef(_new0(j, instant.reference, zoneOffset.reference,
+            instant1.reference, zoneOffset1.reference, metadata.reference)
+        .object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Int64,
@@ -581,7 +972,7 @@ class StepsRecord extends jni.JObject {
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__ctor1")
+                  ffi.Pointer<ffi.Void>)>>("StepsRecord__new1")
       .asFunction<
           jni.JniResult Function(
               int,
@@ -594,89 +985,100 @@ class StepsRecord extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(long j, java.time.Instant instant, java.time.ZoneOffset zoneOffset, java.time.Instant instant1, java.time.ZoneOffset zoneOffset1, androidx.health.connect.client.records.metadata.Metadata metadata, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  StepsRecord.ctor1(
-      int j,
-      Instant instant,
-      jni.JObject zoneOffset,
-      Instant instant1,
-      jni.JObject zoneOffset1,
-      jni.JObject metadata,
-      int i,
-      jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(
-                j,
-                instant.reference,
-                zoneOffset.reference,
-                instant1.reference,
-                zoneOffset1.reference,
-                metadata.reference,
-                i,
-                defaultConstructorMarker.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory StepsRecord.new1(
+    int j,
+    Instant instant,
+    jni.JObject zoneOffset,
+    Instant instant1,
+    jni.JObject zoneOffset1,
+    jni.JObject metadata,
+    int i,
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return StepsRecord.fromRef(_new1(
+            j,
+            instant.reference,
+            zoneOffset.reference,
+            instant1.reference,
+            zoneOffset1.reference,
+            metadata.reference,
+            i,
+            defaultConstructorMarker.reference)
+        .object);
+  }
 
   static final _getCount = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getCount")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getCount")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final long getCount()
-  int getCount() => _getCount(reference).long;
+  int getCount() {
+    return _getCount(reference).long;
+  }
 
   static final _getStartTime = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getStartTime")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getStartTime")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant getStartTime()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant getStartTime() =>
-      const $InstantType().fromRef(_getStartTime(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant getStartTime() {
+    return const $InstantType().fromRef(_getStartTime(reference).object);
+  }
 
   static final _getStartZoneOffset = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getStartZoneOffset")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getStartZoneOffset")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.ZoneOffset getStartZoneOffset()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getStartZoneOffset() =>
-      const jni.JObjectType().fromRef(_getStartZoneOffset(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getStartZoneOffset() {
+    return const jni.JObjectType()
+        .fromRef(_getStartZoneOffset(reference).object);
+  }
 
   static final _getEndTime = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getEndTime")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getEndTime")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant getEndTime()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant getEndTime() =>
-      const $InstantType().fromRef(_getEndTime(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant getEndTime() {
+    return const $InstantType().fromRef(_getEndTime(reference).object);
+  }
 
   static final _getEndZoneOffset = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getEndZoneOffset")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getEndZoneOffset")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.ZoneOffset getEndZoneOffset()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getEndZoneOffset() =>
-      const jni.JObjectType().fromRef(_getEndZoneOffset(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getEndZoneOffset() {
+    return const jni.JObjectType().fromRef(_getEndZoneOffset(reference).object);
+  }
 
   static final _getMetadata = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getMetadata")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__getMetadata")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public androidx.health.connect.client.records.metadata.Metadata getMetadata()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getMetadata() =>
-      const jni.JObjectType().fromRef(_getMetadata(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getMetadata() {
+    return const jni.JObjectType().fromRef(_getMetadata(reference).object);
+  }
 
   static final _equals1 = jniLookup<
           ffi.NativeFunction<
@@ -687,17 +1089,22 @@ class StepsRecord extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean equals(java.lang.Object object)
-  bool equals1(jni.JObject object) =>
-      _equals1(reference, object.reference).boolean;
+  bool equals1(
+    jni.JObject object,
+  ) {
+    return _equals1(reference, object.reference).boolean;
+  }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "StepsRecord__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
-  int hashCode1() => _hashCode1(reference).integer;
+  int hashCode1() {
+    return _hashCode1(reference).integer;
+  }
 }
 
 class $StepsRecordType extends jni.JObjType<StepsRecord> {
@@ -709,32 +1116,31 @@ class $StepsRecordType extends jni.JObjType<StepsRecord> {
 
   @override
   StepsRecord fromRef(jni.JObjectPtr ref) => StepsRecord.fromRef(ref);
-}
 
-extension $StepsRecordArray on jni.JArray<StepsRecord> {
-  StepsRecord operator [](int index) {
-    return (elementType as $StepsRecordType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, StepsRecord value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($StepsRecordType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($StepsRecordType) && other is $StepsRecordType;
   }
 }
 
 /// from: androidx.health.connect.client.time.TimeRangeFilter$Companion
 class TimeRangeFilter_Companion extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<TimeRangeFilter_Companion> $type = type;
 
-  TimeRangeFilter_Companion.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  TimeRangeFilter_Companion.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $TimeRangeFilter_CompanionType();
-
   static final _between = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
@@ -746,10 +1152,14 @@ class TimeRangeFilter_Companion extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public final androidx.health.connect.client.time.TimeRangeFilter between(java.time.Instant instant, java.time.Instant instant1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  TimeRangeFilter between(Instant instant, Instant instant1) =>
-      const $TimeRangeFilterType().fromRef(
-          _between(reference, instant.reference, instant1.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  TimeRangeFilter between(
+    Instant instant,
+    Instant instant1,
+  ) {
+    return const $TimeRangeFilterType().fromRef(
+        _between(reference, instant.reference, instant1.reference).object);
+  }
 
   static final _between1 = jniLookup<
               ffi.NativeFunction<
@@ -761,12 +1171,15 @@ class TimeRangeFilter_Companion extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public final androidx.health.connect.client.time.TimeRangeFilter between(java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   TimeRangeFilter between1(
-          jni.JObject localDateTime, jni.JObject localDateTime1) =>
-      const $TimeRangeFilterType().fromRef(_between1(
-              reference, localDateTime.reference, localDateTime1.reference)
-          .object);
+    jni.JObject localDateTime,
+    jni.JObject localDateTime1,
+  ) {
+    return const $TimeRangeFilterType().fromRef(
+        _between1(reference, localDateTime.reference, localDateTime1.reference)
+            .object);
+  }
 
   static final _before = jniLookup<
           ffi.NativeFunction<
@@ -777,9 +1190,13 @@ class TimeRangeFilter_Companion extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.Instant instant)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  TimeRangeFilter before(Instant instant) => const $TimeRangeFilterType()
-      .fromRef(_before(reference, instant.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  TimeRangeFilter before(
+    Instant instant,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_before(reference, instant.reference).object);
+  }
 
   static final _before1 = jniLookup<
           ffi.NativeFunction<
@@ -790,10 +1207,13 @@ class TimeRangeFilter_Companion extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.LocalDateTime localDateTime)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  TimeRangeFilter before1(jni.JObject localDateTime) =>
-      const $TimeRangeFilterType()
-          .fromRef(_before1(reference, localDateTime.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  TimeRangeFilter before1(
+    jni.JObject localDateTime,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_before1(reference, localDateTime.reference).object);
+  }
 
   static final _after = jniLookup<
           ffi.NativeFunction<
@@ -804,9 +1224,13 @@ class TimeRangeFilter_Companion extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.Instant instant)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  TimeRangeFilter after(Instant instant) => const $TimeRangeFilterType()
-      .fromRef(_after(reference, instant.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  TimeRangeFilter after(
+    Instant instant,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_after(reference, instant.reference).object);
+  }
 
   static final _after1 = jniLookup<
           ffi.NativeFunction<
@@ -817,20 +1241,28 @@ class TimeRangeFilter_Companion extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.LocalDateTime localDateTime)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  TimeRangeFilter after1(jni.JObject localDateTime) =>
-      const $TimeRangeFilterType()
-          .fromRef(_after1(reference, localDateTime.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  TimeRangeFilter after1(
+    jni.JObject localDateTime,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_after1(reference, localDateTime.reference).object);
+  }
 
-  static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter_Companion__ctor")
+  static final _new0 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter_Companion__new0")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  TimeRangeFilter_Companion(jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor(defaultConstructorMarker.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory TimeRangeFilter_Companion(
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return TimeRangeFilter_Companion.fromRef(
+        _new0(defaultConstructorMarker.reference).object);
+  }
 }
 
 class $TimeRangeFilter_CompanionType
@@ -844,62 +1276,67 @@ class $TimeRangeFilter_CompanionType
   @override
   TimeRangeFilter_Companion fromRef(jni.JObjectPtr ref) =>
       TimeRangeFilter_Companion.fromRef(ref);
-}
 
-extension $TimeRangeFilter_CompanionArray
-    on jni.JArray<TimeRangeFilter_Companion> {
-  TimeRangeFilter_Companion operator [](int index) {
-    return (elementType as $TimeRangeFilter_CompanionType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, TimeRangeFilter_Companion value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($TimeRangeFilter_CompanionType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($TimeRangeFilter_CompanionType) &&
+        other is $TimeRangeFilter_CompanionType;
   }
 }
 
 /// from: androidx.health.connect.client.time.TimeRangeFilter
 class TimeRangeFilter extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<TimeRangeFilter> $type = type;
 
-  TimeRangeFilter.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  TimeRangeFilter.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $TimeRangeFilterType();
-
   static final _get_Companion =
       jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
               "get_TimeRangeFilter__Companion")
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static TimeRangeFilter_Companion get Companion =>
       const $TimeRangeFilter_CompanionType().fromRef(_get_Companion().object);
 
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__ctor")
+                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.time.Instant instant, java.time.Instant instant1, java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1)
-  TimeRangeFilter(Instant instant, Instant instant1, jni.JObject localDateTime,
-      jni.JObject localDateTime1)
-      : super.fromRef(_ctor(instant.reference, instant1.reference,
-                localDateTime.reference, localDateTime1.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory TimeRangeFilter(
+    Instant instant,
+    Instant instant1,
+    jni.JObject localDateTime,
+    jni.JObject localDateTime1,
+  ) {
+    return TimeRangeFilter.fromRef(_new0(instant.reference, instant1.reference,
+            localDateTime.reference, localDateTime1.reference)
+        .object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
@@ -907,7 +1344,7 @@ class TimeRangeFilter extends jni.JObject {
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__ctor1")
+                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__new1")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>,
@@ -918,21 +1355,24 @@ class TimeRangeFilter extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.time.Instant instant, java.time.Instant instant1, java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  TimeRangeFilter.ctor1(
-      Instant instant,
-      Instant instant1,
-      jni.JObject localDateTime,
-      jni.JObject localDateTime1,
-      int i,
-      jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(
-                instant.reference,
-                instant1.reference,
-                localDateTime.reference,
-                localDateTime1.reference,
-                i,
-                defaultConstructorMarker.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory TimeRangeFilter.new1(
+    Instant instant,
+    Instant instant1,
+    jni.JObject localDateTime,
+    jni.JObject localDateTime1,
+    int i,
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return TimeRangeFilter.fromRef(_new1(
+            instant.reference,
+            instant1.reference,
+            localDateTime.reference,
+            localDateTime1.reference,
+            i,
+            defaultConstructorMarker.reference)
+        .object);
+  }
 
   static final _equals1 = jniLookup<
           ffi.NativeFunction<
@@ -943,24 +1383,32 @@ class TimeRangeFilter extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean equals(java.lang.Object object)
-  bool equals1(jni.JObject object) =>
-      _equals1(reference, object.reference).boolean;
+  bool equals1(
+    jni.JObject object,
+  ) {
+    return _equals1(reference, object.reference).boolean;
+  }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
-  int hashCode1() => _hashCode1(reference).integer;
+  int hashCode1() {
+    return _hashCode1(reference).integer;
+  }
 
-  static final _ctor2 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-          "TimeRangeFilter__ctor2")
+  static final _new2 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+          "TimeRangeFilter__new2")
       .asFunction<jni.JniResult Function()>();
 
   /// from: public void <init>()
-  TimeRangeFilter.ctor2() : super.fromRef(_ctor2().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory TimeRangeFilter.new2() {
+    return TimeRangeFilter.fromRef(_new2().object);
+  }
 
   static final _between = jniLookup<
           ffi.NativeFunction<
@@ -971,10 +1419,14 @@ class TimeRangeFilter extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter between(java.time.Instant instant, java.time.Instant instant1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter between(Instant instant, Instant instant1) =>
-      const $TimeRangeFilterType()
-          .fromRef(_between(instant.reference, instant1.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static TimeRangeFilter between(
+    Instant instant,
+    Instant instant1,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_between(instant.reference, instant1.reference).object);
+  }
 
   static final _between1 = jniLookup<
           ffi.NativeFunction<
@@ -985,57 +1437,74 @@ class TimeRangeFilter extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter between(java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static TimeRangeFilter between1(
-          jni.JObject localDateTime, jni.JObject localDateTime1) =>
-      const $TimeRangeFilterType().fromRef(
-          _between1(localDateTime.reference, localDateTime1.reference).object);
+    jni.JObject localDateTime,
+    jni.JObject localDateTime1,
+  ) {
+    return const $TimeRangeFilterType().fromRef(
+        _between1(localDateTime.reference, localDateTime1.reference).object);
+  }
 
   static final _before = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__before")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__before")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.Instant instant)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter before(Instant instant) =>
-      const $TimeRangeFilterType().fromRef(_before(instant.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static TimeRangeFilter before(
+    Instant instant,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_before(instant.reference).object);
+  }
 
   static final _before1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__before1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__before1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.LocalDateTime localDateTime)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter before1(jni.JObject localDateTime) =>
-      const $TimeRangeFilterType()
-          .fromRef(_before1(localDateTime.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static TimeRangeFilter before1(
+    jni.JObject localDateTime,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_before1(localDateTime.reference).object);
+  }
 
   static final _after = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__after")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__after")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.Instant instant)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter after(Instant instant) =>
-      const $TimeRangeFilterType().fromRef(_after(instant.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static TimeRangeFilter after(
+    Instant instant,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_after(instant.reference).object);
+  }
 
   static final _after1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__after1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "TimeRangeFilter__after1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.LocalDateTime localDateTime)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter after1(jni.JObject localDateTime) =>
-      const $TimeRangeFilterType()
-          .fromRef(_after1(localDateTime.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static TimeRangeFilter after1(
+    jni.JObject localDateTime,
+  ) {
+    return const $TimeRangeFilterType()
+        .fromRef(_after1(localDateTime.reference).object);
+  }
 }
 
 class $TimeRangeFilterType extends jni.JObjType<TimeRangeFilter> {
@@ -1047,58 +1516,59 @@ class $TimeRangeFilterType extends jni.JObjType<TimeRangeFilter> {
 
   @override
   TimeRangeFilter fromRef(jni.JObjectPtr ref) => TimeRangeFilter.fromRef(ref);
-}
 
-extension $TimeRangeFilterArray on jni.JArray<TimeRangeFilter> {
-  TimeRangeFilter operator [](int index) {
-    return (elementType as $TimeRangeFilterType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, TimeRangeFilter value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($TimeRangeFilterType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($TimeRangeFilterType) &&
+        other is $TimeRangeFilterType;
   }
 }
 
 /// from: android.content.Context
 class Context extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<Context> $type = type;
 
-  Context.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Context.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $ContextType();
 
   /// from: static public final java.lang.String ACCESSIBILITY_SERVICE
-  static const ACCESSIBILITY_SERVICE = "accessibility";
+  static const ACCESSIBILITY_SERVICE = r"""accessibility""";
 
   /// from: static public final java.lang.String ACCOUNT_SERVICE
-  static const ACCOUNT_SERVICE = "account";
+  static const ACCOUNT_SERVICE = r"""account""";
 
   /// from: static public final java.lang.String ACTIVITY_SERVICE
-  static const ACTIVITY_SERVICE = "activity";
+  static const ACTIVITY_SERVICE = r"""activity""";
 
   /// from: static public final java.lang.String ALARM_SERVICE
-  static const ALARM_SERVICE = "alarm";
+  static const ALARM_SERVICE = r"""alarm""";
 
   /// from: static public final java.lang.String APPWIDGET_SERVICE
-  static const APPWIDGET_SERVICE = "appwidget";
+  static const APPWIDGET_SERVICE = r"""appwidget""";
 
   /// from: static public final java.lang.String APP_OPS_SERVICE
-  static const APP_OPS_SERVICE = "appops";
+  static const APP_OPS_SERVICE = r"""appops""";
 
   /// from: static public final java.lang.String APP_SEARCH_SERVICE
-  static const APP_SEARCH_SERVICE = "app_search";
+  static const APP_SEARCH_SERVICE = r"""app_search""";
 
   /// from: static public final java.lang.String AUDIO_SERVICE
-  static const AUDIO_SERVICE = "audio";
+  static const AUDIO_SERVICE = r"""audio""";
 
   /// from: static public final java.lang.String BATTERY_SERVICE
-  static const BATTERY_SERVICE = "batterymanager";
+  static const BATTERY_SERVICE = r"""batterymanager""";
 
   /// from: static public final int BIND_ABOVE_CLIENT
   static const BIND_ABOVE_CLIENT = 8;
@@ -1134,40 +1604,41 @@ class Context extends jni.JObject {
   static const BIND_WAIVE_PRIORITY = 32;
 
   /// from: static public final java.lang.String BIOMETRIC_SERVICE
-  static const BIOMETRIC_SERVICE = "biometric";
+  static const BIOMETRIC_SERVICE = r"""biometric""";
 
   /// from: static public final java.lang.String BLOB_STORE_SERVICE
-  static const BLOB_STORE_SERVICE = "blob_store";
+  static const BLOB_STORE_SERVICE = r"""blob_store""";
 
   /// from: static public final java.lang.String BLUETOOTH_SERVICE
-  static const BLUETOOTH_SERVICE = "bluetooth";
+  static const BLUETOOTH_SERVICE = r"""bluetooth""";
 
   /// from: static public final java.lang.String BUGREPORT_SERVICE
-  static const BUGREPORT_SERVICE = "bugreport";
+  static const BUGREPORT_SERVICE = r"""bugreport""";
 
   /// from: static public final java.lang.String CAMERA_SERVICE
-  static const CAMERA_SERVICE = "camera";
+  static const CAMERA_SERVICE = r"""camera""";
 
   /// from: static public final java.lang.String CAPTIONING_SERVICE
-  static const CAPTIONING_SERVICE = "captioning";
+  static const CAPTIONING_SERVICE = r"""captioning""";
 
   /// from: static public final java.lang.String CARRIER_CONFIG_SERVICE
-  static const CARRIER_CONFIG_SERVICE = "carrier_config";
+  static const CARRIER_CONFIG_SERVICE = r"""carrier_config""";
 
   /// from: static public final java.lang.String CLIPBOARD_SERVICE
-  static const CLIPBOARD_SERVICE = "clipboard";
+  static const CLIPBOARD_SERVICE = r"""clipboard""";
 
   /// from: static public final java.lang.String COMPANION_DEVICE_SERVICE
-  static const COMPANION_DEVICE_SERVICE = "companiondevice";
+  static const COMPANION_DEVICE_SERVICE = r"""companiondevice""";
 
   /// from: static public final java.lang.String CONNECTIVITY_DIAGNOSTICS_SERVICE
-  static const CONNECTIVITY_DIAGNOSTICS_SERVICE = "connectivity_diagnostics";
+  static const CONNECTIVITY_DIAGNOSTICS_SERVICE =
+      r"""connectivity_diagnostics""";
 
   /// from: static public final java.lang.String CONNECTIVITY_SERVICE
-  static const CONNECTIVITY_SERVICE = "connectivity";
+  static const CONNECTIVITY_SERVICE = r"""connectivity""";
 
   /// from: static public final java.lang.String CONSUMER_IR_SERVICE
-  static const CONSUMER_IR_SERVICE = "consumer_ir";
+  static const CONSUMER_IR_SERVICE = r"""consumer_ir""";
 
   /// from: static public final int CONTEXT_IGNORE_SECURITY
   static const CONTEXT_IGNORE_SECURITY = 2;
@@ -1179,85 +1650,85 @@ class Context extends jni.JObject {
   static const CONTEXT_RESTRICTED = 4;
 
   /// from: static public final java.lang.String CROSS_PROFILE_APPS_SERVICE
-  static const CROSS_PROFILE_APPS_SERVICE = "crossprofileapps";
+  static const CROSS_PROFILE_APPS_SERVICE = r"""crossprofileapps""";
 
   /// from: static public final java.lang.String DEVICE_POLICY_SERVICE
-  static const DEVICE_POLICY_SERVICE = "device_policy";
+  static const DEVICE_POLICY_SERVICE = r"""device_policy""";
 
   /// from: static public final java.lang.String DISPLAY_HASH_SERVICE
-  static const DISPLAY_HASH_SERVICE = "display_hash";
+  static const DISPLAY_HASH_SERVICE = r"""display_hash""";
 
   /// from: static public final java.lang.String DISPLAY_SERVICE
-  static const DISPLAY_SERVICE = "display";
+  static const DISPLAY_SERVICE = r"""display""";
 
   /// from: static public final java.lang.String DOMAIN_VERIFICATION_SERVICE
-  static const DOMAIN_VERIFICATION_SERVICE = "domain_verification";
+  static const DOMAIN_VERIFICATION_SERVICE = r"""domain_verification""";
 
   /// from: static public final java.lang.String DOWNLOAD_SERVICE
-  static const DOWNLOAD_SERVICE = "download";
+  static const DOWNLOAD_SERVICE = r"""download""";
 
   /// from: static public final java.lang.String DROPBOX_SERVICE
-  static const DROPBOX_SERVICE = "dropbox";
+  static const DROPBOX_SERVICE = r"""dropbox""";
 
   /// from: static public final java.lang.String EUICC_SERVICE
-  static const EUICC_SERVICE = "euicc";
+  static const EUICC_SERVICE = r"""euicc""";
 
   /// from: static public final java.lang.String FILE_INTEGRITY_SERVICE
-  static const FILE_INTEGRITY_SERVICE = "file_integrity";
+  static const FILE_INTEGRITY_SERVICE = r"""file_integrity""";
 
   /// from: static public final java.lang.String FINGERPRINT_SERVICE
-  static const FINGERPRINT_SERVICE = "fingerprint";
+  static const FINGERPRINT_SERVICE = r"""fingerprint""";
 
   /// from: static public final java.lang.String GAME_SERVICE
-  static const GAME_SERVICE = "game";
+  static const GAME_SERVICE = r"""game""";
 
   /// from: static public final java.lang.String HARDWARE_PROPERTIES_SERVICE
-  static const HARDWARE_PROPERTIES_SERVICE = "hardware_properties";
+  static const HARDWARE_PROPERTIES_SERVICE = r"""hardware_properties""";
 
   /// from: static public final java.lang.String INPUT_METHOD_SERVICE
-  static const INPUT_METHOD_SERVICE = "input_method";
+  static const INPUT_METHOD_SERVICE = r"""input_method""";
 
   /// from: static public final java.lang.String INPUT_SERVICE
-  static const INPUT_SERVICE = "input";
+  static const INPUT_SERVICE = r"""input""";
 
   /// from: static public final java.lang.String IPSEC_SERVICE
-  static const IPSEC_SERVICE = "ipsec";
+  static const IPSEC_SERVICE = r"""ipsec""";
 
   /// from: static public final java.lang.String JOB_SCHEDULER_SERVICE
-  static const JOB_SCHEDULER_SERVICE = "jobscheduler";
+  static const JOB_SCHEDULER_SERVICE = r"""jobscheduler""";
 
   /// from: static public final java.lang.String KEYGUARD_SERVICE
-  static const KEYGUARD_SERVICE = "keyguard";
+  static const KEYGUARD_SERVICE = r"""keyguard""";
 
   /// from: static public final java.lang.String LAUNCHER_APPS_SERVICE
-  static const LAUNCHER_APPS_SERVICE = "launcherapps";
+  static const LAUNCHER_APPS_SERVICE = r"""launcherapps""";
 
   /// from: static public final java.lang.String LAYOUT_INFLATER_SERVICE
-  static const LAYOUT_INFLATER_SERVICE = "layout_inflater";
+  static const LAYOUT_INFLATER_SERVICE = r"""layout_inflater""";
 
   /// from: static public final java.lang.String LOCALE_SERVICE
-  static const LOCALE_SERVICE = "locale";
+  static const LOCALE_SERVICE = r"""locale""";
 
   /// from: static public final java.lang.String LOCATION_SERVICE
-  static const LOCATION_SERVICE = "location";
+  static const LOCATION_SERVICE = r"""location""";
 
   /// from: static public final java.lang.String MEDIA_COMMUNICATION_SERVICE
-  static const MEDIA_COMMUNICATION_SERVICE = "media_communication";
+  static const MEDIA_COMMUNICATION_SERVICE = r"""media_communication""";
 
   /// from: static public final java.lang.String MEDIA_METRICS_SERVICE
-  static const MEDIA_METRICS_SERVICE = "media_metrics";
+  static const MEDIA_METRICS_SERVICE = r"""media_metrics""";
 
   /// from: static public final java.lang.String MEDIA_PROJECTION_SERVICE
-  static const MEDIA_PROJECTION_SERVICE = "media_projection";
+  static const MEDIA_PROJECTION_SERVICE = r"""media_projection""";
 
   /// from: static public final java.lang.String MEDIA_ROUTER_SERVICE
-  static const MEDIA_ROUTER_SERVICE = "media_router";
+  static const MEDIA_ROUTER_SERVICE = r"""media_router""";
 
   /// from: static public final java.lang.String MEDIA_SESSION_SERVICE
-  static const MEDIA_SESSION_SERVICE = "media_session";
+  static const MEDIA_SESSION_SERVICE = r"""media_session""";
 
   /// from: static public final java.lang.String MIDI_SERVICE
-  static const MIDI_SERVICE = "midi";
+  static const MIDI_SERVICE = r"""midi""";
 
   /// from: static public final int MODE_APPEND
   static const MODE_APPEND = 32768;
@@ -1281,28 +1752,28 @@ class Context extends jni.JObject {
   static const MODE_WORLD_WRITEABLE = 2;
 
   /// from: static public final java.lang.String NETWORK_STATS_SERVICE
-  static const NETWORK_STATS_SERVICE = "netstats";
+  static const NETWORK_STATS_SERVICE = r"""netstats""";
 
   /// from: static public final java.lang.String NFC_SERVICE
-  static const NFC_SERVICE = "nfc";
+  static const NFC_SERVICE = r"""nfc""";
 
   /// from: static public final java.lang.String NOTIFICATION_SERVICE
-  static const NOTIFICATION_SERVICE = "notification";
+  static const NOTIFICATION_SERVICE = r"""notification""";
 
   /// from: static public final java.lang.String NSD_SERVICE
-  static const NSD_SERVICE = "servicediscovery";
+  static const NSD_SERVICE = r"""servicediscovery""";
 
   /// from: static public final java.lang.String PEOPLE_SERVICE
-  static const PEOPLE_SERVICE = "people";
+  static const PEOPLE_SERVICE = r"""people""";
 
   /// from: static public final java.lang.String PERFORMANCE_HINT_SERVICE
-  static const PERFORMANCE_HINT_SERVICE = "performance_hint";
+  static const PERFORMANCE_HINT_SERVICE = r"""performance_hint""";
 
   /// from: static public final java.lang.String POWER_SERVICE
-  static const POWER_SERVICE = "power";
+  static const POWER_SERVICE = r"""power""";
 
   /// from: static public final java.lang.String PRINT_SERVICE
-  static const PRINT_SERVICE = "print";
+  static const PRINT_SERVICE = r"""print""";
 
   /// from: static public final int RECEIVER_EXPORTED
   static const RECEIVER_EXPORTED = 2;
@@ -1314,179 +1785,192 @@ class Context extends jni.JObject {
   static const RECEIVER_VISIBLE_TO_INSTANT_APPS = 1;
 
   /// from: static public final java.lang.String RESTRICTIONS_SERVICE
-  static const RESTRICTIONS_SERVICE = "restrictions";
+  static const RESTRICTIONS_SERVICE = r"""restrictions""";
 
   /// from: static public final java.lang.String ROLE_SERVICE
-  static const ROLE_SERVICE = "role";
+  static const ROLE_SERVICE = r"""role""";
 
   /// from: static public final java.lang.String SEARCH_SERVICE
-  static const SEARCH_SERVICE = "search";
+  static const SEARCH_SERVICE = r"""search""";
 
   /// from: static public final java.lang.String SENSOR_SERVICE
-  static const SENSOR_SERVICE = "sensor";
+  static const SENSOR_SERVICE = r"""sensor""";
 
   /// from: static public final java.lang.String SHORTCUT_SERVICE
-  static const SHORTCUT_SERVICE = "shortcut";
+  static const SHORTCUT_SERVICE = r"""shortcut""";
 
   /// from: static public final java.lang.String STATUS_BAR_SERVICE
-  static const STATUS_BAR_SERVICE = "statusbar";
+  static const STATUS_BAR_SERVICE = r"""statusbar""";
 
   /// from: static public final java.lang.String STORAGE_SERVICE
-  static const STORAGE_SERVICE = "storage";
+  static const STORAGE_SERVICE = r"""storage""";
 
   /// from: static public final java.lang.String STORAGE_STATS_SERVICE
-  static const STORAGE_STATS_SERVICE = "storagestats";
+  static const STORAGE_STATS_SERVICE = r"""storagestats""";
 
   /// from: static public final java.lang.String SYSTEM_HEALTH_SERVICE
-  static const SYSTEM_HEALTH_SERVICE = "systemhealth";
+  static const SYSTEM_HEALTH_SERVICE = r"""systemhealth""";
 
   /// from: static public final java.lang.String TELECOM_SERVICE
-  static const TELECOM_SERVICE = "telecom";
+  static const TELECOM_SERVICE = r"""telecom""";
 
   /// from: static public final java.lang.String TELEPHONY_IMS_SERVICE
-  static const TELEPHONY_IMS_SERVICE = "telephony_ims";
+  static const TELEPHONY_IMS_SERVICE = r"""telephony_ims""";
 
   /// from: static public final java.lang.String TELEPHONY_SERVICE
-  static const TELEPHONY_SERVICE = "phone";
+  static const TELEPHONY_SERVICE = r"""phone""";
 
   /// from: static public final java.lang.String TELEPHONY_SUBSCRIPTION_SERVICE
   static const TELEPHONY_SUBSCRIPTION_SERVICE =
-      "telephony_subscription_service";
+      r"""telephony_subscription_service""";
 
   /// from: static public final java.lang.String TEXT_CLASSIFICATION_SERVICE
-  static const TEXT_CLASSIFICATION_SERVICE = "textclassification";
+  static const TEXT_CLASSIFICATION_SERVICE = r"""textclassification""";
 
   /// from: static public final java.lang.String TEXT_SERVICES_MANAGER_SERVICE
-  static const TEXT_SERVICES_MANAGER_SERVICE = "textservices";
+  static const TEXT_SERVICES_MANAGER_SERVICE = r"""textservices""";
 
   /// from: static public final java.lang.String TV_INPUT_SERVICE
-  static const TV_INPUT_SERVICE = "tv_input";
+  static const TV_INPUT_SERVICE = r"""tv_input""";
 
   /// from: static public final java.lang.String TV_INTERACTIVE_APP_SERVICE
-  static const TV_INTERACTIVE_APP_SERVICE = "tv_interactive_app";
+  static const TV_INTERACTIVE_APP_SERVICE = r"""tv_interactive_app""";
 
   /// from: static public final java.lang.String UI_MODE_SERVICE
-  static const UI_MODE_SERVICE = "uimode";
+  static const UI_MODE_SERVICE = r"""uimode""";
 
   /// from: static public final java.lang.String USAGE_STATS_SERVICE
-  static const USAGE_STATS_SERVICE = "usagestats";
+  static const USAGE_STATS_SERVICE = r"""usagestats""";
 
   /// from: static public final java.lang.String USB_SERVICE
-  static const USB_SERVICE = "usb";
+  static const USB_SERVICE = r"""usb""";
 
   /// from: static public final java.lang.String USER_SERVICE
-  static const USER_SERVICE = "user";
+  static const USER_SERVICE = r"""user""";
 
   /// from: static public final java.lang.String VIBRATOR_MANAGER_SERVICE
-  static const VIBRATOR_MANAGER_SERVICE = "vibrator_manager";
+  static const VIBRATOR_MANAGER_SERVICE = r"""vibrator_manager""";
 
   /// from: static public final java.lang.String VIBRATOR_SERVICE
-  static const VIBRATOR_SERVICE = "vibrator";
+  static const VIBRATOR_SERVICE = r"""vibrator""";
 
   /// from: static public final java.lang.String VPN_MANAGEMENT_SERVICE
-  static const VPN_MANAGEMENT_SERVICE = "vpn_management";
+  static const VPN_MANAGEMENT_SERVICE = r"""vpn_management""";
 
   /// from: static public final java.lang.String WALLPAPER_SERVICE
-  static const WALLPAPER_SERVICE = "wallpaper";
+  static const WALLPAPER_SERVICE = r"""wallpaper""";
 
   /// from: static public final java.lang.String WIFI_AWARE_SERVICE
-  static const WIFI_AWARE_SERVICE = "wifiaware";
+  static const WIFI_AWARE_SERVICE = r"""wifiaware""";
 
   /// from: static public final java.lang.String WIFI_P2P_SERVICE
-  static const WIFI_P2P_SERVICE = "wifip2p";
+  static const WIFI_P2P_SERVICE = r"""wifip2p""";
 
   /// from: static public final java.lang.String WIFI_RTT_RANGING_SERVICE
-  static const WIFI_RTT_RANGING_SERVICE = "wifirtt";
+  static const WIFI_RTT_RANGING_SERVICE = r"""wifirtt""";
 
   /// from: static public final java.lang.String WIFI_SERVICE
-  static const WIFI_SERVICE = "wifi";
+  static const WIFI_SERVICE = r"""wifi""";
 
   /// from: static public final java.lang.String WINDOW_SERVICE
-  static const WINDOW_SERVICE = "window";
+  static const WINDOW_SERVICE = r"""window""";
 
-  static final _ctor =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Context__ctor")
+  static final _new0 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Context__new0")
           .asFunction<jni.JniResult Function()>();
 
   /// from: public void <init>()
-  Context() : super.fromRef(_ctor().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Context() {
+    return Context.fromRef(_new0().object);
+  }
 
   static final _getAssets = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAssets")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAssets")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.AssetManager getAssets()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getAssets() =>
-      const jni.JObjectType().fromRef(_getAssets(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAssets() {
+    return const jni.JObjectType().fromRef(_getAssets(reference).object);
+  }
 
   static final _getResources = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getResources")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getResources")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.Resources getResources()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getResources() =>
-      const jni.JObjectType().fromRef(_getResources(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getResources() {
+    return const jni.JObjectType().fromRef(_getResources(reference).object);
+  }
 
   static final _getPackageManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.pm.PackageManager getPackageManager()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getPackageManager() =>
-      const jni.JObjectType().fromRef(_getPackageManager(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getPackageManager() {
+    return const jni.JObjectType()
+        .fromRef(_getPackageManager(reference).object);
+  }
 
   static final _getContentResolver = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getContentResolver")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getContentResolver")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ContentResolver getContentResolver()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getContentResolver() =>
-      const jni.JObjectType().fromRef(_getContentResolver(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getContentResolver() {
+    return const jni.JObjectType()
+        .fromRef(_getContentResolver(reference).object);
+  }
 
   static final _getMainLooper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getMainLooper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getMainLooper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.os.Looper getMainLooper()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getMainLooper() =>
-      const jni.JObjectType().fromRef(_getMainLooper(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getMainLooper() {
+    return const jni.JObjectType().fromRef(_getMainLooper(reference).object);
+  }
 
   static final _getMainExecutor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getMainExecutor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getMainExecutor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.concurrent.Executor getMainExecutor()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getMainExecutor() =>
-      const jni.JObjectType().fromRef(_getMainExecutor(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getMainExecutor() {
+    return const jni.JObjectType().fromRef(_getMainExecutor(reference).object);
+  }
 
   static final _getApplicationContext = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getApplicationContext")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getApplicationContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context getApplicationContext()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context getApplicationContext() =>
-      const $ContextType().fromRef(_getApplicationContext(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context getApplicationContext() {
+    return const $ContextType()
+        .fromRef(_getApplicationContext(reference).object);
+  }
 
   static final _registerComponentCallbacks = jniLookup<
               ffi.NativeFunction<
@@ -1498,9 +1982,12 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void registerComponentCallbacks(android.content.ComponentCallbacks componentCallbacks)
-  void registerComponentCallbacks(jni.JObject componentCallbacks) =>
-      _registerComponentCallbacks(reference, componentCallbacks.reference)
-          .check();
+  void registerComponentCallbacks(
+    jni.JObject componentCallbacks,
+  ) {
+    return _registerComponentCallbacks(reference, componentCallbacks.reference)
+        .check();
+  }
 
   static final _unregisterComponentCallbacks = jniLookup<
               ffi.NativeFunction<
@@ -1512,9 +1999,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void unregisterComponentCallbacks(android.content.ComponentCallbacks componentCallbacks)
-  void unregisterComponentCallbacks(jni.JObject componentCallbacks) =>
-      _unregisterComponentCallbacks(reference, componentCallbacks.reference)
-          .check();
+  void unregisterComponentCallbacks(
+    jni.JObject componentCallbacks,
+  ) {
+    return _unregisterComponentCallbacks(
+            reference, componentCallbacks.reference)
+        .check();
+  }
 
   static final _getText = jniLookup<
           ffi.NativeFunction<
@@ -1523,9 +2014,12 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final java.lang.CharSequence getText(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getText(int i) =>
-      const jni.JObjectType().fromRef(_getText(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getText(
+    int i,
+  ) {
+    return const jni.JObjectType().fromRef(_getText(reference, i).object);
+  }
 
   static final _getString = jniLookup<
           ffi.NativeFunction<
@@ -1534,9 +2028,12 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final java.lang.String getString(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getString(int i) =>
-      const jni.JStringType().fromRef(_getString(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getString(
+    int i,
+  ) {
+    return const jni.JStringType().fromRef(_getString(reference, i).object);
+  }
 
   static final _getString1 = jniLookup<
           ffi.NativeFunction<
@@ -1547,10 +2044,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final java.lang.String getString(int i, java.lang.Object[] objects)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getString1(int i, jni.JArray<jni.JObject> objects) =>
-      const jni.JStringType()
-          .fromRef(_getString1(reference, i, objects.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getString1(
+    int i,
+    jni.JArray<jni.JObject> objects,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getString1(reference, i, objects.reference).object);
+  }
 
   static final _getColor = jniLookup<
           ffi.NativeFunction<
@@ -1559,7 +2060,11 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final int getColor(int i)
-  int getColor(int i) => _getColor(reference, i).integer;
+  int getColor(
+    int i,
+  ) {
+    return _getColor(reference, i).integer;
+  }
 
   static final _getDrawable = jniLookup<
           ffi.NativeFunction<
@@ -1568,9 +2073,12 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final android.graphics.drawable.Drawable getDrawable(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getDrawable(int i) =>
-      const jni.JObjectType().fromRef(_getDrawable(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getDrawable(
+    int i,
+  ) {
+    return const jni.JObjectType().fromRef(_getDrawable(reference, i).object);
+  }
 
   static final _getColorStateList = jniLookup<
           ffi.NativeFunction<
@@ -1579,9 +2087,13 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final android.content.res.ColorStateList getColorStateList(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getColorStateList(int i) =>
-      const jni.JObjectType().fromRef(_getColorStateList(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getColorStateList(
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getColorStateList(reference, i).object);
+  }
 
   static final _setTheme = jniLookup<
           ffi.NativeFunction<
@@ -1590,18 +2102,23 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract void setTheme(int i)
-  void setTheme(int i) => _setTheme(reference, i).check();
+  void setTheme(
+    int i,
+  ) {
+    return _setTheme(reference, i).check();
+  }
 
   static final _getTheme = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getTheme")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getTheme")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.Resources$Theme getTheme()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getTheme() =>
-      const jni.JObjectType().fromRef(_getTheme(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getTheme() {
+    return const jni.JObjectType().fromRef(_getTheme(reference).object);
+  }
 
   static final _obtainStyledAttributes = jniLookup<
           ffi.NativeFunction<
@@ -1612,10 +2129,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject obtainStyledAttributes(jni.JArray<jni.JInt> is0) =>
-      const jni.JObjectType()
-          .fromRef(_obtainStyledAttributes(reference, is0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject obtainStyledAttributes(
+    jni.JArray<jni.jint> is0,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_obtainStyledAttributes(reference, is0.reference).object);
+  }
 
   static final _obtainStyledAttributes1 = jniLookup<
           ffi.NativeFunction<
@@ -1626,10 +2146,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(int i, int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject obtainStyledAttributes1(int i, jni.JArray<jni.JInt> is0) =>
-      const jni.JObjectType().fromRef(
-          _obtainStyledAttributes1(reference, i, is0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject obtainStyledAttributes1(
+    int i,
+    jni.JArray<jni.jint> is0,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_obtainStyledAttributes1(reference, i, is0.reference).object);
+  }
 
   static final _obtainStyledAttributes2 = jniLookup<
           ffi.NativeFunction<
@@ -1642,12 +2166,15 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(android.util.AttributeSet attributeSet, int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject obtainStyledAttributes2(
-          jni.JObject attributeSet, jni.JArray<jni.JInt> is0) =>
-      const jni.JObjectType().fromRef(_obtainStyledAttributes2(
-              reference, attributeSet.reference, is0.reference)
-          .object);
+    jni.JObject attributeSet,
+    jni.JArray<jni.jint> is0,
+  ) {
+    return const jni.JObjectType().fromRef(_obtainStyledAttributes2(
+            reference, attributeSet.reference, is0.reference)
+        .object);
+  }
 
   static final _obtainStyledAttributes3 = jniLookup<
           ffi.NativeFunction<
@@ -1662,111 +2189,130 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(android.util.AttributeSet attributeSet, int[] is, int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject obtainStyledAttributes3(
-          jni.JObject attributeSet, jni.JArray<jni.JInt> is0, int i, int i1) =>
-      const jni.JObjectType().fromRef(_obtainStyledAttributes3(
-              reference, attributeSet.reference, is0.reference, i, i1)
-          .object);
+    jni.JObject attributeSet,
+    jni.JArray<jni.jint> is0,
+    int i,
+    int i1,
+  ) {
+    return const jni.JObjectType().fromRef(_obtainStyledAttributes3(
+            reference, attributeSet.reference, is0.reference, i, i1)
+        .object);
+  }
 
   static final _getClassLoader = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getClassLoader")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getClassLoader")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.ClassLoader getClassLoader()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getClassLoader() =>
-      const jni.JObjectType().fromRef(_getClassLoader(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getClassLoader() {
+    return const jni.JObjectType().fromRef(_getClassLoader(reference).object);
+  }
 
   static final _getPackageName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getPackageName() =>
-      const jni.JStringType().fromRef(_getPackageName(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getPackageName() {
+    return const jni.JStringType().fromRef(_getPackageName(reference).object);
+  }
 
   static final _getOpPackageName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getOpPackageName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getOpPackageName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getOpPackageName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getOpPackageName() =>
-      const jni.JStringType().fromRef(_getOpPackageName(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getOpPackageName() {
+    return const jni.JStringType().fromRef(_getOpPackageName(reference).object);
+  }
 
   static final _getAttributionTag = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAttributionTag")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAttributionTag")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getAttributionTag()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getAttributionTag() =>
-      const jni.JStringType().fromRef(_getAttributionTag(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getAttributionTag() {
+    return const jni.JStringType()
+        .fromRef(_getAttributionTag(reference).object);
+  }
 
   static final _getAttributionSource = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAttributionSource")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAttributionSource")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.AttributionSource getAttributionSource()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getAttributionSource() =>
-      const jni.JObjectType().fromRef(_getAttributionSource(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAttributionSource() {
+    return const jni.JObjectType()
+        .fromRef(_getAttributionSource(reference).object);
+  }
 
   static final _getParams = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getParams")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getParams")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ContextParams getParams()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getParams() =>
-      const jni.JObjectType().fromRef(_getParams(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getParams() {
+    return const jni.JObjectType().fromRef(_getParams(reference).object);
+  }
 
   static final _getApplicationInfo = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getApplicationInfo")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getApplicationInfo")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.pm.ApplicationInfo getApplicationInfo()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getApplicationInfo() =>
-      const jni.JObjectType().fromRef(_getApplicationInfo(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getApplicationInfo() {
+    return const jni.JObjectType()
+        .fromRef(_getApplicationInfo(reference).object);
+  }
 
   static final _getPackageResourcePath = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageResourcePath")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageResourcePath")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageResourcePath()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getPackageResourcePath() => const jni.JStringType()
-      .fromRef(_getPackageResourcePath(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getPackageResourcePath() {
+    return const jni.JStringType()
+        .fromRef(_getPackageResourcePath(reference).object);
+  }
 
   static final _getPackageCodePath = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageCodePath")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageCodePath")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageCodePath()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getPackageCodePath() =>
-      const jni.JStringType().fromRef(_getPackageCodePath(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getPackageCodePath() {
+    return const jni.JStringType()
+        .fromRef(_getPackageCodePath(reference).object);
+  }
 
   static final _getSharedPreferences = jniLookup<
           ffi.NativeFunction<
@@ -1779,10 +2325,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract android.content.SharedPreferences getSharedPreferences(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSharedPreferences(jni.JString string, int i) =>
-      const jni.JObjectType().fromRef(
-          _getSharedPreferences(reference, string.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSharedPreferences(
+    jni.JString string,
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getSharedPreferences(reference, string.reference, i).object);
+  }
 
   static final _moveSharedPreferencesFrom = jniLookup<
           ffi.NativeFunction<
@@ -1795,9 +2345,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean moveSharedPreferencesFrom(android.content.Context context, java.lang.String string)
-  bool moveSharedPreferencesFrom(Context context, jni.JString string) =>
-      _moveSharedPreferencesFrom(reference, context.reference, string.reference)
-          .boolean;
+  bool moveSharedPreferencesFrom(
+    Context context,
+    jni.JString string,
+  ) {
+    return _moveSharedPreferencesFrom(
+            reference, context.reference, string.reference)
+        .boolean;
+  }
 
   static final _deleteSharedPreferences = jniLookup<
           ffi.NativeFunction<
@@ -1808,8 +2363,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean deleteSharedPreferences(java.lang.String string)
-  bool deleteSharedPreferences(jni.JString string) =>
-      _deleteSharedPreferences(reference, string.reference).boolean;
+  bool deleteSharedPreferences(
+    jni.JString string,
+  ) {
+    return _deleteSharedPreferences(reference, string.reference).boolean;
+  }
 
   static final _openFileInput = jniLookup<
           ffi.NativeFunction<
@@ -1820,9 +2378,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.FileInputStream openFileInput(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject openFileInput(jni.JString string) => const jni.JObjectType()
-      .fromRef(_openFileInput(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject openFileInput(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_openFileInput(reference, string.reference).object);
+  }
 
   static final _openFileOutput = jniLookup<
           ffi.NativeFunction<
@@ -1833,10 +2395,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract java.io.FileOutputStream openFileOutput(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject openFileOutput(jni.JString string, int i) =>
-      const jni.JObjectType()
-          .fromRef(_openFileOutput(reference, string.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject openFileOutput(
+    jni.JString string,
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_openFileOutput(reference, string.reference, i).object);
+  }
 
   static final _deleteFile = jniLookup<
           ffi.NativeFunction<
@@ -1847,8 +2413,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean deleteFile(java.lang.String string)
-  bool deleteFile(jni.JString string) =>
-      _deleteFile(reference, string.reference).boolean;
+  bool deleteFile(
+    jni.JString string,
+  ) {
+    return _deleteFile(reference, string.reference).boolean;
+  }
 
   static final _getFileStreamPath = jniLookup<
           ffi.NativeFunction<
@@ -1859,42 +2428,50 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getFileStreamPath(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getFileStreamPath(jni.JString string) => const jni.JObjectType()
-      .fromRef(_getFileStreamPath(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getFileStreamPath(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getFileStreamPath(reference, string.reference).object);
+  }
 
   static final _getDataDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getDataDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDataDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getDataDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getDataDir() =>
-      const jni.JObjectType().fromRef(_getDataDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getDataDir() {
+    return const jni.JObjectType().fromRef(_getDataDir(reference).object);
+  }
 
   static final _getFilesDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getFilesDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getFilesDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getFilesDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getFilesDir() =>
-      const jni.JObjectType().fromRef(_getFilesDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getFilesDir() {
+    return const jni.JObjectType().fromRef(_getFilesDir(reference).object);
+  }
 
   static final _getNoBackupFilesDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getNoBackupFilesDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getNoBackupFilesDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getNoBackupFilesDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getNoBackupFilesDir() =>
-      const jni.JObjectType().fromRef(_getNoBackupFilesDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getNoBackupFilesDir() {
+    return const jni.JObjectType()
+        .fromRef(_getNoBackupFilesDir(reference).object);
+  }
 
   static final _getExternalFilesDir = jniLookup<
           ffi.NativeFunction<
@@ -1905,9 +2482,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getExternalFilesDir(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getExternalFilesDir(jni.JString string) => const jni.JObjectType()
-      .fromRef(_getExternalFilesDir(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getExternalFilesDir(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getExternalFilesDir(reference, string.reference).object);
+  }
 
   static final _getExternalFilesDirs = jniLookup<
           ffi.NativeFunction<
@@ -1918,101 +2499,114 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalFilesDirs(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> getExternalFilesDirs(jni.JString string) =>
-      const jni.JArrayType(jni.JObjectType())
-          .fromRef(_getExternalFilesDirs(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JObject> getExternalFilesDirs(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.JObjectType())
+        .fromRef(_getExternalFilesDirs(reference, string.reference).object);
+  }
 
   static final _getObbDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getObbDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getObbDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getObbDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getObbDir() =>
-      const jni.JObjectType().fromRef(_getObbDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getObbDir() {
+    return const jni.JObjectType().fromRef(_getObbDir(reference).object);
+  }
 
   static final _getObbDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getObbDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getObbDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getObbDirs()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> getObbDirs() =>
-      const jni.JArrayType(jni.JObjectType())
-          .fromRef(_getObbDirs(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JObject> getObbDirs() {
+    return const jni.JArrayType(jni.JObjectType())
+        .fromRef(_getObbDirs(reference).object);
+  }
 
   static final _getCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getCacheDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getCacheDir() =>
-      const jni.JObjectType().fromRef(_getCacheDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getCacheDir() {
+    return const jni.JObjectType().fromRef(_getCacheDir(reference).object);
+  }
 
   static final _getCodeCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getCodeCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getCodeCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getCodeCacheDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getCodeCacheDir() =>
-      const jni.JObjectType().fromRef(_getCodeCacheDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getCodeCacheDir() {
+    return const jni.JObjectType().fromRef(_getCodeCacheDir(reference).object);
+  }
 
   static final _getExternalCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getExternalCacheDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getExternalCacheDir() =>
-      const jni.JObjectType().fromRef(_getExternalCacheDir(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getExternalCacheDir() {
+    return const jni.JObjectType()
+        .fromRef(_getExternalCacheDir(reference).object);
+  }
 
   static final _getExternalCacheDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalCacheDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalCacheDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalCacheDirs()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> getExternalCacheDirs() =>
-      const jni.JArrayType(jni.JObjectType())
-          .fromRef(_getExternalCacheDirs(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JObject> getExternalCacheDirs() {
+    return const jni.JArrayType(jni.JObjectType())
+        .fromRef(_getExternalCacheDirs(reference).object);
+  }
 
   static final _getExternalMediaDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalMediaDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalMediaDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalMediaDirs()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> getExternalMediaDirs() =>
-      const jni.JArrayType(jni.JObjectType())
-          .fromRef(_getExternalMediaDirs(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JObject> getExternalMediaDirs() {
+    return const jni.JArrayType(jni.JObjectType())
+        .fromRef(_getExternalMediaDirs(reference).object);
+  }
 
   static final _fileList = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__fileList")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__fileList")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String[] fileList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JString> fileList() => const jni.JArrayType(jni.JStringType())
-      .fromRef(_fileList(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JString> fileList() {
+    return const jni.JArrayType(jni.JStringType())
+        .fromRef(_fileList(reference).object);
+  }
 
   static final _getDir = jniLookup<
           ffi.NativeFunction<
@@ -2023,9 +2617,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract java.io.File getDir(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getDir(jni.JString string, int i) => const jni.JObjectType()
-      .fromRef(_getDir(reference, string.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getDir(
+    jni.JString string,
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getDir(reference, string.reference, i).object);
+  }
 
   static final _openOrCreateDatabase = jniLookup<
           ffi.NativeFunction<
@@ -2039,12 +2638,16 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.database.sqlite.SQLiteDatabase openOrCreateDatabase(java.lang.String string, int i, android.database.sqlite.SQLiteDatabase$CursorFactory cursorFactory)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject openOrCreateDatabase(
-          jni.JString string, int i, jni.JObject cursorFactory) =>
-      const jni.JObjectType().fromRef(_openOrCreateDatabase(
-              reference, string.reference, i, cursorFactory.reference)
-          .object);
+    jni.JString string,
+    int i,
+    jni.JObject cursorFactory,
+  ) {
+    return const jni.JObjectType().fromRef(_openOrCreateDatabase(
+            reference, string.reference, i, cursorFactory.reference)
+        .object);
+  }
 
   static final _openOrCreateDatabase1 = jniLookup<
           ffi.NativeFunction<
@@ -2059,16 +2662,21 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.database.sqlite.SQLiteDatabase openOrCreateDatabase(java.lang.String string, int i, android.database.sqlite.SQLiteDatabase$CursorFactory cursorFactory, android.database.DatabaseErrorHandler databaseErrorHandler)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject openOrCreateDatabase1(jni.JString string, int i,
-          jni.JObject cursorFactory, jni.JObject databaseErrorHandler) =>
-      const jni.JObjectType().fromRef(_openOrCreateDatabase1(
-              reference,
-              string.reference,
-              i,
-              cursorFactory.reference,
-              databaseErrorHandler.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject openOrCreateDatabase1(
+    jni.JString string,
+    int i,
+    jni.JObject cursorFactory,
+    jni.JObject databaseErrorHandler,
+  ) {
+    return const jni.JObjectType().fromRef(_openOrCreateDatabase1(
+            reference,
+            string.reference,
+            i,
+            cursorFactory.reference,
+            databaseErrorHandler.reference)
+        .object);
+  }
 
   static final _moveDatabaseFrom = jniLookup<
           ffi.NativeFunction<
@@ -2081,8 +2689,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean moveDatabaseFrom(android.content.Context context, java.lang.String string)
-  bool moveDatabaseFrom(Context context, jni.JString string) =>
-      _moveDatabaseFrom(reference, context.reference, string.reference).boolean;
+  bool moveDatabaseFrom(
+    Context context,
+    jni.JString string,
+  ) {
+    return _moveDatabaseFrom(reference, context.reference, string.reference)
+        .boolean;
+  }
 
   static final _deleteDatabase = jniLookup<
           ffi.NativeFunction<
@@ -2093,8 +2706,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean deleteDatabase(java.lang.String string)
-  bool deleteDatabase(jni.JString string) =>
-      _deleteDatabase(reference, string.reference).boolean;
+  bool deleteDatabase(
+    jni.JString string,
+  ) {
+    return _deleteDatabase(reference, string.reference).boolean;
+  }
 
   static final _getDatabasePath = jniLookup<
           ffi.NativeFunction<
@@ -2105,63 +2721,72 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getDatabasePath(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getDatabasePath(jni.JString string) => const jni.JObjectType()
-      .fromRef(_getDatabasePath(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getDatabasePath(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getDatabasePath(reference, string.reference).object);
+  }
 
   static final _databaseList = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__databaseList")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__databaseList")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String[] databaseList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JString> databaseList() =>
-      const jni.JArrayType(jni.JStringType())
-          .fromRef(_databaseList(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JString> databaseList() {
+    return const jni.JArrayType(jni.JStringType())
+        .fromRef(_databaseList(reference).object);
+  }
 
   static final _getWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.graphics.drawable.Drawable getWallpaper()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getWallpaper() =>
-      const jni.JObjectType().fromRef(_getWallpaper(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getWallpaper() {
+    return const jni.JObjectType().fromRef(_getWallpaper(reference).object);
+  }
 
   static final _peekWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__peekWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__peekWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.graphics.drawable.Drawable peekWallpaper()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject peekWallpaper() =>
-      const jni.JObjectType().fromRef(_peekWallpaper(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject peekWallpaper() {
+    return const jni.JObjectType().fromRef(_peekWallpaper(reference).object);
+  }
 
   static final _getWallpaperDesiredMinimumWidth = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__getWallpaperDesiredMinimumWidth")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract int getWallpaperDesiredMinimumWidth()
-  int getWallpaperDesiredMinimumWidth() =>
-      _getWallpaperDesiredMinimumWidth(reference).integer;
+  int getWallpaperDesiredMinimumWidth() {
+    return _getWallpaperDesiredMinimumWidth(reference).integer;
+  }
 
   static final _getWallpaperDesiredMinimumHeight = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__getWallpaperDesiredMinimumHeight")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract int getWallpaperDesiredMinimumHeight()
-  int getWallpaperDesiredMinimumHeight() =>
-      _getWallpaperDesiredMinimumHeight(reference).integer;
+  int getWallpaperDesiredMinimumHeight() {
+    return _getWallpaperDesiredMinimumHeight(reference).integer;
+  }
 
   static final _setWallpaper = jniLookup<
           ffi.NativeFunction<
@@ -2172,8 +2797,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void setWallpaper(android.graphics.Bitmap bitmap)
-  void setWallpaper(jni.JObject bitmap) =>
-      _setWallpaper(reference, bitmap.reference).check();
+  void setWallpaper(
+    jni.JObject bitmap,
+  ) {
+    return _setWallpaper(reference, bitmap.reference).check();
+  }
 
   static final _setWallpaper1 = jniLookup<
           ffi.NativeFunction<
@@ -2184,17 +2812,22 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void setWallpaper(java.io.InputStream inputStream)
-  void setWallpaper1(jni.JObject inputStream) =>
-      _setWallpaper1(reference, inputStream.reference).check();
+  void setWallpaper1(
+    jni.JObject inputStream,
+  ) {
+    return _setWallpaper1(reference, inputStream.reference).check();
+  }
 
   static final _clearWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__clearWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__clearWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void clearWallpaper()
-  void clearWallpaper() => _clearWallpaper(reference).check();
+  void clearWallpaper() {
+    return _clearWallpaper(reference).check();
+  }
 
   static final _startActivity = jniLookup<
           ffi.NativeFunction<
@@ -2205,8 +2838,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void startActivity(android.content.Intent intent)
-  void startActivity(Intent intent) =>
-      _startActivity(reference, intent.reference).check();
+  void startActivity(
+    Intent intent,
+  ) {
+    return _startActivity(reference, intent.reference).check();
+  }
 
   static final _startActivity1 = jniLookup<
           ffi.NativeFunction<
@@ -2219,8 +2855,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void startActivity(android.content.Intent intent, android.os.Bundle bundle)
-  void startActivity1(Intent intent, jni.JObject bundle) =>
-      _startActivity1(reference, intent.reference, bundle.reference).check();
+  void startActivity1(
+    Intent intent,
+    jni.JObject bundle,
+  ) {
+    return _startActivity1(reference, intent.reference, bundle.reference)
+        .check();
+  }
 
   static final _startActivities = jniLookup<
           ffi.NativeFunction<
@@ -2231,8 +2872,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void startActivities(android.content.Intent[] intents)
-  void startActivities(jni.JArray<Intent> intents) =>
-      _startActivities(reference, intents.reference).check();
+  void startActivities(
+    jni.JArray<Intent> intents,
+  ) {
+    return _startActivities(reference, intents.reference).check();
+  }
 
   static final _startActivities1 = jniLookup<
           ffi.NativeFunction<
@@ -2245,8 +2889,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void startActivities(android.content.Intent[] intents, android.os.Bundle bundle)
-  void startActivities1(jni.JArray<Intent> intents, jni.JObject bundle) =>
-      _startActivities1(reference, intents.reference, bundle.reference).check();
+  void startActivities1(
+    jni.JArray<Intent> intents,
+    jni.JObject bundle,
+  ) {
+    return _startActivities1(reference, intents.reference, bundle.reference)
+        .check();
+  }
 
   static final _startIntentSender = jniLookup<
           ffi.NativeFunction<
@@ -2263,10 +2912,16 @@ class Context extends jni.JObject {
 
   /// from: public abstract void startIntentSender(android.content.IntentSender intentSender, android.content.Intent intent, int i, int i1, int i2)
   void startIntentSender(
-          jni.JObject intentSender, Intent intent, int i, int i1, int i2) =>
-      _startIntentSender(
-              reference, intentSender.reference, intent.reference, i, i1, i2)
-          .check();
+    jni.JObject intentSender,
+    Intent intent,
+    int i,
+    int i1,
+    int i2,
+  ) {
+    return _startIntentSender(
+            reference, intentSender.reference, intent.reference, i, i1, i2)
+        .check();
+  }
 
   static final _startIntentSender1 = jniLookup<
           ffi.NativeFunction<
@@ -2283,11 +2938,18 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, int, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void startIntentSender(android.content.IntentSender intentSender, android.content.Intent intent, int i, int i1, int i2, android.os.Bundle bundle)
-  void startIntentSender1(jni.JObject intentSender, Intent intent, int i,
-          int i1, int i2, jni.JObject bundle) =>
-      _startIntentSender1(reference, intentSender.reference, intent.reference,
-              i, i1, i2, bundle.reference)
-          .check();
+  void startIntentSender1(
+    jni.JObject intentSender,
+    Intent intent,
+    int i,
+    int i1,
+    int i2,
+    jni.JObject bundle,
+  ) {
+    return _startIntentSender1(reference, intentSender.reference,
+            intent.reference, i, i1, i2, bundle.reference)
+        .check();
+  }
 
   static final _sendBroadcast = jniLookup<
           ffi.NativeFunction<
@@ -2298,8 +2960,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendBroadcast(android.content.Intent intent)
-  void sendBroadcast(Intent intent) =>
-      _sendBroadcast(reference, intent.reference).check();
+  void sendBroadcast(
+    Intent intent,
+  ) {
+    return _sendBroadcast(reference, intent.reference).check();
+  }
 
   static final _sendBroadcast1 = jniLookup<
           ffi.NativeFunction<
@@ -2312,8 +2977,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendBroadcast(android.content.Intent intent, java.lang.String string)
-  void sendBroadcast1(Intent intent, jni.JString string) =>
-      _sendBroadcast1(reference, intent.reference, string.reference).check();
+  void sendBroadcast1(
+    Intent intent,
+    jni.JString string,
+  ) {
+    return _sendBroadcast1(reference, intent.reference, string.reference)
+        .check();
+  }
 
   static final _sendBroadcastWithMultiplePermissions = jniLookup<
               ffi.NativeFunction<
@@ -2326,10 +2996,13 @@ class Context extends jni.JObject {
 
   /// from: public void sendBroadcastWithMultiplePermissions(android.content.Intent intent, java.lang.String[] strings)
   void sendBroadcastWithMultiplePermissions(
-          Intent intent, jni.JArray<jni.JString> strings) =>
-      _sendBroadcastWithMultiplePermissions(
-              reference, intent.reference, strings.reference)
-          .check();
+    Intent intent,
+    jni.JArray<jni.JString> strings,
+  ) {
+    return _sendBroadcastWithMultiplePermissions(
+            reference, intent.reference, strings.reference)
+        .check();
+  }
 
   static final _sendOrderedBroadcast = jniLookup<
           ffi.NativeFunction<
@@ -2342,9 +3015,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string)
-  void sendOrderedBroadcast(Intent intent, jni.JString string) =>
-      _sendOrderedBroadcast(reference, intent.reference, string.reference)
-          .check();
+  void sendOrderedBroadcast(
+    Intent intent,
+    jni.JString string,
+  ) {
+    return _sendOrderedBroadcast(reference, intent.reference, string.reference)
+        .check();
+  }
 
   static final _sendOrderedBroadcast1 = jniLookup<
           ffi.NativeFunction<
@@ -2370,23 +3047,25 @@ class Context extends jni.JObject {
 
   /// from: public abstract void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string1, android.os.Bundle bundle)
   void sendOrderedBroadcast1(
-          Intent intent,
-          jni.JString string,
-          jni.JObject broadcastReceiver,
-          jni.JObject handler,
-          int i,
-          jni.JString string1,
-          jni.JObject bundle) =>
-      _sendOrderedBroadcast1(
-              reference,
-              intent.reference,
-              string.reference,
-              broadcastReceiver.reference,
-              handler.reference,
-              i,
-              string1.reference,
-              bundle.reference)
-          .check();
+    Intent intent,
+    jni.JString string,
+    jni.JObject broadcastReceiver,
+    jni.JObject handler,
+    int i,
+    jni.JString string1,
+    jni.JObject bundle,
+  ) {
+    return _sendOrderedBroadcast1(
+            reference,
+            intent.reference,
+            string.reference,
+            broadcastReceiver.reference,
+            handler.reference,
+            i,
+            string1.reference,
+            bundle.reference)
+        .check();
+  }
 
   static final _sendBroadcastAsUser = jniLookup<
           ffi.NativeFunction<
@@ -2399,9 +3078,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendBroadcastAsUser(android.content.Intent intent, android.os.UserHandle userHandle)
-  void sendBroadcastAsUser(Intent intent, jni.JObject userHandle) =>
-      _sendBroadcastAsUser(reference, intent.reference, userHandle.reference)
-          .check();
+  void sendBroadcastAsUser(
+    Intent intent,
+    jni.JObject userHandle,
+  ) {
+    return _sendBroadcastAsUser(
+            reference, intent.reference, userHandle.reference)
+        .check();
+  }
 
   static final _sendBroadcastAsUser1 = jniLookup<
           ffi.NativeFunction<
@@ -2416,10 +3100,14 @@ class Context extends jni.JObject {
 
   /// from: public abstract void sendBroadcastAsUser(android.content.Intent intent, android.os.UserHandle userHandle, java.lang.String string)
   void sendBroadcastAsUser1(
-          Intent intent, jni.JObject userHandle, jni.JString string) =>
-      _sendBroadcastAsUser1(reference, intent.reference, userHandle.reference,
-              string.reference)
-          .check();
+    Intent intent,
+    jni.JObject userHandle,
+    jni.JString string,
+  ) {
+    return _sendBroadcastAsUser1(
+            reference, intent.reference, userHandle.reference, string.reference)
+        .check();
+  }
 
   static final _sendOrderedBroadcastAsUser = jniLookup<
               ffi.NativeFunction<
@@ -2448,25 +3136,27 @@ class Context extends jni.JObject {
 
   /// from: public abstract void sendOrderedBroadcastAsUser(android.content.Intent intent, android.os.UserHandle userHandle, java.lang.String string, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string1, android.os.Bundle bundle)
   void sendOrderedBroadcastAsUser(
-          Intent intent,
-          jni.JObject userHandle,
-          jni.JString string,
-          jni.JObject broadcastReceiver,
-          jni.JObject handler,
-          int i,
-          jni.JString string1,
-          jni.JObject bundle) =>
-      _sendOrderedBroadcastAsUser(
-              reference,
-              intent.reference,
-              userHandle.reference,
-              string.reference,
-              broadcastReceiver.reference,
-              handler.reference,
-              i,
-              string1.reference,
-              bundle.reference)
-          .check();
+    Intent intent,
+    jni.JObject userHandle,
+    jni.JString string,
+    jni.JObject broadcastReceiver,
+    jni.JObject handler,
+    int i,
+    jni.JString string1,
+    jni.JObject bundle,
+  ) {
+    return _sendOrderedBroadcastAsUser(
+            reference,
+            intent.reference,
+            userHandle.reference,
+            string.reference,
+            broadcastReceiver.reference,
+            handler.reference,
+            i,
+            string1.reference,
+            bundle.reference)
+        .check();
+  }
 
   static final _sendOrderedBroadcast2 = jniLookup<
           ffi.NativeFunction<
@@ -2494,25 +3184,27 @@ class Context extends jni.JObject {
 
   /// from: public void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string, java.lang.String string1, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string2, android.os.Bundle bundle)
   void sendOrderedBroadcast2(
-          Intent intent,
-          jni.JString string,
-          jni.JString string1,
-          jni.JObject broadcastReceiver,
-          jni.JObject handler,
-          int i,
-          jni.JString string2,
-          jni.JObject bundle) =>
-      _sendOrderedBroadcast2(
-              reference,
-              intent.reference,
-              string.reference,
-              string1.reference,
-              broadcastReceiver.reference,
-              handler.reference,
-              i,
-              string2.reference,
-              bundle.reference)
-          .check();
+    Intent intent,
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject broadcastReceiver,
+    jni.JObject handler,
+    int i,
+    jni.JString string2,
+    jni.JObject bundle,
+  ) {
+    return _sendOrderedBroadcast2(
+            reference,
+            intent.reference,
+            string.reference,
+            string1.reference,
+            broadcastReceiver.reference,
+            handler.reference,
+            i,
+            string2.reference,
+            bundle.reference)
+        .check();
+  }
 
   static final _sendStickyBroadcast = jniLookup<
           ffi.NativeFunction<
@@ -2523,8 +3215,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendStickyBroadcast(android.content.Intent intent)
-  void sendStickyBroadcast(Intent intent) =>
-      _sendStickyBroadcast(reference, intent.reference).check();
+  void sendStickyBroadcast(
+    Intent intent,
+  ) {
+    return _sendStickyBroadcast(reference, intent.reference).check();
+  }
 
   static final _sendStickyBroadcast1 = jniLookup<
           ffi.NativeFunction<
@@ -2537,9 +3232,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void sendStickyBroadcast(android.content.Intent intent, android.os.Bundle bundle)
-  void sendStickyBroadcast1(Intent intent, jni.JObject bundle) =>
-      _sendStickyBroadcast1(reference, intent.reference, bundle.reference)
-          .check();
+  void sendStickyBroadcast1(
+    Intent intent,
+    jni.JObject bundle,
+  ) {
+    return _sendStickyBroadcast1(reference, intent.reference, bundle.reference)
+        .check();
+  }
 
   static final _sendStickyOrderedBroadcast = jniLookup<
               ffi.NativeFunction<
@@ -2563,17 +3262,24 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendStickyOrderedBroadcast(android.content.Intent intent, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string, android.os.Bundle bundle)
-  void sendStickyOrderedBroadcast(Intent intent, jni.JObject broadcastReceiver,
-          jni.JObject handler, int i, jni.JString string, jni.JObject bundle) =>
-      _sendStickyOrderedBroadcast(
-              reference,
-              intent.reference,
-              broadcastReceiver.reference,
-              handler.reference,
-              i,
-              string.reference,
-              bundle.reference)
-          .check();
+  void sendStickyOrderedBroadcast(
+    Intent intent,
+    jni.JObject broadcastReceiver,
+    jni.JObject handler,
+    int i,
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return _sendStickyOrderedBroadcast(
+            reference,
+            intent.reference,
+            broadcastReceiver.reference,
+            handler.reference,
+            i,
+            string.reference,
+            bundle.reference)
+        .check();
+  }
 
   static final _removeStickyBroadcast = jniLookup<
           ffi.NativeFunction<
@@ -2584,8 +3290,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void removeStickyBroadcast(android.content.Intent intent)
-  void removeStickyBroadcast(Intent intent) =>
-      _removeStickyBroadcast(reference, intent.reference).check();
+  void removeStickyBroadcast(
+    Intent intent,
+  ) {
+    return _removeStickyBroadcast(reference, intent.reference).check();
+  }
 
   static final _sendStickyBroadcastAsUser = jniLookup<
           ffi.NativeFunction<
@@ -2598,10 +3307,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendStickyBroadcastAsUser(android.content.Intent intent, android.os.UserHandle userHandle)
-  void sendStickyBroadcastAsUser(Intent intent, jni.JObject userHandle) =>
-      _sendStickyBroadcastAsUser(
-              reference, intent.reference, userHandle.reference)
-          .check();
+  void sendStickyBroadcastAsUser(
+    Intent intent,
+    jni.JObject userHandle,
+  ) {
+    return _sendStickyBroadcastAsUser(
+            reference, intent.reference, userHandle.reference)
+        .check();
+  }
 
   static final _sendStickyOrderedBroadcastAsUser = jniLookup<
               ffi.NativeFunction<
@@ -2628,23 +3341,25 @@ class Context extends jni.JObject {
 
   /// from: public abstract void sendStickyOrderedBroadcastAsUser(android.content.Intent intent, android.os.UserHandle userHandle, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string, android.os.Bundle bundle)
   void sendStickyOrderedBroadcastAsUser(
-          Intent intent,
-          jni.JObject userHandle,
-          jni.JObject broadcastReceiver,
-          jni.JObject handler,
-          int i,
-          jni.JString string,
-          jni.JObject bundle) =>
-      _sendStickyOrderedBroadcastAsUser(
-              reference,
-              intent.reference,
-              userHandle.reference,
-              broadcastReceiver.reference,
-              handler.reference,
-              i,
-              string.reference,
-              bundle.reference)
-          .check();
+    Intent intent,
+    jni.JObject userHandle,
+    jni.JObject broadcastReceiver,
+    jni.JObject handler,
+    int i,
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return _sendStickyOrderedBroadcastAsUser(
+            reference,
+            intent.reference,
+            userHandle.reference,
+            broadcastReceiver.reference,
+            handler.reference,
+            i,
+            string.reference,
+            bundle.reference)
+        .check();
+  }
 
   static final _removeStickyBroadcastAsUser = jniLookup<
               ffi.NativeFunction<
@@ -2656,10 +3371,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void removeStickyBroadcastAsUser(android.content.Intent intent, android.os.UserHandle userHandle)
-  void removeStickyBroadcastAsUser(Intent intent, jni.JObject userHandle) =>
-      _removeStickyBroadcastAsUser(
-              reference, intent.reference, userHandle.reference)
-          .check();
+  void removeStickyBroadcastAsUser(
+    Intent intent,
+    jni.JObject userHandle,
+  ) {
+    return _removeStickyBroadcastAsUser(
+            reference, intent.reference, userHandle.reference)
+        .check();
+  }
 
   static final _registerReceiver = jniLookup<
           ffi.NativeFunction<
@@ -2672,12 +3391,15 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Intent registerReceiver(
-          jni.JObject broadcastReceiver, jni.JObject intentFilter) =>
-      const $IntentType().fromRef(_registerReceiver(
-              reference, broadcastReceiver.reference, intentFilter.reference)
-          .object);
+    jni.JObject broadcastReceiver,
+    jni.JObject intentFilter,
+  ) {
+    return const $IntentType().fromRef(_registerReceiver(
+            reference, broadcastReceiver.reference, intentFilter.reference)
+        .object);
+  }
 
   static final _registerReceiver1 = jniLookup<
           ffi.NativeFunction<
@@ -2691,12 +3413,16 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Intent registerReceiver1(
-          jni.JObject broadcastReceiver, jni.JObject intentFilter, int i) =>
-      const $IntentType().fromRef(_registerReceiver1(
-              reference, broadcastReceiver.reference, intentFilter.reference, i)
-          .object);
+    jni.JObject broadcastReceiver,
+    jni.JObject intentFilter,
+    int i,
+  ) {
+    return const $IntentType().fromRef(_registerReceiver1(
+            reference, broadcastReceiver.reference, intentFilter.reference, i)
+        .object);
+  }
 
   static final _registerReceiver2 = jniLookup<
           ffi.NativeFunction<
@@ -2715,16 +3441,21 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter, java.lang.String string, android.os.Handler handler)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent registerReceiver2(jni.JObject broadcastReceiver,
-          jni.JObject intentFilter, jni.JString string, jni.JObject handler) =>
-      const $IntentType().fromRef(_registerReceiver2(
-              reference,
-              broadcastReceiver.reference,
-              intentFilter.reference,
-              string.reference,
-              handler.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent registerReceiver2(
+    jni.JObject broadcastReceiver,
+    jni.JObject intentFilter,
+    jni.JString string,
+    jni.JObject handler,
+  ) {
+    return const $IntentType().fromRef(_registerReceiver2(
+            reference,
+            broadcastReceiver.reference,
+            intentFilter.reference,
+            string.reference,
+            handler.reference)
+        .object);
+  }
 
   static final _registerReceiver3 = jniLookup<
           ffi.NativeFunction<
@@ -2745,21 +3476,23 @@ class Context extends jni.JObject {
               int)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter, java.lang.String string, android.os.Handler handler, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Intent registerReceiver3(
-          jni.JObject broadcastReceiver,
-          jni.JObject intentFilter,
-          jni.JString string,
-          jni.JObject handler,
-          int i) =>
-      const $IntentType().fromRef(_registerReceiver3(
-              reference,
-              broadcastReceiver.reference,
-              intentFilter.reference,
-              string.reference,
-              handler.reference,
-              i)
-          .object);
+    jni.JObject broadcastReceiver,
+    jni.JObject intentFilter,
+    jni.JString string,
+    jni.JObject handler,
+    int i,
+  ) {
+    return const $IntentType().fromRef(_registerReceiver3(
+            reference,
+            broadcastReceiver.reference,
+            intentFilter.reference,
+            string.reference,
+            handler.reference,
+            i)
+        .object);
+  }
 
   static final _unregisterReceiver = jniLookup<
           ffi.NativeFunction<
@@ -2770,8 +3503,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void unregisterReceiver(android.content.BroadcastReceiver broadcastReceiver)
-  void unregisterReceiver(jni.JObject broadcastReceiver) =>
-      _unregisterReceiver(reference, broadcastReceiver.reference).check();
+  void unregisterReceiver(
+    jni.JObject broadcastReceiver,
+  ) {
+    return _unregisterReceiver(reference, broadcastReceiver.reference).check();
+  }
 
   static final _startService = jniLookup<
           ffi.NativeFunction<
@@ -2782,9 +3518,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ComponentName startService(android.content.Intent intent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject startService(Intent intent) => const jni.JObjectType()
-      .fromRef(_startService(reference, intent.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject startService(
+    Intent intent,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_startService(reference, intent.reference).object);
+  }
 
   static final _startForegroundService = jniLookup<
           ffi.NativeFunction<
@@ -2795,9 +3535,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ComponentName startForegroundService(android.content.Intent intent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject startForegroundService(Intent intent) => const jni.JObjectType()
-      .fromRef(_startForegroundService(reference, intent.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject startForegroundService(
+    Intent intent,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_startForegroundService(reference, intent.reference).object);
+  }
 
   static final _stopService = jniLookup<
           ffi.NativeFunction<
@@ -2808,8 +3552,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean stopService(android.content.Intent intent)
-  bool stopService(Intent intent) =>
-      _stopService(reference, intent.reference).boolean;
+  bool stopService(
+    Intent intent,
+  ) {
+    return _stopService(reference, intent.reference).boolean;
+  }
 
   static final _bindService = jniLookup<
           ffi.NativeFunction<
@@ -2823,9 +3570,15 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract boolean bindService(android.content.Intent intent, android.content.ServiceConnection serviceConnection, int i)
-  bool bindService(Intent intent, jni.JObject serviceConnection, int i) =>
-      _bindService(reference, intent.reference, serviceConnection.reference, i)
-          .boolean;
+  bool bindService(
+    Intent intent,
+    jni.JObject serviceConnection,
+    int i,
+  ) {
+    return _bindService(
+            reference, intent.reference, serviceConnection.reference, i)
+        .boolean;
+  }
 
   static final _bindService1 = jniLookup<
           ffi.NativeFunction<
@@ -2840,11 +3593,16 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean bindService(android.content.Intent intent, int i, java.util.concurrent.Executor executor, android.content.ServiceConnection serviceConnection)
-  bool bindService1(Intent intent, int i, jni.JObject executor,
-          jni.JObject serviceConnection) =>
-      _bindService1(reference, intent.reference, i, executor.reference,
-              serviceConnection.reference)
-          .boolean;
+  bool bindService1(
+    Intent intent,
+    int i,
+    jni.JObject executor,
+    jni.JObject serviceConnection,
+  ) {
+    return _bindService1(reference, intent.reference, i, executor.reference,
+            serviceConnection.reference)
+        .boolean;
+  }
 
   static final _bindIsolatedService = jniLookup<
           ffi.NativeFunction<
@@ -2865,11 +3623,17 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean bindIsolatedService(android.content.Intent intent, int i, java.lang.String string, java.util.concurrent.Executor executor, android.content.ServiceConnection serviceConnection)
-  bool bindIsolatedService(Intent intent, int i, jni.JString string,
-          jni.JObject executor, jni.JObject serviceConnection) =>
-      _bindIsolatedService(reference, intent.reference, i, string.reference,
-              executor.reference, serviceConnection.reference)
-          .boolean;
+  bool bindIsolatedService(
+    Intent intent,
+    int i,
+    jni.JString string,
+    jni.JObject executor,
+    jni.JObject serviceConnection,
+  ) {
+    return _bindIsolatedService(reference, intent.reference, i,
+            string.reference, executor.reference, serviceConnection.reference)
+        .boolean;
+  }
 
   static final _bindServiceAsUser = jniLookup<
           ffi.NativeFunction<
@@ -2884,11 +3648,16 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean bindServiceAsUser(android.content.Intent intent, android.content.ServiceConnection serviceConnection, int i, android.os.UserHandle userHandle)
-  bool bindServiceAsUser(Intent intent, jni.JObject serviceConnection, int i,
-          jni.JObject userHandle) =>
-      _bindServiceAsUser(reference, intent.reference,
-              serviceConnection.reference, i, userHandle.reference)
-          .boolean;
+  bool bindServiceAsUser(
+    Intent intent,
+    jni.JObject serviceConnection,
+    int i,
+    jni.JObject userHandle,
+  ) {
+    return _bindServiceAsUser(reference, intent.reference,
+            serviceConnection.reference, i, userHandle.reference)
+        .boolean;
+  }
 
   static final _updateServiceGroup = jniLookup<
           ffi.NativeFunction<
@@ -2902,9 +3671,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public void updateServiceGroup(android.content.ServiceConnection serviceConnection, int i, int i1)
-  void updateServiceGroup(jni.JObject serviceConnection, int i, int i1) =>
-      _updateServiceGroup(reference, serviceConnection.reference, i, i1)
-          .check();
+  void updateServiceGroup(
+    jni.JObject serviceConnection,
+    int i,
+    int i1,
+  ) {
+    return _updateServiceGroup(reference, serviceConnection.reference, i, i1)
+        .check();
+  }
 
   static final _unbindService = jniLookup<
           ffi.NativeFunction<
@@ -2915,8 +3689,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void unbindService(android.content.ServiceConnection serviceConnection)
-  void unbindService(jni.JObject serviceConnection) =>
-      _unbindService(reference, serviceConnection.reference).check();
+  void unbindService(
+    jni.JObject serviceConnection,
+  ) {
+    return _unbindService(reference, serviceConnection.reference).check();
+  }
 
   static final _startInstrumentation = jniLookup<
           ffi.NativeFunction<
@@ -2931,10 +3708,14 @@ class Context extends jni.JObject {
 
   /// from: public abstract boolean startInstrumentation(android.content.ComponentName componentName, java.lang.String string, android.os.Bundle bundle)
   bool startInstrumentation(
-          jni.JObject componentName, jni.JString string, jni.JObject bundle) =>
-      _startInstrumentation(reference, componentName.reference,
-              string.reference, bundle.reference)
-          .boolean;
+    jni.JObject componentName,
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return _startInstrumentation(reference, componentName.reference,
+            string.reference, bundle.reference)
+        .boolean;
+  }
 
   static final _getSystemService = jniLookup<
           ffi.NativeFunction<
@@ -2945,9 +3726,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object getSystemService(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSystemService(jni.JString string) => const jni.JObjectType()
-      .fromRef(_getSystemService(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSystemService(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getSystemService(reference, string.reference).object);
+  }
 
   static final _getSystemService1 = jniLookup<
           ffi.NativeFunction<
@@ -2958,10 +3743,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final T getSystemService(java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T getSystemService1<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JObject class0) =>
-      $T.fromRef(_getSystemService1(reference, class0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T getSystemService1<$T extends jni.JObject>(
+    jni.JObject class0, {
+    required jni.JObjType<$T> T,
+  }) {
+    return T.fromRef(_getSystemService1(reference, class0.reference).object);
+  }
 
   static final _getSystemServiceName = jniLookup<
           ffi.NativeFunction<
@@ -2972,10 +3760,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getSystemServiceName(java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getSystemServiceName(jni.JObject class0) =>
-      const jni.JStringType()
-          .fromRef(_getSystemServiceName(reference, class0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getSystemServiceName(
+    jni.JObject class0,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getSystemServiceName(reference, class0.reference).object);
+  }
 
   static final _checkPermission = jniLookup<
           ffi.NativeFunction<
@@ -2989,8 +3780,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public abstract int checkPermission(java.lang.String string, int i, int i1)
-  int checkPermission(jni.JString string, int i, int i1) =>
-      _checkPermission(reference, string.reference, i, i1).integer;
+  int checkPermission(
+    jni.JString string,
+    int i,
+    int i1,
+  ) {
+    return _checkPermission(reference, string.reference, i, i1).integer;
+  }
 
   static final _checkCallingPermission = jniLookup<
           ffi.NativeFunction<
@@ -3001,8 +3797,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract int checkCallingPermission(java.lang.String string)
-  int checkCallingPermission(jni.JString string) =>
-      _checkCallingPermission(reference, string.reference).integer;
+  int checkCallingPermission(
+    jni.JString string,
+  ) {
+    return _checkCallingPermission(reference, string.reference).integer;
+  }
 
   static final _checkCallingOrSelfPermission = jniLookup<
               ffi.NativeFunction<
@@ -3014,8 +3813,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract int checkCallingOrSelfPermission(java.lang.String string)
-  int checkCallingOrSelfPermission(jni.JString string) =>
-      _checkCallingOrSelfPermission(reference, string.reference).integer;
+  int checkCallingOrSelfPermission(
+    jni.JString string,
+  ) {
+    return _checkCallingOrSelfPermission(reference, string.reference).integer;
+  }
 
   static final _checkSelfPermission = jniLookup<
           ffi.NativeFunction<
@@ -3026,8 +3828,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract int checkSelfPermission(java.lang.String string)
-  int checkSelfPermission(jni.JString string) =>
-      _checkSelfPermission(reference, string.reference).integer;
+  int checkSelfPermission(
+    jni.JString string,
+  ) {
+    return _checkSelfPermission(reference, string.reference).integer;
+  }
 
   static final _enforcePermission = jniLookup<
           ffi.NativeFunction<
@@ -3043,9 +3848,15 @@ class Context extends jni.JObject {
 
   /// from: public abstract void enforcePermission(java.lang.String string, int i, int i1, java.lang.String string1)
   void enforcePermission(
-          jni.JString string, int i, int i1, jni.JString string1) =>
-      _enforcePermission(reference, string.reference, i, i1, string1.reference)
-          .check();
+    jni.JString string,
+    int i,
+    int i1,
+    jni.JString string1,
+  ) {
+    return _enforcePermission(
+            reference, string.reference, i, i1, string1.reference)
+        .check();
+  }
 
   static final _enforceCallingPermission = jniLookup<
           ffi.NativeFunction<
@@ -3058,9 +3869,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void enforceCallingPermission(java.lang.String string, java.lang.String string1)
-  void enforceCallingPermission(jni.JString string, jni.JString string1) =>
-      _enforceCallingPermission(reference, string.reference, string1.reference)
-          .check();
+  void enforceCallingPermission(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _enforceCallingPermission(
+            reference, string.reference, string1.reference)
+        .check();
+  }
 
   static final _enforceCallingOrSelfPermission = jniLookup<
               ffi.NativeFunction<
@@ -3073,10 +3889,13 @@ class Context extends jni.JObject {
 
   /// from: public abstract void enforceCallingOrSelfPermission(java.lang.String string, java.lang.String string1)
   void enforceCallingOrSelfPermission(
-          jni.JString string, jni.JString string1) =>
-      _enforceCallingOrSelfPermission(
-              reference, string.reference, string1.reference)
-          .check();
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _enforceCallingOrSelfPermission(
+            reference, string.reference, string1.reference)
+        .check();
+  }
 
   static final _grantUriPermission = jniLookup<
           ffi.NativeFunction<
@@ -3090,9 +3909,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract void grantUriPermission(java.lang.String string, android.net.Uri uri, int i)
-  void grantUriPermission(jni.JString string, jni.JObject uri, int i) =>
-      _grantUriPermission(reference, string.reference, uri.reference, i)
-          .check();
+  void grantUriPermission(
+    jni.JString string,
+    jni.JObject uri,
+    int i,
+  ) {
+    return _grantUriPermission(reference, string.reference, uri.reference, i)
+        .check();
+  }
 
   static final _revokeUriPermission = jniLookup<
           ffi.NativeFunction<
@@ -3105,8 +3929,12 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract void revokeUriPermission(android.net.Uri uri, int i)
-  void revokeUriPermission(jni.JObject uri, int i) =>
-      _revokeUriPermission(reference, uri.reference, i).check();
+  void revokeUriPermission(
+    jni.JObject uri,
+    int i,
+  ) {
+    return _revokeUriPermission(reference, uri.reference, i).check();
+  }
 
   static final _revokeUriPermission1 = jniLookup<
           ffi.NativeFunction<
@@ -3120,9 +3948,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract void revokeUriPermission(java.lang.String string, android.net.Uri uri, int i)
-  void revokeUriPermission1(jni.JString string, jni.JObject uri, int i) =>
-      _revokeUriPermission1(reference, string.reference, uri.reference, i)
-          .check();
+  void revokeUriPermission1(
+    jni.JString string,
+    jni.JObject uri,
+    int i,
+  ) {
+    return _revokeUriPermission1(reference, string.reference, uri.reference, i)
+        .check();
+  }
 
   static final _checkUriPermission = jniLookup<
           ffi.NativeFunction<
@@ -3137,8 +3970,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int, int)>();
 
   /// from: public abstract int checkUriPermission(android.net.Uri uri, int i, int i1, int i2)
-  int checkUriPermission(jni.JObject uri, int i, int i1, int i2) =>
-      _checkUriPermission(reference, uri.reference, i, i1, i2).integer;
+  int checkUriPermission(
+    jni.JObject uri,
+    int i,
+    int i1,
+    int i2,
+  ) {
+    return _checkUriPermission(reference, uri.reference, i, i1, i2).integer;
+  }
 
   static final _checkUriPermissions = jniLookup<
           ffi.NativeFunction<
@@ -3153,11 +3992,16 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int, int)>();
 
   /// from: public java.lang.Object[] checkUriPermissions(java.util.List list, int i, int i1, int i2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JInt> checkUriPermissions(
-          jni.JObject list, int i, int i1, int i2) =>
-      const jni.JArrayType(jni.JIntType()).fromRef(
-          _checkUriPermissions(reference, list.reference, i, i1, i2).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jint> checkUriPermissions(
+    jni.JList<jni.JObject> list,
+    int i,
+    int i1,
+    int i2,
+  ) {
+    return const jni.JArrayType(jni.jintType()).fromRef(
+        _checkUriPermissions(reference, list.reference, i, i1, i2).object);
+  }
 
   static final _checkCallingUriPermission = jniLookup<
           ffi.NativeFunction<
@@ -3170,8 +4014,12 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract int checkCallingUriPermission(android.net.Uri uri, int i)
-  int checkCallingUriPermission(jni.JObject uri, int i) =>
-      _checkCallingUriPermission(reference, uri.reference, i).integer;
+  int checkCallingUriPermission(
+    jni.JObject uri,
+    int i,
+  ) {
+    return _checkCallingUriPermission(reference, uri.reference, i).integer;
+  }
 
   static final _checkCallingUriPermissions = jniLookup<
           ffi.NativeFunction<
@@ -3184,10 +4032,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.lang.Object[] checkCallingUriPermissions(java.util.List list, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JInt> checkCallingUriPermissions(jni.JObject list, int i) =>
-      const jni.JArrayType(jni.JIntType()).fromRef(
-          _checkCallingUriPermissions(reference, list.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jint> checkCallingUriPermissions(
+    jni.JList<jni.JObject> list,
+    int i,
+  ) {
+    return const jni.JArrayType(jni.jintType()).fromRef(
+        _checkCallingUriPermissions(reference, list.reference, i).object);
+  }
 
   static final _checkCallingOrSelfUriPermission = jniLookup<
           ffi.NativeFunction<
@@ -3200,8 +4052,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract int checkCallingOrSelfUriPermission(android.net.Uri uri, int i)
-  int checkCallingOrSelfUriPermission(jni.JObject uri, int i) =>
-      _checkCallingOrSelfUriPermission(reference, uri.reference, i).integer;
+  int checkCallingOrSelfUriPermission(
+    jni.JObject uri,
+    int i,
+  ) {
+    return _checkCallingOrSelfUriPermission(reference, uri.reference, i)
+        .integer;
+  }
 
   static final _checkCallingOrSelfUriPermissions = jniLookup<
           ffi.NativeFunction<
@@ -3214,12 +4071,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.lang.Object[] checkCallingOrSelfUriPermissions(java.util.List list, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JInt> checkCallingOrSelfUriPermissions(
-          jni.JObject list, int i) =>
-      const jni.JArrayType(jni.JIntType()).fromRef(
-          _checkCallingOrSelfUriPermissions(reference, list.reference, i)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jint> checkCallingOrSelfUriPermissions(
+    jni.JList<jni.JObject> list,
+    int i,
+  ) {
+    return const jni.JArrayType(jni.jintType()).fromRef(
+        _checkCallingOrSelfUriPermissions(reference, list.reference, i).object);
+  }
 
   static final _checkUriPermission1 = jniLookup<
           ffi.NativeFunction<
@@ -3236,11 +4095,18 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int, int)>();
 
   /// from: public abstract int checkUriPermission(android.net.Uri uri, java.lang.String string, java.lang.String string1, int i, int i1, int i2)
-  int checkUriPermission1(jni.JObject uri, jni.JString string,
-          jni.JString string1, int i, int i1, int i2) =>
-      _checkUriPermission1(reference, uri.reference, string.reference,
-              string1.reference, i, i1, i2)
-          .integer;
+  int checkUriPermission1(
+    jni.JObject uri,
+    jni.JString string,
+    jni.JString string1,
+    int i,
+    int i1,
+    int i2,
+  ) {
+    return _checkUriPermission1(reference, uri.reference, string.reference,
+            string1.reference, i, i1, i2)
+        .integer;
+  }
 
   static final _enforceUriPermission = jniLookup<
           ffi.NativeFunction<
@@ -3257,10 +4123,16 @@ class Context extends jni.JObject {
 
   /// from: public abstract void enforceUriPermission(android.net.Uri uri, int i, int i1, int i2, java.lang.String string)
   void enforceUriPermission(
-          jni.JObject uri, int i, int i1, int i2, jni.JString string) =>
-      _enforceUriPermission(
-              reference, uri.reference, i, i1, i2, string.reference)
-          .check();
+    jni.JObject uri,
+    int i,
+    int i1,
+    int i2,
+    jni.JString string,
+  ) {
+    return _enforceUriPermission(
+            reference, uri.reference, i, i1, i2, string.reference)
+        .check();
+  }
 
   static final _enforceCallingUriPermission = jniLookup<
               ffi.NativeFunction<
@@ -3276,10 +4148,14 @@ class Context extends jni.JObject {
 
   /// from: public abstract void enforceCallingUriPermission(android.net.Uri uri, int i, java.lang.String string)
   void enforceCallingUriPermission(
-          jni.JObject uri, int i, jni.JString string) =>
-      _enforceCallingUriPermission(
-              reference, uri.reference, i, string.reference)
-          .check();
+    jni.JObject uri,
+    int i,
+    jni.JString string,
+  ) {
+    return _enforceCallingUriPermission(
+            reference, uri.reference, i, string.reference)
+        .check();
+  }
 
   static final _enforceCallingOrSelfUriPermission = jniLookup<
               ffi.NativeFunction<
@@ -3295,10 +4171,14 @@ class Context extends jni.JObject {
 
   /// from: public abstract void enforceCallingOrSelfUriPermission(android.net.Uri uri, int i, java.lang.String string)
   void enforceCallingOrSelfUriPermission(
-          jni.JObject uri, int i, jni.JString string) =>
-      _enforceCallingOrSelfUriPermission(
-              reference, uri.reference, i, string.reference)
-          .check();
+    jni.JObject uri,
+    int i,
+    jni.JString string,
+  ) {
+    return _enforceCallingOrSelfUriPermission(
+            reference, uri.reference, i, string.reference)
+        .check();
+  }
 
   static final _enforceUriPermission1 = jniLookup<
           ffi.NativeFunction<
@@ -3323,11 +4203,19 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void enforceUriPermission(android.net.Uri uri, java.lang.String string, java.lang.String string1, int i, int i1, int i2, java.lang.String string2)
-  void enforceUriPermission1(jni.JObject uri, jni.JString string,
-          jni.JString string1, int i, int i1, int i2, jni.JString string2) =>
-      _enforceUriPermission1(reference, uri.reference, string.reference,
-              string1.reference, i, i1, i2, string2.reference)
-          .check();
+  void enforceUriPermission1(
+    jni.JObject uri,
+    jni.JString string,
+    jni.JString string1,
+    int i,
+    int i1,
+    int i2,
+    jni.JString string2,
+  ) {
+    return _enforceUriPermission1(reference, uri.reference, string.reference,
+            string1.reference, i, i1, i2, string2.reference)
+        .check();
+  }
 
   static final _revokeSelfPermissionOnKill = jniLookup<
               ffi.NativeFunction<
@@ -3339,8 +4227,11 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void revokeSelfPermissionOnKill(java.lang.String string)
-  void revokeSelfPermissionOnKill(jni.JString string) =>
-      _revokeSelfPermissionOnKill(reference, string.reference).check();
+  void revokeSelfPermissionOnKill(
+    jni.JString string,
+  ) {
+    return _revokeSelfPermissionOnKill(reference, string.reference).check();
+  }
 
   static final _revokeSelfPermissionsOnKill = jniLookup<
               ffi.NativeFunction<
@@ -3352,8 +4243,12 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void revokeSelfPermissionsOnKill(java.util.Collection collection)
-  void revokeSelfPermissionsOnKill(jni.JObject collection) =>
-      _revokeSelfPermissionsOnKill(reference, collection.reference).check();
+  void revokeSelfPermissionsOnKill(
+    jni.JObject collection,
+  ) {
+    return _revokeSelfPermissionsOnKill(reference, collection.reference)
+        .check();
+  }
 
   static final _createPackageContext = jniLookup<
           ffi.NativeFunction<
@@ -3366,10 +4261,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract android.content.Context createPackageContext(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createPackageContext(jni.JString string, int i) =>
-      const $ContextType().fromRef(
-          _createPackageContext(reference, string.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createPackageContext(
+    jni.JString string,
+    int i,
+  ) {
+    return const $ContextType()
+        .fromRef(_createPackageContext(reference, string.reference, i).object);
+  }
 
   static final _createContextForSplit = jniLookup<
           ffi.NativeFunction<
@@ -3380,9 +4279,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createContextForSplit(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createContextForSplit(jni.JString string) => const $ContextType()
-      .fromRef(_createContextForSplit(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createContextForSplit(
+    jni.JString string,
+  ) {
+    return const $ContextType()
+        .fromRef(_createContextForSplit(reference, string.reference).object);
+  }
 
   static final _createConfigurationContext = jniLookup<
               ffi.NativeFunction<
@@ -3394,11 +4297,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createConfigurationContext(android.content.res.Configuration configuration)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createConfigurationContext(jni.JObject configuration) =>
-      const $ContextType().fromRef(
-          _createConfigurationContext(reference, configuration.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createConfigurationContext(
+    jni.JObject configuration,
+  ) {
+    return const $ContextType().fromRef(
+        _createConfigurationContext(reference, configuration.reference).object);
+  }
 
   static final _createDisplayContext = jniLookup<
           ffi.NativeFunction<
@@ -3409,9 +4314,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createDisplayContext(android.view.Display display)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createDisplayContext(jni.JObject display) => const $ContextType()
-      .fromRef(_createDisplayContext(reference, display.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createDisplayContext(
+    jni.JObject display,
+  ) {
+    return const $ContextType()
+        .fromRef(_createDisplayContext(reference, display.reference).object);
+  }
 
   static final _createWindowContext = jniLookup<
           ffi.NativeFunction<
@@ -3422,9 +4331,14 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createWindowContext(int i, android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createWindowContext(int i, jni.JObject bundle) => const $ContextType()
-      .fromRef(_createWindowContext(reference, i, bundle.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createWindowContext(
+    int i,
+    jni.JObject bundle,
+  ) {
+    return const $ContextType()
+        .fromRef(_createWindowContext(reference, i, bundle.reference).object);
+  }
 
   static final _createWindowContext1 = jniLookup<
           ffi.NativeFunction<
@@ -3438,12 +4352,16 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createWindowContext(android.view.Display display, int i, android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createWindowContext1(
-          jni.JObject display, int i, jni.JObject bundle) =>
-      const $ContextType().fromRef(_createWindowContext1(
-              reference, display.reference, i, bundle.reference)
-          .object);
+    jni.JObject display,
+    int i,
+    jni.JObject bundle,
+  ) {
+    return const $ContextType().fromRef(
+        _createWindowContext1(reference, display.reference, i, bundle.reference)
+            .object);
+  }
 
   static final _createContext = jniLookup<
           ffi.NativeFunction<
@@ -3454,9 +4372,13 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createContext(android.content.ContextParams contextParams)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createContext(jni.JObject contextParams) => const $ContextType()
-      .fromRef(_createContext(reference, contextParams.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createContext(
+    jni.JObject contextParams,
+  ) {
+    return const $ContextType()
+        .fromRef(_createContext(reference, contextParams.reference).object);
+  }
 
   static final _createAttributionContext = jniLookup<
           ffi.NativeFunction<
@@ -3467,59 +4389,71 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createAttributionContext(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createAttributionContext(jni.JString string) => const $ContextType()
-      .fromRef(_createAttributionContext(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createAttributionContext(
+    jni.JString string,
+  ) {
+    return const $ContextType()
+        .fromRef(_createAttributionContext(reference, string.reference).object);
+  }
 
   static final _createDeviceProtectedStorageContext = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__createDeviceProtectedStorageContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createDeviceProtectedStorageContext()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Context createDeviceProtectedStorageContext() => const $ContextType()
-      .fromRef(_createDeviceProtectedStorageContext(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createDeviceProtectedStorageContext() {
+    return const $ContextType()
+        .fromRef(_createDeviceProtectedStorageContext(reference).object);
+  }
 
   static final _getDisplay = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getDisplay")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDisplay")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.Display getDisplay()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getDisplay() =>
-      const jni.JObjectType().fromRef(_getDisplay(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getDisplay() {
+    return const jni.JObjectType().fromRef(_getDisplay(reference).object);
+  }
 
   static final _isRestricted = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isRestricted")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isRestricted")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isRestricted()
-  bool isRestricted() => _isRestricted(reference).boolean;
+  bool isRestricted() {
+    return _isRestricted(reference).boolean;
+  }
 
   static final _isDeviceProtectedStorage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isDeviceProtectedStorage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isDeviceProtectedStorage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean isDeviceProtectedStorage()
-  bool isDeviceProtectedStorage() =>
-      _isDeviceProtectedStorage(reference).boolean;
+  bool isDeviceProtectedStorage() {
+    return _isDeviceProtectedStorage(reference).boolean;
+  }
 
   static final _isUiContext = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isUiContext")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isUiContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isUiContext()
-  bool isUiContext() => _isUiContext(reference).boolean;
+  bool isUiContext() {
+    return _isUiContext(reference).boolean;
+  }
 }
 
 class $ContextType extends jni.JObjType<Context> {
@@ -3530,640 +4464,943 @@ class $ContextType extends jni.JObjType<Context> {
 
   @override
   Context fromRef(jni.JObjectPtr ref) => Context.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($ContextType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ContextType) && other is $ContextType;
+  }
 }
 
-extension $ContextArray on jni.JArray<Context> {
-  Context operator [](int index) {
-    return (elementType as $ContextType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
+/// from: android.content.Intent$FilterComparison
+class Intent_FilterComparison extends jni.JObject {
+  @override
+  late final jni.JObjType<Intent_FilterComparison> $type = type;
+
+  Intent_FilterComparison.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $Intent_FilterComparisonType();
+  static final _new0 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent_FilterComparison__new0")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void <init>(android.content.Intent intent)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent_FilterComparison(
+    Intent intent,
+  ) {
+    return Intent_FilterComparison.fromRef(_new0(intent.reference).object);
   }
 
-  void operator []=(int index, Context value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  static final _getIntent = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent_FilterComparison__getIntent")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public android.content.Intent getIntent()
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent getIntent() {
+    return const $IntentType().fromRef(_getIntent(reference).object);
+  }
+
+  static final _equals1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Intent_FilterComparison__equals1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean equals(java.lang.Object object)
+  bool equals1(
+    jni.JObject object,
+  ) {
+    return _equals1(reference, object.reference).boolean;
+  }
+
+  static final _hashCode1 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent_FilterComparison__hashCode1")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int hashCode()
+  int hashCode1() {
+    return _hashCode1(reference).integer;
+  }
+}
+
+class $Intent_FilterComparisonType
+    extends jni.JObjType<Intent_FilterComparison> {
+  const $Intent_FilterComparisonType();
+
+  @override
+  String get signature => r"Landroid/content/Intent$FilterComparison;";
+
+  @override
+  Intent_FilterComparison fromRef(jni.JObjectPtr ref) =>
+      Intent_FilterComparison.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($Intent_FilterComparisonType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($Intent_FilterComparisonType) &&
+        other is $Intent_FilterComparisonType;
+  }
+}
+
+/// from: android.content.Intent$ShortcutIconResource
+class Intent_ShortcutIconResource extends jni.JObject {
+  @override
+  late final jni.JObjType<Intent_ShortcutIconResource> $type = type;
+
+  Intent_ShortcutIconResource.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $Intent_ShortcutIconResourceType();
+  static final _get_CREATOR =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_Intent_ShortcutIconResource__CREATOR")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final android.os.Parcelable$Creator CREATOR
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JObject get CREATOR =>
+      const jni.JObjectType().fromRef(_get_CREATOR().object);
+
+  static final _get_packageName = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                jni.JObjectPtr,
+              )>>("get_Intent_ShortcutIconResource__packageName")
+      .asFunction<
+          jni.JniResult Function(
+            jni.JObjectPtr,
+          )>();
+
+  static final _set_packageName = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      jni.JObjectPtr, ffi.Pointer<ffi.Void>)>>(
+          "set_Intent_ShortcutIconResource__packageName")
+      .asFunction<
+          jni.JniResult Function(jni.JObjectPtr, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String packageName
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString get packageName =>
+      const jni.JStringType().fromRef(_get_packageName(reference).object);
+
+  /// from: public java.lang.String packageName
+  /// The returned object must be released after use, by calling the [release] method.
+  set packageName(jni.JString value) =>
+      _set_packageName(reference, value.reference).check();
+
+  static final _get_resourceName = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                jni.JObjectPtr,
+              )>>("get_Intent_ShortcutIconResource__resourceName")
+      .asFunction<
+          jni.JniResult Function(
+            jni.JObjectPtr,
+          )>();
+
+  static final _set_resourceName = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      jni.JObjectPtr, ffi.Pointer<ffi.Void>)>>(
+          "set_Intent_ShortcutIconResource__resourceName")
+      .asFunction<
+          jni.JniResult Function(jni.JObjectPtr, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String resourceName
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString get resourceName =>
+      const jni.JStringType().fromRef(_get_resourceName(reference).object);
+
+  /// from: public java.lang.String resourceName
+  /// The returned object must be released after use, by calling the [release] method.
+  set resourceName(jni.JString value) =>
+      _set_resourceName(reference, value.reference).check();
+
+  static final _new0 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+          "Intent_ShortcutIconResource__new0")
+      .asFunction<jni.JniResult Function()>();
+
+  /// from: public void <init>()
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent_ShortcutIconResource() {
+    return Intent_ShortcutIconResource.fromRef(_new0().object);
+  }
+
+  static final _fromContext = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Int32)>>("Intent_ShortcutIconResource__fromContext")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: static public android.content.Intent$ShortcutIconResource fromContext(android.content.Context context, int i)
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent_ShortcutIconResource fromContext(
+    Context context,
+    int i,
+  ) {
+    return const $Intent_ShortcutIconResourceType()
+        .fromRef(_fromContext(context.reference, i).object);
+  }
+
+  static final _describeContents = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent_ShortcutIconResource__describeContents")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int describeContents()
+  int describeContents() {
+    return _describeContents(reference).integer;
+  }
+
+  static final _writeToParcel = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32)>>("Intent_ShortcutIconResource__writeToParcel")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void writeToParcel(android.os.Parcel parcel, int i)
+  void writeToParcel(
+    jni.JObject parcel,
+    int i,
+  ) {
+    return _writeToParcel(reference, parcel.reference, i).check();
+  }
+
+  static final _toString1 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent_ShortcutIconResource__toString1")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String toString()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toString1() {
+    return const jni.JStringType().fromRef(_toString1(reference).object);
+  }
+}
+
+class $Intent_ShortcutIconResourceType
+    extends jni.JObjType<Intent_ShortcutIconResource> {
+  const $Intent_ShortcutIconResourceType();
+
+  @override
+  String get signature => r"Landroid/content/Intent$ShortcutIconResource;";
+
+  @override
+  Intent_ShortcutIconResource fromRef(jni.JObjectPtr ref) =>
+      Intent_ShortcutIconResource.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($Intent_ShortcutIconResourceType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($Intent_ShortcutIconResourceType) &&
+        other is $Intent_ShortcutIconResourceType;
   }
 }
 
 /// from: android.content.Intent
 class Intent extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<Intent> $type = type;
 
-  Intent.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Intent.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $IntentType();
 
   /// from: static public final java.lang.String ACTION_AIRPLANE_MODE_CHANGED
   static const ACTION_AIRPLANE_MODE_CHANGED =
-      "android.intent.action.AIRPLANE_MODE";
+      r"""android.intent.action.AIRPLANE_MODE""";
 
   /// from: static public final java.lang.String ACTION_ALL_APPS
-  static const ACTION_ALL_APPS = "android.intent.action.ALL_APPS";
+  static const ACTION_ALL_APPS = r"""android.intent.action.ALL_APPS""";
 
   /// from: static public final java.lang.String ACTION_ANSWER
-  static const ACTION_ANSWER = "android.intent.action.ANSWER";
+  static const ACTION_ANSWER = r"""android.intent.action.ANSWER""";
 
   /// from: static public final java.lang.String ACTION_APPLICATION_LOCALE_CHANGED
   static const ACTION_APPLICATION_LOCALE_CHANGED =
-      "android.intent.action.APPLICATION_LOCALE_CHANGED";
+      r"""android.intent.action.APPLICATION_LOCALE_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_APPLICATION_PREFERENCES
   static const ACTION_APPLICATION_PREFERENCES =
-      "android.intent.action.APPLICATION_PREFERENCES";
+      r"""android.intent.action.APPLICATION_PREFERENCES""";
 
   /// from: static public final java.lang.String ACTION_APPLICATION_RESTRICTIONS_CHANGED
   static const ACTION_APPLICATION_RESTRICTIONS_CHANGED =
-      "android.intent.action.APPLICATION_RESTRICTIONS_CHANGED";
+      r"""android.intent.action.APPLICATION_RESTRICTIONS_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_APP_ERROR
-  static const ACTION_APP_ERROR = "android.intent.action.APP_ERROR";
+  static const ACTION_APP_ERROR = r"""android.intent.action.APP_ERROR""";
 
   /// from: static public final java.lang.String ACTION_ASSIST
-  static const ACTION_ASSIST = "android.intent.action.ASSIST";
+  static const ACTION_ASSIST = r"""android.intent.action.ASSIST""";
 
   /// from: static public final java.lang.String ACTION_ATTACH_DATA
-  static const ACTION_ATTACH_DATA = "android.intent.action.ATTACH_DATA";
+  static const ACTION_ATTACH_DATA = r"""android.intent.action.ATTACH_DATA""";
 
   /// from: static public final java.lang.String ACTION_AUTO_REVOKE_PERMISSIONS
   static const ACTION_AUTO_REVOKE_PERMISSIONS =
-      "android.intent.action.AUTO_REVOKE_PERMISSIONS";
+      r"""android.intent.action.AUTO_REVOKE_PERMISSIONS""";
 
   /// from: static public final java.lang.String ACTION_BATTERY_CHANGED
-  static const ACTION_BATTERY_CHANGED = "android.intent.action.BATTERY_CHANGED";
+  static const ACTION_BATTERY_CHANGED =
+      r"""android.intent.action.BATTERY_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_BATTERY_LOW
-  static const ACTION_BATTERY_LOW = "android.intent.action.BATTERY_LOW";
+  static const ACTION_BATTERY_LOW = r"""android.intent.action.BATTERY_LOW""";
 
   /// from: static public final java.lang.String ACTION_BATTERY_OKAY
-  static const ACTION_BATTERY_OKAY = "android.intent.action.BATTERY_OKAY";
+  static const ACTION_BATTERY_OKAY = r"""android.intent.action.BATTERY_OKAY""";
 
   /// from: static public final java.lang.String ACTION_BOOT_COMPLETED
-  static const ACTION_BOOT_COMPLETED = "android.intent.action.BOOT_COMPLETED";
+  static const ACTION_BOOT_COMPLETED =
+      r"""android.intent.action.BOOT_COMPLETED""";
 
   /// from: static public final java.lang.String ACTION_BUG_REPORT
-  static const ACTION_BUG_REPORT = "android.intent.action.BUG_REPORT";
+  static const ACTION_BUG_REPORT = r"""android.intent.action.BUG_REPORT""";
 
   /// from: static public final java.lang.String ACTION_CALL
-  static const ACTION_CALL = "android.intent.action.CALL";
+  static const ACTION_CALL = r"""android.intent.action.CALL""";
 
   /// from: static public final java.lang.String ACTION_CALL_BUTTON
-  static const ACTION_CALL_BUTTON = "android.intent.action.CALL_BUTTON";
+  static const ACTION_CALL_BUTTON = r"""android.intent.action.CALL_BUTTON""";
 
   /// from: static public final java.lang.String ACTION_CAMERA_BUTTON
-  static const ACTION_CAMERA_BUTTON = "android.intent.action.CAMERA_BUTTON";
+  static const ACTION_CAMERA_BUTTON =
+      r"""android.intent.action.CAMERA_BUTTON""";
 
   /// from: static public final java.lang.String ACTION_CARRIER_SETUP
-  static const ACTION_CARRIER_SETUP = "android.intent.action.CARRIER_SETUP";
+  static const ACTION_CARRIER_SETUP =
+      r"""android.intent.action.CARRIER_SETUP""";
 
   /// from: static public final java.lang.String ACTION_CHOOSER
-  static const ACTION_CHOOSER = "android.intent.action.CHOOSER";
+  static const ACTION_CHOOSER = r"""android.intent.action.CHOOSER""";
 
   /// from: static public final java.lang.String ACTION_CLOSE_SYSTEM_DIALOGS
   static const ACTION_CLOSE_SYSTEM_DIALOGS =
-      "android.intent.action.CLOSE_SYSTEM_DIALOGS";
+      r"""android.intent.action.CLOSE_SYSTEM_DIALOGS""";
 
   /// from: static public final java.lang.String ACTION_CONFIGURATION_CHANGED
   static const ACTION_CONFIGURATION_CHANGED =
-      "android.intent.action.CONFIGURATION_CHANGED";
+      r"""android.intent.action.CONFIGURATION_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_CREATE_DOCUMENT
-  static const ACTION_CREATE_DOCUMENT = "android.intent.action.CREATE_DOCUMENT";
+  static const ACTION_CREATE_DOCUMENT =
+      r"""android.intent.action.CREATE_DOCUMENT""";
 
   /// from: static public final java.lang.String ACTION_CREATE_REMINDER
-  static const ACTION_CREATE_REMINDER = "android.intent.action.CREATE_REMINDER";
+  static const ACTION_CREATE_REMINDER =
+      r"""android.intent.action.CREATE_REMINDER""";
 
   /// from: static public final java.lang.String ACTION_CREATE_SHORTCUT
-  static const ACTION_CREATE_SHORTCUT = "android.intent.action.CREATE_SHORTCUT";
+  static const ACTION_CREATE_SHORTCUT =
+      r"""android.intent.action.CREATE_SHORTCUT""";
 
   /// from: static public final java.lang.String ACTION_DATE_CHANGED
-  static const ACTION_DATE_CHANGED = "android.intent.action.DATE_CHANGED";
+  static const ACTION_DATE_CHANGED = r"""android.intent.action.DATE_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_DEFAULT
-  static const ACTION_DEFAULT = "android.intent.action.VIEW";
+  static const ACTION_DEFAULT = r"""android.intent.action.VIEW""";
 
   /// from: static public final java.lang.String ACTION_DEFINE
-  static const ACTION_DEFINE = "android.intent.action.DEFINE";
+  static const ACTION_DEFINE = r"""android.intent.action.DEFINE""";
 
   /// from: static public final java.lang.String ACTION_DELETE
-  static const ACTION_DELETE = "android.intent.action.DELETE";
+  static const ACTION_DELETE = r"""android.intent.action.DELETE""";
 
   /// from: static public final java.lang.String ACTION_DEVICE_STORAGE_LOW
   static const ACTION_DEVICE_STORAGE_LOW =
-      "android.intent.action.DEVICE_STORAGE_LOW";
+      r"""android.intent.action.DEVICE_STORAGE_LOW""";
 
   /// from: static public final java.lang.String ACTION_DEVICE_STORAGE_OK
   static const ACTION_DEVICE_STORAGE_OK =
-      "android.intent.action.DEVICE_STORAGE_OK";
+      r"""android.intent.action.DEVICE_STORAGE_OK""";
 
   /// from: static public final java.lang.String ACTION_DIAL
-  static const ACTION_DIAL = "android.intent.action.DIAL";
+  static const ACTION_DIAL = r"""android.intent.action.DIAL""";
 
   /// from: static public final java.lang.String ACTION_DOCK_EVENT
-  static const ACTION_DOCK_EVENT = "android.intent.action.DOCK_EVENT";
+  static const ACTION_DOCK_EVENT = r"""android.intent.action.DOCK_EVENT""";
 
   /// from: static public final java.lang.String ACTION_DREAMING_STARTED
   static const ACTION_DREAMING_STARTED =
-      "android.intent.action.DREAMING_STARTED";
+      r"""android.intent.action.DREAMING_STARTED""";
 
   /// from: static public final java.lang.String ACTION_DREAMING_STOPPED
   static const ACTION_DREAMING_STOPPED =
-      "android.intent.action.DREAMING_STOPPED";
+      r"""android.intent.action.DREAMING_STOPPED""";
 
   /// from: static public final java.lang.String ACTION_EDIT
-  static const ACTION_EDIT = "android.intent.action.EDIT";
+  static const ACTION_EDIT = r"""android.intent.action.EDIT""";
 
   /// from: static public final java.lang.String ACTION_EXTERNAL_APPLICATIONS_AVAILABLE
   static const ACTION_EXTERNAL_APPLICATIONS_AVAILABLE =
-      "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE";
+      r"""android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE""";
 
   /// from: static public final java.lang.String ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE
   static const ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE =
-      "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE";
+      r"""android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE""";
 
   /// from: static public final java.lang.String ACTION_FACTORY_TEST
-  static const ACTION_FACTORY_TEST = "android.intent.action.FACTORY_TEST";
+  static const ACTION_FACTORY_TEST = r"""android.intent.action.FACTORY_TEST""";
 
   /// from: static public final java.lang.String ACTION_GET_CONTENT
-  static const ACTION_GET_CONTENT = "android.intent.action.GET_CONTENT";
+  static const ACTION_GET_CONTENT = r"""android.intent.action.GET_CONTENT""";
 
   /// from: static public final java.lang.String ACTION_GET_RESTRICTION_ENTRIES
   static const ACTION_GET_RESTRICTION_ENTRIES =
-      "android.intent.action.GET_RESTRICTION_ENTRIES";
+      r"""android.intent.action.GET_RESTRICTION_ENTRIES""";
 
   /// from: static public final java.lang.String ACTION_GTALK_SERVICE_CONNECTED
   static const ACTION_GTALK_SERVICE_CONNECTED =
-      "android.intent.action.GTALK_CONNECTED";
+      r"""android.intent.action.GTALK_CONNECTED""";
 
   /// from: static public final java.lang.String ACTION_GTALK_SERVICE_DISCONNECTED
   static const ACTION_GTALK_SERVICE_DISCONNECTED =
-      "android.intent.action.GTALK_DISCONNECTED";
+      r"""android.intent.action.GTALK_DISCONNECTED""";
 
   /// from: static public final java.lang.String ACTION_HEADSET_PLUG
-  static const ACTION_HEADSET_PLUG = "android.intent.action.HEADSET_PLUG";
+  static const ACTION_HEADSET_PLUG = r"""android.intent.action.HEADSET_PLUG""";
 
   /// from: static public final java.lang.String ACTION_INPUT_METHOD_CHANGED
   static const ACTION_INPUT_METHOD_CHANGED =
-      "android.intent.action.INPUT_METHOD_CHANGED";
+      r"""android.intent.action.INPUT_METHOD_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_INSERT
-  static const ACTION_INSERT = "android.intent.action.INSERT";
+  static const ACTION_INSERT = r"""android.intent.action.INSERT""";
 
   /// from: static public final java.lang.String ACTION_INSERT_OR_EDIT
-  static const ACTION_INSERT_OR_EDIT = "android.intent.action.INSERT_OR_EDIT";
+  static const ACTION_INSERT_OR_EDIT =
+      r"""android.intent.action.INSERT_OR_EDIT""";
 
   /// from: static public final java.lang.String ACTION_INSTALL_FAILURE
-  static const ACTION_INSTALL_FAILURE = "android.intent.action.INSTALL_FAILURE";
+  static const ACTION_INSTALL_FAILURE =
+      r"""android.intent.action.INSTALL_FAILURE""";
 
   /// from: static public final java.lang.String ACTION_INSTALL_PACKAGE
-  static const ACTION_INSTALL_PACKAGE = "android.intent.action.INSTALL_PACKAGE";
+  static const ACTION_INSTALL_PACKAGE =
+      r"""android.intent.action.INSTALL_PACKAGE""";
 
   /// from: static public final java.lang.String ACTION_LOCALE_CHANGED
-  static const ACTION_LOCALE_CHANGED = "android.intent.action.LOCALE_CHANGED";
+  static const ACTION_LOCALE_CHANGED =
+      r"""android.intent.action.LOCALE_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_LOCKED_BOOT_COMPLETED
   static const ACTION_LOCKED_BOOT_COMPLETED =
-      "android.intent.action.LOCKED_BOOT_COMPLETED";
+      r"""android.intent.action.LOCKED_BOOT_COMPLETED""";
 
   /// from: static public final java.lang.String ACTION_MAIN
-  static const ACTION_MAIN = "android.intent.action.MAIN";
+  static const ACTION_MAIN = r"""android.intent.action.MAIN""";
 
   /// from: static public final java.lang.String ACTION_MANAGED_PROFILE_ADDED
   static const ACTION_MANAGED_PROFILE_ADDED =
-      "android.intent.action.MANAGED_PROFILE_ADDED";
+      r"""android.intent.action.MANAGED_PROFILE_ADDED""";
 
   /// from: static public final java.lang.String ACTION_MANAGED_PROFILE_AVAILABLE
   static const ACTION_MANAGED_PROFILE_AVAILABLE =
-      "android.intent.action.MANAGED_PROFILE_AVAILABLE";
+      r"""android.intent.action.MANAGED_PROFILE_AVAILABLE""";
 
   /// from: static public final java.lang.String ACTION_MANAGED_PROFILE_REMOVED
   static const ACTION_MANAGED_PROFILE_REMOVED =
-      "android.intent.action.MANAGED_PROFILE_REMOVED";
+      r"""android.intent.action.MANAGED_PROFILE_REMOVED""";
 
   /// from: static public final java.lang.String ACTION_MANAGED_PROFILE_UNAVAILABLE
   static const ACTION_MANAGED_PROFILE_UNAVAILABLE =
-      "android.intent.action.MANAGED_PROFILE_UNAVAILABLE";
+      r"""android.intent.action.MANAGED_PROFILE_UNAVAILABLE""";
 
   /// from: static public final java.lang.String ACTION_MANAGED_PROFILE_UNLOCKED
   static const ACTION_MANAGED_PROFILE_UNLOCKED =
-      "android.intent.action.MANAGED_PROFILE_UNLOCKED";
+      r"""android.intent.action.MANAGED_PROFILE_UNLOCKED""";
 
   /// from: static public final java.lang.String ACTION_MANAGE_NETWORK_USAGE
   static const ACTION_MANAGE_NETWORK_USAGE =
-      "android.intent.action.MANAGE_NETWORK_USAGE";
+      r"""android.intent.action.MANAGE_NETWORK_USAGE""";
 
   /// from: static public final java.lang.String ACTION_MANAGE_PACKAGE_STORAGE
   static const ACTION_MANAGE_PACKAGE_STORAGE =
-      "android.intent.action.MANAGE_PACKAGE_STORAGE";
+      r"""android.intent.action.MANAGE_PACKAGE_STORAGE""";
 
   /// from: static public final java.lang.String ACTION_MANAGE_UNUSED_APPS
   static const ACTION_MANAGE_UNUSED_APPS =
-      "android.intent.action.MANAGE_UNUSED_APPS";
+      r"""android.intent.action.MANAGE_UNUSED_APPS""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_BAD_REMOVAL
   static const ACTION_MEDIA_BAD_REMOVAL =
-      "android.intent.action.MEDIA_BAD_REMOVAL";
+      r"""android.intent.action.MEDIA_BAD_REMOVAL""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_BUTTON
-  static const ACTION_MEDIA_BUTTON = "android.intent.action.MEDIA_BUTTON";
+  static const ACTION_MEDIA_BUTTON = r"""android.intent.action.MEDIA_BUTTON""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_CHECKING
-  static const ACTION_MEDIA_CHECKING = "android.intent.action.MEDIA_CHECKING";
+  static const ACTION_MEDIA_CHECKING =
+      r"""android.intent.action.MEDIA_CHECKING""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_EJECT
-  static const ACTION_MEDIA_EJECT = "android.intent.action.MEDIA_EJECT";
+  static const ACTION_MEDIA_EJECT = r"""android.intent.action.MEDIA_EJECT""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_MOUNTED
-  static const ACTION_MEDIA_MOUNTED = "android.intent.action.MEDIA_MOUNTED";
+  static const ACTION_MEDIA_MOUNTED =
+      r"""android.intent.action.MEDIA_MOUNTED""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_NOFS
-  static const ACTION_MEDIA_NOFS = "android.intent.action.MEDIA_NOFS";
+  static const ACTION_MEDIA_NOFS = r"""android.intent.action.MEDIA_NOFS""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_REMOVED
-  static const ACTION_MEDIA_REMOVED = "android.intent.action.MEDIA_REMOVED";
+  static const ACTION_MEDIA_REMOVED =
+      r"""android.intent.action.MEDIA_REMOVED""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_SCANNER_FINISHED
   static const ACTION_MEDIA_SCANNER_FINISHED =
-      "android.intent.action.MEDIA_SCANNER_FINISHED";
+      r"""android.intent.action.MEDIA_SCANNER_FINISHED""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_SCANNER_SCAN_FILE
   static const ACTION_MEDIA_SCANNER_SCAN_FILE =
-      "android.intent.action.MEDIA_SCANNER_SCAN_FILE";
+      r"""android.intent.action.MEDIA_SCANNER_SCAN_FILE""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_SCANNER_STARTED
   static const ACTION_MEDIA_SCANNER_STARTED =
-      "android.intent.action.MEDIA_SCANNER_STARTED";
+      r"""android.intent.action.MEDIA_SCANNER_STARTED""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_SHARED
-  static const ACTION_MEDIA_SHARED = "android.intent.action.MEDIA_SHARED";
+  static const ACTION_MEDIA_SHARED = r"""android.intent.action.MEDIA_SHARED""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_UNMOUNTABLE
   static const ACTION_MEDIA_UNMOUNTABLE =
-      "android.intent.action.MEDIA_UNMOUNTABLE";
+      r"""android.intent.action.MEDIA_UNMOUNTABLE""";
 
   /// from: static public final java.lang.String ACTION_MEDIA_UNMOUNTED
-  static const ACTION_MEDIA_UNMOUNTED = "android.intent.action.MEDIA_UNMOUNTED";
+  static const ACTION_MEDIA_UNMOUNTED =
+      r"""android.intent.action.MEDIA_UNMOUNTED""";
 
   /// from: static public final java.lang.String ACTION_MY_PACKAGE_REPLACED
   static const ACTION_MY_PACKAGE_REPLACED =
-      "android.intent.action.MY_PACKAGE_REPLACED";
+      r"""android.intent.action.MY_PACKAGE_REPLACED""";
 
   /// from: static public final java.lang.String ACTION_MY_PACKAGE_SUSPENDED
   static const ACTION_MY_PACKAGE_SUSPENDED =
-      "android.intent.action.MY_PACKAGE_SUSPENDED";
+      r"""android.intent.action.MY_PACKAGE_SUSPENDED""";
 
   /// from: static public final java.lang.String ACTION_MY_PACKAGE_UNSUSPENDED
   static const ACTION_MY_PACKAGE_UNSUSPENDED =
-      "android.intent.action.MY_PACKAGE_UNSUSPENDED";
+      r"""android.intent.action.MY_PACKAGE_UNSUSPENDED""";
 
   /// from: static public final java.lang.String ACTION_NEW_OUTGOING_CALL
   static const ACTION_NEW_OUTGOING_CALL =
-      "android.intent.action.NEW_OUTGOING_CALL";
+      r"""android.intent.action.NEW_OUTGOING_CALL""";
 
   /// from: static public final java.lang.String ACTION_OPEN_DOCUMENT
-  static const ACTION_OPEN_DOCUMENT = "android.intent.action.OPEN_DOCUMENT";
+  static const ACTION_OPEN_DOCUMENT =
+      r"""android.intent.action.OPEN_DOCUMENT""";
 
   /// from: static public final java.lang.String ACTION_OPEN_DOCUMENT_TREE
   static const ACTION_OPEN_DOCUMENT_TREE =
-      "android.intent.action.OPEN_DOCUMENT_TREE";
+      r"""android.intent.action.OPEN_DOCUMENT_TREE""";
 
   /// from: static public final java.lang.String ACTION_PACKAGES_SUSPENDED
   static const ACTION_PACKAGES_SUSPENDED =
-      "android.intent.action.PACKAGES_SUSPENDED";
+      r"""android.intent.action.PACKAGES_SUSPENDED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGES_UNSUSPENDED
   static const ACTION_PACKAGES_UNSUSPENDED =
-      "android.intent.action.PACKAGES_UNSUSPENDED";
+      r"""android.intent.action.PACKAGES_UNSUSPENDED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_ADDED
-  static const ACTION_PACKAGE_ADDED = "android.intent.action.PACKAGE_ADDED";
+  static const ACTION_PACKAGE_ADDED =
+      r"""android.intent.action.PACKAGE_ADDED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_CHANGED
-  static const ACTION_PACKAGE_CHANGED = "android.intent.action.PACKAGE_CHANGED";
+  static const ACTION_PACKAGE_CHANGED =
+      r"""android.intent.action.PACKAGE_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_DATA_CLEARED
   static const ACTION_PACKAGE_DATA_CLEARED =
-      "android.intent.action.PACKAGE_DATA_CLEARED";
+      r"""android.intent.action.PACKAGE_DATA_CLEARED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_FIRST_LAUNCH
   static const ACTION_PACKAGE_FIRST_LAUNCH =
-      "android.intent.action.PACKAGE_FIRST_LAUNCH";
+      r"""android.intent.action.PACKAGE_FIRST_LAUNCH""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_FULLY_REMOVED
   static const ACTION_PACKAGE_FULLY_REMOVED =
-      "android.intent.action.PACKAGE_FULLY_REMOVED";
+      r"""android.intent.action.PACKAGE_FULLY_REMOVED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_INSTALL
-  static const ACTION_PACKAGE_INSTALL = "android.intent.action.PACKAGE_INSTALL";
+  static const ACTION_PACKAGE_INSTALL =
+      r"""android.intent.action.PACKAGE_INSTALL""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_NEEDS_VERIFICATION
   static const ACTION_PACKAGE_NEEDS_VERIFICATION =
-      "android.intent.action.PACKAGE_NEEDS_VERIFICATION";
+      r"""android.intent.action.PACKAGE_NEEDS_VERIFICATION""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_REMOVED
-  static const ACTION_PACKAGE_REMOVED = "android.intent.action.PACKAGE_REMOVED";
+  static const ACTION_PACKAGE_REMOVED =
+      r"""android.intent.action.PACKAGE_REMOVED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_REPLACED
   static const ACTION_PACKAGE_REPLACED =
-      "android.intent.action.PACKAGE_REPLACED";
+      r"""android.intent.action.PACKAGE_REPLACED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_RESTARTED
   static const ACTION_PACKAGE_RESTARTED =
-      "android.intent.action.PACKAGE_RESTARTED";
+      r"""android.intent.action.PACKAGE_RESTARTED""";
 
   /// from: static public final java.lang.String ACTION_PACKAGE_VERIFIED
   static const ACTION_PACKAGE_VERIFIED =
-      "android.intent.action.PACKAGE_VERIFIED";
+      r"""android.intent.action.PACKAGE_VERIFIED""";
 
   /// from: static public final java.lang.String ACTION_PASTE
-  static const ACTION_PASTE = "android.intent.action.PASTE";
+  static const ACTION_PASTE = r"""android.intent.action.PASTE""";
 
   /// from: static public final java.lang.String ACTION_PICK
-  static const ACTION_PICK = "android.intent.action.PICK";
+  static const ACTION_PICK = r"""android.intent.action.PICK""";
 
   /// from: static public final java.lang.String ACTION_PICK_ACTIVITY
-  static const ACTION_PICK_ACTIVITY = "android.intent.action.PICK_ACTIVITY";
+  static const ACTION_PICK_ACTIVITY =
+      r"""android.intent.action.PICK_ACTIVITY""";
 
   /// from: static public final java.lang.String ACTION_POWER_CONNECTED
   static const ACTION_POWER_CONNECTED =
-      "android.intent.action.ACTION_POWER_CONNECTED";
+      r"""android.intent.action.ACTION_POWER_CONNECTED""";
 
   /// from: static public final java.lang.String ACTION_POWER_DISCONNECTED
   static const ACTION_POWER_DISCONNECTED =
-      "android.intent.action.ACTION_POWER_DISCONNECTED";
+      r"""android.intent.action.ACTION_POWER_DISCONNECTED""";
 
   /// from: static public final java.lang.String ACTION_POWER_USAGE_SUMMARY
   static const ACTION_POWER_USAGE_SUMMARY =
-      "android.intent.action.POWER_USAGE_SUMMARY";
+      r"""android.intent.action.POWER_USAGE_SUMMARY""";
 
   /// from: static public final java.lang.String ACTION_PROCESS_TEXT
-  static const ACTION_PROCESS_TEXT = "android.intent.action.PROCESS_TEXT";
+  static const ACTION_PROCESS_TEXT = r"""android.intent.action.PROCESS_TEXT""";
 
   /// from: static public final java.lang.String ACTION_PROFILE_ACCESSIBLE
   static const ACTION_PROFILE_ACCESSIBLE =
-      "android.intent.action.PROFILE_ACCESSIBLE";
+      r"""android.intent.action.PROFILE_ACCESSIBLE""";
 
   /// from: static public final java.lang.String ACTION_PROFILE_INACCESSIBLE
   static const ACTION_PROFILE_INACCESSIBLE =
-      "android.intent.action.PROFILE_INACCESSIBLE";
+      r"""android.intent.action.PROFILE_INACCESSIBLE""";
 
   /// from: static public final java.lang.String ACTION_PROVIDER_CHANGED
   static const ACTION_PROVIDER_CHANGED =
-      "android.intent.action.PROVIDER_CHANGED";
+      r"""android.intent.action.PROVIDER_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_QUICK_CLOCK
-  static const ACTION_QUICK_CLOCK = "android.intent.action.QUICK_CLOCK";
+  static const ACTION_QUICK_CLOCK = r"""android.intent.action.QUICK_CLOCK""";
 
   /// from: static public final java.lang.String ACTION_QUICK_VIEW
-  static const ACTION_QUICK_VIEW = "android.intent.action.QUICK_VIEW";
+  static const ACTION_QUICK_VIEW = r"""android.intent.action.QUICK_VIEW""";
 
   /// from: static public final java.lang.String ACTION_REBOOT
-  static const ACTION_REBOOT = "android.intent.action.REBOOT";
+  static const ACTION_REBOOT = r"""android.intent.action.REBOOT""";
 
   /// from: static public final java.lang.String ACTION_RUN
-  static const ACTION_RUN = "android.intent.action.RUN";
+  static const ACTION_RUN = r"""android.intent.action.RUN""";
 
   /// from: static public final java.lang.String ACTION_SAFETY_CENTER
-  static const ACTION_SAFETY_CENTER = "android.intent.action.SAFETY_CENTER";
+  static const ACTION_SAFETY_CENTER =
+      r"""android.intent.action.SAFETY_CENTER""";
 
   /// from: static public final java.lang.String ACTION_SCREEN_OFF
-  static const ACTION_SCREEN_OFF = "android.intent.action.SCREEN_OFF";
+  static const ACTION_SCREEN_OFF = r"""android.intent.action.SCREEN_OFF""";
 
   /// from: static public final java.lang.String ACTION_SCREEN_ON
-  static const ACTION_SCREEN_ON = "android.intent.action.SCREEN_ON";
+  static const ACTION_SCREEN_ON = r"""android.intent.action.SCREEN_ON""";
 
   /// from: static public final java.lang.String ACTION_SEARCH
-  static const ACTION_SEARCH = "android.intent.action.SEARCH";
+  static const ACTION_SEARCH = r"""android.intent.action.SEARCH""";
 
   /// from: static public final java.lang.String ACTION_SEARCH_LONG_PRESS
   static const ACTION_SEARCH_LONG_PRESS =
-      "android.intent.action.SEARCH_LONG_PRESS";
+      r"""android.intent.action.SEARCH_LONG_PRESS""";
 
   /// from: static public final java.lang.String ACTION_SEND
-  static const ACTION_SEND = "android.intent.action.SEND";
+  static const ACTION_SEND = r"""android.intent.action.SEND""";
 
   /// from: static public final java.lang.String ACTION_SENDTO
-  static const ACTION_SENDTO = "android.intent.action.SENDTO";
+  static const ACTION_SENDTO = r"""android.intent.action.SENDTO""";
 
   /// from: static public final java.lang.String ACTION_SEND_MULTIPLE
-  static const ACTION_SEND_MULTIPLE = "android.intent.action.SEND_MULTIPLE";
+  static const ACTION_SEND_MULTIPLE =
+      r"""android.intent.action.SEND_MULTIPLE""";
 
   /// from: static public final java.lang.String ACTION_SET_WALLPAPER
-  static const ACTION_SET_WALLPAPER = "android.intent.action.SET_WALLPAPER";
+  static const ACTION_SET_WALLPAPER =
+      r"""android.intent.action.SET_WALLPAPER""";
 
   /// from: static public final java.lang.String ACTION_SHOW_APP_INFO
-  static const ACTION_SHOW_APP_INFO = "android.intent.action.SHOW_APP_INFO";
+  static const ACTION_SHOW_APP_INFO =
+      r"""android.intent.action.SHOW_APP_INFO""";
 
   /// from: static public final java.lang.String ACTION_SHOW_WORK_APPS
-  static const ACTION_SHOW_WORK_APPS = "android.intent.action.SHOW_WORK_APPS";
+  static const ACTION_SHOW_WORK_APPS =
+      r"""android.intent.action.SHOW_WORK_APPS""";
 
   /// from: static public final java.lang.String ACTION_SHUTDOWN
-  static const ACTION_SHUTDOWN = "android.intent.action.ACTION_SHUTDOWN";
+  static const ACTION_SHUTDOWN = r"""android.intent.action.ACTION_SHUTDOWN""";
 
   /// from: static public final java.lang.String ACTION_SYNC
-  static const ACTION_SYNC = "android.intent.action.SYNC";
+  static const ACTION_SYNC = r"""android.intent.action.SYNC""";
 
   /// from: static public final java.lang.String ACTION_SYSTEM_TUTORIAL
-  static const ACTION_SYSTEM_TUTORIAL = "android.intent.action.SYSTEM_TUTORIAL";
+  static const ACTION_SYSTEM_TUTORIAL =
+      r"""android.intent.action.SYSTEM_TUTORIAL""";
 
   /// from: static public final java.lang.String ACTION_TIMEZONE_CHANGED
   static const ACTION_TIMEZONE_CHANGED =
-      "android.intent.action.TIMEZONE_CHANGED";
+      r"""android.intent.action.TIMEZONE_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_TIME_CHANGED
-  static const ACTION_TIME_CHANGED = "android.intent.action.TIME_SET";
+  static const ACTION_TIME_CHANGED = r"""android.intent.action.TIME_SET""";
 
   /// from: static public final java.lang.String ACTION_TIME_TICK
-  static const ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
+  static const ACTION_TIME_TICK = r"""android.intent.action.TIME_TICK""";
 
   /// from: static public final java.lang.String ACTION_TRANSLATE
-  static const ACTION_TRANSLATE = "android.intent.action.TRANSLATE";
+  static const ACTION_TRANSLATE = r"""android.intent.action.TRANSLATE""";
 
   /// from: static public final java.lang.String ACTION_UID_REMOVED
-  static const ACTION_UID_REMOVED = "android.intent.action.UID_REMOVED";
+  static const ACTION_UID_REMOVED = r"""android.intent.action.UID_REMOVED""";
 
   /// from: static public final java.lang.String ACTION_UMS_CONNECTED
-  static const ACTION_UMS_CONNECTED = "android.intent.action.UMS_CONNECTED";
+  static const ACTION_UMS_CONNECTED =
+      r"""android.intent.action.UMS_CONNECTED""";
 
   /// from: static public final java.lang.String ACTION_UMS_DISCONNECTED
   static const ACTION_UMS_DISCONNECTED =
-      "android.intent.action.UMS_DISCONNECTED";
+      r"""android.intent.action.UMS_DISCONNECTED""";
 
   /// from: static public final java.lang.String ACTION_UNINSTALL_PACKAGE
   static const ACTION_UNINSTALL_PACKAGE =
-      "android.intent.action.UNINSTALL_PACKAGE";
+      r"""android.intent.action.UNINSTALL_PACKAGE""";
 
   /// from: static public final java.lang.String ACTION_USER_BACKGROUND
-  static const ACTION_USER_BACKGROUND = "android.intent.action.USER_BACKGROUND";
+  static const ACTION_USER_BACKGROUND =
+      r"""android.intent.action.USER_BACKGROUND""";
 
   /// from: static public final java.lang.String ACTION_USER_FOREGROUND
-  static const ACTION_USER_FOREGROUND = "android.intent.action.USER_FOREGROUND";
+  static const ACTION_USER_FOREGROUND =
+      r"""android.intent.action.USER_FOREGROUND""";
 
   /// from: static public final java.lang.String ACTION_USER_INITIALIZE
-  static const ACTION_USER_INITIALIZE = "android.intent.action.USER_INITIALIZE";
+  static const ACTION_USER_INITIALIZE =
+      r"""android.intent.action.USER_INITIALIZE""";
 
   /// from: static public final java.lang.String ACTION_USER_PRESENT
-  static const ACTION_USER_PRESENT = "android.intent.action.USER_PRESENT";
+  static const ACTION_USER_PRESENT = r"""android.intent.action.USER_PRESENT""";
 
   /// from: static public final java.lang.String ACTION_USER_UNLOCKED
-  static const ACTION_USER_UNLOCKED = "android.intent.action.USER_UNLOCKED";
+  static const ACTION_USER_UNLOCKED =
+      r"""android.intent.action.USER_UNLOCKED""";
 
   /// from: static public final java.lang.String ACTION_VIEW
-  static const ACTION_VIEW = "android.intent.action.VIEW";
+  static const ACTION_VIEW = r"""android.intent.action.VIEW""";
 
   /// from: static public final java.lang.String ACTION_VIEW_LOCUS
-  static const ACTION_VIEW_LOCUS = "android.intent.action.VIEW_LOCUS";
+  static const ACTION_VIEW_LOCUS = r"""android.intent.action.VIEW_LOCUS""";
 
   /// from: static public final java.lang.String ACTION_VIEW_PERMISSION_USAGE
   static const ACTION_VIEW_PERMISSION_USAGE =
-      "android.intent.action.VIEW_PERMISSION_USAGE";
+      r"""android.intent.action.VIEW_PERMISSION_USAGE""";
 
   /// from: static public final java.lang.String ACTION_VIEW_PERMISSION_USAGE_FOR_PERIOD
   static const ACTION_VIEW_PERMISSION_USAGE_FOR_PERIOD =
-      "android.intent.action.VIEW_PERMISSION_USAGE_FOR_PERIOD";
+      r"""android.intent.action.VIEW_PERMISSION_USAGE_FOR_PERIOD""";
 
   /// from: static public final java.lang.String ACTION_VOICE_COMMAND
-  static const ACTION_VOICE_COMMAND = "android.intent.action.VOICE_COMMAND";
+  static const ACTION_VOICE_COMMAND =
+      r"""android.intent.action.VOICE_COMMAND""";
 
   /// from: static public final java.lang.String ACTION_WALLPAPER_CHANGED
   static const ACTION_WALLPAPER_CHANGED =
-      "android.intent.action.WALLPAPER_CHANGED";
+      r"""android.intent.action.WALLPAPER_CHANGED""";
 
   /// from: static public final java.lang.String ACTION_WEB_SEARCH
-  static const ACTION_WEB_SEARCH = "android.intent.action.WEB_SEARCH";
+  static const ACTION_WEB_SEARCH = r"""android.intent.action.WEB_SEARCH""";
 
   /// from: static public final java.lang.String CATEGORY_ACCESSIBILITY_SHORTCUT_TARGET
   static const CATEGORY_ACCESSIBILITY_SHORTCUT_TARGET =
-      "android.intent.category.ACCESSIBILITY_SHORTCUT_TARGET";
+      r"""android.intent.category.ACCESSIBILITY_SHORTCUT_TARGET""";
 
   /// from: static public final java.lang.String CATEGORY_ALTERNATIVE
-  static const CATEGORY_ALTERNATIVE = "android.intent.category.ALTERNATIVE";
+  static const CATEGORY_ALTERNATIVE =
+      r"""android.intent.category.ALTERNATIVE""";
 
   /// from: static public final java.lang.String CATEGORY_APP_BROWSER
-  static const CATEGORY_APP_BROWSER = "android.intent.category.APP_BROWSER";
+  static const CATEGORY_APP_BROWSER =
+      r"""android.intent.category.APP_BROWSER""";
 
   /// from: static public final java.lang.String CATEGORY_APP_CALCULATOR
   static const CATEGORY_APP_CALCULATOR =
-      "android.intent.category.APP_CALCULATOR";
+      r"""android.intent.category.APP_CALCULATOR""";
 
   /// from: static public final java.lang.String CATEGORY_APP_CALENDAR
-  static const CATEGORY_APP_CALENDAR = "android.intent.category.APP_CALENDAR";
+  static const CATEGORY_APP_CALENDAR =
+      r"""android.intent.category.APP_CALENDAR""";
 
   /// from: static public final java.lang.String CATEGORY_APP_CONTACTS
-  static const CATEGORY_APP_CONTACTS = "android.intent.category.APP_CONTACTS";
+  static const CATEGORY_APP_CONTACTS =
+      r"""android.intent.category.APP_CONTACTS""";
 
   /// from: static public final java.lang.String CATEGORY_APP_EMAIL
-  static const CATEGORY_APP_EMAIL = "android.intent.category.APP_EMAIL";
+  static const CATEGORY_APP_EMAIL = r"""android.intent.category.APP_EMAIL""";
 
   /// from: static public final java.lang.String CATEGORY_APP_FILES
-  static const CATEGORY_APP_FILES = "android.intent.category.APP_FILES";
+  static const CATEGORY_APP_FILES = r"""android.intent.category.APP_FILES""";
 
   /// from: static public final java.lang.String CATEGORY_APP_FITNESS
-  static const CATEGORY_APP_FITNESS = "android.intent.category.APP_FITNESS";
+  static const CATEGORY_APP_FITNESS =
+      r"""android.intent.category.APP_FITNESS""";
 
   /// from: static public final java.lang.String CATEGORY_APP_GALLERY
-  static const CATEGORY_APP_GALLERY = "android.intent.category.APP_GALLERY";
+  static const CATEGORY_APP_GALLERY =
+      r"""android.intent.category.APP_GALLERY""";
 
   /// from: static public final java.lang.String CATEGORY_APP_MAPS
-  static const CATEGORY_APP_MAPS = "android.intent.category.APP_MAPS";
+  static const CATEGORY_APP_MAPS = r"""android.intent.category.APP_MAPS""";
 
   /// from: static public final java.lang.String CATEGORY_APP_MARKET
-  static const CATEGORY_APP_MARKET = "android.intent.category.APP_MARKET";
+  static const CATEGORY_APP_MARKET = r"""android.intent.category.APP_MARKET""";
 
   /// from: static public final java.lang.String CATEGORY_APP_MESSAGING
-  static const CATEGORY_APP_MESSAGING = "android.intent.category.APP_MESSAGING";
+  static const CATEGORY_APP_MESSAGING =
+      r"""android.intent.category.APP_MESSAGING""";
 
   /// from: static public final java.lang.String CATEGORY_APP_MUSIC
-  static const CATEGORY_APP_MUSIC = "android.intent.category.APP_MUSIC";
+  static const CATEGORY_APP_MUSIC = r"""android.intent.category.APP_MUSIC""";
 
   /// from: static public final java.lang.String CATEGORY_APP_WEATHER
-  static const CATEGORY_APP_WEATHER = "android.intent.category.APP_WEATHER";
+  static const CATEGORY_APP_WEATHER =
+      r"""android.intent.category.APP_WEATHER""";
 
   /// from: static public final java.lang.String CATEGORY_BROWSABLE
-  static const CATEGORY_BROWSABLE = "android.intent.category.BROWSABLE";
+  static const CATEGORY_BROWSABLE = r"""android.intent.category.BROWSABLE""";
 
   /// from: static public final java.lang.String CATEGORY_CAR_DOCK
-  static const CATEGORY_CAR_DOCK = "android.intent.category.CAR_DOCK";
+  static const CATEGORY_CAR_DOCK = r"""android.intent.category.CAR_DOCK""";
 
   /// from: static public final java.lang.String CATEGORY_CAR_MODE
-  static const CATEGORY_CAR_MODE = "android.intent.category.CAR_MODE";
+  static const CATEGORY_CAR_MODE = r"""android.intent.category.CAR_MODE""";
 
   /// from: static public final java.lang.String CATEGORY_DEFAULT
-  static const CATEGORY_DEFAULT = "android.intent.category.DEFAULT";
+  static const CATEGORY_DEFAULT = r"""android.intent.category.DEFAULT""";
 
   /// from: static public final java.lang.String CATEGORY_DESK_DOCK
-  static const CATEGORY_DESK_DOCK = "android.intent.category.DESK_DOCK";
+  static const CATEGORY_DESK_DOCK = r"""android.intent.category.DESK_DOCK""";
 
   /// from: static public final java.lang.String CATEGORY_DEVELOPMENT_PREFERENCE
   static const CATEGORY_DEVELOPMENT_PREFERENCE =
-      "android.intent.category.DEVELOPMENT_PREFERENCE";
+      r"""android.intent.category.DEVELOPMENT_PREFERENCE""";
 
   /// from: static public final java.lang.String CATEGORY_EMBED
-  static const CATEGORY_EMBED = "android.intent.category.EMBED";
+  static const CATEGORY_EMBED = r"""android.intent.category.EMBED""";
 
   /// from: static public final java.lang.String CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST
   static const CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST =
-      "android.intent.category.FRAMEWORK_INSTRUMENTATION_TEST";
+      r"""android.intent.category.FRAMEWORK_INSTRUMENTATION_TEST""";
 
   /// from: static public final java.lang.String CATEGORY_HE_DESK_DOCK
-  static const CATEGORY_HE_DESK_DOCK = "android.intent.category.HE_DESK_DOCK";
+  static const CATEGORY_HE_DESK_DOCK =
+      r"""android.intent.category.HE_DESK_DOCK""";
 
   /// from: static public final java.lang.String CATEGORY_HOME
-  static const CATEGORY_HOME = "android.intent.category.HOME";
+  static const CATEGORY_HOME = r"""android.intent.category.HOME""";
 
   /// from: static public final java.lang.String CATEGORY_INFO
-  static const CATEGORY_INFO = "android.intent.category.INFO";
+  static const CATEGORY_INFO = r"""android.intent.category.INFO""";
 
   /// from: static public final java.lang.String CATEGORY_LAUNCHER
-  static const CATEGORY_LAUNCHER = "android.intent.category.LAUNCHER";
+  static const CATEGORY_LAUNCHER = r"""android.intent.category.LAUNCHER""";
 
   /// from: static public final java.lang.String CATEGORY_LEANBACK_LAUNCHER
   static const CATEGORY_LEANBACK_LAUNCHER =
-      "android.intent.category.LEANBACK_LAUNCHER";
+      r"""android.intent.category.LEANBACK_LAUNCHER""";
 
   /// from: static public final java.lang.String CATEGORY_LE_DESK_DOCK
-  static const CATEGORY_LE_DESK_DOCK = "android.intent.category.LE_DESK_DOCK";
+  static const CATEGORY_LE_DESK_DOCK =
+      r"""android.intent.category.LE_DESK_DOCK""";
 
   /// from: static public final java.lang.String CATEGORY_MONKEY
-  static const CATEGORY_MONKEY = "android.intent.category.MONKEY";
+  static const CATEGORY_MONKEY = r"""android.intent.category.MONKEY""";
 
   /// from: static public final java.lang.String CATEGORY_OPENABLE
-  static const CATEGORY_OPENABLE = "android.intent.category.OPENABLE";
+  static const CATEGORY_OPENABLE = r"""android.intent.category.OPENABLE""";
 
   /// from: static public final java.lang.String CATEGORY_PREFERENCE
-  static const CATEGORY_PREFERENCE = "android.intent.category.PREFERENCE";
+  static const CATEGORY_PREFERENCE = r"""android.intent.category.PREFERENCE""";
 
   /// from: static public final java.lang.String CATEGORY_SAMPLE_CODE
-  static const CATEGORY_SAMPLE_CODE = "android.intent.category.SAMPLE_CODE";
+  static const CATEGORY_SAMPLE_CODE =
+      r"""android.intent.category.SAMPLE_CODE""";
 
   /// from: static public final java.lang.String CATEGORY_SECONDARY_HOME
   static const CATEGORY_SECONDARY_HOME =
-      "android.intent.category.SECONDARY_HOME";
+      r"""android.intent.category.SECONDARY_HOME""";
 
   /// from: static public final java.lang.String CATEGORY_SELECTED_ALTERNATIVE
   static const CATEGORY_SELECTED_ALTERNATIVE =
-      "android.intent.category.SELECTED_ALTERNATIVE";
+      r"""android.intent.category.SELECTED_ALTERNATIVE""";
 
   /// from: static public final java.lang.String CATEGORY_TAB
-  static const CATEGORY_TAB = "android.intent.category.TAB";
+  static const CATEGORY_TAB = r"""android.intent.category.TAB""";
 
   /// from: static public final java.lang.String CATEGORY_TEST
-  static const CATEGORY_TEST = "android.intent.category.TEST";
+  static const CATEGORY_TEST = r"""android.intent.category.TEST""";
 
   /// from: static public final java.lang.String CATEGORY_TYPED_OPENABLE
   static const CATEGORY_TYPED_OPENABLE =
-      "android.intent.category.TYPED_OPENABLE";
+      r"""android.intent.category.TYPED_OPENABLE""";
 
   /// from: static public final java.lang.String CATEGORY_UNIT_TEST
-  static const CATEGORY_UNIT_TEST = "android.intent.category.UNIT_TEST";
+  static const CATEGORY_UNIT_TEST = r"""android.intent.category.UNIT_TEST""";
 
   /// from: static public final java.lang.String CATEGORY_VOICE
-  static const CATEGORY_VOICE = "android.intent.category.VOICE";
+  static const CATEGORY_VOICE = r"""android.intent.category.VOICE""";
 
   /// from: static public final java.lang.String CATEGORY_VR_HOME
-  static const CATEGORY_VR_HOME = "android.intent.category.VR_HOME";
+  static const CATEGORY_VR_HOME = r"""android.intent.category.VR_HOME""";
 
   static final _get_CREATOR =
       jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
@@ -4171,100 +5408,108 @@ class Intent extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final android.os.Parcelable$Creator CREATOR
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JObject get CREATOR =>
       const jni.JObjectType().fromRef(_get_CREATOR().object);
 
   /// from: static public final java.lang.String EXTRA_ALARM_COUNT
-  static const EXTRA_ALARM_COUNT = "android.intent.extra.ALARM_COUNT";
+  static const EXTRA_ALARM_COUNT = r"""android.intent.extra.ALARM_COUNT""";
 
   /// from: static public final java.lang.String EXTRA_ALLOW_MULTIPLE
-  static const EXTRA_ALLOW_MULTIPLE = "android.intent.extra.ALLOW_MULTIPLE";
+  static const EXTRA_ALLOW_MULTIPLE =
+      r"""android.intent.extra.ALLOW_MULTIPLE""";
 
   /// from: static public final java.lang.String EXTRA_ALLOW_REPLACE
-  static const EXTRA_ALLOW_REPLACE = "android.intent.extra.ALLOW_REPLACE";
+  static const EXTRA_ALLOW_REPLACE = r"""android.intent.extra.ALLOW_REPLACE""";
 
   /// from: static public final java.lang.String EXTRA_ALTERNATE_INTENTS
   static const EXTRA_ALTERNATE_INTENTS =
-      "android.intent.extra.ALTERNATE_INTENTS";
+      r"""android.intent.extra.ALTERNATE_INTENTS""";
 
   /// from: static public final java.lang.String EXTRA_ASSIST_CONTEXT
-  static const EXTRA_ASSIST_CONTEXT = "android.intent.extra.ASSIST_CONTEXT";
+  static const EXTRA_ASSIST_CONTEXT =
+      r"""android.intent.extra.ASSIST_CONTEXT""";
 
   /// from: static public final java.lang.String EXTRA_ASSIST_INPUT_DEVICE_ID
   static const EXTRA_ASSIST_INPUT_DEVICE_ID =
-      "android.intent.extra.ASSIST_INPUT_DEVICE_ID";
+      r"""android.intent.extra.ASSIST_INPUT_DEVICE_ID""";
 
   /// from: static public final java.lang.String EXTRA_ASSIST_INPUT_HINT_KEYBOARD
   static const EXTRA_ASSIST_INPUT_HINT_KEYBOARD =
-      "android.intent.extra.ASSIST_INPUT_HINT_KEYBOARD";
+      r"""android.intent.extra.ASSIST_INPUT_HINT_KEYBOARD""";
 
   /// from: static public final java.lang.String EXTRA_ASSIST_PACKAGE
-  static const EXTRA_ASSIST_PACKAGE = "android.intent.extra.ASSIST_PACKAGE";
+  static const EXTRA_ASSIST_PACKAGE =
+      r"""android.intent.extra.ASSIST_PACKAGE""";
 
   /// from: static public final java.lang.String EXTRA_ASSIST_UID
-  static const EXTRA_ASSIST_UID = "android.intent.extra.ASSIST_UID";
+  static const EXTRA_ASSIST_UID = r"""android.intent.extra.ASSIST_UID""";
 
   /// from: static public final java.lang.String EXTRA_ATTRIBUTION_TAGS
-  static const EXTRA_ATTRIBUTION_TAGS = "android.intent.extra.ATTRIBUTION_TAGS";
+  static const EXTRA_ATTRIBUTION_TAGS =
+      r"""android.intent.extra.ATTRIBUTION_TAGS""";
 
   /// from: static public final java.lang.String EXTRA_AUTO_LAUNCH_SINGLE_CHOICE
   static const EXTRA_AUTO_LAUNCH_SINGLE_CHOICE =
-      "android.intent.extra.AUTO_LAUNCH_SINGLE_CHOICE";
+      r"""android.intent.extra.AUTO_LAUNCH_SINGLE_CHOICE""";
 
   /// from: static public final java.lang.String EXTRA_BCC
-  static const EXTRA_BCC = "android.intent.extra.BCC";
+  static const EXTRA_BCC = r"""android.intent.extra.BCC""";
 
   /// from: static public final java.lang.String EXTRA_BUG_REPORT
-  static const EXTRA_BUG_REPORT = "android.intent.extra.BUG_REPORT";
+  static const EXTRA_BUG_REPORT = r"""android.intent.extra.BUG_REPORT""";
 
   /// from: static public final java.lang.String EXTRA_CC
-  static const EXTRA_CC = "android.intent.extra.CC";
+  static const EXTRA_CC = r"""android.intent.extra.CC""";
 
   /// from: static public final java.lang.String EXTRA_CHANGED_COMPONENT_NAME
   static const EXTRA_CHANGED_COMPONENT_NAME =
-      "android.intent.extra.changed_component_name";
+      r"""android.intent.extra.changed_component_name""";
 
   /// from: static public final java.lang.String EXTRA_CHANGED_COMPONENT_NAME_LIST
   static const EXTRA_CHANGED_COMPONENT_NAME_LIST =
-      "android.intent.extra.changed_component_name_list";
+      r"""android.intent.extra.changed_component_name_list""";
 
   /// from: static public final java.lang.String EXTRA_CHANGED_PACKAGE_LIST
   static const EXTRA_CHANGED_PACKAGE_LIST =
-      "android.intent.extra.changed_package_list";
+      r"""android.intent.extra.changed_package_list""";
 
   /// from: static public final java.lang.String EXTRA_CHANGED_UID_LIST
-  static const EXTRA_CHANGED_UID_LIST = "android.intent.extra.changed_uid_list";
+  static const EXTRA_CHANGED_UID_LIST =
+      r"""android.intent.extra.changed_uid_list""";
 
   /// from: static public final java.lang.String EXTRA_CHOOSER_REFINEMENT_INTENT_SENDER
   static const EXTRA_CHOOSER_REFINEMENT_INTENT_SENDER =
-      "android.intent.extra.CHOOSER_REFINEMENT_INTENT_SENDER";
+      r"""android.intent.extra.CHOOSER_REFINEMENT_INTENT_SENDER""";
 
   /// from: static public final java.lang.String EXTRA_CHOOSER_TARGETS
-  static const EXTRA_CHOOSER_TARGETS = "android.intent.extra.CHOOSER_TARGETS";
+  static const EXTRA_CHOOSER_TARGETS =
+      r"""android.intent.extra.CHOOSER_TARGETS""";
 
   /// from: static public final java.lang.String EXTRA_CHOSEN_COMPONENT
-  static const EXTRA_CHOSEN_COMPONENT = "android.intent.extra.CHOSEN_COMPONENT";
+  static const EXTRA_CHOSEN_COMPONENT =
+      r"""android.intent.extra.CHOSEN_COMPONENT""";
 
   /// from: static public final java.lang.String EXTRA_CHOSEN_COMPONENT_INTENT_SENDER
   static const EXTRA_CHOSEN_COMPONENT_INTENT_SENDER =
-      "android.intent.extra.CHOSEN_COMPONENT_INTENT_SENDER";
+      r"""android.intent.extra.CHOSEN_COMPONENT_INTENT_SENDER""";
 
   /// from: static public final java.lang.String EXTRA_COMPONENT_NAME
-  static const EXTRA_COMPONENT_NAME = "android.intent.extra.COMPONENT_NAME";
+  static const EXTRA_COMPONENT_NAME =
+      r"""android.intent.extra.COMPONENT_NAME""";
 
   /// from: static public final java.lang.String EXTRA_CONTENT_ANNOTATIONS
   static const EXTRA_CONTENT_ANNOTATIONS =
-      "android.intent.extra.CONTENT_ANNOTATIONS";
+      r"""android.intent.extra.CONTENT_ANNOTATIONS""";
 
   /// from: static public final java.lang.String EXTRA_CONTENT_QUERY
-  static const EXTRA_CONTENT_QUERY = "android.intent.extra.CONTENT_QUERY";
+  static const EXTRA_CONTENT_QUERY = r"""android.intent.extra.CONTENT_QUERY""";
 
   /// from: static public final java.lang.String EXTRA_DATA_REMOVED
-  static const EXTRA_DATA_REMOVED = "android.intent.extra.DATA_REMOVED";
+  static const EXTRA_DATA_REMOVED = r"""android.intent.extra.DATA_REMOVED""";
 
   /// from: static public final java.lang.String EXTRA_DOCK_STATE
-  static const EXTRA_DOCK_STATE = "android.intent.extra.DOCK_STATE";
+  static const EXTRA_DOCK_STATE = r"""android.intent.extra.DOCK_STATE""";
 
   /// from: static public final int EXTRA_DOCK_STATE_CAR
   static const EXTRA_DOCK_STATE_CAR = 2;
@@ -4282,180 +5527,186 @@ class Intent extends jni.JObject {
   static const EXTRA_DOCK_STATE_UNDOCKED = 0;
 
   /// from: static public final java.lang.String EXTRA_DONT_KILL_APP
-  static const EXTRA_DONT_KILL_APP = "android.intent.extra.DONT_KILL_APP";
+  static const EXTRA_DONT_KILL_APP = r"""android.intent.extra.DONT_KILL_APP""";
 
   /// from: static public final java.lang.String EXTRA_DURATION_MILLIS
-  static const EXTRA_DURATION_MILLIS = "android.intent.extra.DURATION_MILLIS";
+  static const EXTRA_DURATION_MILLIS =
+      r"""android.intent.extra.DURATION_MILLIS""";
 
   /// from: static public final java.lang.String EXTRA_EMAIL
-  static const EXTRA_EMAIL = "android.intent.extra.EMAIL";
+  static const EXTRA_EMAIL = r"""android.intent.extra.EMAIL""";
 
   /// from: static public final java.lang.String EXTRA_END_TIME
-  static const EXTRA_END_TIME = "android.intent.extra.END_TIME";
+  static const EXTRA_END_TIME = r"""android.intent.extra.END_TIME""";
 
   /// from: static public final java.lang.String EXTRA_EXCLUDE_COMPONENTS
   static const EXTRA_EXCLUDE_COMPONENTS =
-      "android.intent.extra.EXCLUDE_COMPONENTS";
+      r"""android.intent.extra.EXCLUDE_COMPONENTS""";
 
   /// from: static public final java.lang.String EXTRA_FROM_STORAGE
-  static const EXTRA_FROM_STORAGE = "android.intent.extra.FROM_STORAGE";
+  static const EXTRA_FROM_STORAGE = r"""android.intent.extra.FROM_STORAGE""";
 
   /// from: static public final java.lang.String EXTRA_HTML_TEXT
-  static const EXTRA_HTML_TEXT = "android.intent.extra.HTML_TEXT";
+  static const EXTRA_HTML_TEXT = r"""android.intent.extra.HTML_TEXT""";
 
   /// from: static public final java.lang.String EXTRA_INDEX
-  static const EXTRA_INDEX = "android.intent.extra.INDEX";
+  static const EXTRA_INDEX = r"""android.intent.extra.INDEX""";
 
   /// from: static public final java.lang.String EXTRA_INITIAL_INTENTS
-  static const EXTRA_INITIAL_INTENTS = "android.intent.extra.INITIAL_INTENTS";
+  static const EXTRA_INITIAL_INTENTS =
+      r"""android.intent.extra.INITIAL_INTENTS""";
 
   /// from: static public final java.lang.String EXTRA_INSTALLER_PACKAGE_NAME
   static const EXTRA_INSTALLER_PACKAGE_NAME =
-      "android.intent.extra.INSTALLER_PACKAGE_NAME";
+      r"""android.intent.extra.INSTALLER_PACKAGE_NAME""";
 
   /// from: static public final java.lang.String EXTRA_INTENT
-  static const EXTRA_INTENT = "android.intent.extra.INTENT";
+  static const EXTRA_INTENT = r"""android.intent.extra.INTENT""";
 
   /// from: static public final java.lang.String EXTRA_KEY_EVENT
-  static const EXTRA_KEY_EVENT = "android.intent.extra.KEY_EVENT";
+  static const EXTRA_KEY_EVENT = r"""android.intent.extra.KEY_EVENT""";
 
   /// from: static public final java.lang.String EXTRA_LOCALE_LIST
-  static const EXTRA_LOCALE_LIST = "android.intent.extra.LOCALE_LIST";
+  static const EXTRA_LOCALE_LIST = r"""android.intent.extra.LOCALE_LIST""";
 
   /// from: static public final java.lang.String EXTRA_LOCAL_ONLY
-  static const EXTRA_LOCAL_ONLY = "android.intent.extra.LOCAL_ONLY";
+  static const EXTRA_LOCAL_ONLY = r"""android.intent.extra.LOCAL_ONLY""";
 
   /// from: static public final java.lang.String EXTRA_LOCUS_ID
-  static const EXTRA_LOCUS_ID = "android.intent.extra.LOCUS_ID";
+  static const EXTRA_LOCUS_ID = r"""android.intent.extra.LOCUS_ID""";
 
   /// from: static public final java.lang.String EXTRA_MIME_TYPES
-  static const EXTRA_MIME_TYPES = "android.intent.extra.MIME_TYPES";
+  static const EXTRA_MIME_TYPES = r"""android.intent.extra.MIME_TYPES""";
 
   /// from: static public final java.lang.String EXTRA_NOT_UNKNOWN_SOURCE
   static const EXTRA_NOT_UNKNOWN_SOURCE =
-      "android.intent.extra.NOT_UNKNOWN_SOURCE";
+      r"""android.intent.extra.NOT_UNKNOWN_SOURCE""";
 
   /// from: static public final java.lang.String EXTRA_ORIGINATING_URI
-  static const EXTRA_ORIGINATING_URI = "android.intent.extra.ORIGINATING_URI";
+  static const EXTRA_ORIGINATING_URI =
+      r"""android.intent.extra.ORIGINATING_URI""";
 
   /// from: static public final java.lang.String EXTRA_PACKAGE_NAME
-  static const EXTRA_PACKAGE_NAME = "android.intent.extra.PACKAGE_NAME";
+  static const EXTRA_PACKAGE_NAME = r"""android.intent.extra.PACKAGE_NAME""";
 
   /// from: static public final java.lang.String EXTRA_PERMISSION_GROUP_NAME
   static const EXTRA_PERMISSION_GROUP_NAME =
-      "android.intent.extra.PERMISSION_GROUP_NAME";
+      r"""android.intent.extra.PERMISSION_GROUP_NAME""";
 
   /// from: static public final java.lang.String EXTRA_PHONE_NUMBER
-  static const EXTRA_PHONE_NUMBER = "android.intent.extra.PHONE_NUMBER";
+  static const EXTRA_PHONE_NUMBER = r"""android.intent.extra.PHONE_NUMBER""";
 
   /// from: static public final java.lang.String EXTRA_PROCESS_TEXT
-  static const EXTRA_PROCESS_TEXT = "android.intent.extra.PROCESS_TEXT";
+  static const EXTRA_PROCESS_TEXT = r"""android.intent.extra.PROCESS_TEXT""";
 
   /// from: static public final java.lang.String EXTRA_PROCESS_TEXT_READONLY
   static const EXTRA_PROCESS_TEXT_READONLY =
-      "android.intent.extra.PROCESS_TEXT_READONLY";
+      r"""android.intent.extra.PROCESS_TEXT_READONLY""";
 
   /// from: static public final java.lang.String EXTRA_QUICK_VIEW_FEATURES
   static const EXTRA_QUICK_VIEW_FEATURES =
-      "android.intent.extra.QUICK_VIEW_FEATURES";
+      r"""android.intent.extra.QUICK_VIEW_FEATURES""";
 
   /// from: static public final java.lang.String EXTRA_QUIET_MODE
-  static const EXTRA_QUIET_MODE = "android.intent.extra.QUIET_MODE";
+  static const EXTRA_QUIET_MODE = r"""android.intent.extra.QUIET_MODE""";
 
   /// from: static public final java.lang.String EXTRA_REFERRER
-  static const EXTRA_REFERRER = "android.intent.extra.REFERRER";
+  static const EXTRA_REFERRER = r"""android.intent.extra.REFERRER""";
 
   /// from: static public final java.lang.String EXTRA_REFERRER_NAME
-  static const EXTRA_REFERRER_NAME = "android.intent.extra.REFERRER_NAME";
+  static const EXTRA_REFERRER_NAME = r"""android.intent.extra.REFERRER_NAME""";
 
   /// from: static public final java.lang.String EXTRA_REMOTE_INTENT_TOKEN
   static const EXTRA_REMOTE_INTENT_TOKEN =
-      "android.intent.extra.remote_intent_token";
+      r"""android.intent.extra.remote_intent_token""";
 
   /// from: static public final java.lang.String EXTRA_REPLACEMENT_EXTRAS
   static const EXTRA_REPLACEMENT_EXTRAS =
-      "android.intent.extra.REPLACEMENT_EXTRAS";
+      r"""android.intent.extra.REPLACEMENT_EXTRAS""";
 
   /// from: static public final java.lang.String EXTRA_REPLACING
-  static const EXTRA_REPLACING = "android.intent.extra.REPLACING";
+  static const EXTRA_REPLACING = r"""android.intent.extra.REPLACING""";
 
   /// from: static public final java.lang.String EXTRA_RESTRICTIONS_BUNDLE
   static const EXTRA_RESTRICTIONS_BUNDLE =
-      "android.intent.extra.restrictions_bundle";
+      r"""android.intent.extra.restrictions_bundle""";
 
   /// from: static public final java.lang.String EXTRA_RESTRICTIONS_INTENT
   static const EXTRA_RESTRICTIONS_INTENT =
-      "android.intent.extra.restrictions_intent";
+      r"""android.intent.extra.restrictions_intent""";
 
   /// from: static public final java.lang.String EXTRA_RESTRICTIONS_LIST
   static const EXTRA_RESTRICTIONS_LIST =
-      "android.intent.extra.restrictions_list";
+      r"""android.intent.extra.restrictions_list""";
 
   /// from: static public final java.lang.String EXTRA_RESULT_RECEIVER
-  static const EXTRA_RESULT_RECEIVER = "android.intent.extra.RESULT_RECEIVER";
+  static const EXTRA_RESULT_RECEIVER =
+      r"""android.intent.extra.RESULT_RECEIVER""";
 
   /// from: static public final java.lang.String EXTRA_RETURN_RESULT
-  static const EXTRA_RETURN_RESULT = "android.intent.extra.RETURN_RESULT";
+  static const EXTRA_RETURN_RESULT = r"""android.intent.extra.RETURN_RESULT""";
 
   /// from: static public final java.lang.String EXTRA_SHORTCUT_ICON
-  static const EXTRA_SHORTCUT_ICON = "android.intent.extra.shortcut.ICON";
+  static const EXTRA_SHORTCUT_ICON = r"""android.intent.extra.shortcut.ICON""";
 
   /// from: static public final java.lang.String EXTRA_SHORTCUT_ICON_RESOURCE
   static const EXTRA_SHORTCUT_ICON_RESOURCE =
-      "android.intent.extra.shortcut.ICON_RESOURCE";
+      r"""android.intent.extra.shortcut.ICON_RESOURCE""";
 
   /// from: static public final java.lang.String EXTRA_SHORTCUT_ID
-  static const EXTRA_SHORTCUT_ID = "android.intent.extra.shortcut.ID";
+  static const EXTRA_SHORTCUT_ID = r"""android.intent.extra.shortcut.ID""";
 
   /// from: static public final java.lang.String EXTRA_SHORTCUT_INTENT
-  static const EXTRA_SHORTCUT_INTENT = "android.intent.extra.shortcut.INTENT";
+  static const EXTRA_SHORTCUT_INTENT =
+      r"""android.intent.extra.shortcut.INTENT""";
 
   /// from: static public final java.lang.String EXTRA_SHORTCUT_NAME
-  static const EXTRA_SHORTCUT_NAME = "android.intent.extra.shortcut.NAME";
+  static const EXTRA_SHORTCUT_NAME = r"""android.intent.extra.shortcut.NAME""";
 
   /// from: static public final java.lang.String EXTRA_SHUTDOWN_USERSPACE_ONLY
   static const EXTRA_SHUTDOWN_USERSPACE_ONLY =
-      "android.intent.extra.SHUTDOWN_USERSPACE_ONLY";
+      r"""android.intent.extra.SHUTDOWN_USERSPACE_ONLY""";
 
   /// from: static public final java.lang.String EXTRA_SPLIT_NAME
-  static const EXTRA_SPLIT_NAME = "android.intent.extra.SPLIT_NAME";
+  static const EXTRA_SPLIT_NAME = r"""android.intent.extra.SPLIT_NAME""";
 
   /// from: static public final java.lang.String EXTRA_START_TIME
-  static const EXTRA_START_TIME = "android.intent.extra.START_TIME";
+  static const EXTRA_START_TIME = r"""android.intent.extra.START_TIME""";
 
   /// from: static public final java.lang.String EXTRA_STREAM
-  static const EXTRA_STREAM = "android.intent.extra.STREAM";
+  static const EXTRA_STREAM = r"""android.intent.extra.STREAM""";
 
   /// from: static public final java.lang.String EXTRA_SUBJECT
-  static const EXTRA_SUBJECT = "android.intent.extra.SUBJECT";
+  static const EXTRA_SUBJECT = r"""android.intent.extra.SUBJECT""";
 
   /// from: static public final java.lang.String EXTRA_SUSPENDED_PACKAGE_EXTRAS
   static const EXTRA_SUSPENDED_PACKAGE_EXTRAS =
-      "android.intent.extra.SUSPENDED_PACKAGE_EXTRAS";
+      r"""android.intent.extra.SUSPENDED_PACKAGE_EXTRAS""";
 
   /// from: static public final java.lang.String EXTRA_TEMPLATE
-  static const EXTRA_TEMPLATE = "android.intent.extra.TEMPLATE";
+  static const EXTRA_TEMPLATE = r"""android.intent.extra.TEMPLATE""";
 
   /// from: static public final java.lang.String EXTRA_TEXT
-  static const EXTRA_TEXT = "android.intent.extra.TEXT";
+  static const EXTRA_TEXT = r"""android.intent.extra.TEXT""";
 
   /// from: static public final java.lang.String EXTRA_TIME
-  static const EXTRA_TIME = "android.intent.extra.TIME";
+  static const EXTRA_TIME = r"""android.intent.extra.TIME""";
 
   /// from: static public final java.lang.String EXTRA_TIMEZONE
-  static const EXTRA_TIMEZONE = "time-zone";
+  static const EXTRA_TIMEZONE = r"""time-zone""";
 
   /// from: static public final java.lang.String EXTRA_TITLE
-  static const EXTRA_TITLE = "android.intent.extra.TITLE";
+  static const EXTRA_TITLE = r"""android.intent.extra.TITLE""";
 
   /// from: static public final java.lang.String EXTRA_UID
-  static const EXTRA_UID = "android.intent.extra.UID";
+  static const EXTRA_UID = r"""android.intent.extra.UID""";
 
   /// from: static public final java.lang.String EXTRA_USER
-  static const EXTRA_USER = "android.intent.extra.USER";
+  static const EXTRA_USER = r"""android.intent.extra.USER""";
 
   /// from: static public final java.lang.String EXTRA_USER_INITIATED
-  static const EXTRA_USER_INITIATED = "android.intent.extra.USER_INITIATED";
+  static const EXTRA_USER_INITIATED =
+      r"""android.intent.extra.USER_INITIATED""";
 
   /// from: static public final int FILL_IN_ACTION
   static const FILL_IN_ACTION = 1;
@@ -4596,7 +5847,7 @@ class Intent extends jni.JObject {
   static const FLAG_RECEIVER_VISIBLE_TO_INSTANT_APPS = 2097152;
 
   /// from: static public final java.lang.String METADATA_DOCK_HOME
-  static const METADATA_DOCK_HOME = "android.dock_home";
+  static const METADATA_DOCK_HOME = r"""android.dock_home""";
 
   /// from: static public final int URI_ALLOW_UNSAFE
   static const URI_ALLOW_UNSAFE = 4;
@@ -4607,71 +5858,101 @@ class Intent extends jni.JObject {
   /// from: static public final int URI_INTENT_SCHEME
   static const URI_INTENT_SCHEME = 1;
 
-  static final _ctor =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Intent__ctor")
+  static final _new0 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Intent__new0")
           .asFunction<jni.JniResult Function()>();
 
   /// from: public void <init>()
-  Intent() : super.fromRef(_ctor().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent() {
+    return Intent.fromRef(_new0().object);
+  }
 
-  static final _ctor1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__ctor1")
+  static final _new1 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__new1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(android.content.Intent intent)
-  Intent.ctor1(Intent intent) : super.fromRef(_ctor1(intent.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent.new1(
+    Intent intent,
+  ) {
+    return Intent.fromRef(_new1(intent.reference).object);
+  }
 
-  static final _ctor2 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__ctor2")
+  static final _new2 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__new2")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.lang.String string)
-  Intent.ctor2(jni.JString string)
-      : super.fromRef(_ctor2(string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent.new2(
+    jni.JString string,
+  ) {
+    return Intent.fromRef(_new2(string.reference).object);
+  }
 
-  static final _ctor3 = jniLookup<
+  static final _new3 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Intent__ctor3")
+                  ffi.Pointer<ffi.Void>)>>("Intent__new3")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.lang.String string, android.net.Uri uri)
-  Intent.ctor3(jni.JString string, jni.JObject uri)
-      : super.fromRef(_ctor3(string.reference, uri.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent.new3(
+    jni.JString string,
+    jni.JObject uri,
+  ) {
+    return Intent.fromRef(_new3(string.reference, uri.reference).object);
+  }
 
-  static final _ctor4 = jniLookup<
+  static final _new4 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Intent__ctor4")
+                  ffi.Pointer<ffi.Void>)>>("Intent__new4")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(android.content.Context context, java.lang.Class class)
-  Intent.ctor4(Context context, jni.JObject class0)
-      : super.fromRef(_ctor4(context.reference, class0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent.new4(
+    Context context,
+    jni.JObject class0,
+  ) {
+    return Intent.fromRef(_new4(context.reference, class0.reference).object);
+  }
 
-  static final _ctor5 = jniLookup<
+  static final _new5 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Intent__ctor5")
+                  ffi.Pointer<ffi.Void>)>>("Intent__new5")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.lang.String string, android.net.Uri uri, android.content.Context context, java.lang.Class class)
-  Intent.ctor5(
-      jni.JString string, jni.JObject uri, Context context, jni.JObject class0)
-      : super.fromRef(_ctor5(string.reference, uri.reference, context.reference,
-                class0.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Intent.new5(
+    jni.JString string,
+    jni.JObject uri,
+    Context context,
+    jni.JObject class0,
+  ) {
+    return Intent.fromRef(_new5(string.reference, uri.reference,
+            context.reference, class0.reference)
+        .object);
+  }
 
   static final _createChooser = jniLookup<
           ffi.NativeFunction<
@@ -4682,10 +5963,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent createChooser(android.content.Intent intent, java.lang.CharSequence charSequence)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent createChooser(Intent intent, jni.JObject charSequence) =>
-      const $IntentType().fromRef(
-          _createChooser(intent.reference, charSequence.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent createChooser(
+    Intent intent,
+    jni.JObject charSequence,
+  ) {
+    return const $IntentType().fromRef(
+        _createChooser(intent.reference, charSequence.reference).object);
+  }
 
   static final _createChooser1 = jniLookup<
           ffi.NativeFunction<
@@ -4698,45 +5983,55 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent createChooser(android.content.Intent intent, java.lang.CharSequence charSequence, android.content.IntentSender intentSender)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Intent createChooser1(
-          Intent intent, jni.JObject charSequence, jni.JObject intentSender) =>
-      const $IntentType().fromRef(_createChooser1(
-              intent.reference, charSequence.reference, intentSender.reference)
-          .object);
+    Intent intent,
+    jni.JObject charSequence,
+    jni.JObject intentSender,
+  ) {
+    return const $IntentType().fromRef(_createChooser1(
+            intent.reference, charSequence.reference, intentSender.reference)
+        .object);
+  }
 
   static final _clone = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__clone")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__clone")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object clone()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject clone() =>
-      const jni.JObjectType().fromRef(_clone(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject clone() {
+    return const jni.JObjectType().fromRef(_clone(reference).object);
+  }
 
   static final _cloneFilter = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__cloneFilter")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__cloneFilter")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent cloneFilter()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent cloneFilter() =>
-      const $IntentType().fromRef(_cloneFilter(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent cloneFilter() {
+    return const $IntentType().fromRef(_cloneFilter(reference).object);
+  }
 
   static final _makeMainActivity = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__makeMainActivity")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__makeMainActivity")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent makeMainActivity(android.content.ComponentName componentName)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent makeMainActivity(jni.JObject componentName) =>
-      const $IntentType()
-          .fromRef(_makeMainActivity(componentName.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent makeMainActivity(
+    jni.JObject componentName,
+  ) {
+    return const $IntentType()
+        .fromRef(_makeMainActivity(componentName.reference).object);
+  }
 
   static final _makeMainSelectorActivity = jniLookup<
           ffi.NativeFunction<
@@ -4747,35 +6042,43 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent makeMainSelectorActivity(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Intent makeMainSelectorActivity(
-          jni.JString string, jni.JString string1) =>
-      const $IntentType().fromRef(
-          _makeMainSelectorActivity(string.reference, string1.reference)
-              .object);
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const $IntentType().fromRef(
+        _makeMainSelectorActivity(string.reference, string1.reference).object);
+  }
 
   static final _makeRestartActivityTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__makeRestartActivityTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__makeRestartActivityTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent makeRestartActivityTask(android.content.ComponentName componentName)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent makeRestartActivityTask(jni.JObject componentName) =>
-      const $IntentType()
-          .fromRef(_makeRestartActivityTask(componentName.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent makeRestartActivityTask(
+    jni.JObject componentName,
+  ) {
+    return const $IntentType()
+        .fromRef(_makeRestartActivityTask(componentName.reference).object);
+  }
 
   static final _getIntent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getIntent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getIntent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent getIntent(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent getIntent(jni.JString string) =>
-      const $IntentType().fromRef(_getIntent(string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent getIntent(
+    jni.JString string,
+  ) {
+    return const $IntentType().fromRef(_getIntent(string.reference).object);
+  }
 
   static final _parseUri = jniLookup<
           ffi.NativeFunction<
@@ -4784,73 +6087,87 @@ class Intent extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: static public android.content.Intent parseUri(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent parseUri(jni.JString string, int i) =>
-      const $IntentType().fromRef(_parseUri(string.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent parseUri(
+    jni.JString string,
+    int i,
+  ) {
+    return const $IntentType().fromRef(_parseUri(string.reference, i).object);
+  }
 
   static final _getIntentOld = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getIntentOld")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getIntentOld")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent getIntentOld(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent getIntentOld(jni.JString string) =>
-      const $IntentType().fromRef(_getIntentOld(string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent getIntentOld(
+    jni.JString string,
+  ) {
+    return const $IntentType().fromRef(_getIntentOld(string.reference).object);
+  }
 
   static final _getAction = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getAction")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getAction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getAction()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getAction() =>
-      const jni.JStringType().fromRef(_getAction(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getAction() {
+    return const jni.JStringType().fromRef(_getAction(reference).object);
+  }
 
   static final _getData = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__getData")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getData")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri getData()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getData() =>
-      const jni.JObjectType().fromRef(_getData(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getData() {
+    return const jni.JObjectType().fromRef(_getData(reference).object);
+  }
 
   static final _getDataString = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getDataString")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getDataString")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getDataString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getDataString() =>
-      const jni.JStringType().fromRef(_getDataString(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getDataString() {
+    return const jni.JStringType().fromRef(_getDataString(reference).object);
+  }
 
   static final _getScheme = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getScheme")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getScheme")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getScheme()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getScheme() =>
-      const jni.JStringType().fromRef(_getScheme(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getScheme() {
+    return const jni.JStringType().fromRef(_getScheme(reference).object);
+  }
 
   static final _getType = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__getType")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getType")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getType()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getType() =>
-      const jni.JStringType().fromRef(_getType(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getType() {
+    return const jni.JStringType().fromRef(_getType(reference).object);
+  }
 
   static final _resolveType = jniLookup<
           ffi.NativeFunction<
@@ -4861,9 +6178,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String resolveType(android.content.Context context)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString resolveType(Context context) => const jni.JStringType()
-      .fromRef(_resolveType(reference, context.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString resolveType(
+    Context context,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_resolveType(reference, context.reference).object);
+  }
 
   static final _resolveType1 = jniLookup<
           ffi.NativeFunction<
@@ -4874,10 +6195,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String resolveType(android.content.ContentResolver contentResolver)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString resolveType1(jni.JObject contentResolver) =>
-      const jni.JStringType()
-          .fromRef(_resolveType1(reference, contentResolver.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString resolveType1(
+    jni.JObject contentResolver,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_resolveType1(reference, contentResolver.reference).object);
+  }
 
   static final _resolveTypeIfNeeded = jniLookup<
           ffi.NativeFunction<
@@ -4888,21 +6212,25 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String resolveTypeIfNeeded(android.content.ContentResolver contentResolver)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString resolveTypeIfNeeded(jni.JObject contentResolver) =>
-      const jni.JStringType().fromRef(
-          _resolveTypeIfNeeded(reference, contentResolver.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString resolveTypeIfNeeded(
+    jni.JObject contentResolver,
+  ) {
+    return const jni.JStringType().fromRef(
+        _resolveTypeIfNeeded(reference, contentResolver.reference).object);
+  }
 
   static final _getIdentifier = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getIdentifier")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getIdentifier")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getIdentifier()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getIdentifier() =>
-      const jni.JStringType().fromRef(_getIdentifier(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getIdentifier() {
+    return const jni.JStringType().fromRef(_getIdentifier(reference).object);
+  }
 
   static final _hasCategory = jniLookup<
           ffi.NativeFunction<
@@ -4913,41 +6241,48 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean hasCategory(java.lang.String string)
-  bool hasCategory(jni.JString string) =>
-      _hasCategory(reference, string.reference).boolean;
+  bool hasCategory(
+    jni.JString string,
+  ) {
+    return _hasCategory(reference, string.reference).boolean;
+  }
 
   static final _getCategories = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getCategories")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getCategories")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.Set getCategories()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Set<jni.JString> getCategories() => const $SetType(jni.JStringType())
-      .fromRef(_getCategories(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JSet<jni.JString> getCategories() {
+    return const jni.JSetType(jni.JStringType())
+        .fromRef(_getCategories(reference).object);
+  }
 
   static final _getSelector = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getSelector")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getSelector")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent getSelector()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent getSelector() =>
-      const $IntentType().fromRef(_getSelector(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent getSelector() {
+    return const $IntentType().fromRef(_getSelector(reference).object);
+  }
 
   static final _getClipData = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getClipData")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getClipData")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ClipData getClipData()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getClipData() =>
-      const jni.JObjectType().fromRef(_getClipData(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getClipData() {
+    return const jni.JObjectType().fromRef(_getClipData(reference).object);
+  }
 
   static final _setExtrasClassLoader = jniLookup<
           ffi.NativeFunction<
@@ -4958,8 +6293,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setExtrasClassLoader(java.lang.ClassLoader classLoader)
-  void setExtrasClassLoader(jni.JObject classLoader) =>
-      _setExtrasClassLoader(reference, classLoader.reference).check();
+  void setExtrasClassLoader(
+    jni.JObject classLoader,
+  ) {
+    return _setExtrasClassLoader(reference, classLoader.reference).check();
+  }
 
   static final _hasExtra = jniLookup<
           ffi.NativeFunction<
@@ -4970,17 +6308,22 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean hasExtra(java.lang.String string)
-  bool hasExtra(jni.JString string) =>
-      _hasExtra(reference, string.reference).boolean;
+  bool hasExtra(
+    jni.JString string,
+  ) {
+    return _hasExtra(reference, string.reference).boolean;
+  }
 
   static final _hasFileDescriptors = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__hasFileDescriptors")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__hasFileDescriptors")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean hasFileDescriptors()
-  bool hasFileDescriptors() => _hasFileDescriptors(reference).boolean;
+  bool hasFileDescriptors() {
+    return _hasFileDescriptors(reference).boolean;
+  }
 
   static final _getBooleanExtra = jniLookup<
           ffi.NativeFunction<
@@ -4991,8 +6334,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public boolean getBooleanExtra(java.lang.String string, boolean z)
-  bool getBooleanExtra(jni.JString string, bool z) =>
-      _getBooleanExtra(reference, string.reference, z ? 1 : 0).boolean;
+  bool getBooleanExtra(
+    jni.JString string,
+    bool z,
+  ) {
+    return _getBooleanExtra(reference, string.reference, z ? 1 : 0).boolean;
+  }
 
   static final _getByteExtra = jniLookup<
           ffi.NativeFunction<
@@ -5003,8 +6350,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public byte getByteExtra(java.lang.String string, byte b)
-  int getByteExtra(jni.JString string, int b) =>
-      _getByteExtra(reference, string.reference, b).byte;
+  int getByteExtra(
+    jni.JString string,
+    int b,
+  ) {
+    return _getByteExtra(reference, string.reference, b).byte;
+  }
 
   static final _getShortExtra = jniLookup<
           ffi.NativeFunction<
@@ -5015,8 +6366,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public short getShortExtra(java.lang.String string, short s)
-  int getShortExtra(jni.JString string, int s) =>
-      _getShortExtra(reference, string.reference, s).short;
+  int getShortExtra(
+    jni.JString string,
+    int s,
+  ) {
+    return _getShortExtra(reference, string.reference, s).short;
+  }
 
   static final _getCharExtra = jniLookup<
           ffi.NativeFunction<
@@ -5027,8 +6382,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public char getCharExtra(java.lang.String string, char c)
-  int getCharExtra(jni.JString string, int c) =>
-      _getCharExtra(reference, string.reference, c).char;
+  int getCharExtra(
+    jni.JString string,
+    int c,
+  ) {
+    return _getCharExtra(reference, string.reference, c).char;
+  }
 
   static final _getIntExtra = jniLookup<
           ffi.NativeFunction<
@@ -5039,8 +6398,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public int getIntExtra(java.lang.String string, int i)
-  int getIntExtra(jni.JString string, int i) =>
-      _getIntExtra(reference, string.reference, i).integer;
+  int getIntExtra(
+    jni.JString string,
+    int i,
+  ) {
+    return _getIntExtra(reference, string.reference, i).integer;
+  }
 
   static final _getLongExtra = jniLookup<
           ffi.NativeFunction<
@@ -5051,8 +6414,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public long getLongExtra(java.lang.String string, long j)
-  int getLongExtra(jni.JString string, int j) =>
-      _getLongExtra(reference, string.reference, j).long;
+  int getLongExtra(
+    jni.JString string,
+    int j,
+  ) {
+    return _getLongExtra(reference, string.reference, j).long;
+  }
 
   static final _getFloatExtra = jniLookup<
           ffi.NativeFunction<
@@ -5063,8 +6430,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, double)>();
 
   /// from: public float getFloatExtra(java.lang.String string, float f)
-  double getFloatExtra(jni.JString string, double f) =>
-      _getFloatExtra(reference, string.reference, f).float;
+  double getFloatExtra(
+    jni.JString string,
+    double f,
+  ) {
+    return _getFloatExtra(reference, string.reference, f).float;
+  }
 
   static final _getDoubleExtra = jniLookup<
           ffi.NativeFunction<
@@ -5075,8 +6446,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, double)>();
 
   /// from: public double getDoubleExtra(java.lang.String string, double d)
-  double getDoubleExtra(jni.JString string, double d) =>
-      _getDoubleExtra(reference, string.reference, d).doubleFloat;
+  double getDoubleExtra(
+    jni.JString string,
+    double d,
+  ) {
+    return _getDoubleExtra(reference, string.reference, d).doubleFloat;
+  }
 
   static final _getStringExtra = jniLookup<
           ffi.NativeFunction<
@@ -5087,9 +6462,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getStringExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getStringExtra(jni.JString string) => const jni.JStringType()
-      .fromRef(_getStringExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getStringExtra(
+    jni.JString string,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getStringExtra(reference, string.reference).object);
+  }
 
   static final _getCharSequenceExtra = jniLookup<
           ffi.NativeFunction<
@@ -5100,10 +6479,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.CharSequence getCharSequenceExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getCharSequenceExtra(jni.JString string) =>
-      const jni.JObjectType()
-          .fromRef(_getCharSequenceExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getCharSequenceExtra(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getCharSequenceExtra(reference, string.reference).object);
+  }
 
   static final _getParcelableExtra = jniLookup<
           ffi.NativeFunction<
@@ -5114,10 +6496,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public T getParcelableExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T getParcelableExtra<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JString string) =>
-      $T.fromRef(_getParcelableExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T getParcelableExtra<$T extends jni.JObject>(
+    jni.JString string, {
+    required jni.JObjType<$T> T,
+  }) {
+    return T.fromRef(_getParcelableExtra(reference, string.reference).object);
+  }
 
   static final _getParcelableExtra1 = jniLookup<
           ffi.NativeFunction<
@@ -5130,12 +6515,16 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public T getParcelableExtra(java.lang.String string, java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T getParcelableExtra1<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JString string, jni.JObject class0) =>
-      $T.fromRef(
-          _getParcelableExtra1(reference, string.reference, class0.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T getParcelableExtra1<$T extends jni.JObject>(
+    jni.JString string,
+    jni.JObject class0, {
+    required jni.JObjType<$T> T,
+  }) {
+    return T.fromRef(
+        _getParcelableExtra1(reference, string.reference, class0.reference)
+            .object);
+  }
 
   static final _getParcelableArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5146,10 +6535,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.os.Parcelable[] getParcelableArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> getParcelableArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JObjectType()).fromRef(
-          _getParcelableArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JObject> getParcelableArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.JObjectType())
+        .fromRef(_getParcelableArrayExtra(reference, string.reference).object);
+  }
 
   static final _getParcelableArrayExtra1 = jniLookup<
           ffi.NativeFunction<
@@ -5162,12 +6554,16 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object[] getParcelableArrayExtra(java.lang.String string, java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<T> getParcelableArrayExtra1<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JString string, jni.JObject class0) =>
-      jni.JArrayType($T).fromRef(_getParcelableArrayExtra1(
-              reference, string.reference, class0.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<$T> getParcelableArrayExtra1<$T extends jni.JObject>(
+    jni.JString string,
+    jni.JObject class0, {
+    required jni.JObjType<$T> T,
+  }) {
+    return jni.JArrayType(T).fromRef(
+        _getParcelableArrayExtra1(reference, string.reference, class0.reference)
+            .object);
+  }
 
   static final _getParcelableArrayListExtra = jniLookup<
               ffi.NativeFunction<
@@ -5179,11 +6575,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.ArrayList getParcelableArrayListExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getParcelableArrayListExtra<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JString string) =>
-      const jni.JObjectType().fromRef(
-          _getParcelableArrayListExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getParcelableArrayListExtra<$T extends jni.JObject>(
+    jni.JString string, {
+    required jni.JObjType<$T> T,
+  }) {
+    return const jni.JObjectType().fromRef(
+        _getParcelableArrayListExtra(reference, string.reference).object);
+  }
 
   static final _getParcelableArrayListExtra1 = jniLookup<
               ffi.NativeFunction<
@@ -5195,12 +6594,16 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.ArrayList getParcelableArrayListExtra(java.lang.String string, java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getParcelableArrayListExtra1<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JString string, jni.JObject class0) =>
-      const jni.JObjectType().fromRef(_getParcelableArrayListExtra1(
-              reference, string.reference, class0.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getParcelableArrayListExtra1<$T extends jni.JObject>(
+    jni.JString string,
+    jni.JObject class0, {
+    required jni.JObjType<$T> T,
+  }) {
+    return const jni.JObjectType().fromRef(_getParcelableArrayListExtra1(
+            reference, string.reference, class0.reference)
+        .object);
+  }
 
   static final _getSerializableExtra = jniLookup<
           ffi.NativeFunction<
@@ -5211,10 +6614,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.io.Serializable getSerializableExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSerializableExtra(jni.JString string) =>
-      const jni.JObjectType()
-          .fromRef(_getSerializableExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSerializableExtra(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getSerializableExtra(reference, string.reference).object);
+  }
 
   static final _getSerializableExtra1 = jniLookup<
           ffi.NativeFunction<
@@ -5227,12 +6633,16 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public T getSerializableExtra(java.lang.String string, java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T getSerializableExtra1<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JString string, jni.JObject class0) =>
-      $T.fromRef(
-          _getSerializableExtra1(reference, string.reference, class0.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T getSerializableExtra1<$T extends jni.JObject>(
+    jni.JString string,
+    jni.JObject class0, {
+    required jni.JObjType<$T> T,
+  }) {
+    return T.fromRef(
+        _getSerializableExtra1(reference, string.reference, class0.reference)
+            .object);
+  }
 
   static final _getIntegerArrayListExtra = jniLookup<
           ffi.NativeFunction<
@@ -5243,10 +6653,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.ArrayList getIntegerArrayListExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getIntegerArrayListExtra(jni.JString string) =>
-      const jni.JObjectType().fromRef(
-          _getIntegerArrayListExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getIntegerArrayListExtra(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getIntegerArrayListExtra(reference, string.reference).object);
+  }
 
   static final _getStringArrayListExtra = jniLookup<
           ffi.NativeFunction<
@@ -5257,10 +6670,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.ArrayList getStringArrayListExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getStringArrayListExtra(jni.JString string) =>
-      const jni.JObjectType().fromRef(
-          _getStringArrayListExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getStringArrayListExtra(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getStringArrayListExtra(reference, string.reference).object);
+  }
 
   static final _getCharSequenceArrayListExtra = jniLookup<
               ffi.NativeFunction<
@@ -5272,10 +6688,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.ArrayList getCharSequenceArrayListExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getCharSequenceArrayListExtra(jni.JString string) =>
-      const jni.JObjectType().fromRef(
-          _getCharSequenceArrayListExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getCharSequenceArrayListExtra(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _getCharSequenceArrayListExtra(reference, string.reference).object);
+  }
 
   static final _getBooleanArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5286,10 +6705,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean[] getBooleanArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JBoolean> getBooleanArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JBooleanType())
-          .fromRef(_getBooleanArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jboolean> getBooleanArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jbooleanType())
+        .fromRef(_getBooleanArrayExtra(reference, string.reference).object);
+  }
 
   static final _getByteArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5300,10 +6722,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public byte[] getByteArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JByte> getByteArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JByteType())
-          .fromRef(_getByteArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jbyte> getByteArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jbyteType())
+        .fromRef(_getByteArrayExtra(reference, string.reference).object);
+  }
 
   static final _getShortArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5314,10 +6739,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public short[] getShortArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JShort> getShortArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JShortType())
-          .fromRef(_getShortArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jshort> getShortArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jshortType())
+        .fromRef(_getShortArrayExtra(reference, string.reference).object);
+  }
 
   static final _getCharArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5328,10 +6756,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public char[] getCharArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JChar> getCharArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JCharType())
-          .fromRef(_getCharArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jchar> getCharArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jcharType())
+        .fromRef(_getCharArrayExtra(reference, string.reference).object);
+  }
 
   static final _getIntArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5342,10 +6773,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public int[] getIntArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JInt> getIntArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JIntType())
-          .fromRef(_getIntArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jint> getIntArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jintType())
+        .fromRef(_getIntArrayExtra(reference, string.reference).object);
+  }
 
   static final _getLongArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5356,10 +6790,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public long[] getLongArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JLong> getLongArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JLongType())
-          .fromRef(_getLongArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jlong> getLongArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jlongType())
+        .fromRef(_getLongArrayExtra(reference, string.reference).object);
+  }
 
   static final _getFloatArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5370,10 +6807,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public float[] getFloatArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JFloat> getFloatArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JFloatType())
-          .fromRef(_getFloatArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jfloat> getFloatArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jfloatType())
+        .fromRef(_getFloatArrayExtra(reference, string.reference).object);
+  }
 
   static final _getDoubleArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5384,10 +6824,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public double[] getDoubleArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JDouble> getDoubleArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JDoubleType())
-          .fromRef(_getDoubleArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jdouble> getDoubleArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.jdoubleType())
+        .fromRef(_getDoubleArrayExtra(reference, string.reference).object);
+  }
 
   static final _getStringArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5398,10 +6841,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String[] getStringArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JString> getStringArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JStringType())
-          .fromRef(_getStringArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JString> getStringArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.JStringType())
+        .fromRef(_getStringArrayExtra(reference, string.reference).object);
+  }
 
   static final _getCharSequenceArrayExtra = jniLookup<
           ffi.NativeFunction<
@@ -5412,10 +6858,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.CharSequence[] getCharSequenceArrayExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> getCharSequenceArrayExtra(jni.JString string) =>
-      const jni.JArrayType(jni.JObjectType()).fromRef(
-          _getCharSequenceArrayExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.JObject> getCharSequenceArrayExtra(
+    jni.JString string,
+  ) {
+    return const jni.JArrayType(jni.JObjectType()).fromRef(
+        _getCharSequenceArrayExtra(reference, string.reference).object);
+  }
 
   static final _getBundleExtra = jniLookup<
           ffi.NativeFunction<
@@ -5426,62 +6875,72 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.os.Bundle getBundleExtra(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getBundleExtra(jni.JString string) => const jni.JObjectType()
-      .fromRef(_getBundleExtra(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBundleExtra(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBundleExtra(reference, string.reference).object);
+  }
 
   static final _getExtras = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getExtras")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getExtras")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.os.Bundle getExtras()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getExtras() =>
-      const jni.JObjectType().fromRef(_getExtras(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getExtras() {
+    return const jni.JObjectType().fromRef(_getExtras(reference).object);
+  }
 
   static final _getFlags = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getFlags")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getFlags")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getFlags()
-  int getFlags() => _getFlags(reference).integer;
+  int getFlags() {
+    return _getFlags(reference).integer;
+  }
 
   static final _getPackage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getPackage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getPackage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getPackage()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getPackage() =>
-      const jni.JStringType().fromRef(_getPackage(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getPackage() {
+    return const jni.JStringType().fromRef(_getPackage(reference).object);
+  }
 
   static final _getComponent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getComponent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getComponent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName getComponent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getComponent() =>
-      const jni.JObjectType().fromRef(_getComponent(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getComponent() {
+    return const jni.JObjectType().fromRef(_getComponent(reference).object);
+  }
 
   static final _getSourceBounds = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__getSourceBounds")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__getSourceBounds")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.graphics.Rect getSourceBounds()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSourceBounds() =>
-      const jni.JObjectType().fromRef(_getSourceBounds(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSourceBounds() {
+    return const jni.JObjectType().fromRef(_getSourceBounds(reference).object);
+  }
 
   static final _resolveActivity = jniLookup<
           ffi.NativeFunction<
@@ -5492,10 +6951,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName resolveActivity(android.content.pm.PackageManager packageManager)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject resolveActivity(jni.JObject packageManager) =>
-      const jni.JObjectType().fromRef(
-          _resolveActivity(reference, packageManager.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject resolveActivity(
+    jni.JObject packageManager,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_resolveActivity(reference, packageManager.reference).object);
+  }
 
   static final _resolveActivityInfo = jniLookup<
           ffi.NativeFunction<
@@ -5508,10 +6970,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.pm.ActivityInfo resolveActivityInfo(android.content.pm.PackageManager packageManager, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject resolveActivityInfo(jni.JObject packageManager, int i) =>
-      const jni.JObjectType().fromRef(
-          _resolveActivityInfo(reference, packageManager.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject resolveActivityInfo(
+    jni.JObject packageManager,
+    int i,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _resolveActivityInfo(reference, packageManager.reference, i).object);
+  }
 
   static final _setAction = jniLookup<
           ffi.NativeFunction<
@@ -5522,9 +6988,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setAction(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setAction(jni.JString string) => const $IntentType()
-      .fromRef(_setAction(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setAction(
+    jni.JString string,
+  ) {
+    return const $IntentType()
+        .fromRef(_setAction(reference, string.reference).object);
+  }
 
   static final _setData = jniLookup<
           ffi.NativeFunction<
@@ -5535,9 +7005,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setData(android.net.Uri uri)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setData(jni.JObject uri) =>
-      const $IntentType().fromRef(_setData(reference, uri.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setData(
+    jni.JObject uri,
+  ) {
+    return const $IntentType()
+        .fromRef(_setData(reference, uri.reference).object);
+  }
 
   static final _setDataAndNormalize = jniLookup<
           ffi.NativeFunction<
@@ -5548,9 +7022,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setDataAndNormalize(android.net.Uri uri)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setDataAndNormalize(jni.JObject uri) => const $IntentType()
-      .fromRef(_setDataAndNormalize(reference, uri.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setDataAndNormalize(
+    jni.JObject uri,
+  ) {
+    return const $IntentType()
+        .fromRef(_setDataAndNormalize(reference, uri.reference).object);
+  }
 
   static final _setType = jniLookup<
           ffi.NativeFunction<
@@ -5561,9 +7039,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setType(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setType(jni.JString string) =>
-      const $IntentType().fromRef(_setType(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setType(
+    jni.JString string,
+  ) {
+    return const $IntentType()
+        .fromRef(_setType(reference, string.reference).object);
+  }
 
   static final _setTypeAndNormalize = jniLookup<
           ffi.NativeFunction<
@@ -5574,9 +7056,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setTypeAndNormalize(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setTypeAndNormalize(jni.JString string) => const $IntentType()
-      .fromRef(_setTypeAndNormalize(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setTypeAndNormalize(
+    jni.JString string,
+  ) {
+    return const $IntentType()
+        .fromRef(_setTypeAndNormalize(reference, string.reference).object);
+  }
 
   static final _setDataAndType = jniLookup<
           ffi.NativeFunction<
@@ -5589,10 +7075,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setDataAndType(android.net.Uri uri, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setDataAndType(jni.JObject uri, jni.JString string) =>
-      const $IntentType().fromRef(
-          _setDataAndType(reference, uri.reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setDataAndType(
+    jni.JObject uri,
+    jni.JString string,
+  ) {
+    return const $IntentType().fromRef(
+        _setDataAndType(reference, uri.reference, string.reference).object);
+  }
 
   static final _setDataAndTypeAndNormalize = jniLookup<
           ffi.NativeFunction<
@@ -5605,11 +7095,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setDataAndTypeAndNormalize(android.net.Uri uri, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setDataAndTypeAndNormalize(jni.JObject uri, jni.JString string) =>
-      const $IntentType().fromRef(_setDataAndTypeAndNormalize(
-              reference, uri.reference, string.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setDataAndTypeAndNormalize(
+    jni.JObject uri,
+    jni.JString string,
+  ) {
+    return const $IntentType().fromRef(
+        _setDataAndTypeAndNormalize(reference, uri.reference, string.reference)
+            .object);
+  }
 
   static final _setIdentifier = jniLookup<
           ffi.NativeFunction<
@@ -5620,9 +7114,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setIdentifier(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setIdentifier(jni.JString string) => const $IntentType()
-      .fromRef(_setIdentifier(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setIdentifier(
+    jni.JString string,
+  ) {
+    return const $IntentType()
+        .fromRef(_setIdentifier(reference, string.reference).object);
+  }
 
   static final _addCategory = jniLookup<
           ffi.NativeFunction<
@@ -5633,9 +7131,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent addCategory(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent addCategory(jni.JString string) => const $IntentType()
-      .fromRef(_addCategory(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent addCategory(
+    jni.JString string,
+  ) {
+    return const $IntentType()
+        .fromRef(_addCategory(reference, string.reference).object);
+  }
 
   static final _removeCategory = jniLookup<
           ffi.NativeFunction<
@@ -5646,8 +7148,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void removeCategory(java.lang.String string)
-  void removeCategory(jni.JString string) =>
-      _removeCategory(reference, string.reference).check();
+  void removeCategory(
+    jni.JString string,
+  ) {
+    return _removeCategory(reference, string.reference).check();
+  }
 
   static final _setSelector = jniLookup<
           ffi.NativeFunction<
@@ -5658,8 +7163,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setSelector(android.content.Intent intent)
-  void setSelector(Intent intent) =>
-      _setSelector(reference, intent.reference).check();
+  void setSelector(
+    Intent intent,
+  ) {
+    return _setSelector(reference, intent.reference).check();
+  }
 
   static final _setClipData = jniLookup<
           ffi.NativeFunction<
@@ -5670,8 +7178,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setClipData(android.content.ClipData clipData)
-  void setClipData(jni.JObject clipData) =>
-      _setClipData(reference, clipData.reference).check();
+  void setClipData(
+    jni.JObject clipData,
+  ) {
+    return _setClipData(reference, clipData.reference).check();
+  }
 
   static final _putExtra = jniLookup<
           ffi.NativeFunction<
@@ -5682,9 +7193,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra(jni.JString string, bool z) => const $IntentType()
-      .fromRef(_putExtra(reference, string.reference, z ? 1 : 0).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra(
+    jni.JString string,
+    bool z,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra(reference, string.reference, z ? 1 : 0).object);
+  }
 
   static final _putExtra1 = jniLookup<
           ffi.NativeFunction<
@@ -5695,9 +7211,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, byte b)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra1(jni.JString string, int b) => const $IntentType()
-      .fromRef(_putExtra1(reference, string.reference, b).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra1(
+    jni.JString string,
+    int b,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra1(reference, string.reference, b).object);
+  }
 
   static final _putExtra2 = jniLookup<
           ffi.NativeFunction<
@@ -5708,9 +7229,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, char c)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra2(jni.JString string, int c) => const $IntentType()
-      .fromRef(_putExtra2(reference, string.reference, c).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra2(
+    jni.JString string,
+    int c,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra2(reference, string.reference, c).object);
+  }
 
   static final _putExtra3 = jniLookup<
           ffi.NativeFunction<
@@ -5721,9 +7247,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, short s)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra3(jni.JString string, int s) => const $IntentType()
-      .fromRef(_putExtra3(reference, string.reference, s).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra3(
+    jni.JString string,
+    int s,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra3(reference, string.reference, s).object);
+  }
 
   static final _putExtra4 = jniLookup<
           ffi.NativeFunction<
@@ -5734,9 +7265,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra4(jni.JString string, int i) => const $IntentType()
-      .fromRef(_putExtra4(reference, string.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra4(
+    jni.JString string,
+    int i,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra4(reference, string.reference, i).object);
+  }
 
   static final _putExtra5 = jniLookup<
           ffi.NativeFunction<
@@ -5747,9 +7283,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra5(jni.JString string, int j) => const $IntentType()
-      .fromRef(_putExtra5(reference, string.reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra5(
+    jni.JString string,
+    int j,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra5(reference, string.reference, j).object);
+  }
 
   static final _putExtra6 = jniLookup<
           ffi.NativeFunction<
@@ -5760,9 +7301,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, double)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra6(jni.JString string, double f) => const $IntentType()
-      .fromRef(_putExtra6(reference, string.reference, f).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra6(
+    jni.JString string,
+    double f,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra6(reference, string.reference, f).object);
+  }
 
   static final _putExtra7 = jniLookup<
           ffi.NativeFunction<
@@ -5773,9 +7319,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, double)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, double d)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra7(jni.JString string, double d) => const $IntentType()
-      .fromRef(_putExtra7(reference, string.reference, d).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra7(
+    jni.JString string,
+    double d,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra7(reference, string.reference, d).object);
+  }
 
   static final _putExtra8 = jniLookup<
           ffi.NativeFunction<
@@ -5788,10 +7339,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra8(jni.JString string, jni.JString string1) =>
-      const $IntentType().fromRef(
-          _putExtra8(reference, string.reference, string1.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra8(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra8(reference, string.reference, string1.reference).object);
+  }
 
   static final _putExtra9 = jniLookup<
           ffi.NativeFunction<
@@ -5804,11 +7359,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, java.lang.CharSequence charSequence)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra9(jni.JString string, jni.JObject charSequence) =>
-      const $IntentType().fromRef(
-          _putExtra9(reference, string.reference, charSequence.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra9(
+    jni.JString string,
+    jni.JObject charSequence,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra9(reference, string.reference, charSequence.reference).object);
+  }
 
   static final _putExtra10 = jniLookup<
           ffi.NativeFunction<
@@ -5821,11 +7379,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, android.os.Parcelable parcelable)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra10(jni.JString string, jni.JObject parcelable) =>
-      const $IntentType().fromRef(
-          _putExtra10(reference, string.reference, parcelable.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra10(
+    jni.JString string,
+    jni.JObject parcelable,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra10(reference, string.reference, parcelable.reference).object);
+  }
 
   static final _putExtra11 = jniLookup<
           ffi.NativeFunction<
@@ -5838,11 +7399,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, android.os.Parcelable[] parcelables)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra11(jni.JString string, jni.JArray<jni.JObject> parcelables) =>
-      const $IntentType().fromRef(
-          _putExtra11(reference, string.reference, parcelables.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra11(
+    jni.JString string,
+    jni.JArray<jni.JObject> parcelables,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra11(reference, string.reference, parcelables.reference).object);
+  }
 
   static final _putParcelableArrayListExtra = jniLookup<
               ffi.NativeFunction<
@@ -5854,12 +7418,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putParcelableArrayListExtra(java.lang.String string, java.util.ArrayList arrayList)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Intent putParcelableArrayListExtra(
-          jni.JString string, jni.JObject arrayList) =>
-      const $IntentType().fromRef(_putParcelableArrayListExtra(
-              reference, string.reference, arrayList.reference)
-          .object);
+    jni.JString string,
+    jni.JObject arrayList,
+  ) {
+    return const $IntentType().fromRef(_putParcelableArrayListExtra(
+            reference, string.reference, arrayList.reference)
+        .object);
+  }
 
   static final _putIntegerArrayListExtra = jniLookup<
           ffi.NativeFunction<
@@ -5872,11 +7439,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putIntegerArrayListExtra(java.lang.String string, java.util.ArrayList arrayList)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putIntegerArrayListExtra(jni.JString string, jni.JObject arrayList) =>
-      const $IntentType().fromRef(_putIntegerArrayListExtra(
-              reference, string.reference, arrayList.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putIntegerArrayListExtra(
+    jni.JString string,
+    jni.JObject arrayList,
+  ) {
+    return const $IntentType().fromRef(_putIntegerArrayListExtra(
+            reference, string.reference, arrayList.reference)
+        .object);
+  }
 
   static final _putStringArrayListExtra = jniLookup<
           ffi.NativeFunction<
@@ -5889,11 +7460,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putStringArrayListExtra(java.lang.String string, java.util.ArrayList arrayList)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putStringArrayListExtra(jni.JString string, jni.JObject arrayList) =>
-      const $IntentType().fromRef(_putStringArrayListExtra(
-              reference, string.reference, arrayList.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putStringArrayListExtra(
+    jni.JString string,
+    jni.JObject arrayList,
+  ) {
+    return const $IntentType().fromRef(_putStringArrayListExtra(
+            reference, string.reference, arrayList.reference)
+        .object);
+  }
 
   static final _putCharSequenceArrayListExtra = jniLookup<
               ffi.NativeFunction<
@@ -5905,12 +7480,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putCharSequenceArrayListExtra(java.lang.String string, java.util.ArrayList arrayList)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Intent putCharSequenceArrayListExtra(
-          jni.JString string, jni.JObject arrayList) =>
-      const $IntentType().fromRef(_putCharSequenceArrayListExtra(
-              reference, string.reference, arrayList.reference)
-          .object);
+    jni.JString string,
+    jni.JObject arrayList,
+  ) {
+    return const $IntentType().fromRef(_putCharSequenceArrayListExtra(
+            reference, string.reference, arrayList.reference)
+        .object);
+  }
 
   static final _putExtra12 = jniLookup<
           ffi.NativeFunction<
@@ -5923,11 +7501,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, java.io.Serializable serializable)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra12(jni.JString string, jni.JObject serializable) =>
-      const $IntentType().fromRef(
-          _putExtra12(reference, string.reference, serializable.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra12(
+    jni.JString string,
+    jni.JObject serializable,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra12(reference, string.reference, serializable.reference)
+            .object);
+  }
 
   static final _putExtra13 = jniLookup<
           ffi.NativeFunction<
@@ -5940,10 +7522,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, boolean[] zs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra13(jni.JString string, jni.JArray<jni.JBoolean> zs) =>
-      const $IntentType().fromRef(
-          _putExtra13(reference, string.reference, zs.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra13(
+    jni.JString string,
+    jni.JArray<jni.jboolean> zs,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra13(reference, string.reference, zs.reference).object);
+  }
 
   static final _putExtra14 = jniLookup<
           ffi.NativeFunction<
@@ -5956,10 +7542,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, byte[] bs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra14(jni.JString string, jni.JArray<jni.JByte> bs) =>
-      const $IntentType().fromRef(
-          _putExtra14(reference, string.reference, bs.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra14(
+    jni.JString string,
+    jni.JArray<jni.jbyte> bs,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra14(reference, string.reference, bs.reference).object);
+  }
 
   static final _putExtra15 = jniLookup<
           ffi.NativeFunction<
@@ -5972,10 +7562,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, short[] ss)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra15(jni.JString string, jni.JArray<jni.JShort> ss) =>
-      const $IntentType().fromRef(
-          _putExtra15(reference, string.reference, ss.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra15(
+    jni.JString string,
+    jni.JArray<jni.jshort> ss,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra15(reference, string.reference, ss.reference).object);
+  }
 
   static final _putExtra16 = jniLookup<
           ffi.NativeFunction<
@@ -5988,10 +7582,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, char[] cs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra16(jni.JString string, jni.JArray<jni.JChar> cs) =>
-      const $IntentType().fromRef(
-          _putExtra16(reference, string.reference, cs.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra16(
+    jni.JString string,
+    jni.JArray<jni.jchar> cs,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra16(reference, string.reference, cs.reference).object);
+  }
 
   static final _putExtra17 = jniLookup<
           ffi.NativeFunction<
@@ -6004,10 +7602,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra17(jni.JString string, jni.JArray<jni.JInt> is0) =>
-      const $IntentType().fromRef(
-          _putExtra17(reference, string.reference, is0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra17(
+    jni.JString string,
+    jni.JArray<jni.jint> is0,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra17(reference, string.reference, is0.reference).object);
+  }
 
   static final _putExtra18 = jniLookup<
           ffi.NativeFunction<
@@ -6020,10 +7622,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, long[] js)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra18(jni.JString string, jni.JArray<jni.JLong> js) =>
-      const $IntentType().fromRef(
-          _putExtra18(reference, string.reference, js.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra18(
+    jni.JString string,
+    jni.JArray<jni.jlong> js,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra18(reference, string.reference, js.reference).object);
+  }
 
   static final _putExtra19 = jniLookup<
           ffi.NativeFunction<
@@ -6036,10 +7642,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, float[] fs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra19(jni.JString string, jni.JArray<jni.JFloat> fs) =>
-      const $IntentType().fromRef(
-          _putExtra19(reference, string.reference, fs.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra19(
+    jni.JString string,
+    jni.JArray<jni.jfloat> fs,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra19(reference, string.reference, fs.reference).object);
+  }
 
   static final _putExtra20 = jniLookup<
           ffi.NativeFunction<
@@ -6052,10 +7662,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, double[] ds)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra20(jni.JString string, jni.JArray<jni.JDouble> ds) =>
-      const $IntentType().fromRef(
-          _putExtra20(reference, string.reference, ds.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra20(
+    jni.JString string,
+    jni.JArray<jni.jdouble> ds,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtra20(reference, string.reference, ds.reference).object);
+  }
 
   static final _putExtra21 = jniLookup<
           ffi.NativeFunction<
@@ -6068,10 +7682,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, java.lang.String[] strings)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra21(jni.JString string, jni.JArray<jni.JString> strings) =>
-      const $IntentType().fromRef(
-          _putExtra21(reference, string.reference, strings.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra21(
+    jni.JString string,
+    jni.JArray<jni.JString> strings,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra21(reference, string.reference, strings.reference).object);
+  }
 
   static final _putExtra22 = jniLookup<
           ffi.NativeFunction<
@@ -6084,12 +7702,15 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, java.lang.CharSequence[] charSequences)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Intent putExtra22(
-          jni.JString string, jni.JArray<jni.JObject> charSequences) =>
-      const $IntentType().fromRef(
-          _putExtra22(reference, string.reference, charSequences.reference)
-              .object);
+    jni.JString string,
+    jni.JArray<jni.JObject> charSequences,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra22(reference, string.reference, charSequences.reference)
+            .object);
+  }
 
   static final _putExtra23 = jniLookup<
           ffi.NativeFunction<
@@ -6102,10 +7723,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtra(java.lang.String string, android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtra23(jni.JString string, jni.JObject bundle) =>
-      const $IntentType().fromRef(
-          _putExtra23(reference, string.reference, bundle.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtra23(
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return const $IntentType().fromRef(
+        _putExtra23(reference, string.reference, bundle.reference).object);
+  }
 
   static final _putExtras = jniLookup<
           ffi.NativeFunction<
@@ -6116,9 +7741,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtras(android.content.Intent intent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtras(Intent intent) => const $IntentType()
-      .fromRef(_putExtras(reference, intent.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtras(
+    Intent intent,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtras(reference, intent.reference).object);
+  }
 
   static final _putExtras1 = jniLookup<
           ffi.NativeFunction<
@@ -6129,9 +7758,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent putExtras(android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent putExtras1(jni.JObject bundle) => const $IntentType()
-      .fromRef(_putExtras1(reference, bundle.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent putExtras1(
+    jni.JObject bundle,
+  ) {
+    return const $IntentType()
+        .fromRef(_putExtras1(reference, bundle.reference).object);
+  }
 
   static final _replaceExtras = jniLookup<
           ffi.NativeFunction<
@@ -6142,9 +7775,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent replaceExtras(android.content.Intent intent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent replaceExtras(Intent intent) => const $IntentType()
-      .fromRef(_replaceExtras(reference, intent.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent replaceExtras(
+    Intent intent,
+  ) {
+    return const $IntentType()
+        .fromRef(_replaceExtras(reference, intent.reference).object);
+  }
 
   static final _replaceExtras1 = jniLookup<
           ffi.NativeFunction<
@@ -6155,9 +7792,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent replaceExtras(android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent replaceExtras1(jni.JObject bundle) => const $IntentType()
-      .fromRef(_replaceExtras1(reference, bundle.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent replaceExtras1(
+    jni.JObject bundle,
+  ) {
+    return const $IntentType()
+        .fromRef(_replaceExtras1(reference, bundle.reference).object);
+  }
 
   static final _removeExtra = jniLookup<
           ffi.NativeFunction<
@@ -6168,8 +7809,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void removeExtra(java.lang.String string)
-  void removeExtra(jni.JString string) =>
-      _removeExtra(reference, string.reference).check();
+  void removeExtra(
+    jni.JString string,
+  ) {
+    return _removeExtra(reference, string.reference).check();
+  }
 
   static final _setFlags = jniLookup<
           ffi.NativeFunction<
@@ -6178,9 +7822,12 @@ class Intent extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent setFlags(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setFlags(int i) =>
-      const $IntentType().fromRef(_setFlags(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setFlags(
+    int i,
+  ) {
+    return const $IntentType().fromRef(_setFlags(reference, i).object);
+  }
 
   static final _addFlags = jniLookup<
           ffi.NativeFunction<
@@ -6189,9 +7836,12 @@ class Intent extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.Intent addFlags(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent addFlags(int i) =>
-      const $IntentType().fromRef(_addFlags(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent addFlags(
+    int i,
+  ) {
+    return const $IntentType().fromRef(_addFlags(reference, i).object);
+  }
 
   static final _removeFlags = jniLookup<
           ffi.NativeFunction<
@@ -6200,7 +7850,11 @@ class Intent extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void removeFlags(int i)
-  void removeFlags(int i) => _removeFlags(reference, i).check();
+  void removeFlags(
+    int i,
+  ) {
+    return _removeFlags(reference, i).check();
+  }
 
   static final _setPackage = jniLookup<
           ffi.NativeFunction<
@@ -6211,9 +7865,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setPackage(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setPackage(jni.JString string) => const $IntentType()
-      .fromRef(_setPackage(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setPackage(
+    jni.JString string,
+  ) {
+    return const $IntentType()
+        .fromRef(_setPackage(reference, string.reference).object);
+  }
 
   static final _setComponent = jniLookup<
           ffi.NativeFunction<
@@ -6224,9 +7882,13 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setComponent(android.content.ComponentName componentName)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setComponent(jni.JObject componentName) => const $IntentType()
-      .fromRef(_setComponent(reference, componentName.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setComponent(
+    jni.JObject componentName,
+  ) {
+    return const $IntentType()
+        .fromRef(_setComponent(reference, componentName.reference).object);
+  }
 
   static final _setClassName = jniLookup<
           ffi.NativeFunction<
@@ -6239,10 +7901,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setClassName(android.content.Context context, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setClassName(Context context, jni.JString string) =>
-      const $IntentType().fromRef(
-          _setClassName(reference, context.reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setClassName(
+    Context context,
+    jni.JString string,
+  ) {
+    return const $IntentType().fromRef(
+        _setClassName(reference, context.reference, string.reference).object);
+  }
 
   static final _setClassName1 = jniLookup<
           ffi.NativeFunction<
@@ -6255,11 +7921,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setClassName(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setClassName1(jni.JString string, jni.JString string1) =>
-      const $IntentType().fromRef(
-          _setClassName1(reference, string.reference, string1.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setClassName1(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const $IntentType().fromRef(
+        _setClassName1(reference, string.reference, string1.reference).object);
+  }
 
   static final _setClass = jniLookup<
           ffi.NativeFunction<
@@ -6272,10 +7941,14 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent setClass(android.content.Context context, java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent setClass(Context context, jni.JObject class0) =>
-      const $IntentType().fromRef(
-          _setClass(reference, context.reference, class0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent setClass(
+    Context context,
+    jni.JObject class0,
+  ) {
+    return const $IntentType().fromRef(
+        _setClass(reference, context.reference, class0.reference).object);
+  }
 
   static final _setSourceBounds = jniLookup<
           ffi.NativeFunction<
@@ -6286,8 +7959,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setSourceBounds(android.graphics.Rect rect)
-  void setSourceBounds(jni.JObject rect) =>
-      _setSourceBounds(reference, rect.reference).check();
+  void setSourceBounds(
+    jni.JObject rect,
+  ) {
+    return _setSourceBounds(reference, rect.reference).check();
+  }
 
   static final _fillIn = jniLookup<
           ffi.NativeFunction<
@@ -6298,8 +7974,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public int fillIn(android.content.Intent intent, int i)
-  int fillIn(Intent intent, int i) =>
-      _fillIn(reference, intent.reference, i).integer;
+  int fillIn(
+    Intent intent,
+    int i,
+  ) {
+    return _fillIn(reference, intent.reference, i).integer;
+  }
 
   static final _filterEquals = jniLookup<
           ffi.NativeFunction<
@@ -6310,38 +7990,46 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean filterEquals(android.content.Intent intent)
-  bool filterEquals(Intent intent) =>
-      _filterEquals(reference, intent.reference).boolean;
+  bool filterEquals(
+    Intent intent,
+  ) {
+    return _filterEquals(reference, intent.reference).boolean;
+  }
 
   static final _filterHashCode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__filterHashCode")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__filterHashCode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int filterHashCode()
-  int filterHashCode() => _filterHashCode(reference).integer;
+  int filterHashCode() {
+    return _filterHashCode(reference).integer;
+  }
 
   static final _toString1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__toString1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__toString1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString toString1() =>
-      const jni.JStringType().fromRef(_toString1(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toString1() {
+    return const jni.JStringType().fromRef(_toString1(reference).object);
+  }
 
   static final _toURI = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__toURI")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__toURI")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toURI()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString toURI() =>
-      const jni.JStringType().fromRef(_toURI(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toURI() {
+    return const jni.JStringType().fromRef(_toURI(reference).object);
+  }
 
   static final _toUri = jniLookup<
           ffi.NativeFunction<
@@ -6350,18 +8038,23 @@ class Intent extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.lang.String toUri(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString toUri(int i) =>
-      const jni.JStringType().fromRef(_toUri(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toUri(
+    int i,
+  ) {
+    return const jni.JStringType().fromRef(_toUri(reference, i).object);
+  }
 
   static final _describeContents = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__describeContents")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__describeContents")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int describeContents()
-  int describeContents() => _describeContents(reference).integer;
+  int describeContents() {
+    return _describeContents(reference).integer;
+  }
 
   static final _writeToParcel = jniLookup<
           ffi.NativeFunction<
@@ -6372,8 +8065,12 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void writeToParcel(android.os.Parcel parcel, int i)
-  void writeToParcel(jni.JObject parcel, int i) =>
-      _writeToParcel(reference, parcel.reference, i).check();
+  void writeToParcel(
+    jni.JObject parcel,
+    int i,
+  ) {
+    return _writeToParcel(reference, parcel.reference, i).check();
+  }
 
   static final _readFromParcel = jniLookup<
           ffi.NativeFunction<
@@ -6384,8 +8081,11 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void readFromParcel(android.os.Parcel parcel)
-  void readFromParcel(jni.JObject parcel) =>
-      _readFromParcel(reference, parcel.reference).check();
+  void readFromParcel(
+    jni.JObject parcel,
+  ) {
+    return _readFromParcel(reference, parcel.reference).check();
+  }
 
   static final _parseIntent = jniLookup<
           ffi.NativeFunction<
@@ -6398,24 +8098,31 @@ class Intent extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: static public android.content.Intent parseIntent(android.content.res.Resources resources, org.xmlpull.v1.XmlPullParser xmlPullParser, android.util.AttributeSet attributeSet)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Intent parseIntent(jni.JObject resources, jni.JObject xmlPullParser,
-          jni.JObject attributeSet) =>
-      const $IntentType().fromRef(_parseIntent(resources.reference,
-              xmlPullParser.reference, attributeSet.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Intent parseIntent(
+    jni.JObject resources,
+    jni.JObject xmlPullParser,
+    jni.JObject attributeSet,
+  ) {
+    return const $IntentType().fromRef(_parseIntent(resources.reference,
+            xmlPullParser.reference, attributeSet.reference)
+        .object);
+  }
 
   static final _normalizeMimeType = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Intent__normalizeMimeType")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Intent__normalizeMimeType")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.lang.String normalizeMimeType(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString normalizeMimeType(jni.JString string) =>
-      const jni.JStringType()
-          .fromRef(_normalizeMimeType(string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString normalizeMimeType(
+    jni.JString string,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_normalizeMimeType(string.reference).object);
+  }
 }
 
 class $IntentType extends jni.JObjType<Intent> {
@@ -6426,28 +8133,28 @@ class $IntentType extends jni.JObjType<Intent> {
 
   @override
   Intent fromRef(jni.JObjectPtr ref) => Intent.fromRef(ref);
-}
 
-extension $IntentArray on jni.JArray<Intent> {
-  Intent operator [](int index) {
-    return (elementType as $IntentType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, Intent value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($IntentType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($IntentType) && other is $IntentType;
   }
 }
 
 /// from: android.app.Activity
 class Activity extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<Activity> $type = type;
 
-  Activity.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Activity.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $ActivityType();
@@ -6473,9 +8180,9 @@ class Activity extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static protected final int[] FOCUSED_STATE_SET
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JArray<jni.JInt> get FOCUSED_STATE_SET =>
-      const jni.JArrayType(jni.JIntType())
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JArray<jni.jint> get FOCUSED_STATE_SET =>
+      const jni.JArrayType(jni.jintType())
           .fromRef(_get_FOCUSED_STATE_SET().object);
 
   /// from: static public final int RESULT_CANCELED
@@ -6487,23 +8194,27 @@ class Activity extends jni.JObject {
   /// from: static public final int RESULT_OK
   static const RESULT_OK = -1;
 
-  static final _ctor =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Activity__ctor")
+  static final _new0 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Activity__new0")
           .asFunction<jni.JniResult Function()>();
 
   /// from: public void <init>()
-  Activity() : super.fromRef(_ctor().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Activity() {
+    return Activity.fromRef(_new0().object);
+  }
 
   static final _getIntent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getIntent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getIntent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent getIntent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent getIntent() =>
-      const $IntentType().fromRef(_getIntent(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent getIntent() {
+    return const $IntentType().fromRef(_getIntent(reference).object);
+  }
 
   static final _setIntent = jniLookup<
           ffi.NativeFunction<
@@ -6514,8 +8225,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setIntent(android.content.Intent intent)
-  void setIntent(Intent intent) =>
-      _setIntent(reference, intent.reference).check();
+  void setIntent(
+    Intent intent,
+  ) {
+    return _setIntent(reference, intent.reference).check();
+  }
 
   static final _setLocusContext = jniLookup<
           ffi.NativeFunction<
@@ -6528,83 +8242,96 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setLocusContext(android.content.LocusId locusId, android.os.Bundle bundle)
-  void setLocusContext(jni.JObject locusId, jni.JObject bundle) =>
-      _setLocusContext(reference, locusId.reference, bundle.reference).check();
+  void setLocusContext(
+    jni.JObject locusId,
+    jni.JObject bundle,
+  ) {
+    return _setLocusContext(reference, locusId.reference, bundle.reference)
+        .check();
+  }
 
   static final _getApplication = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getApplication")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getApplication")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.app.Application getApplication()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getApplication() =>
-      const jni.JObjectType().fromRef(_getApplication(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getApplication() {
+    return const jni.JObjectType().fromRef(_getApplication(reference).object);
+  }
 
   static final _isChild = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isChild")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isChild")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final boolean isChild()
-  bool isChild() => _isChild(reference).boolean;
+  bool isChild() {
+    return _isChild(reference).boolean;
+  }
 
   static final _getParent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getParent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getParent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.app.Activity getParent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Activity getParent() =>
-      const $ActivityType().fromRef(_getParent(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Activity getParent() {
+    return const $ActivityType().fromRef(_getParent(reference).object);
+  }
 
   static final _getWindowManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getWindowManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getWindowManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.WindowManager getWindowManager()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getWindowManager() =>
-      const jni.JObjectType().fromRef(_getWindowManager(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getWindowManager() {
+    return const jni.JObjectType().fromRef(_getWindowManager(reference).object);
+  }
 
   static final _getWindow = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getWindow")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getWindow")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.Window getWindow()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getWindow() =>
-      const jni.JObjectType().fromRef(_getWindow(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getWindow() {
+    return const jni.JObjectType().fromRef(_getWindow(reference).object);
+  }
 
   static final _getLoaderManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getLoaderManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getLoaderManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.LoaderManager getLoaderManager()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getLoaderManager() =>
-      const jni.JObjectType().fromRef(_getLoaderManager(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getLoaderManager() {
+    return const jni.JObjectType().fromRef(_getLoaderManager(reference).object);
+  }
 
   static final _getCurrentFocus = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getCurrentFocus")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getCurrentFocus")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.View getCurrentFocus()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getCurrentFocus() =>
-      const jni.JObjectType().fromRef(_getCurrentFocus(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getCurrentFocus() {
+    return const jni.JObjectType().fromRef(_getCurrentFocus(reference).object);
+  }
 
   static final _attachBaseContext = jniLookup<
           ffi.NativeFunction<
@@ -6615,8 +8342,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void attachBaseContext(android.content.Context context)
-  void attachBaseContext(Context context) =>
-      _attachBaseContext(reference, context.reference).check();
+  void attachBaseContext(
+    Context context,
+  ) {
+    return _attachBaseContext(reference, context.reference).check();
+  }
 
   static final _registerActivityLifecycleCallbacks = jniLookup<
               ffi.NativeFunction<
@@ -6629,10 +8359,12 @@ class Activity extends jni.JObject {
 
   /// from: public void registerActivityLifecycleCallbacks(android.app.Application$ActivityLifecycleCallbacks activityLifecycleCallbacks)
   void registerActivityLifecycleCallbacks(
-          jni.JObject activityLifecycleCallbacks) =>
-      _registerActivityLifecycleCallbacks(
-              reference, activityLifecycleCallbacks.reference)
-          .check();
+    jni.JObject activityLifecycleCallbacks,
+  ) {
+    return _registerActivityLifecycleCallbacks(
+            reference, activityLifecycleCallbacks.reference)
+        .check();
+  }
 
   static final _unregisterActivityLifecycleCallbacks = jniLookup<
               ffi.NativeFunction<
@@ -6645,10 +8377,12 @@ class Activity extends jni.JObject {
 
   /// from: public void unregisterActivityLifecycleCallbacks(android.app.Application$ActivityLifecycleCallbacks activityLifecycleCallbacks)
   void unregisterActivityLifecycleCallbacks(
-          jni.JObject activityLifecycleCallbacks) =>
-      _unregisterActivityLifecycleCallbacks(
-              reference, activityLifecycleCallbacks.reference)
-          .check();
+    jni.JObject activityLifecycleCallbacks,
+  ) {
+    return _unregisterActivityLifecycleCallbacks(
+            reference, activityLifecycleCallbacks.reference)
+        .check();
+  }
 
   static final _registerComponentCallbacks = jniLookup<
               ffi.NativeFunction<
@@ -6660,9 +8394,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void registerComponentCallbacks(android.content.ComponentCallbacks componentCallbacks)
-  void registerComponentCallbacks(jni.JObject componentCallbacks) =>
-      _registerComponentCallbacks(reference, componentCallbacks.reference)
-          .check();
+  void registerComponentCallbacks(
+    jni.JObject componentCallbacks,
+  ) {
+    return _registerComponentCallbacks(reference, componentCallbacks.reference)
+        .check();
+  }
 
   static final _unregisterComponentCallbacks = jniLookup<
               ffi.NativeFunction<
@@ -6674,9 +8411,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void unregisterComponentCallbacks(android.content.ComponentCallbacks componentCallbacks)
-  void unregisterComponentCallbacks(jni.JObject componentCallbacks) =>
-      _unregisterComponentCallbacks(reference, componentCallbacks.reference)
-          .check();
+  void unregisterComponentCallbacks(
+    jni.JObject componentCallbacks,
+  ) {
+    return _unregisterComponentCallbacks(
+            reference, componentCallbacks.reference)
+        .check();
+  }
 
   static final _onCreate = jniLookup<
           ffi.NativeFunction<
@@ -6687,19 +8428,23 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onCreate(android.os.Bundle bundle)
-  void onCreate(jni.JObject bundle) =>
-      _onCreate(reference, bundle.reference).check();
+  void onCreate(
+    jni.JObject bundle,
+  ) {
+    return _onCreate(reference, bundle.reference).check();
+  }
 
   static final _getSplashScreen = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getSplashScreen")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getSplashScreen")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.window.SplashScreen getSplashScreen()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSplashScreen() =>
-      const jni.JObjectType().fromRef(_getSplashScreen(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSplashScreen() {
+    return const jni.JObjectType().fromRef(_getSplashScreen(reference).object);
+  }
 
   static final _onCreate1 = jniLookup<
           ffi.NativeFunction<
@@ -6712,9 +8457,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onCreate(android.os.Bundle bundle, android.os.PersistableBundle persistableBundle)
-  void onCreate1(jni.JObject bundle, jni.JObject persistableBundle) =>
-      _onCreate1(reference, bundle.reference, persistableBundle.reference)
-          .check();
+  void onCreate1(
+    jni.JObject bundle,
+    jni.JObject persistableBundle,
+  ) {
+    return _onCreate1(reference, bundle.reference, persistableBundle.reference)
+        .check();
+  }
 
   static final _onRestoreInstanceState = jniLookup<
           ffi.NativeFunction<
@@ -6725,8 +8474,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onRestoreInstanceState(android.os.Bundle bundle)
-  void onRestoreInstanceState(jni.JObject bundle) =>
-      _onRestoreInstanceState(reference, bundle.reference).check();
+  void onRestoreInstanceState(
+    jni.JObject bundle,
+  ) {
+    return _onRestoreInstanceState(reference, bundle.reference).check();
+  }
 
   static final _onRestoreInstanceState1 = jniLookup<
           ffi.NativeFunction<
@@ -6740,10 +8492,13 @@ class Activity extends jni.JObject {
 
   /// from: public void onRestoreInstanceState(android.os.Bundle bundle, android.os.PersistableBundle persistableBundle)
   void onRestoreInstanceState1(
-          jni.JObject bundle, jni.JObject persistableBundle) =>
-      _onRestoreInstanceState1(
-              reference, bundle.reference, persistableBundle.reference)
-          .check();
+    jni.JObject bundle,
+    jni.JObject persistableBundle,
+  ) {
+    return _onRestoreInstanceState1(
+            reference, bundle.reference, persistableBundle.reference)
+        .check();
+  }
 
   static final _onPostCreate = jniLookup<
           ffi.NativeFunction<
@@ -6754,8 +8509,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPostCreate(android.os.Bundle bundle)
-  void onPostCreate(jni.JObject bundle) =>
-      _onPostCreate(reference, bundle.reference).check();
+  void onPostCreate(
+    jni.JObject bundle,
+  ) {
+    return _onPostCreate(reference, bundle.reference).check();
+  }
 
   static final _onPostCreate1 = jniLookup<
           ffi.NativeFunction<
@@ -6768,54 +8526,69 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onPostCreate(android.os.Bundle bundle, android.os.PersistableBundle persistableBundle)
-  void onPostCreate1(jni.JObject bundle, jni.JObject persistableBundle) =>
-      _onPostCreate1(reference, bundle.reference, persistableBundle.reference)
-          .check();
+  void onPostCreate1(
+    jni.JObject bundle,
+    jni.JObject persistableBundle,
+  ) {
+    return _onPostCreate1(
+            reference, bundle.reference, persistableBundle.reference)
+        .check();
+  }
 
   static final _onStart = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onStart")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onStart")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onStart()
-  void onStart() => _onStart(reference).check();
+  void onStart() {
+    return _onStart(reference).check();
+  }
 
   static final _onRestart = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onRestart")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onRestart")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onRestart()
-  void onRestart() => _onRestart(reference).check();
+  void onRestart() {
+    return _onRestart(reference).check();
+  }
 
   static final _onStateNotSaved = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onStateNotSaved")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onStateNotSaved")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onStateNotSaved()
-  void onStateNotSaved() => _onStateNotSaved(reference).check();
+  void onStateNotSaved() {
+    return _onStateNotSaved(reference).check();
+  }
 
   static final _onResume = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onResume")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onResume")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onResume()
-  void onResume() => _onResume(reference).check();
+  void onResume() {
+    return _onResume(reference).check();
+  }
 
   static final _onPostResume = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onPostResume")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onPostResume")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPostResume()
-  void onPostResume() => _onPostResume(reference).check();
+  void onPostResume() {
+    return _onPostResume(reference).check();
+  }
 
   static final _onTopResumedActivityChanged = jniLookup<
           ffi.NativeFunction<
@@ -6824,47 +8597,57 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void onTopResumedActivityChanged(boolean z)
-  void onTopResumedActivityChanged(bool z) =>
-      _onTopResumedActivityChanged(reference, z ? 1 : 0).check();
+  void onTopResumedActivityChanged(
+    bool z,
+  ) {
+    return _onTopResumedActivityChanged(reference, z ? 1 : 0).check();
+  }
 
   static final _isVoiceInteraction = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isVoiceInteraction")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isVoiceInteraction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isVoiceInteraction()
-  bool isVoiceInteraction() => _isVoiceInteraction(reference).boolean;
+  bool isVoiceInteraction() {
+    return _isVoiceInteraction(reference).boolean;
+  }
 
   static final _isVoiceInteractionRoot = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isVoiceInteractionRoot")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isVoiceInteractionRoot")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isVoiceInteractionRoot()
-  bool isVoiceInteractionRoot() => _isVoiceInteractionRoot(reference).boolean;
+  bool isVoiceInteractionRoot() {
+    return _isVoiceInteractionRoot(reference).boolean;
+  }
 
   static final _getVoiceInteractor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getVoiceInteractor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getVoiceInteractor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.VoiceInteractor getVoiceInteractor()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getVoiceInteractor() =>
-      const jni.JObjectType().fromRef(_getVoiceInteractor(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getVoiceInteractor() {
+    return const jni.JObjectType()
+        .fromRef(_getVoiceInteractor(reference).object);
+  }
 
   static final _isLocalVoiceInteractionSupported = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__isLocalVoiceInteractionSupported")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isLocalVoiceInteractionSupported()
-  bool isLocalVoiceInteractionSupported() =>
-      _isLocalVoiceInteractionSupported(reference).boolean;
+  bool isLocalVoiceInteractionSupported() {
+    return _isLocalVoiceInteractionSupported(reference).boolean;
+  }
 
   static final _startLocalVoiceInteraction = jniLookup<
               ffi.NativeFunction<
@@ -6876,38 +8659,44 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startLocalVoiceInteraction(android.os.Bundle bundle)
-  void startLocalVoiceInteraction(jni.JObject bundle) =>
-      _startLocalVoiceInteraction(reference, bundle.reference).check();
+  void startLocalVoiceInteraction(
+    jni.JObject bundle,
+  ) {
+    return _startLocalVoiceInteraction(reference, bundle.reference).check();
+  }
 
   static final _onLocalVoiceInteractionStarted = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onLocalVoiceInteractionStarted")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onLocalVoiceInteractionStarted()
-  void onLocalVoiceInteractionStarted() =>
-      _onLocalVoiceInteractionStarted(reference).check();
+  void onLocalVoiceInteractionStarted() {
+    return _onLocalVoiceInteractionStarted(reference).check();
+  }
 
   static final _onLocalVoiceInteractionStopped = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onLocalVoiceInteractionStopped")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onLocalVoiceInteractionStopped()
-  void onLocalVoiceInteractionStopped() =>
-      _onLocalVoiceInteractionStopped(reference).check();
+  void onLocalVoiceInteractionStopped() {
+    return _onLocalVoiceInteractionStopped(reference).check();
+  }
 
   static final _stopLocalVoiceInteraction = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__stopLocalVoiceInteraction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void stopLocalVoiceInteraction()
-  void stopLocalVoiceInteraction() =>
-      _stopLocalVoiceInteraction(reference).check();
+  void stopLocalVoiceInteraction() {
+    return _stopLocalVoiceInteraction(reference).check();
+  }
 
   static final _onNewIntent = jniLookup<
           ffi.NativeFunction<
@@ -6918,8 +8707,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onNewIntent(android.content.Intent intent)
-  void onNewIntent(Intent intent) =>
-      _onNewIntent(reference, intent.reference).check();
+  void onNewIntent(
+    Intent intent,
+  ) {
+    return _onNewIntent(reference, intent.reference).check();
+  }
 
   static final _onSaveInstanceState = jniLookup<
           ffi.NativeFunction<
@@ -6930,8 +8722,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onSaveInstanceState(android.os.Bundle bundle)
-  void onSaveInstanceState(jni.JObject bundle) =>
-      _onSaveInstanceState(reference, bundle.reference).check();
+  void onSaveInstanceState(
+    jni.JObject bundle,
+  ) {
+    return _onSaveInstanceState(reference, bundle.reference).check();
+  }
 
   static final _onSaveInstanceState1 = jniLookup<
           ffi.NativeFunction<
@@ -6945,28 +8740,35 @@ class Activity extends jni.JObject {
 
   /// from: public void onSaveInstanceState(android.os.Bundle bundle, android.os.PersistableBundle persistableBundle)
   void onSaveInstanceState1(
-          jni.JObject bundle, jni.JObject persistableBundle) =>
-      _onSaveInstanceState1(
-              reference, bundle.reference, persistableBundle.reference)
-          .check();
+    jni.JObject bundle,
+    jni.JObject persistableBundle,
+  ) {
+    return _onSaveInstanceState1(
+            reference, bundle.reference, persistableBundle.reference)
+        .check();
+  }
 
   static final _onPause = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onPause")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onPause")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPause()
-  void onPause() => _onPause(reference).check();
+  void onPause() {
+    return _onPause(reference).check();
+  }
 
   static final _onUserLeaveHint = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onUserLeaveHint")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onUserLeaveHint")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onUserLeaveHint()
-  void onUserLeaveHint() => _onUserLeaveHint(reference).check();
+  void onUserLeaveHint() {
+    return _onUserLeaveHint(reference).check();
+  }
 
   static final _onCreateThumbnail = jniLookup<
           ffi.NativeFunction<
@@ -6979,19 +8781,26 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onCreateThumbnail(android.graphics.Bitmap bitmap, android.graphics.Canvas canvas)
-  bool onCreateThumbnail(jni.JObject bitmap, jni.JObject canvas) =>
-      _onCreateThumbnail(reference, bitmap.reference, canvas.reference).boolean;
+  bool onCreateThumbnail(
+    jni.JObject bitmap,
+    jni.JObject canvas,
+  ) {
+    return _onCreateThumbnail(reference, bitmap.reference, canvas.reference)
+        .boolean;
+  }
 
   static final _onCreateDescription = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onCreateDescription")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onCreateDescription")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.CharSequence onCreateDescription()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onCreateDescription() =>
-      const jni.JObjectType().fromRef(_onCreateDescription(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onCreateDescription() {
+    return const jni.JObjectType()
+        .fromRef(_onCreateDescription(reference).object);
+  }
 
   static final _onProvideAssistData = jniLookup<
           ffi.NativeFunction<
@@ -7002,8 +8811,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onProvideAssistData(android.os.Bundle bundle)
-  void onProvideAssistData(jni.JObject bundle) =>
-      _onProvideAssistData(reference, bundle.reference).check();
+  void onProvideAssistData(
+    jni.JObject bundle,
+  ) {
+    return _onProvideAssistData(reference, bundle.reference).check();
+  }
 
   static final _onProvideAssistContent = jniLookup<
           ffi.NativeFunction<
@@ -7014,8 +8826,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onProvideAssistContent(android.app.assist.AssistContent assistContent)
-  void onProvideAssistContent(jni.JObject assistContent) =>
-      _onProvideAssistContent(reference, assistContent.reference).check();
+  void onProvideAssistContent(
+    jni.JObject assistContent,
+  ) {
+    return _onProvideAssistContent(reference, assistContent.reference).check();
+  }
 
   static final _onGetDirectActions = jniLookup<
           ffi.NativeFunction<
@@ -7029,10 +8844,13 @@ class Activity extends jni.JObject {
 
   /// from: public void onGetDirectActions(android.os.CancellationSignal cancellationSignal, java.util.function.Consumer consumer)
   void onGetDirectActions(
-          jni.JObject cancellationSignal, jni.JObject consumer) =>
-      _onGetDirectActions(
-              reference, cancellationSignal.reference, consumer.reference)
-          .check();
+    jni.JObject cancellationSignal,
+    jni.JObject consumer,
+  ) {
+    return _onGetDirectActions(
+            reference, cancellationSignal.reference, consumer.reference)
+        .check();
+  }
 
   static final _onPerformDirectAction = jniLookup<
           ffi.NativeFunction<
@@ -7051,31 +8869,38 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onPerformDirectAction(java.lang.String string, android.os.Bundle bundle, android.os.CancellationSignal cancellationSignal, java.util.function.Consumer consumer)
-  void onPerformDirectAction(jni.JString string, jni.JObject bundle,
-          jni.JObject cancellationSignal, jni.JObject consumer) =>
-      _onPerformDirectAction(reference, string.reference, bundle.reference,
-              cancellationSignal.reference, consumer.reference)
-          .check();
+  void onPerformDirectAction(
+    jni.JString string,
+    jni.JObject bundle,
+    jni.JObject cancellationSignal,
+    jni.JObject consumer,
+  ) {
+    return _onPerformDirectAction(reference, string.reference, bundle.reference,
+            cancellationSignal.reference, consumer.reference)
+        .check();
+  }
 
   static final _requestShowKeyboardShortcuts = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__requestShowKeyboardShortcuts")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void requestShowKeyboardShortcuts()
-  void requestShowKeyboardShortcuts() =>
-      _requestShowKeyboardShortcuts(reference).check();
+  void requestShowKeyboardShortcuts() {
+    return _requestShowKeyboardShortcuts(reference).check();
+  }
 
   static final _dismissKeyboardShortcutsHelper = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__dismissKeyboardShortcutsHelper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void dismissKeyboardShortcutsHelper()
-  void dismissKeyboardShortcutsHelper() =>
-      _dismissKeyboardShortcutsHelper(reference).check();
+  void dismissKeyboardShortcutsHelper() {
+    return _dismissKeyboardShortcutsHelper(reference).check();
+  }
 
   static final _onProvideKeyboardShortcuts = jniLookup<
           ffi.NativeFunction<
@@ -7089,9 +8914,15 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void onProvideKeyboardShortcuts(java.util.List list, android.view.Menu menu, int i)
-  void onProvideKeyboardShortcuts(jni.JObject list, jni.JObject menu, int i) =>
-      _onProvideKeyboardShortcuts(reference, list.reference, menu.reference, i)
-          .check();
+  void onProvideKeyboardShortcuts(
+    jni.JList<jni.JObject> list,
+    jni.JObject menu,
+    int i,
+  ) {
+    return _onProvideKeyboardShortcuts(
+            reference, list.reference, menu.reference, i)
+        .check();
+  }
 
   static final _showAssist = jniLookup<
           ffi.NativeFunction<
@@ -7102,35 +8933,44 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean showAssist(android.os.Bundle bundle)
-  bool showAssist(jni.JObject bundle) =>
-      _showAssist(reference, bundle.reference).boolean;
+  bool showAssist(
+    jni.JObject bundle,
+  ) {
+    return _showAssist(reference, bundle.reference).boolean;
+  }
 
   static final _onStop = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onStop")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onStop")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onStop()
-  void onStop() => _onStop(reference).check();
+  void onStop() {
+    return _onStop(reference).check();
+  }
 
   static final _onDestroy = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onDestroy")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onDestroy")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onDestroy()
-  void onDestroy() => _onDestroy(reference).check();
+  void onDestroy() {
+    return _onDestroy(reference).check();
+  }
 
   static final _reportFullyDrawn = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__reportFullyDrawn")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__reportFullyDrawn")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void reportFullyDrawn()
-  void reportFullyDrawn() => _reportFullyDrawn(reference).check();
+  void reportFullyDrawn() {
+    return _reportFullyDrawn(reference).check();
+  }
 
   static final _onMultiWindowModeChanged = jniLookup<
           ffi.NativeFunction<
@@ -7141,9 +8981,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onMultiWindowModeChanged(boolean z, android.content.res.Configuration configuration)
-  void onMultiWindowModeChanged(bool z, jni.JObject configuration) =>
-      _onMultiWindowModeChanged(reference, z ? 1 : 0, configuration.reference)
-          .check();
+  void onMultiWindowModeChanged(
+    bool z,
+    jni.JObject configuration,
+  ) {
+    return _onMultiWindowModeChanged(
+            reference, z ? 1 : 0, configuration.reference)
+        .check();
+  }
 
   static final _onMultiWindowModeChanged1 = jniLookup<
           ffi.NativeFunction<
@@ -7152,17 +8997,22 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void onMultiWindowModeChanged(boolean z)
-  void onMultiWindowModeChanged1(bool z) =>
-      _onMultiWindowModeChanged1(reference, z ? 1 : 0).check();
+  void onMultiWindowModeChanged1(
+    bool z,
+  ) {
+    return _onMultiWindowModeChanged1(reference, z ? 1 : 0).check();
+  }
 
   static final _isInMultiWindowMode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isInMultiWindowMode")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isInMultiWindowMode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isInMultiWindowMode()
-  bool isInMultiWindowMode() => _isInMultiWindowMode(reference).boolean;
+  bool isInMultiWindowMode() {
+    return _isInMultiWindowMode(reference).boolean;
+  }
 
   static final _onPictureInPictureModeChanged = jniLookup<
               ffi.NativeFunction<
@@ -7174,10 +9024,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onPictureInPictureModeChanged(boolean z, android.content.res.Configuration configuration)
-  void onPictureInPictureModeChanged(bool z, jni.JObject configuration) =>
-      _onPictureInPictureModeChanged(
-              reference, z ? 1 : 0, configuration.reference)
-          .check();
+  void onPictureInPictureModeChanged(
+    bool z,
+    jni.JObject configuration,
+  ) {
+    return _onPictureInPictureModeChanged(
+            reference, z ? 1 : 0, configuration.reference)
+        .check();
+  }
 
   static final _onPictureInPictureUiStateChanged = jniLookup<
               ffi.NativeFunction<
@@ -7189,10 +9043,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onPictureInPictureUiStateChanged(android.app.PictureInPictureUiState pictureInPictureUiState)
-  void onPictureInPictureUiStateChanged(jni.JObject pictureInPictureUiState) =>
-      _onPictureInPictureUiStateChanged(
-              reference, pictureInPictureUiState.reference)
-          .check();
+  void onPictureInPictureUiStateChanged(
+    jni.JObject pictureInPictureUiState,
+  ) {
+    return _onPictureInPictureUiStateChanged(
+            reference, pictureInPictureUiState.reference)
+        .check();
+  }
 
   static final _onPictureInPictureModeChanged1 = jniLookup<
           ffi.NativeFunction<
@@ -7201,28 +9058,33 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void onPictureInPictureModeChanged(boolean z)
-  void onPictureInPictureModeChanged1(bool z) =>
-      _onPictureInPictureModeChanged1(reference, z ? 1 : 0).check();
+  void onPictureInPictureModeChanged1(
+    bool z,
+  ) {
+    return _onPictureInPictureModeChanged1(reference, z ? 1 : 0).check();
+  }
 
   static final _isInPictureInPictureMode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isInPictureInPictureMode")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isInPictureInPictureMode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isInPictureInPictureMode()
-  bool isInPictureInPictureMode() =>
-      _isInPictureInPictureMode(reference).boolean;
+  bool isInPictureInPictureMode() {
+    return _isInPictureInPictureMode(reference).boolean;
+  }
 
   static final _enterPictureInPictureMode = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__enterPictureInPictureMode")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void enterPictureInPictureMode()
-  void enterPictureInPictureMode() =>
-      _enterPictureInPictureMode(reference).check();
+  void enterPictureInPictureMode() {
+    return _enterPictureInPictureMode(reference).check();
+  }
 
   static final _enterPictureInPictureMode1 = jniLookup<
               ffi.NativeFunction<
@@ -7234,9 +9096,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean enterPictureInPictureMode(android.app.PictureInPictureParams pictureInPictureParams)
-  bool enterPictureInPictureMode1(jni.JObject pictureInPictureParams) =>
-      _enterPictureInPictureMode1(reference, pictureInPictureParams.reference)
-          .boolean;
+  bool enterPictureInPictureMode1(
+    jni.JObject pictureInPictureParams,
+  ) {
+    return _enterPictureInPictureMode1(
+            reference, pictureInPictureParams.reference)
+        .boolean;
+  }
 
   static final _setPictureInPictureParams = jniLookup<
               ffi.NativeFunction<
@@ -7248,29 +9114,35 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setPictureInPictureParams(android.app.PictureInPictureParams pictureInPictureParams)
-  void setPictureInPictureParams(jni.JObject pictureInPictureParams) =>
-      _setPictureInPictureParams(reference, pictureInPictureParams.reference)
-          .check();
+  void setPictureInPictureParams(
+    jni.JObject pictureInPictureParams,
+  ) {
+    return _setPictureInPictureParams(
+            reference, pictureInPictureParams.reference)
+        .check();
+  }
 
   static final _getMaxNumPictureInPictureActions = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getMaxNumPictureInPictureActions")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getMaxNumPictureInPictureActions()
-  int getMaxNumPictureInPictureActions() =>
-      _getMaxNumPictureInPictureActions(reference).integer;
+  int getMaxNumPictureInPictureActions() {
+    return _getMaxNumPictureInPictureActions(reference).integer;
+  }
 
   static final _onPictureInPictureRequested = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onPictureInPictureRequested")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onPictureInPictureRequested()
-  bool onPictureInPictureRequested() =>
-      _onPictureInPictureRequested(reference).boolean;
+  bool onPictureInPictureRequested() {
+    return _onPictureInPictureRequested(reference).boolean;
+  }
 
   static final _setShouldDockBigOverlays = jniLookup<
           ffi.NativeFunction<
@@ -7279,17 +9151,22 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setShouldDockBigOverlays(boolean z)
-  void setShouldDockBigOverlays(bool z) =>
-      _setShouldDockBigOverlays(reference, z ? 1 : 0).check();
+  void setShouldDockBigOverlays(
+    bool z,
+  ) {
+    return _setShouldDockBigOverlays(reference, z ? 1 : 0).check();
+  }
 
   static final _shouldDockBigOverlays = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__shouldDockBigOverlays")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__shouldDockBigOverlays")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean shouldDockBigOverlays()
-  bool shouldDockBigOverlays() => _shouldDockBigOverlays(reference).boolean;
+  bool shouldDockBigOverlays() {
+    return _shouldDockBigOverlays(reference).boolean;
+  }
 
   static final _onConfigurationChanged = jniLookup<
           ffi.NativeFunction<
@@ -7300,49 +9177,59 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onConfigurationChanged(android.content.res.Configuration configuration)
-  void onConfigurationChanged(jni.JObject configuration) =>
-      _onConfigurationChanged(reference, configuration.reference).check();
+  void onConfigurationChanged(
+    jni.JObject configuration,
+  ) {
+    return _onConfigurationChanged(reference, configuration.reference).check();
+  }
 
   static final _getChangingConfigurations = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getChangingConfigurations")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getChangingConfigurations()
-  int getChangingConfigurations() =>
-      _getChangingConfigurations(reference).integer;
+  int getChangingConfigurations() {
+    return _getChangingConfigurations(reference).integer;
+  }
 
   static final _getLastNonConfigurationInstance = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getLastNonConfigurationInstance")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object getLastNonConfigurationInstance()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getLastNonConfigurationInstance() => const jni.JObjectType()
-      .fromRef(_getLastNonConfigurationInstance(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getLastNonConfigurationInstance() {
+    return const jni.JObjectType()
+        .fromRef(_getLastNonConfigurationInstance(reference).object);
+  }
 
   static final _onRetainNonConfigurationInstance = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__onRetainNonConfigurationInstance")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object onRetainNonConfigurationInstance()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onRetainNonConfigurationInstance() => const jni.JObjectType()
-      .fromRef(_onRetainNonConfigurationInstance(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onRetainNonConfigurationInstance() {
+    return const jni.JObjectType()
+        .fromRef(_onRetainNonConfigurationInstance(reference).object);
+  }
 
   static final _onLowMemory = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onLowMemory")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onLowMemory")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onLowMemory()
-  void onLowMemory() => _onLowMemory(reference).check();
+  void onLowMemory() {
+    return _onLowMemory(reference).check();
+  }
 
   static final _onTrimMemory = jniLookup<
           ffi.NativeFunction<
@@ -7351,18 +9238,24 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void onTrimMemory(int i)
-  void onTrimMemory(int i) => _onTrimMemory(reference, i).check();
+  void onTrimMemory(
+    int i,
+  ) {
+    return _onTrimMemory(reference, i).check();
+  }
 
   static final _getFragmentManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getFragmentManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getFragmentManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.FragmentManager getFragmentManager()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getFragmentManager() =>
-      const jni.JObjectType().fromRef(_getFragmentManager(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getFragmentManager() {
+    return const jni.JObjectType()
+        .fromRef(_getFragmentManager(reference).object);
+  }
 
   static final _onAttachFragment = jniLookup<
           ffi.NativeFunction<
@@ -7373,8 +9266,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onAttachFragment(android.app.Fragment fragment)
-  void onAttachFragment(jni.JObject fragment) =>
-      _onAttachFragment(reference, fragment.reference).check();
+  void onAttachFragment(
+    jni.JObject fragment,
+  ) {
+    return _onAttachFragment(reference, fragment.reference).check();
+  }
 
   static final _managedQuery = jniLookup<
           ffi.NativeFunction<
@@ -7395,21 +9291,23 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.database.Cursor managedQuery(android.net.Uri uri, java.lang.String[] strings, java.lang.String string, java.lang.String[] strings1, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject managedQuery(
-          jni.JObject uri,
-          jni.JArray<jni.JString> strings,
-          jni.JString string,
-          jni.JArray<jni.JString> strings1,
-          jni.JString string1) =>
-      const jni.JObjectType().fromRef(_managedQuery(
-              reference,
-              uri.reference,
-              strings.reference,
-              string.reference,
-              strings1.reference,
-              string1.reference)
-          .object);
+    jni.JObject uri,
+    jni.JArray<jni.JString> strings,
+    jni.JString string,
+    jni.JArray<jni.JString> strings1,
+    jni.JString string1,
+  ) {
+    return const jni.JObjectType().fromRef(_managedQuery(
+            reference,
+            uri.reference,
+            strings.reference,
+            string.reference,
+            strings1.reference,
+            string1.reference)
+        .object);
+  }
 
   static final _startManagingCursor = jniLookup<
           ffi.NativeFunction<
@@ -7420,8 +9318,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startManagingCursor(android.database.Cursor cursor)
-  void startManagingCursor(jni.JObject cursor) =>
-      _startManagingCursor(reference, cursor.reference).check();
+  void startManagingCursor(
+    jni.JObject cursor,
+  ) {
+    return _startManagingCursor(reference, cursor.reference).check();
+  }
 
   static final _stopManagingCursor = jniLookup<
           ffi.NativeFunction<
@@ -7432,8 +9333,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void stopManagingCursor(android.database.Cursor cursor)
-  void stopManagingCursor(jni.JObject cursor) =>
-      _stopManagingCursor(reference, cursor.reference).check();
+  void stopManagingCursor(
+    jni.JObject cursor,
+  ) {
+    return _stopManagingCursor(reference, cursor.reference).check();
+  }
 
   static final _findViewById = jniLookup<
           ffi.NativeFunction<
@@ -7442,9 +9346,13 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public T findViewById(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T findViewById<T extends jni.JObject>(jni.JObjType<T> $T, int i) =>
-      $T.fromRef(_findViewById(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T findViewById<$T extends jni.JObject>(
+    int i, {
+    required jni.JObjType<$T> T,
+  }) {
+    return T.fromRef(_findViewById(reference, i).object);
+  }
 
   static final _requireViewById = jniLookup<
           ffi.NativeFunction<
@@ -7453,20 +9361,25 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final T requireViewById(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T requireViewById<T extends jni.JObject>(jni.JObjType<T> $T, int i) =>
-      $T.fromRef(_requireViewById(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T requireViewById<$T extends jni.JObject>(
+    int i, {
+    required jni.JObjType<$T> T,
+  }) {
+    return T.fromRef(_requireViewById(reference, i).object);
+  }
 
   static final _getActionBar = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getActionBar")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getActionBar")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.app.ActionBar getActionBar()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getActionBar() =>
-      const jni.JObjectType().fromRef(_getActionBar(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getActionBar() {
+    return const jni.JObjectType().fromRef(_getActionBar(reference).object);
+  }
 
   static final _setActionBar = jniLookup<
           ffi.NativeFunction<
@@ -7477,8 +9390,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setActionBar(android.widget.Toolbar toolbar)
-  void setActionBar(jni.JObject toolbar) =>
-      _setActionBar(reference, toolbar.reference).check();
+  void setActionBar(
+    jni.JObject toolbar,
+  ) {
+    return _setActionBar(reference, toolbar.reference).check();
+  }
 
   static final _setContentView = jniLookup<
           ffi.NativeFunction<
@@ -7487,7 +9403,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setContentView(int i)
-  void setContentView(int i) => _setContentView(reference, i).check();
+  void setContentView(
+    int i,
+  ) {
+    return _setContentView(reference, i).check();
+  }
 
   static final _setContentView1 = jniLookup<
           ffi.NativeFunction<
@@ -7498,8 +9418,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setContentView(android.view.View view)
-  void setContentView1(jni.JObject view) =>
-      _setContentView1(reference, view.reference).check();
+  void setContentView1(
+    jni.JObject view,
+  ) {
+    return _setContentView1(reference, view.reference).check();
+  }
 
   static final _setContentView2 = jniLookup<
           ffi.NativeFunction<
@@ -7512,9 +9435,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setContentView(android.view.View view, android.view.ViewGroup$LayoutParams layoutParams)
-  void setContentView2(jni.JObject view, jni.JObject layoutParams) =>
-      _setContentView2(reference, view.reference, layoutParams.reference)
-          .check();
+  void setContentView2(
+    jni.JObject view,
+    jni.JObject layoutParams,
+  ) {
+    return _setContentView2(reference, view.reference, layoutParams.reference)
+        .check();
+  }
 
   static final _addContentView = jniLookup<
           ffi.NativeFunction<
@@ -7527,20 +9454,26 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void addContentView(android.view.View view, android.view.ViewGroup$LayoutParams layoutParams)
-  void addContentView(jni.JObject view, jni.JObject layoutParams) =>
-      _addContentView(reference, view.reference, layoutParams.reference)
-          .check();
+  void addContentView(
+    jni.JObject view,
+    jni.JObject layoutParams,
+  ) {
+    return _addContentView(reference, view.reference, layoutParams.reference)
+        .check();
+  }
 
   static final _getContentTransitionManager = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getContentTransitionManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.transition.TransitionManager getContentTransitionManager()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getContentTransitionManager() => const jni.JObjectType()
-      .fromRef(_getContentTransitionManager(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getContentTransitionManager() {
+    return const jni.JObjectType()
+        .fromRef(_getContentTransitionManager(reference).object);
+  }
 
   static final _setContentTransitionManager = jniLookup<
               ffi.NativeFunction<
@@ -7552,20 +9485,24 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setContentTransitionManager(android.transition.TransitionManager transitionManager)
-  void setContentTransitionManager(jni.JObject transitionManager) =>
-      _setContentTransitionManager(reference, transitionManager.reference)
-          .check();
+  void setContentTransitionManager(
+    jni.JObject transitionManager,
+  ) {
+    return _setContentTransitionManager(reference, transitionManager.reference)
+        .check();
+  }
 
   static final _getContentScene = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getContentScene")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getContentScene")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.transition.Scene getContentScene()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getContentScene() =>
-      const jni.JObjectType().fromRef(_getContentScene(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getContentScene() {
+    return const jni.JObjectType().fromRef(_getContentScene(reference).object);
+  }
 
   static final _setFinishOnTouchOutside = jniLookup<
           ffi.NativeFunction<
@@ -7574,8 +9511,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setFinishOnTouchOutside(boolean z)
-  void setFinishOnTouchOutside(bool z) =>
-      _setFinishOnTouchOutside(reference, z ? 1 : 0).check();
+  void setFinishOnTouchOutside(
+    bool z,
+  ) {
+    return _setFinishOnTouchOutside(reference, z ? 1 : 0).check();
+  }
 
   static final _setDefaultKeyMode = jniLookup<
           ffi.NativeFunction<
@@ -7584,7 +9524,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setDefaultKeyMode(int i)
-  void setDefaultKeyMode(int i) => _setDefaultKeyMode(reference, i).check();
+  void setDefaultKeyMode(
+    int i,
+  ) {
+    return _setDefaultKeyMode(reference, i).check();
+  }
 
   static final _onKeyDown = jniLookup<
           ffi.NativeFunction<
@@ -7595,8 +9539,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onKeyDown(int i, android.view.KeyEvent keyEvent)
-  bool onKeyDown(int i, jni.JObject keyEvent) =>
-      _onKeyDown(reference, i, keyEvent.reference).boolean;
+  bool onKeyDown(
+    int i,
+    jni.JObject keyEvent,
+  ) {
+    return _onKeyDown(reference, i, keyEvent.reference).boolean;
+  }
 
   static final _onKeyLongPress = jniLookup<
           ffi.NativeFunction<
@@ -7607,8 +9555,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onKeyLongPress(int i, android.view.KeyEvent keyEvent)
-  bool onKeyLongPress(int i, jni.JObject keyEvent) =>
-      _onKeyLongPress(reference, i, keyEvent.reference).boolean;
+  bool onKeyLongPress(
+    int i,
+    jni.JObject keyEvent,
+  ) {
+    return _onKeyLongPress(reference, i, keyEvent.reference).boolean;
+  }
 
   static final _onKeyUp = jniLookup<
           ffi.NativeFunction<
@@ -7619,8 +9571,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onKeyUp(int i, android.view.KeyEvent keyEvent)
-  bool onKeyUp(int i, jni.JObject keyEvent) =>
-      _onKeyUp(reference, i, keyEvent.reference).boolean;
+  bool onKeyUp(
+    int i,
+    jni.JObject keyEvent,
+  ) {
+    return _onKeyUp(reference, i, keyEvent.reference).boolean;
+  }
 
   static final _onKeyMultiple = jniLookup<
           ffi.NativeFunction<
@@ -7631,17 +9587,24 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onKeyMultiple(int i, int i1, android.view.KeyEvent keyEvent)
-  bool onKeyMultiple(int i, int i1, jni.JObject keyEvent) =>
-      _onKeyMultiple(reference, i, i1, keyEvent.reference).boolean;
+  bool onKeyMultiple(
+    int i,
+    int i1,
+    jni.JObject keyEvent,
+  ) {
+    return _onKeyMultiple(reference, i, i1, keyEvent.reference).boolean;
+  }
 
   static final _onBackPressed = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onBackPressed")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onBackPressed")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onBackPressed()
-  void onBackPressed() => _onBackPressed(reference).check();
+  void onBackPressed() {
+    return _onBackPressed(reference).check();
+  }
 
   static final _onKeyShortcut = jniLookup<
           ffi.NativeFunction<
@@ -7652,8 +9615,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onKeyShortcut(int i, android.view.KeyEvent keyEvent)
-  bool onKeyShortcut(int i, jni.JObject keyEvent) =>
-      _onKeyShortcut(reference, i, keyEvent.reference).boolean;
+  bool onKeyShortcut(
+    int i,
+    jni.JObject keyEvent,
+  ) {
+    return _onKeyShortcut(reference, i, keyEvent.reference).boolean;
+  }
 
   static final _onTouchEvent = jniLookup<
           ffi.NativeFunction<
@@ -7664,8 +9631,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onTouchEvent(android.view.MotionEvent motionEvent)
-  bool onTouchEvent(jni.JObject motionEvent) =>
-      _onTouchEvent(reference, motionEvent.reference).boolean;
+  bool onTouchEvent(
+    jni.JObject motionEvent,
+  ) {
+    return _onTouchEvent(reference, motionEvent.reference).boolean;
+  }
 
   static final _onTrackballEvent = jniLookup<
           ffi.NativeFunction<
@@ -7676,8 +9646,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onTrackballEvent(android.view.MotionEvent motionEvent)
-  bool onTrackballEvent(jni.JObject motionEvent) =>
-      _onTrackballEvent(reference, motionEvent.reference).boolean;
+  bool onTrackballEvent(
+    jni.JObject motionEvent,
+  ) {
+    return _onTrackballEvent(reference, motionEvent.reference).boolean;
+  }
 
   static final _onGenericMotionEvent = jniLookup<
           ffi.NativeFunction<
@@ -7688,17 +9661,22 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onGenericMotionEvent(android.view.MotionEvent motionEvent)
-  bool onGenericMotionEvent(jni.JObject motionEvent) =>
-      _onGenericMotionEvent(reference, motionEvent.reference).boolean;
+  bool onGenericMotionEvent(
+    jni.JObject motionEvent,
+  ) {
+    return _onGenericMotionEvent(reference, motionEvent.reference).boolean;
+  }
 
   static final _onUserInteraction = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onUserInteraction")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onUserInteraction")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onUserInteraction()
-  void onUserInteraction() => _onUserInteraction(reference).check();
+  void onUserInteraction() {
+    return _onUserInteraction(reference).check();
+  }
 
   static final _onWindowAttributesChanged = jniLookup<
               ffi.NativeFunction<
@@ -7710,17 +9688,23 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onWindowAttributesChanged(android.view.WindowManager$LayoutParams layoutParams)
-  void onWindowAttributesChanged(jni.JObject layoutParams) =>
-      _onWindowAttributesChanged(reference, layoutParams.reference).check();
+  void onWindowAttributesChanged(
+    jni.JObject layoutParams,
+  ) {
+    return _onWindowAttributesChanged(reference, layoutParams.reference)
+        .check();
+  }
 
   static final _onContentChanged = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onContentChanged")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onContentChanged")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onContentChanged()
-  void onContentChanged() => _onContentChanged(reference).check();
+  void onContentChanged() {
+    return _onContentChanged(reference).check();
+  }
 
   static final _onWindowFocusChanged = jniLookup<
           ffi.NativeFunction<
@@ -7729,35 +9713,44 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void onWindowFocusChanged(boolean z)
-  void onWindowFocusChanged(bool z) =>
-      _onWindowFocusChanged(reference, z ? 1 : 0).check();
+  void onWindowFocusChanged(
+    bool z,
+  ) {
+    return _onWindowFocusChanged(reference, z ? 1 : 0).check();
+  }
 
   static final _onAttachedToWindow = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onAttachedToWindow")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onAttachedToWindow")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onAttachedToWindow()
-  void onAttachedToWindow() => _onAttachedToWindow(reference).check();
+  void onAttachedToWindow() {
+    return _onAttachedToWindow(reference).check();
+  }
 
   static final _onDetachedFromWindow = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onDetachedFromWindow")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onDetachedFromWindow")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onDetachedFromWindow()
-  void onDetachedFromWindow() => _onDetachedFromWindow(reference).check();
+  void onDetachedFromWindow() {
+    return _onDetachedFromWindow(reference).check();
+  }
 
   static final _hasWindowFocus = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__hasWindowFocus")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__hasWindowFocus")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean hasWindowFocus()
-  bool hasWindowFocus() => _hasWindowFocus(reference).boolean;
+  bool hasWindowFocus() {
+    return _hasWindowFocus(reference).boolean;
+  }
 
   static final _dispatchKeyEvent = jniLookup<
           ffi.NativeFunction<
@@ -7768,8 +9761,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean dispatchKeyEvent(android.view.KeyEvent keyEvent)
-  bool dispatchKeyEvent(jni.JObject keyEvent) =>
-      _dispatchKeyEvent(reference, keyEvent.reference).boolean;
+  bool dispatchKeyEvent(
+    jni.JObject keyEvent,
+  ) {
+    return _dispatchKeyEvent(reference, keyEvent.reference).boolean;
+  }
 
   static final _dispatchKeyShortcutEvent = jniLookup<
           ffi.NativeFunction<
@@ -7780,8 +9776,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean dispatchKeyShortcutEvent(android.view.KeyEvent keyEvent)
-  bool dispatchKeyShortcutEvent(jni.JObject keyEvent) =>
-      _dispatchKeyShortcutEvent(reference, keyEvent.reference).boolean;
+  bool dispatchKeyShortcutEvent(
+    jni.JObject keyEvent,
+  ) {
+    return _dispatchKeyShortcutEvent(reference, keyEvent.reference).boolean;
+  }
 
   static final _dispatchTouchEvent = jniLookup<
           ffi.NativeFunction<
@@ -7792,8 +9791,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean dispatchTouchEvent(android.view.MotionEvent motionEvent)
-  bool dispatchTouchEvent(jni.JObject motionEvent) =>
-      _dispatchTouchEvent(reference, motionEvent.reference).boolean;
+  bool dispatchTouchEvent(
+    jni.JObject motionEvent,
+  ) {
+    return _dispatchTouchEvent(reference, motionEvent.reference).boolean;
+  }
 
   static final _dispatchTrackballEvent = jniLookup<
           ffi.NativeFunction<
@@ -7804,8 +9806,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean dispatchTrackballEvent(android.view.MotionEvent motionEvent)
-  bool dispatchTrackballEvent(jni.JObject motionEvent) =>
-      _dispatchTrackballEvent(reference, motionEvent.reference).boolean;
+  bool dispatchTrackballEvent(
+    jni.JObject motionEvent,
+  ) {
+    return _dispatchTrackballEvent(reference, motionEvent.reference).boolean;
+  }
 
   static final _dispatchGenericMotionEvent = jniLookup<
               ffi.NativeFunction<
@@ -7817,8 +9822,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean dispatchGenericMotionEvent(android.view.MotionEvent motionEvent)
-  bool dispatchGenericMotionEvent(jni.JObject motionEvent) =>
-      _dispatchGenericMotionEvent(reference, motionEvent.reference).boolean;
+  bool dispatchGenericMotionEvent(
+    jni.JObject motionEvent,
+  ) {
+    return _dispatchGenericMotionEvent(reference, motionEvent.reference)
+        .boolean;
+  }
 
   static final _dispatchPopulateAccessibilityEvent = jniLookup<
               ffi.NativeFunction<
@@ -7830,10 +9839,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent accessibilityEvent)
-  bool dispatchPopulateAccessibilityEvent(jni.JObject accessibilityEvent) =>
-      _dispatchPopulateAccessibilityEvent(
-              reference, accessibilityEvent.reference)
-          .boolean;
+  bool dispatchPopulateAccessibilityEvent(
+    jni.JObject accessibilityEvent,
+  ) {
+    return _dispatchPopulateAccessibilityEvent(
+            reference, accessibilityEvent.reference)
+        .boolean;
+  }
 
   static final _onCreatePanelView = jniLookup<
           ffi.NativeFunction<
@@ -7842,9 +9854,13 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.view.View onCreatePanelView(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onCreatePanelView(int i) =>
-      const jni.JObjectType().fromRef(_onCreatePanelView(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onCreatePanelView(
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_onCreatePanelView(reference, i).object);
+  }
 
   static final _onCreatePanelMenu = jniLookup<
           ffi.NativeFunction<
@@ -7855,8 +9871,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onCreatePanelMenu(int i, android.view.Menu menu)
-  bool onCreatePanelMenu(int i, jni.JObject menu) =>
-      _onCreatePanelMenu(reference, i, menu.reference).boolean;
+  bool onCreatePanelMenu(
+    int i,
+    jni.JObject menu,
+  ) {
+    return _onCreatePanelMenu(reference, i, menu.reference).boolean;
+  }
 
   static final _onPreparePanel = jniLookup<
           ffi.NativeFunction<
@@ -7870,8 +9890,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onPreparePanel(int i, android.view.View view, android.view.Menu menu)
-  bool onPreparePanel(int i, jni.JObject view, jni.JObject menu) =>
-      _onPreparePanel(reference, i, view.reference, menu.reference).boolean;
+  bool onPreparePanel(
+    int i,
+    jni.JObject view,
+    jni.JObject menu,
+  ) {
+    return _onPreparePanel(reference, i, view.reference, menu.reference)
+        .boolean;
+  }
 
   static final _onMenuOpened = jniLookup<
           ffi.NativeFunction<
@@ -7882,8 +9908,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onMenuOpened(int i, android.view.Menu menu)
-  bool onMenuOpened(int i, jni.JObject menu) =>
-      _onMenuOpened(reference, i, menu.reference).boolean;
+  bool onMenuOpened(
+    int i,
+    jni.JObject menu,
+  ) {
+    return _onMenuOpened(reference, i, menu.reference).boolean;
+  }
 
   static final _onMenuItemSelected = jniLookup<
           ffi.NativeFunction<
@@ -7894,8 +9924,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onMenuItemSelected(int i, android.view.MenuItem menuItem)
-  bool onMenuItemSelected(int i, jni.JObject menuItem) =>
-      _onMenuItemSelected(reference, i, menuItem.reference).boolean;
+  bool onMenuItemSelected(
+    int i,
+    jni.JObject menuItem,
+  ) {
+    return _onMenuItemSelected(reference, i, menuItem.reference).boolean;
+  }
 
   static final _onPanelClosed = jniLookup<
           ffi.NativeFunction<
@@ -7906,17 +9940,23 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onPanelClosed(int i, android.view.Menu menu)
-  void onPanelClosed(int i, jni.JObject menu) =>
-      _onPanelClosed(reference, i, menu.reference).check();
+  void onPanelClosed(
+    int i,
+    jni.JObject menu,
+  ) {
+    return _onPanelClosed(reference, i, menu.reference).check();
+  }
 
   static final _invalidateOptionsMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__invalidateOptionsMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__invalidateOptionsMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void invalidateOptionsMenu()
-  void invalidateOptionsMenu() => _invalidateOptionsMenu(reference).check();
+  void invalidateOptionsMenu() {
+    return _invalidateOptionsMenu(reference).check();
+  }
 
   static final _onCreateOptionsMenu = jniLookup<
           ffi.NativeFunction<
@@ -7927,8 +9967,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onCreateOptionsMenu(android.view.Menu menu)
-  bool onCreateOptionsMenu(jni.JObject menu) =>
-      _onCreateOptionsMenu(reference, menu.reference).boolean;
+  bool onCreateOptionsMenu(
+    jni.JObject menu,
+  ) {
+    return _onCreateOptionsMenu(reference, menu.reference).boolean;
+  }
 
   static final _onPrepareOptionsMenu = jniLookup<
           ffi.NativeFunction<
@@ -7939,8 +9982,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onPrepareOptionsMenu(android.view.Menu menu)
-  bool onPrepareOptionsMenu(jni.JObject menu) =>
-      _onPrepareOptionsMenu(reference, menu.reference).boolean;
+  bool onPrepareOptionsMenu(
+    jni.JObject menu,
+  ) {
+    return _onPrepareOptionsMenu(reference, menu.reference).boolean;
+  }
 
   static final _onOptionsItemSelected = jniLookup<
           ffi.NativeFunction<
@@ -7951,17 +9997,22 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onOptionsItemSelected(android.view.MenuItem menuItem)
-  bool onOptionsItemSelected(jni.JObject menuItem) =>
-      _onOptionsItemSelected(reference, menuItem.reference).boolean;
+  bool onOptionsItemSelected(
+    jni.JObject menuItem,
+  ) {
+    return _onOptionsItemSelected(reference, menuItem.reference).boolean;
+  }
 
   static final _onNavigateUp = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onNavigateUp")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onNavigateUp")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onNavigateUp()
-  bool onNavigateUp() => _onNavigateUp(reference).boolean;
+  bool onNavigateUp() {
+    return _onNavigateUp(reference).boolean;
+  }
 
   static final _onNavigateUpFromChild = jniLookup<
           ffi.NativeFunction<
@@ -7972,8 +10023,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onNavigateUpFromChild(android.app.Activity activity)
-  bool onNavigateUpFromChild(Activity activity) =>
-      _onNavigateUpFromChild(reference, activity.reference).boolean;
+  bool onNavigateUpFromChild(
+    Activity activity,
+  ) {
+    return _onNavigateUpFromChild(reference, activity.reference).boolean;
+  }
 
   static final _onCreateNavigateUpTaskStack = jniLookup<
               ffi.NativeFunction<
@@ -7985,9 +10039,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onCreateNavigateUpTaskStack(android.app.TaskStackBuilder taskStackBuilder)
-  void onCreateNavigateUpTaskStack(jni.JObject taskStackBuilder) =>
-      _onCreateNavigateUpTaskStack(reference, taskStackBuilder.reference)
-          .check();
+  void onCreateNavigateUpTaskStack(
+    jni.JObject taskStackBuilder,
+  ) {
+    return _onCreateNavigateUpTaskStack(reference, taskStackBuilder.reference)
+        .check();
+  }
 
   static final _onPrepareNavigateUpTaskStack = jniLookup<
               ffi.NativeFunction<
@@ -7999,9 +10056,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onPrepareNavigateUpTaskStack(android.app.TaskStackBuilder taskStackBuilder)
-  void onPrepareNavigateUpTaskStack(jni.JObject taskStackBuilder) =>
-      _onPrepareNavigateUpTaskStack(reference, taskStackBuilder.reference)
-          .check();
+  void onPrepareNavigateUpTaskStack(
+    jni.JObject taskStackBuilder,
+  ) {
+    return _onPrepareNavigateUpTaskStack(reference, taskStackBuilder.reference)
+        .check();
+  }
 
   static final _onOptionsMenuClosed = jniLookup<
           ffi.NativeFunction<
@@ -8012,26 +10072,33 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onOptionsMenuClosed(android.view.Menu menu)
-  void onOptionsMenuClosed(jni.JObject menu) =>
-      _onOptionsMenuClosed(reference, menu.reference).check();
+  void onOptionsMenuClosed(
+    jni.JObject menu,
+  ) {
+    return _onOptionsMenuClosed(reference, menu.reference).check();
+  }
 
   static final _openOptionsMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__openOptionsMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__openOptionsMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void openOptionsMenu()
-  void openOptionsMenu() => _openOptionsMenu(reference).check();
+  void openOptionsMenu() {
+    return _openOptionsMenu(reference).check();
+  }
 
   static final _closeOptionsMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__closeOptionsMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__closeOptionsMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void closeOptionsMenu()
-  void closeOptionsMenu() => _closeOptionsMenu(reference).check();
+  void closeOptionsMenu() {
+    return _closeOptionsMenu(reference).check();
+  }
 
   static final _onCreateContextMenu = jniLookup<
           ffi.NativeFunction<
@@ -8045,11 +10112,15 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onCreateContextMenu(android.view.ContextMenu contextMenu, android.view.View view, android.view.ContextMenu$ContextMenuInfo contextMenuInfo)
-  void onCreateContextMenu(jni.JObject contextMenu, jni.JObject view,
-          jni.JObject contextMenuInfo) =>
-      _onCreateContextMenu(reference, contextMenu.reference, view.reference,
-              contextMenuInfo.reference)
-          .check();
+  void onCreateContextMenu(
+    jni.JObject contextMenu,
+    jni.JObject view,
+    jni.JObject contextMenuInfo,
+  ) {
+    return _onCreateContextMenu(reference, contextMenu.reference,
+            view.reference, contextMenuInfo.reference)
+        .check();
+  }
 
   static final _registerForContextMenu = jniLookup<
           ffi.NativeFunction<
@@ -8060,8 +10131,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void registerForContextMenu(android.view.View view)
-  void registerForContextMenu(jni.JObject view) =>
-      _registerForContextMenu(reference, view.reference).check();
+  void registerForContextMenu(
+    jni.JObject view,
+  ) {
+    return _registerForContextMenu(reference, view.reference).check();
+  }
 
   static final _unregisterForContextMenu = jniLookup<
           ffi.NativeFunction<
@@ -8072,8 +10146,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void unregisterForContextMenu(android.view.View view)
-  void unregisterForContextMenu(jni.JObject view) =>
-      _unregisterForContextMenu(reference, view.reference).check();
+  void unregisterForContextMenu(
+    jni.JObject view,
+  ) {
+    return _unregisterForContextMenu(reference, view.reference).check();
+  }
 
   static final _openContextMenu = jniLookup<
           ffi.NativeFunction<
@@ -8084,17 +10161,22 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void openContextMenu(android.view.View view)
-  void openContextMenu(jni.JObject view) =>
-      _openContextMenu(reference, view.reference).check();
+  void openContextMenu(
+    jni.JObject view,
+  ) {
+    return _openContextMenu(reference, view.reference).check();
+  }
 
   static final _closeContextMenu = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__closeContextMenu")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__closeContextMenu")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void closeContextMenu()
-  void closeContextMenu() => _closeContextMenu(reference).check();
+  void closeContextMenu() {
+    return _closeContextMenu(reference).check();
+  }
 
   static final _onContextItemSelected = jniLookup<
           ffi.NativeFunction<
@@ -8105,8 +10187,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onContextItemSelected(android.view.MenuItem menuItem)
-  bool onContextItemSelected(jni.JObject menuItem) =>
-      _onContextItemSelected(reference, menuItem.reference).boolean;
+  bool onContextItemSelected(
+    jni.JObject menuItem,
+  ) {
+    return _onContextItemSelected(reference, menuItem.reference).boolean;
+  }
 
   static final _onContextMenuClosed = jniLookup<
           ffi.NativeFunction<
@@ -8117,8 +10202,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onContextMenuClosed(android.view.Menu menu)
-  void onContextMenuClosed(jni.JObject menu) =>
-      _onContextMenuClosed(reference, menu.reference).check();
+  void onContextMenuClosed(
+    jni.JObject menu,
+  ) {
+    return _onContextMenuClosed(reference, menu.reference).check();
+  }
 
   static final _onCreateDialog = jniLookup<
           ffi.NativeFunction<
@@ -8127,9 +10215,13 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: protected android.app.Dialog onCreateDialog(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onCreateDialog(int i) =>
-      const jni.JObjectType().fromRef(_onCreateDialog(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onCreateDialog(
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_onCreateDialog(reference, i).object);
+  }
 
   static final _onCreateDialog1 = jniLookup<
           ffi.NativeFunction<
@@ -8140,10 +10232,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected android.app.Dialog onCreateDialog(int i, android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onCreateDialog1(int i, jni.JObject bundle) =>
-      const jni.JObjectType()
-          .fromRef(_onCreateDialog1(reference, i, bundle.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onCreateDialog1(
+    int i,
+    jni.JObject bundle,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_onCreateDialog1(reference, i, bundle.reference).object);
+  }
 
   static final _onPrepareDialog = jniLookup<
           ffi.NativeFunction<
@@ -8154,8 +10250,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPrepareDialog(int i, android.app.Dialog dialog)
-  void onPrepareDialog(int i, jni.JObject dialog) =>
-      _onPrepareDialog(reference, i, dialog.reference).check();
+  void onPrepareDialog(
+    int i,
+    jni.JObject dialog,
+  ) {
+    return _onPrepareDialog(reference, i, dialog.reference).check();
+  }
 
   static final _onPrepareDialog1 = jniLookup<
           ffi.NativeFunction<
@@ -8169,9 +10269,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onPrepareDialog(int i, android.app.Dialog dialog, android.os.Bundle bundle)
-  void onPrepareDialog1(int i, jni.JObject dialog, jni.JObject bundle) =>
-      _onPrepareDialog1(reference, i, dialog.reference, bundle.reference)
-          .check();
+  void onPrepareDialog1(
+    int i,
+    jni.JObject dialog,
+    jni.JObject bundle,
+  ) {
+    return _onPrepareDialog1(reference, i, dialog.reference, bundle.reference)
+        .check();
+  }
 
   static final _showDialog = jniLookup<
           ffi.NativeFunction<
@@ -8180,7 +10285,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void showDialog(int i)
-  void showDialog(int i) => _showDialog(reference, i).check();
+  void showDialog(
+    int i,
+  ) {
+    return _showDialog(reference, i).check();
+  }
 
   static final _showDialog1 = jniLookup<
           ffi.NativeFunction<
@@ -8191,8 +10300,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final boolean showDialog(int i, android.os.Bundle bundle)
-  bool showDialog1(int i, jni.JObject bundle) =>
-      _showDialog1(reference, i, bundle.reference).boolean;
+  bool showDialog1(
+    int i,
+    jni.JObject bundle,
+  ) {
+    return _showDialog1(reference, i, bundle.reference).boolean;
+  }
 
   static final _dismissDialog = jniLookup<
           ffi.NativeFunction<
@@ -8201,7 +10314,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void dismissDialog(int i)
-  void dismissDialog(int i) => _dismissDialog(reference, i).check();
+  void dismissDialog(
+    int i,
+  ) {
+    return _dismissDialog(reference, i).check();
+  }
 
   static final _removeDialog = jniLookup<
           ffi.NativeFunction<
@@ -8210,7 +10327,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void removeDialog(int i)
-  void removeDialog(int i) => _removeDialog(reference, i).check();
+  void removeDialog(
+    int i,
+  ) {
+    return _removeDialog(reference, i).check();
+  }
 
   static final _onSearchRequested = jniLookup<
           ffi.NativeFunction<
@@ -8221,28 +10342,34 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onSearchRequested(android.view.SearchEvent searchEvent)
-  bool onSearchRequested(jni.JObject searchEvent) =>
-      _onSearchRequested(reference, searchEvent.reference).boolean;
+  bool onSearchRequested(
+    jni.JObject searchEvent,
+  ) {
+    return _onSearchRequested(reference, searchEvent.reference).boolean;
+  }
 
   static final _onSearchRequested1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onSearchRequested1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onSearchRequested1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean onSearchRequested()
-  bool onSearchRequested1() => _onSearchRequested1(reference).boolean;
+  bool onSearchRequested1() {
+    return _onSearchRequested1(reference).boolean;
+  }
 
   static final _getSearchEvent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getSearchEvent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getSearchEvent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.view.SearchEvent getSearchEvent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSearchEvent() =>
-      const jni.JObjectType().fromRef(_getSearchEvent(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSearchEvent() {
+    return const jni.JObjectType().fromRef(_getSearchEvent(reference).object);
+  }
 
   static final _startSearch = jniLookup<
           ffi.NativeFunction<
@@ -8257,10 +10384,16 @@ class Activity extends jni.JObject {
               int, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void startSearch(java.lang.String string, boolean z, android.os.Bundle bundle, boolean z1)
-  void startSearch(jni.JString string, bool z, jni.JObject bundle, bool z1) =>
-      _startSearch(reference, string.reference, z ? 1 : 0, bundle.reference,
-              z1 ? 1 : 0)
-          .check();
+  void startSearch(
+    jni.JString string,
+    bool z,
+    jni.JObject bundle,
+    bool z1,
+  ) {
+    return _startSearch(reference, string.reference, z ? 1 : 0,
+            bundle.reference, z1 ? 1 : 0)
+        .check();
+  }
 
   static final _triggerSearch = jniLookup<
           ffi.NativeFunction<
@@ -8273,8 +10406,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void triggerSearch(java.lang.String string, android.os.Bundle bundle)
-  void triggerSearch(jni.JString string, jni.JObject bundle) =>
-      _triggerSearch(reference, string.reference, bundle.reference).check();
+  void triggerSearch(
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return _triggerSearch(reference, string.reference, bundle.reference)
+        .check();
+  }
 
   static final _takeKeyEvents = jniLookup<
           ffi.NativeFunction<
@@ -8283,7 +10421,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void takeKeyEvents(boolean z)
-  void takeKeyEvents(bool z) => _takeKeyEvents(reference, z ? 1 : 0).check();
+  void takeKeyEvents(
+    bool z,
+  ) {
+    return _takeKeyEvents(reference, z ? 1 : 0).check();
+  }
 
   static final _requestWindowFeature = jniLookup<
           ffi.NativeFunction<
@@ -8292,8 +10434,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final boolean requestWindowFeature(int i)
-  bool requestWindowFeature(int i) =>
-      _requestWindowFeature(reference, i).boolean;
+  bool requestWindowFeature(
+    int i,
+  ) {
+    return _requestWindowFeature(reference, i).boolean;
+  }
 
   static final _setFeatureDrawableResource = jniLookup<
           ffi.NativeFunction<
@@ -8302,8 +10447,12 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public final void setFeatureDrawableResource(int i, int i1)
-  void setFeatureDrawableResource(int i, int i1) =>
-      _setFeatureDrawableResource(reference, i, i1).check();
+  void setFeatureDrawableResource(
+    int i,
+    int i1,
+  ) {
+    return _setFeatureDrawableResource(reference, i, i1).check();
+  }
 
   static final _setFeatureDrawableUri = jniLookup<
           ffi.NativeFunction<
@@ -8314,8 +10463,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void setFeatureDrawableUri(int i, android.net.Uri uri)
-  void setFeatureDrawableUri(int i, jni.JObject uri) =>
-      _setFeatureDrawableUri(reference, i, uri.reference).check();
+  void setFeatureDrawableUri(
+    int i,
+    jni.JObject uri,
+  ) {
+    return _setFeatureDrawableUri(reference, i, uri.reference).check();
+  }
 
   static final _setFeatureDrawable = jniLookup<
           ffi.NativeFunction<
@@ -8326,8 +10479,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void setFeatureDrawable(int i, android.graphics.drawable.Drawable drawable)
-  void setFeatureDrawable(int i, jni.JObject drawable) =>
-      _setFeatureDrawable(reference, i, drawable.reference).check();
+  void setFeatureDrawable(
+    int i,
+    jni.JObject drawable,
+  ) {
+    return _setFeatureDrawable(reference, i, drawable.reference).check();
+  }
 
   static final _setFeatureDrawableAlpha = jniLookup<
           ffi.NativeFunction<
@@ -8336,30 +10493,37 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public final void setFeatureDrawableAlpha(int i, int i1)
-  void setFeatureDrawableAlpha(int i, int i1) =>
-      _setFeatureDrawableAlpha(reference, i, i1).check();
+  void setFeatureDrawableAlpha(
+    int i,
+    int i1,
+  ) {
+    return _setFeatureDrawableAlpha(reference, i, i1).check();
+  }
 
   static final _getLayoutInflater = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getLayoutInflater")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getLayoutInflater")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.LayoutInflater getLayoutInflater()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getLayoutInflater() =>
-      const jni.JObjectType().fromRef(_getLayoutInflater(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getLayoutInflater() {
+    return const jni.JObjectType()
+        .fromRef(_getLayoutInflater(reference).object);
+  }
 
   static final _getMenuInflater = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getMenuInflater")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getMenuInflater")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.MenuInflater getMenuInflater()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getMenuInflater() =>
-      const jni.JObjectType().fromRef(_getMenuInflater(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getMenuInflater() {
+    return const jni.JObjectType().fromRef(_getMenuInflater(reference).object);
+  }
 
   static final _setTheme = jniLookup<
           ffi.NativeFunction<
@@ -8368,7 +10532,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setTheme(int i)
-  void setTheme(int i) => _setTheme(reference, i).check();
+  void setTheme(
+    int i,
+  ) {
+    return _setTheme(reference, i).check();
+  }
 
   static final _onApplyThemeResource = jniLookup<
           ffi.NativeFunction<
@@ -8382,8 +10550,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: protected void onApplyThemeResource(android.content.res.Resources$Theme theme, int i, boolean z)
-  void onApplyThemeResource(jni.JObject theme, int i, bool z) =>
-      _onApplyThemeResource(reference, theme.reference, i, z ? 1 : 0).check();
+  void onApplyThemeResource(
+    jni.JObject theme,
+    int i,
+    bool z,
+  ) {
+    return _onApplyThemeResource(reference, theme.reference, i, z ? 1 : 0)
+        .check();
+  }
 
   static final _requestPermissions = jniLookup<
           ffi.NativeFunction<
@@ -8396,8 +10570,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void requestPermissions(java.lang.String[] strings, int i)
-  void requestPermissions(jni.JArray<jni.JString> strings, int i) =>
-      _requestPermissions(reference, strings.reference, i).check();
+  void requestPermissions(
+    jni.JArray<jni.JString> strings,
+    int i,
+  ) {
+    return _requestPermissions(reference, strings.reference, i).check();
+  }
 
   static final _onRequestPermissionsResult = jniLookup<
               ffi.NativeFunction<
@@ -8410,10 +10588,14 @@ class Activity extends jni.JObject {
 
   /// from: public void onRequestPermissionsResult(int i, java.lang.String[] strings, int[] is)
   void onRequestPermissionsResult(
-          int i, jni.JArray<jni.JString> strings, jni.JArray<jni.JInt> is0) =>
-      _onRequestPermissionsResult(
-              reference, i, strings.reference, is0.reference)
-          .check();
+    int i,
+    jni.JArray<jni.JString> strings,
+    jni.JArray<jni.jint> is0,
+  ) {
+    return _onRequestPermissionsResult(
+            reference, i, strings.reference, is0.reference)
+        .check();
+  }
 
   static final _shouldShowRequestPermissionRationale = jniLookup<
               ffi.NativeFunction<
@@ -8425,9 +10607,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean shouldShowRequestPermissionRationale(java.lang.String string)
-  bool shouldShowRequestPermissionRationale(jni.JString string) =>
-      _shouldShowRequestPermissionRationale(reference, string.reference)
-          .boolean;
+  bool shouldShowRequestPermissionRationale(
+    jni.JString string,
+  ) {
+    return _shouldShowRequestPermissionRationale(reference, string.reference)
+        .boolean;
+  }
 
   static final _startActivityForResult = jniLookup<
           ffi.NativeFunction<
@@ -8440,8 +10625,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void startActivityForResult(android.content.Intent intent, int i)
-  void startActivityForResult(Intent intent, int i) =>
-      _startActivityForResult(reference, intent.reference, i).check();
+  void startActivityForResult(
+    Intent intent,
+    int i,
+  ) {
+    return _startActivityForResult(reference, intent.reference, i).check();
+  }
 
   static final _startActivityForResult1 = jniLookup<
           ffi.NativeFunction<
@@ -8455,19 +10644,26 @@ class Activity extends jni.JObject {
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startActivityForResult(android.content.Intent intent, int i, android.os.Bundle bundle)
-  void startActivityForResult1(Intent intent, int i, jni.JObject bundle) =>
-      _startActivityForResult1(reference, intent.reference, i, bundle.reference)
-          .check();
+  void startActivityForResult1(
+    Intent intent,
+    int i,
+    jni.JObject bundle,
+  ) {
+    return _startActivityForResult1(
+            reference, intent.reference, i, bundle.reference)
+        .check();
+  }
 
   static final _isActivityTransitionRunning = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__isActivityTransitionRunning")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isActivityTransitionRunning()
-  bool isActivityTransitionRunning() =>
-      _isActivityTransitionRunning(reference).boolean;
+  bool isActivityTransitionRunning() {
+    return _isActivityTransitionRunning(reference).boolean;
+  }
 
   static final _startIntentSenderForResult = jniLookup<
           ffi.NativeFunction<
@@ -8484,11 +10680,18 @@ class Activity extends jni.JObject {
               int, ffi.Pointer<ffi.Void>, int, int, int)>();
 
   /// from: public void startIntentSenderForResult(android.content.IntentSender intentSender, int i, android.content.Intent intent, int i1, int i2, int i3)
-  void startIntentSenderForResult(jni.JObject intentSender, int i,
-          Intent intent, int i1, int i2, int i3) =>
-      _startIntentSenderForResult(reference, intentSender.reference, i,
-              intent.reference, i1, i2, i3)
-          .check();
+  void startIntentSenderForResult(
+    jni.JObject intentSender,
+    int i,
+    Intent intent,
+    int i1,
+    int i2,
+    int i3,
+  ) {
+    return _startIntentSenderForResult(
+            reference, intentSender.reference, i, intent.reference, i1, i2, i3)
+        .check();
+  }
 
   static final _startIntentSenderForResult1 = jniLookup<
               ffi.NativeFunction<
@@ -8514,11 +10717,19 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startIntentSenderForResult(android.content.IntentSender intentSender, int i, android.content.Intent intent, int i1, int i2, int i3, android.os.Bundle bundle)
-  void startIntentSenderForResult1(jni.JObject intentSender, int i,
-          Intent intent, int i1, int i2, int i3, jni.JObject bundle) =>
-      _startIntentSenderForResult1(reference, intentSender.reference, i,
-              intent.reference, i1, i2, i3, bundle.reference)
-          .check();
+  void startIntentSenderForResult1(
+    jni.JObject intentSender,
+    int i,
+    Intent intent,
+    int i1,
+    int i2,
+    int i3,
+    jni.JObject bundle,
+  ) {
+    return _startIntentSenderForResult1(reference, intentSender.reference, i,
+            intent.reference, i1, i2, i3, bundle.reference)
+        .check();
+  }
 
   static final _startActivity = jniLookup<
           ffi.NativeFunction<
@@ -8529,8 +10740,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startActivity(android.content.Intent intent)
-  void startActivity(Intent intent) =>
-      _startActivity(reference, intent.reference).check();
+  void startActivity(
+    Intent intent,
+  ) {
+    return _startActivity(reference, intent.reference).check();
+  }
 
   static final _startActivity1 = jniLookup<
           ffi.NativeFunction<
@@ -8543,8 +10757,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startActivity(android.content.Intent intent, android.os.Bundle bundle)
-  void startActivity1(Intent intent, jni.JObject bundle) =>
-      _startActivity1(reference, intent.reference, bundle.reference).check();
+  void startActivity1(
+    Intent intent,
+    jni.JObject bundle,
+  ) {
+    return _startActivity1(reference, intent.reference, bundle.reference)
+        .check();
+  }
 
   static final _startActivities = jniLookup<
           ffi.NativeFunction<
@@ -8555,8 +10774,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startActivities(android.content.Intent[] intents)
-  void startActivities(jni.JArray<Intent> intents) =>
-      _startActivities(reference, intents.reference).check();
+  void startActivities(
+    jni.JArray<Intent> intents,
+  ) {
+    return _startActivities(reference, intents.reference).check();
+  }
 
   static final _startActivities1 = jniLookup<
           ffi.NativeFunction<
@@ -8569,8 +10791,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startActivities(android.content.Intent[] intents, android.os.Bundle bundle)
-  void startActivities1(jni.JArray<Intent> intents, jni.JObject bundle) =>
-      _startActivities1(reference, intents.reference, bundle.reference).check();
+  void startActivities1(
+    jni.JArray<Intent> intents,
+    jni.JObject bundle,
+  ) {
+    return _startActivities1(reference, intents.reference, bundle.reference)
+        .check();
+  }
 
   static final _startIntentSender = jniLookup<
           ffi.NativeFunction<
@@ -8587,10 +10814,16 @@ class Activity extends jni.JObject {
 
   /// from: public void startIntentSender(android.content.IntentSender intentSender, android.content.Intent intent, int i, int i1, int i2)
   void startIntentSender(
-          jni.JObject intentSender, Intent intent, int i, int i1, int i2) =>
-      _startIntentSender(
-              reference, intentSender.reference, intent.reference, i, i1, i2)
-          .check();
+    jni.JObject intentSender,
+    Intent intent,
+    int i,
+    int i1,
+    int i2,
+  ) {
+    return _startIntentSender(
+            reference, intentSender.reference, intent.reference, i, i1, i2)
+        .check();
+  }
 
   static final _startIntentSender1 = jniLookup<
           ffi.NativeFunction<
@@ -8607,11 +10840,18 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, int, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startIntentSender(android.content.IntentSender intentSender, android.content.Intent intent, int i, int i1, int i2, android.os.Bundle bundle)
-  void startIntentSender1(jni.JObject intentSender, Intent intent, int i,
-          int i1, int i2, jni.JObject bundle) =>
-      _startIntentSender1(reference, intentSender.reference, intent.reference,
-              i, i1, i2, bundle.reference)
-          .check();
+  void startIntentSender1(
+    jni.JObject intentSender,
+    Intent intent,
+    int i,
+    int i1,
+    int i2,
+    jni.JObject bundle,
+  ) {
+    return _startIntentSender1(reference, intentSender.reference,
+            intent.reference, i, i1, i2, bundle.reference)
+        .check();
+  }
 
   static final _startActivityIfNeeded = jniLookup<
           ffi.NativeFunction<
@@ -8624,8 +10864,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public boolean startActivityIfNeeded(android.content.Intent intent, int i)
-  bool startActivityIfNeeded(Intent intent, int i) =>
-      _startActivityIfNeeded(reference, intent.reference, i).boolean;
+  bool startActivityIfNeeded(
+    Intent intent,
+    int i,
+  ) {
+    return _startActivityIfNeeded(reference, intent.reference, i).boolean;
+  }
 
   static final _startActivityIfNeeded1 = jniLookup<
           ffi.NativeFunction<
@@ -8639,9 +10883,15 @@ class Activity extends jni.JObject {
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean startActivityIfNeeded(android.content.Intent intent, int i, android.os.Bundle bundle)
-  bool startActivityIfNeeded1(Intent intent, int i, jni.JObject bundle) =>
-      _startActivityIfNeeded1(reference, intent.reference, i, bundle.reference)
-          .boolean;
+  bool startActivityIfNeeded1(
+    Intent intent,
+    int i,
+    jni.JObject bundle,
+  ) {
+    return _startActivityIfNeeded1(
+            reference, intent.reference, i, bundle.reference)
+        .boolean;
+  }
 
   static final _startNextMatchingActivity = jniLookup<
               ffi.NativeFunction<
@@ -8653,8 +10903,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean startNextMatchingActivity(android.content.Intent intent)
-  bool startNextMatchingActivity(Intent intent) =>
-      _startNextMatchingActivity(reference, intent.reference).boolean;
+  bool startNextMatchingActivity(
+    Intent intent,
+  ) {
+    return _startNextMatchingActivity(reference, intent.reference).boolean;
+  }
 
   static final _startNextMatchingActivity1 = jniLookup<
               ffi.NativeFunction<
@@ -8666,9 +10919,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean startNextMatchingActivity(android.content.Intent intent, android.os.Bundle bundle)
-  bool startNextMatchingActivity1(Intent intent, jni.JObject bundle) =>
-      _startNextMatchingActivity1(reference, intent.reference, bundle.reference)
-          .boolean;
+  bool startNextMatchingActivity1(
+    Intent intent,
+    jni.JObject bundle,
+  ) {
+    return _startNextMatchingActivity1(
+            reference, intent.reference, bundle.reference)
+        .boolean;
+  }
 
   static final _startActivityFromChild = jniLookup<
           ffi.NativeFunction<
@@ -8682,10 +10940,15 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void startActivityFromChild(android.app.Activity activity, android.content.Intent intent, int i)
-  void startActivityFromChild(Activity activity, Intent intent, int i) =>
-      _startActivityFromChild(
-              reference, activity.reference, intent.reference, i)
-          .check();
+  void startActivityFromChild(
+    Activity activity,
+    Intent intent,
+    int i,
+  ) {
+    return _startActivityFromChild(
+            reference, activity.reference, intent.reference, i)
+        .check();
+  }
 
   static final _startActivityFromChild1 = jniLookup<
           ffi.NativeFunction<
@@ -8701,10 +10964,15 @@ class Activity extends jni.JObject {
 
   /// from: public void startActivityFromChild(android.app.Activity activity, android.content.Intent intent, int i, android.os.Bundle bundle)
   void startActivityFromChild1(
-          Activity activity, Intent intent, int i, jni.JObject bundle) =>
-      _startActivityFromChild1(reference, activity.reference, intent.reference,
-              i, bundle.reference)
-          .check();
+    Activity activity,
+    Intent intent,
+    int i,
+    jni.JObject bundle,
+  ) {
+    return _startActivityFromChild1(reference, activity.reference,
+            intent.reference, i, bundle.reference)
+        .check();
+  }
 
   static final _startActivityFromFragment = jniLookup<
           ffi.NativeFunction<
@@ -8718,10 +10986,15 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void startActivityFromFragment(android.app.Fragment fragment, android.content.Intent intent, int i)
-  void startActivityFromFragment(jni.JObject fragment, Intent intent, int i) =>
-      _startActivityFromFragment(
-              reference, fragment.reference, intent.reference, i)
-          .check();
+  void startActivityFromFragment(
+    jni.JObject fragment,
+    Intent intent,
+    int i,
+  ) {
+    return _startActivityFromFragment(
+            reference, fragment.reference, intent.reference, i)
+        .check();
+  }
 
   static final _startActivityFromFragment1 = jniLookup<
               ffi.NativeFunction<
@@ -8738,10 +11011,15 @@ class Activity extends jni.JObject {
 
   /// from: public void startActivityFromFragment(android.app.Fragment fragment, android.content.Intent intent, int i, android.os.Bundle bundle)
   void startActivityFromFragment1(
-          jni.JObject fragment, Intent intent, int i, jni.JObject bundle) =>
-      _startActivityFromFragment1(reference, fragment.reference,
-              intent.reference, i, bundle.reference)
-          .check();
+    jni.JObject fragment,
+    Intent intent,
+    int i,
+    jni.JObject bundle,
+  ) {
+    return _startActivityFromFragment1(reference, fragment.reference,
+            intent.reference, i, bundle.reference)
+        .check();
+  }
 
   static final _startIntentSenderFromChild = jniLookup<
           ffi.NativeFunction<
@@ -8766,11 +11044,19 @@ class Activity extends jni.JObject {
               int)>();
 
   /// from: public void startIntentSenderFromChild(android.app.Activity activity, android.content.IntentSender intentSender, int i, android.content.Intent intent, int i1, int i2, int i3)
-  void startIntentSenderFromChild(Activity activity, jni.JObject intentSender,
-          int i, Intent intent, int i1, int i2, int i3) =>
-      _startIntentSenderFromChild(reference, activity.reference,
-              intentSender.reference, i, intent.reference, i1, i2, i3)
-          .check();
+  void startIntentSenderFromChild(
+    Activity activity,
+    jni.JObject intentSender,
+    int i,
+    Intent intent,
+    int i1,
+    int i2,
+    int i3,
+  ) {
+    return _startIntentSenderFromChild(reference, activity.reference,
+            intentSender.reference, i, intent.reference, i1, i2, i3)
+        .check();
+  }
 
   static final _startIntentSenderFromChild1 = jniLookup<
               ffi.NativeFunction<
@@ -8798,19 +11084,28 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startIntentSenderFromChild(android.app.Activity activity, android.content.IntentSender intentSender, int i, android.content.Intent intent, int i1, int i2, int i3, android.os.Bundle bundle)
-  void startIntentSenderFromChild1(Activity activity, jni.JObject intentSender,
-          int i, Intent intent, int i1, int i2, int i3, jni.JObject bundle) =>
-      _startIntentSenderFromChild1(
-              reference,
-              activity.reference,
-              intentSender.reference,
-              i,
-              intent.reference,
-              i1,
-              i2,
-              i3,
-              bundle.reference)
-          .check();
+  void startIntentSenderFromChild1(
+    Activity activity,
+    jni.JObject intentSender,
+    int i,
+    Intent intent,
+    int i1,
+    int i2,
+    int i3,
+    jni.JObject bundle,
+  ) {
+    return _startIntentSenderFromChild1(
+            reference,
+            activity.reference,
+            intentSender.reference,
+            i,
+            intent.reference,
+            i1,
+            i2,
+            i3,
+            bundle.reference)
+        .check();
+  }
 
   static final _overridePendingTransition = jniLookup<
           ffi.NativeFunction<
@@ -8819,8 +11114,12 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public void overridePendingTransition(int i, int i1)
-  void overridePendingTransition(int i, int i1) =>
-      _overridePendingTransition(reference, i, i1).check();
+  void overridePendingTransition(
+    int i,
+    int i1,
+  ) {
+    return _overridePendingTransition(reference, i, i1).check();
+  }
 
   static final _overridePendingTransition1 = jniLookup<
           ffi.NativeFunction<
@@ -8833,8 +11132,13 @@ class Activity extends jni.JObject {
           jni.JniResult Function(ffi.Pointer<ffi.Void>, int, int, int)>();
 
   /// from: public void overridePendingTransition(int i, int i1, int i2)
-  void overridePendingTransition1(int i, int i1, int i2) =>
-      _overridePendingTransition1(reference, i, i1, i2).check();
+  void overridePendingTransition1(
+    int i,
+    int i1,
+    int i2,
+  ) {
+    return _overridePendingTransition1(reference, i, i1, i2).check();
+  }
 
   static final _setResult = jniLookup<
           ffi.NativeFunction<
@@ -8843,7 +11147,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setResult(int i)
-  void setResult(int i) => _setResult(reference, i).check();
+  void setResult(
+    int i,
+  ) {
+    return _setResult(reference, i).check();
+  }
 
   static final _setResult1 = jniLookup<
           ffi.NativeFunction<
@@ -8854,52 +11162,63 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void setResult(int i, android.content.Intent intent)
-  void setResult1(int i, Intent intent) =>
-      _setResult1(reference, i, intent.reference).check();
+  void setResult1(
+    int i,
+    Intent intent,
+  ) {
+    return _setResult1(reference, i, intent.reference).check();
+  }
 
   static final _getReferrer = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getReferrer")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getReferrer")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri getReferrer()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getReferrer() =>
-      const jni.JObjectType().fromRef(_getReferrer(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getReferrer() {
+    return const jni.JObjectType().fromRef(_getReferrer(reference).object);
+  }
 
   static final _onProvideReferrer = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onProvideReferrer")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onProvideReferrer")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri onProvideReferrer()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onProvideReferrer() =>
-      const jni.JObjectType().fromRef(_onProvideReferrer(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onProvideReferrer() {
+    return const jni.JObjectType()
+        .fromRef(_onProvideReferrer(reference).object);
+  }
 
   static final _getCallingPackage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getCallingPackage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getCallingPackage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getCallingPackage()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getCallingPackage() =>
-      const jni.JStringType().fromRef(_getCallingPackage(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getCallingPackage() {
+    return const jni.JStringType()
+        .fromRef(_getCallingPackage(reference).object);
+  }
 
   static final _getCallingActivity = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getCallingActivity")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getCallingActivity")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName getCallingActivity()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getCallingActivity() =>
-      const jni.JObjectType().fromRef(_getCallingActivity(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getCallingActivity() {
+    return const jni.JObjectType()
+        .fromRef(_getCallingActivity(reference).object);
+  }
 
   static final _setVisible = jniLookup<
           ffi.NativeFunction<
@@ -8908,62 +11227,77 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setVisible(boolean z)
-  void setVisible(bool z) => _setVisible(reference, z ? 1 : 0).check();
+  void setVisible(
+    bool z,
+  ) {
+    return _setVisible(reference, z ? 1 : 0).check();
+  }
 
   static final _isFinishing = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isFinishing")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isFinishing")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isFinishing()
-  bool isFinishing() => _isFinishing(reference).boolean;
+  bool isFinishing() {
+    return _isFinishing(reference).boolean;
+  }
 
   static final _isDestroyed = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isDestroyed")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isDestroyed")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isDestroyed()
-  bool isDestroyed() => _isDestroyed(reference).boolean;
+  bool isDestroyed() {
+    return _isDestroyed(reference).boolean;
+  }
 
   static final _isChangingConfigurations = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isChangingConfigurations")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isChangingConfigurations")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isChangingConfigurations()
-  bool isChangingConfigurations() =>
-      _isChangingConfigurations(reference).boolean;
+  bool isChangingConfigurations() {
+    return _isChangingConfigurations(reference).boolean;
+  }
 
   static final _recreate = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__recreate")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__recreate")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void recreate()
-  void recreate() => _recreate(reference).check();
+  void recreate() {
+    return _recreate(reference).check();
+  }
 
   static final _finish = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finish")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finish")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finish()
-  void finish() => _finish(reference).check();
+  void finish() {
+    return _finish(reference).check();
+  }
 
   static final _finishAffinity = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finishAffinity")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finishAffinity")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishAffinity()
-  void finishAffinity() => _finishAffinity(reference).check();
+  void finishAffinity() {
+    return _finishAffinity(reference).check();
+  }
 
   static final _finishFromChild = jniLookup<
           ffi.NativeFunction<
@@ -8974,17 +11308,22 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishFromChild(android.app.Activity activity)
-  void finishFromChild(Activity activity) =>
-      _finishFromChild(reference, activity.reference).check();
+  void finishFromChild(
+    Activity activity,
+  ) {
+    return _finishFromChild(reference, activity.reference).check();
+  }
 
   static final _finishAfterTransition = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finishAfterTransition")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finishAfterTransition")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishAfterTransition()
-  void finishAfterTransition() => _finishAfterTransition(reference).check();
+  void finishAfterTransition() {
+    return _finishAfterTransition(reference).check();
+  }
 
   static final _finishActivity = jniLookup<
           ffi.NativeFunction<
@@ -8993,7 +11332,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void finishActivity(int i)
-  void finishActivity(int i) => _finishActivity(reference, i).check();
+  void finishActivity(
+    int i,
+  ) {
+    return _finishActivity(reference, i).check();
+  }
 
   static final _finishActivityFromChild = jniLookup<
           ffi.NativeFunction<
@@ -9006,26 +11349,34 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void finishActivityFromChild(android.app.Activity activity, int i)
-  void finishActivityFromChild(Activity activity, int i) =>
-      _finishActivityFromChild(reference, activity.reference, i).check();
+  void finishActivityFromChild(
+    Activity activity,
+    int i,
+  ) {
+    return _finishActivityFromChild(reference, activity.reference, i).check();
+  }
 
   static final _finishAndRemoveTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__finishAndRemoveTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__finishAndRemoveTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void finishAndRemoveTask()
-  void finishAndRemoveTask() => _finishAndRemoveTask(reference).check();
+  void finishAndRemoveTask() {
+    return _finishAndRemoveTask(reference).check();
+  }
 
   static final _releaseInstance = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__releaseInstance")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__releaseInstance")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean releaseInstance()
-  bool releaseInstance() => _releaseInstance(reference).boolean;
+  bool releaseInstance() {
+    return _releaseInstance(reference).boolean;
+  }
 
   static final _onActivityResult = jniLookup<
           ffi.NativeFunction<
@@ -9039,8 +11390,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onActivityResult(int i, int i1, android.content.Intent intent)
-  void onActivityResult(int i, int i1, Intent intent) =>
-      _onActivityResult(reference, i, i1, intent.reference).check();
+  void onActivityResult(
+    int i,
+    int i1,
+    Intent intent,
+  ) {
+    return _onActivityResult(reference, i, i1, intent.reference).check();
+  }
 
   static final _onActivityReenter = jniLookup<
           ffi.NativeFunction<
@@ -9051,8 +11407,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onActivityReenter(int i, android.content.Intent intent)
-  void onActivityReenter(int i, Intent intent) =>
-      _onActivityReenter(reference, i, intent.reference).check();
+  void onActivityReenter(
+    int i,
+    Intent intent,
+  ) {
+    return _onActivityReenter(reference, i, intent.reference).check();
+  }
 
   static final _createPendingResult = jniLookup<
           ffi.NativeFunction<
@@ -9066,10 +11426,15 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.app.PendingIntent createPendingResult(int i, android.content.Intent intent, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject createPendingResult(int i, Intent intent, int i1) =>
-      const jni.JObjectType().fromRef(
-          _createPendingResult(reference, i, intent.reference, i1).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject createPendingResult(
+    int i,
+    Intent intent,
+    int i1,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _createPendingResult(reference, i, intent.reference, i1).object);
+  }
 
   static final _setRequestedOrientation = jniLookup<
           ffi.NativeFunction<
@@ -9078,35 +11443,44 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setRequestedOrientation(int i)
-  void setRequestedOrientation(int i) =>
-      _setRequestedOrientation(reference, i).check();
+  void setRequestedOrientation(
+    int i,
+  ) {
+    return _setRequestedOrientation(reference, i).check();
+  }
 
   static final _getRequestedOrientation = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getRequestedOrientation")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getRequestedOrientation")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getRequestedOrientation()
-  int getRequestedOrientation() => _getRequestedOrientation(reference).integer;
+  int getRequestedOrientation() {
+    return _getRequestedOrientation(reference).integer;
+  }
 
   static final _getTaskId = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getTaskId")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getTaskId")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getTaskId()
-  int getTaskId() => _getTaskId(reference).integer;
+  int getTaskId() {
+    return _getTaskId(reference).integer;
+  }
 
   static final _isTaskRoot = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isTaskRoot")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isTaskRoot")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isTaskRoot()
-  bool isTaskRoot() => _isTaskRoot(reference).boolean;
+  bool isTaskRoot() {
+    return _isTaskRoot(reference).boolean;
+  }
 
   static final _moveTaskToBack = jniLookup<
           ffi.NativeFunction<
@@ -9115,29 +11489,36 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public boolean moveTaskToBack(boolean z)
-  bool moveTaskToBack(bool z) => _moveTaskToBack(reference, z ? 1 : 0).boolean;
+  bool moveTaskToBack(
+    bool z,
+  ) {
+    return _moveTaskToBack(reference, z ? 1 : 0).boolean;
+  }
 
   static final _getLocalClassName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getLocalClassName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getLocalClassName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getLocalClassName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString getLocalClassName() =>
-      const jni.JStringType().fromRef(_getLocalClassName(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getLocalClassName() {
+    return const jni.JStringType()
+        .fromRef(_getLocalClassName(reference).object);
+  }
 
   static final _getComponentName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getComponentName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getComponentName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ComponentName getComponentName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getComponentName() =>
-      const jni.JObjectType().fromRef(_getComponentName(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getComponentName() {
+    return const jni.JObjectType().fromRef(_getComponentName(reference).object);
+  }
 
   static final _getPreferences = jniLookup<
           ffi.NativeFunction<
@@ -9146,18 +11527,24 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.content.SharedPreferences getPreferences(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getPreferences(int i) =>
-      const jni.JObjectType().fromRef(_getPreferences(reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getPreferences(
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getPreferences(reference, i).object);
+  }
 
   static final _isLaunchedFromBubble = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isLaunchedFromBubble")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isLaunchedFromBubble")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isLaunchedFromBubble()
-  bool isLaunchedFromBubble() => _isLaunchedFromBubble(reference).boolean;
+  bool isLaunchedFromBubble() {
+    return _isLaunchedFromBubble(reference).boolean;
+  }
 
   static final _getSystemService = jniLookup<
           ffi.NativeFunction<
@@ -9168,9 +11555,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object getSystemService(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getSystemService(jni.JString string) => const jni.JObjectType()
-      .fromRef(_getSystemService(reference, string.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSystemService(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getSystemService(reference, string.reference).object);
+  }
 
   static final _setTitle = jniLookup<
           ffi.NativeFunction<
@@ -9181,8 +11572,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setTitle(java.lang.CharSequence charSequence)
-  void setTitle(jni.JObject charSequence) =>
-      _setTitle(reference, charSequence.reference).check();
+  void setTitle(
+    jni.JObject charSequence,
+  ) {
+    return _setTitle(reference, charSequence.reference).check();
+  }
 
   static final _setTitle1 = jniLookup<
           ffi.NativeFunction<
@@ -9191,7 +11585,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setTitle(int i)
-  void setTitle1(int i) => _setTitle1(reference, i).check();
+  void setTitle1(
+    int i,
+  ) {
+    return _setTitle1(reference, i).check();
+  }
 
   static final _setTitleColor = jniLookup<
           ffi.NativeFunction<
@@ -9200,27 +11598,34 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setTitleColor(int i)
-  void setTitleColor(int i) => _setTitleColor(reference, i).check();
+  void setTitleColor(
+    int i,
+  ) {
+    return _setTitleColor(reference, i).check();
+  }
 
   static final _getTitle = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getTitle")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getTitle")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final java.lang.CharSequence getTitle()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getTitle() =>
-      const jni.JObjectType().fromRef(_getTitle(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getTitle() {
+    return const jni.JObjectType().fromRef(_getTitle(reference).object);
+  }
 
   static final _getTitleColor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getTitleColor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getTitleColor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final int getTitleColor()
-  int getTitleColor() => _getTitleColor(reference).integer;
+  int getTitleColor() {
+    return _getTitleColor(reference).integer;
+  }
 
   static final _onTitleChanged = jniLookup<
           ffi.NativeFunction<
@@ -9233,8 +11638,12 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: protected void onTitleChanged(java.lang.CharSequence charSequence, int i)
-  void onTitleChanged(jni.JObject charSequence, int i) =>
-      _onTitleChanged(reference, charSequence.reference, i).check();
+  void onTitleChanged(
+    jni.JObject charSequence,
+    int i,
+  ) {
+    return _onTitleChanged(reference, charSequence.reference, i).check();
+  }
 
   static final _onChildTitleChanged = jniLookup<
           ffi.NativeFunction<
@@ -9247,10 +11656,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: protected void onChildTitleChanged(android.app.Activity activity, java.lang.CharSequence charSequence)
-  void onChildTitleChanged(Activity activity, jni.JObject charSequence) =>
-      _onChildTitleChanged(
-              reference, activity.reference, charSequence.reference)
-          .check();
+  void onChildTitleChanged(
+    Activity activity,
+    jni.JObject charSequence,
+  ) {
+    return _onChildTitleChanged(
+            reference, activity.reference, charSequence.reference)
+        .check();
+  }
 
   static final _setTaskDescription = jniLookup<
           ffi.NativeFunction<
@@ -9261,8 +11674,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setTaskDescription(android.app.ActivityManager$TaskDescription taskDescription)
-  void setTaskDescription(jni.JObject taskDescription) =>
-      _setTaskDescription(reference, taskDescription.reference).check();
+  void setTaskDescription(
+    jni.JObject taskDescription,
+  ) {
+    return _setTaskDescription(reference, taskDescription.reference).check();
+  }
 
   static final _setProgressBarVisibility = jniLookup<
           ffi.NativeFunction<
@@ -9271,8 +11687,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setProgressBarVisibility(boolean z)
-  void setProgressBarVisibility(bool z) =>
-      _setProgressBarVisibility(reference, z ? 1 : 0).check();
+  void setProgressBarVisibility(
+    bool z,
+  ) {
+    return _setProgressBarVisibility(reference, z ? 1 : 0).check();
+  }
 
   static final _setProgressBarIndeterminateVisibility = jniLookup<
               ffi.NativeFunction<
@@ -9281,8 +11700,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setProgressBarIndeterminateVisibility(boolean z)
-  void setProgressBarIndeterminateVisibility(bool z) =>
-      _setProgressBarIndeterminateVisibility(reference, z ? 1 : 0).check();
+  void setProgressBarIndeterminateVisibility(
+    bool z,
+  ) {
+    return _setProgressBarIndeterminateVisibility(reference, z ? 1 : 0).check();
+  }
 
   static final _setProgressBarIndeterminate = jniLookup<
           ffi.NativeFunction<
@@ -9291,8 +11713,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setProgressBarIndeterminate(boolean z)
-  void setProgressBarIndeterminate(bool z) =>
-      _setProgressBarIndeterminate(reference, z ? 1 : 0).check();
+  void setProgressBarIndeterminate(
+    bool z,
+  ) {
+    return _setProgressBarIndeterminate(reference, z ? 1 : 0).check();
+  }
 
   static final _setProgress = jniLookup<
           ffi.NativeFunction<
@@ -9301,7 +11726,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setProgress(int i)
-  void setProgress(int i) => _setProgress(reference, i).check();
+  void setProgress(
+    int i,
+  ) {
+    return _setProgress(reference, i).check();
+  }
 
   static final _setSecondaryProgress = jniLookup<
           ffi.NativeFunction<
@@ -9310,8 +11739,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setSecondaryProgress(int i)
-  void setSecondaryProgress(int i) =>
-      _setSecondaryProgress(reference, i).check();
+  void setSecondaryProgress(
+    int i,
+  ) {
+    return _setSecondaryProgress(reference, i).check();
+  }
 
   static final _setVolumeControlStream = jniLookup<
           ffi.NativeFunction<
@@ -9320,17 +11752,22 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final void setVolumeControlStream(int i)
-  void setVolumeControlStream(int i) =>
-      _setVolumeControlStream(reference, i).check();
+  void setVolumeControlStream(
+    int i,
+  ) {
+    return _setVolumeControlStream(reference, i).check();
+  }
 
   static final _getVolumeControlStream = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getVolumeControlStream")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getVolumeControlStream")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final int getVolumeControlStream()
-  int getVolumeControlStream() => _getVolumeControlStream(reference).integer;
+  int getVolumeControlStream() {
+    return _getVolumeControlStream(reference).integer;
+  }
 
   static final _setMediaController = jniLookup<
           ffi.NativeFunction<
@@ -9341,19 +11778,24 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void setMediaController(android.media.session.MediaController mediaController)
-  void setMediaController(jni.JObject mediaController) =>
-      _setMediaController(reference, mediaController.reference).check();
+  void setMediaController(
+    jni.JObject mediaController,
+  ) {
+    return _setMediaController(reference, mediaController.reference).check();
+  }
 
   static final _getMediaController = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getMediaController")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getMediaController")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.media.session.MediaController getMediaController()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getMediaController() =>
-      const jni.JObjectType().fromRef(_getMediaController(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getMediaController() {
+    return const jni.JObjectType()
+        .fromRef(_getMediaController(reference).object);
+  }
 
   static final _runOnUiThread = jniLookup<
           ffi.NativeFunction<
@@ -9364,8 +11806,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final void runOnUiThread(java.lang.Runnable runnable)
-  void runOnUiThread(jni.JObject runnable) =>
-      _runOnUiThread(reference, runnable.reference).check();
+  void runOnUiThread(
+    jni.JObject runnable,
+  ) {
+    return _runOnUiThread(reference, runnable.reference).check();
+  }
 
   static final _onCreateView = jniLookup<
           ffi.NativeFunction<
@@ -9379,12 +11824,16 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.View onCreateView(java.lang.String string, android.content.Context context, android.util.AttributeSet attributeSet)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject onCreateView(
-          jni.JString string, Context context, jni.JObject attributeSet) =>
-      const jni.JObjectType().fromRef(_onCreateView(reference, string.reference,
-              context.reference, attributeSet.reference)
-          .object);
+    jni.JString string,
+    Context context,
+    jni.JObject attributeSet,
+  ) {
+    return const jni.JObjectType().fromRef(_onCreateView(reference,
+            string.reference, context.reference, attributeSet.reference)
+        .object);
+  }
 
   static final _onCreateView1 = jniLookup<
           ffi.NativeFunction<
@@ -9403,12 +11852,21 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.View onCreateView(android.view.View view, java.lang.String string, android.content.Context context, android.util.AttributeSet attributeSet)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onCreateView1(jni.JObject view, jni.JString string,
-          Context context, jni.JObject attributeSet) =>
-      const jni.JObjectType().fromRef(_onCreateView1(reference, view.reference,
-              string.reference, context.reference, attributeSet.reference)
-          .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onCreateView1(
+    jni.JObject view,
+    jni.JString string,
+    Context context,
+    jni.JObject attributeSet,
+  ) {
+    return const jni.JObjectType().fromRef(_onCreateView1(
+            reference,
+            view.reference,
+            string.reference,
+            context.reference,
+            attributeSet.reference)
+        .object);
+  }
 
   static final _dump = jniLookup<
           ffi.NativeFunction<
@@ -9427,20 +11885,27 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void dump(java.lang.String string, java.io.FileDescriptor fileDescriptor, java.io.PrintWriter printWriter, java.lang.String[] strings)
-  void dump(jni.JString string, jni.JObject fileDescriptor,
-          jni.JObject printWriter, jni.JArray<jni.JString> strings) =>
-      _dump(reference, string.reference, fileDescriptor.reference,
-              printWriter.reference, strings.reference)
-          .check();
+  void dump(
+    jni.JString string,
+    jni.JObject fileDescriptor,
+    jni.JObject printWriter,
+    jni.JArray<jni.JString> strings,
+  ) {
+    return _dump(reference, string.reference, fileDescriptor.reference,
+            printWriter.reference, strings.reference)
+        .check();
+  }
 
   static final _isImmersive = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__isImmersive")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__isImmersive")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isImmersive()
-  bool isImmersive() => _isImmersive(reference).boolean;
+  bool isImmersive() {
+    return _isImmersive(reference).boolean;
+  }
 
   static final _setTranslucent = jniLookup<
           ffi.NativeFunction<
@@ -9449,7 +11914,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public boolean setTranslucent(boolean z)
-  bool setTranslucent(bool z) => _setTranslucent(reference, z ? 1 : 0).boolean;
+  bool setTranslucent(
+    bool z,
+  ) {
+    return _setTranslucent(reference, z ? 1 : 0).boolean;
+  }
 
   static final _requestVisibleBehind = jniLookup<
           ffi.NativeFunction<
@@ -9458,27 +11927,33 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public boolean requestVisibleBehind(boolean z)
-  bool requestVisibleBehind(bool z) =>
-      _requestVisibleBehind(reference, z ? 1 : 0).boolean;
+  bool requestVisibleBehind(
+    bool z,
+  ) {
+    return _requestVisibleBehind(reference, z ? 1 : 0).boolean;
+  }
 
   static final _onVisibleBehindCanceled = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onVisibleBehindCanceled")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onVisibleBehindCanceled")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onVisibleBehindCanceled()
-  void onVisibleBehindCanceled() => _onVisibleBehindCanceled(reference).check();
+  void onVisibleBehindCanceled() {
+    return _onVisibleBehindCanceled(reference).check();
+  }
 
   static final _onEnterAnimationComplete = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__onEnterAnimationComplete")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__onEnterAnimationComplete")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onEnterAnimationComplete()
-  void onEnterAnimationComplete() =>
-      _onEnterAnimationComplete(reference).check();
+  void onEnterAnimationComplete() {
+    return _onEnterAnimationComplete(reference).check();
+  }
 
   static final _setImmersive = jniLookup<
           ffi.NativeFunction<
@@ -9487,7 +11962,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setImmersive(boolean z)
-  void setImmersive(bool z) => _setImmersive(reference, z ? 1 : 0).check();
+  void setImmersive(
+    bool z,
+  ) {
+    return _setImmersive(reference, z ? 1 : 0).check();
+  }
 
   static final _setVrModeEnabled = jniLookup<
           ffi.NativeFunction<
@@ -9498,8 +11977,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setVrModeEnabled(boolean z, android.content.ComponentName componentName)
-  void setVrModeEnabled(bool z, jni.JObject componentName) =>
-      _setVrModeEnabled(reference, z ? 1 : 0, componentName.reference).check();
+  void setVrModeEnabled(
+    bool z,
+    jni.JObject componentName,
+  ) {
+    return _setVrModeEnabled(reference, z ? 1 : 0, componentName.reference)
+        .check();
+  }
 
   static final _startActionMode = jniLookup<
           ffi.NativeFunction<
@@ -9510,9 +11994,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.ActionMode startActionMode(android.view.ActionMode$Callback callback)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject startActionMode(jni.JObject callback) => const jni.JObjectType()
-      .fromRef(_startActionMode(reference, callback.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject startActionMode(
+    jni.JObject callback,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_startActionMode(reference, callback.reference).object);
+  }
 
   static final _startActionMode1 = jniLookup<
           ffi.NativeFunction<
@@ -9525,10 +12013,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.view.ActionMode startActionMode(android.view.ActionMode$Callback callback, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject startActionMode1(jni.JObject callback, int i) =>
-      const jni.JObjectType()
-          .fromRef(_startActionMode1(reference, callback.reference, i).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject startActionMode1(
+    jni.JObject callback,
+    int i,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_startActionMode1(reference, callback.reference, i).object);
+  }
 
   static final _onWindowStartingActionMode = jniLookup<
               ffi.NativeFunction<
@@ -9540,10 +12032,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode$Callback callback)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onWindowStartingActionMode(jni.JObject callback) =>
-      const jni.JObjectType().fromRef(
-          _onWindowStartingActionMode(reference, callback.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onWindowStartingActionMode(
+    jni.JObject callback,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _onWindowStartingActionMode(reference, callback.reference).object);
+  }
 
   static final _onWindowStartingActionMode1 = jniLookup<
           ffi.NativeFunction<
@@ -9556,11 +12051,14 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode$Callback callback, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject onWindowStartingActionMode1(jni.JObject callback, int i) =>
-      const jni.JObjectType().fromRef(
-          _onWindowStartingActionMode1(reference, callback.reference, i)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject onWindowStartingActionMode1(
+    jni.JObject callback,
+    int i,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _onWindowStartingActionMode1(reference, callback.reference, i).object);
+  }
 
   static final _onActionModeStarted = jniLookup<
           ffi.NativeFunction<
@@ -9571,8 +12069,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onActionModeStarted(android.view.ActionMode actionMode)
-  void onActionModeStarted(jni.JObject actionMode) =>
-      _onActionModeStarted(reference, actionMode.reference).check();
+  void onActionModeStarted(
+    jni.JObject actionMode,
+  ) {
+    return _onActionModeStarted(reference, actionMode.reference).check();
+  }
 
   static final _onActionModeFinished = jniLookup<
           ffi.NativeFunction<
@@ -9583,8 +12084,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void onActionModeFinished(android.view.ActionMode actionMode)
-  void onActionModeFinished(jni.JObject actionMode) =>
-      _onActionModeFinished(reference, actionMode.reference).check();
+  void onActionModeFinished(
+    jni.JObject actionMode,
+  ) {
+    return _onActionModeFinished(reference, actionMode.reference).check();
+  }
 
   static final _shouldUpRecreateTask = jniLookup<
           ffi.NativeFunction<
@@ -9595,8 +12099,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean shouldUpRecreateTask(android.content.Intent intent)
-  bool shouldUpRecreateTask(Intent intent) =>
-      _shouldUpRecreateTask(reference, intent.reference).boolean;
+  bool shouldUpRecreateTask(
+    Intent intent,
+  ) {
+    return _shouldUpRecreateTask(reference, intent.reference).boolean;
+  }
 
   static final _navigateUpTo = jniLookup<
           ffi.NativeFunction<
@@ -9607,8 +12114,11 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean navigateUpTo(android.content.Intent intent)
-  bool navigateUpTo(Intent intent) =>
-      _navigateUpTo(reference, intent.reference).boolean;
+  bool navigateUpTo(
+    Intent intent,
+  ) {
+    return _navigateUpTo(reference, intent.reference).boolean;
+  }
 
   static final _navigateUpToFromChild = jniLookup<
           ffi.NativeFunction<
@@ -9621,20 +12131,27 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean navigateUpToFromChild(android.app.Activity activity, android.content.Intent intent)
-  bool navigateUpToFromChild(Activity activity, Intent intent) =>
-      _navigateUpToFromChild(reference, activity.reference, intent.reference)
-          .boolean;
+  bool navigateUpToFromChild(
+    Activity activity,
+    Intent intent,
+  ) {
+    return _navigateUpToFromChild(
+            reference, activity.reference, intent.reference)
+        .boolean;
+  }
 
   static final _getParentActivityIntent = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__getParentActivityIntent")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__getParentActivityIntent")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Intent getParentActivityIntent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Intent getParentActivityIntent() =>
-      const $IntentType().fromRef(_getParentActivityIntent(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Intent getParentActivityIntent() {
+    return const $IntentType()
+        .fromRef(_getParentActivityIntent(reference).object);
+  }
 
   static final _setEnterSharedElementCallback = jniLookup<
               ffi.NativeFunction<
@@ -9646,9 +12163,13 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setEnterSharedElementCallback(android.app.SharedElementCallback sharedElementCallback)
-  void setEnterSharedElementCallback(jni.JObject sharedElementCallback) =>
-      _setEnterSharedElementCallback(reference, sharedElementCallback.reference)
-          .check();
+  void setEnterSharedElementCallback(
+    jni.JObject sharedElementCallback,
+  ) {
+    return _setEnterSharedElementCallback(
+            reference, sharedElementCallback.reference)
+        .check();
+  }
 
   static final _setExitSharedElementCallback = jniLookup<
               ffi.NativeFunction<
@@ -9660,28 +12181,35 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void setExitSharedElementCallback(android.app.SharedElementCallback sharedElementCallback)
-  void setExitSharedElementCallback(jni.JObject sharedElementCallback) =>
-      _setExitSharedElementCallback(reference, sharedElementCallback.reference)
-          .check();
+  void setExitSharedElementCallback(
+    jni.JObject sharedElementCallback,
+  ) {
+    return _setExitSharedElementCallback(
+            reference, sharedElementCallback.reference)
+        .check();
+  }
 
   static final _postponeEnterTransition = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__postponeEnterTransition")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__postponeEnterTransition")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void postponeEnterTransition()
-  void postponeEnterTransition() => _postponeEnterTransition(reference).check();
+  void postponeEnterTransition() {
+    return _postponeEnterTransition(reference).check();
+  }
 
   static final _startPostponedEnterTransition = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__startPostponedEnterTransition")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startPostponedEnterTransition()
-  void startPostponedEnterTransition() =>
-      _startPostponedEnterTransition(reference).check();
+  void startPostponedEnterTransition() {
+    return _startPostponedEnterTransition(reference).check();
+  }
 
   static final _requestDragAndDropPermissions = jniLookup<
               ffi.NativeFunction<
@@ -9693,39 +12221,46 @@ class Activity extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.DragAndDropPermissions requestDragAndDropPermissions(android.view.DragEvent dragEvent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject requestDragAndDropPermissions(jni.JObject dragEvent) =>
-      const jni.JObjectType().fromRef(
-          _requestDragAndDropPermissions(reference, dragEvent.reference)
-              .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject requestDragAndDropPermissions(
+    jni.JObject dragEvent,
+  ) {
+    return const jni.JObjectType().fromRef(
+        _requestDragAndDropPermissions(reference, dragEvent.reference).object);
+  }
 
   static final _startLockTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__startLockTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__startLockTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void startLockTask()
-  void startLockTask() => _startLockTask(reference).check();
+  void startLockTask() {
+    return _startLockTask(reference).check();
+  }
 
   static final _stopLockTask = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Activity__stopLockTask")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Activity__stopLockTask")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void stopLockTask()
-  void stopLockTask() => _stopLockTask(reference).check();
+  void stopLockTask() {
+    return _stopLockTask(reference).check();
+  }
 
   static final _showLockTaskEscapeMessage = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__showLockTaskEscapeMessage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void showLockTaskEscapeMessage()
-  void showLockTaskEscapeMessage() =>
-      _showLockTaskEscapeMessage(reference).check();
+  void showLockTaskEscapeMessage() {
+    return _showLockTaskEscapeMessage(reference).check();
+  }
 
   static final _setRecentsScreenshotEnabled = jniLookup<
           ffi.NativeFunction<
@@ -9734,8 +12269,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setRecentsScreenshotEnabled(boolean z)
-  void setRecentsScreenshotEnabled(bool z) =>
-      _setRecentsScreenshotEnabled(reference, z ? 1 : 0).check();
+  void setRecentsScreenshotEnabled(
+    bool z,
+  ) {
+    return _setRecentsScreenshotEnabled(reference, z ? 1 : 0).check();
+  }
 
   static final _setShowWhenLocked = jniLookup<
           ffi.NativeFunction<
@@ -9744,8 +12282,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setShowWhenLocked(boolean z)
-  void setShowWhenLocked(bool z) =>
-      _setShowWhenLocked(reference, z ? 1 : 0).check();
+  void setShowWhenLocked(
+    bool z,
+  ) {
+    return _setShowWhenLocked(reference, z ? 1 : 0).check();
+  }
 
   static final _setInheritShowWhenLocked = jniLookup<
           ffi.NativeFunction<
@@ -9754,8 +12295,11 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setInheritShowWhenLocked(boolean z)
-  void setInheritShowWhenLocked(bool z) =>
-      _setInheritShowWhenLocked(reference, z ? 1 : 0).check();
+  void setInheritShowWhenLocked(
+    bool z,
+  ) {
+    return _setInheritShowWhenLocked(reference, z ? 1 : 0).check();
+  }
 
   static final _setTurnScreenOn = jniLookup<
           ffi.NativeFunction<
@@ -9764,19 +12308,24 @@ class Activity extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public void setTurnScreenOn(boolean z)
-  void setTurnScreenOn(bool z) =>
-      _setTurnScreenOn(reference, z ? 1 : 0).check();
+  void setTurnScreenOn(
+    bool z,
+  ) {
+    return _setTurnScreenOn(reference, z ? 1 : 0).check();
+  }
 
   static final _getOnBackInvokedDispatcher = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Activity__getOnBackInvokedDispatcher")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.window.OnBackInvokedDispatcher getOnBackInvokedDispatcher()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getOnBackInvokedDispatcher() => const jni.JObjectType()
-      .fromRef(_getOnBackInvokedDispatcher(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getOnBackInvokedDispatcher() {
+    return const jni.JObjectType()
+        .fromRef(_getOnBackInvokedDispatcher(reference).object);
+  }
 }
 
 class $ActivityType extends jni.JObjType<Activity> {
@@ -9787,39 +12336,38 @@ class $ActivityType extends jni.JObjType<Activity> {
 
   @override
   Activity fromRef(jni.JObjectPtr ref) => Activity.fromRef(ref);
-}
 
-extension $ActivityArray on jni.JArray<Activity> {
-  Activity operator [](int index) {
-    return (elementType as $ActivityType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, Activity value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($ActivityType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ActivityType) && other is $ActivityType;
   }
 }
 
 /// from: java.time.Instant
 class Instant extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<Instant> $type = type;
 
-  Instant.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Instant.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $InstantType();
-
   static final _get_EPOCH =
       jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
               "get_Instant__EPOCH")
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final java.time.Instant EPOCH
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant get EPOCH => const $InstantType().fromRef(_get_EPOCH().object);
 
   static final _get_MAX =
@@ -9828,7 +12376,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final java.time.Instant MAX
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant get MAX => const $InstantType().fromRef(_get_MAX().object);
 
   static final _get_MIN =
@@ -9837,7 +12385,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final java.time.Instant MIN
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant get MIN => const $InstantType().fromRef(_get_MIN().object);
 
   static final _now =
@@ -9845,18 +12393,24 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public java.time.Instant now()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant now() => const $InstantType().fromRef(_now().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant now() {
+    return const $InstantType().fromRef(_now().object);
+  }
 
   static final _now1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__now1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__now1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant now(java.time.Clock clock)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant now1(jni.JObject clock) =>
-      const $InstantType().fromRef(_now1(clock.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant now1(
+    jni.JObject clock,
+  ) {
+    return const $InstantType().fromRef(_now1(clock.reference).object);
+  }
 
   static final _ofEpochSecond =
       jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
@@ -9864,9 +12418,12 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function(int)>();
 
   /// from: static public java.time.Instant ofEpochSecond(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant ofEpochSecond(int j) =>
-      const $InstantType().fromRef(_ofEpochSecond(j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant ofEpochSecond(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_ofEpochSecond(j).object);
+  }
 
   static final _ofEpochSecond1 = jniLookup<
               ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
@@ -9874,9 +12431,13 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(int, int)>();
 
   /// from: static public java.time.Instant ofEpochSecond(long j, long j1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant ofEpochSecond1(int j, int j1) =>
-      const $InstantType().fromRef(_ofEpochSecond1(j, j1).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant ofEpochSecond1(
+    int j,
+    int j1,
+  ) {
+    return const $InstantType().fromRef(_ofEpochSecond1(j, j1).object);
+  }
 
   static final _ofEpochMilli =
       jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
@@ -9884,29 +12445,41 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function(int)>();
 
   /// from: static public java.time.Instant ofEpochMilli(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant ofEpochMilli(int j) =>
-      const $InstantType().fromRef(_ofEpochMilli(j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant ofEpochMilli(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_ofEpochMilli(j).object);
+  }
 
   static final _from = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__from")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__from")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant from(java.time.temporal.TemporalAccessor temporalAccessor)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant from(jni.JObject temporalAccessor) =>
-      const $InstantType().fromRef(_from(temporalAccessor.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant from(
+    jni.JObject temporalAccessor,
+  ) {
+    return const $InstantType()
+        .fromRef(_from(temporalAccessor.reference).object);
+  }
 
   static final _parse = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__parse")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__parse")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant parse(java.lang.CharSequence charSequence)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Instant parse(jni.JObject charSequence) =>
-      const $InstantType().fromRef(_parse(charSequence.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static Instant parse(
+    jni.JObject charSequence,
+  ) {
+    return const $InstantType().fromRef(_parse(charSequence.reference).object);
+  }
 
   static final _isSupported = jniLookup<
           ffi.NativeFunction<
@@ -9917,8 +12490,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isSupported(java.time.temporal.TemporalField temporalField)
-  bool isSupported(jni.JObject temporalField) =>
-      _isSupported(reference, temporalField.reference).boolean;
+  bool isSupported(
+    jni.JObject temporalField,
+  ) {
+    return _isSupported(reference, temporalField.reference).boolean;
+  }
 
   static final _isSupported1 = jniLookup<
           ffi.NativeFunction<
@@ -9929,8 +12505,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isSupported(java.time.temporal.TemporalUnit temporalUnit)
-  bool isSupported1(jni.JObject temporalUnit) =>
-      _isSupported1(reference, temporalUnit.reference).boolean;
+  bool isSupported1(
+    jni.JObject temporalUnit,
+  ) {
+    return _isSupported1(reference, temporalUnit.reference).boolean;
+  }
 
   static final _range = jniLookup<
           ffi.NativeFunction<
@@ -9941,9 +12520,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.ValueRange range(java.time.temporal.TemporalField temporalField)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject range(jni.JObject temporalField) => const jni.JObjectType()
-      .fromRef(_range(reference, temporalField.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject range(
+    jni.JObject temporalField,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_range(reference, temporalField.reference).object);
+  }
 
   static final _get0 = jniLookup<
           ffi.NativeFunction<
@@ -9954,8 +12537,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public int get(java.time.temporal.TemporalField temporalField)
-  int get0(jni.JObject temporalField) =>
-      _get0(reference, temporalField.reference).integer;
+  int get0(
+    jni.JObject temporalField,
+  ) {
+    return _get0(reference, temporalField.reference).integer;
+  }
 
   static final _getLong = jniLookup<
           ffi.NativeFunction<
@@ -9966,26 +12552,33 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public long getLong(java.time.temporal.TemporalField temporalField)
-  int getLong(jni.JObject temporalField) =>
-      _getLong(reference, temporalField.reference).long;
+  int getLong(
+    jni.JObject temporalField,
+  ) {
+    return _getLong(reference, temporalField.reference).long;
+  }
 
   static final _getEpochSecond = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__getEpochSecond")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__getEpochSecond")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public long getEpochSecond()
-  int getEpochSecond() => _getEpochSecond(reference).long;
+  int getEpochSecond() {
+    return _getEpochSecond(reference).long;
+  }
 
   static final _getNano = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__getNano")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__getNano")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getNano()
-  int getNano() => _getNano(reference).integer;
+  int getNano() {
+    return _getNano(reference).integer;
+  }
 
   static final _with0 = jniLookup<
           ffi.NativeFunction<
@@ -9996,9 +12589,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant with(java.time.temporal.TemporalAdjuster temporalAdjuster)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant with0(jni.JObject temporalAdjuster) => const $InstantType()
-      .fromRef(_with0(reference, temporalAdjuster.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant with0(
+    jni.JObject temporalAdjuster,
+  ) {
+    return const $InstantType()
+        .fromRef(_with0(reference, temporalAdjuster.reference).object);
+  }
 
   static final _with1 = jniLookup<
           ffi.NativeFunction<
@@ -10009,9 +12606,14 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant with(java.time.temporal.TemporalField temporalField, long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant with1(jni.JObject temporalField, int j) => const $InstantType()
-      .fromRef(_with1(reference, temporalField.reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant with1(
+    jni.JObject temporalField,
+    int j,
+  ) {
+    return const $InstantType()
+        .fromRef(_with1(reference, temporalField.reference, j).object);
+  }
 
   static final _truncatedTo = jniLookup<
           ffi.NativeFunction<
@@ -10022,9 +12624,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant truncatedTo(java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant truncatedTo(jni.JObject temporalUnit) => const $InstantType()
-      .fromRef(_truncatedTo(reference, temporalUnit.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant truncatedTo(
+    jni.JObject temporalUnit,
+  ) {
+    return const $InstantType()
+        .fromRef(_truncatedTo(reference, temporalUnit.reference).object);
+  }
 
   static final _plus = jniLookup<
           ffi.NativeFunction<
@@ -10035,9 +12641,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant plus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant plus(jni.JObject temporalAmount) => const $InstantType()
-      .fromRef(_plus(reference, temporalAmount.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant plus(
+    jni.JObject temporalAmount,
+  ) {
+    return const $InstantType()
+        .fromRef(_plus(reference, temporalAmount.reference).object);
+  }
 
   static final _plus1 = jniLookup<
           ffi.NativeFunction<
@@ -10048,9 +12658,14 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant plus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant plus1(int j, jni.JObject temporalUnit) => const $InstantType()
-      .fromRef(_plus1(reference, j, temporalUnit.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant plus1(
+    int j,
+    jni.JObject temporalUnit,
+  ) {
+    return const $InstantType()
+        .fromRef(_plus1(reference, j, temporalUnit.reference).object);
+  }
 
   static final _plusSeconds = jniLookup<
           ffi.NativeFunction<
@@ -10059,9 +12674,12 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant plusSeconds(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant plusSeconds(int j) =>
-      const $InstantType().fromRef(_plusSeconds(reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant plusSeconds(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_plusSeconds(reference, j).object);
+  }
 
   static final _plusMillis = jniLookup<
           ffi.NativeFunction<
@@ -10070,9 +12688,12 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant plusMillis(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant plusMillis(int j) =>
-      const $InstantType().fromRef(_plusMillis(reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant plusMillis(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_plusMillis(reference, j).object);
+  }
 
   static final _plusNanos = jniLookup<
           ffi.NativeFunction<
@@ -10081,9 +12702,12 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant plusNanos(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant plusNanos(int j) =>
-      const $InstantType().fromRef(_plusNanos(reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant plusNanos(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_plusNanos(reference, j).object);
+  }
 
   static final _minus = jniLookup<
           ffi.NativeFunction<
@@ -10094,9 +12718,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant minus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant minus(jni.JObject temporalAmount) => const $InstantType()
-      .fromRef(_minus(reference, temporalAmount.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant minus(
+    jni.JObject temporalAmount,
+  ) {
+    return const $InstantType()
+        .fromRef(_minus(reference, temporalAmount.reference).object);
+  }
 
   static final _minus1 = jniLookup<
           ffi.NativeFunction<
@@ -10107,9 +12735,14 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant minus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant minus1(int j, jni.JObject temporalUnit) => const $InstantType()
-      .fromRef(_minus1(reference, j, temporalUnit.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant minus1(
+    int j,
+    jni.JObject temporalUnit,
+  ) {
+    return const $InstantType()
+        .fromRef(_minus1(reference, j, temporalUnit.reference).object);
+  }
 
   static final _minusSeconds = jniLookup<
           ffi.NativeFunction<
@@ -10118,9 +12751,12 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant minusSeconds(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant minusSeconds(int j) =>
-      const $InstantType().fromRef(_minusSeconds(reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant minusSeconds(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_minusSeconds(reference, j).object);
+  }
 
   static final _minusMillis = jniLookup<
           ffi.NativeFunction<
@@ -10129,9 +12765,12 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant minusMillis(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant minusMillis(int j) =>
-      const $InstantType().fromRef(_minusMillis(reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant minusMillis(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_minusMillis(reference, j).object);
+  }
 
   static final _minusNanos = jniLookup<
           ffi.NativeFunction<
@@ -10140,9 +12779,12 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant minusNanos(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant minusNanos(int j) =>
-      const $InstantType().fromRef(_minusNanos(reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  Instant minusNanos(
+    int j,
+  ) {
+    return const $InstantType().fromRef(_minusNanos(reference, j).object);
+  }
 
   static final _query = jniLookup<
           ffi.NativeFunction<
@@ -10153,10 +12795,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public R query(java.time.temporal.TemporalQuery temporalQuery)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  R query<R extends jni.JObject>(
-          jni.JObjType<R> $R, jni.JObject temporalQuery) =>
-      $R.fromRef(_query(reference, temporalQuery.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $R query<$R extends jni.JObject>(
+    jni.JObject temporalQuery, {
+    required jni.JObjType<$R> R,
+  }) {
+    return R.fromRef(_query(reference, temporalQuery.reference).object);
+  }
 
   static final _adjustInto = jniLookup<
           ffi.NativeFunction<
@@ -10167,9 +12812,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal adjustInto(java.time.temporal.Temporal temporal)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject adjustInto(jni.JObject temporal) => const jni.JObjectType()
-      .fromRef(_adjustInto(reference, temporal.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject adjustInto(
+    jni.JObject temporal,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_adjustInto(reference, temporal.reference).object);
+  }
 
   static final _until = jniLookup<
           ffi.NativeFunction<
@@ -10182,8 +12831,12 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public long until(java.time.temporal.Temporal temporal, java.time.temporal.TemporalUnit temporalUnit)
-  int until(jni.JObject temporal, jni.JObject temporalUnit) =>
-      _until(reference, temporal.reference, temporalUnit.reference).long;
+  int until(
+    jni.JObject temporal,
+    jni.JObject temporalUnit,
+  ) {
+    return _until(reference, temporal.reference, temporalUnit.reference).long;
+  }
 
   static final _atOffset = jniLookup<
           ffi.NativeFunction<
@@ -10194,9 +12847,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.OffsetDateTime atOffset(java.time.ZoneOffset zoneOffset)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject atOffset(jni.JObject zoneOffset) => const jni.JObjectType()
-      .fromRef(_atOffset(reference, zoneOffset.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject atOffset(
+    jni.JObject zoneOffset,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_atOffset(reference, zoneOffset.reference).object);
+  }
 
   static final _atZone = jniLookup<
           ffi.NativeFunction<
@@ -10207,18 +12864,24 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.ZonedDateTime atZone(java.time.ZoneId zoneId)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject atZone(jni.JObject zoneId) => const jni.JObjectType()
-      .fromRef(_atZone(reference, zoneId.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject atZone(
+    jni.JObject zoneId,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_atZone(reference, zoneId.reference).object);
+  }
 
   static final _toEpochMilli = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__toEpochMilli")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__toEpochMilli")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public long toEpochMilli()
-  int toEpochMilli() => _toEpochMilli(reference).long;
+  int toEpochMilli() {
+    return _toEpochMilli(reference).long;
+  }
 
   static final _compareTo = jniLookup<
           ffi.NativeFunction<
@@ -10229,8 +12892,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public int compareTo(java.time.Instant instant)
-  int compareTo(Instant instant) =>
-      _compareTo(reference, instant.reference).integer;
+  int compareTo(
+    Instant instant,
+  ) {
+    return _compareTo(reference, instant.reference).integer;
+  }
 
   static final _isAfter = jniLookup<
           ffi.NativeFunction<
@@ -10241,8 +12907,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isAfter(java.time.Instant instant)
-  bool isAfter(Instant instant) =>
-      _isAfter(reference, instant.reference).boolean;
+  bool isAfter(
+    Instant instant,
+  ) {
+    return _isAfter(reference, instant.reference).boolean;
+  }
 
   static final _isBefore = jniLookup<
           ffi.NativeFunction<
@@ -10253,8 +12922,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isBefore(java.time.Instant instant)
-  bool isBefore(Instant instant) =>
-      _isBefore(reference, instant.reference).boolean;
+  bool isBefore(
+    Instant instant,
+  ) {
+    return _isBefore(reference, instant.reference).boolean;
+  }
 
   static final _equals1 = jniLookup<
           ffi.NativeFunction<
@@ -10265,28 +12937,34 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean equals(java.lang.Object object)
-  bool equals1(jni.JObject object) =>
-      _equals1(reference, object.reference).boolean;
+  bool equals1(
+    jni.JObject object,
+  ) {
+    return _equals1(reference, object.reference).boolean;
+  }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
-  int hashCode1() => _hashCode1(reference).integer;
+  int hashCode1() {
+    return _hashCode1(reference).integer;
+  }
 
   static final _toString1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__toString1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__toString1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString toString1() =>
-      const jni.JStringType().fromRef(_toString1(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toString1() {
+    return const jni.JStringType().fromRef(_toString1(reference).object);
+  }
 
   static final _minus2 = jniLookup<
           ffi.NativeFunction<
@@ -10297,9 +12975,14 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal minus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject minus2(int j, jni.JObject temporalUnit) => const jni.JObjectType()
-      .fromRef(_minus2(reference, j, temporalUnit.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject minus2(
+    int j,
+    jni.JObject temporalUnit,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_minus2(reference, j, temporalUnit.reference).object);
+  }
 
   static final _minus3 = jniLookup<
           ffi.NativeFunction<
@@ -10310,9 +12993,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal minus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject minus3(jni.JObject temporalAmount) => const jni.JObjectType()
-      .fromRef(_minus3(reference, temporalAmount.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject minus3(
+    jni.JObject temporalAmount,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_minus3(reference, temporalAmount.reference).object);
+  }
 
   static final _plus2 = jniLookup<
           ffi.NativeFunction<
@@ -10323,9 +13010,14 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal plus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject plus2(int j, jni.JObject temporalUnit) => const jni.JObjectType()
-      .fromRef(_plus2(reference, j, temporalUnit.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject plus2(
+    int j,
+    jni.JObject temporalUnit,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_plus2(reference, j, temporalUnit.reference).object);
+  }
 
   static final _plus3 = jniLookup<
           ffi.NativeFunction<
@@ -10336,9 +13028,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal plus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject plus3(jni.JObject temporalAmount) => const jni.JObjectType()
-      .fromRef(_plus3(reference, temporalAmount.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject plus3(
+    jni.JObject temporalAmount,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_plus3(reference, temporalAmount.reference).object);
+  }
 
   static final _with2 = jniLookup<
           ffi.NativeFunction<
@@ -10349,9 +13045,14 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.temporal.Temporal with(java.time.temporal.TemporalField temporalField, long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject with2(jni.JObject temporalField, int j) => const jni.JObjectType()
-      .fromRef(_with2(reference, temporalField.reference, j).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject with2(
+    jni.JObject temporalField,
+    int j,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_with2(reference, temporalField.reference, j).object);
+  }
 
   static final _with3 = jniLookup<
           ffi.NativeFunction<
@@ -10362,9 +13063,13 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal with(java.time.temporal.TemporalAdjuster temporalAdjuster)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject with3(jni.JObject temporalAdjuster) => const jni.JObjectType()
-      .fromRef(_with3(reference, temporalAdjuster.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject with3(
+    jni.JObject temporalAdjuster,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_with3(reference, temporalAdjuster.reference).object);
+  }
 
   static final _compareTo1 = jniLookup<
           ffi.NativeFunction<
@@ -10375,8 +13080,11 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public int compareTo(java.lang.Object object)
-  int compareTo1(jni.JObject object) =>
-      _compareTo1(reference, object.reference).integer;
+  int compareTo1(
+    jni.JObject object,
+  ) {
+    return _compareTo1(reference, object.reference).integer;
+  }
 }
 
 class $InstantType extends jni.JObjType<Instant> {
@@ -10387,1131 +13095,57 @@ class $InstantType extends jni.JObjType<Instant> {
 
   @override
   Instant fromRef(jni.JObjectPtr ref) => Instant.fromRef(ref);
-}
-
-extension $InstantArray on jni.JArray<Instant> {
-  Instant operator [](int index) {
-    return (elementType as $InstantType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
-
-  void operator []=(int index, Instant value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
-  }
-}
-
-/// from: java.lang.Long
-class Long extends jni.JObject {
-  late final jni.JObjType? _$type;
-  @override
-  jni.JObjType get $type => _$type ??= type;
-
-  Long.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static const type = $LongType();
-
-  /// from: static public final int BYTES
-  static const BYTES = 8;
-
-  /// from: static public final long MAX_VALUE
-  static const MAX_VALUE = 9223372036854775807;
-
-  /// from: static public final long MIN_VALUE
-  static const MIN_VALUE = -9223372036854775808;
-
-  /// from: static public final int SIZE
-  static const SIZE = 64;
-
-  static final _get_TYPE =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("get_Long__TYPE")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public final java.lang.Class TYPE
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get TYPE =>
-      const jni.JObjectType().fromRef(_get_TYPE().object);
-
-  static final _ctor =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__ctor")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: public void <init>(long j)
-  Long(int j) : super.fromRef(_ctor(j).object);
-
-  static final _ctor1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__ctor1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.lang.String string)
-  Long.ctor1(jni.JString string)
-      : super.fromRef(_ctor1(string.reference).object);
-
-  static final _toString1 = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int32)>>(
-          "Long__toString1")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public java.lang.String toString(long j, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toString1(int j, int i) =>
-      const jni.JStringType().fromRef(_toString1(j, i).object);
-
-  static final _toUnsignedString = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int32)>>(
-          "Long__toUnsignedString")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public java.lang.String toUnsignedString(long j, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toUnsignedString(int j, int i) =>
-      const jni.JStringType().fromRef(_toUnsignedString(j, i).object);
-
-  static final _toHexString =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__toHexString")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public java.lang.String toHexString(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toHexString(int j) =>
-      const jni.JStringType().fromRef(_toHexString(j).object);
-
-  static final _toOctalString =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__toOctalString")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public java.lang.String toOctalString(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toOctalString(int j) =>
-      const jni.JStringType().fromRef(_toOctalString(j).object);
-
-  static final _toBinaryString =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__toBinaryString")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public java.lang.String toBinaryString(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toBinaryString(int j) =>
-      const jni.JStringType().fromRef(_toBinaryString(j).object);
-
-  static final _toString2 =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__toString2")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public java.lang.String toString(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toString2(int j) =>
-      const jni.JStringType().fromRef(_toString2(j).object);
-
-  static final _toUnsignedString1 =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__toUnsignedString1")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public java.lang.String toUnsignedString(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString toUnsignedString1(int j) =>
-      const jni.JStringType().fromRef(_toUnsignedString1(j).object);
-
-  static final _parseLong = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Int32)>>("Long__parseLong")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
-
-  /// from: static public long parseLong(java.lang.String string, int i)
-  static int parseLong(jni.JString string, int i) =>
-      _parseLong(string.reference, i).long;
-
-  static final _parseLong1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32,
-                  ffi.Int32, ffi.Int32)>>("Long__parseLong1")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, int, int, int)>();
-
-  /// from: static public long parseLong(java.lang.CharSequence charSequence, int i, int i1, int i2)
-  static int parseLong1(jni.JObject charSequence, int i, int i1, int i2) =>
-      _parseLong1(charSequence.reference, i, i1, i2).long;
-
-  static final _parseLong2 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Long__parseLong2")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public long parseLong(java.lang.String string)
-  static int parseLong2(jni.JString string) =>
-      _parseLong2(string.reference).long;
-
-  static final _parseUnsignedLong = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Int32)>>("Long__parseUnsignedLong")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
-
-  /// from: static public long parseUnsignedLong(java.lang.String string, int i)
-  static int parseUnsignedLong(jni.JString string, int i) =>
-      _parseUnsignedLong(string.reference, i).long;
-
-  static final _parseUnsignedLong1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32,
-                  ffi.Int32, ffi.Int32)>>("Long__parseUnsignedLong1")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, int, int, int)>();
-
-  /// from: static public long parseUnsignedLong(java.lang.CharSequence charSequence, int i, int i1, int i2)
-  static int parseUnsignedLong1(
-          jni.JObject charSequence, int i, int i1, int i2) =>
-      _parseUnsignedLong1(charSequence.reference, i, i1, i2).long;
-
-  static final _parseUnsignedLong2 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Long__parseUnsignedLong2")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public long parseUnsignedLong(java.lang.String string)
-  static int parseUnsignedLong2(jni.JString string) =>
-      _parseUnsignedLong2(string.reference).long;
-
-  static final _valueOf = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Int32)>>("Long__valueOf")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
-
-  /// from: static public java.lang.Long valueOf(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long valueOf(jni.JString string, int i) =>
-      const $LongType().fromRef(_valueOf(string.reference, i).object);
-
-  static final _valueOf1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__valueOf1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.lang.Long valueOf(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long valueOf1(jni.JString string) =>
-      const $LongType().fromRef(_valueOf1(string.reference).object);
-
-  static final _valueOf2 =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__valueOf2")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public java.lang.Long valueOf(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long valueOf2(int j) => const $LongType().fromRef(_valueOf2(j).object);
-
-  static final _decode = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__decode")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.lang.Long decode(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long decode(jni.JString string) =>
-      const $LongType().fromRef(_decode(string.reference).object);
-
-  static final _byteValue = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__byteValue")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public byte byteValue()
-  int byteValue() => _byteValue(reference).byte;
-
-  static final _shortValue = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Long__shortValue")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public short shortValue()
-  int shortValue() => _shortValue(reference).short;
-
-  static final _intValue = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__intValue")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int intValue()
-  int intValue() => _intValue(reference).integer;
-
-  static final _longValue = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__longValue")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public long longValue()
-  int longValue() => _longValue(reference).long;
-
-  static final _floatValue = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Long__floatValue")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public float floatValue()
-  double floatValue() => _floatValue(reference).float;
-
-  static final _doubleValue = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Long__doubleValue")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public double doubleValue()
-  double doubleValue() => _doubleValue(reference).doubleFloat;
-
-  static final _toString3 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__toString3")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JString toString3() =>
-      const jni.JStringType().fromRef(_toString3(reference).object);
-
-  static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__hashCode1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int hashCode()
-  int hashCode1() => _hashCode1(reference).integer;
-
-  static final _hashCode2 =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__hashCode2")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public int hashCode(long j)
-  static int hashCode2(int j) => _hashCode2(j).integer;
-
-  static final _equals1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Long__equals1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public boolean equals(java.lang.Object object)
-  bool equals1(jni.JObject object) =>
-      _equals1(reference, object.reference).boolean;
-
-  static final _getLong = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Long__getLong")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.lang.Long getLong(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long getLong(jni.JString string) =>
-      const $LongType().fromRef(_getLong(string.reference).object);
-
-  static final _getLong1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Int64)>>("Long__getLong1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
-
-  /// from: static public java.lang.Long getLong(java.lang.String string, long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long getLong1(jni.JString string, int j) =>
-      const $LongType().fromRef(_getLong1(string.reference, j).object);
-
-  static final _getLong2 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Long__getLong2")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.lang.Long getLong(java.lang.String string, java.lang.Long long)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Long getLong2(jni.JString string, Long long) => const $LongType()
-      .fromRef(_getLong2(string.reference, long.reference).object);
-
-  static final _compareTo = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Long__compareTo")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int compareTo(java.lang.Long long)
-  int compareTo(Long long) => _compareTo(reference, long.reference).integer;
-
-  static final _compare = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__compare")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public int compare(long j, long j1)
-  static int compare(int j, int j1) => _compare(j, j1).integer;
-
-  static final _compareUnsigned = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__compareUnsigned")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public int compareUnsigned(long j, long j1)
-  static int compareUnsigned(int j, int j1) => _compareUnsigned(j, j1).integer;
-
-  static final _divideUnsigned = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__divideUnsigned")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long divideUnsigned(long j, long j1)
-  static int divideUnsigned(int j, int j1) => _divideUnsigned(j, j1).long;
-
-  static final _remainderUnsigned = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__remainderUnsigned")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long remainderUnsigned(long j, long j1)
-  static int remainderUnsigned(int j, int j1) => _remainderUnsigned(j, j1).long;
-
-  static final _highestOneBit =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__highestOneBit")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public long highestOneBit(long j)
-  static int highestOneBit(int j) => _highestOneBit(j).long;
-
-  static final _lowestOneBit =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__lowestOneBit")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public long lowestOneBit(long j)
-  static int lowestOneBit(int j) => _lowestOneBit(j).long;
-
-  static final _numberOfLeadingZeros =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__numberOfLeadingZeros")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public int numberOfLeadingZeros(long j)
-  static int numberOfLeadingZeros(int j) => _numberOfLeadingZeros(j).integer;
-
-  static final _numberOfTrailingZeros =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__numberOfTrailingZeros")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public int numberOfTrailingZeros(long j)
-  static int numberOfTrailingZeros(int j) => _numberOfTrailingZeros(j).integer;
-
-  static final _bitCount =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__bitCount")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public int bitCount(long j)
-  static int bitCount(int j) => _bitCount(j).integer;
-
-  static final _rotateLeft = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int32)>>(
-          "Long__rotateLeft")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long rotateLeft(long j, int i)
-  static int rotateLeft(int j, int i) => _rotateLeft(j, i).long;
-
-  static final _rotateRight = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int32)>>(
-          "Long__rotateRight")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long rotateRight(long j, int i)
-  static int rotateRight(int j, int i) => _rotateRight(j, i).long;
-
-  static final _reverse =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__reverse")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public long reverse(long j)
-  static int reverse(int j) => _reverse(j).long;
-
-  static final _signum =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__signum")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public int signum(long j)
-  static int signum(int j) => _signum(j).integer;
-
-  static final _reverseBytes =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
-              "Long__reverseBytes")
-          .asFunction<jni.JniResult Function(int)>();
-
-  /// from: static public long reverseBytes(long j)
-  static int reverseBytes(int j) => _reverseBytes(j).long;
-
-  static final _sum = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__sum")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long sum(long j, long j1)
-  static int sum(int j, int j1) => _sum(j, j1).long;
-
-  static final _max = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__max")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long max(long j, long j1)
-  static int max(int j, int j1) => _max(j, j1).long;
-
-  static final _min = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int64, ffi.Int64)>>(
-          "Long__min")
-      .asFunction<jni.JniResult Function(int, int)>();
-
-  /// from: static public long min(long j, long j1)
-  static int min(int j, int j1) => _min(j, j1).long;
-
-  static final _compareTo1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Long__compareTo1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int compareTo(java.lang.Object object)
-  int compareTo1(jni.JObject object) =>
-      _compareTo1(reference, object.reference).integer;
-}
-
-class $LongType extends jni.JObjType<Long> {
-  const $LongType();
 
   @override
-  String get signature => r"Ljava/lang/Long;";
+  jni.JObjType get superType => const jni.JObjectType();
 
   @override
-  Long fromRef(jni.JObjectPtr ref) => Long.fromRef(ref);
-}
-
-extension $LongArray on jni.JArray<Long> {
-  Long operator [](int index) {
-    return (elementType as $LongType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
-
-  void operator []=(int index, Long value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
-  }
-}
-
-/// from: java.util.Set
-class Set<E extends jni.JObject> extends jni.JObject {
-  late final jni.JObjType? _$type;
-  @override
-  jni.JObjType get $type => _$type ??= type(
-        $E,
-      );
-
-  final jni.JObjType<E> $E;
-
-  Set.fromRef(
-    this.$E,
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static $SetType<E> type<E extends jni.JObject>(
-    jni.JObjType<E> $E,
-  ) {
-    return $SetType(
-      $E,
-    );
-  }
-
-  static final _size = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__size")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract int size()
-  int size() => _size(reference).integer;
-
-  static final _isEmpty = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__isEmpty")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean isEmpty()
-  bool isEmpty() => _isEmpty(reference).boolean;
-
-  static final _contains = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__contains")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean contains(java.lang.Object object)
-  bool contains(jni.JObject object) =>
-      _contains(reference, object.reference).boolean;
-
-  static final _iterator = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__iterator")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.util.Iterator iterator()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject iterator() =>
-      const jni.JObjectType().fromRef(_iterator(reference).object);
-
-  static final _toArray = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__toArray")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object[] toArray()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<jni.JObject> toArray() => const jni.JArrayType(jni.JObjectType())
-      .fromRef(_toArray(reference).object);
-
-  static final _toArray1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__toArray1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object[] toArray(java.lang.Object[] objects)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JArray<T> toArray1<T extends jni.JObject>(
-          jni.JObjType<T> $T, jni.JArray<T> objects) =>
-      jni.JArrayType($T)
-          .fromRef(_toArray1(reference, objects.reference).object);
-
-  static final _add = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__add")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean add(E object)
-  bool add(E object) => _add(reference, object.reference).boolean;
-
-  static final _remove = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__remove")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean remove(java.lang.Object object)
-  bool remove(jni.JObject object) =>
-      _remove(reference, object.reference).boolean;
-
-  static final _containsAll = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__containsAll")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean containsAll(java.util.Collection collection)
-  bool containsAll(jni.JObject collection) =>
-      _containsAll(reference, collection.reference).boolean;
-
-  static final _addAll = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__addAll")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean addAll(java.util.Collection collection)
-  bool addAll(jni.JObject collection) =>
-      _addAll(reference, collection.reference).boolean;
-
-  static final _retainAll = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__retainAll")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean retainAll(java.util.Collection collection)
-  bool retainAll(jni.JObject collection) =>
-      _retainAll(reference, collection.reference).boolean;
-
-  static final _removeAll = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__removeAll")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean removeAll(java.util.Collection collection)
-  bool removeAll(jni.JObject collection) =>
-      _removeAll(reference, collection.reference).boolean;
-
-  static final _clear = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__clear")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract void clear()
-  void clear() => _clear(reference).check();
-
-  static final _equals1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__equals1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract boolean equals(java.lang.Object object)
-  bool equals1(jni.JObject object) =>
-      _equals1(reference, object.reference).boolean;
-
-  static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__hashCode1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract int hashCode()
-  int hashCode1() => _hashCode1(reference).integer;
-
-  static final _spliterator = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Set__spliterator")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public java.util.Spliterator spliterator()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject spliterator() =>
-      const jni.JObjectType().fromRef(_spliterator(reference).object);
-
-  static final _of =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Set__of")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public java.util.Set of()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of<E extends jni.JObject>(jni.JObjType<E> $E) =>
-      $SetType($E).fromRef(_of().object);
-
-  static final _of1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__of1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of1<E extends jni.JObject>(jni.JObjType<E> $E, E object) =>
-      $SetType($E).fromRef(_of1(object.reference).object);
-
-  static final _of2 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__of2")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of2<E extends jni.JObject>(
-          jni.JObjType<E> $E, E object, E object1) =>
-      $SetType($E).fromRef(_of2(object.reference, object1.reference).object);
-
-  static final _of3 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__of3")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of3<E extends jni.JObject>(
-          jni.JObjType<E> $E, E object, E object1, E object2) =>
-      $SetType($E).fromRef(
-          _of3(object.reference, object1.reference, object2.reference).object);
-
-  static final _of4 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of4")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of4<E extends jni.JObject>(
-          jni.JObjType<E> $E, E object, E object1, E object2, E object3) =>
-      $SetType($E).fromRef(_of4(object.reference, object1.reference,
-              object2.reference, object3.reference)
-          .object);
-
-  static final _of5 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of5")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of5<E extends jni.JObject>(jni.JObjType<E> $E, E object,
-          E object1, E object2, E object3, E object4) =>
-      $SetType($E).fromRef(_of5(object.reference, object1.reference,
-              object2.reference, object3.reference, object4.reference)
-          .object);
-
-  static final _of6 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of6")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of6<E extends jni.JObject>(jni.JObjType<E> $E, E object,
-          E object1, E object2, E object3, E object4, E object5) =>
-      $SetType($E).fromRef(_of6(
-              object.reference,
-              object1.reference,
-              object2.reference,
-              object3.reference,
-              object4.reference,
-              object5.reference)
-          .object);
-
-  static final _of7 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of7")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of7<E extends jni.JObject>(jni.JObjType<E> $E, E object,
-          E object1, E object2, E object3, E object4, E object5, E object6) =>
-      $SetType($E).fromRef(_of7(
-              object.reference,
-              object1.reference,
-              object2.reference,
-              object3.reference,
-              object4.reference,
-              object5.reference,
-              object6.reference)
-          .object);
-
-  static final _of8 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of8")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6, E object7)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of8<E extends jni.JObject>(
-          jni.JObjType<E> $E,
-          E object,
-          E object1,
-          E object2,
-          E object3,
-          E object4,
-          E object5,
-          E object6,
-          E object7) =>
-      $SetType($E).fromRef(_of8(
-              object.reference,
-              object1.reference,
-              object2.reference,
-              object3.reference,
-              object4.reference,
-              object5.reference,
-              object6.reference,
-              object7.reference)
-          .object);
-
-  static final _of9 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of9")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6, E object7, E object8)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of9<E extends jni.JObject>(
-          jni.JObjType<E> $E,
-          E object,
-          E object1,
-          E object2,
-          E object3,
-          E object4,
-          E object5,
-          E object6,
-          E object7,
-          E object8) =>
-      $SetType($E).fromRef(_of9(
-              object.reference,
-              object1.reference,
-              object2.reference,
-              object3.reference,
-              object4.reference,
-              object5.reference,
-              object6.reference,
-              object7.reference,
-              object8.reference)
-          .object);
-
-  static final _of10 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Set__of10")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6, E object7, E object8, E object9)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of10<E extends jni.JObject>(
-          jni.JObjType<E> $E,
-          E object,
-          E object1,
-          E object2,
-          E object3,
-          E object4,
-          E object5,
-          E object6,
-          E object7,
-          E object8,
-          E object9) =>
-      $SetType($E).fromRef(_of10(
-              object.reference,
-              object1.reference,
-              object2.reference,
-              object3.reference,
-              object4.reference,
-              object5.reference,
-              object6.reference,
-              object7.reference,
-              object8.reference,
-              object9.reference)
-          .object);
-
-  static final _of11 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__of11")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set of(java.lang.Object[] objects)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> of11<E extends jni.JObject>(
-          jni.JObjType<E> $E, jni.JArray<E> objects) =>
-      $SetType($E).fromRef(_of11(objects.reference).object);
-
-  static final _copyOf = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__copyOf")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public java.util.Set copyOf(java.util.Collection collection)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static Set<E> copyOf<E extends jni.JObject>(
-          jni.JObjType<E> $E, jni.JObject collection) =>
-      $SetType($E).fromRef(_copyOf(collection.reference).object);
-}
-
-class $SetType<E extends jni.JObject> extends jni.JObjType<Set<E>> {
-  final jni.JObjType<E> $E;
-
-  const $SetType(
-    this.$E,
-  );
+  final superCount = 1;
 
   @override
-  String get signature => r"Ljava/util/Set;";
+  int get hashCode => ($InstantType).hashCode;
 
   @override
-  Set<E> fromRef(jni.JObjectPtr ref) => Set.fromRef($E, ref);
-}
-
-extension $SetArray<E extends jni.JObject> on jni.JArray<Set<E>> {
-  Set<E> operator [](int index) {
-    return (elementType as $SetType<E>)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
-
-  void operator []=(int index, Set<E> value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  bool operator ==(Object other) {
+    return other.runtimeType == ($InstantType) && other is $InstantType;
   }
 }
 
 /// from: androidx.health.connect.client.request.AggregateGroupByDurationRequest
 class AggregateGroupByDurationRequest extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<AggregateGroupByDurationRequest> $type = type;
 
-  AggregateGroupByDurationRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateGroupByDurationRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateGroupByDurationRequestType();
-
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
               ffi.NativeFunction<
                   jni.JniResult Function(
                       ffi.Pointer<ffi.Void>,
                       ffi.Pointer<ffi.Void>,
                       ffi.Pointer<ffi.Void>,
                       ffi.Pointer<ffi.Void>)>>(
-          "AggregateGroupByDurationRequest__ctor")
+          "AggregateGroupByDurationRequest__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.time.Duration duration, java.util.Set set1)
-  AggregateGroupByDurationRequest(
-      Set<AggregateMetric<jni.JObject>> set0,
-      TimeRangeFilter timeRangeFilter,
-      jni.JObject duration,
-      Set<jni.JObject> set1)
-      : super.fromRef(_ctor(set0.reference, timeRangeFilter.reference,
-                duration.reference, set1.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateGroupByDurationRequest(
+    jni.JSet<AggregateMetric<jni.JObject>> set0,
+    TimeRangeFilter timeRangeFilter,
+    jni.JObject duration,
+    jni.JSet<jni.JObject> set1,
+  ) {
+    return AggregateGroupByDurationRequest.fromRef(_new0(set0.reference,
+            timeRangeFilter.reference, duration.reference, set1.reference)
+        .object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
               ffi.NativeFunction<
                   jni.JniResult Function(
                       ffi.Pointer<ffi.Void>,
@@ -11520,7 +13154,7 @@ class AggregateGroupByDurationRequest extends jni.JObject {
                       ffi.Pointer<ffi.Void>,
                       ffi.Int32,
                       ffi.Pointer<ffi.Void>)>>(
-          "AggregateGroupByDurationRequest__ctor1")
+          "AggregateGroupByDurationRequest__new1")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>,
@@ -11531,21 +13165,24 @@ class AggregateGroupByDurationRequest extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.time.Duration duration, java.util.Set set1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  AggregateGroupByDurationRequest.ctor1(
-      Set<jni.JObject> set0,
-      TimeRangeFilter timeRangeFilter,
-      jni.JObject duration,
-      Set<jni.JObject> set1,
-      int i,
-      jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(
-                set0.reference,
-                timeRangeFilter.reference,
-                duration.reference,
-                set1.reference,
-                i,
-                defaultConstructorMarker.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateGroupByDurationRequest.new1(
+    jni.JSet<jni.JObject> set0,
+    TimeRangeFilter timeRangeFilter,
+    jni.JObject duration,
+    jni.JSet<jni.JObject> set1,
+    int i,
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return AggregateGroupByDurationRequest.fromRef(_new1(
+            set0.reference,
+            timeRangeFilter.reference,
+            duration.reference,
+            set1.reference,
+            i,
+            defaultConstructorMarker.reference)
+        .object);
+  }
 }
 
 class $AggregateGroupByDurationRequestType
@@ -11559,56 +13196,58 @@ class $AggregateGroupByDurationRequestType
   @override
   AggregateGroupByDurationRequest fromRef(jni.JObjectPtr ref) =>
       AggregateGroupByDurationRequest.fromRef(ref);
-}
 
-extension $AggregateGroupByDurationRequestArray
-    on jni.JArray<AggregateGroupByDurationRequest> {
-  AggregateGroupByDurationRequest operator [](int index) {
-    return (elementType as $AggregateGroupByDurationRequestType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, AggregateGroupByDurationRequest value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($AggregateGroupByDurationRequestType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateGroupByDurationRequestType) &&
+        other is $AggregateGroupByDurationRequestType;
   }
 }
 
 /// from: androidx.health.connect.client.request.AggregateGroupByPeriodRequest
 class AggregateGroupByPeriodRequest extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<AggregateGroupByPeriodRequest> $type = type;
 
-  AggregateGroupByPeriodRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateGroupByPeriodRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateGroupByPeriodRequestType();
-
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
               ffi.NativeFunction<
                   jni.JniResult Function(
                       ffi.Pointer<ffi.Void>,
                       ffi.Pointer<ffi.Void>,
                       ffi.Pointer<ffi.Void>,
                       ffi.Pointer<ffi.Void>)>>(
-          "AggregateGroupByPeriodRequest__ctor")
+          "AggregateGroupByPeriodRequest__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.time.Period period, java.util.Set set1)
-  AggregateGroupByPeriodRequest(
-      Set<AggregateMetric<jni.JObject>> set0,
-      TimeRangeFilter timeRangeFilter,
-      jni.JObject period,
-      Set<jni.JObject> set1)
-      : super.fromRef(_ctor(set0.reference, timeRangeFilter.reference,
-                period.reference, set1.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateGroupByPeriodRequest(
+    jni.JSet<AggregateMetric<jni.JObject>> set0,
+    TimeRangeFilter timeRangeFilter,
+    jni.JObject period,
+    jni.JSet<jni.JObject> set1,
+  ) {
+    return AggregateGroupByPeriodRequest.fromRef(_new0(set0.reference,
+            timeRangeFilter.reference, period.reference, set1.reference)
+        .object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
               ffi.NativeFunction<
                   jni.JniResult Function(
                       ffi.Pointer<ffi.Void>,
@@ -11617,7 +13256,7 @@ class AggregateGroupByPeriodRequest extends jni.JObject {
                       ffi.Pointer<ffi.Void>,
                       ffi.Int32,
                       ffi.Pointer<ffi.Void>)>>(
-          "AggregateGroupByPeriodRequest__ctor1")
+          "AggregateGroupByPeriodRequest__new1")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>,
@@ -11628,21 +13267,24 @@ class AggregateGroupByPeriodRequest extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.time.Period period, java.util.Set set1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  AggregateGroupByPeriodRequest.ctor1(
-      Set<jni.JObject> set0,
-      TimeRangeFilter timeRangeFilter,
-      jni.JObject period,
-      Set<jni.JObject> set1,
-      int i,
-      jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(
-                set0.reference,
-                timeRangeFilter.reference,
-                period.reference,
-                set1.reference,
-                i,
-                defaultConstructorMarker.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateGroupByPeriodRequest.new1(
+    jni.JSet<jni.JObject> set0,
+    TimeRangeFilter timeRangeFilter,
+    jni.JObject period,
+    jni.JSet<jni.JObject> set1,
+    int i,
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return AggregateGroupByPeriodRequest.fromRef(_new1(
+            set0.reference,
+            timeRangeFilter.reference,
+            period.reference,
+            set1.reference,
+            i,
+            defaultConstructorMarker.reference)
+        .object);
+  }
 }
 
 class $AggregateGroupByPeriodRequestType
@@ -11656,68 +13298,83 @@ class $AggregateGroupByPeriodRequestType
   @override
   AggregateGroupByPeriodRequest fromRef(jni.JObjectPtr ref) =>
       AggregateGroupByPeriodRequest.fromRef(ref);
-}
 
-extension $AggregateGroupByPeriodRequestArray
-    on jni.JArray<AggregateGroupByPeriodRequest> {
-  AggregateGroupByPeriodRequest operator [](int index) {
-    return (elementType as $AggregateGroupByPeriodRequestType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, AggregateGroupByPeriodRequest value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($AggregateGroupByPeriodRequestType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateGroupByPeriodRequestType) &&
+        other is $AggregateGroupByPeriodRequestType;
   }
 }
 
 /// from: androidx.health.connect.client.request.AggregateRequest
 class AggregateRequest extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<AggregateRequest> $type = type;
 
-  AggregateRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregateRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregateRequestType();
-
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__ctor")
+                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.util.Set set1)
-  AggregateRequest(Set<AggregateMetric<jni.JObject>> set0,
-      TimeRangeFilter timeRangeFilter, Set<jni.JObject> set1)
-      : super.fromRef(
-            _ctor(set0.reference, timeRangeFilter.reference, set1.reference)
-                .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateRequest(
+    jni.JSet<AggregateMetric<jni.JObject>> set0,
+    TimeRangeFilter timeRangeFilter,
+    jni.JSet<jni.JObject> set1,
+  ) {
+    return AggregateRequest.fromRef(
+        _new0(set0.reference, timeRangeFilter.reference, set1.reference)
+            .object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__ctor1")
+                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__new1")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.util.Set set1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  AggregateRequest.ctor1(Set<jni.JObject> set0, TimeRangeFilter timeRangeFilter,
-      Set<jni.JObject> set1, int i, jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(set0.reference, timeRangeFilter.reference,
-                set1.reference, i, defaultConstructorMarker.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateRequest.new1(
+    jni.JSet<jni.JObject> set0,
+    TimeRangeFilter timeRangeFilter,
+    jni.JSet<jni.JObject> set1,
+    int i,
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return AggregateRequest.fromRef(_new1(
+            set0.reference,
+            timeRangeFilter.reference,
+            set1.reference,
+            i,
+            defaultConstructorMarker.reference)
+        .object);
+  }
 }
 
 class $AggregateRequestType extends jni.JObjType<AggregateRequest> {
@@ -11729,61 +13386,73 @@ class $AggregateRequestType extends jni.JObjType<AggregateRequest> {
 
   @override
   AggregateRequest fromRef(jni.JObjectPtr ref) => AggregateRequest.fromRef(ref);
-}
 
-extension $AggregateRequestArray on jni.JArray<AggregateRequest> {
-  AggregateRequest operator [](int index) {
-    return (elementType as $AggregateRequestType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, AggregateRequest value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($AggregateRequestType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateRequestType) &&
+        other is $AggregateRequestType;
   }
 }
 
 /// from: androidx.health.connect.client.request.ChangesTokenRequest
 class ChangesTokenRequest extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<ChangesTokenRequest> $type = type;
 
-  ChangesTokenRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  ChangesTokenRequest.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $ChangesTokenRequestType();
-
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("ChangesTokenRequest__ctor")
+                  ffi.Pointer<ffi.Void>)>>("ChangesTokenRequest__new0")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, java.util.Set set1)
-  ChangesTokenRequest(Set<jni.JObject> set0, Set<jni.JObject> set1)
-      : super.fromRef(_ctor(set0.reference, set1.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory ChangesTokenRequest(
+    jni.JSet<jni.JObject> set0,
+    jni.JSet<jni.JObject> set1,
+  ) {
+    return ChangesTokenRequest.fromRef(
+        _new0(set0.reference, set1.reference).object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("ChangesTokenRequest__ctor1")
+                  ffi.Pointer<ffi.Void>)>>("ChangesTokenRequest__new1")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Set set, java.util.Set set1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  ChangesTokenRequest.ctor1(Set<jni.JObject> set0, Set<jni.JObject> set1, int i,
-      jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(set0.reference, set1.reference, i,
-                defaultConstructorMarker.reference)
-            .object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory ChangesTokenRequest.new1(
+    jni.JSet<jni.JObject> set0,
+    jni.JSet<jni.JObject> set1,
+    int i,
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return ChangesTokenRequest.fromRef(_new1(set0.reference, set1.reference, i,
+            defaultConstructorMarker.reference)
+        .object);
+  }
 }
 
 class $ChangesTokenRequestType extends jni.JObjType<ChangesTokenRequest> {
@@ -11796,44 +13465,45 @@ class $ChangesTokenRequestType extends jni.JObjType<ChangesTokenRequest> {
   @override
   ChangesTokenRequest fromRef(jni.JObjectPtr ref) =>
       ChangesTokenRequest.fromRef(ref);
-}
 
-extension $ChangesTokenRequestArray on jni.JArray<ChangesTokenRequest> {
-  ChangesTokenRequest operator [](int index) {
-    return (elementType as $ChangesTokenRequestType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, ChangesTokenRequest value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($ChangesTokenRequestType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ChangesTokenRequestType) &&
+        other is $ChangesTokenRequestType;
   }
 }
 
 /// from: androidx.health.connect.client.request.ReadRecordsRequest
-class ReadRecordsRequest<T extends jni.JObject> extends jni.JObject {
-  late final jni.JObjType? _$type;
+class ReadRecordsRequest<$T extends jni.JObject> extends jni.JObject {
   @override
-  jni.JObjType get $type => _$type ??= type(
-        $T,
-      );
+  late final jni.JObjType<ReadRecordsRequest<$T>> $type = type(T);
 
-  final jni.JObjType<T> $T;
+  final jni.JObjType<$T> T;
 
   ReadRecordsRequest.fromRef(
-    this.$T,
+    this.T,
     jni.JObjectPtr ref,
   ) : super.fromRef(ref);
 
   /// The type which includes information such as the signature of this class.
-  static $ReadRecordsRequestType<T> type<T extends jni.JObject>(
-    jni.JObjType<T> $T,
+  static $ReadRecordsRequestType<$T> type<$T extends jni.JObject>(
+    jni.JObjType<$T> T,
   ) {
     return $ReadRecordsRequestType(
-      $T,
+      T,
     );
   }
 
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
@@ -11841,25 +13511,30 @@ class ReadRecordsRequest<T extends jni.JObject> extends jni.JObject {
                   ffi.Pointer<ffi.Void>,
                   ffi.Uint8,
                   ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("ReadRecordsRequest__ctor")
+                  ffi.Pointer<ffi.Void>)>>("ReadRecordsRequest__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, int, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(kotlin.reflect.KClass kClass, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.util.Set set, boolean z, int i, java.lang.String string)
-  ReadRecordsRequest(
-      this.$T,
-      jni.JObject kClass,
-      TimeRangeFilter timeRangeFilter,
-      Set<jni.JObject> set0,
-      bool z,
-      int i,
-      jni.JString string)
-      : super.fromRef(_ctor(kClass.reference, timeRangeFilter.reference,
-                set0.reference, z ? 1 : 0, i, string.reference)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory ReadRecordsRequest(
+    jni.JObject kClass,
+    TimeRangeFilter timeRangeFilter,
+    jni.JSet<jni.JObject> set0,
+    bool z,
+    int i,
+    jni.JString string, {
+    required jni.JObjType<$T> T,
+  }) {
+    return ReadRecordsRequest.fromRef(
+        T,
+        _new0(kClass.reference, timeRangeFilter.reference, set0.reference,
+                z ? 1 : 0, i, string.reference)
             .object);
+  }
 
-  static final _ctor1 = jniLookup<
+  static final _new1 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
@@ -11869,7 +13544,7 @@ class ReadRecordsRequest<T extends jni.JObject> extends jni.JObject {
                   ffi.Int32,
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("ReadRecordsRequest__ctor1")
+                  ffi.Pointer<ffi.Void>)>>("ReadRecordsRequest__new1")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>,
@@ -11882,17 +13557,21 @@ class ReadRecordsRequest<T extends jni.JObject> extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(kotlin.reflect.KClass kClass, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.util.Set set, boolean z, int i, java.lang.String string, int i1, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  ReadRecordsRequest.ctor1(
-      this.$T,
-      jni.JObject kClass,
-      TimeRangeFilter timeRangeFilter,
-      Set<jni.JObject> set0,
-      bool z,
-      int i,
-      jni.JString string,
-      int i1,
-      jni.JObject defaultConstructorMarker)
-      : super.fromRef(_ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory ReadRecordsRequest.new1(
+    jni.JObject kClass,
+    TimeRangeFilter timeRangeFilter,
+    jni.JSet<jni.JObject> set0,
+    bool z,
+    int i,
+    jni.JString string,
+    int i1,
+    jni.JObject defaultConstructorMarker, {
+    required jni.JObjType<$T> T,
+  }) {
+    return ReadRecordsRequest.fromRef(
+        T,
+        _new1(
                 kClass.reference,
                 timeRangeFilter.reference,
                 set0.reference,
@@ -11902,6 +13581,7 @@ class ReadRecordsRequest<T extends jni.JObject> extends jni.JObject {
                 i1,
                 defaultConstructorMarker.reference)
             .object);
+  }
 
   static final _equals1 = jniLookup<
           ffi.NativeFunction<
@@ -11912,25 +13592,30 @@ class ReadRecordsRequest<T extends jni.JObject> extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean equals(java.lang.Object object)
-  bool equals1(jni.JObject object) =>
-      _equals1(reference, object.reference).boolean;
+  bool equals1(
+    jni.JObject object,
+  ) {
+    return _equals1(reference, object.reference).boolean;
+  }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("ReadRecordsRequest__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "ReadRecordsRequest__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
-  int hashCode1() => _hashCode1(reference).integer;
+  int hashCode1() {
+    return _hashCode1(reference).integer;
+  }
 }
 
-class $ReadRecordsRequestType<T extends jni.JObject>
-    extends jni.JObjType<ReadRecordsRequest<T>> {
-  final jni.JObjType<T> $T;
+class $ReadRecordsRequestType<$T extends jni.JObject>
+    extends jni.JObjType<ReadRecordsRequest<$T>> {
+  final jni.JObjType<$T> T;
 
   const $ReadRecordsRequestType(
-    this.$T,
+    this.T,
   );
 
   @override
@@ -11938,60 +13623,68 @@ class $ReadRecordsRequestType<T extends jni.JObject>
       r"Landroidx/health/connect/client/request/ReadRecordsRequest;";
 
   @override
-  ReadRecordsRequest<T> fromRef(jni.JObjectPtr ref) =>
-      ReadRecordsRequest.fromRef($T, ref);
-}
+  ReadRecordsRequest<$T> fromRef(jni.JObjectPtr ref) =>
+      ReadRecordsRequest.fromRef(T, ref);
 
-extension $ReadRecordsRequestArray<T extends jni.JObject>
-    on jni.JArray<ReadRecordsRequest<T>> {
-  ReadRecordsRequest<T> operator [](int index) {
-    return (elementType as $ReadRecordsRequestType<T>)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, ReadRecordsRequest<T> value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => Object.hash($ReadRecordsRequestType, T);
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ReadRecordsRequestType<$T>) &&
+        other is $ReadRecordsRequestType<$T> &&
+        T == other.T;
   }
 }
 
 /// from: androidx.health.connect.client.aggregate.AggregationResult
 class AggregationResult extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type;
+  late final jni.JObjType<AggregationResult> $type = type;
 
-  AggregationResult.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  AggregationResult.fromRef(super.ref) : super.fromRef();
 
   /// The type which includes information such as the signature of this class.
   static const type = $AggregationResultType();
-
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__ctor")
+                  ffi.Pointer<ffi.Void>)>>("AggregationResult__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.util.Map map, java.util.Map map1, java.util.Set set)
-  AggregationResult(jni.JObject map, jni.JObject map1, Set<jni.JObject> set0)
-      : super.fromRef(
-            _ctor(map.reference, map1.reference, set0.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregationResult(
+    jni.JMap<jni.JString, jni.JLong> map,
+    jni.JMap<jni.JString, jni.JDouble> map1,
+    jni.JSet<jni.JObject> set0,
+  ) {
+    return AggregationResult.fromRef(
+        _new0(map.reference, map1.reference, set0.reference).object);
+  }
 
   static final _getDataOrigins = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__getDataOrigins")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "AggregationResult__getDataOrigins")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public final java.util.Set getDataOrigins()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Set<jni.JObject> getDataOrigins() => const $SetType(jni.JObjectType())
-      .fromRef(_getDataOrigins(reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JSet<jni.JObject> getDataOrigins() {
+    return const jni.JSetType(jni.JObjectType())
+        .fromRef(_getDataOrigins(reference).object);
+  }
 
   static final _hasMetric = jniLookup<
           ffi.NativeFunction<
@@ -12002,8 +13695,11 @@ class AggregationResult extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final boolean hasMetric(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  bool hasMetric(AggregateMetric<jni.JObject> aggregateMetric) =>
-      _hasMetric(reference, aggregateMetric.reference).boolean;
+  bool hasMetric(
+    AggregateMetric<jni.JObject> aggregateMetric,
+  ) {
+    return _hasMetric(reference, aggregateMetric.reference).boolean;
+  }
 
   static final _contains = jniLookup<
           ffi.NativeFunction<
@@ -12014,8 +13710,11 @@ class AggregationResult extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final boolean contains(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  bool contains(AggregateMetric<jni.JObject> aggregateMetric) =>
-      _contains(reference, aggregateMetric.reference).boolean;
+  bool contains(
+    AggregateMetric<jni.JObject> aggregateMetric,
+  ) {
+    return _contains(reference, aggregateMetric.reference).boolean;
+  }
 
   static final _getMetric = jniLookup<
           ffi.NativeFunction<
@@ -12026,10 +13725,16 @@ class AggregationResult extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final T getMetric(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T getMetric<T extends jni.JObject>(
-          jni.JObjType<T> $T, AggregateMetric<T> aggregateMetric) =>
-      $T.fromRef(_getMetric(reference, aggregateMetric.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T getMetric<$T extends jni.JObject>(
+    AggregateMetric<$T> aggregateMetric, {
+    jni.JObjType<$T>? T,
+  }) {
+    T ??= jni.lowestCommonSuperType([
+      (aggregateMetric.$type as $AggregateMetricType).T,
+    ]) as jni.JObjType<$T>;
+    return T.fromRef(_getMetric(reference, aggregateMetric.reference).object);
+  }
 
   static final _get0 = jniLookup<
           ffi.NativeFunction<
@@ -12040,10 +13745,16 @@ class AggregationResult extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final T get(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  T get0<T extends jni.JObject>(
-          jni.JObjType<T> $T, AggregateMetric<T> aggregateMetric) =>
-      $T.fromRef(_get0(reference, aggregateMetric.reference).object);
+  /// The returned object must be released after use, by calling the [release] method.
+  $T get0<$T extends jni.JObject>(
+    AggregateMetric<$T> aggregateMetric, {
+    jni.JObjType<$T>? T,
+  }) {
+    T ??= jni.lowestCommonSuperType([
+      (aggregateMetric.$type as $AggregateMetricType).T,
+    ]) as jni.JObjType<$T>;
+    return T.fromRef(_get0(reference, aggregateMetric.reference).object);
+  }
 }
 
 class $AggregationResultType extends jni.JObjType<AggregationResult> {
@@ -12056,40 +13767,418 @@ class $AggregationResultType extends jni.JObjType<AggregationResult> {
   @override
   AggregationResult fromRef(jni.JObjectPtr ref) =>
       AggregationResult.fromRef(ref);
-}
 
-extension $AggregationResultArray on jni.JArray<AggregationResult> {
-  AggregationResult operator [](int index) {
-    return (elementType as $AggregationResultType)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
-
-  void operator []=(int index, AggregationResult value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
-  }
-}
-
-/// from: androidx.health.connect.client.aggregate.AggregateMetric
-class AggregateMetric<T extends jni.JObject> extends jni.JObject {
-  late final jni.JObjType? _$type;
   @override
-  jni.JObjType get $type => _$type ??= type(
-        $T,
-      );
+  jni.JObjType get superType => const jni.JObjectType();
 
-  final jni.JObjType<T> $T;
+  @override
+  final superCount = 1;
 
-  AggregateMetric.fromRef(
-    this.$T,
+  @override
+  int get hashCode => ($AggregationResultType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregationResultType) &&
+        other is $AggregationResultType;
+  }
+}
+
+/// from: androidx.health.connect.client.aggregate.AggregateMetric$AggregationType
+class AggregateMetric_AggregationType extends jni.JObject {
+  @override
+  late final jni.JObjType<AggregateMetric_AggregationType> $type = type;
+
+  AggregateMetric_AggregationType.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $AggregateMetric_AggregationTypeType();
+  static final _get_DURATION =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_AggregateMetric_AggregationType__DURATION")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$AggregationType DURATION
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType get DURATION =>
+      const $AggregateMetric_AggregationTypeType()
+          .fromRef(_get_DURATION().object);
+
+  static final _get_AVERAGE =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_AggregateMetric_AggregationType__AVERAGE")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$AggregationType AVERAGE
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType get AVERAGE =>
+      const $AggregateMetric_AggregationTypeType()
+          .fromRef(_get_AVERAGE().object);
+
+  static final _get_MINIMUM =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_AggregateMetric_AggregationType__MINIMUM")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$AggregationType MINIMUM
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType get MINIMUM =>
+      const $AggregateMetric_AggregationTypeType()
+          .fromRef(_get_MINIMUM().object);
+
+  static final _get_MAXIMUM =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_AggregateMetric_AggregationType__MAXIMUM")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$AggregationType MAXIMUM
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType get MAXIMUM =>
+      const $AggregateMetric_AggregationTypeType()
+          .fromRef(_get_MAXIMUM().object);
+
+  static final _get_TOTAL =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_AggregateMetric_AggregationType__TOTAL")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$AggregationType TOTAL
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType get TOTAL =>
+      const $AggregateMetric_AggregationTypeType().fromRef(_get_TOTAL().object);
+
+  static final _get_COUNT =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_AggregateMetric_AggregationType__COUNT")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$AggregationType COUNT
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType get COUNT =>
+      const $AggregateMetric_AggregationTypeType().fromRef(_get_COUNT().object);
+
+  static final _getAggregationTypeString = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "AggregateMetric_AggregationType__getAggregationTypeString")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public final java.lang.String getAggregationTypeString()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getAggregationTypeString() {
+    return const jni.JStringType()
+        .fromRef(_getAggregationTypeString(reference).object);
+  }
+
+  static final _values =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "AggregateMetric_AggregationType__values")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public androidx.health.connect.client.aggregate.AggregateMetric$AggregationType[] values()
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JArray<AggregateMetric_AggregationType> values() {
+    return const jni.JArrayType($AggregateMetric_AggregationTypeType())
+        .fromRef(_values().object);
+  }
+
+  static final _valueOf = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "AggregateMetric_AggregationType__valueOf")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public androidx.health.connect.client.aggregate.AggregateMetric$AggregationType valueOf(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_AggregationType valueOf(
+    jni.JString string,
+  ) {
+    return const $AggregateMetric_AggregationTypeType()
+        .fromRef(_valueOf(string.reference).object);
+  }
+}
+
+class $AggregateMetric_AggregationTypeType
+    extends jni.JObjType<AggregateMetric_AggregationType> {
+  const $AggregateMetric_AggregationTypeType();
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/aggregate/AggregateMetric$AggregationType;";
+
+  @override
+  AggregateMetric_AggregationType fromRef(jni.JObjectPtr ref) =>
+      AggregateMetric_AggregationType.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($AggregateMetric_AggregationTypeType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateMetric_AggregationTypeType) &&
+        other is $AggregateMetric_AggregationTypeType;
+  }
+}
+
+/// from: androidx.health.connect.client.aggregate.AggregateMetric$Companion
+class AggregateMetric_Companion extends jni.JObject {
+  @override
+  late final jni.JObjType<AggregateMetric_Companion> $type = type;
+
+  AggregateMetric_Companion.fromRef(super.ref) : super.fromRef();
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $AggregateMetric_CompanionType();
+  static final _new0 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "AggregateMetric_Companion__new0")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void <init>(kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateMetric_Companion(
+    jni.JObject defaultConstructorMarker,
+  ) {
+    return AggregateMetric_Companion.fromRef(
+        _new0(defaultConstructorMarker.reference).object);
+  }
+}
+
+class $AggregateMetric_CompanionType
+    extends jni.JObjType<AggregateMetric_Companion> {
+  const $AggregateMetric_CompanionType();
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/aggregate/AggregateMetric$Companion;";
+
+  @override
+  AggregateMetric_Companion fromRef(jni.JObjectPtr ref) =>
+      AggregateMetric_Companion.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($AggregateMetric_CompanionType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateMetric_CompanionType) &&
+        other is $AggregateMetric_CompanionType;
+  }
+}
+
+/// from: androidx.health.connect.client.aggregate.AggregateMetric$Converter$FromDouble
+class AggregateMetric_Converter_FromDouble<$R extends jni.JObject>
+    extends jni.JObject {
+  @override
+  late final jni.JObjType<AggregateMetric_Converter_FromDouble<$R>> $type =
+      type(R);
+
+  final jni.JObjType<$R> R;
+
+  AggregateMetric_Converter_FromDouble.fromRef(
+    this.R,
     jni.JObjectPtr ref,
   ) : super.fromRef(ref);
 
   /// The type which includes information such as the signature of this class.
-  static $AggregateMetricType<T> type<T extends jni.JObject>(
-    jni.JObjType<T> $T,
+  static $AggregateMetric_Converter_FromDoubleType<$R>
+      type<$R extends jni.JObject>(
+    jni.JObjType<$R> R,
+  ) {
+    return $AggregateMetric_Converter_FromDoubleType(
+      R,
+    );
+  }
+}
+
+class $AggregateMetric_Converter_FromDoubleType<$R extends jni.JObject>
+    extends jni.JObjType<AggregateMetric_Converter_FromDouble<$R>> {
+  final jni.JObjType<$R> R;
+
+  const $AggregateMetric_Converter_FromDoubleType(
+    this.R,
+  );
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/aggregate/AggregateMetric$Converter$FromDouble;";
+
+  @override
+  AggregateMetric_Converter_FromDouble<$R> fromRef(jni.JObjectPtr ref) =>
+      AggregateMetric_Converter_FromDouble.fromRef(R, ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => Object.hash($AggregateMetric_Converter_FromDoubleType, R);
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType ==
+            ($AggregateMetric_Converter_FromDoubleType<$R>) &&
+        other is $AggregateMetric_Converter_FromDoubleType<$R> &&
+        R == other.R;
+  }
+}
+
+/// from: androidx.health.connect.client.aggregate.AggregateMetric$Converter$FromLong
+class AggregateMetric_Converter_FromLong<$R extends jni.JObject>
+    extends jni.JObject {
+  @override
+  late final jni.JObjType<AggregateMetric_Converter_FromLong<$R>> $type =
+      type(R);
+
+  final jni.JObjType<$R> R;
+
+  AggregateMetric_Converter_FromLong.fromRef(
+    this.R,
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static $AggregateMetric_Converter_FromLongType<$R>
+      type<$R extends jni.JObject>(
+    jni.JObjType<$R> R,
+  ) {
+    return $AggregateMetric_Converter_FromLongType(
+      R,
+    );
+  }
+}
+
+class $AggregateMetric_Converter_FromLongType<$R extends jni.JObject>
+    extends jni.JObjType<AggregateMetric_Converter_FromLong<$R>> {
+  final jni.JObjType<$R> R;
+
+  const $AggregateMetric_Converter_FromLongType(
+    this.R,
+  );
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/aggregate/AggregateMetric$Converter$FromLong;";
+
+  @override
+  AggregateMetric_Converter_FromLong<$R> fromRef(jni.JObjectPtr ref) =>
+      AggregateMetric_Converter_FromLong.fromRef(R, ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => Object.hash($AggregateMetric_Converter_FromLongType, R);
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateMetric_Converter_FromLongType<$R>) &&
+        other is $AggregateMetric_Converter_FromLongType<$R> &&
+        R == other.R;
+  }
+}
+
+/// from: androidx.health.connect.client.aggregate.AggregateMetric$Converter
+class AggregateMetric_Converter<$T extends jni.JObject, $R extends jni.JObject>
+    extends jni.JObject {
+  @override
+  late final jni.JObjType<AggregateMetric_Converter<$T, $R>> $type = type(T, R);
+
+  final jni.JObjType<$T> T;
+  final jni.JObjType<$R> R;
+
+  AggregateMetric_Converter.fromRef(
+    this.T,
+    this.R,
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static $AggregateMetric_ConverterType<$T, $R>
+      type<$T extends jni.JObject, $R extends jni.JObject>(
+    jni.JObjType<$T> T,
+    jni.JObjType<$R> R,
+  ) {
+    return $AggregateMetric_ConverterType(
+      T,
+      R,
+    );
+  }
+}
+
+class $AggregateMetric_ConverterType<$T extends jni.JObject,
+        $R extends jni.JObject>
+    extends jni.JObjType<AggregateMetric_Converter<$T, $R>> {
+  final jni.JObjType<$T> T;
+  final jni.JObjType<$R> R;
+
+  const $AggregateMetric_ConverterType(
+    this.T,
+    this.R,
+  );
+
+  @override
+  String get signature =>
+      r"Landroidx/health/connect/client/aggregate/AggregateMetric$Converter;";
+
+  @override
+  AggregateMetric_Converter<$T, $R> fromRef(jni.JObjectPtr ref) =>
+      AggregateMetric_Converter.fromRef(T, R, ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => Object.hash($AggregateMetric_ConverterType, T, R);
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateMetric_ConverterType<$T, $R>) &&
+        other is $AggregateMetric_ConverterType<$T, $R> &&
+        T == other.T &&
+        R == other.R;
+  }
+}
+
+/// from: androidx.health.connect.client.aggregate.AggregateMetric
+class AggregateMetric<$T extends jni.JObject> extends jni.JObject {
+  @override
+  late final jni.JObjType<AggregateMetric<$T>> $type = type(T);
+
+  final jni.JObjType<$T> T;
+
+  AggregateMetric.fromRef(
+    this.T,
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static $AggregateMetricType<$T> type<$T extends jni.JObject>(
+    jni.JObjType<$T> T,
   ) {
     return $AggregateMetricType(
-      $T,
+      T,
     );
   }
 
@@ -12099,35 +14188,47 @@ class AggregateMetric<T extends jni.JObject> extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
+  /// The returned object must be released after use, by calling the [release] method.
+  static AggregateMetric_Companion get Companion =>
+      const $AggregateMetric_CompanionType().fromRef(_get_Companion().object);
 
-  static final _ctor = jniLookup<
+  static final _new0 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregateMetric__ctor")
+                  ffi.Pointer<ffi.Void>)>>("AggregateMetric__new0")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(androidx.health.connect.client.aggregate.AggregateMetric$Converter converter, java.lang.String string, androidx.health.connect.client.aggregate.AggregateMetric$AggregationType aggregationType, java.lang.String string1)
-  AggregateMetric(this.$T, jni.JObject converter, jni.JString string,
-      jni.JObject aggregationType, jni.JString string1)
-      : super.fromRef(_ctor(converter.reference, string.reference,
-                aggregationType.reference, string1.reference)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AggregateMetric(
+    AggregateMetric_Converter<jni.JObject, $T> converter,
+    jni.JString string,
+    AggregateMetric_AggregationType aggregationType,
+    jni.JString string1, {
+    jni.JObjType<$T>? T,
+  }) {
+    T ??= jni.lowestCommonSuperType([
+      (converter.$type as $AggregateMetric_ConverterType).R,
+    ]) as jni.JObjType<$T>;
+    return AggregateMetric.fromRef(
+        T,
+        _new0(converter.reference, string.reference, aggregationType.reference,
+                string1.reference)
             .object);
+  }
 }
 
-class $AggregateMetricType<T extends jni.JObject>
-    extends jni.JObjType<AggregateMetric<T>> {
-  final jni.JObjType<T> $T;
+class $AggregateMetricType<$T extends jni.JObject>
+    extends jni.JObjType<AggregateMetric<$T>> {
+  final jni.JObjType<$T> T;
 
   const $AggregateMetricType(
-    this.$T,
+    this.T,
   );
 
   @override
@@ -12135,18 +14236,22 @@ class $AggregateMetricType<T extends jni.JObject>
       r"Landroidx/health/connect/client/aggregate/AggregateMetric;";
 
   @override
-  AggregateMetric<T> fromRef(jni.JObjectPtr ref) =>
-      AggregateMetric.fromRef($T, ref);
-}
+  AggregateMetric<$T> fromRef(jni.JObjectPtr ref) =>
+      AggregateMetric.fromRef(T, ref);
 
-extension $AggregateMetricArray<T extends jni.JObject>
-    on jni.JArray<AggregateMetric<T>> {
-  AggregateMetric<T> operator [](int index) {
-    return (elementType as $AggregateMetricType<T>)
-        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
-  }
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
 
-  void operator []=(int index, AggregateMetric<T> value) {
-    (this as jni.JArray<jni.JObject>)[index] = value;
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => Object.hash($AggregateMetricType, T);
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AggregateMetricType<$T>) &&
+        other is $AggregateMetricType<$T> &&
+        T == other.T;
   }
 }

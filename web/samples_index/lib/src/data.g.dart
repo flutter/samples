@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of data;
+part of 'data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -62,13 +62,6 @@ Sample _$SampleFromJson(Map json) => $checkedCreate(
               (v) =>
                   (v as List<dynamic>?)?.map((e) => e as String).toList() ??
                   const []),
-          links: $checkedConvert(
-              'links',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) => Link.fromJson(e as Map))
-                      .toList() ??
-                  const []),
           type: $checkedConvert('type', (v) => v as String),
           date: $checkedConvert(
               'date', (v) => v == null ? null : DateTime.parse(v as String)),
@@ -90,7 +83,6 @@ Map<String, dynamic> _$SampleToJson(Sample instance) => <String, dynamic>{
       'packages': instance.packages,
       'tags': instance.tags,
       'platforms': instance.platforms,
-      'links': instance.links,
       'type': instance.type,
       'date': instance.date?.toIso8601String(),
       'channel': instance.channel,
@@ -112,21 +104,4 @@ Map<String, dynamic> _$ScreenshotToJson(Screenshot instance) =>
     <String, dynamic>{
       'url': instance.url,
       'alt': instance.alt,
-    };
-
-Link _$LinkFromJson(Map json) => $checkedCreate(
-      'Link',
-      json,
-      ($checkedConvert) {
-        final val = Link(
-          $checkedConvert('text', (v) => v as String),
-          $checkedConvert('href', (v) => v as String),
-        );
-        return val;
-      },
-    );
-
-Map<String, dynamic> _$LinkToJson(Link instance) => <String, dynamic>{
-      'text': instance.text,
-      'href': instance.href,
     };

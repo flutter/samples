@@ -11,11 +11,34 @@ class BasicTextField extends StatefulWidget {
     required this.controller,
     required this.style,
     required this.focusNode,
+    this.contextMenuBuilder = _defaultContextMenuBuilder,
   });
 
   final TextEditingController controller;
   final TextStyle style;
   final FocusNode focusNode;
+  final BasicTextFieldContextMenuBuilder? contextMenuBuilder;
+
+  static Widget _defaultContextMenuBuilder(
+    BuildContext context,
+    ClipboardStatus clipboardStatus,
+    VoidCallback? onCopy,
+    VoidCallback? onCut,
+    VoidCallback? onPaste,
+    VoidCallback? onSelectAll,
+    VoidCallback? onLiveTextInput,
+    TextSelectionToolbarAnchors anchors,
+  ) {
+    return AdaptiveTextSelectionToolbar.editable(
+      clipboardStatus: clipboardStatus,
+      onCopy: onCopy,
+      onCut: onCut,
+      onPaste: onPaste,
+      onSelectAll: onSelectAll,
+      onLiveTextInput: onLiveTextInput,
+      anchors: anchors,
+    );
+  }
 
   @override
   State<BasicTextField> createState() => _BasicTextFieldState();
@@ -86,22 +109,27 @@ class _BasicTextFieldState extends State<BasicTextField> {
   @override
   Widget build(BuildContext context) {
     switch (Theme.of(this.context).platform) {
+      // ignore: todo
+      // TODO(Renzo-Olivares): Remove use of deprecated members once
+      // TextSelectionControls.buildToolbar has been deleted.
+      // See https://github.com/flutter/flutter/pull/124611 and
+      // https://github.com/flutter/flutter/pull/124262 for more details.
       case TargetPlatform.iOS:
-        _textSelectionControls = cupertinoTextSelectionControls;
-        break;
+        // ignore: deprecated_member_use
+        _textSelectionControls = cupertinoTextSelectionHandleControls;
       case TargetPlatform.macOS:
-        _textSelectionControls = cupertinoDesktopTextSelectionControls;
-        break;
+        // ignore: deprecated_member_use
+        _textSelectionControls = cupertinoDesktopTextSelectionHandleControls;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
-        _textSelectionControls = materialTextSelectionControls;
-        break;
+        // ignore: deprecated_member_use
+        _textSelectionControls = materialTextSelectionHandleControls;
       case TargetPlatform.linux:
-        _textSelectionControls = desktopTextSelectionControls;
-        break;
+        // ignore: deprecated_member_use
+        _textSelectionControls = desktopTextSelectionHandleControls;
       case TargetPlatform.windows:
-        _textSelectionControls = desktopTextSelectionControls;
-        break;
+        // ignore: deprecated_member_use
+        _textSelectionControls = desktopTextSelectionHandleControls;
     }
 
     return TextFieldTapRegion(
@@ -109,8 +137,17 @@ class _BasicTextFieldState extends State<BasicTextField> {
         behavior: HitTestBehavior.translucent,
         onPanStart: (dragStartDetails) => _onDragStart(dragStartDetails),
         onPanUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
+        onSecondaryTapDown: (secondaryTapDownDetails) {
+          _renderEditable.selectWordsInRange(
+              from: secondaryTapDownDetails.globalPosition,
+              cause: SelectionChangedCause.tap);
+          _renderEditable.handleSecondaryTapDown(secondaryTapDownDetails);
+          _textInputClient!.hideToolbar();
+          _textInputClient!.showToolbar();
+        },
         onTap: () {
           _textInputClient!.requestKeyboard();
+          _textInputClient!.hideToolbar();
         },
         onTapDown: (tapDownDetails) {
           _renderEditable.handleTapDown(tapDownDetails);
@@ -124,7 +161,6 @@ class _BasicTextFieldState extends State<BasicTextField> {
                 from: longPressMoveUpdateDetails.globalPosition,
                 cause: SelectionChangedCause.longPress,
               );
-              break;
             case TargetPlatform.android:
             case TargetPlatform.fuchsia:
             case TargetPlatform.linux:
@@ -135,7 +171,6 @@ class _BasicTextFieldState extends State<BasicTextField> {
                 to: longPressMoveUpdateDetails.globalPosition,
                 cause: SelectionChangedCause.longPress,
               );
-              break;
           }
         },
         onLongPressEnd: (longPressEndDetails) =>
@@ -160,6 +195,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
               selectionControls: _textSelectionControls,
               onSelectionChanged: _handleSelectionChanged,
               showSelectionHandles: _showSelectionHandles,
+              contextMenuBuilder: widget.contextMenuBuilder,
             ),
           ),
         ),

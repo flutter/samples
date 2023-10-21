@@ -8,7 +8,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.0-0 <3.0.0"
+  sdk: ^3.1.0
 
 dependencies:
   flutter:
@@ -18,10 +18,12 @@ dependencies:
   url_launcher: ^6.1.8
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^2.0.1
+  integration_test:
+    sdk: flutter
 
 flutter:
   uses-material-design: true

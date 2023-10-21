@@ -7,33 +7,19 @@ steps:
       - ios
   - name: Flutter recreate
     flutter: create --platform android,ios --org dev.flutter .
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
-  - name: Patch android/settings.gradle
-    path: android/settings.gradle
-    patch-u: |
-      --- b/platform_channels/android/settings.gradle
-      +++ a/platform_channels/android/settings.gradle
-      @@ -1,3 +1,7 @@
-      +// Copyright 2014 The Flutter Authors. All rights reserved.
-      +// Use of this source code is governed by a BSD-style license that can be
-      +// found in the LICENSE file.
-      +
-       include ':app'
-       
-       def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
   - name: Patch android/app/build.gradle
     path: android/app/build.gradle
     patch-u: |
       --- b/platform_channels/android/app/build.gradle
       +++ a/platform_channels/android/app/build.gradle
-      @@ -68,4 +68,5 @@ flutter {
-       
-       dependencies {
-           implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-      +    implementation 'com.google.code.gson:gson:2.8.6'
+      @@ -64,4 +64,6 @@ flutter {
+           source '../..'
        }
+       
+      -dependencies {}
+      +dependencies {
+      +    implementation 'com.google.code.gson:gson:2.8.6'
+      +}
   - name: Mkdir ios/Runner/Assets.xcassets/eat_new_orleans.imageset
     mkdir: ios/Runner/Assets.xcassets/eat_new_orleans.imageset
   - name: Add ios/Runner/Assets.xcassets/eat_new_orleans.imageset/Contents.json
@@ -2628,6 +2614,9 @@ steps:
               return nil
           }
       }
+  - name: Add AccelerometerStreamHandler.swift to Xcode project
+    xcode-project-path: ios/Runner.xcodeproj
+    xcode-add-file: AccelerometerStreamHandler.swift
   - name: Replace ios/Runner/AppDelegate.swift
     path: ios/Runner/AppDelegate.swift
     replace-contents: |

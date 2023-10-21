@@ -4,30 +4,22 @@ version: 0.0.1
 publish_to: "none"
 
 environment:
-  sdk: '>=2.19.0-389.0.dev <3.0.0'
+  sdk: ^3.1.0
   flutter: ">=2.11.0"
 
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  jni:
-    git:
-      url: https://github.com/dart-lang/jnigen
-      ref: suspend-fun
-      path: ./jni
+  jni: ^0.7.0
   ffi: ^2.0.1
 
 dev_dependencies:
-  ffigen: ^7.2.1
-  jnigen:
-    git:
-      url: https://github.com/dart-lang/jnigen
-      ref: suspend-fun
-      path: ./jnigen
+  ffigen: ^9.0.0
+  jnigen: ^0.7.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -49,6 +41,8 @@ flutter:
   plugin:
     platforms:
       ios:
+        ffiPlugin: true
+      android:
         ffiPlugin: true
 
   # To add assets to your plugin package, add an assets section, like this:

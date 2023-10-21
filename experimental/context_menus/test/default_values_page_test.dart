@@ -45,20 +45,16 @@ void main() {
       case TargetPlatform.iOS:
         expect(
             find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
-        break;
       case TargetPlatform.macOS:
         expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
             findsNWidgets(2));
-        break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(1));
-        break;
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(
             find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(1));
-        break;
     }
 
     // Tap the next field to hide the context menu.

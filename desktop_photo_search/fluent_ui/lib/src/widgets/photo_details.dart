@@ -37,7 +37,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
         Link(
           uri: Uri.parse(
               'https://unsplash.com/@${widget.photo.user!.username}?utm_source=$unsplashAppName&utm_medium=referral'),
-          builder: (context, followLink) => TextButton(
+          builder: (context, followLink) => HyperlinkButton(
             onPressed: followLink,
             child: Text(widget.photo.user!.name),
           ),
@@ -45,7 +45,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
         const Text('on'),
         Link(
           uri: _unsplashHomepage,
-          builder: (context, followLink) => TextButton(
+          builder: (context, followLink) => HyperlinkButton(
             onPressed: followLink,
             child: const Text('Unsplash'),
           ),
@@ -58,6 +58,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
   Widget build(BuildContext context) {
     return Scrollbar(
       child: SingleChildScrollView(
+        primary: true,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

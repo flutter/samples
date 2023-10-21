@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 const rowDivider = SizedBox(width: 20);
@@ -26,25 +27,46 @@ class FirstComponentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: showSecondList
-          ? const EdgeInsetsDirectional.only(end: smallSpacing)
-          : EdgeInsets.zero,
-      children: [
-        const Actions(),
+    List<Widget> children = [
+      const Actions(),
+      colDivider,
+      const Communication(),
+      colDivider,
+      const Containment(),
+      if (!showSecondList) ...[
         colDivider,
-        const Communication(),
+        Navigation(scaffoldKey: scaffoldKey),
         colDivider,
-        const Containment(),
-        if (!showSecondList) ...[
-          colDivider,
-          Navigation(scaffoldKey: scaffoldKey),
-          colDivider,
-          const Selection(),
-          colDivider,
-          const TextInputs()
-        ],
+        const Selection(),
+        colDivider,
+        const TextInputs()
       ],
+    ];
+    List<double?> heights = List.filled(children.length, null);
+
+    // Fully traverse this list before moving on.
+    return FocusTraversalGroup(
+      child: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: showSecondList
+                ? const EdgeInsetsDirectional.only(end: smallSpacing)
+                : EdgeInsets.zero,
+            sliver: SliverList(
+              delegate: BuildSlivers(
+                heights: heights,
+                builder: (context, index) {
+                  return _CacheHeight(
+                    heights: heights,
+                    index: index,
+                    child: children[index],
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -59,16 +81,125 @@ class SecondComponentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsetsDirectional.only(end: smallSpacing),
-      children: <Widget>[
-        Navigation(scaffoldKey: scaffoldKey),
-        colDivider,
-        const Selection(),
-        colDivider,
-        const TextInputs(),
-      ],
+    List<Widget> children = [
+      Navigation(scaffoldKey: scaffoldKey),
+      colDivider,
+      const Selection(),
+      colDivider,
+      const TextInputs(),
+    ];
+    List<double?> heights = List.filled(children.length, null);
+
+    // Fully traverse this list before moving on.
+    return FocusTraversalGroup(
+      child: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsetsDirectional.only(end: smallSpacing),
+            sliver: SliverList(
+              delegate: BuildSlivers(
+                heights: heights,
+                builder: (context, index) {
+                  return _CacheHeight(
+                    heights: heights,
+                    index: index,
+                    child: children[index],
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
     );
+  }
+}
+
+// If the content of a CustomScrollView does not change, then it's
+// safe to cache the heights of each item as they are laid out. The
+// sum of the cached heights are returned by an override of
+// `SliverChildDelegate.estimateMaxScrollOffset`. The default version
+// of this method bases its estimate on the average height of the
+// visible items. The override ensures that the scrollbar thumb's
+// size, which depends on the max scroll offset, will shrink smoothly
+// as the contents of the list are exposed for the first time, and
+// then remain fixed.
+class _CacheHeight extends SingleChildRenderObjectWidget {
+  const _CacheHeight({
+    super.child,
+    required this.heights,
+    required this.index,
+  });
+
+  final List<double?> heights;
+  final int index;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) {
+    return _RenderCacheHeight(
+      heights: heights,
+      index: index,
+    );
+  }
+
+  @override
+  void updateRenderObject(
+      BuildContext context, _RenderCacheHeight renderObject) {
+    renderObject
+      ..heights = heights
+      ..index = index;
+  }
+}
+
+class _RenderCacheHeight extends RenderProxyBox {
+  _RenderCacheHeight({
+    required List<double?> heights,
+    required int index,
+  })  : _heights = heights,
+        _index = index,
+        super();
+
+  List<double?> _heights;
+  List<double?> get heights => _heights;
+  set heights(List<double?> value) {
+    if (value == _heights) {
+      return;
+    }
+    _heights = value;
+    markNeedsLayout();
+  }
+
+  int _index;
+  int get index => _index;
+  set index(int value) {
+    if (value == index) {
+      return;
+    }
+    _index = value;
+    markNeedsLayout();
+  }
+
+  @override
+  void performLayout() {
+    super.performLayout();
+    heights[index] = size.height;
+  }
+}
+
+// The heights information is used to override the `estimateMaxScrollOffset` and
+// provide a more accurate estimation for the max scroll offset.
+class BuildSlivers extends SliverChildBuilderDelegate {
+  BuildSlivers({
+    required NullableIndexedWidgetBuilder builder,
+    required this.heights,
+  }) : super(builder, childCount: heights.length);
+
+  final List<double?> heights;
+
+  @override
+  double? estimateMaxScrollOffset(int firstIndex, int lastIndex,
+      double leadingScrollOffset, double trailingScrollOffset) {
+    return heights.reduce((sum, height) => (sum ?? 0) + (height ?? 0))!;
   }
 }
 
@@ -134,8 +265,8 @@ class Navigation extends StatelessWidget {
       ),
       NavigationDrawers(scaffoldKey: scaffoldKey),
       const NavigationRails(),
-      // TODO: Add Search https://github.com/flutter/flutter/issues/117483
       const Tabs(),
+      const SearchAnchors(),
       const TopAppBars(),
     ]);
   }
@@ -149,12 +280,12 @@ class Selection extends StatelessWidget {
     return const ComponentGroupDecoration(label: 'Selection', children: [
       Checkboxes(),
       Chips(),
-      // TODO: Add Date pickers https://github.com/flutter/flutter/issues/101481
+      DatePickers(),
       Menus(),
       Radios(),
       Sliders(),
       Switches(),
-      // TODO: Add Time pickers https://github.com/flutter/flutter/issues/101480
+      TimePickers(),
     ]);
   }
 }
@@ -181,7 +312,7 @@ class Buttons extends StatefulWidget {
 class _ButtonsState extends State<Buttons> {
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Common buttons',
       tooltipMessage:
           'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
@@ -189,7 +320,7 @@ class _ButtonsState extends State<Buttons> {
         scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const <Widget>[
+          children: <Widget>[
             ButtonsWithoutIcon(isDisabled: false),
             ButtonsWithIcon(),
             ButtonsWithoutIcon(isDisabled: true),
@@ -602,11 +733,11 @@ class _DialogsState extends State<Dialogs> {
             'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.'),
         actions: <Widget>[
           TextButton(
-            child: const Text('Okay'),
+            child: const Text('Dismiss'),
             onPressed: () => Navigator.of(context).pop(),
           ),
           FilledButton(
-            child: const Text('Dismiss'),
+            child: const Text('Okay'),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ],
@@ -675,11 +806,11 @@ class Dividers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Dividers',
       tooltipMessage: 'Use Divider or VerticalDivider',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           Divider(key: Key('divider')),
         ],
       ),
@@ -692,11 +823,11 @@ class Switches extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Switches',
       tooltipMessage: 'Use SwitchListTile or Switch',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           SwitchRow(isEnabled: true),
           SwitchRow(isEnabled: false),
         ],
@@ -1011,13 +1142,13 @@ class NavigationBars extends StatefulWidget {
     this.onSelectItem,
     required this.selectedIndex,
     required this.isExampleBar,
-    this.isBadgeExample,
+    this.isBadgeExample = false,
   });
 
   final void Function(int)? onSelectItem;
   final int selectedIndex;
   final bool isExampleBar;
-  final bool? isBadgeExample;
+  final bool isBadgeExample;
 
   @override
   State<NavigationBars> createState() => _NavigationBarsState();
@@ -1042,23 +1173,26 @@ class _NavigationBarsState extends State<NavigationBars> {
 
   @override
   Widget build(BuildContext context) {
-    bool isBadgeExample = widget.isBadgeExample ?? false;
-    Widget navigationBar = NavigationBar(
-      selectedIndex: selectedIndex,
-      onDestinationSelected: (index) {
-        setState(() {
-          selectedIndex = index;
-        });
-        if (!widget.isExampleBar) widget.onSelectItem!(index);
-      },
-      destinations: widget.isExampleBar && isBadgeExample
-          ? barWithBadgeDestinations
-          : widget.isExampleBar
-              ? exampleBarDestinations
-              : appBarDestinations,
+    // App NavigationBar should get first focus.
+    Widget navigationBar = Focus(
+      autofocus: !(widget.isExampleBar || widget.isBadgeExample),
+      child: NavigationBar(
+        selectedIndex: selectedIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+          if (!widget.isExampleBar) widget.onSelectItem!(index);
+        },
+        destinations: widget.isExampleBar && widget.isBadgeExample
+            ? barWithBadgeDestinations
+            : widget.isExampleBar
+                ? exampleBarDestinations
+                : appBarDestinations,
+      ),
     );
 
-    if (widget.isExampleBar && isBadgeExample) {
+    if (widget.isExampleBar && widget.isBadgeExample) {
       navigationBar = ComponentDecoration(
           label: 'Badges',
           tooltipMessage: 'Use Badge or Badge.count',
@@ -1082,73 +1216,105 @@ class IconToggleButtons extends StatefulWidget {
 }
 
 class _IconToggleButtonsState extends State<IconToggleButtons> {
+  bool standardSelected = false;
+  bool filledSelected = false;
+  bool tonalSelected = false;
+  bool outlinedSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Icon buttons',
-      tooltipMessage: 'Use IconButton',
+      tooltipMessage:
+          'Use IconButton, IconButton.filled, IconButton.filledTonal, and IconButton.outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Column(
             // Standard IconButton
-            children: const <Widget>[
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Standard',
+            children: <Widget>[
+              IconButton(
+                isSelected: standardSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    standardSelected = !standardSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Standard (disabled)',
+              IconButton(
+                isSelected: standardSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Filled IconButton
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Filled',
-                getDefaultStyle: enabledFilledButtonStyle,
+              IconButton.filled(
+                isSelected: filledSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    filledSelected = !filledSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Filled (disabled)',
-                getDefaultStyle: disabledFilledButtonStyle,
+              IconButton.filled(
+                isSelected: filledSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Filled Tonal IconButton
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Filled tonal',
-                getDefaultStyle: enabledFilledTonalButtonStyle,
+              IconButton.filledTonal(
+                isSelected: tonalSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    tonalSelected = !tonalSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Filled tonal (disabled)',
-                getDefaultStyle: disabledFilledTonalButtonStyle,
+              IconButton.filledTonal(
+                isSelected: tonalSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Outlined IconButton
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Outlined',
-                getDefaultStyle: enabledOutlinedButtonStyle,
+              IconButton.outlined(
+                isSelected: outlinedSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    outlinedSelected = !outlinedSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Outlined (disabled)',
-                getDefaultStyle: disabledOutlinedButtonStyle,
+              IconButton.outlined(
+                isSelected: outlinedSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
@@ -1156,134 +1322,6 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
       ),
     );
   }
-}
-
-class IconToggleButton extends StatefulWidget {
-  const IconToggleButton({
-    required this.isEnabled,
-    required this.tooltip,
-    this.getDefaultStyle,
-    super.key,
-  });
-
-  final bool isEnabled;
-  final String tooltip;
-  final ButtonStyle? Function(bool, ColorScheme)? getDefaultStyle;
-
-  @override
-  State<IconToggleButton> createState() => _IconToggleButtonState();
-}
-
-class _IconToggleButtonState extends State<IconToggleButton> {
-  bool selected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme colors = Theme.of(context).colorScheme;
-    final VoidCallback? onPressed = widget.isEnabled
-        ? () {
-            setState(() {
-              selected = !selected;
-            });
-          }
-        : null;
-    ButtonStyle? style = widget.getDefaultStyle?.call(selected, colors);
-
-    return IconButton(
-      visualDensity: VisualDensity.standard,
-      isSelected: selected,
-      tooltip: widget.tooltip,
-      icon: const Icon(Icons.settings_outlined),
-      selectedIcon: const Icon(Icons.settings),
-      onPressed: onPressed,
-      style: style,
-    );
-  }
-}
-
-ButtonStyle enabledFilledButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    foregroundColor: selected ? colors.onPrimary : colors.primary,
-    backgroundColor: selected ? colors.primary : colors.surfaceVariant,
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-    hoverColor: selected
-        ? colors.onPrimary.withOpacity(0.08)
-        : colors.primary.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-  );
-}
-
-ButtonStyle disabledFilledButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-  );
-}
-
-ButtonStyle enabledFilledTonalButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    foregroundColor:
-        selected ? colors.onSecondaryContainer : colors.onSurfaceVariant,
-    backgroundColor:
-        selected ? colors.secondaryContainer : colors.surfaceVariant,
-    hoverColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.08)
-        : colors.onSurfaceVariant.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-  );
-}
-
-ButtonStyle disabledFilledTonalButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-  );
-}
-
-ButtonStyle enabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    backgroundColor: selected ? colors.inverseSurface : null,
-    hoverColor: selected
-        ? colors.onInverseSurface.withOpacity(0.08)
-        : colors.onSurfaceVariant.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onInverseSurface.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onInverseSurface.withOpacity(0.12)
-        : colors.onSurface.withOpacity(0.12),
-    side: BorderSide(color: colors.outline),
-  ).copyWith(
-    foregroundColor: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
-        return colors.onInverseSurface;
-      }
-      if (states.contains(MaterialState.pressed)) {
-        return colors.onSurface;
-      }
-      return null;
-    }),
-  );
-}
-
-ButtonStyle disabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor:
-        selected ? colors.onSurface.withOpacity(0.12) : null,
-    side: selected ? null : BorderSide(color: colors.outline.withOpacity(0.12)),
-  );
 }
 
 class Chips extends StatefulWidget {
@@ -1362,16 +1400,108 @@ class _ChipsState extends State<Chips> {
   }
 }
 
+class DatePickers extends StatefulWidget {
+  const DatePickers({super.key});
+
+  @override
+  State<DatePickers> createState() => _DatePickersState();
+}
+
+class _DatePickersState extends State<DatePickers> {
+  DateTime? selectedDate;
+  final DateTime _firstDate = DateTime(DateTime.now().year - 2);
+  final DateTime _lastDate = DateTime(DateTime.now().year + 1);
+
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Date picker',
+      tooltipMessage: 'Use showDatePicker',
+      child: TextButton(
+        onPressed: () async {
+          DateTime? date = await showDatePicker(
+            context: context,
+            initialDate: selectedDate ?? DateTime.now(),
+            firstDate: _firstDate,
+            lastDate: _lastDate,
+          );
+          setState(() {
+            selectedDate = date;
+            if (selectedDate != null) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text(
+                    'Selected Date: ${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'),
+              ));
+            }
+          });
+        },
+        child: const Text(
+          'Show date picker',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+
+class TimePickers extends StatefulWidget {
+  const TimePickers({super.key});
+
+  @override
+  State<TimePickers> createState() => _TimePickersState();
+}
+
+class _TimePickersState extends State<TimePickers> {
+  TimeOfDay? selectedTime;
+
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Time picker',
+      tooltipMessage: 'Use showTimePicker',
+      child: TextButton(
+        onPressed: () async {
+          final TimeOfDay? time = await showTimePicker(
+            context: context,
+            initialTime: selectedTime ?? TimeOfDay.now(),
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  alwaysUse24HourFormat: true,
+                ),
+                child: child!,
+              );
+            },
+          );
+          setState(() {
+            selectedTime = time;
+            if (selectedTime != null) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content:
+                    Text('Selected time: ${selectedTime!.format(context)}'),
+              ));
+            }
+          });
+        },
+        child: const Text(
+          'Show time picker',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+
 class SegmentedButtons extends StatelessWidget {
   const SegmentedButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Segmented buttons',
       tooltipMessage: 'Use SegmentedButton<T>',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           SingleChoice(),
           colDivider,
           MultipleChoice(),
@@ -1552,6 +1682,7 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
             ),
             onPressed: () {
               showModalBottomSheet<void>(
+                showDragHandle: true,
                 context: context,
                 // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
                 constraints: const BoxConstraints(maxWidth: 640),
@@ -2066,9 +2197,9 @@ class _MenusState extends State<Menus> {
       tooltipMessage: 'Use MenuAnchor or DropdownMenu<T>',
       child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               ButtonAnchorExample(),
               rowDivider,
               IconButtonAnchorExample(),
@@ -2188,7 +2319,102 @@ class _SlidersState extends State<Sliders> {
   }
 }
 
-class ComponentDecoration extends StatelessWidget {
+class SearchAnchors extends StatefulWidget {
+  const SearchAnchors({super.key});
+
+  @override
+  State<SearchAnchors> createState() => _SearchAnchorsState();
+}
+
+class _SearchAnchorsState extends State<SearchAnchors> {
+  String? selectedColor;
+  List<ColorItem> searchHistory = <ColorItem>[];
+
+  Iterable<Widget> getHistoryList(SearchController controller) {
+    return searchHistory.map((color) => ListTile(
+          leading: const Icon(Icons.history),
+          title: Text(color.label),
+          trailing: IconButton(
+              icon: const Icon(Icons.call_missed),
+              onPressed: () {
+                controller.text = color.label;
+                controller.selection =
+                    TextSelection.collapsed(offset: controller.text.length);
+              }),
+          onTap: () {
+            controller.closeView(color.label);
+            handleSelection(color);
+          },
+        ));
+  }
+
+  Iterable<Widget> getSuggestions(SearchController controller) {
+    final String input = controller.value.text;
+    return ColorItem.values
+        .where((color) => color.label.contains(input))
+        .map((filteredColor) => ListTile(
+              leading: CircleAvatar(backgroundColor: filteredColor.color),
+              title: Text(filteredColor.label),
+              trailing: IconButton(
+                  icon: const Icon(Icons.call_missed),
+                  onPressed: () {
+                    controller.text = filteredColor.label;
+                    controller.selection =
+                        TextSelection.collapsed(offset: controller.text.length);
+                  }),
+              onTap: () {
+                controller.closeView(filteredColor.label);
+                handleSelection(filteredColor);
+              },
+            ));
+  }
+
+  void handleSelection(ColorItem color) {
+    setState(() {
+      selectedColor = color.label;
+      if (searchHistory.length >= 5) {
+        searchHistory.removeLast();
+      }
+      searchHistory.insert(0, color);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Search',
+      tooltipMessage: 'Use SearchAnchor or SearchAnchor.bar',
+      child: Column(
+        children: <Widget>[
+          SearchAnchor.bar(
+            barHintText: 'Search colors',
+            suggestionsBuilder: (context, controller) {
+              if (controller.text.isEmpty) {
+                if (searchHistory.isNotEmpty) {
+                  return getHistoryList(controller);
+                }
+                return <Widget>[
+                  const Center(
+                    child: Text('No search history.',
+                        style: TextStyle(color: Colors.grey)),
+                  )
+                ];
+              }
+              return getSuggestions(controller);
+            },
+          ),
+          const SizedBox(height: 20),
+          if (selectedColor == null)
+            const Text('Select a color')
+          else
+            Text('Last selected color is $selectedColor')
+        ],
+      ),
+    );
+  }
+}
+
+class ComponentDecoration extends StatefulWidget {
   const ComponentDecoration({
     super.key,
     required this.label,
@@ -2201,6 +2427,13 @@ class ComponentDecoration extends StatelessWidget {
   final String? tooltipMessage;
 
   @override
+  State<ComponentDecoration> createState() => _ComponentDecorationState();
+}
+
+class _ComponentDecorationState extends State<ComponentDecoration> {
+  final focusNode = FocusNode();
+
+  @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: Padding(
@@ -2210,9 +2443,10 @@ class ComponentDecoration extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(label, style: Theme.of(context).textTheme.titleSmall),
+                Text(widget.label,
+                    style: Theme.of(context).textTheme.titleSmall),
                 Tooltip(
-                  message: tooltipMessage,
+                  message: widget.tooltipMessage,
                   child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5.0),
                       child: Icon(Icons.info_outline, size: 16)),
@@ -2222,18 +2456,32 @@ class ComponentDecoration extends StatelessWidget {
             ConstrainedBox(
               constraints:
                   const BoxConstraints.tightFor(width: widthConstraint),
-              child: Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.outlineVariant,
+              // Tapping within the a component card should request focus
+              // for that component's children.
+              child: Focus(
+                focusNode: focusNode,
+                canRequestFocus: true,
+                child: GestureDetector(
+                  onTapDown: (_) {
+                    focusNode.requestFocus();
+                  },
+                  behavior: HitTestBehavior.opaque,
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.outlineVariant,
+                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 20.0),
+                      child: Center(
+                        child: widget.child,
+                      ),
+                    ),
                   ),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 5.0, vertical: 20.0),
-                  child: Center(child: child),
                 ),
               ),
             ),
@@ -2253,22 +2501,48 @@ class ComponentGroupDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.zero,
-      elevation: 0,
-      color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        child: Center(
-          child: Column(
-            children: [
-              Text(label, style: Theme.of(context).textTheme.titleLarge),
-              colDivider,
-              ...children
-            ],
+    // Fully traverse this component group before moving on
+    return FocusTraversalGroup(
+      child: Card(
+        margin: EdgeInsets.zero,
+        elevation: 0,
+        color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Center(
+            child: Column(
+              children: [
+                Text(label, style: Theme.of(context).textTheme.titleLarge),
+                colDivider,
+                ...children
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+}
+
+enum ColorItem {
+  red('red', Colors.red),
+  orange('orange', Colors.orange),
+  yellow('yellow', Colors.yellow),
+  green('green', Colors.green),
+  blue('blue', Colors.blue),
+  indigo('indigo', Colors.indigo),
+  violet('violet', Color(0xFF8F00FF)),
+  purple('purple', Colors.purple),
+  pink('pink', Colors.pink),
+  silver('silver', Color(0xFF808080)),
+  gold('gold', Color(0xFFFFD700)),
+  beige('beige', Color(0xFFF5F5DC)),
+  brown('brown', Colors.brown),
+  grey('grey', Colors.grey),
+  black('black', Colors.black),
+  white('white', Colors.white);
+
+  const ColorItem(this.label, this.color);
+  final String label;
+  final Color color;
 }

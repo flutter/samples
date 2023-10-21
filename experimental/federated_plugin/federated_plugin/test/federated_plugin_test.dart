@@ -11,13 +11,17 @@ void main() {
 
   group('Federated Plugin Test', () {
     const batteryLevel = 34;
-    const MethodChannel('battery').setMockMethodCallHandler((call) async {
-      if (call.method == 'getBatteryLevel') {
-        return batteryLevel;
-      }
-    });
 
-    test('getBatteryLevel method test', () async {
+    testWidgets('getBatteryLevel method test', (tester) async {
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        const MethodChannel('battery'),
+        (call) async {
+          if (call.method == 'getBatteryLevel') {
+            return batteryLevel;
+          }
+          return 0;
+        },
+      );
       final result = await getBatteryLevel();
       expect(result, batteryLevel);
     });

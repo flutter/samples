@@ -155,13 +155,12 @@ class AudioController {
     switch (_lifecycleNotifier!.value) {
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
+      case AppLifecycleState.hidden:
         _stopAllSound();
-        break;
       case AppLifecycleState.resumed:
         if (!_settings!.muted.value && _settings!.musicOn.value) {
           _resumeMusic();
         }
-        break;
       case AppLifecycleState.inactive:
         // No need to react to this state change.
         break;
@@ -209,23 +208,21 @@ class AudioController {
           _log.severe(e);
           await _playFirstSongInPlaylist();
         }
-        break;
       case PlayerState.stopped:
         _log.info("resumeMusic() called when music is stopped. "
             "This probably means we haven't yet started the music. "
             "For example, the game was started with sound off.");
         await _playFirstSongInPlaylist();
-        break;
       case PlayerState.playing:
         _log.warning('resumeMusic() called when music is playing. '
             'Nothing to do.');
-        break;
       case PlayerState.completed:
         _log.warning('resumeMusic() called when music is completed. '
             "Music should never be 'completed' as it's either not playing "
             "or looping forever.");
         await _playFirstSongInPlaylist();
-        break;
+      default:
+        _log.warning('Unhandled PlayerState: ${_musicPlayer.state}');
     }
   }
 

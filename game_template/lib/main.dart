@@ -5,10 +5,12 @@
 // Uncomment the following lines when enabling Firebase Crashlytics
 // import 'dart:io';
 // import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+// import 'package:flutter/foundation.dart';
 // import 'firebase_options.dart';
 
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
+import 'dart:developer' as dev;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -18,7 +20,6 @@ import 'package:provider/provider.dart';
 import 'src/ads/ads_controller.dart';
 import 'src/app_lifecycle/app_lifecycle.dart';
 import 'src/audio/audio_controller.dart';
-import 'src/crashlytics/crashlytics.dart';
 import 'src/games_services/games_services.dart';
 import 'src/games_services/score.dart';
 import 'src/in_app_purchase/in_app_purchase.dart';
@@ -39,42 +40,44 @@ import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 
 Future<void> main() async {
-  // To enable Firebase Crashlytics, uncomment the following lines and
-  // the import statements at the top of this file.
+  // Subscribe to log messages.
+  Logger.root.onRecord.listen((record) {
+    dev.log(
+      record.message,
+      time: record.time,
+      level: record.level.value,
+      name: record.loggerName,
+      zone: record.zone,
+      error: record.error,
+      stackTrace: record.stackTrace,
+    );
+  });
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // TODO: To enable Firebase Crashlytics, uncomment the following line.
   // See the 'Crashlytics' section of the main README.md file for details.
 
-  FirebaseCrashlytics? crashlytics;
   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
   //   try {
-  //     WidgetsFlutterBinding.ensureInitialized();
   //     await Firebase.initializeApp(
   //       options: DefaultFirebaseOptions.currentPlatform,
   //     );
-  //     crashlytics = FirebaseCrashlytics.instance;
+  //
+  //     FlutterError.onError = (errorDetails) {
+  //       FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  //     };
+  //
+  //     // Pass all uncaught asynchronous errors
+  //     // that aren't handled by the Flutter framework to Crashlytics.
+  //     PlatformDispatcher.instance.onError = (error, stack) {
+  //       FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //       return true;
+  //     };
   //   } catch (e) {
   //     debugPrint("Firebase couldn't be initialized: $e");
   //   }
   // }
-
-  await guardWithCrashlytics(
-    guardedMain,
-    crashlytics: crashlytics,
-  );
-}
-
-/// Without logging and crash reporting, this would be `void main()`.
-void guardedMain() {
-  if (kReleaseMode) {
-    // Don't log anything below warnings in production.
-    Logger.root.level = Level.WARNING;
-  }
-  Logger.root.onRecord.listen((record) {
-    debugPrint('${record.level.name}: ${record.time}: '
-        '${record.loggerName}: '
-        '${record.message}');
-  });
-
-  WidgetsFlutterBinding.ensureInitialized();
 
   _log.info('Going full screen');
   SystemChrome.setEnabledSystemUIMode(
@@ -134,18 +137,22 @@ class MyApp extends StatelessWidget {
             GoRoute(
                 path: 'play',
                 pageBuilder: (context, state) => buildMyTransition<void>(
+                      key: ValueKey('play'),
                       child: const LevelSelectionScreen(
-                          key: Key('level selection')),
+                        key: Key('level selection'),
+                      ),
                       color: context.watch<Palette>().backgroundLevelSelection,
                     ),
                 routes: [
                   GoRoute(
                     path: 'session/:level',
                     pageBuilder: (context, state) {
-                      final levelNumber = int.parse(state.params['level']!);
+                      final levelNumber =
+                          int.parse(state.pathParameters['level']!);
                       final level = gameLevels
                           .singleWhere((e) => e.number == levelNumber);
                       return buildMyTransition<void>(
+                        key: ValueKey('level'),
                         child: PlaySessionScreen(
                           level,
                           key: const Key('play session'),
@@ -156,11 +163,22 @@ class MyApp extends StatelessWidget {
                   ),
                   GoRoute(
                     path: 'won',
+                    redirect: (context, state) {
+                      if (state.extra == null) {
+                        // Trying to navigate to a win screen without any data.
+                        // Possibly by using the browser's back button.
+                        return '/';
+                      }
+
+                      // Otherwise, do not redirect.
+                      return null;
+                    },
                     pageBuilder: (context, state) {
                       final map = state.extra! as Map<String, dynamic>;
                       final score = map['score'] as Score;
 
                       return buildMyTransition<void>(
+                        key: ValueKey('won'),
                         child: WinGameScreen(
                           score: score,
                           key: const Key('win game'),

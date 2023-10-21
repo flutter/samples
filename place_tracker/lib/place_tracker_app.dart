@@ -44,7 +44,7 @@ class PlaceTrackerApp extends StatelessWidget {
             GoRoute(
               path: 'place/:id',
               builder: (context, state) {
-                final id = state.params['id']!;
+                final id = state.pathParameters['id']!;
                 final place = context
                     .read<AppState>()
                     .places
@@ -67,9 +67,9 @@ class _PlaceTrackerHomePage extends StatelessWidget {
     var state = Provider.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
               child: Icon(Icons.pin_drop, size: 24.0),

@@ -72,11 +72,11 @@ void main() {
 
   testWidgets('NavigationRail smoke test', (tester) async {
     var responseBody =
-        '''[{"name": "always_use_package_imports","description": "Avoid relative imports for files in `lib/`.","group": "errors","maturity": "stable","incompatible": [],"sets": [],"details": "*DO* avoid relative imports for files in `lib/`.\n\nWhen mixing relative and absolute imports it's possible to create confusion\nwhere the same member gets imported in two different ways. One way to avoid\nthat is to ensure you consistently use absolute imports for files withing the\n`lib/` directory.\n\nThis is the opposite of 'prefer_relative_imports'.\nMight be used with 'avoid_relative_lib_imports' to avoid relative imports of\nfiles within `lib/` directory outside of it. (for example `test/`)\n\n**GOOD:**\n\n```dart\nimport 'package:foo/bar.dart';\n\nimport 'package:foo/baz.dart';\n\nimport 'package:foo/src/baz.dart';\n...\n```\n\n**BAD:**\n\n```dart\nimport 'baz.dart';\n\nimport 'src/bag.dart'\n\nimport '../lib/baz.dart';\n\n...\n```\n\n"}]''';
+        '''[{"name": "always_use_package_imports","description": "Avoid relative imports for files in `lib/`.","group": "errors","state": "stable","incompatible": [],"sets": [],"details": "*DO* avoid relative imports for files in `lib/`.\n\nWhen mixing relative and absolute imports it's possible to create confusion\nwhere the same member gets imported in two different ways. One way to avoid\nthat is to ensure you consistently use absolute imports for files withing the\n`lib/` directory.\n\nThis is the opposite of 'prefer_relative_imports'.\nMight be used with 'avoid_relative_lib_imports' to avoid relative imports of\nfiles within `lib/` directory outside of it. (for example `test/`)\n\n**GOOD:**\n\n```dart\nimport 'package:foo/bar.dart';\n\nimport 'package:foo/baz.dart';\n\nimport 'package:foo/src/baz.dart';\n...\n```\n\n**BAD:**\n\n```dart\nimport 'baz.dart';\n\nimport 'src/bag.dart'\n\nimport '../lib/baz.dart';\n\n...\n```\n\n"}]''';
 
     when(_mockClient.get(Uri.parse(
-            'https://dart-lang.github.io/linter//lints/machine/rules.json')))
-        .thenAnswer(
+      'https://raw.githubusercontent.com/dart-lang/site-www/main/src/_data/linter_rules.json',
+    ))).thenAnswer(
       (_) async => http.Response(responseBody, 400),
     );
 

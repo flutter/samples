@@ -50,7 +50,7 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
             ? PhotoDetails(
                 photo: photoSearchModel.selectedPhoto!,
                 onPhotoSave: (photo) async {
-                  final path = await getSavePath(
+                  final saveLocation = await getSaveLocation(
                     suggestedName: '${photo.id}.jpg',
                     acceptedTypeGroups: [
                       const XTypeGroup(
@@ -60,12 +60,12 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
                       ),
                     ],
                   );
-                  if (path != null) {
+                  if (saveLocation != null) {
                     final fileData =
                         await photoSearchModel.download(photo: photo);
                     final photoFile =
                         XFile.fromData(fileData, mimeType: 'image/jpeg');
-                    await photoFile.saveTo(path);
+                    await photoFile.saveTo(saveLocation.path);
                   }
                 },
               )

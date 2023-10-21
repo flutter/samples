@@ -1,6 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.flutter.navigation_and_routing">
-   <application
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
         android:label="navigation_and_routing"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

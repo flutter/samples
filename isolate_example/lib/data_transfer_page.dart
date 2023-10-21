@@ -60,25 +60,31 @@ class DataTransferPage extends StatelessWidget {
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    foregroundColor: (controller.runningTest == 1)
-                        ? Colors.blueAccent
-                        : Colors.blueGrey),
+                  foregroundColor: switch (controller.runningTest) {
+                    1 => Colors.blueAccent,
+                    _ => Colors.blueGrey,
+                  },
+                ),
                 onPressed: () => controller.generateRandomNumbers(false),
                 child: const Text('Transfer Data to 2nd Isolate'),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    foregroundColor: (controller.runningTest == 2)
-                        ? Colors.blueAccent
-                        : Colors.blueGrey),
+                  foregroundColor: switch (controller.runningTest) {
+                    2 => Colors.blueAccent,
+                    _ => Colors.blueGrey,
+                  },
+                ),
                 onPressed: () => controller.generateRandomNumbers(true),
                 child: const Text('Transfer Data with TransferableTypedData'),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    foregroundColor: (controller.runningTest == 3)
-                        ? Colors.blueAccent
-                        : Colors.blueGrey),
+                  foregroundColor: switch (controller.runningTest) {
+                    3 => Colors.blueAccent,
+                    _ => Colors.blueGrey,
+                  },
+                ),
                 onPressed: controller.generateOnSecondaryIsolate,
                 child: const Text('Generate on 2nd Isolate'),
               ),
@@ -115,19 +121,16 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   void listen() {
     _incomingReceivePort.listen((dynamic message) {
-      if (message is SendPort) {
-        _outgoingSendPort = message;
-      }
-
-      if (message is int) {
-        currentProgress.insert(
-            0, '$message% - ${_timer.elapsedMilliseconds / 1000} seconds');
-        progressPercent = message / 100;
-      }
-
-      if (message is String && message == 'done') {
-        runningTest = 0;
-        _timer.stop();
+      switch (message) {
+        case SendPort():
+          _outgoingSendPort = message;
+        case int():
+          currentProgress.insert(
+              0, '$message% - ${_timer.elapsedMilliseconds / 1000} seconds');
+          progressPercent = message / 100;
+        case 'done':
+          runningTest = 0;
+          _timer.stop();
       }
 
       notifyListeners();

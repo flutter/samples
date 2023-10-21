@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: const Color(0xff6200ee),
+        useMaterial3: true,
       ),
       home: const BookDetail(),
     );

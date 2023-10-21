@@ -1,4 +1,4 @@
-include: ../analysis_options.yaml
+include: package:analysis_defaults/flutter.yaml
 
 # Files under typer/ are partially completed files, and often invalid
 analyzer:

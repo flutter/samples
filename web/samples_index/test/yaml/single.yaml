@@ -16,11 +16,6 @@ samples:
       - path
     tags: ['beginner', 'kittens', 'cats']
     platforms: ['web', 'ios', 'android']
-    links:
-      - text: inspiration
-        href: https://apps.apple.com/us/app/neko-atsume-kitty-collector/id923917775
-      - text: author
-        href: https://jpryan.me
     type: sample # sample, app, or cookbook
     date: 2019-12-15T02:59:43.1Z
     channel: stable

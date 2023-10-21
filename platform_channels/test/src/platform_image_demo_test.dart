@@ -9,17 +9,15 @@ import 'package:platform_channels/src/platform_image_demo.dart';
 
 void main() {
   group('Platform Image Demo tests', () {
-    setUpAll(() {
-      // Register a mock for MessageHandler.
-      const BasicMessageChannel<dynamic>(
-              'platformImageDemo', StandardMessageCodec())
-          .setMockMessageHandler((dynamic message) async {
-        var byteData = await rootBundle.load('assets/eat_new_orleans.jpg');
-        return byteData.buffer.asUint8List();
-      });
-    });
-
     testWidgets('Platform Image test', (tester) async {
+      tester.binding.defaultBinaryMessenger.setMockDecodedMessageHandler(
+        const BasicMessageChannel<dynamic>(
+            'platformImageDemo', StandardMessageCodec()),
+        (dynamic message) async {
+          var byteData = await rootBundle.load('assets/eat_new_orleans.jpg');
+          return byteData.buffer.asUint8List();
+        },
+      );
       await tester.pumpWidget(const MaterialApp(
         home: PlatformImageDemo(),
       ));
@@ -29,7 +27,7 @@ void main() {
       expect(find.byType(Image), findsNothing);
 
       // Tap on ElevatedButton to get Image.
-      await tester.tap(find.byType(ElevatedButton));
+      await tester.tap(find.byType(FilledButton));
       await tester.pumpAndSettle();
 
       expect(find.byType(Placeholder), findsNothing);

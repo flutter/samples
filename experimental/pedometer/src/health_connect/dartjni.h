@@ -10,11 +10,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "include/dart_api.h"
-#include "include/dart_native_api.h"
-
-#include "include/dart_api_dl.h"
-
 #if _WIN32
 #include <windows.h>
 #else
@@ -44,6 +39,107 @@
 #define __ENVP_CAST (void**)
 #endif
 
+/// Locking functions for windows and pthread.
+
+#if defined _WIN32
+#include <windows.h>
+
+typedef CRITICAL_SECTION MutexLock;
+typedef CONDITION_VARIABLE ConditionVariable;
+
+static inline void init_lock(MutexLock* lock) {
+  InitializeCriticalSection(lock);
+}
+
+static inline void acquire_lock(MutexLock* lock) {
+  EnterCriticalSection(lock);
+}
+
+static inline void release_lock(MutexLock* lock) {
+  LeaveCriticalSection(lock);
+}
+
+static inline void destroy_lock(MutexLock* lock) {
+  DeleteCriticalSection(lock);
+}
+
+static inline void init_cond(ConditionVariable* cond) {
+  InitializeConditionVariable(cond);
+}
+
+static inline void signal_cond(ConditionVariable* cond) {
+  WakeConditionVariable(cond);
+}
+
+static inline void wait_for(ConditionVariable* cond, MutexLock* lock) {
+  SleepConditionVariableCS(cond, lock, INFINITE);
+}
+
+static inline void destroy_cond(ConditionVariable* cond) {
+  // Not available.
+}
+
+#elif defined __APPLE__ || defined __LINUX__ || defined __ANDROID__ ||         \
+    defined __GNUC__
+#include <pthread.h>
+
+typedef pthread_mutex_t MutexLock;
+typedef pthread_cond_t ConditionVariable;
+
+static inline void init_lock(MutexLock* lock) {
+  pthread_mutex_init(lock, NULL);
+}
+
+static inline void acquire_lock(MutexLock* lock) {
+  pthread_mutex_lock(lock);
+}
+
+static inline void release_lock(MutexLock* lock) {
+  pthread_mutex_unlock(lock);
+}
+
+static inline void destroy_lock(MutexLock* lock) {
+  pthread_mutex_destroy(lock);
+}
+
+static inline void init_cond(ConditionVariable* cond) {
+  pthread_cond_init(cond, NULL);
+}
+
+static inline void signal_cond(ConditionVariable* cond) {
+  pthread_cond_signal(cond);
+}
+
+static inline void wait_for(ConditionVariable* cond, MutexLock* lock) {
+  pthread_cond_wait(cond, lock);
+}
+
+static inline void destroy_cond(ConditionVariable* cond) {
+  pthread_cond_destroy(cond);
+}
+
+#else
+
+#error "No locking/condition variable support; Possibly unsupported platform"
+
+#endif
+
+typedef struct CallbackResult {
+  MutexLock lock;
+  ConditionVariable cond;
+  int ready;
+  jobject object;
+} CallbackResult;
+
+typedef struct JniLocks {
+  MutexLock classLoadingLock;
+  MutexLock methodLoadingLock;
+  MutexLock fieldLoadingLock;
+} JniLocks;
+
+/// Represents the error when dart-jni layer has already spawned singleton VM.
+#define DART_JNI_SINGLETON_EXISTS (-99);
+
 /// Stores the global state of the JNI.
 typedef struct JniContext {
   JavaVM* jvm;
@@ -51,13 +147,14 @@ typedef struct JniContext {
   jmethodID loadClassMethod;
   jobject currentActivity;
   jobject appContext;
+  JniLocks locks;
 } JniContext;
 
 // jniEnv for this thread, used by inline functions in this header,
 // therefore declared as extern.
 extern thread_local JNIEnv* jniEnv;
 
-extern JniContext jni;
+extern JniContext* jni;
 
 /// Types used by JNI API to distinguish between primitive types.
 enum JniType {
@@ -78,19 +175,19 @@ enum JniType {
 /// If [exception] is null, it means the result is valid.
 /// It's assumed that the caller knows the expected type in [result].
 typedef struct JniResult {
-  jvalue result;
+  jvalue value;
   jthrowable exception;
 } JniResult;
 
 /// Similar to [JniResult] but for class lookups.
 typedef struct JniClassLookupResult {
-  jclass classRef;
+  jclass value;
   jthrowable exception;
 } JniClassLookupResult;
 
 /// Similar to [JniResult] but for method/field ID lookups.
 typedef struct JniPointerResult {
-  void* id;
+  const void* value;
   jthrowable exception;
 } JniPointerResult;
 
@@ -107,7 +204,7 @@ typedef struct JniExceptionDetails {
 /// Flutter embedding checks for pending JNI exceptions before an FFI transition, which requires us
 /// to check for and clear the exception before returning to dart code, which requires these functions
 /// to return result types.
-typedef struct JniAccessors {
+typedef struct JniAccessorsStruct {
   JniClassLookupResult (*getClass)(char* internalName);
   JniPointerResult (*getFieldID)(jclass cls, char* fieldName, char* signature);
   JniPointerResult (*getStaticFieldID)(jclass cls,
@@ -120,10 +217,10 @@ typedef struct JniAccessors {
                                         char* methodName,
                                         char* signature);
   JniResult (*newObject)(jclass cls, jmethodID ctor, jvalue* args);
-  JniPointerResult (*newPrimitiveArray)(jsize length, int type);
-  JniPointerResult (*newObjectArray)(jsize length,
-                                     jclass elementClass,
-                                     jobject initialElement);
+  JniResult (*newPrimitiveArray)(jsize length, int type);
+  JniResult (*newObjectArray)(jsize length,
+                              jclass elementClass,
+                              jobject initialElement);
   JniResult (*getArrayElement)(jarray array, int index, int type);
   JniResult (*callMethod)(jobject obj,
                           jmethodID methodID,
@@ -136,62 +233,81 @@ typedef struct JniAccessors {
   JniResult (*getField)(jobject obj, jfieldID fieldID, int callType);
   JniResult (*getStaticField)(jclass cls, jfieldID fieldID, int callType);
   JniExceptionDetails (*getExceptionDetails)(jthrowable exception);
-} JniAccessors;
+} JniAccessorsStruct;
 
-FFI_PLUGIN_EXPORT JniAccessors* GetAccessors();
+FFI_PLUGIN_EXPORT JniAccessorsStruct* GetAccessors();
 
 FFI_PLUGIN_EXPORT JavaVM* GetJavaVM(void);
 
 FFI_PLUGIN_EXPORT JNIEnv* GetJniEnv(void);
 
-FFI_PLUGIN_EXPORT JNIEnv* SpawnJvm(JavaVMInitArgs* args);
+/// Spawn a JVM with given arguments.
+///
+/// Returns JNI_OK on success, and one of the documented JNI error codes on
+/// failure. It returns DART_JNI_SINGLETON_EXISTS if an attempt to spawn multiple
+/// JVMs is made, even if the underlying API potentially supports multiple VMs.
+FFI_PLUGIN_EXPORT int SpawnJvm(JavaVMInitArgs* args);
 
-FFI_PLUGIN_EXPORT jclass LoadClass(const char* name);
+/// Load class through platform-specific mechanism.
+///
+/// Currently uses application classloader on android,
+/// and JNIEnv->FindClass on other platforms.
+FFI_PLUGIN_EXPORT jclass FindClass(const char* name);
 
+/// Returns Application classLoader (on Android),
+/// which can be used to load application and platform classes.
+///
+/// On other platforms, NULL is returned.
 FFI_PLUGIN_EXPORT jobject GetClassLoader(void);
 
+/// Returns application context on Android.
+///
+/// On other platforms, NULL is returned.
 FFI_PLUGIN_EXPORT jobject GetApplicationContext(void);
 
+/// Returns current activity of the app on Android.
 FFI_PLUGIN_EXPORT jobject GetCurrentActivity(void);
 
-// Migration note: Below inline functions are required by C bindings, but can be moved to dartjni.c
-// once migration to pure dart bindings is complete.
+static inline void attach_thread() {
+  if (jniEnv == NULL) {
+    (*jni->jvm)->AttachCurrentThread(jni->jvm, __ENVP_CAST & jniEnv, NULL);
+  }
+}
 
-// `static inline` because `inline` doesn't work, it may still not
-// inline the function in which case a linker error may be produced.
-//
-// There has to be a better way to do this. Either to force inlining on target
-// platforms, or just leave it as normal function.
-
-static inline void __load_class_into(jclass* cls, const char* name) {
+/// Load class into [cls] using platform specific mechanism
+static inline void load_class_platform(jclass* cls, const char* name) {
 #ifdef __ANDROID__
   jstring className = (*jniEnv)->NewStringUTF(jniEnv, name);
-  *cls = (*jniEnv)->CallObjectMethod(jniEnv, jni.classLoader,
-                                     jni.loadClassMethod, className);
+  *cls = (*jniEnv)->CallObjectMethod(jniEnv, jni->classLoader,
+                                     jni->loadClassMethod, className);
   (*jniEnv)->DeleteLocalRef(jniEnv, className);
 #else
   *cls = (*jniEnv)->FindClass(jniEnv, name);
 #endif
 }
 
-static inline void load_class(jclass* cls, const char* name) {
+static inline void load_class_local_ref(jclass* cls, const char* name) {
   if (*cls == NULL) {
-    __load_class_into(cls, name);
+    acquire_lock(&jni->locks.classLoadingLock);
+    if (*cls == NULL) {
+      load_class_platform(cls, name);
+    }
+    release_lock(&jni->locks.classLoadingLock);
   }
 }
 
-static inline void load_class_gr(jclass* cls, const char* name) {
+static inline void load_class_global_ref(jclass* cls, const char* name) {
   if (*cls == NULL) {
-    jclass tmp;
-    __load_class_into(&tmp, name);
-    *cls = (*jniEnv)->NewGlobalRef(jniEnv, tmp);
-    (*jniEnv)->DeleteLocalRef(jniEnv, tmp);
-  }
-}
-
-static inline void attach_thread() {
-  if (jniEnv == NULL) {
-    (*jni.jvm)->AttachCurrentThread(jni.jvm, __ENVP_CAST & jniEnv, NULL);
+    jclass tmp = NULL;
+    acquire_lock(&jni->locks.classLoadingLock);
+    if (*cls == NULL) {
+      load_class_platform(&tmp, name);
+      if (!(*jniEnv)->ExceptionCheck(jniEnv)) {
+        *cls = (*jniEnv)->NewGlobalRef(jniEnv, tmp);
+        (*jniEnv)->DeleteLocalRef(jniEnv, tmp);
+      }
+    }
+    release_lock(&jni->locks.classLoadingLock);
   }
 }
 
@@ -200,7 +316,11 @@ static inline void load_method(jclass cls,
                                const char* name,
                                const char* sig) {
   if (*res == NULL) {
-    *res = (*jniEnv)->GetMethodID(jniEnv, cls, name, sig);
+    acquire_lock(&jni->locks.methodLoadingLock);
+    if (*res == NULL) {
+      *res = (*jniEnv)->GetMethodID(jniEnv, cls, name, sig);
+    }
+    release_lock(&jni->locks.methodLoadingLock);
   }
 }
 
@@ -209,7 +329,11 @@ static inline void load_static_method(jclass cls,
                                       const char* name,
                                       const char* sig) {
   if (*res == NULL) {
-    *res = (*jniEnv)->GetStaticMethodID(jniEnv, cls, name, sig);
+    acquire_lock(&jni->locks.methodLoadingLock);
+    if (*res == NULL) {
+      *res = (*jniEnv)->GetStaticMethodID(jniEnv, cls, name, sig);
+    }
+    release_lock(&jni->locks.methodLoadingLock);
   }
 }
 
@@ -218,7 +342,11 @@ static inline void load_field(jclass cls,
                               const char* name,
                               const char* sig) {
   if (*res == NULL) {
-    *res = (*jniEnv)->GetFieldID(jniEnv, cls, name, sig);
+    acquire_lock(&jni->locks.fieldLoadingLock);
+    if (*res == NULL) {
+      *res = (*jniEnv)->GetFieldID(jniEnv, cls, name, sig);
+    }
+    release_lock(&jni->locks.fieldLoadingLock);
   }
 }
 
@@ -227,7 +355,11 @@ static inline void load_static_field(jclass cls,
                                      const char* name,
                                      const char* sig) {
   if (*res == NULL) {
-    *res = (*jniEnv)->GetStaticFieldID(jniEnv, cls, name, sig);
+    acquire_lock(&jni->locks.fieldLoadingLock);
+    if (*res == NULL) {
+      *res = (*jniEnv)->GetStaticFieldID(jniEnv, cls, name, sig);
+    }
+    release_lock(&jni->locks.fieldLoadingLock);
   }
 }
 
@@ -239,17 +371,18 @@ static inline jobject to_global_ref(jobject ref) {
 
 // These functions are useful for C+Dart bindings, and not required for pure dart bindings.
 
-FFI_PLUGIN_EXPORT JniContext GetJniContext();
+FFI_PLUGIN_EXPORT JniContext* GetJniContextPtr();
+
 /// For use by jni_gen's generated code
 /// don't use these.
 
 // these 2 fn ptr vars will be defined by generated code library
-extern JniContext (*context_getter)(void);
+extern JniContext* (*context_getter)(void);
 extern JNIEnv* (*env_getter)(void);
 
 // this function will be exported by generated code library
 // it will set above 2 variables.
-FFI_PLUGIN_EXPORT void setJniGetters(struct JniContext (*cg)(void),
+FFI_PLUGIN_EXPORT void setJniGetters(struct JniContext* (*cg)(void),
                                      JNIEnv* (*eg)(void));
 
 static inline void load_env() {
@@ -266,12 +399,26 @@ static inline jthrowable check_exception() {
   return to_global_ref(exception);
 }
 
-DART_EXPORT intptr_t InitDartApiDL(void* data);
+static inline JniResult to_global_ref_result(jobject ref) {
+  JniResult result;
+  result.exception = check_exception();
+  if (result.exception == NULL) {
+    result.value.l = to_global_ref(ref);
+  }
+  return result;
+}
 
-JNIEXPORT void JNICALL
-Java_com_github_dart_1lang_jni_PortContinuation__1resumeWith(JNIEnv* env,
-                                                             jobject thiz,
-                                                             jlong port,
-                                                             jobject result);
+FFI_PLUGIN_EXPORT intptr_t InitDartApiDL(void* data);
+
+FFI_PLUGIN_EXPORT
+JniResult DartException__ctor(jstring message);
+
 FFI_PLUGIN_EXPORT
 JniResult PortContinuation__ctor(int64_t j);
+
+FFI_PLUGIN_EXPORT
+JniResult PortProxy__newInstance(jobject binaryName,
+                                 int64_t port,
+                                 int64_t functionPtr);
+
+FFI_PLUGIN_EXPORT void resultFor(CallbackResult* result, jobject object);

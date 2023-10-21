@@ -103,26 +103,22 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
         ],
       ),
       tabBuilder: (context, index) {
-        switch (index) {
-          case 0:
-            return CupertinoTabView(
+        assert(index <= 2 && index >= 0, 'Unexpected tab index: $index');
+        return switch (index) {
+          0 => CupertinoTabView(
               defaultTitle: SongsTab.title,
               builder: (context) => SongsTab(key: songsTabKey),
-            );
-          case 1:
-            return CupertinoTabView(
+            ),
+          1 => CupertinoTabView(
               defaultTitle: NewsTab.title,
               builder: (context) => const NewsTab(),
-            );
-          case 2:
-            return CupertinoTabView(
+            ),
+          2 => CupertinoTabView(
               defaultTitle: ProfileTab.title,
               builder: (context) => const ProfileTab(),
-            );
-          default:
-            assert(false, 'Unexpected tab');
-            return const SizedBox.shrink();
-        }
+            ),
+          _ => const SizedBox.shrink(),
+        };
       },
     );
   }
