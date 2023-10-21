@@ -7,6 +7,15 @@ updates:
       interval: "daily"
     labels:
       - "autosubmit"
+  - package-ecosystem: "npm"
+    directory: "web_embedding/ng-flutter"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+    labels:
+      - "autosubmit"
   - package-ecosystem: "pub"
     directory: "add_to_app/android_view/flutter_module_using_plugin/"
     schedule:
@@ -242,12 +251,6 @@ updates:
     labels:
       - "autosubmit"
   - package-ecosystem: "pub"
-    directory: "next_gen_ui_demo/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "autosubmit"
-  - package-ecosystem: "pub"
     directory: "place_tracker/"
     schedule:
       interval: "daily"
@@ -335,14 +338,5 @@ updates:
     directory: "web_embedding/ng-flutter/flutter/"
     schedule:
       interval: "daily"
-    labels:
-      - "autosubmit"
-  - package-ecosystem: "npm"
-    directory: "web_embedding/ng-flutter"
-    schedule:
-      interval: "weekly"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
     labels:
       - "autosubmit"

@@ -5,6 +5,7 @@ publish_to: none
 environment:
   sdk: ^3.1.0
 
-# NOTE: Code is not allowed in this package. Do not add dependencies.
+# NOTE: Code is not allowed in this package. Do not add more dependencies.
+# The `flutter_lints` dependency is required for `lib/flutter.yaml`.
 dependencies:
-  flutter_lints: ^2.0.1
+  flutter_lints: ^3.0.0
