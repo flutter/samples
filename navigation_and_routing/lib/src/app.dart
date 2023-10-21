@@ -48,7 +48,7 @@ class _BookstoreState extends State<Bookstore> {
         initialLocation: '/books/popular',
         redirect: (context, state) {
           final signedIn = BookstoreAuth.of(context).signedIn;
-          if (state.location != '/sign-in' && !signedIn) {
+          if (state.uri.toString() != '/sign-in' && !signedIn) {
             return '/sign-in';
           }
           return null;
@@ -59,6 +59,12 @@ class _BookstoreState extends State<Bookstore> {
             builder: (context, state, child) {
               return BookstoreScaffold(
                 child: child,
+                selectedIndex: switch (state.uri.path) {
+                  var p when p.startsWith('/books') => 0,
+                  var p when p.startsWith('/authors') => 1,
+                  var p when p.startsWith('/settings') => 2,
+                  _ => 0,
+                },
               );
             },
             routes: [
@@ -70,20 +76,21 @@ class _BookstoreState extends State<Bookstore> {
                     // TODO (johnpryan): remove when https://github.com/flutter/flutter/issues/108177 lands
                     child: Builder(builder: (context) {
                       return BooksScreen(
-                        child: child,
                         onTap: (idx) {
-                          switch (idx) {
-                            case 1:
-                              GoRouter.of(context).go('/books/new');
-                              break;
-                            case 2:
-                              GoRouter.of(context).go('/books/all');
-                              break;
-                            case 0:
-                            default:
-                              GoRouter.of(context).go('/books/popular');
-                          }
+                          GoRouter.of(context).go(switch (idx) {
+                            0 => '/books/popular',
+                            1 => '/books/new',
+                            2 => '/books/all',
+                            _ => '/books/popular',
+                          });
                         },
+                        selectedIndex: switch (state.uri.path) {
+                          var p when p.startsWith('/books/popular') => 0,
+                          var p when p.startsWith('/books/new') => 1,
+                          var p when p.startsWith('/books/all') => 2,
+                          _ => 0,
+                        },
+                        child: child,
                       );
                     }),
                   );
@@ -116,7 +123,7 @@ class _BookstoreState extends State<Bookstore> {
                         builder: (context, state) {
                           return BookDetailsScreen(
                             book: libraryInstance
-                                .getBook(state.params['bookId'] ?? ''),
+                                .getBook(state.pathParameters['bookId'] ?? ''),
                           );
                         },
                       ),
@@ -149,7 +156,7 @@ class _BookstoreState extends State<Bookstore> {
                         builder: (context, state) {
                           return BookDetailsScreen(
                             book: libraryInstance
-                                .getBook(state.params['bookId'] ?? ''),
+                                .getBook(state.pathParameters['bookId'] ?? ''),
                           );
                         },
                       ),
@@ -182,7 +189,7 @@ class _BookstoreState extends State<Bookstore> {
                         builder: (context, state) {
                           return BookDetailsScreen(
                             book: libraryInstance
-                                .getBook(state.params['bookId'] ?? ''),
+                                .getBook(state.pathParameters['bookId'] ?? ''),
                           );
                         },
                       ),
@@ -212,7 +219,7 @@ class _BookstoreState extends State<Bookstore> {
                       final author = libraryInstance.allAuthors.firstWhere(
                           (author) =>
                               author.id ==
-                              int.parse(state.params['authorId']!));
+                              int.parse(state.pathParameters['authorId']!));
                       // Use a builder to get the correct BuildContext
                       // TODO (johnpryan): remove when https://github.com/flutter/flutter/issues/108177 lands
                       return Builder(builder: (context) {

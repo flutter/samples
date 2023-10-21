@@ -48,7 +48,7 @@ class BookDetailsScreen extends StatelessWidget {
                   MaterialPageRoute<void>(
                     builder: (context) => AuthorDetailsScreen(
                       author: book!.author,
-                      onBookTapped: (Book book) {
+                      onBookTapped: (book) {
                         GoRouter.of(context).go('/books/all/book/${book.id}');
                       },
                     ),

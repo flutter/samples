@@ -8,16 +8,17 @@ import 'package:go_router/go_router.dart';
 
 class BookstoreScaffold extends StatelessWidget {
   final Widget child;
+  final int selectedIndex;
 
   const BookstoreScaffold({
     required this.child,
+    required this.selectedIndex,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     final goRouter = GoRouter.of(context);
-    final selectedIndex = _getSelectedIndex(goRouter.location);
 
     return Scaffold(
       body: AdaptiveNavigationScaffold(
@@ -46,10 +47,4 @@ class BookstoreScaffold extends StatelessWidget {
     );
   }
 
-  int _getSelectedIndex(String pathTemplate) {
-    if (pathTemplate.startsWith('/books')) return 0;
-    if (pathTemplate == '/authors') return 1;
-    if (pathTemplate == '/settings') return 2;
-    return 0;
-  }
 }

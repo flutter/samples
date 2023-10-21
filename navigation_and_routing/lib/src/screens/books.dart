@@ -8,10 +8,12 @@ import 'package:go_router/go_router.dart';
 class BooksScreen extends StatefulWidget {
   final Widget child;
   final ValueChanged<int> onTap;
+  final int selectedIndex;
 
   const BooksScreen({
     required this.child,
     required this.onTap,
+    required this.selectedIndex,
     super.key,
   });
 
@@ -38,7 +40,7 @@ class _BooksScreenState extends State<BooksScreen>
 
   @override
   Widget build(BuildContext context) {
-    _tabController.index = _getSelectedIndex(GoRouter.of(context).location);
+    _tabController.index = widget.selectedIndex;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Books'),
@@ -65,15 +67,6 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   void _handleTabIndexChanged() {
-    if (_tabController.index != _getSelectedIndex(GoRouter.of(context).location)) {
-      widget.onTap(_tabController.index);
-    }
-  }
-
-  int _getSelectedIndex(String pathTemplate) {
-    if (pathTemplate.startsWith('/books/popular')) return 0;
-    if (pathTemplate.startsWith('/books/new')) return 1;
-    if (pathTemplate.startsWith('/books/all')) return 2;
-    return 0;
+    widget.onTap(_tabController.index);
   }
 }
