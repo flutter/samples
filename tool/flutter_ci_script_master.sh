@@ -40,7 +40,8 @@ declare -ar PROJECT_NAMES=(
     # "experimental/pedometer/example"
     # TODO(DomesticMouse): Dart formatting required
     # "experimental/varfont_shader_puzzle"
-    "experimental/web_dashboard"
+    # TODO(DomesticMouse): Because every version of flutter_test from sdk depends on intl 0.18.1 and web_dashboard depends on intl ^0.17.0, flutter_test from sdk is forbidden.
+    # "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
