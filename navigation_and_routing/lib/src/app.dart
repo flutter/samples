@@ -2,20 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:bookstore/src/auth.dart';
-import 'package:bookstore/src/data.dart';
-import 'package:bookstore/src/screens/author_details.dart';
-import 'package:bookstore/src/screens/book_details.dart';
-import 'package:bookstore/src/screens/books.dart';
-import 'package:bookstore/src/screens/sign_in.dart';
-import 'package:bookstore/src/widgets/fade_transition_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'auth.dart';
+import 'data.dart';
+import 'screens/author_details.dart';
 import 'screens/authors.dart';
+import 'screens/book_details.dart';
+import 'screens/books.dart';
 import 'screens/scaffold.dart';
 import 'screens/settings.dart';
+import 'screens/sign_in.dart';
 import 'widgets/book_list.dart';
+import 'widgets/fade_transition_page.dart';
 
 final appShellNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'app shell');
 final booksNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'books shell');

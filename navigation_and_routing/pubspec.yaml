@@ -23,7 +23,8 @@ dependencies:
       path: plugins/window_size
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
   test: ^1.24.0
