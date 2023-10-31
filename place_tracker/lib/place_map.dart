@@ -440,26 +440,30 @@ class _AddPlaceButtonBar extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
         alignment: Alignment.bottomCenter,
-        child: ButtonBar(
-          alignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(foregroundColor: Colors.blue),
-              onPressed: onSavePressed,
-              child: const Text(
-                'Save',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: OverflowBar(
+            alignment: MainAxisAlignment.center,
+            spacing: 8.0,
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: onSavePressed,
+                child: const Text('Save'),
               ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(foregroundColor: Colors.red),
-              onPressed: onCancelPressed,
-              child: const Text(
-                'Cancel',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: onCancelPressed,
+                child: const Text('Cancel'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -484,46 +488,50 @@ class _CategoryButtonBar extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
         alignment: Alignment.bottomCenter,
-        child: ButtonBar(
-          alignment: MainAxisAlignment.center,
-          children: [
-            FilledButton(
-              style: FilledButton.styleFrom(
-                  backgroundColor:
-                      selectedPlaceCategory == PlaceCategory.favorite
-                          ? Colors.green[700]
-                          : Colors.lightGreen),
-              child: const Text(
-                'Favorites',
-                style: TextStyle(color: Colors.white, fontSize: 14.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: OverflowBar(
+            alignment: MainAxisAlignment.center,
+            spacing: 8.0,
+            children: <Widget>[
+              FilledButton(
+                style: FilledButton.styleFrom(
+                    backgroundColor:
+                        selectedPlaceCategory == PlaceCategory.favorite
+                            ? Colors.green[700]
+                            : Colors.lightGreen),
+                onPressed: () => onChanged(PlaceCategory.favorite),
+                child: const Text(
+                  'Favorites',
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                ),
               ),
-              onPressed: () => onChanged(PlaceCategory.favorite),
-            ),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                  backgroundColor:
-                      selectedPlaceCategory == PlaceCategory.visited
-                          ? Colors.green[700]
-                          : Colors.lightGreen),
-              child: const Text(
-                'Visited',
-                style: TextStyle(color: Colors.white, fontSize: 14.0),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                    backgroundColor:
+                        selectedPlaceCategory == PlaceCategory.visited
+                            ? Colors.green[700]
+                            : Colors.lightGreen),
+                onPressed: () => onChanged(PlaceCategory.visited),
+                child: const Text(
+                  'Visited',
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                ),
               ),
-              onPressed: () => onChanged(PlaceCategory.visited),
-            ),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                  backgroundColor:
-                      selectedPlaceCategory == PlaceCategory.wantToGo
-                          ? Colors.green[700]
-                          : Colors.lightGreen),
-              child: const Text(
-                'Want To Go',
-                style: TextStyle(color: Colors.white, fontSize: 14.0),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                    backgroundColor:
+                        selectedPlaceCategory == PlaceCategory.wantToGo
+                            ? Colors.green[700]
+                            : Colors.lightGreen),
+                onPressed: () => onChanged(PlaceCategory.wantToGo),
+                child: const Text(
+                  'Want To Go',
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                ),
               ),
-              onPressed: () => onChanged(PlaceCategory.wantToGo),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
