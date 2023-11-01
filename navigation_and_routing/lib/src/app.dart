@@ -58,13 +58,13 @@ class _BookstoreState extends State<Bookstore> {
             navigatorKey: appShellNavigatorKey,
             builder: (context, state, child) {
               return BookstoreScaffold(
-                child: child,
                 selectedIndex: switch (state.uri.path) {
                   var p when p.startsWith('/books') => 0,
                   var p when p.startsWith('/authors') => 1,
                   var p when p.startsWith('/settings') => 2,
                   _ => 0,
                 },
+                child: child,
               );
             },
             routes: [

@@ -10,9 +10,9 @@ import '../widgets/author_list.dart';
 
 class AuthorsScreen extends StatelessWidget {
   final String title = 'Authors';
-  ValueChanged<Author> onTap;
+  final ValueChanged<Author> onTap;
 
-  AuthorsScreen({
+  const AuthorsScreen({
     required this.onTap,
     super.key,
   });
@@ -20,7 +20,7 @@ class AuthorsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: const Text(title),
         ),
         body: AuthorList(
           authors: libraryInstance.allAuthors,
