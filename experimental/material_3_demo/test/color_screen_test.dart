@@ -70,6 +70,6 @@ void main() {
     ));
     expect(find.text('Light ColorScheme'), findsOneWidget);
     expect(find.text('Dark ColorScheme'), findsOneWidget);
-    expect(find.byType(ColorGroup, skipOffstage: false), findsNWidgets(14));
+    expect(find.byType(ColorGroup, skipOffstage: false), findsNWidgets(16));
   });
 }
