@@ -3,10 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 
 import '../auth.dart';
-import '../routing.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -52,24 +52,27 @@ class SettingsContent extends StatelessWidget {
             ),
             FilledButton(
               onPressed: () {
-                BookstoreAuthScope.of(context).signOut();
+                BookstoreAuth.of(context).signOut();
               },
               child: const Text('Sign out'),
             ),
+            const Text('Example using the Link widget:'),
             Link(
-              uri: Uri.parse('/book/0'),
+              uri: Uri.parse('/books/all/book/0'),
               builder: (context, followLink) => TextButton(
                 onPressed: followLink,
-                child: const Text('Go directly to /book/0 (Link)'),
+                child: const Text('/books/all/book/0'),
               ),
             ),
+            const Text('Example using GoRouter.of(context).go():'),
             TextButton(
-              child: const Text('Go directly to /book/0 (RouteState)'),
+              child: const Text('/books/all/book/0'),
               onPressed: () {
-                RouteStateScope.of(context).go('/book/0');
+                GoRouter.of(context).go('/books/all/book/0');
               },
             ),
           ].map((w) => Padding(padding: const EdgeInsets.all(8), child: w)),
+          const Text('Displays a dialog on the root Navigator:'),
           TextButton(
             onPressed: () => showDialog<String>(
               context: context,
