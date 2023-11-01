@@ -44,5 +44,4 @@ class BookstoreAuthScope extends InheritedNotifier<BookstoreAuth> {
     required super.child,
     super.key,
   });
-
 }
