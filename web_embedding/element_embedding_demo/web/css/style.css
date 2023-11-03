@@ -65,6 +65,7 @@ section.contents article {
   margin-top: 50px;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 /** Title */
@@ -157,6 +158,7 @@ h1 {
   height: 480px;
   border-radius: 0px;
   transition: all 150ms ease-in;
+  align-self: center;
 }
 #flutter_target.resize {
   width: 480px;
@@ -249,6 +251,7 @@ h1 {
   border-radius: 34px;
   border: 1px solid #000;
   overflow: hidden;
+  align-self: initial;
 }
 
 .imageAttribution {
