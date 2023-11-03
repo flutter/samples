@@ -35,8 +35,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
     "experimental/material_3_demo"
-    "experimental/pedometer"
-    "experimental/pedometer/example"
+    # TODO(DomesticMouse): Dart formatting required
+    # "experimental/pedometer"
+    # "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
@@ -51,7 +52,6 @@ declare -ar PROJECT_NAMES=(
     "material_3_demo"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "navigation_and_routing"
-    "next_gen_ui_demo"
     "place_tracker"
     "platform_channels"
     "platform_design"

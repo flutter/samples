@@ -5,226 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "add_to_app/android_view/flutter_module_using_plugin/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "add_to_app/books/flutter_module_books/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "add_to_app/fullscreen/flutter_module/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "add_to_app/multiple_flutters/multiple_flutters_module/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "add_to_app/plugin/flutter_module_using_plugin/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "add_to_app/prebuilt_module/flutter_module/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "analysis_defaults/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "android_splash_screen/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "animations/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "background_isolate_channels/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "code_sharing/client/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "code_sharing/server/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "code_sharing/shared/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "deeplink_store_example/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "desktop_photo_search/fluent_ui/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "desktop_photo_search/material/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/context_menus/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/federated_plugin/federated_plugin/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/federated_plugin/federated_plugin/example/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/federated_plugin/federated_plugin_macos/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/federated_plugin/federated_plugin_platform_interface/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/federated_plugin/federated_plugin_web/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/federated_plugin/federated_plugin_windows/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/linting_tool/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/material_3_demo/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/pedometer/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/pedometer/example/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/varfont_shader_puzzle/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "experimental/web_dashboard/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "flutter_maps_firestore/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "form_app/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "game_template/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "google_maps/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "infinite_list/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "ios_app_clip/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "isolate_example/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "jsonexample/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "material_3_demo/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "navigation_and_routing/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "next_gen_ui_demo/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "place_tracker/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "platform_channels/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "platform_design/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "platform_view_swift/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "provider_counter/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "provider_shopper/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "simple_shader/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "simplistic_calculator/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "simplistic_editor/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "testing_app/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "veggieseasons/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web/_tool/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web/samples_index/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web_embedding/element_embedding_demo/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web_embedding/ng-flutter/flutter/"
-    schedule:
-      interval: "daily"
+    labels:
+      - "autosubmit"
   - package-ecosystem: "npm"
     directory: "web_embedding/ng-flutter"
     schedule:
@@ -232,3 +14,329 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "add_to_app/android_view/flutter_module_using_plugin/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "add_to_app/books/flutter_module_books/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "add_to_app/fullscreen/flutter_module/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "add_to_app/multiple_flutters/multiple_flutters_module/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "add_to_app/plugin/flutter_module_using_plugin/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "add_to_app/prebuilt_module/flutter_module/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "analysis_defaults/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "android_splash_screen/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "animations/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "background_isolate_channels/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "code_sharing/client/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "code_sharing/server/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "code_sharing/shared/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "deeplink_store_example/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "desktop_photo_search/fluent_ui/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "desktop_photo_search/material/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/context_menus/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/federated_plugin/federated_plugin/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/federated_plugin/federated_plugin/example/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/federated_plugin/federated_plugin_macos/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/federated_plugin/federated_plugin_platform_interface/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/federated_plugin/federated_plugin_web/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/federated_plugin/federated_plugin_windows/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/linting_tool/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/material_3_demo/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/pedometer/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/pedometer/example/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/varfont_shader_puzzle/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "experimental/web_dashboard/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "flutter_maps_firestore/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "form_app/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "game_template/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "google_maps/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "infinite_list/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "ios_app_clip/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "isolate_example/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "jsonexample/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "material_3_demo/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "navigation_and_routing/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "place_tracker/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "platform_channels/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "platform_design/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "platform_view_swift/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "provider_counter/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "provider_shopper/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "simple_shader/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "simplistic_calculator/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "simplistic_editor/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "testing_app/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "veggieseasons/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "web/_tool/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "web/samples_index/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "web_embedding/element_embedding_demo/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
+    directory: "web_embedding/ng-flutter/flutter/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"

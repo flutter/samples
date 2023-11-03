@@ -11,15 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  jni: ^0.5.0
+  jni: ^0.7.0
   ffi: ^2.0.1
 
 dev_dependencies:
   ffigen: ^9.0.0
-  jnigen: ^0.5.0
+  jnigen: ^0.7.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

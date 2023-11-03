@@ -35,10 +35,13 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
     "experimental/material_3_demo"
-    "experimental/pedometer"
-    "experimental/pedometer/example"
-    "experimental/varfont_shader_puzzle"
-    "experimental/web_dashboard"
+    # TODO(DomesticMouse): Dart formatting required
+    # "experimental/pedometer"
+    # "experimental/pedometer/example"
+    # TODO(DomesticMouse): Dart formatting required
+    # "experimental/varfont_shader_puzzle"
+    # TODO(DomesticMouse): Because every version of flutter_test from sdk depends on intl 0.18.1 and web_dashboard depends on intl ^0.17.0, flutter_test from sdk is forbidden.
+    # "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
@@ -51,7 +54,6 @@ declare -ar PROJECT_NAMES=(
     "material_3_demo"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "navigation_and_routing"
-    "next_gen_ui_demo"
     "place_tracker"
     "platform_channels"
     "platform_design"

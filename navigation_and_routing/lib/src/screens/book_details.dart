@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 
 import '../data.dart';
@@ -45,14 +46,18 @@ class BookDetailsScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push<void>(
                   MaterialPageRoute<void>(
-                    builder: (context) =>
-                        AuthorDetailsScreen(author: book!.author),
+                    builder: (context) => AuthorDetailsScreen(
+                      author: book!.author,
+                      onBookTapped: (book) {
+                        GoRouter.of(context).go('/books/all/book/${book.id}');
+                      },
+                    ),
                   ),
                 );
               },
             ),
             Link(
-              uri: Uri.parse('/author/${book!.author.id}'),
+              uri: Uri.parse('/authors/author/${book!.author.id}'),
               builder: (context, followLink) => TextButton(
                 onPressed: followLink,
                 child: const Text('View author (Link)'),

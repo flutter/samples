@@ -20,7 +20,6 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
   build_runner: ^2.3.2
 
 flutter:

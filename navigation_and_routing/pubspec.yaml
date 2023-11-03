@@ -4,14 +4,15 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.1.0
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   adaptive_navigation: ^0.0.3
-  collection: ^1.15.0
+  collection: ^1.17.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  go_router: ^12.0.0
   path_to_regexp: ^0.4.0
   quiver: ^3.1.0
   url_launcher: ^6.1.1
@@ -26,7 +27,7 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  test: ^1.16.0
+  test: ^1.24.0
 
 flutter:
   uses-material-design: true
