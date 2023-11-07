@@ -1632,7 +1632,7 @@ class BottomSheetSection extends StatefulWidget {
 
 class _BottomSheetSectionState extends State<BottomSheetSection> {
   bool isNonModalBottomSheetOpen = false;
-  PersistentBottomSheetController<void>? _nonModalBottomSheetController;
+  PersistentBottomSheetController? _nonModalBottomSheetController;
 
   @override
   Widget build(BuildContext context) {
@@ -1719,7 +1719,7 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
                 });
               }
 
-              _nonModalBottomSheetController = showBottomSheet<void>(
+              _nonModalBottomSheetController = showBottomSheet(
                 elevation: 8.0,
                 context: context,
                 // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
