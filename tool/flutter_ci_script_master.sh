@@ -34,7 +34,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    "experimental/material_3_demo"
+    #  TODO(DomesticMouse): The type 'PersistentBottomSheetController' is declared with 0 type parameters, but 1 type arguments were given.
+    # "experimental/material_3_demo"
     # TODO(DomesticMouse): Dart formatting required
     # "experimental/pedometer"
     # "experimental/pedometer/example"
