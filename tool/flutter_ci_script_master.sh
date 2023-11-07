@@ -52,7 +52,8 @@ declare -ar PROJECT_NAMES=(
     "isolate_example"
     # TODO(DomesticMouse): ComplexObjectView widget test Typical object is displayed correctly
     # "jsonexample"
-    "material_3_demo"
+    #  TODO(DomesticMouse): The type 'PersistentBottomSheetController' is declared with 0 type parameters, but 1 type arguments were given.
+    # "material_3_demo"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "navigation_and_routing"
     "place_tracker"
