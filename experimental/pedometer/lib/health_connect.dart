@@ -5869,9 +5869,8 @@ class Intent extends jni.JObject {
   }
 
   static final _new1 = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Intent__new1")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__new1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(android.content.Intent intent)
@@ -5883,9 +5882,8 @@ class Intent extends jni.JObject {
   }
 
   static final _new2 = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Intent__new2")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__new2")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public void <init>(java.lang.String string)
@@ -5995,9 +5993,8 @@ class Intent extends jni.JObject {
   }
 
   static final _clone = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Intent__clone")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__clone")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.Object clone()
@@ -6122,9 +6119,8 @@ class Intent extends jni.JObject {
   }
 
   static final _getData = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Intent__getData")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__getData")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.net.Uri getData()
@@ -6158,9 +6154,8 @@ class Intent extends jni.JObject {
   }
 
   static final _getType = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Intent__getType")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__getType")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getType()
@@ -8020,9 +8015,8 @@ class Intent extends jni.JObject {
   }
 
   static final _toURI = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Intent__toURI")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Intent__toURI")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toURI()
@@ -12399,9 +12393,8 @@ class Instant extends jni.JObject {
   }
 
   static final _now1 = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Instant__now1")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__now1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant now(java.time.Clock clock)
@@ -12453,9 +12446,8 @@ class Instant extends jni.JObject {
   }
 
   static final _from = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Instant__from")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__from")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant from(java.time.temporal.TemporalAccessor temporalAccessor)
@@ -12468,9 +12460,8 @@ class Instant extends jni.JObject {
   }
 
   static final _parse = jniLookup<
-              ffi
-              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "Instant__parse")
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__parse")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant parse(java.lang.CharSequence charSequence)
