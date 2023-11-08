@@ -57,27 +57,32 @@ import { MatInputModule } from '@angular/material/input';
             <mat-option value="dash">Custom App</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="outline" *ngIf="this.flutterState?.getScreen() == 'counter'">
-          <mat-label>Clicks</mat-label>
-          <input type="number" matInput (input)="onCounterSet($event)" [value]="this.flutterState?.getClicks()" />
-        </mat-form-field>
-        <mat-form-field appearance="outline" *ngIf="this.flutterState?.getScreen() != 'counter'">
-          <mat-label>Text</mat-label>
-          <input type="text" matInput (input)="onTextSet($event)" [value]="this.flutterState?.getText()" />
-          <button *ngIf="this.flutterState?.getText()" matSuffix mat-icon-button aria-label="Clear" (click)="this.flutterState?.setText('')">
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-form-field>
+        @if (this.flutterState?.getScreen() === 'counter') {
+          <mat-form-field appearance="outline">
+            <mat-label>Clicks</mat-label>
+            <input type="number" matInput (input)="onCounterSet($event)" [value]="this.flutterState?.getClicks()" />
+          </mat-form-field>
+        } @else {
+          <mat-form-field appearance="outline">
+            <mat-label>Text</mat-label>
+            <input type="text" matInput (input)="onTextSet($event)" [value]="this.flutterState?.getText()" />
+            @if (this.flutterState?.getText()) {
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="this.flutterState?.setText('')">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+          </mat-form-field>    
+        }
       </section>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content class="sidenav-content">
     <div class="flutter-app" #container>
-        <ng-flutter
-          src="flutter/main.dart.js"
-          assetBase="/flutter/"
-          (appLoaded)="onFlutterAppLoaded($event)"></ng-flutter>
+      <ng-flutter
+        src="flutter/main.dart.js"
+        assetBase="/flutter/"
+        (appLoaded)="onFlutterAppLoaded($event)"></ng-flutter>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
