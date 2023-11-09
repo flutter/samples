@@ -66,7 +66,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
               child: Text(
                 controller.value.toStringAsFixed(2),
                 style: Theme.of(context).textTheme.displaySmall,
-                textScaleFactor: 1 + controller.value,
+                textScaler: TextScaler.linear(1 + controller.value),
               ),
             ),
             ElevatedButton(
