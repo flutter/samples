@@ -32540,8 +32540,7 @@ class ObjCBlock7 extends _ObjCBlockBase {
   ObjCBlock7.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ObjCObject> arg1)>>
           ptr)
@@ -32817,8 +32816,7 @@ class ObjCBlock8 extends _ObjCBlockBase {
   ObjCBlock8.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ObjCObject> arg1)>>
           ptr)
@@ -33527,26 +33525,19 @@ class ObjCBlock10 extends _ObjCBlockBase {
   /// Creates a block from a C function pointer.
   ObjCBlock10.fromFunctionPointer(
       PedometerBindings lib,
-      ffi.Pointer<
-              ffi
-              .NativeFunction<
-                  ffi.Bool Function(
-                      ffi.Pointer<ObjCObject> arg0,
-                      ffi.Pointer<ObjCObject> arg1,
-                      ffi.Pointer<ffi.Bool> arg2)>>
+      ffi.Pointer<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1, ffi.Pointer<ffi.Bool> arg2)>>
           ptr)
       : this._(
-            lib
-                ._newBlock1(
-                    _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                                ffi.Bool Function(
-                                    ffi.Pointer<_ObjCBlock> block,
-                                    ffi.Pointer<ObjCObject> arg0,
-                                    ffi.Pointer<ObjCObject> arg1,
-                                    ffi.Pointer<ffi.Bool> arg2)>(
-                            _ObjCBlock10_fnPtrTrampoline, false)
-                        .cast(),
-                    ptr.cast()),
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Bool Function(
+                                ffi.Pointer<_ObjCBlock> block,
+                                ffi.Pointer<ObjCObject> arg0,
+                                ffi.Pointer<ObjCObject> arg1,
+                                ffi.Pointer<ffi.Bool> arg2)>(
+                        _ObjCBlock10_fnPtrTrampoline, false)
+                    .cast(),
+                ptr.cast()),
             lib);
   static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
 
@@ -35549,8 +35540,7 @@ class ObjCBlock17 extends _ObjCBlockBase {
   ObjCBlock17.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ffi.Bool> arg1)>>
           ptr)
@@ -36451,21 +36441,21 @@ class ObjCBlock19 extends _ObjCBlockBase {
   ObjCBlock19.fromFunctionPointer(
       PedometerBindings lib,
       ffi.Pointer<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Bool Function(ffi.Pointer<ObjCObject> arg0,
                       ffi.Pointer<ObjCObject> arg1)>>
           ptr)
       : this._(
-            lib._newBlock1(
-                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                            ffi.Bool Function(
-                                ffi.Pointer<_ObjCBlock> block,
-                                ffi.Pointer<ObjCObject> arg0,
-                                ffi.Pointer<ObjCObject> arg1)>(
-                        _ObjCBlock19_fnPtrTrampoline, false)
-                    .cast(),
-                ptr.cast()),
+            lib
+                ._newBlock1(
+                    _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                                ffi.Bool Function(
+                                    ffi.Pointer<_ObjCBlock> block,
+                                    ffi.Pointer<ObjCObject> arg0,
+                                    ffi.Pointer<ObjCObject> arg1)>(
+                            _ObjCBlock19_fnPtrTrampoline, false)
+                        .cast(),
+                    ptr.cast()),
             lib);
   static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
 

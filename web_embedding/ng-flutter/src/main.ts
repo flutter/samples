@@ -10,5 +10,5 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(appRoutes),
     importProvidersFrom(BrowserAnimationsModule)
-]
+  ]
 })
