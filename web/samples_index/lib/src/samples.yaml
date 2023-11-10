@@ -629,18 +629,3 @@ samples:
     tags: ['demo', 'web', 'add-to-app', 'embedding']
     web: https://flutter-angular.web.app/
     type: demo
-
-  - name: Next Gen UI demo
-    author: Flutter
-    screenshots:
-      - url: images/next_gen_ui_demo.png
-        alt: Next Gen UI demo screenshot
-    source: https://github.com/flutter/samples/tree/main/next_gen_ui_demo
-    description: A sample version of the Next Generation UI codelab for demoing at I/O Connect
-    difficulty: advanced
-    packages: 
-      - flutter_animate
-    platforms:
-      - Windows, macOS, Linux, web, Android, iOS
-    type: sample
-    web: web/next_gen_ui_demo
