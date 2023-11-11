@@ -24,6 +24,7 @@ typedef BasicTextFieldContextMenuBuilder = Widget Function(
   VoidCallback? onCut,
   VoidCallback? onPaste,
   VoidCallback? onSelectAll,
+  VoidCallback? onLookUp,
   VoidCallback? onLiveTextInput,
   TextSelectionToolbarAnchors anchors,
 );
@@ -860,6 +861,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 selectAllEnabled
                     ? () => selectAll(SelectionChangedCause.toolbar)
                     : null,
+                lookUpEnabled
+                    ? () => _lookUpSelection(SelectionChangedCause.toolbar)
+                    : null,
                 liveTextInputEnabled
                     ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
                     : null,
@@ -988,6 +992,30 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
   }
 
+  /// For lookup support.
+  @override
+  bool get lookUpEnabled {
+    if (defaultTargetPlatform != TargetPlatform.iOS) {
+      return false;
+    }
+    return !textEditingValue.selection.isCollapsed;
+  }
+
+  /// Look up the current selection, as in the "Look Up" edit menu button on iOS.
+  /// Currently this is only implemented for iOS.
+  /// Throws an error if the selection is empty or collapsed.
+  Future<void> _lookUpSelection(SelectionChangedCause cause) async {
+    final String text =
+        textEditingValue.selection.textInside(textEditingValue.text);
+    if (text.isEmpty) {
+      return;
+    }
+    await SystemChannels.platform.invokeMethod(
+      'LookUp.invoke',
+      text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Actions(
@@ -1016,7 +1044,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 expands: false, // expands to height of parent.
                 strutStyle: null,
                 selectionColor: Colors.blue.withOpacity(0.40),
-                textScaleFactor: MediaQuery.textScaleFactorOf(context),
+                textScaler: MediaQuery.textScalerOf(context),
                 textAlign: TextAlign.left,
                 textDirection: _textDirection,
                 locale: Localizations.maybeLocaleOf(context),
@@ -1068,7 +1096,7 @@ class _Editable extends MultiChildRenderObjectWidget {
     required this.expands,
     this.strutStyle,
     this.selectionColor,
-    required this.textScaleFactor,
+    required this.textScaler,
     required this.textAlign,
     required this.textDirection,
     this.locale,
@@ -1117,7 +1145,7 @@ class _Editable extends MultiChildRenderObjectWidget {
   final bool expands;
   final StrutStyle? strutStyle;
   final Color? selectionColor;
-  final double textScaleFactor;
+  final TextScaler textScaler;
   final TextAlign textAlign;
   final TextDirection textDirection;
   final Locale? locale;
@@ -1197,7 +1225,7 @@ class _Editable extends MultiChildRenderObjectWidget {
       ..expands = expands
       ..strutStyle = strutStyle
       ..selectionColor = selectionColor
-      ..textScaleFactor = textScaleFactor
+      ..textScaler = textScaler
       ..textAlign = textAlign
       ..textDirection = textDirection
       ..locale = locale ?? Localizations.maybeLocaleOf(context)
