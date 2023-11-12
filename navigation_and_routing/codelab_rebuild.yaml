@@ -11,9 +11,6 @@ steps:
       - windows
   - name: Flutter recreate
     flutter: create --org dev.flutter .
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Patch web/index.html
     path: web/index.html
     patch-u: |

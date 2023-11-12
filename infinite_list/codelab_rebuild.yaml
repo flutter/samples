@@ -11,9 +11,6 @@ steps:
       - web
   - name: Recreate runners
     flutter: create --org dev.flutter .
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Patch macos/Runner/DebugProfile.entitlements
     path: macos/Runner/DebugProfile.entitlements
     patch-u: |
