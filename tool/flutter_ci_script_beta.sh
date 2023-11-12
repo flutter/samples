@@ -24,7 +24,8 @@ declare -ar PROJECT_NAMES=(
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/context_menus"
+    # TODO(justinmc): https://github.com/flutter/samples/issues/2086
+    # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
