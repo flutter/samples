@@ -1,6 +1,0 @@
-include: package:analysis_defaults/flutter.yaml
-
-analyzer:
-  exclude:
-    - lib/json_serializable/*.g.dart
-    - lib/built_value/*.g.dart
