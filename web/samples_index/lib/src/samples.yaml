@@ -200,34 +200,6 @@ samples:
     platforms: ['ios', 'android']
     type: sample
 
-  - name: jsonexample
-    author: Flutter
-    screenshots:
-      - url: images/jsonexample1.png
-        alt: JSON example screenshot
-      - url: images/jsonexample2.png
-        alt: JSON example screenshot
-      - url: images/jsonexample3.png
-        alt: JSON example screenshot
-    source: https://github.com/flutter/samples/tree/main/jsonexample
-    description: >
-      A Flutter sample app that deserializes a set of JSON strings using three
-      different libraries: dart:convert, json_serializable, and built_value.
-    difficulty: beginner
-    widgets:
-      - Table
-      - TableRow
-    packages:
-      - json_serializable
-      - built_value
-      - built_collection
-      - json_annotation
-      - build_runner
-      - built_value_generator
-    tags: ['beginner', 'sample']
-    platforms: ['ios', 'android']
-    type: sample
-
   - name: Place Tracker
     author: Flutter
     screenshots:
