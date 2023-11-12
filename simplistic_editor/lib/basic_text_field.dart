@@ -39,6 +39,9 @@ class BasicTextField extends StatefulWidget {
       onLookUp: onLookUp,
       onLiveTextInput: onLiveTextInput,
       anchors: anchors,
+      // TODO(RencoOlivares): https://github.com/flutter/samples/issues/2088
+      onSearchWeb: null,
+      onShare: null,
     );
   }
 
