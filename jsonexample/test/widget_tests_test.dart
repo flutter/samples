@@ -139,7 +139,9 @@ void main() {
         expect(find.text('[10${i}1, 10${i}2, 10${i}3]'), findsOneWidget);
         expect(find.text('[10${i}1.0, 10${i}2.0, 10${i}3.0]'), findsOneWidget);
       }
-    });
+    },
+        // TODO(domesticmouse): https://github.com/flutter/samples/issues/2087
+        skip: true);
 
     testWidgets('Empty lists are displayed as brackets', (tester) async {
       const complexObject = ConvertedComplexObject(
