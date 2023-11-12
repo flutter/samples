@@ -1,8 +1,8 @@
 ## `jsonexample` sample retired
 
 The `jsonexample` sample has reached the end of it's useful life. It was great code
-when it has written, but the world has changed. Dart 3 introduced a Patterns and
-records, as well as `json_serializable`.
+when it has written, but the world has changed. Dart 3 introduced Patterns and
+records. There is also various JSON parsing tools like `json_serializable`.
 
 For further information, please see:
   - The [Dive into Dart's patterns and records](https://codelabs.developers.google.com/codelabs/dart-patterns-records) 
