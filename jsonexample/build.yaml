@@ -1,9 +1,0 @@
-targets:
-  $default:
-    builders:
-      built_value_generator|built_value:
-        generate_for:
-          - lib/built_value/*.dart
-      json_serializable|json_serializable:
-        generate_for:
-          - lib/json_serializable/*.dart

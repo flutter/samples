@@ -47,8 +47,6 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    # TODO(DomesticMouse): ComplexObjectView widget test Typical object is displayed correctly
-    # "jsonexample"
     "material_3_demo"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "navigation_and_routing"
