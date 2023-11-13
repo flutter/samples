@@ -16,7 +16,8 @@ dependencies:
   flutter:
     sdk: flutter
   google_sign_in: ^6.0.0
-  intl: any # Pinned by Flutter SDK version
+  intl:
+    sdk: flutter
   json_annotation: ^4.5.0
   path: ^1.8.1
   provider: ^6.0.0
