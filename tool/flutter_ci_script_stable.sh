@@ -44,7 +44,6 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "jsonexample"
     "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
