@@ -10,9 +10,6 @@ steps:
       - windows
   - name: Recreate runners
     flutter: create --org dev.flutter --platforms android,ios,macos,linux,windows .
-  - name: Strip DEVELOPMENT_TEAM
-    strip-lines-containing: DEVELOPMENT_TEAM =
-    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Flutter upgrade
     flutter: pub upgrade --major-versions
   - name: Flutter build macOS

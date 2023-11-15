@@ -16,8 +16,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "analysis_defaults"
     "android_splash_screen"
-    # TODO(DomesticMouse): 'textScaleFactor' is deprecated and shouldn't be used.
-    # "animations"
+    "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
@@ -25,8 +24,7 @@ declare -ar PROJECT_NAMES=(
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    # TODO(DomesticMouse): Context Menu tests are flaky?
-    # "experimental/context_menus"
+    "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
@@ -35,9 +33,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
     "experimental/material_3_demo"
-    # TODO(DomesticMouse): Dart formatting required
-    # "experimental/pedometer"
-    # "experimental/pedometer/example"
+    "experimental/pedometer"
+    "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
@@ -48,8 +45,7 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "material_3_demo"
-    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
-    # "navigation_and_routing"
+    "navigation_and_routing"
     "place_tracker"
     "platform_channels"
     "platform_design"
@@ -57,10 +53,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simple_shader"
-    # TODO(DomesticMouse): Inferred type argument 'AutoPlacement' doesn't conform to the bound 'Enum?' of the type variable 'T' on 'EnumProperty'.
-    # "simplistic_calculator"
-    # TODO(DomesticMouse): The named parameter 'onLookUp' is required
-    # "simplistic_editor"
+    "simplistic_calculator"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"

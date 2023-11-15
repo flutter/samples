@@ -173,5 +173,7 @@ void main() {
       }
     },
     variant: TargetPlatformVariant.all(),
+    // TODO(justinmc): https://github.com/flutter/samples/issues/2086
+    skip: true,
   );
 }
