@@ -591,7 +591,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   @override
   bool get pasteEnabled =>
       _clipboardStatus == null ||
-      _clipboardStatus!.value == ClipboardStatus.pasteable;
+      _clipboardStatus.value == ClipboardStatus.pasteable;
 
   @override
   bool get selectAllEnabled => textEditingValue.text.isNotEmpty;

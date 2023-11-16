@@ -12,7 +12,7 @@ function ci_projects () {
         flutter pub get
 
         # Run the analyzer to find any static analysis issues.
-        dart analyze --fatal-infos
+        dart analyze --fatal-infos --fatal-warnings
 
         # Run the formatter on all the dart files to make sure everything's linted.
         dart format --output none --set-exit-if-changed .
