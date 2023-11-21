@@ -2466,14 +2466,7 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
                     focusNode.requestFocus();
                   },
                   behavior: HitTestBehavior.opaque,
-                  child: Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Theme.of(context).colorScheme.outlineVariant,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    ),
+                  child: Card.outlined(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5.0, vertical: 20.0),
