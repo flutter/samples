@@ -45,7 +45,7 @@ dependencies:
   ffi: ^2.0.1
   intl: ^0.18.0
   jni: ^0.7.0
-  fl_chart: ^0.64.0
+  fl_chart: ^0.65.0
 
 dev_dependencies:
   flutter_test:
