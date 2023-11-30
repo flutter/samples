@@ -33,12 +33,3 @@ $ dart run grinder build-release
 ```
 
 This outputs the completely built index to `./public`.
-
-## Generating cookbook content
-
-The cookbook articles are generated using a WebDriver script
-that scrapes the docs.flutter.dev website. To run:
-
-1. Install [ChromeDriver](https://chromedriver.chromium.org/downloads)
-2. run `chromedriver --port=4444 --url-base=wd/hub --verbose`
-3. run `dart run grinder scrape-cookbook`

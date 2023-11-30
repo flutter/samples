@@ -122,8 +122,8 @@ void main() {
 
       // Test if queries match by type
       expect(matchesQuery('type:sample', attributes), true);
-      expect(matchesQuery('type:cookbook', attributes), false);
-      expect(matchesQuery('kittens type:cookbook', attributes), false);
+      expect(matchesQuery('type:demo', attributes), false);
+      expect(matchesQuery('kittens type:demo', attributes), false);
     });
   });
 
@@ -134,7 +134,7 @@ void main() {
       expect(parseHash('#?search=kittens&platform=web'),
           containsPair('platform', 'web'));
       expect(parseHash('#?type=sample'), containsPair('type', 'sample'));
-      expect(parseHash('#?type=cookbook'), containsPair('type', 'cookbook'));
+      expect(parseHash('#?type=demo'), containsPair('type', 'demo'));
     });
 
     test('can be set', () {
