@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:collection';
 import 'dart:ffi' as ffi;
 import 'dart:io';
 import 'dart:isolate';
@@ -73,7 +75,7 @@ class _IOSStepsRepo implements StepsRepo {
     // Create a new NSString with the formatted date and timezone.
     final nString = pd.NSString(lib, "$formattedDate $tz");
     // Convert the NSString to NSDate.
-    return formatter.dateFromString_(nString);
+    return formatter.dateFromString_(nString)!;
   }
 
   @override
@@ -83,37 +85,36 @@ class _IOSStepsRepo implements StepsRepo {
       return [];
     }
 
-    final futures = <Future>[];
+    final handlers = [];
+    final futures = <Future<Steps?>>[];
     final now = DateTime.now();
 
     for (var h = 0; h <= now.hour; h++) {
-      // Open up a port to receive data from native side.
-      final receivePort = ReceivePort();
-      final nativePort = receivePort.sendPort.nativePort;
       final start = dateConverter(DateTime(now.year, now.month, now.day, h));
       final end = dateConverter(DateTime(now.year, now.month, now.day, h + 1));
+      final completer = Completer<Steps?>();
+      futures.add(completer.future);
 
-      pd.PedometerHelper.startPedometerWithPort_pedometer_start_end_(
-        helpLib,
-        nativePort,
-        client,
-        start,
-        end,
-      );
-      // Handle the data received from native side.
-      futures.add(receivePort.first);
+      final handler = helpLib.wrapCallback(
+        pd.ObjCBlock_ffiVoid_CMPedometerData_NSError1.listener(lib,
+          (pd.CMPedometerData? result, pd.NSError? error) {
+        if (result != null) {
+          final stepCount = result.numberOfSteps?.intValue ?? 0;
+          final startHour = hourFormatter
+              .stringFromDate_(result.startDate!)
+              .toString();
+          completer.complete(Steps(startHour, stepCount));
+        } else {
+          debugPrint("Query error: ${error?.localizedDescription}");
+          completer.complete(null);
+        }
+      }));
+      handlers.add(handler);
+      client.queryPedometerDataFromDate_toDate_withHandler_(
+          start, end, pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.castFrom(handler));
     }
 
-    final data = await Future.wait(futures);
-    return data.where((e) => e != null).cast<int>().map((address) {
-      final result = ffi.Pointer<pd.ObjCObject>.fromAddress(address);
-      final pedometerData =
-          pd.CMPedometerData.castFromPointer(lib, result, release: true);
-      final stepCount = pedometerData.numberOfSteps?.intValue ?? 0;
-      final startHour =
-          hourFormatter.stringFromDate_(pedometerData.startDate!).toString();
-      return Steps(startHour, stepCount);
-    }).toList();
+    return (await Future.wait(futures)).nonNulls.toList();
   }
 }
 
