@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:ffi' as ffi;
 import 'dart:io';
-import 'dart:isolate';
 
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
@@ -99,9 +98,9 @@ class _IOSStepsRepo implements StepsRepo {
           pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.listener(lib,
               (pd.CMPedometerData? result, pd.NSError? error) {
         if (result != null) {
-          final stepCount = result.numberOfSteps?.intValue ?? 0;
+          final stepCount = result.numberOfSteps.intValue;
           final startHour =
-              hourFormatter.stringFromDate_(result.startDate!).toString();
+              hourFormatter.stringFromDate_(result.startDate).toString();
           completer.complete(Steps(startHour, stepCount));
         } else {
           debugPrint("Query error: ${error?.localizedDescription}");
