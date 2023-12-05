@@ -120,5 +120,7 @@ void main() {
     // The menu is gone and the UI shows green was selected.
     expect(find.byType(DesktopTextSelectionToolbar), findsNothing);
     expect(find.text('Last Selected: Green Background'), findsOneWidget);
-  });
+  },
+      // TODO(justinmc): https://github.com/flutter/samples/issues/2086
+      skip: true);
 }

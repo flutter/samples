@@ -16,6 +16,6 @@ samples:
       - path
     tags: ['beginner', 'kittens', 'cats']
     platforms: ['web', 'ios', 'android']
-    type: sample # sample, app, or cookbook
+    type: sample # sample or app
     date: 2019-12-15T02:59:43.1Z
     channel: stable

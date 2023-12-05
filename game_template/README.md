@@ -1,3 +1,7 @@
+The following template will be deprecated soon. Please refer to the new games repo for more genre-specific templates: https://github.com/flutter/games
+For more information, please refer to flutter.dev/games to see all resources available for flutter game developers. 
+
+Old template readme: 
 A starter game in Flutter with all the bells and whistles
 of a mobile (iOS & Android) game including the following features:
 

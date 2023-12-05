@@ -36,11 +36,10 @@ class Sample {
   /// The author of the sample. Typically "Flutter"
   final String? author;
 
-  /// Screenshots of the sample or cookbook article. At least 1 screenshot is
-  /// required.
+  /// Screenshots of the sample. At least 1 screenshot is required.
   final List<Screenshot> screenshots;
 
-  /// A link to the source code or cookbook article if type is 'cookbook'.
+  /// A link to the source code.
   final String source;
 
   /// A link to this sample running in the browser.
@@ -69,7 +68,7 @@ class Sample {
   final List<String> platforms;
 
   /// The type of the sample. Supported values are either 'sample' or
-  /// 'cookbook'.
+  /// 'demo'.
   final String type;
 
   /// The date this sample was created.

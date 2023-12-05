@@ -22,6 +22,6 @@ samples:
         href: https://apps.apple.com/us/app/neko-atsume-kitty-collector/id923917775
       - text: author
         href: http://jpryan.me
-    type: sample # sample, app, or cookbook
+    type: sample # sample or app
     date: 2019-12-15T02:59:43.1Z
     channel: stable

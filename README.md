@@ -37,7 +37,6 @@ See the [contributor's guide](CONTRIBUTING.md)!
 If you have a general question about one of these samples or how to adapt its
 techniques for one of your own apps, try one of these resources:
 
-* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
 * [The FlutterDev Discord](https://discord.gg/rflutterdev)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
 

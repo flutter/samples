@@ -2,13 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file
 
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:grinder/grinder.dart';
 import 'package:image/image.dart' as image;
 import 'package:path/path.dart' as path;
-import 'package:samples_index/cookbook.dart';
 import 'package:samples_index/samples_index.dart';
 import 'package:samples_index/src/templates.dart' as templates;
 
@@ -60,36 +58,9 @@ Future<void> generate() async {
   log('Generated index for ${samples.length} samples.');
 }
 
-@Task('Scrape the cookbook for images and descriptions')
-Future<void> scrapeCookbook() async {
-  var driver = await Process.start(
-      'chromedriver', ['--port=4444', '--url-base=wd/hub', '--verbose']);
-  await driver.stdout.pipe(stdout);
-  await driver.stderr.pipe(stderr);
-  var scraper = CookbookScraper();
-  await scraper.init();
-  var links = await scraper.fetchCookbookLinks();
-  log('Scraping ${links.length} cookbook articles');
-  var allSamples = <Sample>[];
-  for (final link in links) {
-    allSamples.add(await scraper.getMetadata(link));
-    await scraper.takeScreenshot(link);
-  }
-  var file = File('lib/src/cookbook.json');
-  await file.create();
-  var encoder = const JsonEncoder.withIndent('\t');
-  await file.writeAsString(encoder.convert(Index(allSamples)));
-  await scraper.dispose();
-  var killed = driver.kill();
-  if (!killed) {
-    log('failed to kill chromedriver process');
-  }
-}
-
 @Task('creates thumbnail images in web/images')
 Future<void> createThumbnails() async {
   await _createThumbnails(Directory('web/images'));
-  await _createThumbnails(Directory('web/images/cookbook'));
 }
 
 // Creates a thumbnail image for each png file

@@ -62528,12 +62528,6 @@ class ObjCBlock_ffiVoid_CMPedometerData_NSError extends _ObjCBlockBase {
       {bool retain = false, bool release = true})
       : super._(id, lib, retain: retain, release: release);
 
-  static ObjCBlock_ffiVoid_CMPedometerData_NSError
-      castFrom<T extends _ObjCBlockBase>(T other) {
-    return ObjCBlock_ffiVoid_CMPedometerData_NSError._(other._id, other._lib,
-        retain: true, release: true);
-  }
-
   /// Creates a block from a C function pointer.
   ///
   /// This block must be invoked by native code running on the same thread as

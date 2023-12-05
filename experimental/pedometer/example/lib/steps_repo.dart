@@ -96,7 +96,7 @@ class _IOSStepsRepo implements StepsRepo {
       futures.add(completer.future);
 
       final handler = helpLib.wrapCallback(
-          pd.ObjCBlock_ffiVoid_CMPedometerData_NSError1.listener(lib,
+          pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.listener(lib,
               (pd.CMPedometerData? result, pd.NSError? error) {
         if (result != null) {
           final stepCount = result.numberOfSteps?.intValue ?? 0;
@@ -110,7 +110,7 @@ class _IOSStepsRepo implements StepsRepo {
       }));
       handlers.add(handler);
       client.queryPedometerDataFromDate_toDate_withHandler_(start, end,
-          pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.castFrom(handler));
+          handler);
     }
 
     return (await Future.wait(futures)).nonNulls.toList();

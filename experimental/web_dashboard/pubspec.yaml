@@ -4,19 +4,19 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ^3.1.0
+  sdk: ^3.2.0
 
 dependencies:
-  charts_flutter: ^0.12.0
   cloud_firestore: ^4.0.1
   collection: ^1.16.0
+  community_charts_flutter: ^1.0.2
   cupertino_icons: ^1.0.0
   firebase_auth: ^4.0.1
   firebase_core: ^2.0.0
   flutter:
     sdk: flutter
   google_sign_in: ^6.0.0
-  intl: ^0.17.0
+  intl: any # Pinned by Flutter SDK version
   json_annotation: ^4.5.0
   path: ^1.8.1
   provider: ^6.0.0

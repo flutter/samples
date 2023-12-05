@@ -26,6 +26,7 @@ class BasicTextField extends StatefulWidget {
     VoidCallback? onCut,
     VoidCallback? onPaste,
     VoidCallback? onSelectAll,
+    VoidCallback? onLookUp,
     VoidCallback? onLiveTextInput,
     TextSelectionToolbarAnchors anchors,
   ) {
@@ -35,8 +36,12 @@ class BasicTextField extends StatefulWidget {
       onCut: onCut,
       onPaste: onPaste,
       onSelectAll: onSelectAll,
+      onLookUp: onLookUp,
       onLiveTextInput: onLiveTextInput,
       anchors: anchors,
+      // TODO(Renzo-Olivares): https://github.com/flutter/samples/issues/2088
+      onSearchWeb: null,
+      onShare: null,
     );
   }
 

@@ -27,7 +27,7 @@ void main() async {
     ]));
     results.add(await run(
       dir,
-      'flutter',
+      'dart',
       ['analyze', '--fatal-infos', '--fatal-warnings', '.'],
     ));
     _printStatus(results);

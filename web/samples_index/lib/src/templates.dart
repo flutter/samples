@@ -113,12 +113,6 @@ String _indexBody(List<Sample> samples) => '''
             <div class="mdc-chip" role="row">
               <div class="mdc-chip__ripple"></div>
               <span role="gridcell">
-                <span role="button" tabindex="-1" class="mdc-chip__text">Cookbook</span>
-              </span>
-            </div>
-            <div class="mdc-chip" role="row">
-              <div class="mdc-chip__ripple"></div>
-              <span role="gridcell">
                 <span role="button" tabindex="-1" class="mdc-chip__text">Web Demos</span>
               </span>
             </div>
@@ -204,11 +198,6 @@ String _descriptionButtons(Sample sample) {
 <i class="material-icons mdc-button__icon" aria-hidden="true">code</i>
 <span class="mdc-button__label">Source Code</span>
 </button>''');
-  }
-
-  if (sample.type == 'cookbook') {
-    buf.write(
-        '''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '${sample.source}';">  <span class="mdc-button__ripple"></span>View Recipe</button>''');
   }
   return buf.toString();
 }
