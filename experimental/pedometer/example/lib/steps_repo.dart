@@ -96,13 +96,12 @@ class _IOSStepsRepo implements StepsRepo {
       futures.add(completer.future);
 
       final handler = helpLib.wrapCallback(
-        pd.ObjCBlock_ffiVoid_CMPedometerData_NSError1.listener(lib,
-          (pd.CMPedometerData? result, pd.NSError? error) {
+          pd.ObjCBlock_ffiVoid_CMPedometerData_NSError1.listener(lib,
+              (pd.CMPedometerData? result, pd.NSError? error) {
         if (result != null) {
           final stepCount = result.numberOfSteps?.intValue ?? 0;
-          final startHour = hourFormatter
-              .stringFromDate_(result.startDate!)
-              .toString();
+          final startHour =
+              hourFormatter.stringFromDate_(result.startDate!).toString();
           completer.complete(Steps(startHour, stepCount));
         } else {
           debugPrint("Query error: ${error?.localizedDescription}");
@@ -110,8 +109,8 @@ class _IOSStepsRepo implements StepsRepo {
         }
       }));
       handlers.add(handler);
-      client.queryPedometerDataFromDate_toDate_withHandler_(
-          start, end, pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.castFrom(handler));
+      client.queryPedometerDataFromDate_toDate_withHandler_(start, end,
+          pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.castFrom(handler));
     }
 
     return (await Future.wait(futures)).nonNulls.toList();
