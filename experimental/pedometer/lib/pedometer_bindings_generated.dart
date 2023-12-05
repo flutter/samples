@@ -27814,10 +27814,10 @@ class PedometerBindings {
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<_ObjCBlock>)>();
 
-  ObjCBlock_ffiVoid_CMPedometerData_NSError1 wrapCallback(
-    ObjCBlock_ffiVoid_CMPedometerData_NSError1 callback,
+  ObjCBlock_ffiVoid_CMPedometerData_NSError wrapCallback(
+    ObjCBlock_ffiVoid_CMPedometerData_NSError callback,
   ) {
-    return ObjCBlock_ffiVoid_CMPedometerData_NSError1._(
+    return ObjCBlock_ffiVoid_CMPedometerData_NSError._(
         _wrapCallback(
           callback._id,
         ),
@@ -65741,129 +65741,4 @@ class ObjCBlock_ffiVoid_NSArray_NSError1 extends _ObjCBlockBase {
               void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
                   ffi.Pointer<ObjCObject>)>()(
       _id, arg0?._id ?? ffi.nullptr, arg1?._id ?? ffi.nullptr);
-}
-
-void _ObjCBlock_ffiVoid_CMPedometerData_NSError1_fnPtrTrampoline(
-        ffi.Pointer<_ObjCBlock> block,
-        ffi.Pointer<ObjCObject> arg0,
-        ffi.Pointer<ObjCObject> arg1) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<ObjCObject> arg0,
-                    ffi.Pointer<ObjCObject> arg1)>>()
-        .asFunction<
-            void Function(ffi.Pointer<ObjCObject>,
-                ffi.Pointer<ObjCObject>)>()(arg0, arg1);
-final _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureRegistry =
-    <int, void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>{};
-int _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureRegistryIndex = 0;
-ffi.Pointer<ffi.Void>
-    _ObjCBlock_ffiVoid_CMPedometerData_NSError1_registerClosure(
-        void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>) fn) {
-  final id = ++_ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureRegistryIndex;
-  _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureRegistry[id] = fn;
-  return ffi.Pointer<ffi.Void>.fromAddress(id);
-}
-
-void _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureTrampoline(
-        ffi.Pointer<_ObjCBlock> block,
-        ffi.Pointer<ObjCObject> arg0,
-        ffi.Pointer<ObjCObject> arg1) =>
-    _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureRegistry[
-        block.ref.target.address]!(arg0, arg1);
-
-class ObjCBlock_ffiVoid_CMPedometerData_NSError1 extends _ObjCBlockBase {
-  ObjCBlock_ffiVoid_CMPedometerData_NSError1._(
-      ffi.Pointer<_ObjCBlock> id, PedometerBindings lib,
-      {bool retain = false, bool release = true})
-      : super._(id, lib, retain: retain, release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  ObjCBlock_ffiVoid_CMPedometerData_NSError1.fromFunctionPointer(
-      PedometerBindings lib,
-      ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0,
-                      ffi.Pointer<ObjCObject> arg1)>>
-          ptr)
-      : this._(
-            lib._newBlock1(
-                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
-                            ffi.Void Function(
-                                ffi.Pointer<_ObjCBlock>,
-                                ffi.Pointer<ObjCObject>,
-                                ffi.Pointer<ObjCObject>)>(
-                        _ObjCBlock_ffiVoid_CMPedometerData_NSError1_fnPtrTrampoline)
-                    .cast(),
-                ptr.cast()),
-            lib);
-  static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  ObjCBlock_ffiVoid_CMPedometerData_NSError1.fromFunction(
-      PedometerBindings lib, void Function(CMPedometerData, NSError) fn)
-      : this._(
-            lib._newBlock1(
-                _dartFuncTrampoline ??= ffi.Pointer.fromFunction<
-                            ffi.Void Function(
-                                ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>(
-                        _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureTrampoline)
-                    .cast(),
-                _ObjCBlock_ffiVoid_CMPedometerData_NSError1_registerClosure(
-                    (ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1) => fn(
-                        CMPedometerData._(arg0, lib, retain: true, release: true),
-                        NSError._(arg1, lib, retain: true, release: true)))),
-            lib);
-  static ffi.Pointer<ffi.Void>? _dartFuncTrampoline;
-
-  /// Creates a listener block from a Dart function.
-  ///
-  /// This is based on FFI's NativeCallable.listener, and has the same
-  /// capabilities and limitations. This block can be invoked from any thread,
-  /// but only supports void functions, and is not run synchronously. See
-  /// NativeCallable.listener for more details.
-  ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  ObjCBlock_ffiVoid_CMPedometerData_NSError1.listener(
-      PedometerBindings lib, void Function(CMPedometerData, NSError) fn)
-      : this._(
-            lib._newBlock1(
-                (_dartFuncListenerTrampoline ??= ffi.NativeCallable<
-                            ffi.Void Function(
-                                ffi.Pointer<_ObjCBlock>,
-                                ffi.Pointer<ObjCObject>,
-                                ffi.Pointer<ObjCObject>)>.listener(
-                        _ObjCBlock_ffiVoid_CMPedometerData_NSError1_closureTrampoline)
-                      ..keepIsolateAlive = false)
-                    .nativeFunction
-                    .cast(),
-                _ObjCBlock_ffiVoid_CMPedometerData_NSError1_registerClosure(
-                    (ffi.Pointer<ObjCObject> arg0,
-                            ffi.Pointer<ObjCObject> arg1) =>
-                        fn(CMPedometerData._(arg0, lib, retain: true, release: true), NSError._(arg1, lib, retain: true, release: true)))),
-            lib);
-  static ffi.NativeCallable<
-      ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
-          ffi.Pointer<ObjCObject>)>? _dartFuncListenerTrampoline;
-
-  void call(CMPedometerData arg0, NSError arg1) => _id.ref.invoke
-      .cast<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Pointer<_ObjCBlock> block,
-                  ffi.Pointer<ObjCObject> arg0,
-                  ffi.Pointer<ObjCObject> arg1)>>()
-      .asFunction<
-          void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
-              ffi.Pointer<ObjCObject>)>()(_id, arg0._id, arg1._id);
 }

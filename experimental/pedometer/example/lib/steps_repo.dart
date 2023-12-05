@@ -109,8 +109,8 @@ class _IOSStepsRepo implements StepsRepo {
         }
       }));
       handlers.add(handler);
-      client.queryPedometerDataFromDate_toDate_withHandler_(start, end,
-          handler);
+      client.queryPedometerDataFromDate_toDate_withHandler_(
+          start, end, handler);
     }
 
     return (await Future.wait(futures)).nonNulls.toList();

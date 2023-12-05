@@ -5,7 +5,7 @@
 
 // TODO(https://github.com/dart-lang/native/issues/835): Generate this wrapper
 // automatically.
-PedometerCallback wrapCallback(PedometerCallback callback) {
+CMPedometerHandler wrapCallback(CMPedometerHandler callback) {
   return [^(CMPedometerData *data, NSError *error) {
     return callback([data retain], [error retain]);
   } copy];
