@@ -7,15 +7,16 @@ compiler-opts:
   - "-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks"
   - "-mios-version-min=13.0"
 exclude-all-by-default: true
+functions:
+  include:
+    - "wrapCallback"
 objc-interfaces:
   include:
     - "CMPedometer"
-    - "PedometerHelper"
     - "NSDate"
     - "NSDateFormatter"
 headers:
   entry-points:
-    - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework/Headers/CMPedometer.h"
     - "src/pedometerHelper.h"
 
 # To use this API, you must include the NSMotionUsageDescription key in your app’s Info.plist file 
