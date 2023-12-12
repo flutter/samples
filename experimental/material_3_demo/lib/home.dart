@@ -10,14 +10,50 @@ import 'constants.dart';
 import 'elevation_screen.dart';
 import 'typography_screen.dart';
 
+typedef ConfigColorSchemeCallback = void Function(Brightness brightness,
+    { Color? primary,
+    Color? onPrimary,
+    Color? primaryContainer,
+    Color? onPrimaryContainer,
+    Color? secondary,
+    Color? onSecondary,
+    Color? secondaryContainer,
+    Color? onSecondaryContainer,
+    Color? tertiary,
+    Color? onTertiary,
+    Color? tertiaryContainer,
+    Color? onTertiaryContainer,
+    Color? error,
+    Color? onError,
+    Color? errorContainer,
+    Color? onErrorContainer,
+    Color? background,
+    Color? onBackground,
+    Color? surface,
+    Color? onSurface,
+    Color? surfaceVariant,
+    Color? onSurfaceVariant,
+    Color? outline,
+    Color? outlineVariant,
+    Color? shadow,
+    Color? scrim,
+    Color? inverseSurface,
+    Color? onInverseSurface,
+    Color? inversePrimary,
+    Color? surfaceTint,
+    });
+
 class Home extends StatefulWidget {
   const Home({
     super.key,
     required this.useLightMode,
     required this.useMaterial3,
     required this.colorSelected,
+    required this.lightColors,
+    required this.darkColors,
     required this.handleBrightnessChange,
     required this.handleMaterialVersionChange,
+    required this.handleColorRoleChange,
     required this.handleColorSelect,
     required this.handleImageSelect,
     required this.colorSelectionMethod,
@@ -27,6 +63,8 @@ class Home extends StatefulWidget {
   final bool useLightMode;
   final bool useMaterial3;
   final ColorSeed colorSelected;
+  final ColorScheme lightColors;
+  final ColorScheme darkColors;
   final ColorImageProvider imageSelected;
   final ColorSelectionMethod colorSelectionMethod;
 
@@ -34,6 +72,7 @@ class Home extends StatefulWidget {
   final void Function() handleMaterialVersionChange;
   final void Function(int value) handleColorSelect;
   final void Function(int value) handleImageSelect;
+  final ConfigColorSchemeCallback handleColorRoleChange;
 
   @override
   State<Home> createState() => _HomeState();
@@ -124,7 +163,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           ),
         );
       case ScreenSelected.color:
-        return const ColorPalettesScreen();
+        return ColorPalettesScreen(
+          handleColorRoleChange: widget.handleColorRoleChange,
+          lightColorScheme: widget.lightColors,
+          darkColorScheme: widget.darkColors,
+        );
       case ScreenSelected.typography:
         return const TypographyScreen();
       case ScreenSelected.elevation:

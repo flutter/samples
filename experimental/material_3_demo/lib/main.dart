@@ -27,6 +27,8 @@ class _AppState extends State<App> {
   ColorImageProvider imageSelected = ColorImageProvider.leaves;
   ColorScheme? imageColorScheme = const ColorScheme.light();
   ColorSelectionMethod colorSelectionMethod = ColorSelectionMethod.colorSeed;
+  ColorScheme? lightColorScheme;
+  ColorScheme? darkColorScheme;
 
   bool get useLightMode {
     switch (themeMode) {
@@ -53,6 +55,7 @@ class _AppState extends State<App> {
   }
 
   void handleColorSelect(int value) {
+    clearColorScheme();
     setState(() {
       colorSelectionMethod = ColorSelectionMethod.colorSeed;
       colorSelected = ColorSeed.values[value];
@@ -60,6 +63,7 @@ class _AppState extends State<App> {
   }
 
   void handleImageSelect(int value) {
+    clearColorScheme();
     final String url = ColorImageProvider.values[value].url;
     ColorScheme.fromImageProvider(provider: NetworkImage(url))
         .then((newScheme) {
@@ -71,38 +75,135 @@ class _AppState extends State<App> {
     });
   }
 
+  void handleColorRoleChange(Brightness brightness,
+      { Color? primary,
+        Color? onPrimary,
+        Color? primaryContainer,
+        Color? onPrimaryContainer,
+        Color? secondary,
+        Color? onSecondary,
+        Color? secondaryContainer,
+        Color? onSecondaryContainer,
+        Color? tertiary,
+        Color? onTertiary,
+        Color? tertiaryContainer,
+        Color? onTertiaryContainer,
+        Color? error,
+        Color? onError,
+        Color? errorContainer,
+        Color? onErrorContainer,
+        Color? background,
+        Color? onBackground,
+        Color? surface,
+        Color? onSurface,
+        Color? surfaceVariant,
+        Color? onSurfaceVariant,
+        Color? outline,
+        Color? outlineVariant,
+        Color? shadow,
+        Color? scrim,
+        Color? inverseSurface,
+        Color? onInverseSurface,
+        Color? inversePrimary,
+        Color? surfaceTint,
+      }
+  ) {
+    ColorScheme? copyWith(ColorScheme? colorScheme) {
+      return colorScheme?.copyWith(
+        primary: primary,
+        onPrimary: onPrimary,
+        primaryContainer: primaryContainer,
+        onPrimaryContainer: onPrimaryContainer,
+        secondary: secondary,
+        onSecondary: onSecondary,
+        secondaryContainer: secondaryContainer,
+        onSecondaryContainer: onSecondaryContainer,
+        tertiary: tertiary,
+        onTertiary: onTertiary,
+        tertiaryContainer: tertiaryContainer,
+        onTertiaryContainer: onTertiaryContainer,
+        error: error,
+        onError: onError,
+        errorContainer: errorContainer,
+        onErrorContainer: onErrorContainer,
+        background: background,
+        onBackground: onBackground,
+        surface: surface,
+        onSurface: onSurface,
+        surfaceVariant: surfaceVariant,
+        onSurfaceVariant: onSurfaceVariant,
+        outline: outline,
+        outlineVariant: outlineVariant,
+        shadow: shadow,
+        scrim: scrim,
+        inverseSurface: inverseSurface,
+        onInverseSurface: onInverseSurface,
+        inversePrimary: inversePrimary,
+        surfaceTint: surfaceTint,
+      );
+    }
+    
+    setState(() {
+      switch (brightness) {
+        case Brightness.light:
+          lightColorScheme = copyWith(lightColorScheme);
+        case Brightness.dark:
+          darkColorScheme = copyWith(darkColorScheme);
+      }
+    });
+  }
+
+  void clearColorScheme() {
+    lightColorScheme = null;
+    darkColorScheme = null;
+  }
+
   @override
   Widget build(BuildContext context) {
+    ThemeData lightTheme = ThemeData(
+      colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+        ? colorSelected.color
+        : null,
+      colorScheme: colorSelectionMethod == ColorSelectionMethod.image
+        ? imageColorScheme
+        : null,
+      useMaterial3: useMaterial3,
+      brightness: Brightness.light,
+    ).copyWith(
+      colorScheme: lightColorScheme,
+    );
+
+    ThemeData darkTheme = ThemeData(
+      colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+          ? colorSelected.color
+          : imageColorScheme!.primary,
+      useMaterial3: useMaterial3,
+      brightness: Brightness.dark,
+    ).copyWith(
+      colorScheme: darkColorScheme,
+    );
+
+    lightColorScheme = lightTheme.colorScheme;
+    darkColorScheme = darkTheme.colorScheme;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material 3',
       themeMode: themeMode,
-      theme: ThemeData(
-        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
-            ? colorSelected.color
-            : null,
-        colorScheme: colorSelectionMethod == ColorSelectionMethod.image
-            ? imageColorScheme
-            : null,
-        useMaterial3: useMaterial3,
-        brightness: Brightness.light,
-      ),
-      darkTheme: ThemeData(
-        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
-            ? colorSelected.color
-            : imageColorScheme!.primary,
-        useMaterial3: useMaterial3,
-        brightness: Brightness.dark,
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
       home: Home(
         useLightMode: useLightMode,
         useMaterial3: useMaterial3,
         colorSelected: colorSelected,
+        lightColors: lightTheme.colorScheme,
+        darkColors: darkTheme.colorScheme,
         imageSelected: imageSelected,
         handleBrightnessChange: handleBrightnessChange,
         handleMaterialVersionChange: handleMaterialVersionChange,
         handleColorSelect: handleColorSelect,
         handleImageSelect: handleImageSelect,
+        handleColorRoleChange: handleColorRoleChange,
         colorSelectionMethod: colorSelectionMethod,
       ),
     );
