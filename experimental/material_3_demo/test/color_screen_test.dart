@@ -70,8 +70,9 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
 
-    Finder colorPageIndicator = find.descendant(of: find.byType(NavigationRail),
-      matching: find.byIcon(Icons.format_paint_outlined));
+    Finder colorPageIndicator = find.descendant(
+        of: find.byType(NavigationRail),
+        matching: find.byIcon(Icons.format_paint_outlined));
     expect(colorPageIndicator, findsOneWidget);
     await tester.tap(colorPageIndicator);
     await tester.pumpAndSettle();
@@ -85,7 +86,8 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
 
-    Finder colorPageIndicator = find.descendant(of: find.byType(NavigationRail),
+    Finder colorPageIndicator = find.descendant(
+        of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.format_paint_outlined));
     expect(colorPageIndicator, findsOneWidget);
     await tester.tap(colorPageIndicator);
@@ -104,12 +106,16 @@ void main() {
     expect(find.text('73a450'), findsOneWidget);
 
     // Test if the chip color is changed to 73a450.
-    Finder primaryChip = find.descendant(of: find.widgetWithText(ColorChip, 'primary').first, matching: find.byType(Container));
+    Finder primaryChip = find.descendant(
+        of: find.widgetWithText(ColorChip, 'primary').first,
+        matching: find.byType(Container));
     Container container = tester.widget<Container>(primaryChip);
     expect(container.color, const Color(0xFF73A450));
   });
 
-  testWidgets('Light ColorScheme is configurable; changes can be applied to the widget page', (tester) async {
+  testWidgets(
+      'Light ColorScheme is configurable; changes can be applied to the widget page',
+      (tester) async {
     widgetSetup(tester, 1200);
     addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
@@ -121,7 +127,8 @@ void main() {
     await updatePrimaryChipColor(tester, const Color(0xff123456), true);
 
     // Go to the component screen
-    Finder componentPageIndicator = find.descendant(of: find.byType(NavigationRail),
+    Finder componentPageIndicator = find.descendant(
+        of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.widgets_outlined));
     expect(componentPageIndicator, findsOneWidget);
     await tester.tap(componentPageIndicator);
@@ -140,7 +147,9 @@ void main() {
     expect(material.color, const Color(0xff123456));
   });
 
-  testWidgets('Dark ColorScheme is configurable; changes can be applied to the widget page', (tester) async {
+  testWidgets(
+      'Dark ColorScheme is configurable; changes can be applied to the widget page',
+      (tester) async {
     widgetSetup(tester, 1200);
     addTearDown(tester.view.resetPhysicalSize);
     await tester.pumpWidget(const App());
@@ -155,7 +164,8 @@ void main() {
     await updatePrimaryChipColor(tester, const Color(0xff654321), false);
 
     // Go to the component screen
-    Finder componentPageIndicator = find.descendant(of: find.byType(NavigationRail),
+    Finder componentPageIndicator = find.descendant(
+        of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.widgets_outlined));
     expect(componentPageIndicator, findsOneWidget);
     await tester.tap(componentPageIndicator);
@@ -175,22 +185,27 @@ void main() {
   });
 }
 
-Future<void> updatePrimaryChipColor(WidgetTester tester, Color newColor, bool isLight) async {
-  Finder colorPageIndicator = find.descendant(of: find.byType(NavigationRail),
+Future<void> updatePrimaryChipColor(
+    WidgetTester tester, Color newColor, bool isLight) async {
+  Finder colorPageIndicator = find.descendant(
+      of: find.byType(NavigationRail),
       matching: find.byIcon(Icons.format_paint_outlined));
   expect(colorPageIndicator, findsOneWidget);
   await tester.tap(colorPageIndicator);
   await tester.pumpAndSettle();
-  expect(isLight ? find.text('Light ColorScheme') : find.text('Dark ColorScheme'), findsOneWidget);
+  expect(
+      isLight ? find.text('Light ColorScheme') : find.text('Dark ColorScheme'),
+      findsOneWidget);
 
   Finder primaryColorChip = isLight
-    ? find.widgetWithText(EditableColorChip, 'primary').first
-    : find.widgetWithText(EditableColorChip, 'primary').last;
+      ? find.widgetWithText(EditableColorChip, 'primary').first
+      : find.widgetWithText(EditableColorChip, 'primary').last;
   await tester.tap(primaryColorChip);
   await tester.pump();
 
   expect(find.byType(AlertDialog), findsOneWidget);
-  await tester.enterText(find.byType(TextField), newColor.value.toRadixString(16));
+  await tester.enterText(
+      find.byType(TextField), newColor.value.toRadixString(16));
 
   // Tap on the barrier.
   await tester.tapAt(const Offset(10.0, 10.0));

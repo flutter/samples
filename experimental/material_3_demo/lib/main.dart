@@ -75,39 +75,39 @@ class _AppState extends State<App> {
     });
   }
 
-  void handleColorRoleChange(Brightness brightness,
-      { Color? primary,
-        Color? onPrimary,
-        Color? primaryContainer,
-        Color? onPrimaryContainer,
-        Color? secondary,
-        Color? onSecondary,
-        Color? secondaryContainer,
-        Color? onSecondaryContainer,
-        Color? tertiary,
-        Color? onTertiary,
-        Color? tertiaryContainer,
-        Color? onTertiaryContainer,
-        Color? error,
-        Color? onError,
-        Color? errorContainer,
-        Color? onErrorContainer,
-        Color? background,
-        Color? onBackground,
-        Color? surface,
-        Color? onSurface,
-        Color? surfaceVariant,
-        Color? onSurfaceVariant,
-        Color? outline,
-        Color? outlineVariant,
-        Color? shadow,
-        Color? scrim,
-        Color? inverseSurface,
-        Color? onInverseSurface,
-        Color? inversePrimary,
-        Color? surfaceTint,
-      }
-  ) {
+  void handleColorRoleChange(
+    Brightness brightness, {
+    Color? primary,
+    Color? onPrimary,
+    Color? primaryContainer,
+    Color? onPrimaryContainer,
+    Color? secondary,
+    Color? onSecondary,
+    Color? secondaryContainer,
+    Color? onSecondaryContainer,
+    Color? tertiary,
+    Color? onTertiary,
+    Color? tertiaryContainer,
+    Color? onTertiaryContainer,
+    Color? error,
+    Color? onError,
+    Color? errorContainer,
+    Color? onErrorContainer,
+    Color? background,
+    Color? onBackground,
+    Color? surface,
+    Color? onSurface,
+    Color? surfaceVariant,
+    Color? onSurfaceVariant,
+    Color? outline,
+    Color? outlineVariant,
+    Color? shadow,
+    Color? scrim,
+    Color? inverseSurface,
+    Color? onInverseSurface,
+    Color? inversePrimary,
+    Color? surfaceTint,
+  }) {
     ColorScheme? copyWith(ColorScheme? colorScheme) {
       return colorScheme?.copyWith(
         primary: primary,
@@ -142,7 +142,7 @@ class _AppState extends State<App> {
         surfaceTint: surfaceTint,
       );
     }
-    
+
     setState(() {
       switch (brightness) {
         case Brightness.light:
@@ -162,11 +162,11 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     ThemeData lightTheme = ThemeData(
       colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
-        ? colorSelected.color
-        : null,
+          ? colorSelected.color
+          : null,
       colorScheme: colorSelectionMethod == ColorSelectionMethod.image
-        ? imageColorScheme
-        : null,
+          ? imageColorScheme
+          : null,
       useMaterial3: useMaterial3,
       brightness: Brightness.light,
     ).copyWith(
