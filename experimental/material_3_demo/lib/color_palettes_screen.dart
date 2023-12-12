@@ -46,7 +46,9 @@ class ColorPalettesScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ColorSchemeView(
           handleColorRoleChange: handleColorRoleChange,
-          colorScheme: brightness == Brightness.light ? lightColorScheme : darkColorScheme,
+          colorScheme: brightness == Brightness.light
+              ? lightColorScheme
+              : darkColorScheme,
           brightness: brightness,
         ),
       );
@@ -266,7 +268,8 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               color: _colorScheme.onSecondaryContainer,
               onColor: _colorScheme.secondaryContainer,
               updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onSecondaryContainer: color);
+                _colorScheme =
+                    _colorScheme.copyWith(onSecondaryContainer: color);
                 widget.handleColorRoleChange(
                   widget.brightness,
                   onSecondaryContainer: color,
@@ -319,7 +322,8 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               color: _colorScheme.onTertiaryContainer,
               onColor: _colorScheme.tertiaryContainer,
               updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onTertiaryContainer: color);
+                _colorScheme =
+                    _colorScheme.copyWith(onTertiaryContainer: color);
                 widget.handleColorRoleChange(
                   widget.brightness,
                   onTertiaryContainer: color,
@@ -596,49 +600,51 @@ class _EditableColorChipState extends State<EditableColorChip> {
     return GestureDetector(
       onTap: () {
         showDialog<void>(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ColorPicker(
-                    pickerColor: widget.color,
-                    onColorChanged: widget.updateColorScheme,
-                    paletteType: PaletteType.hsvWithHue,
-                    labelTypes: const [
-                      ColorLabelType.rgb,
-                      ColorLabelType.hsv,
-                      ColorLabelType.hsl
-                    ],
-                    pickerAreaBorderRadius: const BorderRadius.all(Radius.circular(10)),
-                    hexInputController: textController,
-                    portraitOnly: true,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                    child: TextField(
-                      controller: textController,
-                      decoration: InputDecoration(
-                        prefixText: '#',
-                        suffix: IconButton(
-                          icon: const Icon(Icons.content_paste_rounded),
-                          onPressed: () => copyToClipboard(textController.text),
-                        ),
-                      ),
-                      autofocus: true,
-                      maxLength: 8,
-                      inputFormatters: [
-                        UpperCaseTextFormatter(),
-                        FilteringTextInputFormatter.allow(RegExp(kValidHexPattern)),
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ColorPicker(
+                      pickerColor: widget.color,
+                      onColorChanged: widget.updateColorScheme,
+                      paletteType: PaletteType.hsvWithHue,
+                      labelTypes: const [
+                        ColorLabelType.rgb,
+                        ColorLabelType.hsv,
+                        ColorLabelType.hsl
                       ],
+                      pickerAreaBorderRadius:
+                          const BorderRadius.all(Radius.circular(10)),
+                      hexInputController: textController,
+                      portraitOnly: true,
                     ),
-                  )
-                ],
-              ),
-            );
-          }
-        );
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                      child: TextField(
+                        controller: textController,
+                        decoration: InputDecoration(
+                          prefixText: '#',
+                          suffix: IconButton(
+                            icon: const Icon(Icons.content_paste_rounded),
+                            onPressed: () =>
+                                copyToClipboard(textController.text),
+                          ),
+                        ),
+                        autofocus: true,
+                        maxLength: 8,
+                        inputFormatters: [
+                          UpperCaseTextFormatter(),
+                          FilteringTextInputFormatter.allow(
+                              RegExp(kValidHexPattern)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
+            });
       },
       child: ColorChip(
         label: widget.label,
