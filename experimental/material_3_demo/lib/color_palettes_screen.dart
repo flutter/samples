@@ -175,443 +175,605 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
 
   @override
   Widget build(BuildContext context) {
+    final primary = EditableColorChip(
+      small: _small,
+      label: 'primary',
+      color: _colorScheme.primary,
+      onColor: _colorScheme.onPrimary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(primary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          primary: color,
+        );
+      },
+    );
+
+    final onPrimary = EditableColorChip(
+      small: _small,
+      label: 'onPrimary',
+      color: _colorScheme.onPrimary,
+      onColor: _colorScheme.primary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onPrimary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onPrimary: color,
+        );
+      },
+    );
+
+    final primaryContainer = EditableColorChip(
+      small: _small,
+      label: 'primaryContainer',
+      color: _colorScheme.primaryContainer,
+      onColor: _colorScheme.onPrimaryContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(primaryContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          primaryContainer: color,
+        );
+      },
+    );
+
+    final onPrimaryContainer = EditableColorChip(
+      small: _small,
+      label: 'onPrimaryContainer',
+      color: _colorScheme.onPrimaryContainer,
+      onColor: _colorScheme.primaryContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onPrimaryContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onPrimaryContainer: color,
+        );
+      },
+    );
+
+    final secondary = EditableColorChip(
+      small: _small,
+      label: 'secondary',
+      color: _colorScheme.secondary,
+      onColor: _colorScheme.onSecondary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(secondary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          secondary: color,
+        );
+      },
+    );
+
+    final onSecondary = EditableColorChip(
+      small: _small,
+      label: 'onSecondary',
+      color: _colorScheme.onSecondary,
+      onColor: _colorScheme.secondary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onSecondary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onSecondary: color,
+        );
+      },
+    );
+
+    final secondaryContainer = EditableColorChip(
+      small: _small,
+      label: 'secondaryContainer',
+      color: _colorScheme.secondaryContainer,
+      onColor: _colorScheme.onSecondaryContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(secondaryContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          secondaryContainer: color,
+        );
+      },
+    );
+
+    final onSecondaryContainer = EditableColorChip(
+      small: _small,
+      label: 'onSecondaryContainer',
+      color: _colorScheme.onSecondaryContainer,
+      onColor: _colorScheme.secondaryContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onSecondaryContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onSecondaryContainer: color,
+        );
+      },
+    );
+
+    final tertiary = EditableColorChip(
+      small: _small,
+      label: 'tertiary',
+      color: _colorScheme.tertiary,
+      onColor: _colorScheme.onTertiary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(tertiary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          tertiary: color,
+        );
+      },
+    );
+
+    final onTertiary = EditableColorChip(
+      small: _small,
+      label: 'onTertiary',
+      color: _colorScheme.onTertiary,
+      onColor: _colorScheme.tertiary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onTertiary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onTertiary: color,
+        );
+      },
+    );
+
+    final tertiaryContainer = EditableColorChip(
+      small: _small,
+      label: 'tertiaryContainer',
+      color: _colorScheme.tertiaryContainer,
+      onColor: _colorScheme.onTertiaryContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(tertiaryContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          tertiaryContainer: color,
+        );
+      },
+    );
+
+    final onTertiaryContainer = EditableColorChip(
+      small: _small,
+      label: 'onTertiaryContainer',
+      color: _colorScheme.onTertiaryContainer,
+      onColor: _colorScheme.tertiaryContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onTertiaryContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onTertiaryContainer: color,
+        );
+      },
+    );
+
+    final error = EditableColorChip(
+      small: _small,
+      label: 'error',
+      color: _colorScheme.error,
+      onColor: _colorScheme.onError,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(error: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          error: color,
+        );
+      },
+    );
+
+    final onError = EditableColorChip(
+      small: _small,
+      label: 'onError',
+      color: _colorScheme.onError,
+      onColor: _colorScheme.error,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onError: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onError: color,
+        );
+      },
+    );
+
+    final errorContainer = EditableColorChip(
+      small: _small,
+      label: 'errorContainer',
+      color: _colorScheme.errorContainer,
+      onColor: _colorScheme.onErrorContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(errorContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          errorContainer: color,
+        );
+      },
+    );
+
+    final onErrorContainer = EditableColorChip(
+      small: _small,
+      label: 'onErrorContainer',
+      color: _colorScheme.onErrorContainer,
+      onColor: _colorScheme.errorContainer,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onErrorContainer: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onErrorContainer: color,
+        );
+      },
+    );
+
+    final surface = EditableColorChip(
+      small: _small,
+      label: 'surface',
+      color: _colorScheme.surface,
+      onColor: _colorScheme.onSurface,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(surface: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          surface: color,
+        );
+      },
+    );
+
+    final onSurface = EditableColorChip(
+      small: _small,
+      label: 'onSurface',
+      color: _colorScheme.onSurface,
+      onColor: _colorScheme.surface,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onSurface: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onSurface: color,
+        );
+      },
+    );
+
+    final surfaceVariant = EditableColorChip(
+      small: _small,
+      label: 'surfaceVariant',
+      color: _colorScheme.surfaceVariant,
+      onColor: _colorScheme.onSurfaceVariant,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(surfaceVariant: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          surfaceVariant: color,
+        );
+      },
+    );
+
+    final onSurfaceVariant = EditableColorChip(
+      small: _small,
+      label: 'onSurfaceVariant',
+      color: _colorScheme.onSurfaceVariant,
+      onColor: _colorScheme.surfaceVariant,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onSurfaceVariant: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onSurfaceVariant: color,
+        );
+      },
+    );
+
+    final surfaceTint = EditableColorChip(
+      small: _small,
+      label: 'surfaceTint',
+      color: _colorScheme.surfaceTint,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(surfaceTint: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          surfaceTint: color,
+        );
+      },
+    );
+
+    final background = EditableColorChip(
+      small: _small,
+      label: 'background',
+      color: _colorScheme.background,
+      onColor: _colorScheme.onBackground,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(background: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          background: color,
+        );
+      },
+    );
+
+    final onBackground = EditableColorChip(
+      small: _small,
+      label: 'onBackground',
+      color: _colorScheme.onBackground,
+      onColor: _colorScheme.background,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onBackground: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onBackground: color,
+        );
+      },
+    );
+
+    final outline = EditableColorChip(
+      small: _small,
+      label: 'outline',
+      color: _colorScheme.outline,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(outline: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          outline: color,
+        );
+      },
+    );
+
+    final outlineVariant = EditableColorChip(
+      small: _small,
+      label: 'outlineVariant',
+      color: _colorScheme.outlineVariant,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(outlineVariant: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          outlineVariant: color,
+        );
+      },
+    );
+
+    final shadow = EditableColorChip(
+      small: _small,
+      label: 'shadow',
+      color: _colorScheme.shadow,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(shadow: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          shadow: color,
+        );
+      },
+    );
+
+    final inverseSurface = EditableColorChip(
+      small: _small,
+      label: 'inverseSurface',
+      color: _colorScheme.inverseSurface,
+      onColor: _colorScheme.onInverseSurface,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(inverseSurface: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          inverseSurface: color,
+        );
+      },
+    );
+
+    final onInverseSurface = EditableColorChip(
+      small: _small,
+      label: 'onInverseSurface',
+      color: _colorScheme.onInverseSurface,
+      onColor: _colorScheme.inverseSurface,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(onInverseSurface: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          onInverseSurface: color,
+        );
+      },
+    );
+
+    final inversePrimary = EditableColorChip(
+      small: _small,
+      label: 'inversePrimary',
+      color: _colorScheme.inversePrimary,
+      onColor: _colorScheme.primary,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(inversePrimary: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          inversePrimary: color,
+        );
+      },
+    );
+
+    final scrim = EditableColorChip(
+      small: _small,
+      label: 'scrim',
+      color: _colorScheme.scrim,
+      updateColorScheme: (color) {
+        _colorScheme = _colorScheme.copyWith(scrim: color);
+        widget.handleColorRoleChange(
+          widget.brightness,
+          scrim: color,
+        );
+      },
+    );
+
+    return _small
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              ColorGroupNavRail(
+                  message:
+                      "Accents (primary, secondary, tertiary) are usually your brand colors and are used to emphasize elements. Error is for error states.",
+                  colorName: "Accents & Error",
+                  children: [primary, secondary, tertiary, error]),
+              ColorGroupNavRail(
+                  message:
+                      "Indicates a color for text or icons on top of its paired parent color.",
+                  colorName: "On Accents & Error",
+                  children: [onPrimary, onSecondary, onTertiary, onError]),
+              ColorGroupNavRail(
+                  message:
+                      "Used as a fill color for foreground elements like buttons.",
+                  colorName: "Containers",
+                  children: [
+                    primaryContainer,
+                    secondaryContainer,
+                    tertiaryContainer,
+                    errorContainer
+                  ]),
+              ColorGroupNavRail(
+                  message:
+                      "Indicates a color for text or icons on top of the paired container color.",
+                  colorName: "On Containers",
+                  children: [
+                    onPrimaryContainer,
+                    onSecondaryContainer,
+                    onTertiaryContainer,
+                    onErrorContainer
+                  ]),
+              ColorGroupNavRail(
+                  message:
+                      "Applied to actionable components on surfaces that are the reverse of those in the surrounding UI, creating a contrasting effect.",
+                  colorName: "Inverse Primary",
+                  children: [inversePrimary]),
+              SizedBox(height: 20),
+              ColorGroupNavRail(
+                  message:
+                      "Background is typically used behind scrollable content, while surface and surfaceVariant are used for background of widgets. Inverse surface is used as the reverse of surface for a contrasting effect.",
+                  colorName: "Background & Surfaces",
+                  children: [
+                    background,
+                    surface,
+                    surfaceVariant,
+                    inverseSurface
+                  ]),
+              ColorGroupNavRail(
+                  message:
+                      "The color used for text and icons on top of the background or surface colors.",
+                  colorName: "On Background & Surfaces",
+                  children: [
+                    onBackground,
+                    onSurface,
+                    onSurfaceVariant,
+                    onInverseSurface
+                  ]),
+              ColorGroupNavRail(
+                  // TO DO: figure out what to put here, since this is deprecated
+                  message: "",
+                  colorName: "Surface Tint",
+                  children: [surfaceTint]),
+              ColorGroupNavRail(
+                  message:
+                      "Scrim is used for a semi-transparent overaly that darks areas to focus attention. Shadow and outline are used for shadows and outlines on some widgets.",
+                  colorName: "Scrim, Shadow, Outline",
+                  children: [scrim, shadow, outline, outlineVariant]),
+            ],
+          )
+        : Column(
+            children: [
+              ColorGroup(
+                small: _small,
+                children: [
+                  primary,
+                  onPrimary,
+                  primaryContainer,
+                  onPrimaryContainer,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [
+                  secondary,
+                  onSecondary,
+                  secondaryContainer,
+                  onSecondaryContainer,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [
+                  tertiary,
+                  onTertiary,
+                  tertiaryContainer,
+                  onTertiaryContainer,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [
+                  error,
+                  onError,
+                  errorContainer,
+                  onErrorContainer,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [
+                  surface,
+                  onSurface,
+                  surfaceVariant,
+                  onSurfaceVariant,
+                  surfaceTint,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [
+                  outline,
+                  outlineVariant,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [
+                  inverseSurface,
+                  onInverseSurface,
+                  inversePrimary,
+                ],
+              ),
+              divider,
+              ColorGroup(
+                small: _small,
+                children: [background, onBackground, scrim, shadow],
+              ),
+              divider,
+            ],
+          );
+  }
+}
+
+class ColorGroupNavRail extends StatelessWidget {
+  const ColorGroupNavRail({
+    super.key,
+    required this.message,
+    required this.colorName,
+    required this.children,
+  });
+
+  final String message;
+  final String colorName;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'primary',
-              color: _colorScheme.primary,
-              onColor: _colorScheme.onPrimary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(primary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  primary: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onPrimary',
-              color: _colorScheme.onPrimary,
-              onColor: _colorScheme.primary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onPrimary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onPrimary: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'primaryContainer',
-              color: _colorScheme.primaryContainer,
-              onColor: _colorScheme.onPrimaryContainer,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(primaryContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  primaryContainer: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onPrimaryContainer',
-              color: _colorScheme.onPrimaryContainer,
-              onColor: _colorScheme.primaryContainer,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onPrimaryContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onPrimaryContainer: color,
-                );
-              },
-            ),
-          ],
+        Tooltip(
+          message: message,
+          child: Row(
+            children: [
+              Text(colorName,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelSmall!
+                      .copyWith(fontWeight: FontWeight.bold)),
+              const SizedBox(width: 5),
+              const Icon(Icons.info_outline_rounded, size: 16),
+            ],
+          ),
         ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'secondary',
-              color: _colorScheme.secondary,
-              onColor: _colorScheme.onSecondary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(secondary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  secondary: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onSecondary',
-              color: _colorScheme.onSecondary,
-              onColor: _colorScheme.secondary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onSecondary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onSecondary: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'secondaryContainer',
-              color: _colorScheme.secondaryContainer,
-              onColor: _colorScheme.onSecondaryContainer,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(secondaryContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  secondaryContainer: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onSecondaryContainer',
-              color: _colorScheme.onSecondaryContainer,
-              onColor: _colorScheme.secondaryContainer,
-              updateColorScheme: (color) {
-                _colorScheme =
-                    _colorScheme.copyWith(onSecondaryContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onSecondaryContainer: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'tertiary',
-              color: _colorScheme.tertiary,
-              onColor: _colorScheme.onTertiary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(tertiary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  tertiary: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onTertiary',
-              color: _colorScheme.onTertiary,
-              onColor: _colorScheme.tertiary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onTertiary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onTertiary: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'tertiaryContainer',
-              color: _colorScheme.tertiaryContainer,
-              onColor: _colorScheme.onTertiaryContainer,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(tertiaryContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  tertiaryContainer: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onTertiaryContainer',
-              color: _colorScheme.onTertiaryContainer,
-              onColor: _colorScheme.tertiaryContainer,
-              updateColorScheme: (color) {
-                _colorScheme =
-                    _colorScheme.copyWith(onTertiaryContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onTertiaryContainer: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'error',
-              color: _colorScheme.error,
-              onColor: _colorScheme.onError,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(error: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  error: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onError',
-              color: _colorScheme.onError,
-              onColor: _colorScheme.error,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onError: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onError: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'errorContainer',
-              color: _colorScheme.errorContainer,
-              onColor: _colorScheme.onErrorContainer,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(errorContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  errorContainer: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onErrorContainer',
-              color: _colorScheme.onErrorContainer,
-              onColor: _colorScheme.errorContainer,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onErrorContainer: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onErrorContainer: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'surface',
-              color: _colorScheme.surface,
-              onColor: _colorScheme.onSurface,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(surface: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  surface: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onSurface',
-              color: _colorScheme.onSurface,
-              onColor: _colorScheme.surface,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onSurface: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onSurface: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'surfaceVariant',
-              color: _colorScheme.surfaceVariant,
-              onColor: _colorScheme.onSurfaceVariant,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(surfaceVariant: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  surfaceVariant: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onSurfaceVariant',
-              color: _colorScheme.onSurfaceVariant,
-              onColor: _colorScheme.surfaceVariant,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onSurfaceVariant: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onSurfaceVariant: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'surfaceTint',
-              color: _colorScheme.surfaceTint,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(surfaceTint: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  surfaceTint: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'outline',
-              color: _colorScheme.outline,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(outline: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  outline: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'outlineVariant',
-              color: _colorScheme.outlineVariant,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(outlineVariant: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  outlineVariant: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'inverseSurface',
-              color: _colorScheme.inverseSurface,
-              onColor: _colorScheme.onInverseSurface,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(inverseSurface: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  inverseSurface: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onInverseSurface',
-              color: _colorScheme.onInverseSurface,
-              onColor: _colorScheme.inverseSurface,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onInverseSurface: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onInverseSurface: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'inversePrimary',
-              color: _colorScheme.inversePrimary,
-              onColor: _colorScheme.primary,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(inversePrimary: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  inversePrimary: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          small: _small,
-          children: [
-            EditableColorChip(
-              small: _small,
-              label: 'background',
-              color: _colorScheme.background,
-              onColor: _colorScheme.onBackground,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(background: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  background: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'onBackground',
-              color: _colorScheme.onBackground,
-              onColor: _colorScheme.background,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(onBackground: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  onBackground: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'scrim',
-              color: _colorScheme.scrim,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(scrim: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  scrim: color,
-                );
-              },
-            ),
-            EditableColorChip(
-              small: _small,
-              label: 'shadow',
-              color: _colorScheme.shadow,
-              updateColorScheme: (color) {
-                _colorScheme = _colorScheme.copyWith(shadow: color);
-                widget.handleColorRoleChange(
-                  widget.brightness,
-                  shadow: color,
-                );
-              },
-            ),
-          ],
-        ),
-        divider,
+        ColorGroup(small: true, children: children)
       ],
     );
   }
@@ -709,15 +871,28 @@ class ColorGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final axisCount = children.length % 4 == 0
+        ? 4
+        : children.length % 3 == 0
+            ? 3
+            : children.length % 2 == 0
+                ? 2
+                : 1;
+
     return RepaintBoundary(
       child: Card(
         elevation: 0.0,
-        clipBehavior: Clip.antiAlias,
+        clipBehavior: small ? Clip.none : Clip.antiAlias,
         child: small
             ? GridView.count(
-                crossAxisCount: 2,
+                crossAxisCount: axisCount,
+                crossAxisSpacing: 1,
                 shrinkWrap: true,
-                childAspectRatio: 1 / 0.3,
+                // childAspectRatio: children.length / 1,
+                // childAspectRatio: (4 / axisCount) * axisCount
+
+                // when 4 then 4, when 1 then 16
+                childAspectRatio: 16 / axisCount,
                 physics: const NeverScrollableScrollPhysics(),
                 children: children,
               )
@@ -758,24 +933,30 @@ class ColorChip extends StatelessWidget {
     final Color labelColor = onColor ?? contrastColor(color);
 
     return Container(
-      color: color,
-      child: Padding(
-        padding: small ? const EdgeInsets.all(8) : const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Expanded(
-                child: Text(label,
-                    style: TextStyle(
-                        color: labelColor, fontSize: small ? 10 : null))),
-            Visibility(
-                visible: !small,
-                child: Text(
-                  color.value.toRadixString(16).substring(2),
-                  style: GoogleFonts.spaceMono(color: labelColor),
-                )),
-          ],
-        ),
+      decoration: BoxDecoration(
+        color: color,
+        border: small
+            ? Border.all(
+                color: Theme.of(context).colorScheme.onSurface,
+                width: 2,
+              )
+            : null,
       ),
+      child: small
+          ? null
+          : Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Text(label, style: TextStyle(color: labelColor))),
+                  Text(
+                    color.value.toRadixString(16).substring(2),
+                    style: GoogleFonts.spaceMono(color: labelColor),
+                  ),
+                ],
+              ),
+            ),
     );
   }
 }
