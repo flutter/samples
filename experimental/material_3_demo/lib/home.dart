@@ -48,11 +48,13 @@ class Home extends StatefulWidget {
   const Home({
     super.key,
     required this.useLightMode,
+    required this.useThemeConfig,
     required this.useMaterial3,
     required this.colorSelected,
     required this.lightColors,
     required this.darkColors,
     required this.handleBrightnessChange,
+    required this.handleThemeConfigChange,
     required this.handleMaterialVersionChange,
     required this.handleColorRoleChange,
     required this.handleColorSelect,
@@ -62,6 +64,7 @@ class Home extends StatefulWidget {
   });
 
   final bool useLightMode;
+  final bool useThemeConfig;
   final bool useMaterial3;
   final ColorSeed colorSelected;
   final ColorScheme lightColors;
@@ -71,6 +74,7 @@ class Home extends StatefulWidget {
 
   final void Function(bool useLightMode) handleBrightnessChange;
   final void Function() handleMaterialVersionChange;
+  final void Function() handleThemeConfigChange;
   final void Function(int value) handleColorSelect;
   final void Function(int value) handleImageSelect;
   final ConfigColorSchemeCallback handleColorRoleChange;
@@ -220,6 +224,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ),
           ),
           Flexible(
+            child: _ThemeConfigButton(
+              handleThemeConfigChange: widget.handleThemeConfigChange,
+              showTooltipBelow: false,
+            ),
+          ),
+          Flexible(
             child: _ColorSeedButton(
               handleColorSelect: widget.handleColorSelect,
               colorSelected: widget.colorSelected,
@@ -264,7 +274,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 child: showLargeSizeLayout
                     ? _ExpandedTrailingActions(
                         useLightMode: widget.useLightMode,
+                        useThemeConfig: widget.useThemeConfig,
                         handleBrightnessChange: widget.handleBrightnessChange,
+                        handleThemeConfigChange: widget.handleThemeConfigChange,
                         useMaterial3: widget.useMaterial3,
                         handleMaterialVersionChange:
                             widget.handleMaterialVersionChange,
@@ -273,6 +285,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         colorSelectionMethod: widget.colorSelectionMethod,
                         imageSelected: widget.imageSelected,
                         colorSelected: widget.colorSelected,
+                        handleColorRoleChange: widget.handleColorRoleChange,
+                        lightColorScheme: widget.lightColors,
                       )
                     : _trailingActions(),
               ),
@@ -339,6 +353,29 @@ class _Material3Button extends StatelessWidget {
             ? const Icon(Icons.filter_2)
             : const Icon(Icons.filter_3),
         onPressed: handleMaterialVersionChange,
+      ),
+    );
+  }
+}
+
+class _ThemeConfigButton extends StatelessWidget {
+  const _ThemeConfigButton({
+    required this.handleThemeConfigChange,
+    this.showTooltipBelow = true,
+  });
+
+  final Function handleThemeConfigChange;
+  final bool showTooltipBelow;
+
+  // TO DO: logic for seeing if theme config is enabled
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      preferBelow: showTooltipBelow,
+      message: 'Toggle theme config',
+      child: IconButton(
+        icon: const Icon(Icons.settings_outlined),
+        onPressed: () => handleThemeConfigChange(),
       ),
     );
   }
@@ -463,7 +500,9 @@ class _ColorImageButton extends StatelessWidget {
 class _ExpandedTrailingActions extends StatelessWidget {
   const _ExpandedTrailingActions({
     required this.useLightMode,
+    required this.useThemeConfig,
     required this.handleBrightnessChange,
+    required this.handleThemeConfigChange,
     required this.useMaterial3,
     required this.handleMaterialVersionChange,
     required this.handleColorSelect,
@@ -471,15 +510,26 @@ class _ExpandedTrailingActions extends StatelessWidget {
     required this.imageSelected,
     required this.colorSelected,
     required this.colorSelectionMethod,
+    //
+    required this.handleColorRoleChange,
+    required this.lightColorScheme,
+    // required this.darkColorScheme,
   });
 
   final void Function(bool) handleBrightnessChange;
+  final void Function() handleThemeConfigChange;
   final void Function() handleMaterialVersionChange;
   final void Function(int) handleImageSelect;
   final void Function(int) handleColorSelect;
 
+  //
+  final ConfigColorSchemeCallback handleColorRoleChange;
+  final ColorScheme lightColorScheme;
+  // final ColorScheme darkColorScheme;
+
   final bool useLightMode;
   final bool useMaterial3;
+  final bool useThemeConfig;
 
   final ColorImageProvider imageSelected;
   final ColorSeed colorSelected;
@@ -488,6 +538,36 @@ class _ExpandedTrailingActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final colorImageActions = [
+      const Divider(),
+      _ExpandedColorSeedAction(
+        handleColorSelect: handleColorSelect,
+        colorSelected: colorSelected,
+        colorSelectionMethod: colorSelectionMethod,
+      ),
+      const Divider(),
+      _ExpandedImageColorAction(
+        handleImageSelect: handleImageSelect,
+        imageSelected: imageSelected,
+        colorSelectionMethod: colorSelectionMethod,
+      ),
+    ];
+    final themeConfigActions = [
+      const Divider(),
+      Text("Color Scheme"),
+      ColorSchemeView(
+        small: true,
+        handleColorRoleChange: handleColorRoleChange,
+        colorScheme: lightColorScheme,
+        brightness: Brightness.light,
+      ),
+      // EditableColorChip(
+      //   label: 'primary',
+      //   color: Colors.purple,
+      //   onColor: Colors.white,
+      //   updateColorScheme: (color) {},
+      // ),
+    ];
     final trailingActionsBody = Container(
       constraints: const BoxConstraints.tightFor(width: 250),
       padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -519,21 +599,22 @@ class _ExpandedTrailingActions extends StatelessWidget {
                   })
             ],
           ),
-          const Divider(),
-          _ExpandedColorSeedAction(
-            handleColorSelect: handleColorSelect,
-            colorSelected: colorSelected,
-            colorSelectionMethod: colorSelectionMethod,
+          Row(
+            children: [
+              const Text('Theme Config'),
+              Expanded(child: Container()),
+              Switch(
+                  value: useThemeConfig,
+                  onChanged: (value) {
+                    handleThemeConfigChange();
+                  })
+            ],
           ),
-          const Divider(),
-          _ExpandedImageColorAction(
-            handleImageSelect: handleImageSelect,
-            imageSelected: imageSelected,
-            colorSelectionMethod: colorSelectionMethod,
-          ),
+          ...useThemeConfig ? themeConfigActions : colorImageActions
         ],
       ),
     );
+
     return screenHeight > 740
         ? trailingActionsBody
         : SingleChildScrollView(child: trailingActionsBody);

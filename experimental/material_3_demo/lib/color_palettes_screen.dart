@@ -45,6 +45,7 @@ class ColorPalettesScreen extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ColorSchemeView(
+          small: false,
           handleColorRoleChange: handleColorRoleChange,
           colorScheme: brightness == Brightness.light
               ? lightColorScheme
@@ -141,11 +142,13 @@ class ColorSchemeView extends StatefulWidget {
     required this.handleColorRoleChange,
     required this.colorScheme,
     required this.brightness,
+    required this.small,
   });
 
   final ConfigColorSchemeCallback handleColorRoleChange;
   final ColorScheme colorScheme;
   final Brightness brightness;
+  final bool small;
 
   @override
   State<ColorSchemeView> createState() => _ColorSchemeViewState();
@@ -153,10 +156,12 @@ class ColorSchemeView extends StatefulWidget {
 
 class _ColorSchemeViewState extends State<ColorSchemeView> {
   late ColorScheme _colorScheme;
+  late bool _small;
 
   @override
   void initState() {
     _colorScheme = widget.colorScheme;
+    _small = widget.small;
     super.initState();
   }
 
@@ -173,8 +178,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
     return Column(
       children: [
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'primary',
               color: _colorScheme.primary,
               onColor: _colorScheme.onPrimary,
@@ -187,6 +194,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onPrimary',
               color: _colorScheme.onPrimary,
               onColor: _colorScheme.primary,
@@ -199,6 +207,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'primaryContainer',
               color: _colorScheme.primaryContainer,
               onColor: _colorScheme.onPrimaryContainer,
@@ -211,6 +220,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onPrimaryContainer',
               color: _colorScheme.onPrimaryContainer,
               onColor: _colorScheme.primaryContainer,
@@ -226,8 +236,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'secondary',
               color: _colorScheme.secondary,
               onColor: _colorScheme.onSecondary,
@@ -240,6 +252,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onSecondary',
               color: _colorScheme.onSecondary,
               onColor: _colorScheme.secondary,
@@ -252,6 +265,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'secondaryContainer',
               color: _colorScheme.secondaryContainer,
               onColor: _colorScheme.onSecondaryContainer,
@@ -264,6 +278,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onSecondaryContainer',
               color: _colorScheme.onSecondaryContainer,
               onColor: _colorScheme.secondaryContainer,
@@ -280,8 +295,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'tertiary',
               color: _colorScheme.tertiary,
               onColor: _colorScheme.onTertiary,
@@ -294,6 +311,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onTertiary',
               color: _colorScheme.onTertiary,
               onColor: _colorScheme.tertiary,
@@ -306,6 +324,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'tertiaryContainer',
               color: _colorScheme.tertiaryContainer,
               onColor: _colorScheme.onTertiaryContainer,
@@ -318,6 +337,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onTertiaryContainer',
               color: _colorScheme.onTertiaryContainer,
               onColor: _colorScheme.tertiaryContainer,
@@ -334,8 +354,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'error',
               color: _colorScheme.error,
               onColor: _colorScheme.onError,
@@ -348,6 +370,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onError',
               color: _colorScheme.onError,
               onColor: _colorScheme.error,
@@ -360,6 +383,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'errorContainer',
               color: _colorScheme.errorContainer,
               onColor: _colorScheme.onErrorContainer,
@@ -372,6 +396,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onErrorContainer',
               color: _colorScheme.onErrorContainer,
               onColor: _colorScheme.errorContainer,
@@ -387,8 +412,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'surface',
               color: _colorScheme.surface,
               onColor: _colorScheme.onSurface,
@@ -401,6 +428,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onSurface',
               color: _colorScheme.onSurface,
               onColor: _colorScheme.surface,
@@ -413,6 +441,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'surfaceVariant',
               color: _colorScheme.surfaceVariant,
               onColor: _colorScheme.onSurfaceVariant,
@@ -425,6 +454,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onSurfaceVariant',
               color: _colorScheme.onSurfaceVariant,
               onColor: _colorScheme.surfaceVariant,
@@ -437,6 +467,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'surfaceTint',
               color: _colorScheme.surfaceTint,
               updateColorScheme: (color) {
@@ -451,8 +482,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'outline',
               color: _colorScheme.outline,
               updateColorScheme: (color) {
@@ -464,6 +497,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'outlineVariant',
               color: _colorScheme.outlineVariant,
               updateColorScheme: (color) {
@@ -478,8 +512,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'inverseSurface',
               color: _colorScheme.inverseSurface,
               onColor: _colorScheme.onInverseSurface,
@@ -492,6 +528,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onInverseSurface',
               color: _colorScheme.onInverseSurface,
               onColor: _colorScheme.inverseSurface,
@@ -504,6 +541,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'inversePrimary',
               color: _colorScheme.inversePrimary,
               onColor: _colorScheme.primary,
@@ -519,8 +557,10 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
         ),
         divider,
         ColorGroup(
+          small: _small,
           children: [
             EditableColorChip(
+              small: _small,
               label: 'background',
               color: _colorScheme.background,
               onColor: _colorScheme.onBackground,
@@ -533,6 +573,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'onBackground',
               color: _colorScheme.onBackground,
               onColor: _colorScheme.background,
@@ -545,6 +586,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'scrim',
               color: _colorScheme.scrim,
               updateColorScheme: (color) {
@@ -556,6 +598,7 @@ class _ColorSchemeViewState extends State<ColorSchemeView> {
               },
             ),
             EditableColorChip(
+              small: _small,
               label: 'shadow',
               color: _colorScheme.shadow,
               updateColorScheme: (color) {
@@ -580,12 +623,14 @@ class EditableColorChip extends StatefulWidget {
     this.onColor,
     required this.label,
     required this.color,
+    required this.small,
     required this.updateColorScheme,
   });
 
   final String label;
   final Color color;
   final Color? onColor;
+  final bool small;
   final void Function(Color) updateColorScheme;
 
   @override
@@ -647,6 +692,7 @@ class _EditableColorChipState extends State<EditableColorChip> {
             });
       },
       child: ColorChip(
+        small: widget.small,
         label: widget.label,
         color: widget.color,
         onColor: widget.onColor,
@@ -656,9 +702,10 @@ class _EditableColorChipState extends State<EditableColorChip> {
 }
 
 class ColorGroup extends StatelessWidget {
-  const ColorGroup({super.key, required this.children});
+  const ColorGroup({super.key, required this.children, required this.small});
 
   final List<Widget> children;
+  final bool small;
 
   @override
   Widget build(BuildContext context) {
@@ -666,9 +713,17 @@ class ColorGroup extends StatelessWidget {
       child: Card(
         elevation: 0.0,
         clipBehavior: Clip.antiAlias,
-        child: Column(
-          children: children,
-        ),
+        child: small
+            ? GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                childAspectRatio: 1 / 0.3,
+                physics: const NeverScrollableScrollPhysics(),
+                children: children,
+              )
+            : Column(
+                children: children,
+              ),
       ),
     );
   }
@@ -679,12 +734,14 @@ class ColorChip extends StatelessWidget {
     super.key,
     required this.color,
     required this.label,
+    required this.small,
     this.onColor,
   });
 
   final Color color;
   final Color? onColor;
   final String label;
+  final bool small;
 
   static Color contrastColor(Color color) {
     final brightness = ThemeData.estimateBrightnessForColor(color);
@@ -703,16 +760,19 @@ class ColorChip extends StatelessWidget {
     return Container(
       color: color,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: small ? const EdgeInsets.all(8) : const EdgeInsets.all(16),
         child: Row(
           children: [
-            Expanded(child: Text(label, style: TextStyle(color: labelColor))),
-            Text(
-              color.value.toRadixString(16).substring(2),
-              style: GoogleFonts.spaceMono(
-                color: labelColor,
-              ),
-            ),
+            Expanded(
+                child: Text(label,
+                    style: TextStyle(
+                        color: labelColor, fontSize: small ? 10 : null))),
+            Visibility(
+                visible: !small,
+                child: Text(
+                  color.value.toRadixString(16).substring(2),
+                  style: GoogleFonts.spaceMono(color: labelColor),
+                )),
           ],
         ),
       ),
