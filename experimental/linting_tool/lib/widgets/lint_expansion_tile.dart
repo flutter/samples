@@ -140,7 +140,7 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
                   return const _ProfileTypeDialog();
                 },
               );
-              if (!mounted) return;
+              if (!context.mounted) return;
               if (destinationProfileType == ProfileType.newProfile) {
                 await showDialog<String>(
                   context: context,
@@ -264,7 +264,7 @@ class _NewProfileDialogState extends State<NewProfileDialog> {
               );
               await Provider.of<ProfilesStore>(context, listen: false)
                   .addToNewProfile(newProfile);
-              if (!mounted) return;
+              if (!context.mounted) return;
               Navigator.pop(context);
             }
           },
@@ -304,7 +304,7 @@ class _ExistingProfileDialogState extends State<ExistingProfileDialog> {
             onTap: () async {
               await profilesStore.addToExistingProfile(
                   savedProfiles[index], widget.rule);
-              if (!mounted) return;
+              if (!context.mounted) return;
               Navigator.pop(context);
             },
           ),

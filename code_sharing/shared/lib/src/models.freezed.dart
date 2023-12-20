@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'models.dart';
 
@@ -31,56 +31,61 @@ mixin _$Increment {
 /// @nodoc
 abstract class $IncrementCopyWith<$Res> {
   factory $IncrementCopyWith(Increment value, $Res Function(Increment) then) =
-      _$IncrementCopyWithImpl<$Res>;
+      _$IncrementCopyWithImpl<$Res, Increment>;
+  @useResult
   $Res call({int by});
 }
 
 /// @nodoc
-class _$IncrementCopyWithImpl<$Res> implements $IncrementCopyWith<$Res> {
+class _$IncrementCopyWithImpl<$Res, $Val extends Increment>
+    implements $IncrementCopyWith<$Res> {
   _$IncrementCopyWithImpl(this._value, this._then);
 
-  final Increment _value;
   // ignore: unused_field
-  final $Res Function(Increment) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? by = freezed,
+    Object? by = null,
   }) {
     return _then(_value.copyWith(
-      by: by == freezed
+      by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_IncrementCopyWith<$Res> implements $IncrementCopyWith<$Res> {
-  factory _$$_IncrementCopyWith(
-          _$_Increment value, $Res Function(_$_Increment) then) =
-      __$$_IncrementCopyWithImpl<$Res>;
+abstract class _$$IncrementImplCopyWith<$Res>
+    implements $IncrementCopyWith<$Res> {
+  factory _$$IncrementImplCopyWith(
+          _$IncrementImpl value, $Res Function(_$IncrementImpl) then) =
+      __$$IncrementImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int by});
 }
 
 /// @nodoc
-class __$$_IncrementCopyWithImpl<$Res> extends _$IncrementCopyWithImpl<$Res>
-    implements _$$_IncrementCopyWith<$Res> {
-  __$$_IncrementCopyWithImpl(
-      _$_Increment _value, $Res Function(_$_Increment) _then)
-      : super(_value, (v) => _then(v as _$_Increment));
+class __$$IncrementImplCopyWithImpl<$Res>
+    extends _$IncrementCopyWithImpl<$Res, _$IncrementImpl>
+    implements _$$IncrementImplCopyWith<$Res> {
+  __$$IncrementImplCopyWithImpl(
+      _$IncrementImpl _value, $Res Function(_$IncrementImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Increment get _value => super._value as _$_Increment;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? by = freezed,
+    Object? by = null,
   }) {
-    return _then(_$_Increment(
-      by: by == freezed
+    return _then(_$IncrementImpl(
+      by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
               as int,
@@ -90,11 +95,11 @@ class __$$_IncrementCopyWithImpl<$Res> extends _$IncrementCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Increment implements _Increment {
-  const _$_Increment({required this.by});
+class _$IncrementImpl implements _Increment {
+  const _$IncrementImpl({required this.by});
 
-  factory _$_Increment.fromJson(Map<String, dynamic> json) =>
-      _$$_IncrementFromJson(json);
+  factory _$IncrementImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IncrementImplFromJson(json);
 
   @override
   final int by;
@@ -105,42 +110,42 @@ class _$_Increment implements _Increment {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Increment &&
-            const DeepCollectionEquality().equals(other.by, by));
+            other is _$IncrementImpl &&
+            (identical(other.by, by) || other.by == by));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(by));
+  int get hashCode => Object.hash(runtimeType, by);
 
   @JsonKey(ignore: true)
   @override
-  _$$_IncrementCopyWith<_$_Increment> get copyWith =>
-      __$$_IncrementCopyWithImpl<_$_Increment>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$IncrementImplCopyWith<_$IncrementImpl> get copyWith =>
+      __$$IncrementImplCopyWithImpl<_$IncrementImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IncrementToJson(
+    return _$$IncrementImplToJson(
       this,
     );
   }
 }
 
 abstract class _Increment implements Increment {
-  const factory _Increment({required final int by}) = _$_Increment;
+  const factory _Increment({required final int by}) = _$IncrementImpl;
 
   factory _Increment.fromJson(Map<String, dynamic> json) =
-      _$_Increment.fromJson;
+      _$IncrementImpl.fromJson;
 
   @override
   int get by;
   @override
   @JsonKey(ignore: true)
-  _$$_IncrementCopyWith<_$_Increment> get copyWith =>
+  _$$IncrementImplCopyWith<_$IncrementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -160,54 +165,60 @@ mixin _$Count {
 /// @nodoc
 abstract class $CountCopyWith<$Res> {
   factory $CountCopyWith(Count value, $Res Function(Count) then) =
-      _$CountCopyWithImpl<$Res>;
+      _$CountCopyWithImpl<$Res, Count>;
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class _$CountCopyWithImpl<$Res> implements $CountCopyWith<$Res> {
+class _$CountCopyWithImpl<$Res, $Val extends Count>
+    implements $CountCopyWith<$Res> {
   _$CountCopyWithImpl(this._value, this._then);
 
-  final Count _value;
   // ignore: unused_field
-  final $Res Function(Count) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_CountCopyWith<$Res> implements $CountCopyWith<$Res> {
-  factory _$$_CountCopyWith(_$_Count value, $Res Function(_$_Count) then) =
-      __$$_CountCopyWithImpl<$Res>;
+abstract class _$$CountImplCopyWith<$Res> implements $CountCopyWith<$Res> {
+  factory _$$CountImplCopyWith(
+          _$CountImpl value, $Res Function(_$CountImpl) then) =
+      __$$CountImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res>
-    implements _$$_CountCopyWith<$Res> {
-  __$$_CountCopyWithImpl(_$_Count _value, $Res Function(_$_Count) _then)
-      : super(_value, (v) => _then(v as _$_Count));
+class __$$CountImplCopyWithImpl<$Res>
+    extends _$CountCopyWithImpl<$Res, _$CountImpl>
+    implements _$$CountImplCopyWith<$Res> {
+  __$$CountImplCopyWithImpl(
+      _$CountImpl _value, $Res Function(_$CountImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Count get _value => super._value as _$_Count;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(_$_Count(
-      value == freezed
+    return _then(_$CountImpl(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
@@ -217,11 +228,11 @@ class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Count implements _Count {
-  const _$_Count(this.value);
+class _$CountImpl implements _Count {
+  const _$CountImpl(this.value);
 
-  factory _$_Count.fromJson(Map<String, dynamic> json) =>
-      _$$_CountFromJson(json);
+  factory _$CountImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CountImplFromJson(json);
 
   @override
   final int value;
@@ -232,40 +243,40 @@ class _$_Count implements _Count {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Count &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$CountImpl &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  _$$_CountCopyWith<_$_Count> get copyWith =>
-      __$$_CountCopyWithImpl<_$_Count>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
+      __$$CountImplCopyWithImpl<_$CountImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CountToJson(
+    return _$$CountImplToJson(
       this,
     );
   }
 }
 
 abstract class _Count implements Count {
-  const factory _Count(final int value) = _$_Count;
+  const factory _Count(final int value) = _$CountImpl;
 
-  factory _Count.fromJson(Map<String, dynamic> json) = _$_Count.fromJson;
+  factory _Count.fromJson(Map<String, dynamic> json) = _$CountImpl.fromJson;
 
   @override
   int get value;
   @override
   @JsonKey(ignore: true)
-  _$$_CountCopyWith<_$_Count> get copyWith =>
+  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
