@@ -6,19 +6,21 @@ part of 'models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Increment _$$_IncrementFromJson(Map<String, dynamic> json) => _$_Increment(
+_$IncrementImpl _$$IncrementImplFromJson(Map<String, dynamic> json) =>
+    _$IncrementImpl(
       by: json['by'] as int,
     );
 
-Map<String, dynamic> _$$_IncrementToJson(_$_Increment instance) =>
+Map<String, dynamic> _$$IncrementImplToJson(_$IncrementImpl instance) =>
     <String, dynamic>{
       'by': instance.by,
     };
 
-_$_Count _$$_CountFromJson(Map<String, dynamic> json) => _$_Count(
+_$CountImpl _$$CountImplFromJson(Map<String, dynamic> json) => _$CountImpl(
       json['value'] as int,
     );
 
-Map<String, dynamic> _$$_CountToJson(_$_Count instance) => <String, dynamic>{
+Map<String, dynamic> _$$CountImplToJson(_$CountImpl instance) =>
+    <String, dynamic>{
       'value': instance.value,
     };

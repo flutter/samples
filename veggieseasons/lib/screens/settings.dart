@@ -234,7 +234,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: const Text('Yes'),
                 onPressed: () async {
                   await prefs.restoreDefaults();
-                  if (!mounted) return;
+                  if (!context.mounted) return;
                   context.pop();
                 },
               ),
