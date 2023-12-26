@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.3
-  go_router: ">=10.1.0 <13.0.0"
+  go_router: ">=10.1.0 <14.0.0"
 
 dev_dependencies:
   analysis_defaults:
