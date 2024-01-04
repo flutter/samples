@@ -1,18 +1,17 @@
 name: pedometer
 description: A new Flutter FFI plugin project.
 version: 0.0.1
-publish_to: "none"
+publish_to: none
 
 environment:
   sdk: ^3.2.0
-  flutter: ">=2.11.0"
 
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  jni: ^0.7.0
-  ffi: ^2.0.1
+  jni: ^0.7.2
+  ffi: ^2.1.0
 
 dev_dependencies:
   ffigen: ^11.0.0
