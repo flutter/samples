@@ -40,7 +40,7 @@ dependencies:
 
 dev_dependencies:
   analysis_defaults:
-    path: ../../analysis_defaults
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
 
