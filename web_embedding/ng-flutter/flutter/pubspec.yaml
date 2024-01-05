@@ -10,7 +10,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  js: ^0.6.7
+  js: ^0.7.0
 
 dev_dependencies:
   flutter_test:
