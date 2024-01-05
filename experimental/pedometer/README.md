@@ -30,7 +30,7 @@ FFIgen currently does not support autogenerating code to handle callbacks.
 So, there are a few extra steps needed to
 appropriately handle callbacks in Objective-C.
 You can read more about this limitation on
-[dart.dev]((https://dart.dev/guides/libraries/objective-c-interop#callbacks-and-multithreading-limitations).
+[dart.dev](https://dart.dev/interop/objective-c-interop#callbacks-and-multithreading-limitations).
 
 ```bash
 dart run ffigen --config ffigen.yaml
