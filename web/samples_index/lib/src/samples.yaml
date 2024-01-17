@@ -1,4 +1,57 @@
 samples:
+  - name: Material 3
+    author: Flutter
+    screenshots:
+      - url: images/material_3_components.png
+        alt: Components tab of the Material 3 demo
+      - url: images/material_3_color.png
+        alt: Colors tab of the Material 3 demo
+      - url: images/material_3_typography.png
+        alt: Typography tab of the Material 3 demo
+      - url: images/material_3_elevation.png
+        alt: Elevation tab of the Material 3 demo
+      - url: images/material_3_green.png
+        alt: Elevation tab of the Material 3 demo with seed color of green
+    source: https://github.com/flutter/samples/tree/main/material_3_demo
+    description: >
+      Showcases Material 3 features in the Flutter Material library.
+      These features include updated components, typography, color system and elevation support.
+    difficulty: beginner
+    widgets:
+      - Theme
+      - TextButton
+      - ElevatedButton
+      - OutlinedButton
+      - Text
+      - Card
+      - AppBar
+    packages: [ ]
+    tags: [ "material", "design", "gallery" ]
+    platforms: [ "ios", "android", "web", "windows", "macos", "linux" ]
+    type: demo
+    web: web/material_3_demo
+
+  - name: Rich Text Editor
+    author: Flutter
+    screenshots:
+      - url: images/simple_editor_active.png
+        alt: Advanced text editing with activity
+      - url: images/simple_editor_initial.png
+        alt: Advanced text editing in initial state
+    source: https://github.com/flutter/samples/tree/main/simplistic_editor
+    description: >
+      This is a fancy text editor sample which shows how to consume fine-grain
+      text editing and selection details from the framework's TextEditingDeltas
+      APIs.
+    difficulty: advanced
+    widgets:
+      - TextInput
+    packages: []
+    tags: ["demo", "text"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: demo
+    web: web/simplistic_editor
+
   - name: Gallery
     author: Flutter
     screenshots:
@@ -13,7 +66,7 @@ samples:
       - url: images/gallery5.png
         alt: Shrine app screenshot
     source: https://github.com/flutter/gallery
-    web: https://gallery.flutter.dev
+    web: https://flutter-gallery-archive.web.app
     description: >
       A collection of Material Design & Cupertino widgets, behaviors,
       and vignettes implemented with Flutter.
@@ -83,6 +136,24 @@ samples:
       - scoped_model
     tags: ['intermediate', 'sample', 'gallery', 'material', 'design', 'vignettes']
     platforms: ['web', 'ios', 'android']
+    type: demo
+
+  - name: Web Embedding
+    author: Flutter and Angular
+    screenshots:
+      - url: images/web_embedding1.png
+        alt: A Flutter app embedded in an Angular app
+      - url: images/web_embedding2.png
+        alt: A Flutter app embedded in an Angular app
+    source: https://github.com/flutter/samples/tree/main/web_embedding
+    description: >
+      An example app showing how to embed Flutter in a web application using Angular
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'web', 'add-to-app', 'embedding']
+    web: https://flutter-angular.web.app/
     type: demo
 
   - name: Add to App
@@ -480,63 +551,6 @@ samples:
     tags: ['demo', 'game']
     type: demo
 
-###################
-#### Web Demos ####
-###################
-
-  - name: Rich Text Editor
-    author: Flutter
-    screenshots:
-      - url: images/simple_editor_active.png
-        alt: Advanced text editing with activity
-      - url: images/simple_editor_initial.png
-        alt: Advanced text editing in initial state
-    source: https://github.com/flutter/samples/tree/main/simplistic_editor
-    description: >
-      This is a fancy text editor sample which shows how to consume fine-grain
-      text editing and selection details from the framework's TextEditingDeltas
-      APIs.
-    difficulty: advanced
-    widgets:
-      - TextInput
-    packages: []
-    tags: ["demo", "text"]
-    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
-    type: demo
-    web: web/simplistic_editor
-
-  - name: Material 3
-    author: Flutter
-    screenshots:
-      - url: images/material_3_components.png
-        alt: Components tab of the Material 3 demo
-      - url: images/material_3_color.png
-        alt: Colors tab of the Material 3 demo
-      - url: images/material_3_typography.png
-        alt: Typography tab of the Material 3 demo
-      - url: images/material_3_elevation.png
-        alt: Elevation tab of the Material 3 demo
-      - url: images/material_3_green.png
-        alt: Elevation tab of the Material 3 demo with seed color of green
-    source: https://github.com/flutter/samples/tree/main/material_3_demo
-    description: >
-      Showcases Material 3 features in the Flutter Material library.
-      These features include updated components, typography, color system and elevation support.
-    difficulty: beginner
-    widgets:
-      - Theme
-      - TextButton
-      - ElevatedButton
-      - OutlinedButton
-      - Text
-      - Card
-      - AppBar
-    packages: []
-    tags: ["material", "design"]
-    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
-    type: demo
-    web: web/material_3_demo
-  
   - name: Game Template
     author: Flutter
     screenshots:
@@ -582,22 +596,4 @@ samples:
     platforms: ['web']
     tags: ['demo', 'animation']
     web: https://z.flutter.gallery/#/dice
-    type: demo
-
-  - name: Web Embedding
-    author: Flutter and Angular
-    screenshots:
-      - url: images/web_embedding1.png
-        alt: A Flutter app embedded in an Angular app
-      - url: images/web_embedding2.png
-        alt: A Flutter app embedded in an Angular app
-    source: https://github.com/flutter/samples/tree/main/web_embedding
-    description: >
-      An example app showing how to embed Flutter in a web application using Angular
-    difficulty: advanced
-    widgets: []
-    packages: []
-    platforms: ['web']
-    tags: ['demo', 'web', 'add-to-app', 'embedding']
-    web: https://flutter-angular.web.app/
     type: demo
