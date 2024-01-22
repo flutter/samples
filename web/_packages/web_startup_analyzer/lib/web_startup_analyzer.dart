@@ -10,10 +10,10 @@ import 'package:flutter/widgets.dart';
 import 'src/frame_analyzer.dart';
 import 'src/startup_analyzer.dart';
 
-class WebPerfMetrics {
+class WebStartupAnalyzer {
   final _frameAnalyzer;
 
-  WebPerfMetrics({int additionalFrameCount = 5})
+  WebStartupAnalyzer({int additionalFrameCount = 5})
       : _frameAnalyzer = FrameAnalyzer(
             WidgetsFlutterBinding.ensureInitialized(),
             additionalFrameCount: additionalFrameCount);

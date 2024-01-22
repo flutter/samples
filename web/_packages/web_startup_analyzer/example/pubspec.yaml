@@ -1,5 +1,5 @@
 name: example
-description: "A new Flutter project."
+description: "flutter_web_startup_analyzer example"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
@@ -8,7 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  web_perf_metrics:
+  web_startup_analyzer:
     path: ../
 dev_dependencies:
   flutter_test:

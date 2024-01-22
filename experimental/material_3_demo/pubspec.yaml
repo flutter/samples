@@ -16,6 +16,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.8
+  web_perf_metrics:
+    path: ../../web/_packages/web_perf_metrics
 
 dev_dependencies:
   analysis_defaults:

@@ -5,52 +5,52 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:web_perf_metrics/web_perf_metrics.dart';
+import 'package:web_startup_analyzer/web_startup_analyzer.dart';
 
 main() async {
-  var metrics = WebPerfMetrics(additionalFrameCount: 10);
-  var startupMetrics = metrics.captureStartupMetrics();
+  var analyzer = WebStartupAnalyzer(additionalFrameCount: 10);
+  var startupMetrics = analyzer.captureStartupMetrics();
   print(json.encode(startupMetrics));
 
-  metrics.captureFlutterFrameData().then((frameData) {
+  analyzer.captureFlutterFrameData().then((frameData) {
     print(json.encode(frameData));
   });
 
-  runApp(const MyApp());
+  runApp(WebStartupAnalyzerApp(
+    analyzer: analyzer,
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WebStartupAnalyzerApp extends StatelessWidget {
+  final WebStartupAnalyzer analyzer;
+  const WebStartupAnalyzerApp({super.key, required this.analyzer});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter web app timing',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: WebStartupAnalyzerScreen(analyzer: analyzer),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class WebStartupAnalyzerScreen extends StatefulWidget {
+  final WebStartupAnalyzer analyzer;
 
-  final String title;
+  const WebStartupAnalyzerScreen({super.key, required this.analyzer});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<WebStartupAnalyzerScreen> createState() =>
+      _WebStartupAnalyzerScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
+class _WebStartupAnalyzerScreenState extends State<WebStartupAnalyzerScreen> {
   void _incrementCounter() {
     setState(() {
-      // analytics
-      //     .logEvent(name: 'Counter', parameters: {'counterValue': _counter});
       _counter++;
     });
   }

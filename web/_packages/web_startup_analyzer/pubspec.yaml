@@ -1,7 +1,6 @@
-name: web_perf_metrics
-description: "Captures web performance metrics for a Flutter web app"
+name: web_startup_analyzer
+description: "Captures web startup timing data in a Flutter web app"
 version: 0.0.1
-homepage:
 
 environment:
   sdk: '>=3.4.0-16.0.dev <4.0.0'
