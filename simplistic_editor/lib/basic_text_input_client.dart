@@ -870,7 +870,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                     ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
                     : null,
                 searchWebEnabled
-                    ? () => _searchWebForSelection(SelectionChangedCause.toolbar)
+                    ? () =>
+                        _searchWebForSelection(SelectionChangedCause.toolbar)
                     : null,
                 shareEnabled
                     ? () => _shareSelection(SelectionChangedCause.toolbar)
@@ -1030,8 +1031,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       return false;
     }
 
-    return !textEditingValue.selection.isCollapsed
-        && textEditingValue.selection.textInside(textEditingValue.text).trim() != '';
+    return !textEditingValue.selection.isCollapsed &&
+        textEditingValue.selection.textInside(textEditingValue.text).trim() !=
+            '';
   }
 
   /// Launch a web search on the current selection,
@@ -1039,7 +1041,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   ///
   /// Currently this is only implemented for iOS.
   Future<void> _searchWebForSelection(SelectionChangedCause cause) async {
-    final String text = textEditingValue.selection.textInside(textEditingValue.text);
+    final String text =
+        textEditingValue.selection.textInside(textEditingValue.text);
     if (text.isNotEmpty) {
       await SystemChannels.platform.invokeMethod(
         'SearchWeb.invoke',
@@ -1053,8 +1056,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
       case TargetPlatform.iOS:
-        return !textEditingValue.selection.isCollapsed
-            && textEditingValue.selection.textInside(textEditingValue.text).trim() != '';
+        return !textEditingValue.selection.isCollapsed &&
+            textEditingValue.selection
+                    .textInside(textEditingValue.text)
+                    .trim() !=
+                '';
       case TargetPlatform.macOS:
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
@@ -1068,7 +1074,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   ///
   /// Currently this is only implemented for iOS and Android.
   Future<void> _shareSelection(SelectionChangedCause cause) async {
-    final String text = textEditingValue.selection.textInside(textEditingValue.text);
+    final String text =
+        textEditingValue.selection.textInside(textEditingValue.text);
     if (text.isNotEmpty) {
       await SystemChannels.platform.invokeMethod(
         'Share.invoke',
