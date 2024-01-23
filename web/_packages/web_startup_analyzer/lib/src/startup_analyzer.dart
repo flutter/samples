@@ -20,5 +20,6 @@ extension FlutterWebStartupAnalyzerExtensions on FlutterWebStartupAnalyzer {
   external void markFinished(String name);
   external void capture(String name);
   external void captureAll();
+  external void capturePaint();
   external void report();
 }

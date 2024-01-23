@@ -9,28 +9,38 @@ import 'package:web_startup_analyzer/web_startup_analyzer.dart';
 
 main() async {
   var analyzer = WebStartupAnalyzer(additionalFrameCount: 10);
-  var startupMetrics = analyzer.captureStartupMetrics();
-  print(json.encode(startupMetrics));
-
-  analyzer.captureFlutterFrameData().then((frameData) {
-    print(json.encode(frameData));
+  print(json.encode(analyzer.startupTiming));
+  analyzer.onFirstFrame.addListener(() {
+    print(json.encode({'firstFrame': analyzer.onFirstFrame.value}));
   });
-
-  runApp(WebStartupAnalyzerApp(
-    analyzer: analyzer,
-  ));
+  analyzer.onFirstPaint.addListener(() {
+    print(json.encode({
+      'firstPaint': analyzer.onFirstPaint.value?.$1,
+      'firstContentfulPaint': analyzer.onFirstPaint.value?.$2,
+    }));
+  });
+  analyzer.onAdditionalFrames.addListener(() {
+    print(json.encode({
+      'additionalFrames': analyzer.onAdditionalFrames.value,
+    }));
+  });
+  runApp(
+    WebStartupAnalyzerSample(
+      analyzer: analyzer,
+    ),
+  );
 }
 
-class WebStartupAnalyzerApp extends StatelessWidget {
+class WebStartupAnalyzerSample extends StatelessWidget {
   final WebStartupAnalyzer analyzer;
-  const WebStartupAnalyzerApp({super.key, required this.analyzer});
+  const WebStartupAnalyzerSample({super.key, required this.analyzer});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter web app timing',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green.shade100),
         useMaterial3: true,
       ),
       home: WebStartupAnalyzerScreen(analyzer: analyzer),
@@ -49,37 +59,93 @@ class WebStartupAnalyzerScreen extends StatefulWidget {
 }
 
 class _WebStartupAnalyzerScreenState extends State<WebStartupAnalyzerScreen> {
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      backgroundColor: Colors.amber.shade50,
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          margin: const EdgeInsets.all(8.0),
+          constraints: const BoxConstraints(maxWidth: 400),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: ListenableBuilder(
+            listenable: widget.analyzer.onChange,
+            builder: (BuildContext context, child) {
+              return ListView(
+                shrinkWrap: true,
+                children: [
+                  TimingWidget(
+                    name: 'DCL',
+                    timingMs: widget.analyzer.domContentLoaded,
+                  ),
+                  TimingWidget(
+                    name: 'Load entrypoint',
+                    timingMs: widget.analyzer.loadEntrypoint,
+                  ),
+                  TimingWidget(
+                    name: 'Initialize engine',
+                    timingMs: widget.analyzer.initializeEngine,
+                  ),
+                  TimingWidget(
+                    name: 'Run app',
+                    timingMs: widget.analyzer.appRunnerRunApp,
+                  ),
+                  if (widget.analyzer.firstFrame != null)
+                    TimingWidget(
+                      name: 'First frame',
+                      timingMs: widget.analyzer.firstFrame!,
+                    ),
+                  if (widget.analyzer.firstPaint != null)
+                    TimingWidget(
+                        name: 'First paint',
+                        timingMs: widget.analyzer.firstPaint!),
+                  if (widget.analyzer.firstContentfulPaint != null)
+                    TimingWidget(
+                        name: 'First contentful paint',
+                        timingMs: widget.analyzer.firstContentfulPaint!),
+                  if (widget.analyzer.additionalFrames != null) ...[
+                    for (var i in widget.analyzer.additionalFrames!)
+                      TimingWidget(name: 'Frame', timingMs: i.toDouble()),
+                  ] else
+                    TextButton(
+                      child: const Text('Trigger frames'),
+                      onPressed: () {},
+                    ),
+                ],
+              );
+            },
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    );
+  }
+}
+
+class TimingWidget extends StatelessWidget {
+  final String name;
+  final double timingMs;
+
+  const TimingWidget({
+    super.key,
+    required this.name,
+    required this.timingMs,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        name,
+        style: const TextStyle(fontSize: 18),
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: Text(
+        '${timingMs.truncate()}ms',
+        style: const TextStyle(fontSize: 18),
       ),
     );
   }

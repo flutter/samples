@@ -16,4 +16,4 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 flutter:
   assets:
-    - lib/web_perf_metrics.js
+    - lib/web_startup_analyzer.js

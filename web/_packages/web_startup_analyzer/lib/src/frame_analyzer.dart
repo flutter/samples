@@ -11,30 +11,18 @@ import 'startup_analyzer.dart';
 
 class FrameAnalyzer {
   final WidgetsBinding _binding;
-  final int additionalFrameCount;
-  int? firstFrameTime;
-  List<int> additionalFrameTimes = [];
+  final Completer _onDone = Completer();
   int _remainingFrames;
-  VoidCallback? onCompleted;
 
-  FrameAnalyzer(this._binding,
-      {this.onCompleted, this.additionalFrameCount = 10})
-      : _remainingFrames = additionalFrameCount;
+  final int additionalFrames;
+  List<int> additionalFrameTimes = [];
 
-  Future captureFirstFrame() {
-    final completer = Completer();
-    flutterWebStartupAnalyzer.markStart('firstFrame');
-    _binding.addPostFrameCallback((timeStamp) {
-      flutterWebStartupAnalyzer.markFinished('firstFrame');
-      flutterWebStartupAnalyzer.capture('firstFrame');
-      firstFrameTime = timeStamp.inMilliseconds;
-      completer.complete();
-    });
-    return completer.future;
-  }
+  FrameAnalyzer(this._binding, {this.additionalFrames = 10})
+      : _remainingFrames = additionalFrames;
 
-  void captureAdditionalFrames() {
+  Future captureAdditionalFrames() {
     _binding.addTimingsCallback(_timingsCallback);
+    return _onDone.future;
   }
 
   _reportFrame(FrameTiming frameTiming) {
@@ -51,9 +39,7 @@ class FrameAnalyzer {
     if (_remainingFrames <= 0) {
       _binding.removeTimingsCallback(_timingsCallback);
 
-      if (onCompleted != null) {
-        onCompleted!();
-      }
+      _onDone.complete();
     }
   }
 }

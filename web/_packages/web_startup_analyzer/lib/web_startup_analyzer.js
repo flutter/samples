@@ -11,7 +11,7 @@ class FlutterWebStartupAnalyzer {
     }
 
     markStart(name) {
-        this.timings[name] = 0.0;
+        this.timings[name] = null;
         performance.mark('flt-' + name + '-started');
     }
     markFinished(name) {
@@ -35,5 +35,13 @@ class FlutterWebStartupAnalyzer {
         // Capture
         this.timings['load'] = performance.timing.loadEventEnd - performance.timing.domContentLoadedEventEnd;
         this.timings['domContentLoaded'] = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    }
+
+    capturePaint() {
+        const entries = performance.getEntriesByType("paint");
+        // Collect first-paint and first-contentful-paint entries
+        entries.forEach((entry) => {
+            this.timings[entry.name] = entry.startTime;
+        });
     }
 }
