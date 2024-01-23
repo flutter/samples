@@ -12,18 +12,18 @@ import 'home.dart';
 
 main() async {
   var analyzer = WebStartupAnalyzer(additionalFrameCount: 10);
-  print(json.encode(analyzer.startupTiming));
+  debugPrint(json.encode(analyzer.startupTiming));
   analyzer.onFirstFrame.addListener(() {
-    print(json.encode({'firstFrame': analyzer.onFirstFrame.value}));
+    debugPrint(json.encode({'firstFrame': analyzer.onFirstFrame.value}));
   });
   analyzer.onFirstPaint.addListener(() {
-    print(json.encode({
+    debugPrint(json.encode({
       'firstPaint': analyzer.onFirstPaint.value?.$1,
       'firstContentfulPaint': analyzer.onFirstPaint.value?.$2,
     }));
   });
   analyzer.onAdditionalFrames.addListener(() {
-    print(json.encode({
+    debugPrint(json.encode({
       'additionalFrames': analyzer.onAdditionalFrames.value,
     }));
   });
