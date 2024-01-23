@@ -1038,9 +1038,6 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   /// as in the "Search Web" edit menu button on iOS.
   ///
   /// Currently this is only implemented for iOS.
-  ///
-  /// When 'obscureText' is true or the selection is empty,
-  /// this function will not do anything
   Future<void> _searchWebForSelection(SelectionChangedCause cause) async {
     final String text = textEditingValue.selection.textInside(textEditingValue.text);
     if (text.isNotEmpty) {
@@ -1070,9 +1067,6 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   /// as in the "Share..." edit menu button on iOS.
   ///
   /// Currently this is only implemented for iOS and Android.
-  ///
-  /// When 'obscureText' is true or the selection is empty,
-  /// this function will not do anything
   Future<void> _shareSelection(SelectionChangedCause cause) async {
     final String text = textEditingValue.selection.textInside(textEditingValue.text);
     if (text.isNotEmpty) {
