@@ -32,7 +32,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    "experimental/material_3_demo"
+    # TODO(DomesticMouse): re-enable once deps allow
+    # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
     # TODO(DomesticMouse): Dart formatting required
