@@ -593,7 +593,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   @override
   bool get pasteEnabled =>
       _clipboardStatus == null ||
-      _clipboardStatus.value == ClipboardStatus.pasteable;
+      _clipboardStatus?.value == ClipboardStatus.pasteable;
 
   @override
   bool get selectAllEnabled => textEditingValue.text.isNotEmpty;
@@ -869,11 +869,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 liveTextInputEnabled
                     ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
                     : null,
-                shareEnabled
-                    ? () => _shareSelection(SelectionChangedCause.toolbar)
-                    : null,
                 searchWebEnabled
                     ? () => _searchWebForSelection(SelectionChangedCause.toolbar)
+                    : null,
+                shareEnabled
+                    ? () => _shareSelection(SelectionChangedCause.toolbar)
                     : null,
                 _contextMenuAnchors,
               );

@@ -40,9 +40,9 @@ class BasicTextField extends StatefulWidget {
       onSelectAll: onSelectAll,
       onLookUp: onLookUp,
       onLiveTextInput: onLiveTextInput,
-      anchors: anchors,
       onSearchWeb: onSearchWeb,
       onShare: onShare,
+      anchors: anchors,
     );
   }
 
