@@ -2,14 +2,33 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:web_startup_analyzer/web_startup_analyzer.dart';
 
 import 'constants.dart';
 import 'home.dart';
 
-void main() {
+main() async {
+  var analyzer = WebStartupAnalyzer(additionalFrameCount: 10);
+  print(json.encode(analyzer.startupTiming));
+  analyzer.onFirstFrame.addListener(() {
+    print(json.encode({'firstFrame': analyzer.onFirstFrame.value}));
+  });
+  analyzer.onFirstPaint.addListener(() {
+    print(json.encode({
+      'firstPaint': analyzer.onFirstPaint.value?.$1,
+      'firstContentfulPaint': analyzer.onFirstPaint.value?.$2,
+    }));
+  });
+  analyzer.onAdditionalFrames.addListener(() {
+    print(json.encode({
+      'additionalFrames': analyzer.onAdditionalFrames.value,
+    }));
+  });
   runApp(
-    const App(),
+    App(),
   );
 }
 
