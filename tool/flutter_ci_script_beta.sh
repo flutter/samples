@@ -35,8 +35,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
-    # TODO(DomesticMouse): Dart formatting required
-    # "experimental/varfont_shader_puzzle"
+     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
