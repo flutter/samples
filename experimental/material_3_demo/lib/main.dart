@@ -10,7 +10,7 @@ import 'package:web_startup_analyzer/web_startup_analyzer.dart';
 import 'constants.dart';
 import 'home.dart';
 
-main() async {
+void main() async {
   var analyzer = WebStartupAnalyzer(additionalFrameCount: 10);
   debugPrint(json.encode(analyzer.startupTiming));
   analyzer.onFirstFrame.addListener(() {
@@ -28,7 +28,7 @@ main() async {
     }));
   });
   runApp(
-    App(),
+    const App(),
   );
 }
 
