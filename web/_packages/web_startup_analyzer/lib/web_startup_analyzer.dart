@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 
 import 'package:flutter/widgets.dart';
@@ -22,19 +23,26 @@ class WebStartupAnalyzer {
   ValueNotifier<List<int>?> onAdditionalFrames = ValueNotifier(null);
 
   double get domContentLoaded =>
-      flutterWebStartupAnalyzer.timings['domContentLoaded'] as double;
+      (flutterWebStartupAnalyzer.timings['domContentLoaded'] as JSNumber)
+          .toDartDouble;
   double get loadEntrypoint =>
-      flutterWebStartupAnalyzer.timings['loadEntrypoint'] as double;
+      (flutterWebStartupAnalyzer.timings['loadEntrypoint'] as JSNumber)
+          .toDartDouble;
   double get initializeEngine =>
-      flutterWebStartupAnalyzer.timings['initializeEngine'] as double;
+      (flutterWebStartupAnalyzer.timings['initializeEngine'] as JSNumber)
+          .toDartDouble;
   double get appRunnerRunApp =>
-      flutterWebStartupAnalyzer.timings['appRunnerRunApp'] as double;
+      (flutterWebStartupAnalyzer.timings['appRunnerRunApp'] as JSNumber)
+          .toDartDouble;
   double? get firstFrame =>
-      flutterWebStartupAnalyzer.timings['firstFrame'] as double?;
+      (flutterWebStartupAnalyzer.timings['firstFrame'] as JSNumber?)
+          ?.toDartDouble;
   double? get firstPaint =>
-      flutterWebStartupAnalyzer.timings['first-paint'] as double?;
+      (flutterWebStartupAnalyzer.timings['first-paint'] as JSNumber?)
+          ?.toDartDouble;
   double? get firstContentfulPaint =>
-      flutterWebStartupAnalyzer.timings['first-contentful-paint'] as double?;
+      (flutterWebStartupAnalyzer.timings['first-contentful-paint'] as JSNumber?)
+          ?.toDartDouble;
   List<int>? get additionalFrames => _additionalFrames;
 
   WebStartupAnalyzer({int additionalFrameCount = 5})
@@ -53,17 +61,17 @@ class WebStartupAnalyzer {
       onFirstFrame.value = firstFrame;
 
       // Capture first-paint and first-contentful-paint
-      new Future.delayed(Duration(milliseconds: 200)).then((_) {
+      Future.delayed(const Duration(milliseconds: 200)).then((_) {
         flutterWebStartupAnalyzer.capturePaint();
         onFirstPaint.value = (firstPaint!, firstContentfulPaint!);
-
       });
     });
     captureFlutterFrameData().then((value) {
       _additionalFrames = value;
       onAdditionalFrames.value = value;
     });
-    onChange = Listenable.merge([onFirstFrame, onFirstPaint, onAdditionalFrames]);
+    onChange =
+        Listenable.merge([onFirstFrame, onFirstPaint, onAdditionalFrames]);
   }
 
   _captureStartupMetrics() {
