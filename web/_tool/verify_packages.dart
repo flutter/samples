@@ -11,6 +11,7 @@ import 'common.dart';
 void main() async {
   final packageDirs = listPackageDirs(Directory.current)
       .map((path) => p.relative(path, from: Directory.current.path))
+      .where((path) => !p.dirname(path).startsWith('_'))
       .toList();
 
   print('Package dirs:\n${packageDirs.map((path) => '  $path').join('\n')}');
