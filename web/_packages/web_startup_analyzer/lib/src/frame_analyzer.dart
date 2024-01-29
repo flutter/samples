@@ -7,8 +7,6 @@ import 'dart:async';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 
-import 'startup_analyzer.dart';
-
 class FrameAnalyzer {
   final WidgetsBinding _binding;
   final Completer _onDone = Completer();
