@@ -1,9 +1,8 @@
-import 'dart:js_interop';
-import 'package:js/js.dart';
-import 'package:js/js_util.dart' as js_util;
-
 /// This is a little bit of JS-interop code so this Flutter app can dispatch
 /// a custom JS event (to be deprecated by package:web)
+library;
+
+import 'dart:js_interop';
 
 @JS('CustomEvent')
 @staticInterop
@@ -12,8 +11,7 @@ class DomCustomEvent {
   external factory DomCustomEvent.withOptions(JSString type, JSAny options);
   factory DomCustomEvent._(String type, [Object? options]) {
     if (options != null) {
-      return DomCustomEvent.withOptions(
-          type.toJS, js_util.jsify(options) as JSAny);
+      return DomCustomEvent.withOptions(type.toJS, options.jsify()!);
     }
     return DomCustomEvent.withType(type.toJS);
   }

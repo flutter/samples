@@ -19,12 +19,20 @@ void main() async {
   for (var i = 0; i < packageDirs.length; i++) {
     final dir = packageDirs[i];
     logWrapped(ansiMagenta, '\n$dir (${i + 1} of ${packageDirs.length})');
-    results.add(await run(dir, 'flutter', [
+
+    final upgradeResult = await run(dir, 'flutter', [
       'pub',
       'pub',
       'upgrade',
       '--no-precompile',
-    ]));
+    ]);
+
+    results.add(upgradeResult);
+    if (!upgradeResult) {
+      // skipping analyze when `pub upgrade` fails.
+      results.add(false);
+      continue;
+    }
     results.add(await run(
       dir,
       'dart',
