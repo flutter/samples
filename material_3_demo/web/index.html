@@ -38,22 +38,30 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <script type="text/javascript" src="assets/packages/web_startup_analyzer/lib/web_startup_analyzer.js"></script>
 </head>
 <body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
+<script>
+  var flutterWebStartupAnalyzer = new FlutterWebStartupAnalyzer();
+  var analyzer = flutterWebStartupAnalyzer;
+
+  window.addEventListener('load', function(ev) {
+    analyzer.markStart("loadEntrypoint");
+    _flutter.loader.loadEntrypoint({
+      serviceWorker: {
+        serviceWorkerVersion: serviceWorkerVersion,
+      },
+      onEntrypointLoaded: function(engineInitializer) {
+        analyzer.markFinished("loadEntrypoint");
+        analyzer.markStart("initializeEngine");
+        engineInitializer.initializeEngine().then(function(appRunner) {
+          analyzer.markFinished("initializeEngine");
+          analyzer.markStart("appRunnerRunApp");
+          appRunner.runApp();
+        });
+      }
     });
-  </script>
+  });
+</script>
 </body>
 </html>
