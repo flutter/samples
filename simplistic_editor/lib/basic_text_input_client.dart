@@ -26,6 +26,8 @@ typedef BasicTextFieldContextMenuBuilder = Widget Function(
   VoidCallback? onSelectAll,
   VoidCallback? onLookUp,
   VoidCallback? onLiveTextInput,
+  VoidCallback? onSearchWeb,
+  VoidCallback? onShare,
   TextSelectionToolbarAnchors anchors,
 );
 
@@ -867,6 +869,13 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 liveTextInputEnabled
                     ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
                     : null,
+                searchWebEnabled
+                    ? () =>
+                        _searchWebForSelection(SelectionChangedCause.toolbar)
+                    : null,
+                shareEnabled
+                    ? () => _shareSelection(SelectionChangedCause.toolbar)
+                    : null,
                 _contextMenuAnchors,
               );
             },
@@ -1014,6 +1023,65 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       'LookUp.invoke',
       text,
     );
+  }
+
+  @override
+  bool get searchWebEnabled {
+    if (defaultTargetPlatform != TargetPlatform.iOS) {
+      return false;
+    }
+
+    return !textEditingValue.selection.isCollapsed &&
+        textEditingValue.selection.textInside(textEditingValue.text).trim() !=
+            '';
+  }
+
+  /// Launch a web search on the current selection,
+  /// as in the "Search Web" edit menu button on iOS.
+  ///
+  /// Currently this is only implemented for iOS.
+  Future<void> _searchWebForSelection(SelectionChangedCause cause) async {
+    final String text =
+        textEditingValue.selection.textInside(textEditingValue.text);
+    if (text.isNotEmpty) {
+      await SystemChannels.platform.invokeMethod(
+        'SearchWeb.invoke',
+        text,
+      );
+    }
+  }
+
+  @override
+  bool get shareEnabled {
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+      case TargetPlatform.iOS:
+        return !textEditingValue.selection.isCollapsed &&
+            textEditingValue.selection
+                    .textInside(textEditingValue.text)
+                    .trim() !=
+                '';
+      case TargetPlatform.macOS:
+      case TargetPlatform.fuchsia:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
+        return false;
+    }
+  }
+
+  /// Launch the share interface for the current selection,
+  /// as in the "Share..." edit menu button on iOS.
+  ///
+  /// Currently this is only implemented for iOS and Android.
+  Future<void> _shareSelection(SelectionChangedCause cause) async {
+    final String text =
+        textEditingValue.selection.textInside(textEditingValue.text);
+    if (text.isNotEmpty) {
+      await SystemChannels.platform.invokeMethod(
+        'Share.invoke',
+        text,
+      );
+    }
   }
 
   @override

@@ -7,7 +7,12 @@ import 'package:path/path.dart' as p;
 import 'common.dart';
 import 'fix_base_tags.dart';
 
-const ignoredDirectories = ['_tool', 'samples_index'];
+const ignoredDirectories = [
+  '_tool',
+  '_packages/web_startup_analyzer',
+  '_packages/web_startup_analyzer/example',
+  'samples_index'
+];
 
 void main() async {
   final packageDirs = [

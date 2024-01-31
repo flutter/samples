@@ -28,6 +28,8 @@ class BasicTextField extends StatefulWidget {
     VoidCallback? onSelectAll,
     VoidCallback? onLookUp,
     VoidCallback? onLiveTextInput,
+    VoidCallback? onSearchWeb,
+    VoidCallback? onShare,
     TextSelectionToolbarAnchors anchors,
   ) {
     return AdaptiveTextSelectionToolbar.editable(
@@ -38,10 +40,9 @@ class BasicTextField extends StatefulWidget {
       onSelectAll: onSelectAll,
       onLookUp: onLookUp,
       onLiveTextInput: onLiveTextInput,
+      onSearchWeb: onSearchWeb,
+      onShare: onShare,
       anchors: anchors,
-      // TODO(Renzo-Olivares): https://github.com/flutter/samples/issues/2088
-      onSearchWeb: null,
-      onShare: null,
     );
   }
 
