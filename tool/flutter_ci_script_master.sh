@@ -35,8 +35,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
-    # TODO(DomesticMouse): Dart formatting required
-    # "experimental/varfont_shader_puzzle"
+    "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
@@ -55,7 +54,8 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(DomesticMouse): The method 'isSelectionWithinTextBounds' isn't defined for the type 'TextEditingController'.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
