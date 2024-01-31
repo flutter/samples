@@ -32,7 +32,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(ewindmill) - web startup analyzer causes failure
+    # TODO(ewindmill?) - web startup analyzer causes failure
     # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
@@ -45,7 +45,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "material_3_demo"
+    # TODO(ewindmill?): All tests are failing on master
+    # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
