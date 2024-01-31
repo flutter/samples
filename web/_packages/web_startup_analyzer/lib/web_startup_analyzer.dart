@@ -3,4 +3,4 @@
 // found in the LICENSE file.
 
 export 'src/web_startup_analyzer_io.dart'
-    if (dart.library.html) 'src/web_startup_analyzer.dart';
+    if (dart.library.js_interop) 'src/web_startup_analyzer.dart';
