@@ -42,7 +42,8 @@
 </head>
 <body>
 <script>
-  var analyzer =  new FlutterWebStartupAnalyzer();
+  var flutterWebStartupAnalyzer = new FlutterWebStartupAnalyzer();
+  var analyzer = flutterWebStartupAnalyzer;
 
   window.addEventListener('load', function(ev) {
     analyzer.markStart("loadEntrypoint");
