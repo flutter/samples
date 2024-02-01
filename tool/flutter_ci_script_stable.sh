@@ -32,8 +32,6 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): re-enable once deps allow
-    # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
