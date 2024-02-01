@@ -32,11 +32,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
-    # TODO(DomesticMouse): Dart formatting required
-    # "experimental/varfont_shader_puzzle"
+    "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
@@ -45,7 +43,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "material_3_demo"
+     # TODO(ewindmill): Add back when deps allow
+     # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"

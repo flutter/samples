@@ -32,12 +32,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    # TODO(DomesticMouse): re-enable once deps allow
-    # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/pedometer/example"
-    # TODO(DomesticMouse): Dart formatting required
-    # "experimental/varfont_shader_puzzle"
+    "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"

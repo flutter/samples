@@ -328,7 +328,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
   ''';
 
-  final String amstelvarLicense = ''' 
+  final String amstelvarLicense = '''
 Copyright 2016 The Amstelvar Project Authors (info@fontbureau.com)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
