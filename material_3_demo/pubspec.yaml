@@ -9,6 +9,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ^3.2.0
+  flutter: ^3.16.0
 
 dependencies:
   flutter:
@@ -16,6 +17,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.8
+  web_startup_analyzer:
+    path: ../web/_packages/web_startup_analyzer
 
 dev_dependencies:
   analysis_defaults:
