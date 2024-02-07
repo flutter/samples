@@ -214,24 +214,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 handleScreenChanged(screenIndex);
               });
             },
-            trailing: Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: showLargeSizeLayout
-                    ? _ExpandedTrailingActions(
-                        useLightMode: widget.useLightMode,
-                        handleBrightnessChange: widget.handleBrightnessChange,
-                        useMaterial3: widget.useMaterial3,
-                        handleMaterialVersionChange:
-                            widget.handleMaterialVersionChange,
-                        handleImageSelect: widget.handleImageSelect,
-                        handleColorSelect: widget.handleColorSelect,
-                        colorSelectionMethod: widget.colorSelectionMethod,
-                        imageSelected: widget.imageSelected,
-                        colorSelected: widget.colorSelected,
-                      )
-                    : _trailingActions(),
-              ),
+            trailing: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: showLargeSizeLayout
+                  ? _ExpandedTrailingActions(
+                      useLightMode: widget.useLightMode,
+                      handleBrightnessChange: widget.handleBrightnessChange,
+                      useMaterial3: widget.useMaterial3,
+                      handleMaterialVersionChange:
+                          widget.handleMaterialVersionChange,
+                      handleImageSelect: widget.handleImageSelect,
+                      handleColorSelect: widget.handleColorSelect,
+                      colorSelectionMethod: widget.colorSelectionMethod,
+                      imageSelected: widget.imageSelected,
+                      colorSelected: widget.colorSelected,
+                    )
+                  : _trailingActions(),
             ),
           ),
           navigationBar: NavigationBars(
