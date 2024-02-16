@@ -47,7 +47,7 @@ See https://guides.cocoapods.org/using/getting-started.html for more details.
 ## Debugging
 
 You can `flutter attach` to the running host application to [debug the Flutter
-module](https://docs.flutter.dev/add-to-app/debugging?tab=from-xcode-ios). This will
+module](https://docs.flutter.dev/add-to-app/debugging). This will
 allow you to hot reload, set breakpoints, and use DevTools and other debugging
 functionality, similar to a full Flutter app.
 
