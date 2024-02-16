@@ -23,7 +23,7 @@ dependencies:
   # If you don't need one of the following dependencies,
   # delete the relevant line below, and get rid of any Dart code
   # that references the dependency.
-  firebase_core: ^2.1.1  # Needed for Crashlytics below
+  firebase_core: ^2.25.4  # Needed for Crashlytics below
   firebase_crashlytics: ^3.3.5  # Error reporting
   games_services: ^4.0.0  # Achievements and leaderboards
   google_mobile_ads: ^4.0.0  # Ads
