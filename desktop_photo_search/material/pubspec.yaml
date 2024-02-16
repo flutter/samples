@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_simple_treeview: ^3.0.2
-  http: ^1.1.0
+  http: ^1.2.1
   logging: ^1.2.0
   menubar:
     git:
