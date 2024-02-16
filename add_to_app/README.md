@@ -1,8 +1,8 @@
 # Add-to-App Samples
 
 This directory contains Android and iOS projects that import and use a Flutter
-module. They're designed to show recommended approaches for adding Flutter to
-existing Android and iOS apps.
+module. They're designed to show recommended approaches for [adding Flutter to
+existing Android and iOS apps](https://docs.flutter.dev/add-to-app).
 
 ## Samples Listing
 
@@ -43,6 +43,13 @@ sudo gem install cocoapods
 ```
 
 See https://guides.cocoapods.org/using/getting-started.html for more details.
+
+## Debugging
+
+You can `flutter attach` to the running host application to [debug the Flutter
+module](https://docs.flutter.dev/add-to-app/debugging?tab=from-xcode-ios). This will
+allow you to hot reload, set breakpoints, use DevTools, and other debugging
+functionality you use with a full Flutter app.
 
 ## Questions/issues
 
