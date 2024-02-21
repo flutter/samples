@@ -12,7 +12,7 @@ dependencies:
   community_charts_flutter: ^1.0.2
   cupertino_icons: ^1.0.0
   firebase_auth: ^4.0.1
-  firebase_core: ^2.0.0
+  firebase_core: ^2.25.4
   flutter:
     sdk: flutter
   google_sign_in: ^6.0.0
