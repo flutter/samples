@@ -7,7 +7,7 @@ environment:
   sdk: ^3.2.0
 
 dependencies:
-  cloud_firestore: ^4.0.1
+  cloud_firestore: ^4.15.5
   collection: ^1.16.0
   community_charts_flutter: ^1.0.2
   cupertino_icons: ^1.0.0
