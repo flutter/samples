@@ -11,7 +11,7 @@ dependencies:
   collection: ^1.16.0
   community_charts_flutter: ^1.0.2
   cupertino_icons: ^1.0.0
-  firebase_auth: ^4.0.1
+  firebase_auth: ^4.17.5
   firebase_core: ^2.0.0
   flutter:
     sdk: flutter
