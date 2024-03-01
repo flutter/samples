@@ -43,7 +43,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "material_3_demo"
+     # TODO(ewindmill): Add back when deps allow
+     # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
@@ -53,7 +54,8 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(DomesticMouse): The method 'isSelectionWithinTextBounds' isn't defined for the type 'TextEditingController'
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
