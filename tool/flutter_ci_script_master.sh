@@ -39,7 +39,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
-    "game_template"
+    # TODO: 'onBackground' is deprecated and shouldn't be used.
+    # "game_template"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
