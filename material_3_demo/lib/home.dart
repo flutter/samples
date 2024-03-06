@@ -108,29 +108,26 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   Widget createScreenFor(
-      ScreenSelected screenSelected, bool showNavBarExample) {
-    switch (screenSelected) {
-      case ScreenSelected.component:
-        return Expanded(
-          child: OneTwoTransition(
-            animation: railAnimation,
-            one: FirstComponentList(
-                showNavBottomBar: showNavBarExample,
+    ScreenSelected screenSelected,
+    bool showNavBarExample,
+  ) =>
+      switch (screenSelected) {
+        ScreenSelected.component => Expanded(
+            child: OneTwoTransition(
+              animation: railAnimation,
+              one: FirstComponentList(
+                  showNavBottomBar: showNavBarExample,
+                  scaffoldKey: scaffoldKey,
+                  showSecondList: showMediumSizeLayout || showLargeSizeLayout),
+              two: SecondComponentList(
                 scaffoldKey: scaffoldKey,
-                showSecondList: showMediumSizeLayout || showLargeSizeLayout),
-            two: SecondComponentList(
-              scaffoldKey: scaffoldKey,
+              ),
             ),
           ),
-        );
-      case ScreenSelected.color:
-        return const ColorPalettesScreen();
-      case ScreenSelected.typography:
-        return const TypographyScreen();
-      case ScreenSelected.elevation:
-        return const ElevationScreen();
-    }
-  }
+        ScreenSelected.color => const ColorPalettesScreen(),
+        ScreenSelected.typography => const TypographyScreen(),
+        ScreenSelected.elevation => const ElevationScreen()
+      };
 
   PreferredSizeWidget createAppBar() {
     return AppBar(
