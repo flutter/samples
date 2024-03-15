@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'demo_theme.dart';
+import 'icons.dart';
 import 'sign_in_divider.dart';
 import 'sign_in_form.dart';
 import 'sign_in_socials.dart';
@@ -28,7 +30,9 @@ class DemoList1 extends StatelessWidget {
           child: SignInForm(),
         ),
       ),
-      // colDivider,
+      colDivider,
+      const ComponentDecoration(child: IconsList()),
+
       // const ComponentDecoration(child: SignInDivider()),
       // colDivider,
       // const ComponentDecoration(child: SocialsSignIn()),
@@ -42,27 +46,29 @@ class DemoList1 extends StatelessWidget {
     List<double?> heights = List.filled(children.length, null);
 
     // Fully traverse this list before moving on.
-    return FocusTraversalGroup(
-      child: CustomScrollView(
-        slivers: [
-          SliverPadding(
-            padding: showSecondList
-                ? const EdgeInsetsDirectional.only(end: smallSpacing)
-                : EdgeInsets.zero,
-            sliver: SliverList(
-              delegate: BuildSlivers(
-                heights: heights,
-                builder: (context, index) {
-                  return _CacheHeight(
-                    heights: heights,
-                    index: index,
-                    child: children[index],
-                  );
-                },
+    return DemoTheme(
+      child: FocusTraversalGroup(
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: showSecondList
+                  ? const EdgeInsetsDirectional.only(end: smallSpacing)
+                  : EdgeInsets.zero,
+              sliver: SliverList(
+                delegate: BuildSlivers(
+                  heights: heights,
+                  builder: (context, index) {
+                    return _CacheHeight(
+                      heights: heights,
+                      index: index,
+                      child: children[index],
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -81,25 +87,27 @@ class DemoList2 extends StatelessWidget {
     List<double?> heights = List.filled(children.length, null);
 
     // Fully traverse this list before moving on.
-    return FocusTraversalGroup(
-      child: CustomScrollView(
-        slivers: [
-          SliverPadding(
-            padding: const EdgeInsetsDirectional.only(end: smallSpacing),
-            sliver: SliverList(
-              delegate: BuildSlivers(
-                heights: heights,
-                builder: (context, index) {
-                  return _CacheHeight(
-                    heights: heights,
-                    index: index,
-                    child: children[index],
-                  );
-                },
+    return DemoTheme(
+      child: FocusTraversalGroup(
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsetsDirectional.only(end: smallSpacing),
+              sliver: SliverList(
+                delegate: BuildSlivers(
+                  heights: heights,
+                  builder: (context, index) {
+                    return _CacheHeight(
+                      heights: heights,
+                      index: index,
+                      child: children[index],
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -140,13 +148,12 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
                   behavior: HitTestBehavior.opaque,
                   child: Card(
                     // elevation: 0,
-                    shadowColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Theme.of(context).colorScheme.outlineVariant,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    ),
+                    // shape: RoundedRectangleBorder(
+                    //   side: BorderSide(
+                    //     color: Theme.of(context).colorScheme.outlineVariant,
+                    //   ),
+                    //   borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    // ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 20.0, horizontal: 20),

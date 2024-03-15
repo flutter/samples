@@ -19,6 +19,9 @@ dependencies:
   url_launcher: ^6.1.8
   web_startup_analyzer:
     path: ../web/_packages/web_startup_analyzer
+  iconify_flutter: ^0.0.5
+  ming_cute_icons: ^0.0.4
+  ficonsax: ^0.0.3
 
 dev_dependencies:
   analysis_defaults:
