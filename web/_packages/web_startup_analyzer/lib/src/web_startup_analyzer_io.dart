@@ -9,6 +9,7 @@ import 'web_startup_analyzer_base.dart';
 class WebStartupAnalyzer extends WebStartupAnalyzerBase {
   WebStartupAnalyzer({int additionalFrameCount = 0});
 
+  @override
   List<int>? get additionalFrames => [];
 
   @override

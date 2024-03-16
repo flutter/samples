@@ -47,17 +47,13 @@ class _AppState extends State<App> {
   ColorScheme? imageColorScheme = const ColorScheme.light();
   ColorSelectionMethod colorSelectionMethod = ColorSelectionMethod.colorSeed;
 
-  bool get useLightMode {
-    switch (themeMode) {
-      case ThemeMode.system:
-        return View.of(context).platformDispatcher.platformBrightness ==
-            Brightness.light;
-      case ThemeMode.light:
-        return true;
-      case ThemeMode.dark:
-        return false;
-    }
-  }
+  bool get useLightMode => switch (themeMode) {
+        ThemeMode.system =>
+          View.of(context).platformDispatcher.platformBrightness ==
+              Brightness.light,
+        ThemeMode.light => true,
+        ThemeMode.dark => false
+      };
 
   void handleBrightnessChange(bool useLightMode) {
     setState(() {

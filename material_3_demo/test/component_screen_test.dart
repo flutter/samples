@@ -110,8 +110,9 @@ void main() {
     expect(find.byType(FilterChip), findsNWidgets(2));
     expect(find.byType(InputChip), findsNWidgets(2));
 
-    // Date pickers
-    expect(find.widgetWithText(TextButton, 'Show date picker'), findsOneWidget);
+    // Date and time pickers
+    expect(find.widgetWithText(DatePicker, 'Show date picker'), findsOneWidget);
+    expect(find.widgetWithText(TimePicker, 'Show time picker'), findsOneWidget);
 
     // Menus
     expect(find.byType(MenuAnchor), findsNWidgets(5));
@@ -127,9 +128,6 @@ void main() {
 
     // Switches
     expect(find.byType(Switch), findsNWidgets(4));
-
-    // Time pickers
-    expect(find.widgetWithText(TextButton, 'Show time picker'), findsOneWidget);
 
     // TextFields
     expect(find.widgetWithText(TextField, 'Disabled'), findsNWidgets(2));

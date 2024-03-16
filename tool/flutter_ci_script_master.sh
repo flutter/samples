@@ -31,14 +31,16 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/linting_tool"
+    # TODO: 'onBackground' is deprecated and shouldn't be used.
+    # "experimental/linting_tool"
     "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
-    "game_template"
+    # TODO: 'onBackground' is deprecated and shouldn't be used.
+    # "game_template"
     "google_maps"
     "infinite_list"
     "ios_app_clip"

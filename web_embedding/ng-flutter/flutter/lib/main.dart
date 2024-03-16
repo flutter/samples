@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       counter: _counter,
       text: _text,
     );
-    final export = createDartExport(_state);
+    final export = createJSInteropWrapper(_state);
 
     // Emit this through the root object of the flutter app :)
     broadcastAppEvent('flutter-initialized', export);

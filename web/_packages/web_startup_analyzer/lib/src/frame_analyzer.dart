@@ -18,16 +18,16 @@ class FrameAnalyzer {
   FrameAnalyzer(this._binding, {this.additionalFrames = 10})
       : _remainingFrames = additionalFrames;
 
-  Future captureAdditionalFrames() {
+  Future<void> captureAdditionalFrames() {
     _binding.addTimingsCallback(_timingsCallback);
     return _onDone.future;
   }
 
-  _reportFrame(FrameTiming frameTiming) {
+  void _reportFrame(FrameTiming frameTiming) {
     additionalFrameTimes.add(frameTiming.totalSpan.inMilliseconds);
   }
 
-  _timingsCallback(timings) {
+  void _timingsCallback(List<FrameTiming> timings) {
     int i = 0;
     while (_remainingFrames > 0 && i < timings.length) {
       _reportFrame(timings[i]);
