@@ -79,10 +79,16 @@ class _MyAppBar extends StatelessWidget {
       title: Text('Catalog', style: Theme.of(context).textTheme.displayLarge),
       floating: true,
       actions: [
-        IconButton(
-          icon: const Icon(Icons.shopping_cart),
-          onPressed: () => context.go('/catalog/cart'),
-        ),
+        InkWell(
+          onTap: () => context.go('/catalog/cart'),
+          child: Padding(
+            padding: const EdgeInsets.only(right:20.0),
+            child: Badge(
+              label:  Text('${context.watch<CartModel>().items.length}'),
+              child: const Icon(Icons.shopping_cart),
+            ),
+          ),
+        )
       ],
     );
   }
