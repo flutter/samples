@@ -41,7 +41,6 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
-        useMaterial3: true,
       ),
       home: Scaffold(
         appBar: AppBar(

@@ -20,7 +20,6 @@ class PlatformView extends StatelessWidget {
       title: 'Platform View',
       theme: ThemeData(
         primarySwatch: Colors.grey,
-        useMaterial3: true,
       ),
       home: const HomePage(),
     );

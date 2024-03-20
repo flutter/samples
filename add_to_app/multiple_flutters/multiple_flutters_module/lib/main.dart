@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorSchemeSeed: color,
-        useMaterial3: true,
         appBarTheme: AppBarTheme(
           backgroundColor: color,
           foregroundColor: Colors.white,

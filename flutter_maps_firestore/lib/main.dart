@@ -36,7 +36,6 @@ class App extends StatelessWidget {
       theme: ThemeData(
         colorSchemeSeed: Colors.pink,
         scaffoldBackgroundColor: Colors.pink[50],
-        useMaterial3: true,
       ),
     );
   }
