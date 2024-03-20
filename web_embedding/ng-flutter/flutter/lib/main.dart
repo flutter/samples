@@ -52,7 +52,6 @@ class _MyAppState extends State<MyApp> {
       title: 'Element embedding',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
       ),
       home: ValueListenableBuilder<DemoScreen>(
         valueListenable: _screen,

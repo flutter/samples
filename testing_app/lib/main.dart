@@ -42,7 +42,6 @@ class TestingApp extends StatelessWidget {
         theme: ThemeData(
           colorSchemeSeed: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          useMaterial3: true,
         ),
         routerConfig: router(),
       ),
