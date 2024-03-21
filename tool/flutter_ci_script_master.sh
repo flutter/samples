@@ -56,7 +56,8 @@ declare -ar PROJECT_NAMES=(
     "platform_design"
     "platform_view_swift"
     "provider_counter"
-    "provider_shopper"
+    # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
+    # "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
     # TODO(DomesticMouse): The method 'isSelectionWithinTextBounds' isn't defined for the type 'TextEditingController'
