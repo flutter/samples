@@ -16,7 +16,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "analysis_defaults"
     "android_splash_screen"
-    "animations"
+    # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
+    # "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
