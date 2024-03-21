@@ -37,7 +37,8 @@ declare -ar PROJECT_NAMES=(
     # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
     # "experimental/pedometer"
     # "experimental/pedometer/example"
-    "experimental/varfont_shader_puzzle"
+    # 'MaterialStateProperty' is deprecated and shouldn't be used.
+    # "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
