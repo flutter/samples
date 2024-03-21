@@ -501,7 +501,7 @@ class Cards extends StatelessWidget {
           SizedBox(
             width: cardWidth,
             child: Card(
-              color: Theme.of(context).colorScheme.surfaceVariant,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               elevation: 0,
               child: Container(
                 padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
@@ -2508,7 +2508,7 @@ class ComponentGroupDecoration extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.zero,
         elevation: 0,
-        color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest.withOpacity(0.3),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: Center(

@@ -251,13 +251,13 @@ class ColorSchemeView extends StatelessWidget {
             ),
             ColorChip(
               label: 'surfaceVariant',
-              color: colorScheme.surfaceVariant,
+              color: colorScheme.surfaceContainerHighest,
               onColor: colorScheme.onSurfaceVariant,
             ),
             ColorChip(
               label: 'onSurfaceVariant',
               color: colorScheme.onSurfaceVariant,
-              onColor: colorScheme.surfaceVariant,
+              onColor: colorScheme.surfaceContainerHighest,
             ),
             ColorChip(
               label: 'surfaceTint',
@@ -303,13 +303,13 @@ class ColorSchemeView extends StatelessWidget {
           children: [
             ColorChip(
               label: 'background',
-              color: colorScheme.background,
-              onColor: colorScheme.onBackground,
+              color: colorScheme.surface,
+              onColor: colorScheme.onSurface,
             ),
             ColorChip(
               label: 'onBackground',
-              color: colorScheme.onBackground,
-              onColor: colorScheme.background,
+              color: colorScheme.onSurface,
+              onColor: colorScheme.surface,
             ),
             ColorChip(
               label: 'scrim',
