@@ -34,8 +34,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
     # TODO: 'onBackground' is deprecated and shouldn't be used.
     # "experimental/linting_tool"
-    "experimental/pedometer"
-    "experimental/pedometer/example"
+    # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
+    # "experimental/pedometer"
+    # "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
