@@ -48,7 +48,7 @@ class _BookstoreState extends State<Bookstore> {
       routerConfig: GoRouter(
         refreshListenable: auth,
         debugLogDiagnostics: true,
-        initialLocation: '/books/popular',
+        initialLocation: initialRoute ?? '/books/popular',
         redirect: (context, state) {
           final signedIn = BookstoreAuth.of(context).signedIn;
           if (state.uri.toString() != '/sign-in' && !signedIn) {
@@ -57,8 +57,7 @@ class _BookstoreState extends State<Bookstore> {
             return '/sign-in';
           } else if (signedIn && initialRoute != null) {
             // Redirect the user back to the initial route after sign-in
-            final redirectRoute = initialRoute;
-            initialRoute = null; // Reset the initial route
+            final redirectRoute = initialRoute; // Reset the initial route
             return redirectRoute;
           }
           return null;
