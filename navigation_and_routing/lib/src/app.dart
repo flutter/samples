@@ -30,6 +30,9 @@ class Bookstore extends StatefulWidget {
 class _BookstoreState extends State<Bookstore> {
   final BookstoreAuth auth = BookstoreAuth();
 
+  //To store the initial route before sign-in
+  String? initialRoute;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -49,7 +52,14 @@ class _BookstoreState extends State<Bookstore> {
         redirect: (context, state) {
           final signedIn = BookstoreAuth.of(context).signedIn;
           if (state.uri.toString() != '/sign-in' && !signedIn) {
+            // Store the initial route in the state
+            initialRoute = state.uri.toString();
             return '/sign-in';
+          } else if (signedIn && initialRoute != null) {
+            // Redirect the user back to the initial route after sign-in
+            final redirectRoute = initialRoute;
+            initialRoute = null; // Reset the initial route
+            return redirectRoute;
           }
           return null;
         },
@@ -258,7 +268,9 @@ class _BookstoreState extends State<Bookstore> {
                       final router = GoRouter.of(context);
                       await BookstoreAuth.of(context)
                           .signIn(value.username, value.password);
-                      router.go('/books/popular');
+                      router.go(initialRoute ?? '/books/popular');
+                      initialRoute =
+                          null; // Redirect the user back to the initial route after sign-in and reset it
                     },
                   );
                 },
