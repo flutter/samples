@@ -4,12 +4,8 @@ publish_to: 'none'
 version: 1.0.0
 
 environment:
-<<<<<<< HEAD
   sdk: ^3.3.1
-=======
-  sdk: ^3.3.0
   flutter: ">=3.19.0"
->>>>>>> 4f568ebe645751233f97945af9322d6ea1cc7317
 
 dependencies:
   flutter:
