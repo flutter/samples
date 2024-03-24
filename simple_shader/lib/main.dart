@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Simple Shader Demo',
       theme: ThemeData(
         colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
       ),
       home: const MyHomePage(),
     );

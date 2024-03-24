@@ -184,7 +184,6 @@ class AnimationSamples extends StatelessWidget {
       title: 'Animation Samples',
       theme: ThemeData(
         colorSchemeSeed: Colors.deepPurple,
-        useMaterial3: true,
       ),
       routerConfig: router,
     );

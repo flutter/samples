@@ -273,7 +273,6 @@ class MyApp extends StatelessWidget {
                   color: palette.ink,
                 ),
               ),
-              useMaterial3: true,
             ),
             routeInformationProvider: _router.routeInformationProvider,
             routeInformationParser: _router.routeInformationParser,

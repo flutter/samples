@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Module Title',
-      theme: ThemeData.light(useMaterial3: true),
+      theme: ThemeData.light(),
       routes: {
         '/': (context) => const FullScreenView(),
         '/mini': (context) => const Contents(),

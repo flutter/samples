@@ -78,7 +78,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Module Title',
       theme: ThemeData(
         colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
       ),
       routes: {
         '/': (context) => const FullScreenView(),

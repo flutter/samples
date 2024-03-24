@@ -41,7 +41,6 @@ class WebStartupAnalyzerSample extends StatelessWidget {
       title: 'Flutter web app timing',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green.shade100),
-        useMaterial3: true,
       ),
       home: WebStartupAnalyzerScreen(analyzer: analyzer),
     );

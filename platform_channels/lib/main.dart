@@ -25,7 +25,6 @@ class PlatformChannelSample extends StatelessWidget {
         snackBarTheme: SnackBarThemeData(
           backgroundColor: Colors.blue[500],
         ),
-        useMaterial3: true,
       ),
       routerConfig: router(),
     );
