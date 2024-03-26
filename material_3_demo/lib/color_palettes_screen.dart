@@ -250,11 +250,6 @@ class ColorSchemeView extends StatelessWidget {
               onColor: colorScheme.surface,
             ),
             ColorChip(
-              label: 'surfaceVariant',
-              color: colorScheme.surfaceContainerHighest,
-              onColor: colorScheme.onSurfaceVariant,
-            ),
-            ColorChip(
               label: 'onSurfaceVariant',
               color: colorScheme.onSurfaceVariant,
               onColor: colorScheme.surfaceContainerHighest,
@@ -301,16 +296,6 @@ class ColorSchemeView extends StatelessWidget {
         divider,
         ColorGroup(
           children: [
-            ColorChip(
-              label: 'background',
-              color: colorScheme.surface,
-              onColor: colorScheme.onSurface,
-            ),
-            ColorChip(
-              label: 'onBackground',
-              color: colorScheme.onSurface,
-              onColor: colorScheme.surface,
-            ),
             ColorChip(
               label: 'scrim',
               color: colorScheme.scrim,
