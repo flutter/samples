@@ -79,6 +79,10 @@ static inline void destroy_cond(ConditionVariable* cond) {
   // Not available.
 }
 
+static inline void free_mem(void* mem) {
+  CoTaskMemFree(mem);
+}
+
 #elif defined __APPLE__ || defined __LINUX__ || defined __ANDROID__ ||         \
     defined __GNUC__
 #include <pthread.h>
@@ -118,6 +122,10 @@ static inline void destroy_cond(ConditionVariable* cond) {
   pthread_cond_destroy(cond);
 }
 
+static inline void free_mem(void* mem) {
+  free(mem);
+}
+
 #else
 
 #error "No locking/condition variable support; Possibly unsupported platform"
@@ -133,8 +141,6 @@ typedef struct CallbackResult {
 
 typedef struct JniLocks {
   MutexLock classLoadingLock;
-  MutexLock methodLoadingLock;
-  MutexLock fieldLoadingLock;
 } JniLocks;
 
 /// Represents the error when dart-jni layer has already spawned singleton VM.
@@ -248,12 +254,6 @@ FFI_PLUGIN_EXPORT JNIEnv* GetJniEnv(void);
 /// JVMs is made, even if the underlying API potentially supports multiple VMs.
 FFI_PLUGIN_EXPORT int SpawnJvm(JavaVMInitArgs* args);
 
-/// Load class through platform-specific mechanism.
-///
-/// Currently uses application classloader on android,
-/// and JNIEnv->FindClass on other platforms.
-FFI_PLUGIN_EXPORT jclass FindClass(const char* name);
-
 /// Returns Application classLoader (on Android),
 /// which can be used to load application and platform classes.
 ///
@@ -286,16 +286,6 @@ static inline void load_class_platform(jclass* cls, const char* name) {
 #endif
 }
 
-static inline void load_class_local_ref(jclass* cls, const char* name) {
-  if (*cls == NULL) {
-    acquire_lock(&jni->locks.classLoadingLock);
-    if (*cls == NULL) {
-      load_class_platform(cls, name);
-    }
-    release_lock(&jni->locks.classLoadingLock);
-  }
-}
-
 static inline void load_class_global_ref(jclass* cls, const char* name) {
   if (*cls == NULL) {
     jclass tmp = NULL;
@@ -316,11 +306,7 @@ static inline void load_method(jclass cls,
                                const char* name,
                                const char* sig) {
   if (*res == NULL) {
-    acquire_lock(&jni->locks.methodLoadingLock);
-    if (*res == NULL) {
-      *res = (*jniEnv)->GetMethodID(jniEnv, cls, name, sig);
-    }
-    release_lock(&jni->locks.methodLoadingLock);
+    *res = (*jniEnv)->GetMethodID(jniEnv, cls, name, sig);
   }
 }
 
@@ -329,11 +315,7 @@ static inline void load_static_method(jclass cls,
                                       const char* name,
                                       const char* sig) {
   if (*res == NULL) {
-    acquire_lock(&jni->locks.methodLoadingLock);
-    if (*res == NULL) {
-      *res = (*jniEnv)->GetStaticMethodID(jniEnv, cls, name, sig);
-    }
-    release_lock(&jni->locks.methodLoadingLock);
+    *res = (*jniEnv)->GetStaticMethodID(jniEnv, cls, name, sig);
   }
 }
 
@@ -342,11 +324,7 @@ static inline void load_field(jclass cls,
                               const char* name,
                               const char* sig) {
   if (*res == NULL) {
-    acquire_lock(&jni->locks.fieldLoadingLock);
-    if (*res == NULL) {
-      *res = (*jniEnv)->GetFieldID(jniEnv, cls, name, sig);
-    }
-    release_lock(&jni->locks.fieldLoadingLock);
+    *res = (*jniEnv)->GetFieldID(jniEnv, cls, name, sig);
   }
 }
 
@@ -355,11 +333,7 @@ static inline void load_static_field(jclass cls,
                                      const char* name,
                                      const char* sig) {
   if (*res == NULL) {
-    acquire_lock(&jni->locks.fieldLoadingLock);
-    if (*res == NULL) {
-      *res = (*jniEnv)->GetStaticFieldID(jniEnv, cls, name, sig);
-    }
-    release_lock(&jni->locks.fieldLoadingLock);
+    *res = (*jniEnv)->GetStaticFieldID(jniEnv, cls, name, sig);
   }
 }
 
@@ -407,18 +381,3 @@ static inline JniResult to_global_ref_result(jobject ref) {
   }
   return result;
 }
-
-FFI_PLUGIN_EXPORT intptr_t InitDartApiDL(void* data);
-
-FFI_PLUGIN_EXPORT
-JniResult DartException__ctor(jstring message);
-
-FFI_PLUGIN_EXPORT
-JniResult PortContinuation__ctor(int64_t j);
-
-FFI_PLUGIN_EXPORT
-JniResult PortProxy__newInstance(jobject binaryName,
-                                 int64_t port,
-                                 int64_t functionPtr);
-
-FFI_PLUGIN_EXPORT void resultFor(CallbackResult* result, jobject object);

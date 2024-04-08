@@ -39,12 +39,9 @@ dependencies:
     # the parent directory to use the current plugin's version.
     path: ../
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  ffi: ^2.1.0
+  ffi: ^2.1.2
   intl: ^0.19.0
-  jni: ^0.7.0
+  jni: ^0.8.0
   fl_chart: ^0.67.0
 
 dev_dependencies:

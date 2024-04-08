@@ -5154,41 +5154,19 @@ class PedometerBindings {
       _registerName1("fileSystemRepresentation");
   late final _sel_isFileURL1 = _registerName1("isFileURL");
   late final _sel_standardizedURL1 = _registerName1("standardizedURL");
-  late final _sel_checkResourceIsReachableAndReturnError_1 =
-      _registerName1("checkResourceIsReachableAndReturnError:");
-  bool _objc_msgSend_195(
-    ffi.Pointer<ObjCObject> obj,
-    ffi.Pointer<ObjCSel> sel,
-    ffi.Pointer<ffi.Pointer<ObjCObject>> error,
-  ) {
-    return __objc_msgSend_195(
-      obj,
-      sel,
-      error,
-    );
-  }
-
-  late final __objc_msgSend_195Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
-              ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_195 = __objc_msgSend_195Ptr.asFunction<
-      bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
-          ffi.Pointer<ffi.Pointer<ObjCObject>>)>();
-
   late final _sel_isFileReferenceURL1 = _registerName1("isFileReferenceURL");
   late final _sel_fileReferenceURL1 = _registerName1("fileReferenceURL");
   late final _sel_filePathURL1 = _registerName1("filePathURL");
   late final _sel_getResourceValue_forKey_error_1 =
       _registerName1("getResourceValue:forKey:error:");
-  bool _objc_msgSend_196(
+  bool _objc_msgSend_195(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ffi.Pointer<ObjCObject>> value,
     ffi.Pointer<ObjCObject> key,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_196(
+    return __objc_msgSend_195(
       obj,
       sel,
       value,
@@ -5197,7 +5175,7 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_196Ptr = _lookup<
+  late final __objc_msgSend_195Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Bool Function(
               ffi.Pointer<ObjCObject>,
@@ -5205,7 +5183,7 @@ class PedometerBindings {
               ffi.Pointer<ffi.Pointer<ObjCObject>>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_196 = __objc_msgSend_196Ptr.asFunction<
+  late final __objc_msgSend_195 = __objc_msgSend_195Ptr.asFunction<
       bool Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5215,13 +5193,13 @@ class PedometerBindings {
 
   late final _sel_resourceValuesForKeys_error_1 =
       _registerName1("resourceValuesForKeys:error:");
-  ffi.Pointer<ObjCObject> _objc_msgSend_197(
+  ffi.Pointer<ObjCObject> _objc_msgSend_196(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> keys,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_197(
+    return __objc_msgSend_196(
       obj,
       sel,
       keys,
@@ -5229,14 +5207,14 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_197Ptr = _lookup<
+  late final __objc_msgSend_196Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ObjCObject> Function(
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_197 = __objc_msgSend_197Ptr.asFunction<
+  late final __objc_msgSend_196 = __objc_msgSend_196Ptr.asFunction<
       ffi.Pointer<ObjCObject> Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5245,18 +5223,50 @@ class PedometerBindings {
 
   late final _sel_setResourceValue_forKey_error_1 =
       _registerName1("setResourceValue:forKey:error:");
-  bool _objc_msgSend_198(
+  bool _objc_msgSend_197(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> value,
     ffi.Pointer<ObjCObject> key,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_198(
+    return __objc_msgSend_197(
       obj,
       sel,
       value,
       key,
+      error,
+    );
+  }
+
+  late final __objc_msgSend_197Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Bool Function(
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
+  late final __objc_msgSend_197 = __objc_msgSend_197Ptr.asFunction<
+      bool Function(
+          ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ffi.Pointer<ObjCObject>>)>();
+
+  late final _sel_setResourceValues_error_1 =
+      _registerName1("setResourceValues:error:");
+  bool _objc_msgSend_198(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> keyedValues,
+    ffi.Pointer<ffi.Pointer<ObjCObject>> error,
+  ) {
+    return __objc_msgSend_198(
+      obj,
+      sel,
+      keyedValues,
       error,
     );
   }
@@ -5267,62 +5277,30 @@ class PedometerBindings {
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>,
-              ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
   late final __objc_msgSend_198 = __objc_msgSend_198Ptr.asFunction<
-      bool Function(
-          ffi.Pointer<ObjCObject>,
-          ffi.Pointer<ObjCSel>,
-          ffi.Pointer<ObjCObject>,
-          ffi.Pointer<ObjCObject>,
-          ffi.Pointer<ffi.Pointer<ObjCObject>>)>();
-
-  late final _sel_setResourceValues_error_1 =
-      _registerName1("setResourceValues:error:");
-  bool _objc_msgSend_199(
-    ffi.Pointer<ObjCObject> obj,
-    ffi.Pointer<ObjCSel> sel,
-    ffi.Pointer<ObjCObject> keyedValues,
-    ffi.Pointer<ffi.Pointer<ObjCObject>> error,
-  ) {
-    return __objc_msgSend_199(
-      obj,
-      sel,
-      keyedValues,
-      error,
-    );
-  }
-
-  late final __objc_msgSend_199Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Bool Function(
-              ffi.Pointer<ObjCObject>,
-              ffi.Pointer<ObjCSel>,
-              ffi.Pointer<ObjCObject>,
-              ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_199 = __objc_msgSend_199Ptr.asFunction<
       bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
           ffi.Pointer<ObjCObject>, ffi.Pointer<ffi.Pointer<ObjCObject>>)>();
 
   late final _sel_removeCachedResourceValueForKey_1 =
       _registerName1("removeCachedResourceValueForKey:");
-  void _objc_msgSend_200(
+  void _objc_msgSend_199(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> key,
   ) {
-    return __objc_msgSend_200(
+    return __objc_msgSend_199(
       obj,
       sel,
       key,
     );
   }
 
-  late final __objc_msgSend_200Ptr = _lookup<
+  late final __objc_msgSend_199Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>)>>('objc_msgSend');
-  late final __objc_msgSend_200 = __objc_msgSend_200Ptr.asFunction<
+  late final __objc_msgSend_199 = __objc_msgSend_199Ptr.asFunction<
       void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
           ffi.Pointer<ObjCObject>)>();
 
@@ -5333,7 +5311,7 @@ class PedometerBindings {
   late final _sel_bookmarkDataWithOptions_includingResourceValuesForKeys_relativeToURL_error_1 =
       _registerName1(
           "bookmarkDataWithOptions:includingResourceValuesForKeys:relativeToURL:error:");
-  ffi.Pointer<ObjCObject> _objc_msgSend_201(
+  ffi.Pointer<ObjCObject> _objc_msgSend_200(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     int options,
@@ -5341,7 +5319,7 @@ class PedometerBindings {
     ffi.Pointer<ObjCObject> relativeURL,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_201(
+    return __objc_msgSend_200(
       obj,
       sel,
       options,
@@ -5351,7 +5329,7 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_201Ptr = _lookup<
+  late final __objc_msgSend_200Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ObjCObject> Function(
               ffi.Pointer<ObjCObject>,
@@ -5360,7 +5338,7 @@ class PedometerBindings {
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_201 = __objc_msgSend_201Ptr.asFunction<
+  late final __objc_msgSend_200 = __objc_msgSend_200Ptr.asFunction<
       ffi.Pointer<ObjCObject> Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5372,7 +5350,7 @@ class PedometerBindings {
   late final _sel_initByResolvingBookmarkData_options_relativeToURL_bookmarkDataIsStale_error_1 =
       _registerName1(
           "initByResolvingBookmarkData:options:relativeToURL:bookmarkDataIsStale:error:");
-  instancetype _objc_msgSend_202(
+  instancetype _objc_msgSend_201(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> bookmarkData,
@@ -5381,7 +5359,7 @@ class PedometerBindings {
     ffi.Pointer<ffi.Bool> isStale,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_202(
+    return __objc_msgSend_201(
       obj,
       sel,
       bookmarkData,
@@ -5392,7 +5370,7 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_202Ptr = _lookup<
+  late final __objc_msgSend_201Ptr = _lookup<
       ffi.NativeFunction<
           instancetype Function(
               ffi.Pointer<ObjCObject>,
@@ -5402,7 +5380,7 @@ class PedometerBindings {
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Bool>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_202 = __objc_msgSend_202Ptr.asFunction<
+  late final __objc_msgSend_201 = __objc_msgSend_201Ptr.asFunction<
       instancetype Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5417,13 +5395,13 @@ class PedometerBindings {
           "URLByResolvingBookmarkData:options:relativeToURL:bookmarkDataIsStale:error:");
   late final _sel_resourceValuesForKeys_fromBookmarkData_1 =
       _registerName1("resourceValuesForKeys:fromBookmarkData:");
-  ffi.Pointer<ObjCObject> _objc_msgSend_203(
+  ffi.Pointer<ObjCObject> _objc_msgSend_202(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> keys,
     ffi.Pointer<ObjCObject> bookmarkData,
   ) {
-    return __objc_msgSend_203(
+    return __objc_msgSend_202(
       obj,
       sel,
       keys,
@@ -5431,14 +5409,14 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_203Ptr = _lookup<
+  late final __objc_msgSend_202Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ObjCObject> Function(
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCObject>)>>('objc_msgSend');
-  late final __objc_msgSend_203 = __objc_msgSend_203Ptr.asFunction<
+  late final __objc_msgSend_202 = __objc_msgSend_202Ptr.asFunction<
       ffi.Pointer<ObjCObject> Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5447,7 +5425,7 @@ class PedometerBindings {
 
   late final _sel_writeBookmarkData_toURL_options_error_1 =
       _registerName1("writeBookmarkData:toURL:options:error:");
-  bool _objc_msgSend_204(
+  bool _objc_msgSend_203(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> bookmarkData,
@@ -5455,7 +5433,7 @@ class PedometerBindings {
     int options,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_204(
+    return __objc_msgSend_203(
       obj,
       sel,
       bookmarkData,
@@ -5465,7 +5443,7 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_204Ptr = _lookup<
+  late final __objc_msgSend_203Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Bool Function(
               ffi.Pointer<ObjCObject>,
@@ -5474,7 +5452,7 @@ class PedometerBindings {
               ffi.Pointer<ObjCObject>,
               ffi.UnsignedLong,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_204 = __objc_msgSend_204Ptr.asFunction<
+  late final __objc_msgSend_203 = __objc_msgSend_203Ptr.asFunction<
       bool Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5485,13 +5463,13 @@ class PedometerBindings {
 
   late final _sel_bookmarkDataWithContentsOfURL_error_1 =
       _registerName1("bookmarkDataWithContentsOfURL:error:");
-  ffi.Pointer<ObjCObject> _objc_msgSend_205(
+  ffi.Pointer<ObjCObject> _objc_msgSend_204(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> bookmarkFileURL,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_205(
+    return __objc_msgSend_204(
       obj,
       sel,
       bookmarkFileURL,
@@ -5499,14 +5477,14 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_205Ptr = _lookup<
+  late final __objc_msgSend_204Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ObjCObject> Function(
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_205 = __objc_msgSend_205Ptr.asFunction<
+  late final __objc_msgSend_204 = __objc_msgSend_204Ptr.asFunction<
       ffi.Pointer<ObjCObject> Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5515,14 +5493,14 @@ class PedometerBindings {
 
   late final _sel_URLByResolvingAliasFileAtURL_options_error_1 =
       _registerName1("URLByResolvingAliasFileAtURL:options:error:");
-  instancetype _objc_msgSend_206(
+  instancetype _objc_msgSend_205(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> url,
     int options,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_206(
+    return __objc_msgSend_205(
       obj,
       sel,
       url,
@@ -5531,7 +5509,7 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_206Ptr = _lookup<
+  late final __objc_msgSend_205Ptr = _lookup<
       ffi.NativeFunction<
           instancetype Function(
               ffi.Pointer<ObjCObject>,
@@ -5539,7 +5517,7 @@ class PedometerBindings {
               ffi.Pointer<ObjCObject>,
               ffi.Int32,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_206 = __objc_msgSend_206Ptr.asFunction<
+  late final __objc_msgSend_205 = __objc_msgSend_205Ptr.asFunction<
       instancetype Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5555,13 +5533,13 @@ class PedometerBindings {
       _registerName1("getPromisedItemResourceValue:forKey:error:");
   late final _sel_promisedItemResourceValuesForKeys_error_1 =
       _registerName1("promisedItemResourceValuesForKeys:error:");
-  ffi.Pointer<ObjCObject> _objc_msgSend_207(
+  ffi.Pointer<ObjCObject> _objc_msgSend_206(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> keys,
     ffi.Pointer<ffi.Pointer<ObjCObject>> error,
   ) {
-    return __objc_msgSend_207(
+    return __objc_msgSend_206(
       obj,
       sel,
       keys,
@@ -5569,14 +5547,14 @@ class PedometerBindings {
     );
   }
 
-  late final __objc_msgSend_207Ptr = _lookup<
+  late final __objc_msgSend_206Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ObjCObject> Function(
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
-  late final __objc_msgSend_207 = __objc_msgSend_207Ptr.asFunction<
+  late final __objc_msgSend_206 = __objc_msgSend_206Ptr.asFunction<
       ffi.Pointer<ObjCObject> Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -5585,6 +5563,26 @@ class PedometerBindings {
 
   late final _sel_checkPromisedItemIsReachableAndReturnError_1 =
       _registerName1("checkPromisedItemIsReachableAndReturnError:");
+  bool _objc_msgSend_207(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ffi.Pointer<ObjCObject>> error,
+  ) {
+    return __objc_msgSend_207(
+      obj,
+      sel,
+      error,
+    );
+  }
+
+  late final __objc_msgSend_207Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ffi.Pointer<ObjCObject>>)>>('objc_msgSend');
+  late final __objc_msgSend_207 = __objc_msgSend_207Ptr.asFunction<
+      bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ffi.Pointer<ObjCObject>>)>();
+
   late final _sel_fileURLWithPathComponents_1 =
       _registerName1("fileURLWithPathComponents:");
   ffi.Pointer<ObjCObject> _objc_msgSend_208(
@@ -5665,6 +5663,8 @@ class PedometerBindings {
       _registerName1("URLByAppendingPathExtension:");
   late final _sel_URLByDeletingPathExtension1 =
       _registerName1("URLByDeletingPathExtension");
+  late final _sel_checkResourceIsReachableAndReturnError_1 =
+      _registerName1("checkResourceIsReachableAndReturnError:");
   late final _sel_URLByStandardizingPath1 =
       _registerName1("URLByStandardizingPath");
   late final _sel_URLByResolvingSymlinksInPath1 =
@@ -29801,7 +29801,7 @@ class NSObject extends _ObjCWrapper {
 
   bool validateValue_forKey_error_(ffi.Pointer<ffi.Pointer<ObjCObject>> ioValue,
       NSString inKey, ffi.Pointer<ffi.Pointer<ObjCObject>> outError) {
-    return _lib._objc_msgSend_196(_id, _lib._sel_validateValue_forKey_error_1,
+    return _lib._objc_msgSend_195(_id, _lib._sel_validateValue_forKey_error_1,
         ioValue, inKey._id, outError);
   }
 
@@ -29840,7 +29840,7 @@ class NSObject extends _ObjCWrapper {
       ffi.Pointer<ffi.Pointer<ObjCObject>> ioValue,
       NSString inKeyPath,
       ffi.Pointer<ffi.Pointer<ObjCObject>> outError) {
-    return _lib._objc_msgSend_196(
+    return _lib._objc_msgSend_195(
         _id,
         _lib._sel_validateValue_forKeyPath_error_1,
         ioValue,
@@ -29880,7 +29880,7 @@ class NSObject extends _ObjCWrapper {
   }
 
   void setNilValueForKey_(NSString key) {
-    _lib._objc_msgSend_200(_id, _lib._sel_setNilValueForKey_1, key._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_setNilValueForKey_1, key._id);
   }
 
   NSDictionary dictionaryWithValuesForKeys_(NSArray keys) {
@@ -29936,7 +29936,7 @@ class NSObject extends _ObjCWrapper {
   }
 
   void unableToSetNilForKey_(NSString key) {
-    _lib._objc_msgSend_200(_id, _lib._sel_unableToSetNilForKey_1, key._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_unableToSetNilForKey_1, key._id);
   }
 
   NSDictionary valuesForKeys_(NSArray keys) {
@@ -29984,11 +29984,11 @@ class NSObject extends _ObjCWrapper {
   }
 
   void willChangeValueForKey_(NSString key) {
-    _lib._objc_msgSend_200(_id, _lib._sel_willChangeValueForKey_1, key._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_willChangeValueForKey_1, key._id);
   }
 
   void didChangeValueForKey_(NSString key) {
-    _lib._objc_msgSend_200(_id, _lib._sel_didChangeValueForKey_1, key._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_didChangeValueForKey_1, key._id);
   }
 
   void willChange_valuesAtIndexes_forKey_(
@@ -33819,12 +33819,6 @@ class NSURL extends NSObject {
         : NSURL._(_ret, _lib, retain: true, release: true);
   }
 
-  bool checkResourceIsReachableAndReturnError_(
-      ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_195(
-        _id, _lib._sel_checkResourceIsReachableAndReturnError_1, error);
-  }
-
   bool isFileReferenceURL() {
     return _lib._objc_msgSend_12(_id, _lib._sel_isFileReferenceURL1);
   }
@@ -33847,13 +33841,13 @@ class NSURL extends NSObject {
       ffi.Pointer<ffi.Pointer<ObjCObject>> value,
       NSString key,
       ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_196(
+    return _lib._objc_msgSend_195(
         _id, _lib._sel_getResourceValue_forKey_error_1, value, key._id, error);
   }
 
   NSObject? resourceValuesForKeys_error_(
       NSArray keys, ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_197(
+    final _ret = _lib._objc_msgSend_196(
         _id, _lib._sel_resourceValuesForKeys_error_1, keys._id, error);
     return _ret.address == 0
         ? null
@@ -33862,7 +33856,7 @@ class NSURL extends NSObject {
 
   bool setResourceValue_forKey_error_(NSObject? value, NSString key,
       ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_198(
+    return _lib._objc_msgSend_197(
         _id,
         _lib._sel_setResourceValue_forKey_error_1,
         value?._id ?? ffi.nullptr,
@@ -33872,12 +33866,12 @@ class NSURL extends NSObject {
 
   bool setResourceValues_error_(
       NSObject keyedValues, ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_199(
+    return _lib._objc_msgSend_198(
         _id, _lib._sel_setResourceValues_error_1, keyedValues._id, error);
   }
 
   void removeCachedResourceValueForKey_(NSString key) {
-    _lib._objc_msgSend_200(
+    _lib._objc_msgSend_199(
         _id, _lib._sel_removeCachedResourceValueForKey_1, key._id);
   }
 
@@ -33896,7 +33890,7 @@ class NSURL extends NSObject {
           NSArray? keys,
           NSURL? relativeURL,
           ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_201(
+    final _ret = _lib._objc_msgSend_200(
         _id,
         _lib._sel_bookmarkDataWithOptions_includingResourceValuesForKeys_relativeToURL_error_1,
         options,
@@ -33915,7 +33909,7 @@ class NSURL extends NSObject {
           NSURL? relativeURL,
           ffi.Pointer<ffi.Bool> isStale,
           ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_202(
+    final _ret = _lib._objc_msgSend_201(
         _id,
         _lib._sel_initByResolvingBookmarkData_options_relativeToURL_bookmarkDataIsStale_error_1,
         bookmarkData._id,
@@ -33936,7 +33930,7 @@ class NSURL extends NSObject {
           NSURL? relativeURL,
           ffi.Pointer<ffi.Bool> isStale,
           ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_202(
+    final _ret = _lib._objc_msgSend_201(
         _lib._class_NSURL1,
         _lib._sel_URLByResolvingBookmarkData_options_relativeToURL_bookmarkDataIsStale_error_1,
         bookmarkData._id,
@@ -33951,7 +33945,7 @@ class NSURL extends NSObject {
 
   static NSObject? resourceValuesForKeys_fromBookmarkData_(
       PedometerBindings _lib, NSArray keys, NSData bookmarkData) {
-    final _ret = _lib._objc_msgSend_203(
+    final _ret = _lib._objc_msgSend_202(
         _lib._class_NSURL1,
         _lib._sel_resourceValuesForKeys_fromBookmarkData_1,
         keys._id,
@@ -33967,7 +33961,7 @@ class NSURL extends NSObject {
       NSURL bookmarkFileURL,
       int options,
       ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_204(
+    return _lib._objc_msgSend_203(
         _lib._class_NSURL1,
         _lib._sel_writeBookmarkData_toURL_options_error_1,
         bookmarkData._id,
@@ -33978,7 +33972,7 @@ class NSURL extends NSObject {
 
   static NSData? bookmarkDataWithContentsOfURL_error_(PedometerBindings _lib,
       NSURL bookmarkFileURL, ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_205(
+    final _ret = _lib._objc_msgSend_204(
         _lib._class_NSURL1,
         _lib._sel_bookmarkDataWithContentsOfURL_error_1,
         bookmarkFileURL._id,
@@ -33993,7 +33987,7 @@ class NSURL extends NSObject {
       NSURL url,
       int options,
       ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_206(
+    final _ret = _lib._objc_msgSend_205(
         _lib._class_NSURL1,
         _lib._sel_URLByResolvingAliasFileAtURL_options_error_1,
         url._id,
@@ -34017,7 +34011,7 @@ class NSURL extends NSObject {
       ffi.Pointer<ffi.Pointer<ObjCObject>> value,
       NSString key,
       ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_196(
+    return _lib._objc_msgSend_195(
         _id,
         _lib._sel_getPromisedItemResourceValue_forKey_error_1,
         value,
@@ -34027,7 +34021,7 @@ class NSURL extends NSObject {
 
   NSDictionary? promisedItemResourceValuesForKeys_error_(
       NSArray keys, ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    final _ret = _lib._objc_msgSend_207(_id,
+    final _ret = _lib._objc_msgSend_206(_id,
         _lib._sel_promisedItemResourceValuesForKeys_error_1, keys._id, error);
     return _ret.address == 0
         ? null
@@ -34036,7 +34030,7 @@ class NSURL extends NSObject {
 
   bool checkPromisedItemIsReachableAndReturnError_(
       ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_195(
+    return _lib._objc_msgSend_207(
         _id, _lib._sel_checkPromisedItemIsReachableAndReturnError_1, error);
   }
 
@@ -34112,6 +34106,12 @@ class NSURL extends NSObject {
     return _ret.address == 0
         ? null
         : NSURL._(_ret, _lib, retain: true, release: true);
+  }
+
+  bool checkResourceIsReachableAndReturnError_(
+      ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
+    return _lib._objc_msgSend_207(
+        _id, _lib._sel_checkResourceIsReachableAndReturnError_1, error);
   }
 
   NSURL? get URLByStandardizingPath {
@@ -46435,15 +46435,15 @@ class NSMutableString extends NSString {
   }
 
   void appendString_(NSString aString) {
-    _lib._objc_msgSend_200(_id, _lib._sel_appendString_1, aString._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_appendString_1, aString._id);
   }
 
   void appendFormat_(NSString format) {
-    _lib._objc_msgSend_200(_id, _lib._sel_appendFormat_1, format._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_appendFormat_1, format._id);
   }
 
   void setString_(NSString aString) {
-    _lib._objc_msgSend_200(_id, _lib._sel_setString_1, aString._id);
+    _lib._objc_msgSend_199(_id, _lib._sel_setString_1, aString._id);
   }
 
   int replaceOccurrencesOfString_withString_options_range_(NSString target,
@@ -47356,12 +47356,12 @@ class NSBundle extends NSObject {
   }
 
   bool preflightAndReturnError_(ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_195(
+    return _lib._objc_msgSend_207(
         _id, _lib._sel_preflightAndReturnError_1, error);
   }
 
   bool loadAndReturnError_(ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_195(_id, _lib._sel_loadAndReturnError_1, error);
+    return _lib._objc_msgSend_207(_id, _lib._sel_loadAndReturnError_1, error);
   }
 
   NSURL get bundleURL {
@@ -49198,7 +49198,7 @@ class NSDateFormatter extends NSFormatter {
   }
 
   void setLocalizedDateFormatFromTemplate_(NSString dateFormatTemplate) {
-    _lib._objc_msgSend_200(_id, _lib._sel_setLocalizedDateFormatFromTemplate_1,
+    _lib._objc_msgSend_199(_id, _lib._sel_setLocalizedDateFormatFromTemplate_1,
         dateFormatTemplate._id);
   }
 
@@ -53669,12 +53669,12 @@ class NSFileHandle extends NSObject {
   }
 
   bool synchronizeAndReturnError_(ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_195(
+    return _lib._objc_msgSend_207(
         _id, _lib._sel_synchronizeAndReturnError_1, error);
   }
 
   bool closeAndReturnError_(ffi.Pointer<ffi.Pointer<ObjCObject>> error) {
-    return _lib._objc_msgSend_195(_id, _lib._sel_closeAndReturnError_1, error);
+    return _lib._objc_msgSend_207(_id, _lib._sel_closeAndReturnError_1, error);
   }
 
   static NSFileHandle getFileHandleWithStandardInput(PedometerBindings _lib) {
@@ -58486,12 +58486,12 @@ class NSProcessInfo extends NSObject {
   }
 
   void disableAutomaticTermination_(NSString reason) {
-    _lib._objc_msgSend_200(
+    _lib._objc_msgSend_199(
         _id, _lib._sel_disableAutomaticTermination_1, reason._id);
   }
 
   void enableAutomaticTermination_(NSString reason) {
-    _lib._objc_msgSend_200(
+    _lib._objc_msgSend_199(
         _id, _lib._sel_enableAutomaticTermination_1, reason._id);
   }
 
@@ -67382,7 +67382,7 @@ class CLLocationManager extends NSObject {
 
   void requestTemporaryFullAccuracyAuthorizationWithPurposeKey_(
       NSString purposeKey) {
-    _lib._objc_msgSend_200(
+    _lib._objc_msgSend_199(
         _id,
         _lib._sel_requestTemporaryFullAccuracyAuthorizationWithPurposeKey_1,
         purposeKey._id);
