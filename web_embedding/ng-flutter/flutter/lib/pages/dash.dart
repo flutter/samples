@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DashDemo extends StatefulWidget {
-  final ValueNotifier<String> text;
-
   const DashDemo({super.key, required this.text});
+
+  final ValueNotifier<String> text;
 
   @override
   State<DashDemo> createState() => _DashDemoState();
@@ -12,28 +12,28 @@ class DashDemo extends StatefulWidget {
 class _DashDemoState extends State<DashDemo> {
   final double textFieldHeight = 80;
   final Color colorPrimary = Colors.blue.shade700;
-  late TextEditingController textController;
+  late final TextEditingController textController;
 
-  int totalCharCount = 0;
+  int _totalCharCount = 0;
 
   @override
   void initState() {
     super.initState();
-    // Initial value of the text box
-    totalCharCount = widget.text.value.length;
+    // Initial value of the text box.
+    _totalCharCount = widget.text.value.length;
     textController = TextEditingController.fromValue(TextEditingValue(
         text: widget.text.value,
         selection: TextSelection.collapsed(offset: widget.text.value.length)));
-    // Report changes
+    // Report changes.
     textController.addListener(_onTextControllerChange);
-    // Listen to changes from the outside
+    // Listen to changes from the outside.
     widget.text.addListener(_onTextStateChanged);
   }
 
   void _onTextControllerChange() {
     widget.text.value = textController.text;
     setState(() {
-      totalCharCount = textController.text.length;
+      _totalCharCount = textController.text.length;
     });
   }
 
@@ -73,35 +73,38 @@ class _DashDemoState extends State<DashDemo> {
                 children: [
                   Text(
                     'COUNT WITH DASH!',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: Colors.white,
-                        ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: Colors.white),
                   ),
                   // Bordered dash avatar
                   Padding(
                     padding: const EdgeInsets.all(12),
                     child: ClipOval(
                       child: Container(
-                          color: Colors.white,
-                          padding: const EdgeInsets.all(2),
-                          child: ClipOval(
-                            child: Container(
-                                color: colorPrimary,
-                                padding: const EdgeInsets.all(2),
-                                child: const CircleAvatar(
-                                  radius: 45,
-                                  backgroundColor: Colors.white,
-                                  foregroundImage:
-                                      AssetImage('assets/dash.png'),
-                                )),
-                          )),
+                        color: Colors.white,
+                        padding: const EdgeInsets.all(2),
+                        child: ClipOval(
+                          child: Container(
+                            color: colorPrimary,
+                            padding: const EdgeInsets.all(2),
+                            child: const CircleAvatar(
+                              radius: 45,
+                              backgroundColor: Colors.white,
+                              foregroundImage: AssetImage('assets/dash.png'),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   Text(
-                    '$totalCharCount',
-                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                          color: Colors.white,
-                        ),
+                    '$_totalCharCount',
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayLarge!
+                        .copyWith(color: Colors.white),
                   ),
                 ],
               ),

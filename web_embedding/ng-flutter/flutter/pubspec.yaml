@@ -1,6 +1,6 @@
 name: ng_companion
 description: A flutter app with a counter that can be manipulated from JS.
-publish_to: 'none'
+publish_to: none
 version: 1.0.0
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  web: ^0.5.0
+  web: ^0.5.1
 
 dev_dependencies:
   flutter_test:
