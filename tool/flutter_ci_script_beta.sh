@@ -60,8 +60,7 @@ declare -ar PROJECT_NAMES=(
     # "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    # TODO(DomesticMouse): The method 'isSelectionWithinTextBounds' isn't defined for the type 'TextEditingController'
-    # "simplistic_editor"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
