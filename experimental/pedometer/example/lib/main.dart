@@ -188,28 +188,21 @@ class _HomeState extends State<Home> {
   }
 }
 
-// Axis labels for bottom of chart
+// Axis labels for bottom of chart.
 Widget getBottomTitles(double value, TitleMeta meta) {
-  String text;
-  switch (value.toInt()) {
-    case 0:
-      text = '12AM';
-      break;
-    case 6:
-      text = '6AM';
-      break;
-    case 12:
-      text = '12PM';
-      break;
-    case 18:
-      text = '6PM';
-      break;
-    default:
-      text = '';
-  }
+  final timeText = switch (value.toInt()) {
+    0 => '12AM',
+    6 => '6AM',
+    12 => '12PM',
+    18 => '6PM',
+    _ => ''
+  };
   return SideTitleWidget(
     axisSide: meta.axisSide,
     space: 4,
-    child: Text(text, style: TextStyle(fontSize: 14, color: Colors.blue[900])),
+    child: Text(
+      timeText,
+      style: TextStyle(fontSize: 14, color: Colors.blue[900]),
+    ),
   );
 }
