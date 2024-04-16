@@ -1,0 +1,11 @@
+<svg width="1148" height="1148" viewBox="0 0 1148 1148" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_106_3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1148" height="1148">
+<circle cx="574" cy="574" r="574" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_106_3)">
+<circle cx="574" cy="574" r="566.5" fill="#E4BFB5" stroke="black" stroke-width="15"/>
+<path d="M996 986C996 1277.61 807.064 1514 574 1514C340.936 1514 152 1277.61 152 986C152 694.394 340.936 574 574 574C807.064 574 996 694.394 996 986Z" fill="#DE7A60"/>
+<ellipse cx="574" cy="367" rx="264" ry="276" fill="#DE7A60"/>
+<circle cx="574" cy="574" r="566.5" stroke="black" stroke-width="15"/>
+</g>
+</svg>
