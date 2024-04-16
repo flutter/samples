@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_web_libraries_in_flutter
+import 'dart:js_interop' show createJSInteropWrapper;
 
 import 'package:flutter/material.dart';
 
@@ -25,17 +25,16 @@ class _MyAppState extends State<MyApp> {
   final ValueNotifier<int> _counter = ValueNotifier<int>(0);
   final ValueNotifier<String> _text = ValueNotifier<String>('');
 
-  late final DemoAppStateManager _state;
+  late final DemoAppStateManager _state = DemoAppStateManager(
+    screen: _screen,
+    counter: _counter,
+    text: _text,
+  );
 
   @override
   void initState() {
     super.initState();
-    _state = DemoAppStateManager(
-      screen: _screen,
-      counter: _counter,
-      text: _text,
-    );
-    final export = createDartExport(_state);
+    final export = createJSInteropWrapper(_state);
 
     // Emit this through the root object of the flutter app :)
     broadcastAppEvent('flutter-initialized', export);
@@ -52,7 +51,6 @@ class _MyAppState extends State<MyApp> {
       title: 'Element embedding',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
       ),
       home: ValueListenableBuilder<DemoScreen>(
         valueListenable: _screen,
@@ -61,14 +59,9 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Widget demoScreenRouter(DemoScreen which) {
-    switch (which) {
-      case DemoScreen.counter:
-        return CounterDemo(counter: _counter);
-      case DemoScreen.text:
-        return TextFieldDemo(text: _text);
-      case DemoScreen.dash:
-        return DashDemo(text: _text);
-    }
-  }
+  Widget demoScreenRouter(DemoScreen which) => switch (which) {
+        DemoScreen.counter => CounterDemo(counter: _counter),
+        DemoScreen.text => TextFieldDemo(text: _text),
+        DemoScreen.dash => DashDemo(text: _text)
+      };
 }

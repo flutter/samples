@@ -25,7 +25,6 @@ class PlaceTrackerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-        useMaterial3: true,
         colorSchemeSeed: Colors.green,
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.green[700],

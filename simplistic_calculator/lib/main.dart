@@ -347,7 +347,7 @@ class CalculatorApp extends ConsumerWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(useMaterial3: true),
+      theme: ThemeData.light(),
       home: Scaffold(
         body: Container(
           color: Colors.white,

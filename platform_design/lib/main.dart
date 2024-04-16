@@ -25,7 +25,6 @@ class MyAdaptingApp extends StatelessWidget {
       theme: ThemeData(
         // Use the green theme for Material widgets.
         primarySwatch: Colors.green,
-        useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(),
       builder: (context, child) {

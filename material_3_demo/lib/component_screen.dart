@@ -280,12 +280,12 @@ class Selection extends StatelessWidget {
     return const ComponentGroupDecoration(label: 'Selection', children: [
       Checkboxes(),
       Chips(),
-      DatePickers(),
+      DatePicker(),
+      TimePicker(),
       Menus(),
       Radios(),
       Sliders(),
       Switches(),
-      TimePickers(),
     ]);
   }
 }
@@ -1400,14 +1400,14 @@ class _ChipsState extends State<Chips> {
   }
 }
 
-class DatePickers extends StatefulWidget {
-  const DatePickers({super.key});
+class DatePicker extends StatefulWidget {
+  const DatePicker({super.key});
 
   @override
-  State<DatePickers> createState() => _DatePickersState();
+  State<DatePicker> createState() => _DatePickerState();
 }
 
-class _DatePickersState extends State<DatePickers> {
+class _DatePickerState extends State<DatePicker> {
   DateTime? selectedDate;
   final DateTime _firstDate = DateTime(DateTime.now().year - 2);
   final DateTime _lastDate = DateTime(DateTime.now().year + 1);
@@ -1417,7 +1417,7 @@ class _DatePickersState extends State<DatePickers> {
     return ComponentDecoration(
       label: 'Date picker',
       tooltipMessage: 'Use showDatePicker',
-      child: TextButton(
+      child: TextButton.icon(
         onPressed: () async {
           DateTime? date = await showDatePicker(
             context: context,
@@ -1435,7 +1435,8 @@ class _DatePickersState extends State<DatePickers> {
             }
           });
         },
-        child: const Text(
+        icon: const Icon(Icons.calendar_month),
+        label: const Text(
           'Show date picker',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -1444,14 +1445,14 @@ class _DatePickersState extends State<DatePickers> {
   }
 }
 
-class TimePickers extends StatefulWidget {
-  const TimePickers({super.key});
+class TimePicker extends StatefulWidget {
+  const TimePicker({super.key});
 
   @override
-  State<TimePickers> createState() => _TimePickersState();
+  State<TimePicker> createState() => _TimePickerState();
 }
 
-class _TimePickersState extends State<TimePickers> {
+class _TimePickerState extends State<TimePicker> {
   TimeOfDay? selectedTime;
 
   @override
@@ -1459,7 +1460,7 @@ class _TimePickersState extends State<TimePickers> {
     return ComponentDecoration(
       label: 'Time picker',
       tooltipMessage: 'Use showTimePicker',
-      child: TextButton(
+      child: TextButton.icon(
         onPressed: () async {
           final TimeOfDay? time = await showTimePicker(
             context: context,
@@ -1483,7 +1484,8 @@ class _TimePickersState extends State<TimePickers> {
             }
           });
         },
-        child: const Text(
+        icon: const Icon(Icons.schedule),
+        label: const Text(
           'Show time picker',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),

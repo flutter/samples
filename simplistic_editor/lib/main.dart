@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
         title: 'Simplistic Editor',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          useMaterial3: true,
         ),
         home: const MyHomePage(title: 'Simplistic Editor'),
       ),

@@ -90,7 +90,6 @@ class FormApp extends StatelessWidget {
       title: 'Form Samples',
       theme: ThemeData(
         colorSchemeSeed: Colors.teal,
-        useMaterial3: true,
       ),
       routerConfig: router,
     );

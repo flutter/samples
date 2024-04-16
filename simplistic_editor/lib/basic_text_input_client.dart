@@ -780,7 +780,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     // We return early if the selection is not valid. This can happen when the
     // text of the editable is updated at the same time as the selection is
     // changed by a gesture event.
-    if (!widget.controller.isSelectionWithinTextBounds(selection)) return;
+    final textLength = _value.text.length;
+    if (selection.start > textLength || selection.end > textLength) return;
 
     widget.controller.selection = selection;
 

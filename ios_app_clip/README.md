@@ -1,6 +1,6 @@
 # ios_app_clip
 
-A sample project demonstrating integration with iOS 14's App Clip.
+A sample project demonstrating integration with iOS App Clip.
 
 The App Clip target is rendered by Flutter and uses a plugin.
 
@@ -15,13 +15,12 @@ The App Clip target is rendered by Flutter and uses a plugin.
 
 In order to run.
 
-1. `cd ios`
-2. `pod install`
-3. `open Runner.xcworkspace`
-4. Inside Xcode, select the `AppClip` target from the scheme dropdown
-5. Select an iOS 14 device
-6. Select a development team as needed
-7. Press run in Xcode to run
+1. `flutter build ios --config-only`
+1. `open Runner.xcworkspace`
+1. Inside Xcode, select the `AppClip` target from the scheme dropdown
+1. Select an iOS 16 or higher device
+1. Select a development team as needed
+1. Press run in Xcode to run
 
 ## Questions/issues
 

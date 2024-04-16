@@ -1,10 +1,8 @@
-// ignore_for_file: avoid_web_libraries_in_flutter
-
 import 'dart:async';
+import 'dart:js_interop' as js;
+import 'dart:js_interop_unsafe' as js_util;
 
 import 'package:flutter/material.dart';
-import 'package:js/js.dart' as js;
-import 'package:js/js_util.dart' as js_util;
 
 void main() {
   runApp(const MyApp());
@@ -28,9 +26,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    final export = js_util.createDartExport(this);
-    js_util.setProperty(js_util.globalThis, '_appState', export);
-    js_util.callMethod<void>(js_util.globalThis, '_stateSet', []);
+    final export = js.createJSInteropWrapper(this);
+    js.globalContext['_appState'] = export;
+    js.globalContext.callMethod('_stateSet'.toJS);
   }
 
   @override
@@ -65,7 +63,6 @@ class _MyAppState extends State<MyApp> {
       title: 'Element embedding',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       home: demoScreenRouter(_currentDemoScreen),
