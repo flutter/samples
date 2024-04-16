@@ -28,7 +28,7 @@ const _tapRadius = 15.0,
 ///
 /// It will both visualize them and add them to [recordedTaps].
 class TapRecorder extends SingleChildRenderObjectWidget {
-  const TapRecorder({Key? key, required Widget child}) : super(child: child);
+  const TapRecorder({super.key, required Widget child}) : super(child: child);
 
   @override
   RenderObject createRenderObject(BuildContext context) {

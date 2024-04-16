@@ -4,14 +4,14 @@ import 'package:gemini_io_talk/util/extensions.dart';
 import 'package:gemini_io_talk/util/filter_chip_enums.dart';
 
 class FilterChipSelectionInput<T extends Enum> extends StatefulWidget {
-  FilterChipSelectionInput({
+  const FilterChipSelectionInput({
     super.key,
     required this.onChipSelected,
     required this.selectedValues,
     required this.allValues,
   });
 
-  final Function(Set) onChipSelected;
+  final Null Function(Set) onChipSelected;
   final Set<T> selectedValues;
   final List<T> allValues;
 
@@ -34,9 +34,9 @@ class _CategorySelectionInputState<T extends Enum>
           runSpacing: constraints.isMobile ? 5.0 : -5.0,
           children: List<Widget>.generate(
             widget.allValues.length,
-            (int idx) {
+            (idx) {
               final chipData = widget.allValues[idx];
-              String label(chipData) {
+              String label(dynamic chipData) {
                 if (chipData is CuisineFilter) {
                   return cuisineReadable(chipData);
                 } else if (chipData is DietaryRestrictionsFilter) {
@@ -49,11 +49,11 @@ class _CategorySelectionInputState<T extends Enum>
               }
 
               return FilterChip(
-                color: MaterialStateColor.resolveWith((states) {
-                  if (states.contains(MaterialState.hovered)) {
+                color: WidgetStateColor.resolveWith((states) {
+                  if (states.contains(WidgetState.hovered)) {
                     return MarketplaceTheme.secondary.withOpacity(.5);
                   }
-                  if (states.contains(MaterialState.selected)) {
+                  if (states.contains(WidgetState.selected)) {
                     return MarketplaceTheme.secondary.withOpacity(.3);
                   }
                   return Theme.of(context).splashColor;
@@ -61,13 +61,13 @@ class _CategorySelectionInputState<T extends Enum>
                 surfaceTintColor: Colors.transparent,
                 shadowColor: Colors.transparent,
                 backgroundColor: Colors.transparent,
-                padding: EdgeInsets.all(4),
+                padding: const EdgeInsets.all(4),
                 label: Text(
                   label(chipData),
                   style: MarketplaceTheme.dossierParagraph,
                 ),
                 selected: widget.selectedValues.contains(chipData),
-                onSelected: (bool selected) {
+                onSelected: (selected) {
                   setState(
                     () {
                       if (selected) {

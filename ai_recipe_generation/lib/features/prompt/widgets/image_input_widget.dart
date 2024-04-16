@@ -13,7 +13,7 @@ import '../../../widgets/prompt_image_widget.dart';
 import '../prompt_view_model.dart';
 
 class AddImageToPromptWidget extends StatefulWidget {
-  AddImageToPromptWidget({
+  const AddImageToPromptWidget({
     super.key,
     this.width = 100,
     this.height = 100,
@@ -50,13 +50,13 @@ class _AddImageToPromptWidgetState extends State<AddImageToPromptWidget> {
       transitionBuilder: (context, animation, secondaryAnimation, child) {
         return AnimatedOpacity(
           opacity: animation.value,
-          duration: Duration(milliseconds: 100),
+          duration: const Duration(milliseconds: 100),
           child: child,
         );
       },
       pageBuilder: (context, animation, secondaryAnimation) {
         return Dialog.fullscreen(
-          insetAnimationDuration: Duration(seconds: 1),
+          insetAnimationDuration: const Duration(seconds: 1),
           child: FutureBuilder(
             future: _initializeControllerFuture,
             builder: (context, snapshot) {
@@ -169,7 +169,7 @@ class _CameraViewState extends State<CameraView> {
 
   @override
   Widget build(BuildContext context) {
-    CameraController _controller = widget.controller;
+    CameraController controller = widget.controller;
     return Stack(
       children: [
         Center(
@@ -179,11 +179,11 @@ class _CameraViewState extends State<CameraView> {
               child: FittedBox(
                 fit: BoxFit.cover,
                 child: SizedBox(
-                  height: _controller.value.previewSize!.width,
-                  width: _controller.value.previewSize!.height,
+                  height: controller.value.previewSize!.width,
+                  width: controller.value.previewSize!.height,
                   child: Center(
                     child: CameraPreview(
-                      _controller,
+                      controller,
                       // child: ElevatedButton(
                       //   child: Text('Button'),
                       //   onPressed: () {},
@@ -215,7 +215,7 @@ class _CameraViewState extends State<CameraView> {
                       color: flashOn ? Colors.yellowAccent : Colors.white,
                     ),
                     onPressed: () {
-                      _controller.setFlashMode(
+                      controller.setFlashMode(
                           flashOn ? FlashMode.off : FlashMode.always);
                       setState(() {
                         flashOn = !flashOn;
@@ -227,7 +227,7 @@ class _CameraViewState extends State<CameraView> {
                   padding:
                       const EdgeInsets.only(right: MarketplaceTheme.spacing4),
                   child: IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Symbols.cancel,
                       color: Colors.white,
                       size: 40,
@@ -252,7 +252,7 @@ class _CameraViewState extends State<CameraView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Symbols.camera,
                     color: Colors.white,
                     size: 70,
@@ -260,11 +260,11 @@ class _CameraViewState extends State<CameraView> {
                   onPressed: () async {
                     try {
                       await widget.initializeControllerFuture;
-                      final image = await _controller.takePicture();
+                      final image = await controller.takePicture();
                       if (!context.mounted) return;
                       Navigator.of(context).pop(image);
                     } catch (e) {
-                      print(e);
+                      rethrow;
                     }
                   },
                 ),
@@ -274,6 +274,5 @@ class _CameraViewState extends State<CameraView> {
         )
       ],
     );
-    ;
   }
 }

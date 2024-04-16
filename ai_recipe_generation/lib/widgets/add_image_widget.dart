@@ -1,11 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../theme.dart';
 
 class AddImage extends StatefulWidget {
-  AddImage({
+  const AddImage({
     super.key,
     required this.onTap,
     this.height = 100,
@@ -39,12 +38,12 @@ class _AddImageState extends State<AddImage> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (PointerEnterEvent event) {
+      onEnter: (event) {
         setState(() {
           hovered = true;
         });
       },
-      onExit: (PointerExitEvent event) {
+      onExit: (event) {
         setState(() {
           hovered = false;
         });
@@ -71,7 +70,7 @@ class _AddImageState extends State<AddImage> {
               decoration: BoxDecoration(
                 color: buttonColor,
               ),
-              child: Center(
+              child: const Center(
                 child: Icon(
                   Symbols.add_photo_alternate_rounded,
                   size: 32,

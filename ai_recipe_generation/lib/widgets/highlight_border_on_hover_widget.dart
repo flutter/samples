@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../theme.dart';
@@ -27,12 +26,12 @@ class _HighlightBorderOnHoverWidgetState
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (PointerEnterEvent event) {
+      onEnter: (event) {
         setState(() {
           hovered = true;
         });
       },
-      onExit: (PointerExitEvent event) {
+      onExit: (event) {
         setState(() {
           hovered = false;
         });

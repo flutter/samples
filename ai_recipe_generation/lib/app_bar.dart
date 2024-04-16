@@ -54,7 +54,7 @@ class AnimatedAppBar extends StatelessWidget {
           expandedHeight: expandedHeight,
           collapsedHeight: collapsedHeight,
           backgroundColor: Theme.of(context).primaryColor,
-          shape: AppBarShapeBorder(50),
+          shape: const AppBarShapeBorder(50),
           title: Column(
             children: [
               Row(
@@ -68,7 +68,7 @@ class AnimatedAppBar extends StatelessWidget {
                       semanticsLabel: 'Chef cat icon',
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: MarketplaceTheme.spacing1,
                   ),
                   if (scrollController.positions.isNotEmpty &&
@@ -83,15 +83,15 @@ class AnimatedAppBar extends StatelessWidget {
                       headerText,
                       style: MarketplaceTheme.heading3,
                     ),
-                  Spacer(),
+                  const Spacer(),
                   if (scrollController.positions.isNotEmpty &&
                       scrollController.offset > 200)
                     IconButton(
-                      onPressed: () => showDialog(
+                      onPressed: () => showDialog<Null>(
                         context: context,
-                        builder: (context) => AppInfoDialog(),
+                        builder: (context) => const AppInfoDialog(),
                       ),
-                      icon: Icon(
+                      icon: const Icon(
                         Symbols.info,
                         color: Colors.black12,
                       ),
@@ -102,7 +102,7 @@ class AnimatedAppBar extends StatelessWidget {
           ),
           flexibleSpace: FlexibleSpaceBar(
             background: Padding(
-              padding: EdgeInsets.all(MarketplaceTheme.spacing4),
+              padding: const EdgeInsets.all(MarketplaceTheme.spacing4),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
@@ -118,12 +118,12 @@ class AnimatedAppBar extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        showDialog(
+                        showDialog<Null>(
                           context: context,
-                          builder: (context) => AppInfoDialog(),
+                          builder: (context) => const AppInfoDialog(),
                         );
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Symbols.info,
                         color: Colors.black12,
                       ),
@@ -134,7 +134,7 @@ class AnimatedAppBar extends StatelessWidget {
             ),
           ),
           bottom: PreferredSize(
-            preferredSize: Size(double.infinity, 0),
+            preferredSize: const Size(double.infinity, 0),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -144,7 +144,7 @@ class AnimatedAppBar extends StatelessWidget {
                       : MarketplaceTheme.spacing1,
                 ),
                 child: AnimatedDefaultTextStyle(
-                  duration: Duration(milliseconds: 0),
+                  duration: const Duration(milliseconds: 0),
                   style: textStyle,
                   child: Text(
                     headerText,

@@ -24,11 +24,11 @@ class RecipeDisplayWidget extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
+            const Icon(
               Symbols.stat_0_rounded,
               size: 12,
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Expanded(
@@ -52,7 +52,7 @@ class RecipeDisplayWidget extends StatelessWidget {
     if (instructions.first.startsWith(RegExp('[0-9]'))) {
       for (var instruction in instructions) {
         widgets.add(Text(instruction));
-        widgets.add(SizedBox(height: MarketplaceTheme.spacing6));
+        widgets.add(const SizedBox(height: MarketplaceTheme.spacing6));
       }
     } else {
       for (var i = 0; i < instructions.length; i++) {
@@ -60,7 +60,7 @@ class RecipeDisplayWidget extends StatelessWidget {
           '${i + 1}. ${instructions[i]}',
           softWrap: true,
         ));
-        widgets.add(SizedBox(height: MarketplaceTheme.spacing6));
+        widgets.add(const SizedBox(height: MarketplaceTheme.spacing6));
       }
     }
 
@@ -70,12 +70,12 @@ class RecipeDisplayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: ClampingScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.all(MarketplaceTheme.defaultBorderRadius),
+            padding: const EdgeInsets.all(MarketplaceTheme.defaultBorderRadius),
             color: MarketplaceTheme.primary.withOpacity(.5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,24 +104,24 @@ class RecipeDisplayWidget extends StatelessWidget {
                     ),
                     TextButton(
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateColor.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
+                        backgroundColor: WidgetStateColor.resolveWith((states) {
+                          if (states.contains(WidgetState.hovered)) {
                             return MarketplaceTheme.scrim.withOpacity(.6);
                           }
                           return Colors.white;
                         }),
-                        shape: MaterialStateProperty.resolveWith(
+                        shape: WidgetStateProperty.resolveWith(
                           (states) {
                             return RoundedRectangleBorder(
-                              side: BorderSide(color: MarketplaceTheme.primary),
+                              side: const BorderSide(
+                                  color: MarketplaceTheme.primary),
                               borderRadius: BorderRadius.circular(
                                 MarketplaceTheme.defaultBorderRadius,
                               ),
                             );
                           },
                         ),
-                        textStyle: MaterialStateTextStyle.resolveWith(
+                        textStyle: WidgetStateTextStyle.resolveWith(
                           (states) {
                             return MarketplaceTheme.dossierParagraph.copyWith(
                               color: Colors.black45,
@@ -130,7 +130,7 @@ class RecipeDisplayWidget extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await showDialog(
+                        await showDialog<dynamic>(
                           context: context,
                           builder: (context) {
                             return AlertDialog(
@@ -144,7 +144,7 @@ class RecipeDisplayWidget extends StatelessWidget {
                         );
                       },
                       child: Transform.translate(
-                        offset: Offset(0, 5),
+                        offset: const Offset(0, 5),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: MarketplaceTheme.spacing6),
@@ -159,7 +159,7 @@ class RecipeDisplayWidget extends StatelessWidget {
                                 ),
                               ),
                               Transform.translate(
-                                offset: Offset(1, -6),
+                                offset: const Offset(1, -6),
                                 child: Transform.rotate(
                                   angle: -pi / 20.0,
                                   child: Text(
@@ -175,12 +175,12 @@ class RecipeDisplayWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                Divider(
+                const Divider(
                   height: 40,
                   color: Colors.black26,
                 ),
                 Table(
-                  columnWidths: {
+                  columnWidths: const {
                     0: FlexColumnWidth(2),
                     1: FlexColumnWidth(3),
                   },
@@ -212,17 +212,17 @@ class RecipeDisplayWidget extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(''),
+                      const Text(''),
                     ]),
                     ...recipe.nutritionInformation.entries.map((entry) {
                       return TableRow(children: [
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Symbols.stat_0_rounded,
                               size: 12,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Expanded(
@@ -234,7 +234,8 @@ class RecipeDisplayWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(entry.value, style: MarketplaceTheme.label)
+                        Text(entry.value as String,
+                            style: MarketplaceTheme.label)
                       ]);
                     }),
                   ],
@@ -258,7 +259,7 @@ class RecipeDisplayWidget extends StatelessWidget {
                       Text('Ingredients:', style: MarketplaceTheme.subheading1),
                 ),
                 ..._buildIngredients(recipe.ingredients),
-                SizedBox(height: MarketplaceTheme.spacing4),
+                const SizedBox(height: MarketplaceTheme.spacing4),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: MarketplaceTheme.spacing7),

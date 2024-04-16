@@ -79,8 +79,8 @@ class _IconLoadingAnimatorState extends State<IconLoadingAnimator> {
         ),
       ),
       child: AnimatedSwitcher(
-        duration: widget.animationDuration ?? Duration(milliseconds: 200),
-        transitionBuilder: (Widget child, Animation<double> animation) {
+        duration: widget.animationDuration ?? const Duration(milliseconds: 200),
+        transitionBuilder: (child, animation) {
           return ScaleTransition(
             scale: animation,
             child: child,

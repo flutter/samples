@@ -6,15 +6,18 @@ const recipePath = '/recipes';
 final firestore = FirebaseFirestore.instance;
 
 class FirestoreService {
-  static saveRecipe(Recipe recipe) {
-    firestore.collection(recipePath).doc(recipe.id).set(recipe.toFirestore());
+  static Future<Null> saveRecipe(Recipe recipe) async {
+    await firestore
+        .collection(recipePath)
+        .doc(recipe.id)
+        .set(recipe.toFirestore());
   }
 
-  static deleteRecipe(Recipe recipe) async {
+  static Future<Null> deleteRecipe(Recipe recipe) async {
     await firestore.doc("$recipePath/${recipe.id}").delete();
   }
 
-  static updateRecipe(Recipe recipe) async {
+  static Future<Null> updateRecipe(Recipe recipe) async {
     await firestore
         .doc("$recipePath/${recipe.id}")
         .update(recipe.toFirestore());

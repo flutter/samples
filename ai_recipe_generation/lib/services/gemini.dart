@@ -2,8 +2,6 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 
 import '../features/prompt/prompt_model.dart';
 
-/// DONT USE THIS CLASS IN THE TALK.
-/// It wasn't written to accommodate copy+pasting Gemini code.
 class GeminiService {
   static Future<GenerateContentResponse> generateContent(
       GenerativeModel model, PromptData prompt) async {
@@ -19,7 +17,7 @@ class GeminiService {
     final mainText = TextPart(prompt.textInput);
     final additionalTextParts =
         prompt.additionalTextInputs.map((t) => TextPart(t));
-    final imagesParts = [];
+    final imagesParts = <DataPart>[];
 
     for (var f in prompt.images) {
       final bytes = await (f.readAsBytes());

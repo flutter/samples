@@ -50,7 +50,8 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
       innerScrollAllowed = scrollController.offset >= 230;
       if (scrollController.offset >= 230) {
         scrollController.animateTo(230,
-            duration: Duration(milliseconds: 100), curve: Curves.decelerate);
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.decelerate);
       }
 
       // Don't change the text opacity if scrolling down from original position (overscroll)
@@ -87,11 +88,11 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
   }
 
   List<NavigationRailDestination> destinations = [
-    NavigationRailDestination(
+    const NavigationRailDestination(
       icon: Icon(Symbols.home),
       label: Text('Create a recipe'),
     ),
-    NavigationRailDestination(
+    const NavigationRailDestination(
       icon: Icon(Symbols.bookmarks),
       label: Text('Saved Recipes'),
     )
@@ -143,21 +144,21 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
                 child: Container(
                   height: bottomTabBarHeight,
                   decoration: ShapeDecoration(
-                    shadows: [
+                    shadows: const [
                       BoxShadow(
                         offset: Offset(1, -1),
                         color: Colors.black45,
                         blurRadius: 5,
                       )
                     ],
-                    shape: BottomBarShapeBorder(50),
+                    shape: const BottomBarShapeBorder(50),
                     color: Theme.of(context).primaryColor,
                   ),
                   child: TabBar(
                     labelColor: Colors.black,
                     unselectedLabelColor: Colors.black26,
                     controller: tabController,
-                    onTap: (int idx) {
+                    onTap: (idx) {
                       setState(() {});
                     },
                     dividerColor: Colors.transparent,
@@ -174,7 +175,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
                   height: 160,
                   width: 160,
                   child: IconLoadingAnimator(
-                    icons: [
+                    icons: const [
                       Symbols.icecream,
                       Symbols.local_pizza,
                       Symbols.restaurant_menu,
@@ -204,7 +205,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
                           MarketplaceTheme.defaultBorderRadius),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           offset: Offset(-1, 1),
                           color: Colors.black45,
@@ -218,7 +219,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(MarketplaceTheme.spacing6),
+                      padding: const EdgeInsets.all(MarketplaceTheme.spacing6),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

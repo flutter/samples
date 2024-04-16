@@ -15,7 +15,7 @@ class FullPromptDialog extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon ?? Symbols.label_important_outline),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Expanded(
@@ -47,7 +47,7 @@ class FullPromptDialog extends StatelessWidget {
               if (promptData.images.isNotEmpty)
                 Container(
                   height: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     border: Border.symmetric(
                       horizontal: BorderSide(
                         color: MarketplaceTheme.borderColor,
@@ -73,7 +73,7 @@ class FullPromptDialog extends StatelessWidget {
                 ...promptData.additionalTextInputs.map((i) => bulletRow(i)),
               const SizedBox(height: MarketplaceTheme.spacing4),
               TextButton.icon(
-                icon: Icon(
+                icon: const Icon(
                   Symbols.close,
                   color: Colors.black87,
                 ),
@@ -85,9 +85,9 @@ class FullPromptDialog extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: ButtonStyle(
-                  shape: MaterialStateProperty.resolveWith(
+                  shape: WidgetStateProperty.resolveWith(
                     (states) {
-                      return RoundedRectangleBorder(
+                      return const RoundedRectangleBorder(
                         side: BorderSide(color: Colors.black26),
                         borderRadius: BorderRadius.all(
                           Radius.circular(MarketplaceTheme.defaultBorderRadius),
@@ -95,7 +95,7 @@ class FullPromptDialog extends StatelessWidget {
                       );
                     },
                   ),
-                  textStyle: MaterialStateTextStyle.resolveWith(
+                  textStyle: WidgetStateTextStyle.resolveWith(
                     (states) {
                       return MarketplaceTheme.dossierParagraph
                           .copyWith(color: Colors.black45);

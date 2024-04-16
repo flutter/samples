@@ -8,7 +8,7 @@ import 'cross_image_widget.dart';
 typedef OnTapRemoveImageCallback = void Function(XFile);
 
 class PromptImage extends StatelessWidget {
-  PromptImage({
+  const PromptImage({
     super.key,
     required this.file,
     this.onTapIcon,
@@ -27,7 +27,7 @@ class PromptImage extends StatelessWidget {
         children: [
           Positioned(
             child: ClipRRect(
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(
                   MarketplaceTheme.defaultBorderRadius,
                 ),
@@ -46,7 +46,7 @@ class PromptImage extends StatelessWidget {
               child: GestureDetector(
                 onTap: onTapIcon,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),

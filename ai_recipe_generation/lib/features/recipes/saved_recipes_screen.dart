@@ -29,20 +29,20 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen>
       builder: (context, constraints) {
         return Padding(
           padding: constraints.isMobile
-              ? EdgeInsets.only(
+              ? const EdgeInsets.only(
                   left: MarketplaceTheme.spacing7,
                   right: MarketplaceTheme.spacing7,
                   bottom: MarketplaceTheme.spacing7,
                   top: MarketplaceTheme.spacing7,
                 )
-              : EdgeInsets.only(
+              : const EdgeInsets.only(
                   left: MarketplaceTheme.spacing7,
                   right: MarketplaceTheme.spacing7,
                   bottom: MarketplaceTheme.spacing1,
                   top: MarketplaceTheme.spacing7,
                 ),
           child: ClipRRect(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(MarketplaceTheme.defaultBorderRadius),
               topRight: Radius.circular(50),
               bottomRight:
@@ -52,7 +52,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen>
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: MarketplaceTheme.borderColor),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft:
                       Radius.circular(MarketplaceTheme.defaultBorderRadius),
                   topRight: Radius.circular(50),
@@ -66,8 +66,8 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen>
               child: constraints.isMobile
                   ? ListView.builder(
                       physics: widget.canScroll
-                          ? PageScrollPhysics()
-                          : NeverScrollableScrollPhysics(),
+                          ? const PageScrollPhysics()
+                          : const NeverScrollableScrollPhysics(),
                       itemCount: viewModel.recipes.length,
                       itemBuilder: (context, idx) {
                         final recipe = viewModel.recipes[idx];
@@ -76,7 +76,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen>
                           child: Align(
                             heightFactor: .5,
                             child: Padding(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 horizontal: MarketplaceTheme.spacing7,
                                 vertical: MarketplaceTheme.spacing7,
                               ),
@@ -97,15 +97,15 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen>
                     )
                   : GridView.count(
                       physics: widget.canScroll
-                          ? PageScrollPhysics()
-                          : NeverScrollableScrollPhysics(),
+                          ? const PageScrollPhysics()
+                          : const NeverScrollableScrollPhysics(),
                       crossAxisCount: 3,
                       childAspectRatio: 1.5,
                       children: [
                         ...List.generate(viewModel.recipes.length, (idx) {
                           final recipe = viewModel.recipes[idx];
                           return Padding(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: MarketplaceTheme.spacing7,
                               vertical: MarketplaceTheme.spacing7,
                             ),
@@ -128,7 +128,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen>
 }
 
 class _ListTile extends StatefulWidget {
-  _ListTile({
+  const _ListTile({
     super.key,
     required this.recipe,
     this.idx = 0,
@@ -158,7 +158,7 @@ class _ListTileState extends State<_ListTile> {
 
     return GestureDetector(
       child: HighlightBorderOnHoverWidget(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(MarketplaceTheme.defaultBorderRadius),
           topRight: Radius.circular(50),
           bottomRight: Radius.circular(MarketplaceTheme.defaultBorderRadius),
@@ -166,7 +166,7 @@ class _ListTileState extends State<_ListTile> {
         ),
         color: color,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(
                 offset: Offset(0, -2),
@@ -185,7 +185,7 @@ class _ListTileState extends State<_ListTile> {
           ),
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(MarketplaceTheme.defaultBorderRadius),
                 topRight: Radius.circular(50),
                 bottomRight:
@@ -195,7 +195,7 @@ class _ListTileState extends State<_ListTile> {
               ),
               color: color.withOpacity(.3),
             ),
-            padding: EdgeInsets.all(MarketplaceTheme.spacing7),
+            padding: const EdgeInsets.all(MarketplaceTheme.spacing7),
             child: Stack(
               children: [
                 Text(
@@ -225,15 +225,15 @@ class _ListTileState extends State<_ListTile> {
         ),
       ),
       onTap: () async {
-        await showDialog(
+        await showDialog<Null>(
           context: context,
           builder: (context) {
             return RecipeDialogScreen(
               recipe: widget.recipe,
               subheading: Row(
                 children: [
-                  Text('My rating:'),
-                  SizedBox(width: 10),
+                  const Text('My rating:'),
+                  const SizedBox(width: 10),
                   StartRating(
                     initialRating: widget.recipe.rating,
                     starColor: MarketplaceTheme.tertiary,

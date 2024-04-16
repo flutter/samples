@@ -4,15 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 abstract class MarketplaceTheme {
   static ThemeData theme = ThemeData(
     fontFamily: GoogleFonts.lexend().fontFamily,
-    textTheme: GoogleFonts.lexendTextTheme()
-        .copyWith()
-        .apply(bodyColor: Color(0xff000000), displayColor: Color(0xff000000)),
-    colorScheme: ColorScheme.light(
+    textTheme: GoogleFonts.lexendTextTheme().copyWith().apply(
+        bodyColor: const Color(0xff000000),
+        displayColor: const Color(0xff000000)),
+    colorScheme: const ColorScheme.light(
       primary: Color(0xffA2E3F6),
       secondary: Color(0xff4FAD85),
       tertiary: Color(0xffDE7A60),
       scrim: Color(0xffFFABC7),
-      background: Color(0xffFDF7F0),
+      surface: Color(0xffFDF7F0),
       onSecondary: Color(0xff000000),
       shadow: Color(0xffAEAEAE),
       onPrimary: Color(0xffFFFFFF),
@@ -20,14 +20,14 @@ abstract class MarketplaceTheme {
     useMaterial3: true,
     canvasColor: Colors.transparent,
     navigationBarTheme: NavigationBarThemeData(
-      indicatorColor: Color(0xffA2E3F6),
+      indicatorColor: const Color(0xffA2E3F6),
       indicatorShape: CircleBorder(
         side: BorderSide.lerp(
-            BorderSide(
+            const BorderSide(
               color: Color(0xff000000),
               width: 2,
             ),
-            BorderSide(
+            const BorderSide(
               color: Color(0xff000000),
               width: 2,
             ),

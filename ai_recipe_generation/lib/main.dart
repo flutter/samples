@@ -28,11 +28,11 @@ void main() async {
     camera = cameras.first;
   }
 
-  runApp(MainApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatefulWidget {
-  MainApp({super.key});
+  const MainApp({super.key});
 
   @override
   State<MainApp> createState() => _MainAppState();
@@ -105,7 +105,7 @@ class _MainAppState extends State<MainApp> {
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: MarketplaceTheme.theme,
-            scrollBehavior: ScrollBehavior().copyWith(
+            scrollBehavior: const ScrollBehavior().copyWith(
               dragDevices: {
                 PointerDeviceKind.mouse,
                 PointerDeviceKind.touch,
@@ -113,7 +113,7 @@ class _MainAppState extends State<MainApp> {
                 PointerDeviceKind.unknown,
               },
             ),
-            home: AdaptiveRouter(),
+            home: const AdaptiveRouter(),
           ),
         ),
       ),

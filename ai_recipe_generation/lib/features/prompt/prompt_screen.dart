@@ -31,17 +31,17 @@ class PromptScreen extends StatelessWidget {
       builder: (context, constraints) {
         return SingleChildScrollView(
           physics: canScroll
-              ? BouncingScrollPhysics()
-              : NeverScrollableScrollPhysics(),
+              ? const BouncingScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
           child: Container(
             padding: constraints.isMobile
-                ? EdgeInsets.only(
+                ? const EdgeInsets.only(
                     left: MarketplaceTheme.spacing7,
                     right: MarketplaceTheme.spacing7,
                     bottom: MarketplaceTheme.spacing7,
                     top: MarketplaceTheme.spacing7,
                   )
-                : EdgeInsets.only(
+                : const EdgeInsets.only(
                     left: MarketplaceTheme.spacing7,
                     right: MarketplaceTheme.spacing7,
                     bottom: MarketplaceTheme.spacing1,
@@ -51,7 +51,7 @@ class PromptScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: MarketplaceTheme.borderColor),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(4),
                   topRight: Radius.circular(50),
                   bottomRight:
@@ -199,7 +199,7 @@ class PromptScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(elementPadding),
                     child: _TextField(
                       controller: viewModel.promptTextController,
-                      onChanged: (String value) {
+                      onChanged: (value) {
                         viewModel.notify();
                       },
                     ),
@@ -212,7 +212,7 @@ class PromptScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        if (!constraints.isMobile) Spacer(flex: 1),
+                        if (!constraints.isMobile) const Spacer(flex: 1),
                         if (!constraints.isMobile)
                           Expanded(
                             flex: 3,
@@ -226,13 +226,13 @@ class PromptScreen extends StatelessWidget {
                                   MarketplaceTheme.secondary.withOpacity(.1),
                             ),
                           ),
-                        Spacer(flex: 1),
+                        const Spacer(flex: 1),
                         Expanded(
                           flex: constraints.isMobile ? 10 : 3,
                           child: MarketplaceButton(
                             onPressed: () {
                               final promptData = viewModel.buildPrompt();
-                              showDialog(
+                              showDialog<Null>(
                                 context: context,
                                 builder: (context) {
                                   return FullPromptDialog(
@@ -245,12 +245,12 @@ class PromptScreen extends StatelessWidget {
                             icon: Symbols.info_rounded,
                           ),
                         ),
-                        Spacer(flex: 1),
+                        const Spacer(flex: 1),
                         Expanded(
                           flex: constraints.isMobile ? 10 : 3,
                           child: MarketplaceButton(
                             onPressed: () async {
-                              viewModel.submitPrompt().then((_) async {
+                              await viewModel.submitPrompt().then((_) async {
                                 if (viewModel.recipe != null) {
                                   bool? shouldSave = await showDialog<bool>(
                                     context: context,
@@ -278,7 +278,7 @@ class PromptScreen extends StatelessWidget {
                             icon: Symbols.send,
                           ),
                         ),
-                        Spacer(flex: 1),
+                        const Spacer(flex: 1),
                       ],
                     ),
                   ),
@@ -294,7 +294,7 @@ class PromptScreen extends StatelessWidget {
                         hoverColor: MarketplaceTheme.secondary.withOpacity(.1),
                       ),
                     ),
-                  SizedBox(height: 200.0),
+                  const SizedBox(height: 200.0),
                 ],
               ),
             ),
@@ -307,7 +307,6 @@ class PromptScreen extends StatelessWidget {
 
 class _FilterChipSection extends StatelessWidget {
   const _FilterChipSection({
-    super.key,
     required this.child,
     required this.label,
   });
@@ -351,38 +350,34 @@ class _FilterChipSection extends StatelessWidget {
 
 class _TextField extends StatelessWidget {
   const _TextField({
-    super.key,
     required this.controller,
     this.onChanged,
   });
 
   final TextEditingController controller;
-  final Function(String)? onChanged;
+  final Null Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      scrollPadding: EdgeInsets.only(bottom: 150),
+      scrollPadding: const EdgeInsets.only(bottom: 150),
       maxLines: null,
       onChanged: onChanged,
       minLines: 3,
       controller: controller,
-      onTapOutside: (event) {
-        // FocusManager.instance.primaryFocus?.unfocus();
-      },
-      style: MaterialStateTextStyle.resolveWith(
+      style: WidgetStateTextStyle.resolveWith(
           (states) => MarketplaceTheme.dossierParagraph),
       decoration: InputDecoration(
         fillColor: Theme.of(context).splashColor,
         hintText: "Add additional context...",
-        hintStyle: MaterialStateTextStyle.resolveWith(
+        hintStyle: WidgetStateTextStyle.resolveWith(
           (states) => MarketplaceTheme.dossierParagraph,
         ),
-        enabledBorder: OutlineInputBorder(
+        enabledBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.zero,
           borderSide: BorderSide(width: 1, color: Colors.black12),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.zero,
           borderSide: BorderSide(width: 1, color: Colors.black45),
         ),

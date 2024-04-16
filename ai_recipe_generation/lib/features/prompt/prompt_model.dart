@@ -6,10 +6,10 @@ class PromptData {
   PromptData({
     required this.images,
     required this.textInput,
-    basicIngredients,
-    cuisines,
-    dietaryRestrictions,
-    additionalTextInputs,
+    Set<BasicIngredientsFilter>? basicIngredients,
+    Set<CuisineFilter>? cuisines,
+    Set<DietaryRestrictionsFilter>? dietaryRestrictions,
+    List<String>? additionalTextInputs,
   })  : additionalTextInputs = additionalTextInputs ?? [],
         selectedBasicIngredients = basicIngredients ?? {},
         selectedCuisines = cuisines ?? {},
@@ -52,16 +52,15 @@ class PromptData {
     List<String>? additionalTextInputs,
     Set<BasicIngredientsFilter>? basicIngredients,
     Set<CuisineFilter>? cuisineSelections,
-    Set<CuisineFilter>? dietaryRestrictions,
+    Set<DietaryRestrictionsFilter>? dietaryRestrictions,
   }) {
     return PromptData(
       images: images ?? this.images,
       textInput: textInput ?? this.textInput,
       additionalTextInputs: additionalTextInputs ?? this.additionalTextInputs,
-      basicIngredients: basicIngredients ?? this.selectedBasicIngredients,
-      cuisines: cuisineSelections ?? this.selectedCuisines,
-      dietaryRestrictions:
-          dietaryRestrictions ?? this.selectedDietaryRestrictions,
+      basicIngredients: basicIngredients ?? selectedBasicIngredients,
+      cuisines: cuisineSelections ?? selectedCuisines,
+      dietaryRestrictions: dietaryRestrictions ?? selectedDietaryRestrictions,
     );
   }
 }

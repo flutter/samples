@@ -52,20 +52,20 @@ class _MarketplaceButtonState extends State<MarketplaceButton> {
       ),
       onPressed: widget.onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateColor.resolveWith((states) {
-          if (states.contains(MaterialState.hovered)) {
+        backgroundColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.hovered)) {
             return widget.hoverColor ??
                 MarketplaceTheme.secondary.withOpacity(.3);
           }
           return widget.buttonBackgroundColor ??
               Theme.of(context).splashColor.withOpacity(.3);
         }),
-        shape: MaterialStateProperty.resolveWith(
+        shape: WidgetStateProperty.resolveWith(
           (states) {
-            if (states.contains(MaterialState.hovered)) {
+            if (states.contains(WidgetState.hovered)) {
               // TODO: how can I animate between states?
             }
-            return RoundedRectangleBorder(
+            return const RoundedRectangleBorder(
               side: BorderSide(color: Colors.black26),
               borderRadius: BorderRadius.all(
                 Radius.circular(MarketplaceTheme.defaultBorderRadius),
@@ -73,7 +73,7 @@ class _MarketplaceButtonState extends State<MarketplaceButton> {
             );
           },
         ),
-        textStyle: MaterialStateTextStyle.resolveWith(
+        textStyle: WidgetStateTextStyle.resolveWith(
           (states) {
             return MarketplaceTheme.dossierParagraph.copyWith(
               color: Colors.black45,
