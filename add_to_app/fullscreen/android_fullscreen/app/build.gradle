@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
     defaultConfig {
         applicationId "dev.flutter.example.androidfullscreen"
         minSdkVersion 21
