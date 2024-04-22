@@ -27,7 +27,7 @@ jobs:
         flutter_version: [stable, beta, master]
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f
       - uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9
         with:
           distribution: 'zulu'
@@ -40,7 +40,7 @@ jobs:
     name: web/samples_index config check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f
       - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
       - run: |
           dart pub get
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f
       - uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9
         with:
           distribution: 'zulu'
@@ -63,7 +63,7 @@ jobs:
     runs-on: macos-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f
       - uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9
         with:
           distribution: 'zulu'
