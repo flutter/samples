@@ -4,4 +4,4 @@ evaluate(new File(
   settingsDir,
   '../flutter_module_books/.android/include_flutter.groovy'
 ))
-rootProject.name = "Android Books"
+rootProject.name = "android_books"

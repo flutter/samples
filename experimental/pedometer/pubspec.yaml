@@ -4,18 +4,18 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ^3.2.0
+  sdk: ^3.3.1
 
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
-  jni: ^0.7.2
-  ffi: ^2.1.0
+  plugin_platform_interface: ^2.1.8
+  jni: ^0.8.0
+  ffi: ^2.1.2
 
 dev_dependencies:
   ffigen: ^11.0.0
-  jnigen: ^0.7.0
+  jnigen: ^0.8.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0

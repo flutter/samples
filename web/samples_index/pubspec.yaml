@@ -5,7 +5,7 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ^3.2.0
+  sdk: ^3.3.1
 
 dependencies:
   checked_yaml: ^2.0.3

@@ -3,7 +3,7 @@ description: "Captures web startup timing data in a Flutter web app"
 version: 0.1.0-wip
 
 environment:
-  sdk: ^3.2.0
+  sdk: ^3.3.1
   flutter: ^3.16.0
 
 dependencies:

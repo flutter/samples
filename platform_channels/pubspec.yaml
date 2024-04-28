@@ -4,14 +4,14 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.2.0
+  sdk: ^3.3.1
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.3
-  go_router: ">=10.1.0 <14.0.0"
+  go_router: ">=10.1.0 <15.0.0"
 
 dev_dependencies:
   analysis_defaults:

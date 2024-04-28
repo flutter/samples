@@ -9,18 +9,18 @@ class TextFieldDemo extends StatefulWidget {
 }
 
 class _TextFieldDemoState extends State<TextFieldDemo> {
-  late TextEditingController textController;
+  late final TextEditingController textController;
 
   @override
   void initState() {
     super.initState();
-    // Initial value of the text box
+    // Initial value of the text box.
     textController = TextEditingController.fromValue(TextEditingValue(
         text: widget.text.value,
         selection: TextSelection.collapsed(offset: widget.text.value.length)));
-    // Report changes
+    // Report changes.
     textController.addListener(_onTextControllerChange);
-    // Listen to changes from the outside
+    // Listen to changes from the outside.
     widget.text.addListener(_onTextStateChanged);
   }
 

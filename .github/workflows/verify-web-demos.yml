@@ -21,11 +21,11 @@ jobs:
           # - beta
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b
         with:
           submodules: true
           fetch-depth: 0
-      - uses: subosito/flutter-action@1c5eb12d812966ca84680edc38353a0851c8fd56
+      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
         with:
           channel: ${{ matrix.flutter_version }}
       - name: Init scripts

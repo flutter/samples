@@ -11,8 +11,9 @@ import 'package:pedometer/health_connect.dart' as hc;
 
 /// Class to hold the information needed for the chart
 class Steps {
-  String startHour;
-  int steps;
+  final String startHour;
+  final int steps;
+
   Steps(this.startHour, this.steps);
 }
 
@@ -30,9 +31,9 @@ class _IOSStepsRepo implements StepsRepo {
   static const _dylibPath =
       '/System/Library/Frameworks/CoreMotion.framework/CoreMotion';
 
-  // Bindings for the CMPedometer class
+  // Bindings for the CMPedometer class.
   final lib = pd.PedometerBindings(ffi.DynamicLibrary.open(_dylibPath));
-  // Bindings for the helper function
+  // Bindings for the helper function.
   final helpLib = pd.PedometerBindings(ffi.DynamicLibrary.process());
 
   late final pd.CMPedometer client;
@@ -68,7 +69,8 @@ class _IOSStepsRepo implements StepsRepo {
   pd.NSDate dateConverter(DateTime dartDate) {
     // Format dart date to string.
     final formattedDate = DateFormat(StepsRepo._formatString).format(dartDate);
-    // Get current timezone. If eastern african change to AST to follow with NSDate.
+    // Get current timezone.
+    // If eastern african change to AST to follow with NSDate.
     final tz = dartDate.timeZoneName == "EAT" ? "AST" : dartDate.timeZoneName;
 
     // Create a new NSString with the formatted date and timezone.
@@ -112,7 +114,7 @@ class _IOSStepsRepo implements StepsRepo {
           start, end, handler);
     }
 
-    return (await Future.wait(futures)).nonNulls.toList();
+    return (await futures.wait).nonNulls.toList();
   }
 }
 
@@ -122,10 +124,9 @@ class _AndroidStepsRepo implements StepsRepo {
   late final hc.HealthConnectClient client;
 
   _AndroidStepsRepo() {
-    jni.Jni.initDLApi();
-    activity = hc.Activity.fromRef(jni.Jni.getCurrentActivity());
+    activity = hc.Activity.fromReference(jni.Jni.getCurrentActivity());
     applicationContext =
-        hc.Context.fromRef(jni.Jni.getCachedApplicationContext());
+        hc.Context.fromReference(jni.Jni.getCachedApplicationContext());
     client = hc.HealthConnectClient.getOrCreate1(applicationContext);
   }
 
