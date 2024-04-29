@@ -12,16 +12,19 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
+        body: Container(
+          padding: EdgeInsets.all(50),
           child: Column(
             children: [
               Text('This is an image asset that was declared in pubspec.yaml. '
                   'If you open the file, you will notice that the image is '
                   'colorful, but in the app it appears in grayscale. This is '
                   'because the transformer it was declared with produced the '
-                  'image in grayscale.'),
+                  'image in grayscale. Explore the grayscale_transformer directory '
+                  'to see the source and learn how to write your own Dart package '
+                  'that can be used as an asset transformer in Flutter.'),
               Image.asset('assets/colorful.jpg'),
-              SizedBox(height: 200),
+              Divider(height: 75),
               Text("This is an SVG image rendered using the vector_graphics "
                   "package. Normally, the package can only render images produced "
                   "by the vector_graphics_compiler package. However, since we "
