@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
                   'because the transformer it was declared with produced the '
                   'image in grayscale.'),
               Image.asset('assets/colorful.jpg'),
-              SizedBox(height: 80),
+              SizedBox(height: 200),
               Text("This is an SVG image rendered using the vector_graphics "
                   "package. Normally, the package can only render images produced "
                   "by the vector_graphics_compiler package. However, since we "

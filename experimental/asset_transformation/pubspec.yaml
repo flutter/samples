@@ -16,11 +16,15 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
   vector_graphics_compiler: ^1.1.11+1
+  grayscale_transformer:
+    path: ./grayscale_transformer
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/colorful.jpg
+    - path: assets/colorful.jpg
+      transformers:
+        - package: grayscale_transformer
     - path: assets/svg.svg
       transformers:
         - package: vector_graphics_compiler

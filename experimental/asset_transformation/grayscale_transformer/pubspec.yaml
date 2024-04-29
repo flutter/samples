@@ -1,14 +1,13 @@
 name: grayscale_transformer
 description: A sample command-line application.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
 
 environment:
   sdk: ^3.5.0-109.0.dev
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
+  args: ^2.4.2
+  image: ^4.1.7
 
 dev_dependencies:
   lints: ^3.0.0
