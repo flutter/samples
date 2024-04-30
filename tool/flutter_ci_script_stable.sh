@@ -8,7 +8,7 @@ source "$DIR/flutter_ci_script_shared.sh"
 flutter doctor -v
 
 declare -ar PROJECT_NAMES=(
-#    "add_to_app/android_view/flutter_module_using_plugin"
+    "add_to_app/android_view/flutter_module_using_plugin"
     "add_to_app/books/flutter_module_books"
     "add_to_app/fullscreen/flutter_module"
     "add_to_app/multiple_flutters/multiple_flutters_module"
@@ -31,7 +31,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/linting_tool"
+     # TODO: ewindmill to talk to team about removing.
+     # Depends on package context_menus, which breaks with Material3 by default.
+#    "experimental/linting_tool"
     "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"

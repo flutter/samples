@@ -313,7 +313,7 @@ class _ColorSeedButton extends StatelessWidget {
     return PopupMenuButton(
       icon: Icon(
         Icons.palette_outlined,
-        color: Theme.of(context).colorScheme.onSurfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
       ),
       tooltip: 'Select a seed color',
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -367,7 +367,7 @@ class _ColorImageButton extends StatelessWidget {
     return PopupMenuButton(
       icon: Icon(
         Icons.image_outlined,
-        color: Theme.of(context).colorScheme.onSurfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
       ),
       tooltip: 'Select a color extraction image',
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
