@@ -17,10 +17,6 @@ dependencies:
   quiver: ^3.1.0
   url_launcher: ^6.1.1
   url_strategy: ^0.2.0
-  window_size:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
 
 dev_dependencies:
   analysis_defaults:
