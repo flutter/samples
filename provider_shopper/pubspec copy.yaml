@@ -1,0 +1,33 @@
+name: provider_shopper
+description: A shopping app sample that uses Provider for state management.
+publish_to: none
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.3.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  go_router: ^14.0.0
+  provider: ^6.0.2
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+
+dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Corben
+      fonts:
+        - asset: fonts/Corben/Corben-Bold.ttf
+          weight: 700
