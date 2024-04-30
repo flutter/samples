@@ -18,7 +18,7 @@ int main(List<String> arguments) {
   ArgResults argResults = parser.parse(arguments);
   final String inputFilePath = argResults[inputOptionName];
   final String outputFilePath = argResults[outputOptionName];
-  
+
   try {
     final Image image = decodeImage(File(inputFilePath).readAsBytesSync())!;
     final Image imageInGrayscale = grayscale(image);
