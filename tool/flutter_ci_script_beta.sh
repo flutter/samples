@@ -18,6 +18,7 @@ declare -ar PROJECT_NAMES=(
     "android_splash_screen"
     # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
     # "animations"
+    "asset_transformation"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
@@ -26,7 +27,6 @@ declare -ar PROJECT_NAMES=(
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/asset_transformation"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
