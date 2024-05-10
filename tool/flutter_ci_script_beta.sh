@@ -26,7 +26,8 @@ declare -ar PROJECT_NAMES=(
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "dynamic_theme"
+    # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
+    # "dynamic_theme"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
