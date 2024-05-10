@@ -48,7 +48,6 @@ declare -ar PROJECT_NAMES=(
     # "game_template"
     # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
     # "gemini_tasks"
-    "gemini_tasks"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
