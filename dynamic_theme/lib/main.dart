@@ -69,8 +69,8 @@ class _GenerativeAISampleState extends State<GenerativeAISample> {
           themeMode: themeMode.value,
           builder: (context, child) {
             return MediaQuery(
-              data: MediaQuery.of(context)
-                  .copyWith(textScaleFactor: textScaleFactor.value),
+              data: MediaQuery.of(context).copyWith(
+                  textScaler: TextScaler.linear(textScaleFactor.value)),
               child: child!,
             );
           },
