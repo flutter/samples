@@ -46,6 +46,8 @@ declare -ar PROJECT_NAMES=(
     "form_app"
     # TODO: 'onBackground' is deprecated and shouldn't be used.
     # "game_template"
+    # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
+    # "gemini_tasks"
     "gemini_tasks"
     "google_maps"
     "infinite_list"
