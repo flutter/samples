@@ -14,8 +14,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/multiple_flutters/multiple_flutters_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
-    # TODO(ewindmill): Already updated for 3.22, breaks CI due to using WidgetStateProperty and friends
-    # "ai_recipe_generation"
+    "ai_recipe_generation"
     "analysis_defaults"
     "android_splash_screen"
     "animations"
