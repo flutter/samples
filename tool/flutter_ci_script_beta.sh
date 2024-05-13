@@ -25,6 +25,8 @@ declare -ar PROJECT_NAMES=(
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
+    # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
+    # "dynamic_theme"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
@@ -33,7 +35,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
      # TODO: ewindmill to talk to team about removing.
      # Depends on package context_menus, which breaks with Material3 by default.
-#    "experimental/linting_tool"
+     # "experimental/linting_tool"
     "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
@@ -41,6 +43,10 @@ declare -ar PROJECT_NAMES=(
     "flutter_maps_firestore"
     "form_app"
     "game_template"
+    # TODO: 'onBackground' is deprecated and shouldn't be used.
+    # "game_template"
+    # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
+    # "gemini_tasks"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
