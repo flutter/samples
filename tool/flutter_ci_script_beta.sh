@@ -16,7 +16,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "analysis_defaults"
     "android_splash_screen"
-     "animations"
+    "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
@@ -33,9 +33,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-     # TODO: ewindmill to talk to team about removing.
-     # Depends on package context_menus, which breaks with Material3 by default.
-     # "experimental/linting_tool"
+    # TODO: ewindmill to talk to team about removing.
+    # Depends on package context_menus, which breaks with Material3 by default.
+    # "experimental/linting_tool"
     "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
@@ -43,22 +43,20 @@ declare -ar PROJECT_NAMES=(
     "flutter_maps_firestore"
     "form_app"
     "game_template"
-    # TODO: 'onBackground' is deprecated and shouldn't be used.
-    # "game_template"
     # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
     # "gemini_tasks"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-      "material_3_demo"
+    "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
-     "provider_shopper"
+    "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
     "simplistic_editor"
