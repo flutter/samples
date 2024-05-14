@@ -58,8 +58,8 @@ class _AddButton extends StatelessWidget {
               cart.add(item);
             },
       style: ButtonStyle(
-        overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-          if (states.contains(MaterialState.pressed)) {
+        overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(WidgetState.pressed)) {
             return Theme.of(context).primaryColor;
           }
           return null; // Defer to the widget's default.
