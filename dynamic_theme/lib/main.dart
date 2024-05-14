@@ -172,10 +172,6 @@ class _ExampleState extends State<Example> {
     loading.value = true;
     try {
       final prompt = StringBuffer();
-      // prompt.writeln(
-      //   'If the following is not a question assume'
-      //   'it is a new task to be added:',
-      // );
       prompt.writeln(message);
       final response = await callWithActions([Content.text(prompt.toString())]);
       if (response.text != null) {
