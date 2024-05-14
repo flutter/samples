@@ -1,9 +1,9 @@
+import 'package:ai_recipe_generation/features/recipes/recipes_view_model.dart';
+import 'package:ai_recipe_generation/features/recipes/widgets/recipe_fullscreen_dialog.dart';
+import 'package:ai_recipe_generation/theme.dart';
+import 'package:ai_recipe_generation/util/extensions.dart';
+import 'package:ai_recipe_generation/widgets/highlight_border_on_hover_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/features/recipes/recipes_view_model.dart';
-import 'package:gemini_io_talk/features/recipes/widgets/recipe_fullscreen_dialog.dart';
-import 'package:gemini_io_talk/theme.dart';
-import 'package:gemini_io_talk/util/extensions.dart';
-import 'package:gemini_io_talk/widgets/highlight_border_on_hover_widget.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
 

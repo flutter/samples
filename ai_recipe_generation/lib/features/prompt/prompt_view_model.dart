@@ -1,7 +1,7 @@
+import 'package:ai_recipe_generation/services/gemini.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/services/gemini.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:image_picker/image_picker.dart';
 

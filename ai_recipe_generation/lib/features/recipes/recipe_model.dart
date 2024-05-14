@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:gemini_io_talk/util/json_parsing.dart';
+import 'package:ai_recipe_generation/util/json_parsing.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 class Recipe {

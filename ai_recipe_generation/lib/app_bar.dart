@@ -1,6 +1,6 @@
+import 'package:ai_recipe_generation/util/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:gemini_io_talk/util/extensions.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import 'features/prompt/widgets/app_info_dialog_widget.dart';

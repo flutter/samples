@@ -1,5 +1,5 @@
+import 'package:ai_recipe_generation/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/theme.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:material_symbols_icons/symbols.dart';
 

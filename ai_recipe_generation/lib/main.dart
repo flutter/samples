@@ -1,10 +1,10 @@
+import 'package:ai_recipe_generation/util/device_info.dart';
+import 'package:ai_recipe_generation/util/tap_recorder.dart';
 import 'package:camera/camera.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/util/device_info.dart';
-import 'package:gemini_io_talk/util/tap_recorder.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:provider/provider.dart';
 

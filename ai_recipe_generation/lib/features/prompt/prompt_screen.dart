@@ -1,6 +1,6 @@
+import 'package:ai_recipe_generation/features/prompt/prompt_view_model.dart';
+import 'package:ai_recipe_generation/util/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/features/prompt/prompt_view_model.dart';
-import 'package:gemini_io_talk/util/extensions.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:provider/provider.dart';
 

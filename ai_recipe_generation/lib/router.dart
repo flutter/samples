@@ -1,10 +1,10 @@
+import 'package:ai_recipe_generation/app_bar.dart';
+import 'package:ai_recipe_generation/features/prompt/prompt_screen.dart';
+import 'package:ai_recipe_generation/features/prompt/prompt_view_model.dart';
+import 'package:ai_recipe_generation/features/recipes/saved_recipes_screen.dart';
+import 'package:ai_recipe_generation/widgets/bottom_bar_shape_border.dart';
+import 'package:ai_recipe_generation/widgets/marketplace_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/app_bar.dart';
-import 'package:gemini_io_talk/features/prompt/prompt_screen.dart';
-import 'package:gemini_io_talk/features/prompt/prompt_view_model.dart';
-import 'package:gemini_io_talk/features/recipes/saved_recipes_screen.dart';
-import 'package:gemini_io_talk/widgets/bottom_bar_shape_border.dart';
-import 'package:gemini_io_talk/widgets/marketplace_button_widget.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
 

@@ -1,7 +1,7 @@
+import 'package:ai_recipe_generation/theme.dart';
+import 'package:ai_recipe_generation/util/extensions.dart';
+import 'package:ai_recipe_generation/util/filter_chip_enums.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/theme.dart';
-import 'package:gemini_io_talk/util/extensions.dart';
-import 'package:gemini_io_talk/util/filter_chip_enums.dart';
 
 class FilterChipSelectionInput<T extends Enum> extends StatefulWidget {
   const FilterChipSelectionInput({

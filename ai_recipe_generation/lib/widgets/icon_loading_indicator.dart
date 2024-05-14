@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:ai_recipe_generation/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_io_talk/theme.dart';
 
 class IconLoadingAnimator extends StatefulWidget {
   IconLoadingAnimator({
