@@ -17,8 +17,6 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.8
-  web_startup_analyzer:
-    path: ../web/_packages/web_startup_analyzer
 
 dev_dependencies:
   analysis_defaults:

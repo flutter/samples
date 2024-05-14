@@ -3,7 +3,7 @@ description: "flutter_web_startup_analyzer example"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
-  sdk: ^3.3.1
+  sdk: ^3.4.0-0
   flutter: ^3.16.0
 dependencies:
   flutter:
@@ -14,6 +14,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 flutter:
   uses-material-design: true
