@@ -31,16 +31,16 @@ class TextStyles {
 class ButtonStyles {
   static ButtonStyle style() {
     return ButtonStyle(
-      fixedSize: MaterialStateProperty.resolveWith<Size>((states) {
+      fixedSize: WidgetStateProperty.resolveWith<Size>((states) {
         return const Size(100, 36);
       }),
-      shape: MaterialStateProperty.resolveWith<OutlinedBorder>((states) {
+      shape: WidgetStateProperty.resolveWith<OutlinedBorder>((states) {
         return const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(18)));
       }),
       overlayColor: null,
-      backgroundColor: MaterialStateProperty.resolveWith<Color?>((states) {
-        if (states.contains(MaterialState.hovered)) {
+      backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.hovered)) {
           return Colors.black; // Hovered bg (for desktop with mouse)
         }
         return Colors.grey[600]; // Default bg

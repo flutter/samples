@@ -266,7 +266,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData.from(
               colorScheme: ColorScheme.fromSeed(
                 seedColor: palette.darkPen,
-                background: palette.backgroundMain,
+                surface: palette.backgroundMain,
               ),
               textTheme: TextTheme(
                 bodyMedium: TextStyle(

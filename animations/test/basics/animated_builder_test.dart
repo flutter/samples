@@ -17,8 +17,7 @@ void main() {
 
       // Get the initial color of the button.
       ElevatedButton button = tester.widget(find.byType(ElevatedButton));
-      MaterialStateProperty<Color?>? initialColor =
-          button.style!.backgroundColor;
+      WidgetStateProperty<Color?>? initialColor = button.style!.backgroundColor;
 
       // Tap the button.
       await tester.tap(find.byType(ElevatedButton));
@@ -26,8 +25,7 @@ void main() {
 
       // Get the updated color of the button.
       button = tester.widget(find.byType(ElevatedButton));
-      MaterialStateProperty<Color?>? updatedColor =
-          button.style!.backgroundColor;
+      WidgetStateProperty<Color?>? updatedColor = button.style!.backgroundColor;
 
       // Check if the color has changed.
       expect(initialColor, isNot(updatedColor));
@@ -38,8 +36,7 @@ void main() {
 
       // Get the initial color of the button.
       ElevatedButton button = tester.widget(find.byType(ElevatedButton));
-      MaterialStateProperty<Color?>? initialColor =
-          button.style!.backgroundColor;
+      WidgetStateProperty<Color?>? initialColor = button.style!.backgroundColor;
 
       // Tap the button to trigger the animation but don't wait for it to finish.
       await tester.tap(find.byType(ElevatedButton));
@@ -48,8 +45,7 @@ void main() {
 
       // Check that the color has changed but not to the final color.
       button = tester.widget(find.byType(ElevatedButton));
-      MaterialStateProperty<Color?>? changedColor =
-          button.style!.backgroundColor;
+      WidgetStateProperty<Color?>? changedColor = button.style!.backgroundColor;
       expect(initialColor, isNot(changedColor));
 
       // Wait for the animation to finish.
@@ -57,7 +53,7 @@ void main() {
 
       // Check that the color has changed to the final color.
       button = tester.widget(find.byType(ElevatedButton));
-      MaterialStateProperty<Color?>? finalColor = button.style!.backgroundColor;
+      WidgetStateProperty<Color?>? finalColor = button.style!.backgroundColor;
       expect(changedColor, isNot(finalColor));
     });
   });

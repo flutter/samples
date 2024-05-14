@@ -16,8 +16,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "analysis_defaults"
     "android_splash_screen"
-    # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
-    # "animations"
+    "animations"
     "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
@@ -26,42 +25,36 @@ declare -ar PROJECT_NAMES=(
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
-    # "dynamic_theme"
+    "dynamic_theme"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    # TODO: 'onBackground' is deprecated and shouldn't be used.
+    # TODO: ewindmill to talk to team about removing.
+    # Depends on package context_menus, which breaks with Material3 by default.
     # "experimental/linting_tool"
-    # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
-    # "experimental/pedometer"
-    # "experimental/pedometer/example"
-    # 'MaterialStateProperty' is deprecated and shouldn't be used.
-    # "experimental/varfont_shader_puzzle"
+    "experimental/pedometer"
+    "experimental/pedometer/example"
+    "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
-    # TODO: 'onBackground' is deprecated and shouldn't be used.
-    # "game_template"
-    # TODO: 'surfaceVariant' is deprecated and shouldn't be used.
-    # "gemini_tasks"
+    "game_template"
+    "gemini_tasks"
     "google_maps"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-     # TODO(ewindmill): Add back when deps allow
-     # "material_3_demo"
+    "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
-    # TODO: 'MaterialStateProperty' is deprecated and shouldn't be used.
-    # "provider_shopper"
+    "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
     "simplistic_editor"
