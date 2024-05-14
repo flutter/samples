@@ -19,6 +19,7 @@ declare -ar PROJECT_NAMES=(
   "analysis_defaults"
   "android_splash_screen"
   "animations"
+  "asset_transformation"
   "background_isolate_channels"
   "code_sharing/client"
   "code_sharing/server"
