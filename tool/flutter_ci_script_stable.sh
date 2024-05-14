@@ -33,7 +33,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/linting_tool"
+    # TODO: ewindmill to talk to team about removing.
+    # Depends on package context_menus, which breaks with Material3 by default.
+    # "experimental/linting_tool"
     "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"

@@ -320,7 +320,7 @@ void main() {
 
   testWidgets('Color theme changes when a color is selected from menu',
       (tester) async {
-    Color m3BaseColor = const Color(0xff6750a4);
+    Color m3BaseColor = const Color(0xff65558f);
     await tester.pumpWidget(Container());
     await tester.pumpWidget(const App());
     await tester.pump();
