@@ -1,6 +1,6 @@
 This is a demo app created for the Google I/O talk "Gemini API and Flutter: Practical, AI-driven apps with Google AI tools"
 
-[See the prompt we used on Google AI Studio](https://aistudio.google.com/app/prompts/1RsTAt6_N8BPhXbrrd8gSJcdeuYV834kf)
+Check out the [the prompt we used on Google AI Studio](https://aistudio.google.com/app/prompts/1RsTAt6_N8BPhXbrrd8gSJcdeuYV834kf).
 
 ## Running the app 
 
