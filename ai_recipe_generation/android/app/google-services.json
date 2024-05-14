@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44885228795",
+    "project_id": "gemini-cat-chef",
+    "storage_bucket": "gemini-cat-chef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44885228795:android:d1ed69a5c617a8b98f845e",
+        "android_client_info": {
+          "package_name": "com.example.gemini_io_talk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANxBBzc4s-Yuol0xqs-mEtXe-pNcut3OU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
