@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ^3.4.0-0
 
 dependencies:
   async: ^2.11.0
@@ -18,7 +18,7 @@ dependencies:
   flutter_markdown: ^0.6.20
   flutter_svg: ^2.0.9
   google_fonts: 6.1.0
-  google_generative_ai: ^0.2.0
+  google_generative_ai: ^0.4.0
   image_picker: ^1.0.7
   material_symbols_icons: ^4.2719.1
   path: ^1.9.0

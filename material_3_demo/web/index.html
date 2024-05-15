@@ -31,37 +31,8 @@
 
   <title>material_3_demo</title>
   <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-  <script type="text/javascript" src="assets/packages/web_startup_analyzer/lib/web_startup_analyzer.js"></script>
 </head>
 <body>
-<script>
-  var flutterWebStartupAnalyzer = new FlutterWebStartupAnalyzer();
-  var analyzer = flutterWebStartupAnalyzer;
-
-  window.addEventListener('load', function(ev) {
-    analyzer.markStart("loadEntrypoint");
-    _flutter.loader.loadEntrypoint({
-      serviceWorker: {
-        serviceWorkerVersion: serviceWorkerVersion,
-      },
-      onEntrypointLoaded: function(engineInitializer) {
-        analyzer.markFinished("loadEntrypoint");
-        analyzer.markStart("initializeEngine");
-        engineInitializer.initializeEngine().then(function(appRunner) {
-          analyzer.markFinished("initializeEngine");
-          analyzer.markStart("appRunnerRunApp");
-          appRunner.runApp();
-        });
-      }
-    });
-  });
-</script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
