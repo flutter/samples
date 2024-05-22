@@ -53,9 +53,10 @@ class ColorPalettesScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             children: [
               const TextSpan(
-                  text: 'To create color schemes based on a '
-                      'platform\'s implementation of dynamic color, '
-                      'use the '),
+                text: 'To create color schemes based on a '
+                    'platform\'s implementation of dynamic color, '
+                    'use the ',
+              ),
               TextSpan(
                 text: 'dynamic_color',
                 style: const TextStyle(decoration: TextDecoration.underline),
@@ -75,55 +76,57 @@ class ColorPalettesScreen extends StatelessWidget {
         );
 
     return Expanded(
-      child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < narrowScreenWidthThreshold) {
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                dynamicColorNotice(),
-                divider,
-                schemeLabel('Light ColorScheme'),
-                schemeView(lightTheme),
-                divider,
-                divider,
-                schemeLabel('Dark ColorScheme'),
-                schemeView(darkTheme),
-              ],
-            ),
-          );
-        } else {
-          return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 5),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < narrowScreenWidthThreshold) {
+            return SingleChildScrollView(
               child: Column(
                 children: [
                   dynamicColorNotice(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            schemeLabel('Light ColorScheme'),
-                            schemeView(lightTheme),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            schemeLabel('Dark ColorScheme'),
-                            schemeView(darkTheme),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  divider,
+                  schemeLabel('Light ColorScheme'),
+                  schemeView(lightTheme),
+                  divider,
+                  divider,
+                  schemeLabel('Dark ColorScheme'),
+                  schemeView(darkTheme),
                 ],
               ),
-            ),
-          );
-        }
-      }),
+            );
+          } else {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Column(
+                  children: [
+                    dynamicColorNotice(),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              schemeLabel('Light ColorScheme'),
+                              schemeView(lightTheme),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              schemeLabel('Dark ColorScheme'),
+                              schemeView(darkTheme),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
@@ -136,7 +139,7 @@ class ColorSchemeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         ColorGroup(
           children: [
             ColorChip(
@@ -158,6 +161,31 @@ class ColorSchemeView extends StatelessWidget {
               label: 'onPrimaryContainer',
               color: colorScheme.onPrimaryContainer,
               onColor: colorScheme.primaryContainer,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
+            ColorChip(
+              label: 'primaryFixed',
+              color: colorScheme.primaryFixed,
+              onColor: colorScheme.onPrimaryFixed,
+            ),
+            ColorChip(
+              label: 'onPrimaryFixed',
+              color: colorScheme.onPrimaryFixed,
+              onColor: colorScheme.primaryFixed,
+            ),
+            ColorChip(
+              label: 'primaryFixedDim',
+              color: colorScheme.primaryFixedDim,
+              onColor: colorScheme.onPrimaryFixedVariant,
+            ),
+            ColorChip(
+              label: 'onPrimaryFixedVariant',
+              color: colorScheme.onPrimaryFixedVariant,
+              onColor: colorScheme.primaryFixedDim,
             ),
           ],
         ),
@@ -190,6 +218,31 @@ class ColorSchemeView extends StatelessWidget {
         ColorGroup(
           children: [
             ColorChip(
+              label: 'secondaryFixed',
+              color: colorScheme.secondaryFixed,
+              onColor: colorScheme.onSecondaryFixed,
+            ),
+            ColorChip(
+              label: 'onSecondaryFixed',
+              color: colorScheme.onSecondaryFixed,
+              onColor: colorScheme.secondaryFixed,
+            ),
+            ColorChip(
+              label: 'secondaryFixedDim',
+              color: colorScheme.secondaryFixedDim,
+              onColor: colorScheme.onSecondaryFixedVariant,
+            ),
+            ColorChip(
+              label: 'onSecondaryFixedVariant',
+              color: colorScheme.onSecondaryFixedVariant,
+              onColor: colorScheme.secondaryFixedDim,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
+            ColorChip(
               label: 'tertiary',
               color: colorScheme.tertiary,
               onColor: colorScheme.onTertiary,
@@ -208,6 +261,31 @@ class ColorSchemeView extends StatelessWidget {
               label: 'onTertiaryContainer',
               color: colorScheme.onTertiaryContainer,
               onColor: colorScheme.tertiaryContainer,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
+            ColorChip(
+              label: 'tertiaryFixed',
+              color: colorScheme.tertiaryFixed,
+              onColor: colorScheme.onTertiaryFixed,
+            ),
+            ColorChip(
+              label: 'onTertiaryFixed',
+              color: colorScheme.onTertiaryFixed,
+              onColor: colorScheme.tertiaryFixed,
+            ),
+            ColorChip(
+              label: 'tertiaryFixedDim',
+              color: colorScheme.tertiaryFixedDim,
+              onColor: colorScheme.onTertiaryFixedVariant,
+            ),
+            ColorChip(
+              label: 'onTertiaryFixedVariant',
+              color: colorScheme.onTertiaryFixedVariant,
+              onColor: colorScheme.tertiaryFixedDim,
             ),
           ],
         ),
@@ -240,8 +318,43 @@ class ColorSchemeView extends StatelessWidget {
         ColorGroup(
           children: [
             ColorChip(
+              label: 'surfaceDim',
+              color: colorScheme.surfaceDim,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
               label: 'surface',
               color: colorScheme.surface,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceBright',
+              color: colorScheme.surfaceBright,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainerLowest',
+              color: colorScheme.surfaceContainerLowest,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainerLow',
+              color: colorScheme.surfaceContainerLow,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainer',
+              color: colorScheme.surfaceContainer,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainerHigh',
+              color: colorScheme.surfaceContainerHigh,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainerHighest',
+              color: colorScheme.surfaceContainerHighest,
               onColor: colorScheme.onSurface,
             ),
             ColorChip(
@@ -250,18 +363,9 @@ class ColorSchemeView extends StatelessWidget {
               onColor: colorScheme.surface,
             ),
             ColorChip(
-              label: 'surfaceContainerHighest',
-              color: colorScheme.surfaceContainerHighest,
+              label: 'onSurfaceVariant',
+              color: colorScheme.onSurfaceVariant,
               onColor: colorScheme.surfaceContainerHighest,
-            ),
-            ColorChip(
-              label: 'surfaceContainerHighest',
-              color: colorScheme.surfaceContainerHighest,
-              onColor: colorScheme.surfaceContainerHighest,
-            ),
-            ColorChip(
-              label: 'surfaceTint',
-              color: colorScheme.surfaceTint,
             ),
           ],
         ),
@@ -271,16 +375,13 @@ class ColorSchemeView extends StatelessWidget {
             ColorChip(
               label: 'outline',
               color: colorScheme.outline,
+              onColor: null,
             ),
             ColorChip(
-              label: 'outlineVariant',
-              color: colorScheme.outlineVariant,
+              label: 'shadow',
+              color: colorScheme.shadow,
+              onColor: null,
             ),
-          ],
-        ),
-        divider,
-        ColorGroup(
-          children: [
             ColorChip(
               label: 'inverseSurface',
               color: colorScheme.inverseSurface,
@@ -298,30 +399,6 @@ class ColorSchemeView extends StatelessWidget {
             ),
           ],
         ),
-        divider,
-        ColorGroup(
-          children: [
-            ColorChip(
-              label: 'background',
-              color: colorScheme.surface,
-              onColor: colorScheme.onSurface,
-            ),
-            ColorChip(
-              label: 'onSurface',
-              color: colorScheme.onSurface,
-              onColor: colorScheme.surface,
-            ),
-            ColorChip(
-              label: 'scrim',
-              color: colorScheme.scrim,
-            ),
-            ColorChip(
-              label: 'shadow',
-              color: colorScheme.shadow,
-            ),
-          ],
-        ),
-        divider,
       ],
     );
   }
@@ -330,7 +407,7 @@ class ColorSchemeView extends StatelessWidget {
 class ColorGroup extends StatelessWidget {
   const ColorGroup({super.key, required this.children});
 
-  final List<Widget> children;
+  final List<ColorChip> children;
 
   @override
   Widget build(BuildContext context) {
