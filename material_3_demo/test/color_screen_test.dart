@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// ignore_for_file: avoid_types_on_closure_parameters
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_3_demo/color_palettes_screen.dart';
@@ -70,6 +69,6 @@ void main() {
     ));
     expect(find.text('Light ColorScheme'), findsOneWidget);
     expect(find.text('Dark ColorScheme'), findsOneWidget);
-    expect(find.byType(ColorGroup, skipOffstage: false), findsNWidgets(16));
+    expect(find.byType(ColorGroup, skipOffstage: false), findsNWidgets(18));
   });
 }
