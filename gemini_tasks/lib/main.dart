@@ -123,11 +123,6 @@ class _ExampleState extends State<Example> {
     model: 'gemini-pro',
     apiKey: widget.apiKey,
     requestOptions: const RequestOptions(apiVersion: 'v1beta'),
-
-    // systemInstruction: Content.text(
-    //   'You are a task bot that can complete, add, '
-    //   'and filter tasks for a todo style application.',
-    // ),
     tools: [
       Tool(
         functionDeclarations: <FunctionDeclaration>[
@@ -385,8 +380,9 @@ class _ExampleState extends State<Example> {
                     controller: controller,
                     decoration: textFieldDecoration(
                         context,
-                        'Try "Add a task for..." or "What are my ucompleted '
-                        'tasks?"'),
+                        'Try "Add a task for..."'
+                        'or "What are my uncompleted tasks?"',
+                    ),
                     onEditingComplete: sendMessage,
                     onSubmitted: (value) => sendMessage(),
                   ),
