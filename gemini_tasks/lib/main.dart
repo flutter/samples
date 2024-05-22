@@ -379,9 +379,9 @@ class _ExampleState extends State<Example> {
                   child: TextField(
                     controller: controller,
                     decoration: textFieldDecoration(
-                        context,
-                        'Try "Add a task for..."'
-                        'or "What are my uncompleted tasks?"',
+                      context,
+                      'Try "Add a task for..."'
+                      'or "What are my uncompleted tasks?"',
                     ),
                     onEditingComplete: sendMessage,
                     onSubmitted: (value) => sendMessage(),
