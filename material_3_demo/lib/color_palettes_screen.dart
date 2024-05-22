@@ -53,9 +53,10 @@ class ColorPalettesScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             children: [
               const TextSpan(
-                  text: 'To create color schemes based on a '
-                      'platform\'s implementation of dynamic color, '
-                      'use the '),
+                text: 'To create color schemes based on a '
+                    'platform\'s implementation of dynamic color, '
+                    'use the ',
+              ),
               TextSpan(
                 text: 'dynamic_color',
                 style: const TextStyle(decoration: TextDecoration.underline),
@@ -75,55 +76,57 @@ class ColorPalettesScreen extends StatelessWidget {
         );
 
     return Expanded(
-      child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < narrowScreenWidthThreshold) {
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                dynamicColorNotice(),
-                divider,
-                schemeLabel('Light ColorScheme'),
-                schemeView(lightTheme),
-                divider,
-                divider,
-                schemeLabel('Dark ColorScheme'),
-                schemeView(darkTheme),
-              ],
-            ),
-          );
-        } else {
-          return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 5),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < narrowScreenWidthThreshold) {
+            return SingleChildScrollView(
               child: Column(
                 children: [
                   dynamicColorNotice(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            schemeLabel('Light ColorScheme'),
-                            schemeView(lightTheme),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            schemeLabel('Dark ColorScheme'),
-                            schemeView(darkTheme),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  divider,
+                  schemeLabel('Light ColorScheme'),
+                  schemeView(lightTheme),
+                  divider,
+                  divider,
+                  schemeLabel('Dark ColorScheme'),
+                  schemeView(darkTheme),
                 ],
               ),
-            ),
-          );
-        }
-      }),
+            );
+          } else {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Column(
+                  children: [
+                    dynamicColorNotice(),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              schemeLabel('Light ColorScheme'),
+                              schemeView(lightTheme),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              schemeLabel('Dark ColorScheme'),
+                              schemeView(darkTheme),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
@@ -137,98 +140,118 @@ class ColorSchemeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        ColorGroup(children: <ColorChip>[
-          ColorChip(
+        ColorGroup(
+          children: [
+            ColorChip(
               label: 'primary',
               color: colorScheme.primary,
-              onColor: colorScheme.onPrimary),
-          ColorChip(
+              onColor: colorScheme.onPrimary,
+            ),
+            ColorChip(
               label: 'onPrimary',
               color: colorScheme.onPrimary,
-              onColor: colorScheme.primary),
-          ColorChip(
+              onColor: colorScheme.primary,
+            ),
+            ColorChip(
               label: 'primaryContainer',
               color: colorScheme.primaryContainer,
-              onColor: colorScheme.onPrimaryContainer),
-          ColorChip(
-            label: 'onPrimaryContainer',
-            color: colorScheme.onPrimaryContainer,
-            onColor: colorScheme.primaryContainer,
-          ),
-        ]),
-        divider,
-        ColorGroup(children: <ColorChip>[
-          ColorChip(
-              label: 'primaryFixed',
-              color: colorScheme.primaryFixed,
-              onColor: colorScheme.onPrimaryFixed),
-          ColorChip(
-              label: 'onPrimaryFixed',
-              color: colorScheme.onPrimaryFixed,
-              onColor: colorScheme.primaryFixed),
-          ColorChip(
-              label: 'primaryFixedDim',
-              color: colorScheme.primaryFixedDim,
-              onColor: colorScheme.onPrimaryFixedVariant),
-          ColorChip(
-            label: 'onPrimaryFixedVariant',
-            color: colorScheme.onPrimaryFixedVariant,
-            onColor: colorScheme.primaryFixedDim,
-          ),
-        ]),
-        divider,
-        ColorGroup(children: <ColorChip>[
-          ColorChip(
-              label: 'secondary',
-              color: colorScheme.secondary,
-              onColor: colorScheme.onSecondary),
-          ColorChip(
-              label: 'onSecondary',
-              color: colorScheme.onSecondary,
-              onColor: colorScheme.secondary),
-          ColorChip(
-            label: 'secondaryContainer',
-            color: colorScheme.secondaryContainer,
-            onColor: colorScheme.onSecondaryContainer,
-          ),
-          ColorChip(
-            label: 'onSecondaryContainer',
-            color: colorScheme.onSecondaryContainer,
-            onColor: colorScheme.secondaryContainer,
-          ),
-        ]),
-        divider,
-        ColorGroup(children: <ColorChip>[
-          ColorChip(
-              label: 'secondaryFixed',
-              color: colorScheme.secondaryFixed,
-              onColor: colorScheme.onSecondaryFixed),
-          ColorChip(
-              label: 'onSecondaryFixed',
-              color: colorScheme.onSecondaryFixed,
-              onColor: colorScheme.secondaryFixed),
-          ColorChip(
-            label: 'secondaryFixedDim',
-            color: colorScheme.secondaryFixedDim,
-            onColor: colorScheme.onSecondaryFixedVariant,
-          ),
-          ColorChip(
-            label: 'onSecondaryFixedVariant',
-            color: colorScheme.onSecondaryFixedVariant,
-            onColor: colorScheme.secondaryFixedDim,
-          ),
-        ]),
+              onColor: colorScheme.onPrimaryContainer,
+            ),
+            ColorChip(
+              label: 'onPrimaryContainer',
+              color: colorScheme.onPrimaryContainer,
+              onColor: colorScheme.primaryContainer,
+            ),
+          ],
+        ),
         divider,
         ColorGroup(
-          children: <ColorChip>[
+          children: [
             ColorChip(
-                label: 'tertiary',
-                color: colorScheme.tertiary,
-                onColor: colorScheme.onTertiary),
+              label: 'primaryFixed',
+              color: colorScheme.primaryFixed,
+              onColor: colorScheme.onPrimaryFixed,
+            ),
             ColorChip(
-                label: 'onTertiary',
-                color: colorScheme.onTertiary,
-                onColor: colorScheme.tertiary),
+              label: 'onPrimaryFixed',
+              color: colorScheme.onPrimaryFixed,
+              onColor: colorScheme.primaryFixed,
+            ),
+            ColorChip(
+              label: 'primaryFixedDim',
+              color: colorScheme.primaryFixedDim,
+              onColor: colorScheme.onPrimaryFixedVariant,
+            ),
+            ColorChip(
+              label: 'onPrimaryFixedVariant',
+              color: colorScheme.onPrimaryFixedVariant,
+              onColor: colorScheme.primaryFixedDim,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
+            ColorChip(
+              label: 'secondary',
+              color: colorScheme.secondary,
+              onColor: colorScheme.onSecondary,
+            ),
+            ColorChip(
+              label: 'onSecondary',
+              color: colorScheme.onSecondary,
+              onColor: colorScheme.secondary,
+            ),
+            ColorChip(
+              label: 'secondaryContainer',
+              color: colorScheme.secondaryContainer,
+              onColor: colorScheme.onSecondaryContainer,
+            ),
+            ColorChip(
+              label: 'onSecondaryContainer',
+              color: colorScheme.onSecondaryContainer,
+              onColor: colorScheme.secondaryContainer,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
+            ColorChip(
+              label: 'secondaryFixed',
+              color: colorScheme.secondaryFixed,
+              onColor: colorScheme.onSecondaryFixed,
+            ),
+            ColorChip(
+              label: 'onSecondaryFixed',
+              color: colorScheme.onSecondaryFixed,
+              onColor: colorScheme.secondaryFixed,
+            ),
+            ColorChip(
+              label: 'secondaryFixedDim',
+              color: colorScheme.secondaryFixedDim,
+              onColor: colorScheme.onSecondaryFixedVariant,
+            ),
+            ColorChip(
+              label: 'onSecondaryFixedVariant',
+              color: colorScheme.onSecondaryFixedVariant,
+              onColor: colorScheme.secondaryFixedDim,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
+            ColorChip(
+              label: 'tertiary',
+              color: colorScheme.tertiary,
+              onColor: colorScheme.onTertiary,
+            ),
+            ColorChip(
+              label: 'onTertiary',
+              color: colorScheme.onTertiary,
+              onColor: colorScheme.tertiary,
+            ),
             ColorChip(
               label: 'tertiaryContainer',
               color: colorScheme.tertiaryContainer,
@@ -242,85 +265,103 @@ class ColorSchemeView extends StatelessWidget {
           ],
         ),
         divider,
-        ColorGroup(children: <ColorChip>[
-          ColorChip(
+        ColorGroup(
+          children: [
+            ColorChip(
               label: 'tertiaryFixed',
               color: colorScheme.tertiaryFixed,
-              onColor: colorScheme.onTertiaryFixed),
-          ColorChip(
+              onColor: colorScheme.onTertiaryFixed,
+            ),
+            ColorChip(
               label: 'onTertiaryFixed',
               color: colorScheme.onTertiaryFixed,
-              onColor: colorScheme.tertiaryFixed),
-          ColorChip(
+              onColor: colorScheme.tertiaryFixed,
+            ),
+            ColorChip(
               label: 'tertiaryFixedDim',
               color: colorScheme.tertiaryFixedDim,
-              onColor: colorScheme.onTertiaryFixedVariant),
-          ColorChip(
-            label: 'onTertiaryFixedVariant',
-            color: colorScheme.onTertiaryFixedVariant,
-            onColor: colorScheme.tertiaryFixedDim,
-          ),
-        ]),
-        divider,
-        ColorGroup(
-          children: <ColorChip>[
+              onColor: colorScheme.onTertiaryFixedVariant,
+            ),
             ColorChip(
-                label: 'error',
-                color: colorScheme.error,
-                onColor: colorScheme.onError),
-            ColorChip(
-                label: 'onError',
-                color: colorScheme.onError,
-                onColor: colorScheme.error),
-            ColorChip(
-                label: 'errorContainer',
-                color: colorScheme.errorContainer,
-                onColor: colorScheme.onErrorContainer),
-            ColorChip(
-                label: 'onErrorContainer',
-                color: colorScheme.onErrorContainer,
-                onColor: colorScheme.errorContainer),
+              label: 'onTertiaryFixedVariant',
+              color: colorScheme.onTertiaryFixedVariant,
+              onColor: colorScheme.tertiaryFixedDim,
+            ),
           ],
         ),
         divider,
         ColorGroup(
-          children: <ColorChip>[
+          children: [
             ColorChip(
-                label: 'surfaceDim',
-                color: colorScheme.surfaceDim,
-                onColor: colorScheme.onSurface),
+              label: 'error',
+              color: colorScheme.error,
+              onColor: colorScheme.onError,
+            ),
             ColorChip(
-                label: 'surface',
-                color: colorScheme.surface,
-                onColor: colorScheme.onSurface),
+              label: 'onError',
+              color: colorScheme.onError,
+              onColor: colorScheme.error,
+            ),
             ColorChip(
-                label: 'surfaceBright',
-                color: colorScheme.surfaceBright,
-                onColor: colorScheme.onSurface),
+              label: 'errorContainer',
+              color: colorScheme.errorContainer,
+              onColor: colorScheme.onErrorContainer,
+            ),
             ColorChip(
-                label: 'surfaceContainerLowest',
-                color: colorScheme.surfaceContainerLowest,
-                onColor: colorScheme.onSurface),
+              label: 'onErrorContainer',
+              color: colorScheme.onErrorContainer,
+              onColor: colorScheme.errorContainer,
+            ),
+          ],
+        ),
+        divider,
+        ColorGroup(
+          children: [
             ColorChip(
-                label: 'surfaceContainerLow',
-                color: colorScheme.surfaceContainerLow,
-                onColor: colorScheme.onSurface),
+              label: 'surfaceDim',
+              color: colorScheme.surfaceDim,
+              onColor: colorScheme.onSurface,
+            ),
             ColorChip(
-                label: 'surfaceContainer',
-                color: colorScheme.surfaceContainer,
-                onColor: colorScheme.onSurface),
+              label: 'surface',
+              color: colorScheme.surface,
+              onColor: colorScheme.onSurface,
+            ),
             ColorChip(
-                label: 'surfaceContainerHigh',
-                color: colorScheme.surfaceContainerHigh,
-                onColor: colorScheme.onSurface),
+              label: 'surfaceBright',
+              color: colorScheme.surfaceBright,
+              onColor: colorScheme.onSurface,
+            ),
             ColorChip(
-                label: 'surfaceContainerHighest',
-                color: colorScheme.surfaceContainerHighest,
-                onColor: colorScheme.onSurface),
+              label: 'surfaceContainerLowest',
+              color: colorScheme.surfaceContainerLowest,
+              onColor: colorScheme.onSurface,
+            ),
             ColorChip(
-                label: 'onSurface',
-                color: colorScheme.onSurface,
-                onColor: colorScheme.surface),
+              label: 'surfaceContainerLow',
+              color: colorScheme.surfaceContainerLow,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainer',
+              color: colorScheme.surfaceContainer,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainerHigh',
+              color: colorScheme.surfaceContainerHigh,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'surfaceContainerHighest',
+              color: colorScheme.surfaceContainerHighest,
+              onColor: colorScheme.onSurface,
+            ),
+            ColorChip(
+              label: 'onSurface',
+              color: colorScheme.onSurface,
+              onColor: colorScheme.surface,
+            ),
             ColorChip(
               label: 'onSurfaceVariant',
               color: colorScheme.onSurfaceVariant,
@@ -330,23 +371,32 @@ class ColorSchemeView extends StatelessWidget {
         ),
         divider,
         ColorGroup(
-          children: <ColorChip>[
+          children: [
             ColorChip(
-                label: 'outline', color: colorScheme.outline, onColor: null),
+              label: 'outline',
+              color: colorScheme.outline,
+              onColor: null,
+            ),
             ColorChip(
-                label: 'shadow', color: colorScheme.shadow, onColor: null),
+              label: 'shadow',
+              color: colorScheme.shadow,
+              onColor: null,
+            ),
             ColorChip(
-                label: 'inverseSurface',
-                color: colorScheme.inverseSurface,
-                onColor: colorScheme.onInverseSurface),
+              label: 'inverseSurface',
+              color: colorScheme.inverseSurface,
+              onColor: colorScheme.onInverseSurface,
+            ),
             ColorChip(
-                label: 'onInverseSurface',
-                color: colorScheme.onInverseSurface,
-                onColor: colorScheme.inverseSurface),
+              label: 'onInverseSurface',
+              color: colorScheme.onInverseSurface,
+              onColor: colorScheme.inverseSurface,
+            ),
             ColorChip(
-                label: 'inversePrimary',
-                color: colorScheme.inversePrimary,
-                onColor: colorScheme.primary),
+              label: 'inversePrimary',
+              color: colorScheme.inversePrimary,
+              onColor: colorScheme.primary,
+            ),
           ],
         ),
       ],
@@ -357,7 +407,7 @@ class ColorSchemeView extends StatelessWidget {
 class ColorGroup extends StatelessWidget {
   const ColorGroup({super.key, required this.children});
 
-  final List<Widget> children;
+  final List<ColorChip> children;
 
   @override
   Widget build(BuildContext context) {
