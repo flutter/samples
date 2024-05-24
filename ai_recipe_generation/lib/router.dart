@@ -175,7 +175,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
                   height: 160,
                   width: 160,
                   child: IconLoadingAnimator(
-                    icons: const [
+                    icons: [
                       Symbols.icecream,
                       Symbols.local_pizza,
                       Symbols.restaurant_menu,
