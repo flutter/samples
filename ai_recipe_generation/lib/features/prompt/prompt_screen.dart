@@ -337,9 +337,11 @@ class _FilterChipSection extends StatelessWidget {
                 style: MarketplaceTheme.dossierParagraph,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: child,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: child,
+              ),
             ),
           ],
         ),
