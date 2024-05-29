@@ -30,7 +30,6 @@ class IconLoadingAnimator extends StatefulWidget {
 var rand = Random();
 
 class _IconLoadingAnimatorState extends State<IconLoadingAnimator> {
-  late List<IconData> notYetSeenIcons;
   late IconData currentIcon;
   late Color currentColor;
   late Timer timer;
@@ -38,10 +37,8 @@ class _IconLoadingAnimatorState extends State<IconLoadingAnimator> {
   @override
   void initState() {
     super.initState();
-    notYetSeenIcons = widget.icons;
 
-    currentIcon =
-        notYetSeenIcons.removeAt(rand.nextInt(notYetSeenIcons.length));
+    currentIcon = widget.icons[rand.nextInt(widget.icons.length)];
     currentColor = widget.colors[rand.nextInt(widget.colors.length)];
 
     timer = Timer.periodic(
@@ -53,10 +50,9 @@ class _IconLoadingAnimatorState extends State<IconLoadingAnimator> {
   }
 
   void nextIcon() {
-    if (notYetSeenIcons.length == 1) notYetSeenIcons = widget.icons;
     setState(() {
       currentIcon =
-          notYetSeenIcons.removeAt(rand.nextInt(notYetSeenIcons.length));
+          widget.icons[rand.nextInt(widget.icons.length)];
       currentColor = widget.colors[rand.nextInt(widget.colors.length)];
     });
   }
