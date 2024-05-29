@@ -251,6 +251,7 @@ class PromptScreen extends StatelessWidget {
                           child: MarketplaceButton(
                             onPressed: () async {
                               await viewModel.submitPrompt().then((_) async {
+                                if (!context.mounted) return;
                                 if (viewModel.recipe != null) {
                                   bool? shouldSave = await showDialog<bool>(
                                     context: context,
