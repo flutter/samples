@@ -51,8 +51,7 @@ class _IconLoadingAnimatorState extends State<IconLoadingAnimator> {
 
   void nextIcon() {
     setState(() {
-      currentIcon =
-          widget.icons[rand.nextInt(widget.icons.length)];
+      currentIcon = widget.icons[rand.nextInt(widget.icons.length)];
       currentColor = widget.colors[rand.nextInt(widget.colors.length)];
     });
   }
