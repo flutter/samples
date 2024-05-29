@@ -406,10 +406,10 @@ class _PlaceMapState extends State<PlaceMap> {
 
   Future<BitmapDescriptor> _getPlaceMarkerIcon(PlaceCategory category) =>
       switch (category) {
-        PlaceCategory.favorite => BitmapDescriptor.fromAssetImage(
+        PlaceCategory.favorite => BitmapDescriptor.asset(
             createLocalImageConfiguration(context, size: const Size.square(32)),
             'assets/heart.png'),
-        PlaceCategory.visited => BitmapDescriptor.fromAssetImage(
+        PlaceCategory.visited => BitmapDescriptor.asset(
             createLocalImageConfiguration(context, size: const Size.square(32)),
             'assets/visited.png'),
         PlaceCategory.wantToGo => Future.value(BitmapDescriptor.defaultMarker),
