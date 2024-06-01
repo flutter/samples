@@ -52,7 +52,7 @@ Please see [macOS Signing and Security][macOS-security] for more detail.
 [built_value]: https://pub.dev/packages/built_value
 [file_chooser]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/file_chooser
 [fluent_ui]: https://pub.dev/packages/fluent_ui
-[flutter_channels]: https://github.com/flutter/flutter/wiki/Flutter-build-release-channels
+[flutter_channels]: https://github.com/flutter/flutter/blob/master/docs/releases/Flutter-build-release-channels.md
 [http]: https://pub.dev/packages/http
 [macOS-client]: https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_network_client
 [macOS-read-write]: https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_files_user-selected_read-write
