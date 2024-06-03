@@ -64,7 +64,7 @@ couple years keeping the repo tidy and running smooth.
 Each app should:
 
 * Be designed to build against the current
-  [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
+  [stable](https://github.com/flutter/flutter/blob/master/docs/releases/Flutter-build-release-channels.md)
   release of the Flutter SDK.
 * Include the top level
   [`analysis_options.yaml`](analysis_options.yaml)
@@ -84,7 +84,7 @@ Each app should:
 In addition, sample code is, at the end of the day, still code. It should be
 written with at least as much care as the Flutter code you'd find in the SDK
 itself. For that reason, most of the
-[Flutter style guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo)
+[Flutter style guide](https://github.com/flutter/flutter/blob/master/docs/contributing/Style-guide-for-Flutter-repo.md)
 also applies to code in this repo.
 
 ### The `experimental` folder
