@@ -8,8 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^4.6.0
-  firebase_core: ^2.11.0
+  cloud_firestore: ">=4.6.0 <6.0.0"
+  firebase_core: ">=2.11.0 <4.0.0"
   google_maps_flutter: ^2.2.6
   google_maps_webservice: ^0.0.20-nullsafety.5
   location: ">=4.4.0 <7.0.0"
