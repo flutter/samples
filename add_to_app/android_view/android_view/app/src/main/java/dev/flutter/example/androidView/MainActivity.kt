@@ -62,8 +62,14 @@ class MainActivity : AppCompatActivity() {
         // If the activity was restarted, keep track of the previous scroll
         // position and of the previous cell indices that were randomly selected
         // as Flutter cells to preserve immersion.
-        val state = BundleCompat.getParcelable<Parcelable>(savedInstanceState!!, "layoutManager", Parcelable::class.java);
-        layoutManager.onRestoreInstanceState(state)
+        if (savedInstanceState != null) {
+            val state = BundleCompat.getParcelable<Parcelable>(
+                savedInstanceState,
+                "layoutManager",
+                Parcelable::class.java
+            )
+            layoutManager.onRestoreInstanceState(state)
+        }
         val previousFlutterCellsArray = savedInstanceState?.getIntegerArrayList("adapter")
         if (previousFlutterCellsArray != null) {
             adapter.previousFlutterCells = TreeSet(previousFlutterCellsArray)

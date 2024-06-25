@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
 
     lint {
         baseline = file("lint-baseline.xml")
@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "dev.flutter.example.androidView"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
 
