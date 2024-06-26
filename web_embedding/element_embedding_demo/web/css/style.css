@@ -162,7 +162,7 @@ h1 {
 }
 #flutter_target.resize {
   width: 480px;
-  height: 320px;
+  height: 336px;
 }
 #flutter_target.spin { animation: spin 6400ms ease-in-out infinite; }
 #flutter_target.shadow { position: relative; }

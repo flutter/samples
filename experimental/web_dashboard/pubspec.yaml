@@ -7,12 +7,12 @@ environment:
   sdk: ^3.4.0-0
 
 dependencies:
-  cloud_firestore: ^4.15.6
+  cloud_firestore: ^5.0.1
   collection: ^1.16.0
   community_charts_flutter: ^1.0.2
   cupertino_icons: ^1.0.0
-  firebase_auth: ^4.0.1
-  firebase_core: ^2.25.5
+  firebase_auth: ^5.1.0
+  firebase_core: ^3.1.0
   flutter:
     sdk: flutter
   google_sign_in: ^6.0.0

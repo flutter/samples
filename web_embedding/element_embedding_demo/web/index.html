@@ -20,9 +20,6 @@
     <title>Element embedding</title>
     <link rel="manifest" href="manifest.json" />
 
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer></script>
-
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
@@ -81,17 +78,17 @@
     </section>
 
     <script>
-      window.addEventListener("load", function (ev) {
-        // Embed flutter into div#flutter_target
-        let target = document.querySelector("#flutter_target");
-        _flutter.loader.loadEntrypoint({
-          onEntrypointLoaded: async function (engineInitializer) {
-            let appRunner = await engineInitializer.initializeEngine({
-              hostElement: target,
-            });
-            await appRunner.runApp();
-          },
-        });
+      {{flutter_js}}
+      {{flutter_build_config}}
+
+      const target = document.getElementById('flutter_target');
+      _flutter.loader.load({
+        onEntrypointLoaded: async function (engineInitializer) {
+          const appRunner = await engineInitializer.initializeEngine({
+            hostElement: target,
+          });
+          await appRunner.runApp();
+        }
       });
     </script>
     <script src="js/demo-js-interop.js" defer></script>
