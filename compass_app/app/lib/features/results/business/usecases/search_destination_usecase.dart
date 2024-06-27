@@ -10,7 +10,7 @@ class SearchDestinationUsecase {
 
   Future<Response<List<Destination>>> search({ String? continent }) async {
     bool filter(Destination destination) {
-      return (continent != null && destination.continent == continent);
+      return (continent == null || destination.continent == continent);
     }
 
     final response = await repository.getDestinations();
