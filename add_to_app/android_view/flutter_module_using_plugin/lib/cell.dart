@@ -109,7 +109,7 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                         // Don't continuously rebuild for nothing when the
                         // cell isn't visible.
                         stream: appLifecycleState == AppLifecycleState.resumed
-                            ? accelerometerEvents
+                            ? accelerometerEventStream()
                             : Stream.value(defaultPosition),
                         initialData: defaultPosition,
                         builder: (context, snapshot) {
