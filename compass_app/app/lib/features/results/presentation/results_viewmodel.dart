@@ -7,7 +7,10 @@ import 'package:flutter/cupertino.dart';
 class ResultsViewModel extends ChangeNotifier {
   ResultsViewModel({
     required SearchDestinationUsecase searchDestinationUsecase,
-  }) : _searchDestinationUsecase = searchDestinationUsecase;
+  }) : _searchDestinationUsecase = searchDestinationUsecase {
+    // Preload a search result
+    search();
+  }
 
   final SearchDestinationUsecase _searchDestinationUsecase;
 
