@@ -1,4 +1,4 @@
-import 'package:compass_app/common/utils/response.dart';
+import 'package:compass_app/common/utils/result.dart';
 import 'package:compass_app/features/results/business/model/destination.dart';
 import 'package:compass_app/features/results/business/usecases/search_destination_usecase.dart';
 import 'package:compass_app/features/results/data/destination_repository.dart';
@@ -24,13 +24,24 @@ void main() {
       expect(result.asOk.value.first.name, 'name1');
     });
   });
+
+  group('SearchDestinationUsecase errors', () {
+    final errorRepository = _ErrorRepository();
+    final usecase = SearchDestinationUsecase(repository: errorRepository);
+
+    test('should return error', () async {
+      final result = await usecase.search();
+      expect(result, isA<Error>());
+      expect(result.asError.error, isNotNull);
+    });
+  });
 }
 
 class _FakeRepository implements DestinationRepository {
   @override
-  Future<Response<List<Destination>>> getDestinations() {
+  Future<Result<List<Destination>>> getDestinations() {
     return Future.value(
-      Response.ok(
+      Result.ok(
         [
           Destination(
             ref: 'ref1',
@@ -53,5 +64,12 @@ class _FakeRepository implements DestinationRepository {
         ],
       ),
     );
+  }
+}
+
+class _ErrorRepository implements DestinationRepository {
+  @override
+  Future<Result<List<Destination>>> getDestinations() {
+    return Future.value(Result<List<Destination>>.error(Exception('Invalid')));
   }
 }

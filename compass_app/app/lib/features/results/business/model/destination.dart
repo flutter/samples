@@ -29,4 +29,9 @@ class Destination {
 
   /// e.g. 'https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg'
   final String imageUrl;
+
+  @override
+  String toString() {
+    return 'Destination{ref: $ref, name: $name, country: $country, continent: $continent, knownFor: $knownFor, tags: $tags, imageUrl: $imageUrl}';
+  }
 }
