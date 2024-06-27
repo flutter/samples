@@ -1,3 +1,7 @@
+import 'package:compass_app/features/results/business/usecases/search_destination_usecase.dart';
+import 'package:compass_app/features/results/data/destination_repository.dart';
+import 'package:compass_app/features/results/presentation/results_screen.dart';
+import 'package:compass_app/features/results/presentation/results_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,10 +13,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return MaterialApp(
+      // TODO: Properly inject dependencies
+      home: ResultsScreen(
+        resultsViewModel: ResultsViewModel(
+          searchDestinationUsecase: SearchDestinationUsecase(
+            repository: DestinationRepository(),
+          ),
         ),
       ),
     );

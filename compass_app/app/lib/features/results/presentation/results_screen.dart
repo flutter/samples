@@ -2,10 +2,12 @@ import 'package:compass_app/features/results/presentation/results_viewmodel.dart
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({
+  ResultsScreen({
     super.key,
     required this.resultsViewModel,
-  });
+  }) {
+    resultsViewModel.search();
+  }
 
   final ResultsViewModel resultsViewModel;
 

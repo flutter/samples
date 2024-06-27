@@ -11,7 +11,7 @@ class ResultsViewModel extends ChangeNotifier {
 
   final SearchDestinationUsecase _searchDestinationUsecase;
 
-  // Expose values in ViewModel using getters, hide setters
+  // Setters are private
   List<Destination> _destinations = [];
   bool _loading = false;
 
