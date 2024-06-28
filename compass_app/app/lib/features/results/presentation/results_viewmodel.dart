@@ -9,7 +9,7 @@ class ResultsViewModel extends ChangeNotifier {
     required SearchDestinationUsecase searchDestinationUsecase,
   }) : _searchDestinationUsecase = searchDestinationUsecase {
     // Preload a search result
-    search();
+    search(continent: 'Europe');
   }
 
   final SearchDestinationUsecase _searchDestinationUsecase;
@@ -17,6 +17,7 @@ class ResultsViewModel extends ChangeNotifier {
   // Setters are private
   List<Destination> _destinations = [];
   bool _loading = false;
+  String? _continent = null;
 
   /// List of destinations, may be empty but never null
   List<Destination> get destinations => _destinations;
@@ -24,10 +25,13 @@ class ResultsViewModel extends ChangeNotifier {
   /// Loading state
   bool get loading => _loading;
 
+  String get filters => _continent ?? '';
+
   /// Perform search
   Future<void> search({String? continent}) async {
     // Set loading state and notify the view
     _loading = true;
+    _continent = continent;
     notifyListeners();
 
     // Call the search usecase and request data

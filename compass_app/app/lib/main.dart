@@ -1,4 +1,5 @@
 import 'package:compass_app/common/config/dependencies.dart';
+import 'package:compass_app/common/themes/theme.dart';
 import 'package:compass_app/routing/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: AppTheme.theme,
       routerConfig: router,
     );
   }
