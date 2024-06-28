@@ -11,6 +11,12 @@ class ResultCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10.0),
+      child: Image.network(
+        destination.imageUrl,
+        fit: BoxFit.fitHeight,
+      ),
+    );
   }
 }

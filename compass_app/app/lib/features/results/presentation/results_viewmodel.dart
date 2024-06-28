@@ -17,7 +17,7 @@ class ResultsViewModel extends ChangeNotifier {
   // Setters are private
   List<Destination> _destinations = [];
   bool _loading = false;
-  String? _continent = null;
+  String? _continent;
 
   /// List of destinations, may be empty but never null
   List<Destination> get destinations => _destinations;
@@ -25,6 +25,7 @@ class ResultsViewModel extends ChangeNotifier {
   /// Loading state
   bool get loading => _loading;
 
+  /// Return a formatted String with all the filter options
   String get filters => _continent ?? '';
 
   /// Perform search
