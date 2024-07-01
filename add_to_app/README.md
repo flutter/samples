@@ -65,6 +65,8 @@ in the [main Flutter repo](https://github.com/flutter/flutter/issues).
 
 ## Updating Android samples and its dependencies
 
+TODO @ewindmill: Expand these instructions for those of us with little Android experience :)
+
 * Open the top level build.gradle file in android studio
 * Open “Upgrade Assistant” and click upgrade
 * If after upgrading it fails to build try upgrading to a slightly less new version
