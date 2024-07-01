@@ -6,3 +6,4 @@ class AppColors {
   static const grey1 = Color(0xFFF2F2F2);
   static const grey2 = Color(0xFF4D4D4D); // Figma rgba(255, 255, 255, 0.3)
 }
+
