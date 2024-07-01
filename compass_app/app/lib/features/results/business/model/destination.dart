@@ -1,3 +1,4 @@
+/// Model class for Destination data
 class Destination {
   Destination({
     required this.ref,

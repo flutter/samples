@@ -3,6 +3,7 @@ import 'package:compass_app/features/results/business/model/destination.dart';
 import 'package:compass_app/features/results/business/usecases/search_destination_usecase.dart';
 import 'package:flutter/cupertino.dart';
 
+/// Results screen view model
 /// Based on https://docs.flutter.dev/get-started/fwe/state-management#using-mvvm-for-your-applications-architecture
 class ResultsViewModel extends ChangeNotifier {
   ResultsViewModel({

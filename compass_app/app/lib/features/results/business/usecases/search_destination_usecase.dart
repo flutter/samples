@@ -2,6 +2,7 @@ import 'package:compass_app/common/utils/result.dart';
 import 'package:compass_app/features/results/business/model/destination.dart';
 import 'package:compass_app/features/results/data/destination_repository.dart';
 
+/// Search Destinations Usecase
 class SearchDestinationUsecase {
   SearchDestinationUsecase({
     required DestinationRepository repository,
@@ -10,6 +11,7 @@ class SearchDestinationUsecase {
   final DestinationRepository _repository;
 
   /// Perform search over possible destinations
+  /// All search filter options are optional
   Future<Result<List<Destination>>> search({String? continent}) async {
     bool filter(Destination destination) {
       return (continent == null || destination.continent == continent);

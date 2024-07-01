@@ -9,6 +9,8 @@ import 'package:flutter/services.dart' show rootBundle;
 /// Local implementation of DestinationRepository
 /// Uses data from assets folder
 class DestinationRepositoryLocal implements DestinationRepository {
+
+  /// Obtain list of destinations from local assets
   @override
   Future<Result<List<Destination>>> getDestinations() async {
     try {
