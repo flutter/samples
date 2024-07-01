@@ -18,7 +18,6 @@ class SearchDestinationUsecase {
     }
 
     final result = await _repository.getDestinations();
-    print('Result: $result');
     return switch (result) {
       Ok() => Result.ok(result.value.where(filter).toList()),
       Error() => result,

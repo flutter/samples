@@ -34,7 +34,6 @@ class ResultsScreen extends StatelessWidget {
 
 class _Grid extends StatelessWidget {
   const _Grid({
-    super.key,
     required this.viewModel,
   });
 
@@ -51,7 +50,10 @@ class _Grid extends StatelessWidget {
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          return ResultCard(destination: viewModel.destinations[index]);
+          return ResultCard(
+            key: ValueKey(viewModel.destinations[index].ref),
+            destination: viewModel.destinations[index],
+          );
         },
         childCount: viewModel.destinations.length,
       ),
@@ -61,7 +63,6 @@ class _Grid extends StatelessWidget {
 
 class _Search extends StatelessWidget {
   const _Search({
-    super.key,
     required this.viewModel,
   });
 
