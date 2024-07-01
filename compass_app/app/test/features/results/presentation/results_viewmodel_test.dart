@@ -13,8 +13,7 @@ void main() {
     // verifies that the list of items is properly loaded
     // TODO: Verify loading state and calls to search method
     test('should load items', () async {
-      expect(viewModel.destinations.length, 0);
-      await viewModel.search();
+      // Loads items on startup
       expect(viewModel.destinations.length, 1);
     });
   });
