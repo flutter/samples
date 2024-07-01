@@ -1,4 +1,5 @@
 import 'package:compass_app/common/themes/text_styles.dart';
+import 'package:compass_app/common/widgets/tag_chip.dart';
 import 'package:compass_app/features/results/business/model/destination.dart';
 import 'package:flutter/material.dart';
 
@@ -32,12 +33,15 @@ class ResultCard extends StatelessWidget {
               children: [
                 Text(
                   destination.name.toUpperCase(),
-                  style: cardTitleStyle,
+                  style: TextStyles.cardTitleStyle,
                 ),
+                const SizedBox(height: 6,),
                 Wrap(
+                  spacing: 4.0,
+                  runSpacing: 4.0,
                   direction: Axis.horizontal,
                   children: destination.tags
-                      .map((e) => Chip(label: Text(e)))
+                      .map((e) => TagChip(tag: e))
                       .toList(),
                 ),
               ],

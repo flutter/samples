@@ -1,4 +1,5 @@
 import 'package:compass_app/common/themes/colors.dart';
+import 'package:compass_app/common/themes/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
