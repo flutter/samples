@@ -1,4 +1,16 @@
 /// Utility class to wrap result data
+///
+/// Evaluate the result using a switch statement:
+/// ```dart
+/// switch (result) {
+///   case Ok(): {
+///     print(result.value);
+///   }
+///   case Error(): {
+///     print(result.error);
+///   }
+/// }
+/// ```
 sealed class Result<T> {
   const Result();
 
