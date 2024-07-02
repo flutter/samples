@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:compass_app/common/themes/colors.dart';
-import 'package:compass_app/common/themes/text_styles.dart';
+import 'package:compass_app/ui/core/themes/colors.dart';
+import 'package:compass_app/ui/core/themes/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class TagChip extends StatelessWidget {

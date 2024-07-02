@@ -1,6 +1,6 @@
-import 'package:compass_app/common/utils/result.dart';
-import 'package:compass_app/features/results/business/model/destination.dart';
-import 'package:compass_app/features/results/business/usecases/search_destination_usecase.dart';
+import 'package:compass_app/ui/results/business/search_destination_usecase.dart';
+import 'package:compass_app/utils/result.dart';
+import 'package:compass_app/data/models/destination.dart';
 import 'package:flutter/cupertino.dart';
 
 /// Results screen view model

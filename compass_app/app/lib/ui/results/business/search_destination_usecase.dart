@@ -1,6 +1,6 @@
-import 'package:compass_app/common/utils/result.dart';
-import 'package:compass_app/features/results/business/model/destination.dart';
-import 'package:compass_app/features/results/data/destination_repository.dart';
+import 'package:compass_app/utils/result.dart';
+import 'package:compass_app/data/models/destination.dart';
+import 'package:compass_app/data/repositories/destination/destination_repository.dart';
 
 /// Search Destinations Usecase
 class SearchDestinationUsecase {

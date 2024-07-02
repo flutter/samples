@@ -1,5 +1,5 @@
-import 'package:compass_app/common/config/dependencies.dart';
-import 'package:compass_app/common/themes/theme.dart';
+import 'package:compass_app/config/dependencies.dart';
+import 'package:compass_app/ui/core/themes/theme.dart';
 import 'package:compass_app/routing/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

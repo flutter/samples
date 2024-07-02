@@ -1,6 +1,6 @@
-import 'package:compass_app/features/results/business/usecases/search_destination_usecase.dart';
-import 'package:compass_app/features/results/data/destination_repository_local.dart';
-import 'package:compass_app/features/results/presentation/results_viewmodel.dart';
+import 'package:compass_app/data/repositories/destination/destination_repository_local.dart';
+import 'package:compass_app/ui/results/business/search_destination_usecase.dart';
+import 'package:compass_app/ui/results/presentation/results_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 

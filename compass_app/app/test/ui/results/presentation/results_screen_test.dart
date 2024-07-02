@@ -1,10 +1,10 @@
-import 'package:compass_app/common/utils/result.dart';
-import 'package:compass_app/features/results/business/model/destination.dart';
-import 'package:compass_app/features/results/business/usecases/search_destination_usecase.dart';
-import 'package:compass_app/features/results/presentation/results_viewmodel.dart';
+import 'package:compass_app/ui/results/business/search_destination_usecase.dart';
+import 'package:compass_app/ui/results/presentation/results_screen.dart';
+import 'package:compass_app/ui/results/presentation/results_viewmodel.dart';
+import 'package:compass_app/utils/result.dart';
+import 'package:compass_app/data/models/destination.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
-import 'package:compass_app/features/results/presentation/results_screen.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 import 'package:provider/provider.dart';
 

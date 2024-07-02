@@ -1,6 +1,6 @@
-import 'package:compass_app/common/themes/text_styles.dart';
-import 'package:compass_app/common/widgets/tag_chip.dart';
-import 'package:compass_app/features/results/business/model/destination.dart';
+import 'package:compass_app/ui/core/themes/text_styles.dart';
+import 'package:compass_app/ui/core/ui/tag_chip.dart';
+import 'package:compass_app/data/models/destination.dart';
 import 'package:flutter/material.dart';
 
 class ResultCard extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:compass_app/features/results/presentation/results_screen.dart';
+import 'package:compass_app/ui/results/presentation/results_screen.dart';
 import 'package:go_router/go_router.dart';
 
 /// Top go_router entry point
