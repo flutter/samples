@@ -6,45 +6,45 @@
     pkgs.unzip
   ];
   idx = {
+    extensions = [
+      "Dart-Code.flutter"
+      "Dart-Code.dart-code"
+    ];
     workspace = {
-      # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        # Open editors for the following files by default, if they exist.
-        # The last file in the list will be focused.
+        build-flutter = ''
+          cd /home/user/myapp/android
+
+            ./gradlew \
+              --parallel \
+              -Pverbose=true \
+              -Ptarget-platform=android-x86 \
+              -Ptarget=/home/user/myapp/lib/main.dart \
+              -Pbase-application-name=android.app.Application \
+              -Pdart-defines=RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC85NzU1MDkwN2I3MGY0ZjNiMzI4YjZjMTYwMGRmMjFmYWMxYTE4ODlhLw== \
+              -Pdart-obfuscation=false \
+              -Ptrack-widget-creation=true \
+              -Ptree-shake-icons=false \
+              -Pfilesystem-scheme=org-dartlang-root \
+              assembleDebug
+
+              adb -s localhost:5555 wait-for-device
+            '';
+
         default.openFiles = [
             "lib/main.dart"
         ];
-        # Include other scripts here, as needed, for example:
-        # installDependencies = "npm install";
       };
-      # To run something each time the workspace is (re)started, use the `onStart` hook
     };
     previews = {
+      enable = true;
       previews = {
         web = {
-          command = [
-            "flutter"
-            "run"
-            "--machine"
-            "-d"
-            "web-server"
-            "--web-hostname"
-            "0.0.0.0"
-            "--web-port"
-            "$PORT"
-          ];
+          command = ["flutter" "run" "--machine" "-d" "web-server" "--web-hostname" "0.0.0.0" "--web-port" "$PORT"];
           manager = "flutter";
         };
         android = {
-          command = [
-            "flutter"
-            "run"
-            "--machine"
-            "-d"
-            "android"
-            "-d"
-            "emulator-5554"
-          ];
+          command = ["flutter" "run" "--machine" "-d" "android" "-d" "localhost:5555"];
           manager = "flutter";
         };
       };
