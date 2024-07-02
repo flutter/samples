@@ -1,0 +1,6 @@
+{
+  "name": "Flutter Todo list with Gemini",
+  "description": "A template for a todo list app that integrates with the Gemini API",
+  "icon": "https://www.gstatic.com/images/branding/productlogos/idx/v1/192px.svg",
+  "params": []
+}
