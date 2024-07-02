@@ -4,6 +4,7 @@
 
 package dev.flutter.example.androidusingprebuiltmodule
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
         val app = application as MyApplication
