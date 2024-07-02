@@ -1,0 +1,9 @@
+{
+  "name": "Flutter dynamic theme",
+  "description": "A template for a Flutter app that uses Gemini to dynamically create a theme.",
+  "icon": "https://www.gstatic.com/images/branding/productlogos/idx/v1/192px.svg",
+  "params": [],
+  "host": {
+    "virtualization": true
+  }
+}
