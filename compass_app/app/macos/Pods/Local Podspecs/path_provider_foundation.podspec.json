@@ -1,0 +1,47 @@
+{
+  "name": "path_provider_foundation",
+  "version": "0.0.1",
+  "summary": "An iOS and macOS implementation of the path_provider plugin.",
+  "description": "An iOS and macOS implementation of the Flutter plugin for getting commonly used locations on the filesystem.",
+  "homepage": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation",
+  "license": {
+    "type": "BSD",
+    "file": "../LICENSE"
+  },
+  "authors": {
+    "Flutter Dev Team": "flutter-dev@googlegroups.com"
+  },
+  "source": {
+    "http": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation"
+  },
+  "source_files": "path_provider_foundation/Sources/path_provider_foundation/**/*.swift",
+  "ios": {
+    "dependencies": {
+      "Flutter": [
+
+      ]
+    },
+    "xcconfig": {
+      "LIBRARY_SEARCH_PATHS": "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)/ $(SDKROOT)/usr/lib/swift",
+      "LD_RUNPATH_SEARCH_PATHS": "/usr/lib/swift"
+    }
+  },
+  "osx": {
+    "dependencies": {
+      "FlutterMacOS": [
+
+      ]
+    }
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14"
+  },
+  "swift_versions": "5.0",
+  "resource_bundles": {
+    "path_provider_foundation_privacy": [
+      "path_provider_foundation/Sources/path_provider_foundation/Resources/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "swift_version": "5.0"
+}

@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/ewindmill/development/samples/compass_app/app/build/macos/Build/Products/Debug/path_provider_foundation/path_provider_foundation.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/ewindmill/development/samples/compass_app/app/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/ewindmill/development/samples/compass_app/app/build/macos/Build/Products/Debug/path_provider_foundation/path_provider_foundation.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "path_provider_foundation-Swift.h",
+      'external-contents': "/Users/ewindmill/development/samples/compass_app/app/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/unextended-interface-header.h",
+    }]
+    }]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "FlutterMacOS",
+  "version": "1.0.0",
+  "summary": "A UI toolkit for beautiful and fast apps.",
+  "homepage": "https://flutter.dev",
+  "license": {
+    "type": "BSD"
+  },
+  "authors": {
+    "Flutter Dev Team": "flutter-dev@googlegroups.com"
+  },
+  "source": {
+    "git": "https://github.com/flutter/engine",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "osx": "10.14"
+  },
+  "vendored_frameworks": "path/to/nothing"
+}

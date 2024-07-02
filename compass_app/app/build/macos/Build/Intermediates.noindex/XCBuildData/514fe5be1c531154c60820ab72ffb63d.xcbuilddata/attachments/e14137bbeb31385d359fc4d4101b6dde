@@ -1,0 +1,10 @@
+framework module path_provider_foundation {
+  umbrella header "path_provider_foundation-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module path_provider_foundation.__Swift {
+  exclude header "path_provider_foundation-Swift.h"
+}
