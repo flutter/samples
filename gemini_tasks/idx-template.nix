@@ -1,5 +1,8 @@
 # No user-configurable parameters
 { pkgs, ... }: {
+  packages = [
+     pkgs.flutter
+  ];
   # Shell script that produces the final environment
   bootstrap = ''
     cp -rf ${./.} "$out"
