@@ -1,37 +1,19 @@
-import 'package:compass_app/ui/results/business/search_destination_usecase.dart';
 import 'package:compass_app/ui/results/presentation/results_viewmodel.dart';
-import 'package:compass_app/utils/result.dart';
-import 'package:compass_app/data/models/destination.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'fake_destination_repository.dart';
 
 void main() {
   group('ResultsViewModel tests', () {
-    final fakeUsecase = _FakeUsecase();
-    final viewModel = ResultsViewModel(searchDestinationUsecase: fakeUsecase);
+    final viewModel = ResultsViewModel(
+      destinationRepository: FakeDestinationRepository(),
+    );
 
     // perform a simple test
     // verifies that the list of items is properly loaded
     // TODO: Verify loading state and calls to search method
     test('should load items', () async {
-      // Loads items on startup
-      expect(viewModel.destinations.length, 1);
+      expect(viewModel.destinations.length, 2);
     });
   });
-}
-
-class _FakeUsecase implements SearchDestinationUsecase {
-  @override
-  Future<Result<List<Destination>>> search({String? continent}) async {
-    return Result.ok([
-      Destination(
-        ref: 'ref1',
-        name: 'name1',
-        country: 'country1',
-        continent: 'continent1',
-        knownFor: 'knownFor1',
-        tags: ['tags1'],
-        imageUrl: 'imageUrl1',
-      ),
-    ]);
-  }
 }
