@@ -1,8 +1,8 @@
-import 'package:compass_app/ui/results/presentation/results_screen.dart';
+import 'package:compass_app/ui/results/widgets/results_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../ui/results/presentation/results_viewmodel.dart';
+import '../ui/results/view_models/results_viewmodel.dart';
 
 /// Top go_router entry point
 final router = GoRouter(

@@ -1,4 +1,4 @@
-import 'package:compass_app/ui/results/presentation/results_viewmodel.dart';
+import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'fake_destination_repository.dart';

@@ -1,6 +1,6 @@
 import 'package:compass_app/ui/core/themes/colors.dart';
-import 'package:compass_app/ui/results/presentation/result_card.dart';
-import 'package:compass_app/ui/results/presentation/results_viewmodel.dart';
+import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
+import 'package:compass_app/ui/results/widgets/result_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
