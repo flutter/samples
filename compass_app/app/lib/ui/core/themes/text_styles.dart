@@ -1,9 +1,11 @@
+import 'package:compass_app/ui/core/ui/tag_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextStyles {
   // Note: original Figma file uses Nikkei Maru
   // which is not available on GoogleFonts
+  // Note: Card title theme doesn't change based on light/dark mode
   static final cardTitleStyle = GoogleFonts.rubik(
     textStyle: const TextStyle(
       fontWeight: FontWeight.w800,
@@ -20,14 +22,4 @@ class TextStyles {
     ),
   );
 
-  // Note: original Figma file uses Google Sans
-  // which is not available on GoogleFonts
-  static final chipTagStyle = GoogleFonts.openSans(
-    textStyle: const TextStyle(
-      fontWeight: FontWeight.w500,
-      fontSize: 10,
-      color: Colors.white,
-      textBaseline: TextBaseline.alphabetic,
-    ),
-  );
 }
