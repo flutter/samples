@@ -34,7 +34,9 @@ class TagChip extends StatelessWidget {
                 children: [
                   Icon(
                     _iconFrom(tag),
-                    color: Colors.white,
+                    color: Theme.of(context)
+                        .extension<TagChipTheme>()
+                        ?.onChipColor,
                     size: 10,
                   ),
                   const SizedBox(width: 4),
@@ -80,14 +82,14 @@ class TagChip extends StatelessWidget {
   // Note: original Figma file uses Google Sans
   // which is not available on GoogleFonts
   _textStyle(BuildContext context) => GoogleFonts.openSans(
-    textStyle: TextStyle(
-      fontWeight: FontWeight.w500,
-      fontSize: 10,
-      color: Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
-          Colors.white,
-      textBaseline: TextBaseline.alphabetic,
-    ),
-  );
+        textStyle: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 10,
+          color: Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
+              Colors.white,
+          textBaseline: TextBaseline.alphabetic,
+        ),
+      );
 }
 
 class TagChipTheme extends ThemeExtension<TagChipTheme> {
