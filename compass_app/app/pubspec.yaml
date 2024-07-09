@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.4.1 <4.0.0'
 
 dependencies:
+  cached_network_image: ^3.3.1
   flutter:
     sdk: flutter
   go_router: ^14.2.0

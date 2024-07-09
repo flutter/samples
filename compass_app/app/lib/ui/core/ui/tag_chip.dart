@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:compass_app/ui/core/themes/colors.dart';
+import '../themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

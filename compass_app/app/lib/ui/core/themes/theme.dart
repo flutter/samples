@@ -1,5 +1,5 @@
-import 'package:compass_app/ui/core/themes/colors.dart';
-import 'package:compass_app/ui/core/ui/tag_chip.dart';
+import 'colors.dart';
+import '../ui/tag_chip.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

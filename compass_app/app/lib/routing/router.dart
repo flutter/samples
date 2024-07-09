@@ -1,4 +1,4 @@
-import 'package:compass_app/ui/results/widgets/results_screen.dart';
+import '../ui/results/widgets/results_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 

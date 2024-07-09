@@ -1,7 +1,8 @@
-import 'package:compass_app/ui/core/themes/text_styles.dart';
-import 'package:compass_app/ui/core/ui/tag_chip.dart';
-import 'package:compass_app/data/models/destination.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../core/themes/text_styles.dart';
+import '../../core/ui/tag_chip.dart';
+import '../../../data/models/destination.dart';
 
 class ResultCard extends StatelessWidget {
   const ResultCard({
@@ -19,9 +20,10 @@ class ResultCard extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.network(
-            destination.imageUrl,
+          CachedNetworkImage(
+            imageUrl: destination.imageUrl,
             fit: BoxFit.fitHeight,
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           Positioned(
             bottom: 12.0,
@@ -35,14 +37,15 @@ class ResultCard extends StatelessWidget {
                   destination.name.toUpperCase(),
                   style: TextStyles.cardTitleStyle,
                 ),
-                const SizedBox(height: 6,),
+                const SizedBox(
+                  height: 6,
+                ),
                 Wrap(
                   spacing: 4.0,
                   runSpacing: 4.0,
                   direction: Axis.horizontal,
-                  children: destination.tags
-                      .map((e) => TagChip(tag: e))
-                      .toList(),
+                  children:
+                      destination.tags.map((e) => TagChip(tag: e)).toList(),
                 ),
               ],
             ),

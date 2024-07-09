@@ -1,6 +1,6 @@
-import 'package:compass_app/data/repositories/destination/destination_repository.dart';
-import 'package:compass_app/utils/result.dart';
-import 'package:compass_app/data/models/destination.dart';
+import '../../../data/repositories/destination/destination_repository.dart';
+import '../../../utils/result.dart';
+import '../../../data/models/destination.dart';
 import 'package:flutter/cupertino.dart';
 
 /// Results screen view model
