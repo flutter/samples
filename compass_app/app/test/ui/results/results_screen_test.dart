@@ -34,15 +34,13 @@ void main() {
 
 // Build and render the ResultsScreen widget
 Future<void> loadScreen(WidgetTester tester) async {
-  // Wrap the widget with a ChangeNotifierProvider containing
-  // a ResultsViewModel with a fake SearchDestinationUsecase
+  final viewModel = ResultsViewModel(
+    destinationRepository: FakeDestinationRepository(),
+  );
   await tester.pumpWidget(
-    ChangeNotifierProvider(
-      create: (_) => ResultsViewModel(
-        destinationRepository: FakeDestinationRepository(),
-      ),
-      child: const MaterialApp(
-        home: ResultsScreen(),
+    MaterialApp(
+      home: ResultsScreen(
+        viewModel: viewModel,
       ),
     ),
   );

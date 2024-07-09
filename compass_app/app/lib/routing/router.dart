@@ -11,12 +11,10 @@ final router = GoRouter(
     GoRoute(
       path: '/results',
       builder: (context, state) {
-        return ChangeNotifierProvider(
-          create: (context) => ResultsViewModel(
-            destinationRepository: context.read(),
-          ),
-          child: const ResultsScreen(),
+        final viewModel = ResultsViewModel(
+          destinationRepository: context.read(),
         );
+        return ResultsScreen(viewModel: viewModel);
       },
     ),
   ],

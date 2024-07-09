@@ -2,20 +2,23 @@ import 'package:compass_app/ui/core/themes/colors.dart';
 import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
 import 'package:compass_app/ui/results/widgets/result_card.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
     super.key,
+    required this.viewModel,
   });
+
+  final ResultsViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<ResultsViewModel>(
-        builder: (context, viewModel, child) {
+      body: ListenableBuilder(
+        listenable: viewModel,
+        builder: (context, child) {
           if (viewModel.loading) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
