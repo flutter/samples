@@ -1,7 +1,8 @@
-import '../../core/themes/colors.dart';
+import 'package:flutter/material.dart';
+
+import '../../core/ui/search_bar.dart';
 import '../view_models/results_viewmodel.dart';
 import 'result_card.dart';
-import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
@@ -24,7 +25,12 @@ class ResultsScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: CustomScrollView(
               slivers: [
-                _Search(viewModel: viewModel),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 24, bottom: 24),
+                    child: DestinationSearchBar(query: viewModel.filters),
+                  ),
+                ),
                 _Grid(viewModel: viewModel),
               ],
             ),
@@ -59,46 +65,6 @@ class _Grid extends StatelessWidget {
           );
         },
         childCount: viewModel.destinations.length,
-      ),
-    );
-  }
-}
-
-class _Search extends StatelessWidget {
-  const _Search({
-    required this.viewModel,
-  });
-
-  final ResultsViewModel viewModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 60, bottom: 24),
-        child: Container(
-          height: 64,
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.grey1),
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                viewModel.filters,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  height: 0,
-                  leadingDistribution: TextLeadingDistribution.even,
-                ),
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
