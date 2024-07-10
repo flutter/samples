@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../core/ui/search_bar.dart';
-import '../view_models/region_carousel_viewmodel.dart';
+import '../view_models/search_form_viewmodel.dart';
 import 'region_carousel.dart';
 
 class SearchFormScreen extends StatelessWidget {
-  const SearchFormScreen({super.key});
+  const SearchFormScreen({
+    super.key,
+    required this.viewModel,
+  });
+
+  final SearchFormViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: CustomScrollView(
-          slivers: [
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.only(top: 24, bottom: 24),
-                child: DestinationSearchBar(),
-              ),
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 24,
             ),
-            SliverToBoxAdapter(
-              child: DestinationCarousel(
-                viewModel: RegionCarouselViewModel(
-                  regionRepository: context.read(),
-                ),
-              ),
-            ),
-          ],
-        ),
+            child: DestinationSearchBar(),
+          ),
+          DestinationCarousel(viewModel: viewModel),
+        ],
       ),
     );
     //   Center(

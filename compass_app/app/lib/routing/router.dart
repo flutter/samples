@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
+import '../ui/search_form/view_models/search_form_viewmodel.dart';
 import '../ui/search_form/widgets/search_form_screen.dart';
 
 /// Top go_router entry point
@@ -12,7 +13,8 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
-        return const SearchFormScreen();
+        final viewModel = SearchFormViewModel(regionRepository: context.read());
+        return SearchFormScreen(viewModel: viewModel);
       },
       routes: [
         GoRoute(
