@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'colors.dart';
+
 // TODO: Maybe the text styles here should be moved to the respective widgets
 class TextStyles {
   // Note: original Figma file uses Nikkei Maru
@@ -20,5 +22,26 @@ class TextStyles {
         )
       ],
     ),
+  );
+
+  static const text = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    height: 0,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
+  static const title = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    height: 0,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
+  static const hint = TextStyle(
+    color: AppColors.grey3,
+    fontSize: 18.0,
+    fontWeight: FontWeight.w400,
+    textBaseline: TextBaseline.alphabetic,
   );
 }

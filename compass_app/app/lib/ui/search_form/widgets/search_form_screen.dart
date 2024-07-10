@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/ui/search_bar.dart';
 import '../view_models/search_form_viewmodel.dart';
 import 'region_carousel.dart';
+import 'search_date_display.dart';
 
 class SearchFormScreen extends StatelessWidget {
   const SearchFormScreen({
@@ -25,6 +26,9 @@ class SearchFormScreen extends StatelessWidget {
             child: DestinationSearchBar(),
           ),
           DestinationCarousel(viewModel: viewModel),
+          SearchDateDisplay(
+            viewModel: viewModel,
+          ),
         ],
       ),
     );

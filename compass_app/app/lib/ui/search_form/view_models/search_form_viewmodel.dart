@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/src/material/date.dart';
 
 import '../../../data/models/region.dart';
 import '../../../data/repositories/region/region_repository.dart';
@@ -20,6 +21,17 @@ class SearchFormViewModel extends ChangeNotifier {
   String? _selectedRegion;
 
   String? get selectedRegion => _selectedRegion;
+
+  DateTimeRange? _dateRange;
+
+  set dateRange(DateTimeRange? dateRange) {
+    if (_dateRange != dateRange) {
+      _dateRange = dateRange;
+    }
+    notifyListeners();
+  }
+
+  DateTimeRange? get dateRange => _dateRange;
 
   set selectedRegion(String? region) {
     if (_selectedRegion != region) {

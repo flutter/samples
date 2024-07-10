@@ -104,8 +104,11 @@ class _CarouselItem extends StatelessWidget {
               child: AnimatedOpacity(
                 opacity: _selected() ? 0 : 0.7,
                 duration: kThemeChangeDuration,
-                child: const DecoratedBox(
-                  decoration: BoxDecoration(color: Colors.white),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    // Support dark-mode
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
                 ),
               ),
             ),

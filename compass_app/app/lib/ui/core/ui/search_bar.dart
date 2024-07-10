@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../themes/colors.dart';
+import '../themes/text_styles.dart';
 import 'home_button.dart';
 
 class DestinationSearchBar extends StatelessWidget {
@@ -52,12 +53,7 @@ class _QueryText extends StatelessWidget {
     return Text(
       query,
       textAlign: TextAlign.center,
-      style: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-        height: 0,
-        leadingDistribution: TextLeadingDistribution.even,
-      ),
+      style: TextStyles.text,
     );
   }
 }
@@ -67,17 +63,17 @@ class _EmptySearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Icon(Icons.search),
-        const SizedBox(width: 12),
+        Icon(Icons.search),
+        SizedBox(width: 12),
         Expanded(
           child: Text(
             'Search destination',
             textAlign: TextAlign.start,
-            style: Theme.of(context).inputDecorationTheme.hintStyle,
+            style: TextStyles.hint,
           ),
         ),
       ],
