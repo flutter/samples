@@ -4,8 +4,8 @@ import '../themes/colors.dart';
 import '../themes/text_styles.dart';
 import 'home_button.dart';
 
-class DestinationSearchBar extends StatelessWidget {
-  const DestinationSearchBar({
+class AppSearchBar extends StatelessWidget {
+  const AppSearchBar({
     super.key,
     this.query,
   });

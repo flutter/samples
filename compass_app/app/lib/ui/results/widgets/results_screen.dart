@@ -28,7 +28,7 @@ class ResultsScreen extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 24, bottom: 24),
-                    child: DestinationSearchBar(query: viewModel.filters),
+                    child: AppSearchBar(query: viewModel.filters),
                   ),
                 ),
                 _Grid(viewModel: viewModel),

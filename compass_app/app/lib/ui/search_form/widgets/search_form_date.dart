@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../core/themes/colors.dart';
 import '../../core/themes/text_styles.dart';
 import '../view_models/search_form_viewmodel.dart';
 
-class SearchDateDisplay extends StatelessWidget {
-  const SearchDateDisplay({
+final _dateFormatDay = DateFormat('d');
+final _dateFormatDayMonth = DateFormat('d MMM');
+
+class SearchFormDate extends StatelessWidget {
+  const SearchFormDate({
     super.key,
     required this.viewModel,
   });
@@ -63,12 +67,14 @@ class SearchDateDisplay extends StatelessWidget {
     final start = dateTimeRange.start;
     final end = dateTimeRange.end;
 
-
-    // print(DateFormat.().format(DateTime.now()));
+    final dayMonthEnd = _dateFormatDayMonth.format(end);
 
     if (start.month == end.month) {
-      return '${start.day} - ${end.day} ${start.month}';
+      final dayStart = _dateFormatDay.format(start);
+      return '$dayStart - $dayMonthEnd';
     }
-    return '${start.day} ${start.month} - ${end.day} ${end.month}';
+
+    final dayMonthStart = _dateFormatDayMonth.format(start);
+    return '$dayMonthStart - $dayMonthEnd';
   }
 }

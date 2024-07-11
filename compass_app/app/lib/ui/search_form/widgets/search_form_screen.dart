@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../core/ui/search_bar.dart';
 import '../view_models/search_form_viewmodel.dart';
-import 'region_carousel.dart';
-import 'search_date_display.dart';
+import 'search_form_date.dart';
+import 'search_form_guests.dart';
+import 'search_form_region.dart';
+import 'search_form_submit.dart';
 
 class SearchFormScreen extends StatelessWidget {
   const SearchFormScreen({
@@ -17,34 +19,26 @@ class SearchFormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 24,
             ),
-            child: DestinationSearchBar(),
+            child: AppSearchBar(),
           ),
-          DestinationCarousel(viewModel: viewModel),
-          SearchDateDisplay(
+          SearchFormRegion(viewModel: viewModel),
+          SearchFormDate(
             viewModel: viewModel,
           ),
+          SearchFormGuests(
+            viewModel: viewModel,
+          ),
+          const Spacer(),
+          SearchFormButton(viewModel: viewModel),
         ],
       ),
     );
-    //   Center(
-    //     child: Column(
-    //       children: [
-    //         const DestinationSearchBar(),
-    //         ElevatedButton(
-    //           onPressed: () {
-    //             context.go('/results?destination=Europe&checkIn=2024-05-09&checkOut=2024-05-24&guests=1');
-    //           },
-    //           child: const Text('Search'),
-    //         ),
-    //       ],
-    //     ),
-    //   )
-    // );
   }
 }

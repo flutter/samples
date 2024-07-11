@@ -6,8 +6,8 @@ import '../../../data/models/region.dart';
 import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
 
-class DestinationCarousel extends StatelessWidget {
-  const DestinationCarousel({
+class SearchFormRegion extends StatelessWidget {
+  const SearchFormRegion({
     super.key,
     required this.viewModel,
   });
@@ -70,8 +70,6 @@ class _CarouselItem extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: imageUrl,
               fit: BoxFit.cover,
-              // color: _selected() ? Colors.transparent : Colors.white.withOpacity(0.7),
-              // colorBlendMode: BlendMode.srcATop,
               errorWidget: (context, url, error) {
                 // NOTE: Getting "invalid image data" error for some of the images
                 // e.g. https://rstr.in/google/tripedia/jlbgFDrSUVE
@@ -118,7 +116,11 @@ class _CarouselItem extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    viewModel.selectedRegion = name;
+                    if (viewModel.selectedRegion == name) {
+                      viewModel.selectedRegion = null;
+                    } else {
+                      viewModel.selectedRegion = name;
+                    }
                   },
                 ),
               ),
