@@ -56,6 +56,7 @@ class _QuantitySelector extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
+                key: const ValueKey('remove_guests'),
                 onTap: () {
                   viewModel.guests--;
                 },
@@ -69,6 +70,7 @@ class _QuantitySelector extends StatelessWidget {
                 style: viewModel.guests == 0 ? TextStyles.hint : TextStyles.text,
               ),
               InkWell(
+                key: const ValueKey('add_guests'),
                 onTap: () {
                   viewModel.guests++;
                 },
