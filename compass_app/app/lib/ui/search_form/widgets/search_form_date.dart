@@ -24,12 +24,10 @@ class SearchFormDate extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
         onTap: () {
           showDateRangePicker(
-              context: context,
-              firstDate: DateTime.now(),
-              lastDate: DateTime.now().add(const Duration(days: 365)))
-              .then(
-                (dateRange) => viewModel.dateRange = dateRange,
-          );
+                  context: context,
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime.now().add(const Duration(days: 365)))
+              .then((dateRange) => viewModel.dateRange = dateRange);
         },
         child: Container(
           height: 64,
