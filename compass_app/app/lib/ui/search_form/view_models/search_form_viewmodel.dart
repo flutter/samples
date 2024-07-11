@@ -33,7 +33,7 @@ class SearchFormViewModel extends ChangeNotifier {
     assert(_guests > 0, "Called searchQuery without guests");
     final startDate = _dateRange!.start;
     final endDate = _dateRange!.end;
-    return 'destination=$_selectedRegion&checkIn=${_dateFormat.format(endDate)}&checkOut=${_dateFormat.format(startDate)}&guests=$_guests';
+    return 'destination=$_selectedRegion&checkIn=${_dateFormat.format(startDate)}&checkOut=${_dateFormat.format(endDate)}&guests=$_guests';
   }
 
   /// List of regions

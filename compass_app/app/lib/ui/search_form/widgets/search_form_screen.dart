@@ -36,7 +36,7 @@ class SearchFormScreen extends StatelessWidget {
             viewModel: viewModel,
           ),
           const Spacer(),
-          SearchFormButton(viewModel: viewModel),
+          SearchFormSubmit(viewModel: viewModel),
         ],
       ),
     );

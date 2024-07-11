@@ -59,7 +59,7 @@ void main() {
       viewModel.dateRange = newDateRange;
 
       expect(viewModel.valid, true);
-      expect(viewModel.searchQuery, 'destination=REGION&checkIn=2024-01-31&checkOut=2024-01-01&guests=2');
+      expect(viewModel.searchQuery, 'destination=REGION&checkIn=2024-01-01&checkOut=2024-01-31&guests=2');
     });
   });
 }
