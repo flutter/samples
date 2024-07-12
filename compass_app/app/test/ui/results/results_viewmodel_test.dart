@@ -7,7 +7,7 @@ void main() {
   group('ResultsViewModel tests', () {
     final viewModel = ResultsViewModel(
       destinationRepository: FakeDestinationRepository(),
-    );
+    )..search();
 
     // perform a simple test
     // verifies that the list of items is properly loaded

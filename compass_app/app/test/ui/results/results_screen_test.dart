@@ -36,6 +36,8 @@ Future<void> loadScreen(WidgetTester tester) async {
   final viewModel = ResultsViewModel(
     destinationRepository: FakeDestinationRepository(),
   );
+  // Load some data
+  viewModel.search();
   await tester.pumpWidget(
     MaterialApp(
       home: ResultsScreen(
