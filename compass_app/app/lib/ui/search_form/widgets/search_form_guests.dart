@@ -4,6 +4,7 @@ import '../../core/themes/colors.dart';
 import '../../core/themes/text_styles.dart';
 import '../view_models/search_form_viewmodel.dart';
 
+/// Number of guests selection form
 class SearchFormGuests extends StatelessWidget {
   const SearchFormGuests({
     super.key,
@@ -47,42 +48,40 @@ class _QuantitySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: viewModel,
-      builder: (context, _) {
-        return SizedBox(
-          width: 90,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                key: const ValueKey('remove_guests'),
-                onTap: () {
-                  viewModel.guests--;
-                },
-                child: const Icon(
-                  Icons.remove_circle_outline,
-                  color: AppColors.grey3,
-                ),
-              ),
-              Text(
-                viewModel.guests.toString(),
-                style: viewModel.guests == 0 ? TextStyles.hint : TextStyles.text,
-              ),
-              InkWell(
-                key: const ValueKey('add_guests'),
-                onTap: () {
-                  viewModel.guests++;
-                },
-                child: const Icon(
-                  Icons.add_circle_outline,
-                  color: AppColors.grey3,
-                ),
-              ),
-            ],
+    return SizedBox(
+      width: 90,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          InkWell(
+            key: const ValueKey('remove_guests'),
+            onTap: () {
+              viewModel.guests--;
+            },
+            child: const Icon(
+              Icons.remove_circle_outline,
+              color: AppColors.grey3,
+            ),
           ),
-        );
-      }
+          ListenableBuilder(
+            listenable: viewModel,
+            builder: (context, _) => Text(
+              viewModel.guests.toString(),
+              style: viewModel.guests == 0 ? TextStyles.hint : TextStyles.text,
+            ),
+          ),
+          InkWell(
+            key: const ValueKey('add_guests'),
+            onTap: () {
+              viewModel.guests++;
+            },
+            child: const Icon(
+              Icons.add_circle_outline,
+              color: AppColors.grey3,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

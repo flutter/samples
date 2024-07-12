@@ -6,6 +6,7 @@ import '../../../data/models/region.dart';
 import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
 
+/// Region selection carousel
 class SearchFormRegion extends StatelessWidget {
   const SearchFormRegion({
     super.key,
@@ -73,7 +74,6 @@ class _CarouselItem extends StatelessWidget {
               errorWidget: (context, url, error) {
                 // NOTE: Getting "invalid image data" error for some of the images
                 // e.g. https://rstr.in/google/tripedia/jlbgFDrSUVE
-                // print(error);
                 return const DecoratedBox(
                   decoration: BoxDecoration(
                     color: AppColors.grey3,

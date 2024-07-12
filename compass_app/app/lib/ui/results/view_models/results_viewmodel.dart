@@ -8,10 +8,7 @@ import 'package:flutter/cupertino.dart';
 class ResultsViewModel extends ChangeNotifier {
   ResultsViewModel({
     required DestinationRepository destinationRepository,
-  }) : _destinationRepository = destinationRepository {
-    // Preload a search result
-    search(continent: 'Europe');
-  }
+  }) : _destinationRepository = destinationRepository;
 
   final DestinationRepository _destinationRepository;
 

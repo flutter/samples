@@ -8,6 +8,7 @@ import '../view_models/search_form_viewmodel.dart';
 final _dateFormatDay = DateFormat('d');
 final _dateFormatDayMonth = DateFormat('d MMM');
 
+/// Date selection form field
 class SearchFormDate extends StatelessWidget {
   const SearchFormDate({
     super.key,
@@ -24,10 +25,10 @@ class SearchFormDate extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
         onTap: () {
           showDateRangePicker(
-                  context: context,
-                  firstDate: DateTime.now(),
-                  lastDate: DateTime.now().add(const Duration(days: 365)))
-              .then((dateRange) => viewModel.dateRange = dateRange);
+            context: context,
+            firstDate: DateTime.now(),
+            lastDate: DateTime.now().add(const Duration(days: 365)),
+          ).then((dateRange) => viewModel.dateRange = dateRange);
         },
         child: Container(
           height: 64,
@@ -46,12 +47,17 @@ class SearchFormDate extends StatelessWidget {
                 ),
                 ListenableBuilder(
                   listenable: viewModel,
-                  builder: (context, child) => viewModel.dateRange != null
-                      ? Text(
-                          _dateFormat(viewModel.dateRange!),
-                          style: TextStyles.text,
-                        )
-                      : const Text('Add Dates', style: TextStyles.hint),
+                  builder: (context, _) {
+                    final dateRange = viewModel.dateRange;
+                    if (dateRange != null) {
+                      return Text(
+                        _dateFormat(dateRange),
+                        style: TextStyles.text,
+                      );
+                    } else {
+                      return const Text('Add Dates', style: TextStyles.hint);
+                    }
+                  },
                 )
               ],
             ),

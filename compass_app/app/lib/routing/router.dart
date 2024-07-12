@@ -23,6 +23,9 @@ final router = GoRouter(
             final viewModel = ResultsViewModel(
               destinationRepository: context.read(),
             );
+            final parameters = state.uri.queryParameters;
+            // TODO: Pass the rest of query parameters to the ViewModel
+            viewModel.search(continent: parameters['destination']);
             return ResultsScreen(viewModel: viewModel);
           },
         ),

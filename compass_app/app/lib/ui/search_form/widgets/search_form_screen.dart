@@ -29,12 +29,8 @@ class SearchFormScreen extends StatelessWidget {
             child: AppSearchBar(),
           ),
           SearchFormRegion(viewModel: viewModel),
-          SearchFormDate(
-            viewModel: viewModel,
-          ),
-          SearchFormGuests(
-            viewModel: viewModel,
-          ),
+          SearchFormDate(viewModel: viewModel),
+          SearchFormGuests(viewModel: viewModel),
           const Spacer(),
           SearchFormSubmit(viewModel: viewModel),
         ],
