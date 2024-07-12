@@ -22,22 +22,23 @@ class SearchFormSubmit extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       child: ListenableBuilder(
-          listenable: viewModel,
-          child: const SizedBox(
-            height: 52,
-            child: Center(
-              child: Text('Search'),
-            ),
+        listenable: viewModel,
+        child: const SizedBox(
+          height: 52,
+          child: Center(
+            child: Text('Search'),
           ),
-          builder: (context, child) {
-            return FilledButton(
-              key: const ValueKey('submit_button'),
-              onPressed: viewModel.valid
-                  ? () => context.go('/results?${viewModel.searchQuery}')
-                  : null,
-              child: child,
-            );
-          }),
+        ),
+        builder: (context, child) {
+          return FilledButton(
+            key: const ValueKey('submit_button'),
+            onPressed: viewModel.valid
+                ? () => context.go('/results?${viewModel.searchQuery}')
+                : null,
+            child: child,
+          );
+        },
+      ),
     );
   }
 }
