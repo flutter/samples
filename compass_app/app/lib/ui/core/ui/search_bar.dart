@@ -4,6 +4,10 @@ import '../themes/colors.dart';
 import '../themes/text_styles.dart';
 import 'home_button.dart';
 
+/// Application top search bar.
+///
+/// Displays a search bar with the current query.
+/// Includes [HomeButton] to navigate back to the '/' path.
 class AppSearchBar extends StatelessWidget {
   const AppSearchBar({
     super.key,

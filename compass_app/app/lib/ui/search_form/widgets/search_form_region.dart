@@ -7,6 +7,10 @@ import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Region selection carousel
+///
+/// Loads a list of regions in a horizontal carousel.
+/// Users can tap one item to select it.
+/// Tapping again the same item will deselect it.
 class SearchFormRegion extends StatelessWidget {
   const SearchFormRegion({
     super.key,

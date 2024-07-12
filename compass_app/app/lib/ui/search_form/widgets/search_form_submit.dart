@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Search form submit button
+///
+/// The button is disabled when the form is data is incomplete.
+/// When tapped, it navigates to the [ResultsScreen]
+/// passing the search options as query parameters.
 class SearchFormSubmit extends StatelessWidget {
   const SearchFormSubmit({
     super.key,

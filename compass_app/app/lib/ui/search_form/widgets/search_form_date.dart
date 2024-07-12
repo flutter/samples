@@ -8,7 +8,9 @@ import '../view_models/search_form_viewmodel.dart';
 final _dateFormatDay = DateFormat('d');
 final _dateFormatDayMonth = DateFormat('d MMM');
 
-/// Date selection form field
+/// Date selection form field.
+///
+/// Opens a date range picker dialog when tapped.
 class SearchFormDate extends StatelessWidget {
   const SearchFormDate({
     super.key,

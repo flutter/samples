@@ -2,6 +2,7 @@ import '../../../utils/result.dart';
 import '../../models/region.dart';
 import 'region_repository.dart';
 
+/// Local data source with all possible regions.
 class RegionRepositoryLocal implements RegionRepository {
   @override
   Future<Result<List<Region>>> getDestinations() {

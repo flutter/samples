@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-/// Custom scroll behavior to allow dragging with mouse
-/// Necessary to allow dragging with mouse on Regions carousel
+/// Custom scroll behavior to allow dragging with mouse.
+/// Necessary to allow dragging with mouse on Regions carousel.
 class AppCustomScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {

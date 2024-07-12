@@ -7,6 +7,10 @@ import '../../../utils/result.dart';
 
 final _dateFormat = DateFormat('yyyy-MM-dd');
 
+/// View model for the search form.
+///
+/// Contains the form selected options
+/// and the logic to load the list of regions.
 class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
     required RegionRepository regionRepository,
@@ -21,7 +25,8 @@ class SearchFormViewModel extends ChangeNotifier {
   int _guests = 0;
 
   /// True if the form is valid and can be submitted
-  bool get valid => _guests > 0 && _selectedRegion != null && _dateRange != null;
+  bool get valid =>
+      _guests > 0 && _selectedRegion != null && _dateRange != null;
 
   /// Returns the search query string to call the Results screen
   /// e.g. 'destination=Europe&checkIn=2024-05-09&checkOut=2024-05-24&guests=1',
@@ -42,11 +47,11 @@ class SearchFormViewModel extends ChangeNotifier {
     return uri.query;
   }
 
-  /// List of regions
-  /// Loaded in [load] method
+  /// List of regions.
+  /// Loaded in [load] method.
   List<Region> get regions => _regions;
 
-  /// Load the list of regions
+  /// Load the list of regions.
   Future<void> load() async {
     final result = await _regionRepository.getDestinations();
     switch (result) {
@@ -64,24 +69,25 @@ class SearchFormViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Selected region
+  /// Selected region.
+  /// Null means no region is selected.
   String? get selectedRegion => _selectedRegion;
 
-  /// Set selected region
-  /// Set to null to clear the selection
+  /// Set selected region.
+  /// Set to null to clear the selection.
   set selectedRegion(String? region) {
     _selectedRegion = region;
     notifyListeners();
   }
 
-  /// Date range
+  /// Date range.
+  /// Null means no range is selected.
   DateTimeRange? get dateRange => _dateRange;
 
-  /// Set date range
+  /// Set date range.
+  /// Can be set to null to clear selection.
   set dateRange(DateTimeRange? dateRange) {
-    if (_dateRange != dateRange) {
-      _dateRange = dateRange;
-    }
+    _dateRange = dateRange;
     notifyListeners();
   }
 
@@ -98,5 +104,4 @@ class SearchFormViewModel extends ChangeNotifier {
     }
     notifyListeners();
   }
-
 }

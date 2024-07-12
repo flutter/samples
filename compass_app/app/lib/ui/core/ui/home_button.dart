@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../themes/colors.dart';
 
+/// Home button to navigate back to the '/' path.
 class HomeButton extends StatelessWidget {
   const HomeButton({super.key});
 

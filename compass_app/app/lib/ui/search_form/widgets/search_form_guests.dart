@@ -5,6 +5,9 @@ import '../../core/themes/text_styles.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Number of guests selection form
+///
+/// Users can tap the Plus and Minus icons to increase or decrease
+/// the number of guests.
 class SearchFormGuests extends StatelessWidget {
   const SearchFormGuests({
     super.key,
