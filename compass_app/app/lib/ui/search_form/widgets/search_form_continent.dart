@@ -24,26 +24,27 @@ class SearchFormContinent extends StatelessWidget {
     return SizedBox(
       height: 140,
       child: ListenableBuilder(
-          listenable: viewModel,
-          builder: (context, child) {
-            return ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: viewModel.continents.length,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              itemBuilder: (BuildContext context, int index) {
-                final Continent(:imageUrl, :name) = viewModel.continents[index];
-                return _CarouselItem(
-                  key: ValueKey(name),
-                  imageUrl: imageUrl,
-                  name: name,
-                  viewModel: viewModel,
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(width: 8);
-              },
-            );
-          }),
+        listenable: viewModel,
+        builder: (context, child) {
+          return ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemCount: viewModel.continents.length,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            itemBuilder: (BuildContext context, int index) {
+              final Continent(:imageUrl, :name) = viewModel.continents[index];
+              return _CarouselItem(
+                key: ValueKey(name),
+                imageUrl: imageUrl,
+                name: name,
+                viewModel: viewModel,
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(width: 8);
+            },
+          );
+        },
+      ),
     );
   }
 }
@@ -61,7 +62,8 @@ class _CarouselItem extends StatelessWidget {
   final SearchFormViewModel viewModel;
 
   bool _selected() =>
-      viewModel.selectedContinent == null || viewModel.selectedContinent == name;
+      viewModel.selectedContinent == null ||
+      viewModel.selectedContinent == name;
 
   @override
   Widget build(BuildContext context) {
