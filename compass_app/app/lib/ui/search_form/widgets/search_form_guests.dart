@@ -31,9 +31,9 @@ class SearchFormGuests extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Who',
-                style: TextStyles.title,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               _QuantitySelector(viewModel),
             ],
@@ -70,7 +70,9 @@ class _QuantitySelector extends StatelessWidget {
             listenable: viewModel,
             builder: (context, _) => Text(
               viewModel.guests.toString(),
-              style: viewModel.guests == 0 ? TextStyles.hint : TextStyles.text,
+              style: viewModel.guests == 0
+                  ? Theme.of(context).inputDecorationTheme.hintStyle
+                  : Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           InkWell(

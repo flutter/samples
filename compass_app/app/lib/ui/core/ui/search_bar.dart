@@ -57,7 +57,7 @@ class _QueryText extends StatelessWidget {
     return Text(
       query,
       textAlign: TextAlign.center,
-      style: TextStyles.text,
+      style: Theme.of(context).textTheme.bodyMedium,
     );
   }
 }
@@ -67,17 +67,17 @@ class _EmptySearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(Icons.search),
-        SizedBox(width: 12),
+        const Icon(Icons.search),
+        const SizedBox(width: 12),
         Expanded(
           child: Text(
             'Search destination',
             textAlign: TextAlign.start,
-            style: TextStyles.hint,
+            style: Theme.of(context).inputDecorationTheme.hintStyle,
           ),
         ),
       ],

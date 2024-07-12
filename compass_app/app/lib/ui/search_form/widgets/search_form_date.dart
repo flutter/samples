@@ -43,9 +43,9 @@ class SearchFormDate extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'When',
-                  style: TextStyles.title,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 ListenableBuilder(
                   listenable: viewModel,
@@ -54,10 +54,13 @@ class SearchFormDate extends StatelessWidget {
                     if (dateRange != null) {
                       return Text(
                         _dateFormat(dateRange),
-                        style: TextStyles.text,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       );
                     } else {
-                      return const Text('Add Dates', style: TextStyles.hint);
+                      return Text(
+                        'Add Dates',
+                        style: Theme.of(context).inputDecorationTheme.hintStyle,
+                      );
                     }
                   },
                 )
