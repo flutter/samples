@@ -1,39 +1,39 @@
 import '../../../utils/result.dart';
-import '../../models/region.dart';
-import 'region_repository.dart';
+import '../../models/continent.dart';
+import 'continent_repository.dart';
 
 /// Local data source with all possible regions.
-class RegionRepositoryLocal implements RegionRepository {
+class ContinentRepositoryLocal implements ContinentRepository {
   @override
-  Future<Result<List<Region>>> getDestinations() {
+  Future<Result<List<Continent>>> getContinents() {
     return Future.value(
       Result.ok(
         [
-          Region(
+          Continent(
             name: 'Europe',
             imageUrl: 'https://rstr.in/google/tripedia/TmR12QdlVTT',
           ),
-          Region(
+          Continent(
             name: 'Asia',
             imageUrl: 'https://rstr.in/google/tripedia/VJ8BXlQg8O1',
           ),
-          Region(
+          Continent(
             name: 'South America',
             imageUrl: 'https://rstr.in/google/tripedia/flm_-o1aI8e',
           ),
-          Region(
+          Continent(
             name: 'Africa',
             imageUrl: 'https://rstr.in/google/tripedia/-nzi8yFOBpF',
           ),
-          Region(
+          Continent(
             name: 'North America',
             imageUrl: 'https://rstr.in/google/tripedia/jlbgFDrSUVE',
           ),
-          Region(
+          Continent(
             name: 'Oceania',
             imageUrl: 'https://rstr.in/google/tripedia/vxyrDE-fZVL',
           ),
-          Region(
+          Continent(
             name: 'Australia',
             imageUrl: 'https://rstr.in/google/tripedia/z6vy6HeRyvZ',
           ),

@@ -7,7 +7,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../../../util/mocks.dart';
-import '../../../util/fakes/repositories/fake_region_repository.dart';
+import '../../../util/fakes/repositories/fake_continent_repository.dart';
 
 void main() {
   group('SearchFormScreen widget tests', () {
@@ -16,7 +16,7 @@ void main() {
 
     setUp(() {
       viewModel = SearchFormViewModel(
-        regionRepository: FakeRegionRepository(),
+        continentRepository: FakeContinentRepository(),
       );
       goRouter = MockGoRouter();
     });
@@ -42,8 +42,8 @@ void main() {
       await loadWidget(tester);
       expect(find.byType(SearchFormScreen), findsOneWidget);
 
-      // Select region
-      await tester.tap(find.text('REGION'), warnIfMissed: false);
+      // Select continent
+      await tester.tap(find.text('CONTINENT'), warnIfMissed: false);
 
       // Select date
       viewModel.dateRange = DateTimeRange(start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
@@ -58,7 +58,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('submit_button')));
 
       // Should navigate to results screen
-      verify(() => goRouter.go('/results?destination=REGION&checkIn=2024-06-12&checkOut=2024-07-23&guests=1')).called(1);
+      verify(() => goRouter.go('/results?continent=CONTINENT&checkIn=2024-06-12&checkOut=2024-07-23&guests=1')).called(1);
     });
   });
 }

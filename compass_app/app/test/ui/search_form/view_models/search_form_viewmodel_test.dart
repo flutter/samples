@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 
-import '../../../util/fakes/repositories/fake_region_repository.dart';
+import '../../../util/fakes/repositories/fake_continent_repository.dart';
 
 void main() {
   group('SearchFormViewModel Tests', () {
     late SearchFormViewModel viewModel;
-    late FakeRegionRepository fakeRegionRepository = FakeRegionRepository();
 
     setUp(() {
-      viewModel = SearchFormViewModel(regionRepository: fakeRegionRepository);
+      viewModel = SearchFormViewModel(continentRepository: FakeContinentRepository());
     });
 
     test('Initial values are correct', () {
       expect(viewModel.valid, false);
-      expect(viewModel.selectedRegion, null);
+      expect(viewModel.selectedContinent, null);
       expect(viewModel.dateRange, null);
       expect(viewModel.guests, 0);
     });
@@ -29,13 +28,13 @@ void main() {
       expect(viewModel.dateRange, newDateRange);
     });
 
-    test('Setting selectedRegion updates correctly', () {
-      viewModel.selectedRegion = 'REGION';
-      expect(viewModel.selectedRegion, 'REGION');
+    test('Setting selectedContinent updates correctly', () {
+      viewModel.selectedContinent = 'CONTINENT';
+      expect(viewModel.selectedContinent, 'CONTINENT');
 
       // Setting null should work
-      viewModel.selectedRegion = null;
-      expect(viewModel.selectedRegion, null);
+      viewModel.selectedContinent = null;
+      expect(viewModel.selectedContinent, null);
     });
 
     test('Setting guests updates correctly', () {
@@ -51,7 +50,7 @@ void main() {
       expect(viewModel.valid, false);
 
       viewModel.guests = 2;
-      viewModel.selectedRegion = 'REGION';
+      viewModel.selectedContinent = 'CONTINENT';
       final DateTimeRange newDateRange = DateTimeRange(
         start: DateTime(2024, 1, 1),
         end: DateTime(2024, 1, 31),
@@ -59,7 +58,7 @@ void main() {
       viewModel.dateRange = newDateRange;
 
       expect(viewModel.valid, true);
-      expect(viewModel.searchQuery, 'destination=REGION&checkIn=2024-01-01&checkOut=2024-01-31&guests=2');
+      expect(viewModel.searchQuery, 'continent=CONTINENT&checkIn=2024-01-01&checkOut=2024-01-31&guests=2');
     });
   });
 }

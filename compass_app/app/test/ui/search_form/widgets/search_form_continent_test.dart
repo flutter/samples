@@ -1,18 +1,18 @@
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
-import 'package:compass_app/ui/search_form/widgets/search_form_region.dart';
+import 'package:compass_app/ui/search_form/widgets/search_form_continent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import '../../../util/fakes/repositories/fake_region_repository.dart';
+import '../../../util/fakes/repositories/fake_continent_repository.dart';
 
 void main() {
-  group('SearchFormRegion widget tests', () {
+  group('SearchFormContinent widget tests', () {
     late SearchFormViewModel viewModel;
 
     setUp(() {
       viewModel = SearchFormViewModel(
-        regionRepository: FakeRegionRepository(),
+        continentRepository: FakeContinentRepository(),
       );
     });
 
@@ -21,7 +21,7 @@ void main() {
         await tester.pumpWidget(
           MaterialApp(
             home: Scaffold(
-              body: SearchFormRegion(
+              body: SearchFormContinent(
                 viewModel: viewModel,
               ),
             ),
@@ -30,14 +30,14 @@ void main() {
       });
     }
 
-    testWidgets('Should load and select region', (WidgetTester tester) async {
+    testWidgets('Should load and select continent', (WidgetTester tester) async {
       await loadWidget(tester);
-      expect(find.byType(SearchFormRegion), findsOneWidget);
+      expect(find.byType(SearchFormContinent), findsOneWidget);
 
-      // Select region
-      await tester.tap(find.text('REGION'), warnIfMissed: false);
+      // Select continent
+      await tester.tap(find.text('CONTINENT'), warnIfMissed: false);
 
-      expect(viewModel.selectedRegion, 'REGION');
+      expect(viewModel.selectedContinent, 'CONTINENT');
     });
   });
 }

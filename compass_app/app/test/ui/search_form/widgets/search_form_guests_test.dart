@@ -3,7 +3,7 @@ import 'package:compass_app/ui/search_form/widgets/search_form_guests.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 
-import '../../../util/fakes/repositories/fake_region_repository.dart';
+import '../../../util/fakes/repositories/fake_continent_repository.dart';
 
 void main() {
   group('SearchFormGuests widget tests', () {
@@ -11,7 +11,7 @@ void main() {
 
     setUp(() {
       viewModel = SearchFormViewModel(
-        regionRepository: FakeRegionRepository(),
+        continentRepository: FakeContinentRepository(),
       );
     });
 

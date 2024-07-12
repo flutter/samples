@@ -2,17 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../data/models/region.dart';
+import '../../../data/models/continent.dart';
 import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
 
-/// Region selection carousel
+/// Continent selection carousel
 ///
-/// Loads a list of regions in a horizontal carousel.
+/// Loads a list of continents in a horizontal carousel.
 /// Users can tap one item to select it.
 /// Tapping again the same item will deselect it.
-class SearchFormRegion extends StatelessWidget {
-  const SearchFormRegion({
+class SearchFormContinent extends StatelessWidget {
+  const SearchFormContinent({
     super.key,
     required this.viewModel,
   });
@@ -28,10 +28,10 @@ class SearchFormRegion extends StatelessWidget {
           builder: (context, child) {
             return ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: viewModel.regions.length,
+              itemCount: viewModel.continents.length,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               itemBuilder: (BuildContext context, int index) {
-                final Region(:imageUrl, :name) = viewModel.regions[index];
+                final Continent(:imageUrl, :name) = viewModel.continents[index];
                 return _CarouselItem(
                   key: ValueKey(name),
                   imageUrl: imageUrl,
@@ -61,7 +61,7 @@ class _CarouselItem extends StatelessWidget {
   final SearchFormViewModel viewModel;
 
   bool _selected() =>
-      viewModel.selectedRegion == null || viewModel.selectedRegion == name;
+      viewModel.selectedContinent == null || viewModel.selectedContinent == name;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class _CarouselItem extends StatelessWidget {
                 ),
               ),
             ),
-            // Overlay when other region is selected
+            // Overlay when other continent is selected
             Positioned.fill(
               child: AnimatedOpacity(
                 opacity: _selected() ? 0 : 0.7,
@@ -120,10 +120,10 @@ class _CarouselItem extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    if (viewModel.selectedRegion == name) {
-                      viewModel.selectedRegion = null;
+                    if (viewModel.selectedContinent == name) {
+                      viewModel.selectedContinent = null;
                     } else {
-                      viewModel.selectedRegion = name;
+                      viewModel.selectedContinent = name;
                     }
                   },
                 ),

@@ -13,7 +13,7 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
-        final viewModel = SearchFormViewModel(regionRepository: context.read());
+        final viewModel = SearchFormViewModel(continentRepository: context.read());
         return SearchFormScreen(viewModel: viewModel);
       },
       routes: [
@@ -25,7 +25,7 @@ final router = GoRouter(
             );
             final parameters = state.uri.queryParameters;
             // TODO: Pass the rest of query parameters to the ViewModel
-            viewModel.search(continent: parameters['destination']);
+            viewModel.search(continent: parameters['continent']);
             return ResultsScreen(viewModel: viewModel);
           },
         ),

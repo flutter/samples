@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/models/region.dart';
-import '../../../data/repositories/region/region_repository.dart';
+import '../../../data/models/continent.dart';
+import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../utils/result.dart';
 
 final _dateFormat = DateFormat('yyyy-MM-dd');
@@ -13,33 +13,33 @@ final _dateFormat = DateFormat('yyyy-MM-dd');
 /// and the logic to load the list of regions.
 class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
-    required RegionRepository regionRepository,
-  }) : _regionRepository = regionRepository {
+    required ContinentRepository continentRepository,
+  }) : _continentRepository = continentRepository {
     load();
   }
 
-  final RegionRepository _regionRepository;
-  List<Region> _regions = [];
-  String? _selectedRegion;
+  final ContinentRepository _continentRepository;
+  List<Continent> _continents = [];
+  String? _selectedContinent;
   DateTimeRange? _dateRange;
   int _guests = 0;
 
   /// True if the form is valid and can be submitted
   bool get valid =>
-      _guests > 0 && _selectedRegion != null && _dateRange != null;
+      _guests > 0 && _selectedContinent != null && _dateRange != null;
 
   /// Returns the search query string to call the Results screen
   /// e.g. 'destination=Europe&checkIn=2024-05-09&checkOut=2024-05-24&guests=1',
   /// Must be called only if [valid] is true
   get searchQuery {
     assert(valid, "Called searchQuery when the form is not valid");
-    assert(_selectedRegion != null, "Called searchQuery without a region");
+    assert(_selectedContinent != null, "Called searchQuery without a continent");
     assert(_dateRange != null, "Called searchQuery without a date range");
     assert(_guests > 0, "Called searchQuery without guests");
     final startDate = _dateRange!.start;
     final endDate = _dateRange!.end;
     final uri = Uri(queryParameters: {
-      'destination': _selectedRegion!,
+      'continent': _selectedContinent!,
       'checkIn': _dateFormat.format(startDate),
       'checkOut': _dateFormat.format(endDate),
       'guests': _guests.toString(),
@@ -47,17 +47,17 @@ class SearchFormViewModel extends ChangeNotifier {
     return uri.query;
   }
 
-  /// List of regions.
+  /// List of continents.
   /// Loaded in [load] method.
-  List<Region> get regions => _regions;
+  List<Continent> get continents => _continents;
 
-  /// Load the list of regions.
+  /// Load the list of continents.
   Future<void> load() async {
-    final result = await _regionRepository.getDestinations();
+    final result = await _continentRepository.getContinents();
     switch (result) {
       case Ok():
         {
-          _regions = result.value;
+          _continents = result.value;
         }
       case Error():
         {
@@ -69,14 +69,14 @@ class SearchFormViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Selected region.
-  /// Null means no region is selected.
-  String? get selectedRegion => _selectedRegion;
+  /// Selected continent.
+  /// Null means no continent is selected.
+  String? get selectedContinent => _selectedContinent;
 
-  /// Set selected region.
+  /// Set selected continent.
   /// Set to null to clear the selection.
-  set selectedRegion(String? region) {
-    _selectedRegion = region;
+  set selectedContinent(String? continent) {
+    _selectedContinent = continent;
     notifyListeners();
   }
 

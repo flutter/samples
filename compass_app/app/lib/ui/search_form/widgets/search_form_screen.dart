@@ -5,12 +5,12 @@ import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
 import 'search_form_date.dart';
 import 'search_form_guests.dart';
-import 'search_form_region.dart';
+import 'search_form_continent.dart';
 import 'search_form_submit.dart';
 
 /// Search form screen
 ///
-/// Displays a search form with region, date and guests selection.
+/// Displays a search form with continent, date and guests selection.
 /// Tapping on the submit button opens the [ResultsScreen] screen
 /// passing the search options as query parameters.
 class SearchFormScreen extends StatelessWidget {
@@ -34,7 +34,7 @@ class SearchFormScreen extends StatelessWidget {
             ),
             child: AppSearchBar(),
           ),
-          SearchFormRegion(viewModel: viewModel),
+          SearchFormContinent(viewModel: viewModel),
           SearchFormDate(viewModel: viewModel),
           SearchFormGuests(viewModel: viewModel),
           const Spacer(),

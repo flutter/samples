@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../../util/fakes/repositories/fake_region_repository.dart';
+import '../../../util/fakes/repositories/fake_continent_repository.dart';
 import '../../../util/mocks.dart';
 
 void main() {
@@ -15,7 +15,7 @@ void main() {
 
     setUp(() {
       viewModel = SearchFormViewModel(
-        regionRepository: FakeRegionRepository(),
+        continentRepository: FakeContinentRepository(),
       );
       goRouter = MockGoRouter();
     });
@@ -45,7 +45,7 @@ void main() {
 
       // Fill in data
       viewModel.guests = 2;
-      viewModel.selectedRegion = 'REGION';
+      viewModel.selectedContinent = 'CONTINENT';
       final DateTimeRange newDateRange = DateTimeRange(
         start: DateTime(2024, 1, 1),
         end: DateTime(2024, 1, 31),
@@ -58,7 +58,7 @@ void main() {
 
       // Should navigate to results screen
       verify(() => goRouter.go(
-              '/results?destination=REGION&checkIn=2024-01-01&checkOut=2024-01-31&guests=2'))
+              '/results?continent=CONTINENT&checkIn=2024-01-01&checkOut=2024-01-31&guests=2'))
           .called(1);
     });
   });
