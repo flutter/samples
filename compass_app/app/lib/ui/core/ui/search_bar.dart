@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../themes/colors.dart';
-import '../themes/text_styles.dart';
 import 'home_button.dart';
 
 /// Application top search bar.

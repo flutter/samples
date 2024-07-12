@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../core/themes/colors.dart';
-import '../../core/themes/text_styles.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 final _dateFormatDay = DateFormat('d');

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../core/themes/colors.dart';
-import '../../core/themes/text_styles.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Number of guests selection form

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'colors.dart';
-
 // TODO: Maybe the text styles here should be moved to the respective widgets
 class TextStyles {
   // Note: original Figma file uses Nikkei Maru
