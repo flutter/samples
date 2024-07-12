@@ -59,7 +59,7 @@ class _QueryText extends StatelessWidget {
 }
 
 class _EmptySearch extends StatelessWidget {
-  const _EmptySearch({super.key});
+  const _EmptySearch();
 
   @override
   Widget build(BuildContext context) {
