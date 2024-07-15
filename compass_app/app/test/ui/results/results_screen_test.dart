@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import 'fake_destination_repository.dart';
+import '../../util/fakes/repositories/fake_destination_repository.dart';
 
 void main() {
   // TODO: Add more cases
@@ -36,6 +36,8 @@ Future<void> loadScreen(WidgetTester tester) async {
   final viewModel = ResultsViewModel(
     destinationRepository: FakeDestinationRepository(),
   );
+  // Load some data
+  viewModel.search();
   await tester.pumpWidget(
     MaterialApp(
       home: ResultsScreen(

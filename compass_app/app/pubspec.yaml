@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   go_router: ^14.2.0
   google_fonts: ^6.2.1
+  intl: ^0.19.0
   provider: ^6.1.2
 
 dev_dependencies:
@@ -19,6 +20,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^4.0.0
   mocktail_image_network: ^1.2.0
+  mocktail: ^1.0.4
 
 flutter:
   uses-material-design: true
