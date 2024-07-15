@@ -1,22 +1,24 @@
 import 'dart:io';
 
+import 'package:compass_server/routes/continent.dart';
+import 'package:compass_server/routes/destination.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 // Configure routes.
 final _router = Router()
-  ..get('/', _rootHandler)
-  ..get('/echo/<message>', _echoHandler);
+  ..get('/continent', continentHandler)
+  ..get('/destination', destinationHandler);
 
-Response _rootHandler(Request req) {
-  return Response.ok('Hello, World!\n');
-}
-
-Response _echoHandler(Request request) {
-  final message = request.params['message'];
-  return Response.ok('$message\n');
-}
+// Response _rootHandler(Request req) {
+//   return Response.ok('Hello, World!\n');
+// }
+//
+// Response _echoHandler(Request request) {
+//   final message = request.params['message'];
+//   return Response.ok('$message\n');
+// }
 
 void main(List<String> args) async {
   // Use any available host or container IP (usually `0.0.0.0`).

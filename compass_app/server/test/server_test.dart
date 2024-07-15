@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:compass_shared/model.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 
@@ -11,7 +13,7 @@ void main() {
   setUp(() async {
     p = await Process.start(
       'dart',
-      ['run', 'bin/server.dart'],
+      ['run', 'bin/compass_server.dart'],
       environment: {'PORT': port},
     );
     // Wait for server to start and print to stdout.
@@ -20,16 +22,28 @@ void main() {
 
   tearDown(() => p.kill());
 
-  test('Root', () async {
-    final response = await get(Uri.parse('$host/'));
+  test('Get Continent end-point', () async {
+    // Query /continent end-point
+    final response = await get(Uri.parse('$host/continent'));
     expect(response.statusCode, 200);
-    expect(response.body, 'Hello, World!\n');
+    // Parse json response list
+    final list = jsonDecode(response.body) as List<dynamic>;
+    // Parse items
+    final continents = list.map((element) => Continent.fromJson(element));
+    expect(continents.length, 7);
+    expect(continents.first.name, 'Europe');
   });
 
-  test('Echo', () async {
-    final response = await get(Uri.parse('$host/echo/hello'));
+  test('Get Destination end-point', () async {
+    // Query /destination end-point
+    final response = await get(Uri.parse('$host/destination'));
     expect(response.statusCode, 200);
-    expect(response.body, 'hello\n');
+    // Parse json response list
+    final list = jsonDecode(response.body) as List<dynamic>;
+    // Parse items
+    final destination = list.map((element) => Destination.fromJson(element));
+    expect(destination.length, 137);
+    expect(destination.first.name, 'Europe');
   });
 
   test('404', () async {
