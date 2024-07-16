@@ -1,5 +1,6 @@
 name: compass_server
 description: A server app using the shelf package and Docker.
+publish_to: 'none'
 version: 1.0.0
 
 environment:

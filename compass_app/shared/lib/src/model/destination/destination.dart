@@ -1,4 +1,3 @@
-import 'package:compass_shared/model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'destination.freezed.dart';
