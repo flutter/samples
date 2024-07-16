@@ -43,7 +43,7 @@ void main() {
     // Parse items
     final destination = list.map((element) => Destination.fromJson(element));
     expect(destination.length, 137);
-    expect(destination.first.name, 'Europe');
+    expect(destination.first.name, 'Alaska');
   });
 
   test('404', () async {

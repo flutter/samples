@@ -24,7 +24,7 @@ class Destination with _$Destination {
     required String knownFor,
 
     /// e.g. ['Mountain', 'Off-the-beaten-path', 'Wildlife watching']
-    required String tags,
+    required List<String> tags,
 
     /// e.g. 'https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg'
     required String imageUrl,

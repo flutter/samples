@@ -36,7 +36,7 @@ mixin _$Destination {
   String get knownFor => throw _privateConstructorUsedError;
 
   /// e.g. ['Mountain', 'Off-the-beaten-path', 'Wildlife watching']
-  String get tags => throw _privateConstructorUsedError;
+  List<String> get tags => throw _privateConstructorUsedError;
 
   /// e.g. 'https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg'
   String get imageUrl => throw _privateConstructorUsedError;
@@ -63,7 +63,7 @@ abstract class $DestinationCopyWith<$Res> {
       String country,
       String continent,
       String knownFor,
-      String tags,
+      List<String> tags,
       String imageUrl});
 }
 
@@ -114,7 +114,7 @@ class _$DestinationCopyWithImpl<$Res, $Val extends Destination>
       tags: null == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -137,7 +137,7 @@ abstract class _$$DestinationImplCopyWith<$Res>
       String country,
       String continent,
       String knownFor,
-      String tags,
+      List<String> tags,
       String imageUrl});
 }
 
@@ -184,9 +184,9 @@ class __$$DestinationImplCopyWithImpl<$Res>
           : knownFor // ignore: cast_nullable_to_non_nullable
               as String,
       tags: null == tags
-          ? _value.tags
+          ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -204,8 +204,9 @@ class _$DestinationImpl implements _Destination {
       required this.country,
       required this.continent,
       required this.knownFor,
-      required this.tags,
-      required this.imageUrl});
+      required final List<String> tags,
+      required this.imageUrl})
+      : _tags = tags;
 
   factory _$DestinationImpl.fromJson(Map<String, dynamic> json) =>
       _$$DestinationImplFromJson(json);
@@ -231,8 +232,15 @@ class _$DestinationImpl implements _Destination {
   final String knownFor;
 
   /// e.g. ['Mountain', 'Off-the-beaten-path', 'Wildlife watching']
+  final List<String> _tags;
+
+  /// e.g. ['Mountain', 'Off-the-beaten-path', 'Wildlife watching']
   @override
-  final String tags;
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
 
   /// e.g. 'https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg'
   @override
@@ -255,15 +263,15 @@ class _$DestinationImpl implements _Destination {
                 other.continent == continent) &&
             (identical(other.knownFor, knownFor) ||
                 other.knownFor == knownFor) &&
-            (identical(other.tags, tags) || other.tags == tags) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, ref, name, country, continent, knownFor, tags, imageUrl);
+  int get hashCode => Object.hash(runtimeType, ref, name, country, continent,
+      knownFor, const DeepCollectionEquality().hash(_tags), imageUrl);
 
   /// Create a copy of Destination
   /// with the given fields replaced by the non-null parameter values.
@@ -288,7 +296,7 @@ abstract class _Destination implements Destination {
       required final String country,
       required final String continent,
       required final String knownFor,
-      required final String tags,
+      required final List<String> tags,
       required final String imageUrl}) = _$DestinationImpl;
 
   factory _Destination.fromJson(Map<String, dynamic> json) =
@@ -316,7 +324,7 @@ abstract class _Destination implements Destination {
 
   /// e.g. ['Mountain', 'Off-the-beaten-path', 'Wildlife watching']
   @override
-  String get tags;
+  List<String> get tags;
 
   /// e.g. 'https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg'
   @override

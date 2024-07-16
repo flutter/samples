@@ -13,7 +13,7 @@ _$DestinationImpl _$$DestinationImplFromJson(Map<String, dynamic> json) =>
       country: json['country'] as String,
       continent: json['continent'] as String,
       knownFor: json['knownFor'] as String,
-      tags: json['tags'] as String,
+      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       imageUrl: json['imageUrl'] as String,
     );
 
