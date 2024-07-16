@@ -6,12 +6,13 @@ import 'package:provider/provider.dart';
 
 import 'ui/core/ui/scroll_behavior.dart';
 
+/// Configure dependencies in main method.
+/// - Use [providersLocal] to display local data.
+/// - Use [providersRemote] to display remote data from a server.
 void main() {
   runApp(
     MultiProvider(
-      // Loading the default providers
-      // NOTE: We can load different configurations e.g. fakes
-      providers: providers,
+      providers: providersRemote,
       child: const MainApp(),
     ),
   );

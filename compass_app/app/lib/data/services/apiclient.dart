@@ -5,6 +5,7 @@ import 'package:compass_shared/model.dart';
 import '../../utils/result.dart';
 
 // TODO: Basic auth request
+// TODO: Configurable baseurl/host/port
 class ApiClient {
   Future<Result<List<Continent>>> getContinents() async {
     final client = HttpClient();
