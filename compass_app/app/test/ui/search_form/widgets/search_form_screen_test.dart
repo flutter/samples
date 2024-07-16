@@ -38,7 +38,8 @@ void main() {
       });
     }
 
-    testWidgets('Should fill form and perform search', (WidgetTester tester) async {
+    testWidgets('Should fill form and perform search',
+        (WidgetTester tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormScreen), findsOneWidget);
 
@@ -46,7 +47,8 @@ void main() {
       await tester.tap(find.text('CONTINENT'), warnIfMissed: false);
 
       // Select date
-      viewModel.dateRange = DateTimeRange(start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
+      viewModel.dateRange = DateTimeRange(
+          start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
 
       // Select guests
       await tester.tap(find.byKey(const ValueKey('add_guests')));
@@ -58,7 +60,9 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('submit_button')));
 
       // Should navigate to results screen
-      verify(() => goRouter.go('/results?continent=CONTINENT&checkIn=2024-06-12&checkOut=2024-07-23&guests=1')).called(1);
+      verify(() => goRouter.go(
+              '/results?continent=CONTINENT&checkIn=2024-06-12&checkOut=2024-07-23&guests=1'))
+          .called(1);
     });
   });
 }

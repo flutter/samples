@@ -6,7 +6,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import '../../../utils/result.dart';
 import 'destination_repository.dart';
 
-
 /// Local implementation of DestinationRepository
 /// Uses data from assets folder
 class DestinationRepositoryLocal implements DestinationRepository {

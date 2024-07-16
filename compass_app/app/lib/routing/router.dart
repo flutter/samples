@@ -13,7 +13,8 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
-        final viewModel = SearchFormViewModel(continentRepository: context.read());
+        final viewModel =
+            SearchFormViewModel(continentRepository: context.read());
         return SearchFormScreen(viewModel: viewModel);
       },
       routes: [

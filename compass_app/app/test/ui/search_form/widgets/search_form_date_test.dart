@@ -27,7 +27,8 @@ void main() {
       );
     }
 
-    testWidgets('should display date in different month', (WidgetTester tester) async {
+    testWidgets('should display date in different month',
+        (WidgetTester tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormDate), findsOneWidget);
 
@@ -35,13 +36,15 @@ void main() {
       expect(find.text('Add Dates'), findsOneWidget);
 
       // Simulate date picker input:
-      viewModel.dateRange = DateTimeRange(start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
+      viewModel.dateRange = DateTimeRange(
+          start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
       await tester.pumpAndSettle();
 
       expect(find.text('12 Jun - 23 Jul'), findsOneWidget);
     });
 
-    testWidgets('should display date in same month', (WidgetTester tester) async {
+    testWidgets('should display date in same month',
+        (WidgetTester tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormDate), findsOneWidget);
 
@@ -49,7 +52,8 @@ void main() {
       expect(find.text('Add Dates'), findsOneWidget);
 
       // Simulate date picker input:
-      viewModel.dateRange = DateTimeRange(start: DateTime(2024, 6, 12), end: DateTime(2024, 6, 23));
+      viewModel.dateRange = DateTimeRange(
+          start: DateTime(2024, 6, 12), end: DateTime(2024, 6, 23));
       await tester.pumpAndSettle();
 
       expect(find.text('12 - 23 Jun'), findsOneWidget);

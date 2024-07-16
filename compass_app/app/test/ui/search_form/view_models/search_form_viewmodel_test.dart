@@ -9,7 +9,8 @@ void main() {
     late SearchFormViewModel viewModel;
 
     setUp(() {
-      viewModel = SearchFormViewModel(continentRepository: FakeContinentRepository());
+      viewModel =
+          SearchFormViewModel(continentRepository: FakeContinentRepository());
     });
 
     test('Initial values are correct', () {
@@ -58,7 +59,8 @@ void main() {
       viewModel.dateRange = newDateRange;
 
       expect(viewModel.valid, true);
-      expect(viewModel.searchQuery, 'continent=CONTINENT&checkIn=2024-01-01&checkOut=2024-01-31&guests=2');
+      expect(viewModel.searchQuery,
+          'continent=CONTINENT&checkIn=2024-01-01&checkOut=2024-01-31&guests=2');
     });
   });
 }
