@@ -1,4 +1,4 @@
-import 'package:compass_app/data/models/destination.dart';
+import 'package:compass_shared/model.dart';
 import 'package:compass_app/data/repositories/destination/destination_repository.dart';
 import 'package:compass_app/utils/result.dart';
 
@@ -9,7 +9,7 @@ class FakeDestinationRepository implements DestinationRepository {
     return Future.value(
       Result.ok(
         [
-          Destination(
+          const Destination(
             ref: 'ref1',
             name: 'name1',
             country: 'country1',
@@ -18,7 +18,7 @@ class FakeDestinationRepository implements DestinationRepository {
             tags: ['tags1'],
             imageUrl: 'imageUrl1',
           ),
-          Destination(
+          const Destination(
             ref: 'ref2',
             name: 'name2',
             country: 'country2',

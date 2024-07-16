@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   cached_network_image: ^3.3.1
+  compass_shared:
+    path: ../shared
   flutter:
     sdk: flutter
   go_router: ^14.2.0

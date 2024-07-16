@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:compass_shared/model.dart';
 
-import '../../../data/models/continent.dart';
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../utils/result.dart';
 
@@ -33,7 +33,8 @@ class SearchFormViewModel extends ChangeNotifier {
   /// Must be called only if [valid] is true
   get searchQuery {
     assert(valid, "Called searchQuery when the form is not valid");
-    assert(_selectedContinent != null, "Called searchQuery without a continent");
+    assert(
+        _selectedContinent != null, "Called searchQuery without a continent");
     assert(_dateRange != null, "Called searchQuery without a date range");
     assert(_guests > 0, "Called searchQuery without guests");
     final startDate = _dateRange!.start;

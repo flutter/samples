@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:compass_shared/model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../data/models/continent.dart';
 import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
 
