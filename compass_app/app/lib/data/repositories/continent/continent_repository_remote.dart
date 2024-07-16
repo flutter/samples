@@ -1,7 +1,7 @@
 import 'package:compass_shared/model.dart';
 
 import '../../../utils/result.dart';
-import '../../services/apiclient.dart';
+import '../../services/api_client.dart';
 import 'continent_repository.dart';
 
 /// Remote data source for [Continent].

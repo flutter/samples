@@ -7,7 +7,7 @@ import '../data/repositories/continent/continent_repository_remote.dart';
 import '../data/repositories/destination/destination_repository.dart';
 import '../data/repositories/destination/destination_repository_local.dart';
 import '../data/repositories/destination/destination_repository_remote.dart';
-import '../data/services/apiclient.dart';
+import '../data/services/api_client.dart';
 
 /// Configure dependencies for remote data.
 /// This dependency list uses repositories that connect to a remote server.
