@@ -1,4 +1,4 @@
-import 'package:compass_shared/model.dart';
+import 'package:compass_model/model.dart';
 import 'package:compass_app/data/repositories/destination/destination_repository.dart';
 import 'package:compass_app/utils/result.dart';
 

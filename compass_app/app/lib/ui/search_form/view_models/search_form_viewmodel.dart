@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:compass_shared/model.dart';
+import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../utils/result.dart';

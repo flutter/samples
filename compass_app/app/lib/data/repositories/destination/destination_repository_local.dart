@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:compass_shared/model.dart';
+import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../../../utils/result.dart';

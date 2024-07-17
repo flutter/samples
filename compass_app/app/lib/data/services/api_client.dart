@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:compass_shared/model.dart';
+import 'package:compass_model/model.dart';
 
 import '../../utils/result.dart';
 

@@ -1,14 +1,10 @@
-name: compass_shared
-description: A starting point for Dart libraries or applications.
+name: compass_model
+description: Compass App Data Model
 publish_to: 'none'
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
 
 environment:
   sdk: ^3.4.3
-
-# Add regular dependencies here.
-  # path: ^1.8.0
 
 dev_dependencies:
   build_runner: ^2.4.11

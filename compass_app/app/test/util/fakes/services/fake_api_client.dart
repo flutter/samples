@@ -1,7 +1,6 @@
 import 'package:compass_app/data/services/api_client.dart';
 import 'package:compass_app/utils/result.dart';
-import 'package:compass_shared/src/model/continent/continent.dart';
-import 'package:compass_shared/src/model/destination/destination.dart';
+import 'package:compass_model/model.dart';
 
 class FakeApiClient implements ApiClient {
   // Should not increase when using cached data

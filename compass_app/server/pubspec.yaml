@@ -10,8 +10,8 @@ dependencies:
   args: ^2.4.0
   shelf: ^1.4.0
   shelf_router: ^1.1.0
-  compass_shared:
-    path: ../shared
+  compass_model:
+    path: ../model
 
 dev_dependencies:
   http: ^1.1.0
