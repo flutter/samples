@@ -1,21 +1,14 @@
-import 'config/dependencies.dart';
 import 'ui/core/themes/theme.dart';
 import 'routing/router.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'ui/core/ui/scroll_behavior.dart';
+import 'main_development.dart' as development;
 
-/// Configure dependencies in main method.
-/// - Use [providersLocal] to display local data.
-/// - Use [providersRemote] to display remote data from a server.
+/// Default main method
 void main() {
-  runApp(
-    MultiProvider(
-      providers: providersRemote,
-      child: const MainApp(),
-    ),
-  );
+  // Launch development config by default
+  development.main();
 }
 
 class MainApp extends StatelessWidget {
