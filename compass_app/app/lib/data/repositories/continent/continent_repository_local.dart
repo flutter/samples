@@ -1,39 +1,40 @@
+import 'package:compass_model/model.dart';
+
 import '../../../utils/result.dart';
-import '../../models/continent.dart';
 import 'continent_repository.dart';
 
-/// Local data source with all possible regions.
+/// Local data source with all possible continents.
 class ContinentRepositoryLocal implements ContinentRepository {
   @override
   Future<Result<List<Continent>>> getContinents() {
     return Future.value(
       Result.ok(
         [
-          Continent(
+          const Continent(
             name: 'Europe',
             imageUrl: 'https://rstr.in/google/tripedia/TmR12QdlVTT',
           ),
-          Continent(
+          const Continent(
             name: 'Asia',
             imageUrl: 'https://rstr.in/google/tripedia/VJ8BXlQg8O1',
           ),
-          Continent(
+          const Continent(
             name: 'South America',
             imageUrl: 'https://rstr.in/google/tripedia/flm_-o1aI8e',
           ),
-          Continent(
+          const Continent(
             name: 'Africa',
             imageUrl: 'https://rstr.in/google/tripedia/-nzi8yFOBpF',
           ),
-          Continent(
+          const Continent(
             name: 'North America',
             imageUrl: 'https://rstr.in/google/tripedia/jlbgFDrSUVE',
           ),
-          Continent(
+          const Continent(
             name: 'Oceania',
             imageUrl: 'https://rstr.in/google/tripedia/vxyrDE-fZVL',
           ),
-          Continent(
+          const Continent(
             name: 'Australia',
             imageUrl: 'https://rstr.in/google/tripedia/z6vy6HeRyvZ',
           ),

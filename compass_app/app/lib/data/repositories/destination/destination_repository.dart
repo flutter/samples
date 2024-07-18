@@ -1,5 +1,6 @@
+import 'package:compass_model/model.dart';
+
 import '../../../utils/result.dart';
-import '../../models/destination.dart';
 
 /// Data source with all possible destinations
 abstract class DestinationRepository {

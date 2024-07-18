@@ -8,8 +8,7 @@ class AppColors {
   static const grey3 = Color(0xFFA4A4A4);
   static const whiteTransparent =
       Color(0x4DFFFFFF); // Figma rgba(255, 255, 255, 0.3)
-  static const blackTransparent =
-      Color(0x4D000000);
+  static const blackTransparent = Color(0x4D000000);
 
   static const lightColorScheme = ColorScheme(
     brightness: Brightness.light,

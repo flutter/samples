@@ -1,8 +1,9 @@
+import 'package:compass_model/model.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../core/themes/text_styles.dart';
 import '../../core/ui/tag_chip.dart';
-import '../../../data/models/destination.dart';
 
 class ResultCard extends StatelessWidget {
   const ResultCard({

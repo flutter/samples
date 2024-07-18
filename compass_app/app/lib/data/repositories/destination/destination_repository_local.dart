@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import '../../../utils/result.dart';
-import '../../models/destination.dart';
-import 'destination_repository.dart';
-
+import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart' show rootBundle;
+
+import '../../../utils/result.dart';
+import 'destination_repository.dart';
 
 /// Local implementation of DestinationRepository
 /// Uses data from assets folder
