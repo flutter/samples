@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import '../../../utils/result.dart';
 import 'activity_repository.dart';
 
+/// Local implementation of ActivityRepository
+/// Uses data from assets folder
 class ActivityRepositoryLocal implements ActivityRepository {
   @override
   Future<Result<List<Activity>>> getByDestination(String ref) async {

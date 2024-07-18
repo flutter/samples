@@ -17,18 +17,27 @@ void main() {
       repository = ActivityRepositoryRemote(apiClient: apiClient);
     });
 
-    test('should get activities', () async {
+    test('should get activities for destination', () async {
       final result = await repository.getByDestination('alaska');
       expect(result, isA<Ok>());
 
       final list = result.asOk.value;
-      expect(list.length, 2);
+      expect(list.length, 1);
 
       final destination = list.first;
-      expect(destination.name, 'name1');
+      expect(destination.name, 'Glacier Trekking and Ice Climbing');
 
       // Only one request happened
       expect(apiClient.requestCount, 1);
+    });
+
+    test('should get error for invalid destination', () async {
+      final result = await repository.getByDestination('invalid');
+      expect(result, isA<Error>());
+
+      final error = result.asError.error;
+      expect(error, isA<ActivitiesNotFoundException>());
+      expect((error as ActivitiesNotFoundException).destinationRef, 'invalid');
     });
 
     test('should get destinations from cache', () async {

@@ -6,4 +6,6 @@ import '../../../utils/result.dart';
 abstract class DestinationRepository {
   /// Get complete list of destinations
   Future<Result<List<Destination>>> getDestinations();
+
+  // TODO: Consider creating getByContinent instead of filtering in ViewModel
 }

@@ -11,6 +11,8 @@ abstract class ActivityRepository {
   Future<Result<List<Activity>>> getByDestination(String ref);
 }
 
+/// Example of custom exception
+/// TODO: Is there a better place for this class?
 class ActivitiesNotFoundException implements Exception {
   ActivitiesNotFoundException({
     required this.destinationRef,

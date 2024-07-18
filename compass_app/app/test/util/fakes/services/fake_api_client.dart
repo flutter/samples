@@ -44,8 +44,28 @@ class FakeApiClient implements ApiClient {
   }
 
   @override
-  Future<Result<List<Activity>>> getActivityByDestination(String ref) {
-    // TODO: implement getActivityByDestination
-    throw UnimplementedError();
+  Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
+    requestCount++;
+
+    if (ref == 'alaska') {
+      return Result.ok([
+        const Activity(
+          name: 'Glacier Trekking and Ice Climbing',
+          description:
+              'Embark on a thrilling adventure exploring the awe-inspiring glaciers of Alaska. Hike across the icy terrain, marvel at the deep blue crevasses, and even try your hand at ice climbing for an unforgettable experience.',
+          locationName: 'Matanuska Glacier or Mendenhall Glacier',
+          duration: 8,
+          timeOfDay: 'morning',
+          familyFriendly: false,
+          price: 4,
+          destinationRef: 'alaska',
+          ref: 'glacier-trekking-and-ice-climbing',
+          imageUrl:
+              'https://storage.googleapis.com/tripedia-images/activities/alaska_glacier-trekking-and-ice-climbing.jpg',
+        ),
+      ]);
+    }
+
+    return Result.ok([]);
   }
 }

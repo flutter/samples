@@ -1,6 +1,9 @@
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
+import '../data/repositories/activity/activity_repository.dart';
+import '../data/repositories/activity/activity_repository_local.dart';
+import '../data/repositories/activity/activity_repository_remote.dart';
 import '../data/repositories/continent/continent_repository.dart';
 import '../data/repositories/continent/continent_repository_local.dart';
 import '../data/repositories/continent/continent_repository_remote.dart';
@@ -25,6 +28,11 @@ List<SingleChildWidget> get providersRemote {
         apiClient: apiClient,
       ) as ContinentRepository,
     ),
+    Provider.value(
+      value: ActivityRepositoryRemote(
+        apiClient: apiClient,
+      ) as ActivityRepository,
+    ),
   ];
 }
 
@@ -37,6 +45,9 @@ List<SingleChildWidget> get providersLocal {
     ),
     Provider.value(
       value: ContinentRepositoryLocal() as ContinentRepository,
+    ),
+    Provider.value(
+      value: ActivityRepositoryLocal() as ActivityRepository,
     ),
   ];
 }
