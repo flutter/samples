@@ -42,4 +42,10 @@ class FakeApiClient implements ApiClient {
       ],
     );
   }
+
+  @override
+  Future<Result<List<Activity>>> getActivityByDestination(String ref) {
+    // TODO: implement getActivityByDestination
+    throw UnimplementedError();
+  }
 }
