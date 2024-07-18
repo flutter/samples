@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/themes/colors.dart';
+import '../../core/ui/error_indicator.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Continent selection carousel
@@ -29,6 +30,15 @@ class SearchFormContinent extends StatelessWidget {
           if (viewModel.load.running) {
             return const Center(
               child: CircularProgressIndicator(),
+            );
+          }
+          if (viewModel.load.error) {
+            return Center(
+              child: ErrorIndicator(
+                title: "Error while loading continents",
+                label: "Try again",
+                onPressed: viewModel.load.execute,
+              ),
             );
           }
           return child!;

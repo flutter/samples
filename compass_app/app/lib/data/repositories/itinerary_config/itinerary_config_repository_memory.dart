@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:compass_model/model.dart';
+import 'package:flutter/material.dart';
 
 import '../../../utils/result.dart';
 import 'itinerary_config_repository.dart';

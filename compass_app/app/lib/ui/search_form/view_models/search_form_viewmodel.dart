@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:compass_model/model.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
@@ -75,14 +76,17 @@ class SearchFormViewModel extends ChangeNotifier {
   late final Command0 load;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  late final Command0<bool> updateItineraryConfig;
+  late final Command0 updateItineraryConfig;
 
-  Future<void> _load() async {
-    await _loadContinents();
-    await _loadItineraryConfig();
+  Future<Result<void>> _load() async {
+    final result = await _loadContinents();
+    if (result is Error) {
+      return result;
+    }
+    return await _loadItineraryConfig();
   }
 
-  Future<void> _loadContinents() async {
+  Future<Result<void>> _loadContinents() async {
     final result = await _continentRepository.getContinents();
     switch (result) {
       case Ok():
@@ -97,9 +101,10 @@ class SearchFormViewModel extends ChangeNotifier {
         }
     }
     notifyListeners();
+    return result;
   }
 
-  Future<void> _loadItineraryConfig() async {
+  Future<Result<void>> _loadItineraryConfig() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     switch (result) {
       case Ok<ItineraryConfig>():
@@ -123,29 +128,19 @@ class SearchFormViewModel extends ChangeNotifier {
           print(result.error);
         }
     }
+    return result;
   }
 
-  Future<bool> _updateItineraryConfig() async {
+  Future<Result<void>> _updateItineraryConfig() async {
     assert(valid, "called when valid was false");
-    final result =
-        await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
-      continent: _selectedContinent,
-      startDate: _dateRange!.start,
-      endDate: _dateRange!.end,
-      guests: _guests,
-    ));
-    switch (result) {
-      case Ok<void>():
-        {
-          return true;
-        }
-      case Error<void>():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-          return false;
-        }
-    }
+    final result = await _itineraryConfigRepository.setItineraryConfig(
+      ItineraryConfig(
+        continent: _selectedContinent,
+        startDate: _dateRange!.start,
+        endDate: _dateRange!.end,
+        guests: _guests,
+      ),
+    );
+    return result;
   }
 }

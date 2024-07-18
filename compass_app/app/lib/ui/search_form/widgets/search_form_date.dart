@@ -51,7 +51,7 @@ class SearchFormDate extends StatelessWidget {
                     if (dateRange != null) {
                       return Text(
                         dateFormatStartEnd(dateRange),
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       );
                     } else {
                       return Text(

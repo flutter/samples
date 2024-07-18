@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:compass_model/model.dart';
+import 'package:flutter/material.dart';
 
 import '../../../utils/result.dart';
 import 'continent_repository.dart';
@@ -6,7 +9,13 @@ import 'continent_repository.dart';
 /// Local data source with all possible continents.
 class ContinentRepositoryLocal implements ContinentRepository {
   @override
-  Future<Result<List<Continent>>> getContinents() {
+  Future<Result<List<Continent>>> getContinents() async {
+    // Simulate network loading and random errors
+    // await Future.delayed(Durations.long1);
+    // if (Random().nextBool()) {
+    //   return Result.error(Exception('Random error!'));
+    // }
+
     return Future.value(
       Result.ok(
         [

@@ -14,7 +14,7 @@ class ResultsViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _destinationRepository = destinationRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    updateItineraryConfig = Command1<bool, String>(_updateItineraryConfig);
+    updateItineraryConfig = Command1<void, String>(_updateItineraryConfig);
     search = Command0(_search)..execute();
   }
 
@@ -37,16 +37,16 @@ class ResultsViewModel extends ChangeNotifier {
   late final Command0 search;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  late final Command1<bool, String> updateItineraryConfig;
+  late final Command1<void, String> updateItineraryConfig;
 
-  Future<void> _search() async {
+  Future<Result<void>> _search() async {
     // Load current itinerary config
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
     if (resultConfig is Error) {
       // TODO: Handle error
       // ignore: avoid_print
       print(resultConfig.asError.error);
-      return;
+      return resultConfig;
     }
     _itineraryConfig = resultConfig.asOk.value;
     notifyListeners();
@@ -71,9 +71,10 @@ class ResultsViewModel extends ChangeNotifier {
 
     // After finish loading results, notify the view
     notifyListeners();
+    return result;
   }
 
-  Future<bool> _updateItineraryConfig(String destinationRef) async {
+  Future<Result<void>> _updateItineraryConfig(String destinationRef) async {
     assert(destinationRef.isNotEmpty, "destinationRef should not be empty");
 
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
@@ -81,24 +82,12 @@ class ResultsViewModel extends ChangeNotifier {
       // TODO: Handle error
       // ignore: avoid_print
       print(resultConfig.asError.error);
-      return false;
+      return resultConfig;
     }
 
     final itineraryConfig = resultConfig.asOk.value;
     final result = await _itineraryConfigRepository.setItineraryConfig(
         itineraryConfig.copyWith(destination: destinationRef));
-    switch (result) {
-      case Ok<void>():
-        {
-          return true;
-        }
-      case Error<void>():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-          return false;
-        }
-    }
+    return result;
   }
 }

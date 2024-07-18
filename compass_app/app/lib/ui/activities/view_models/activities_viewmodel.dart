@@ -13,15 +13,21 @@ class ActivitiesViewModel extends ChangeNotifier {
   })  : _activityRepository = activityRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
     loadActivities = Command0(_loadActivities)..execute();
+    saveActivities =
+        Command0(() async => Result.error(Exception('Not implemented')));
   }
 
   final ActivityRepository _activityRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
-  List<Activity> _activities = <Activity>[];
+  List<Activity> _daytimeActivities = <Activity>[];
+  List<Activity> _eveningActivities = <Activity>[];
   final Set<String> _selectedActivities = <String>{};
 
-  /// List of [Activity] per destination.
-  List<Activity> get activities => _activities;
+  /// List of daytime [Activity] per destination.
+  List<Activity> get daytimeActivities => _daytimeActivities;
+
+  /// List of evening [Activity] per destination.
+  List<Activity> get eveningActivities => _eveningActivities;
 
   /// Selected [Activity] by ref.
   Set<String> get selectedActivities => _selectedActivities;
@@ -29,18 +35,20 @@ class ActivitiesViewModel extends ChangeNotifier {
   /// Load list of [Activity] for a [Destination] by ref.
   late final Command0 loadActivities;
 
-  Future<void> _loadActivities() async {
+  /// Save list [selectedActivities] into itinerary configuration.
+  late final Command0 saveActivities;
+
+  Future<Result<void>> _loadActivities() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     if (result is Error) {
       // TODO: Handle error
       print(result.asError.error);
-      return;
+      return result;
     }
 
     final destinationRef = result.asOk.value.destination;
     if (destinationRef == null) {
-      // TODO: Error here
-      return;
+      return Result.error(Exception('Destination not found'));
     }
 
     final resultActivities =
@@ -48,8 +56,16 @@ class ActivitiesViewModel extends ChangeNotifier {
     switch (resultActivities) {
       case Ok():
         {
-          _activities = resultActivities.value;
-          print(_activities);
+          _daytimeActivities = resultActivities.value
+              .where((activity) =>
+                  ['morning', 'afternoon'].contains(activity.timeOfDay))
+              .toList();
+
+          _eveningActivities = resultActivities.value
+              .where((activity) =>
+                  ['evening', 'night'].contains(activity.timeOfDay))
+              .toList();
+          // print(_activities);
         }
       case Error():
         {
@@ -57,13 +73,16 @@ class ActivitiesViewModel extends ChangeNotifier {
           print(resultActivities.error);
         }
     }
+
     notifyListeners();
+    return resultActivities;
   }
 
   /// Add [Activity] to selected list.
   void addActivity(String activityRef) {
     assert(
-      activities.any((activity) => activity.ref == activityRef),
+      (_daytimeActivities + _eveningActivities)
+          .any((activity) => activity.ref == activityRef),
       "Activity $activityRef not found",
     );
     _selectedActivities.add(activityRef);
@@ -73,7 +92,8 @@ class ActivitiesViewModel extends ChangeNotifier {
   /// Remove [Activity] from selected list.
   void removeActivity(String activityRef) {
     assert(
-      activities.any((activity) => activity.ref == activityRef),
+      (_daytimeActivities + _eveningActivities)
+          .any((activity) => activity.ref == activityRef),
       "Activity $activityRef not found",
     );
     _selectedActivities.remove(activityRef);

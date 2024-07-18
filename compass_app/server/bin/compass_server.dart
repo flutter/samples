@@ -9,7 +9,7 @@ import 'package:shelf_router/shelf_router.dart';
 // Configure routes.
 final _router = Router()
   ..get('/continent', continentHandler)
-  ..get('/destination', destinationHandler);
+  ..mount('/destination', DestinationApi().router.call);
 
 void main(List<String> args) async {
   // Use any available host or container IP (usually `0.0.0.0`).

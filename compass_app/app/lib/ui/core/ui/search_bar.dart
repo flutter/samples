@@ -74,7 +74,7 @@ class _QueryText extends StatelessWidget {
     return Text(
       '$continent - ${dateFormatStartEnd(DateTimeRange(start: startDate, end: endDate))} - Guests: $guests',
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyMedium,
+      style: Theme.of(context).textTheme.bodyLarge,
     );
   }
 }
