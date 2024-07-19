@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/ui/search_bar.dart';
 import '../view_models/results_viewmodel.dart';
@@ -59,9 +60,13 @@ class _Grid extends StatelessWidget {
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
+          final destination = viewModel.destinations[index];
           return ResultCard(
-            key: ValueKey(viewModel.destinations[index].ref),
-            destination: viewModel.destinations[index],
+            key: ValueKey(destination.ref),
+            destination: destination,
+            onTap: () {
+              context.go('/activities?${viewModel.searchQuery(destination.ref)}');
+            },
           );
         },
         childCount: viewModel.destinations.length,
