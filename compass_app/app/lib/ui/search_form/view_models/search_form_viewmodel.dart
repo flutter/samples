@@ -14,8 +14,25 @@ final _dateFormat = DateFormat('yyyy-MM-dd');
 class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
     required ContinentRepository continentRepository,
+    Map<String, String>? queryParameters,
   }) : _continentRepository = continentRepository {
     load();
+    // If query parameters are passed in, preload ViewModel state
+    if (queryParameters != null) {
+      if (queryParameters.containsKey('continent')) {
+        _selectedContinent = queryParameters['continent'];
+      }
+      if (queryParameters.containsKey('checkIn') &&
+          queryParameters.containsKey('checkOut')) {
+        final startDate = _dateFormat.parse(queryParameters['checkIn']!);
+        final endDate = _dateFormat.parse(queryParameters['checkOut']!);
+        _dateRange = DateTimeRange(start: startDate, end: endDate);
+      }
+      if (queryParameters.containsKey('guests')) {
+        _guests = int.tryParse(queryParameters['guests']!) ?? 0;
+      }
+      notifyListeners();
+    }
   }
 
   final ContinentRepository _continentRepository;

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +17,11 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
-        final viewModel =
-            SearchFormViewModel(continentRepository: context.read());
+        final parameters = state.uri.queryParameters;
+        final viewModel = SearchFormViewModel(
+          continentRepository: context.read(),
+          queryParameters: parameters,
+        );
         return SearchFormScreen(viewModel: viewModel);
       },
       routes: [

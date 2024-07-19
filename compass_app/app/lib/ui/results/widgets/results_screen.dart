@@ -29,7 +29,19 @@ class ResultsScreen extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 24, bottom: 24),
-                    child: AppSearchBar(query: viewModel.filters),
+                    child: AppSearchBar(
+                      query: viewModel.filters,
+                      onTap: () {
+                        // Navigate to SearchFormScreen and edit search
+                        context.go(
+                          Uri(
+                            path: '/',
+                            queryParameters:
+                                GoRouterState.of(context).uri.queryParameters,
+                          ).toString(),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 _Grid(viewModel: viewModel),
@@ -65,7 +77,8 @@ class _Grid extends StatelessWidget {
             key: ValueKey(destination.ref),
             destination: destination,
             onTap: () {
-              context.go('/activities?${viewModel.searchQuery(destination.ref)}');
+              context.push(
+                  '/activities?${viewModel.searchQuery(destination.ref)}');
             },
           );
         },
