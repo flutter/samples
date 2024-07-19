@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../routing/queries/search_query_parameters.dart';
+import 'date_format_start_end.dart';
 import '../themes/colors.dart';
 import 'home_button.dart';
 
@@ -14,7 +16,7 @@ class AppSearchBar extends StatelessWidget {
     this.onTap,
   });
 
-  final String? query;
+  final SearchQueryParameters? query;
   final GestureTapCallback? onTap;
 
   @override
@@ -55,12 +57,14 @@ class _QueryText extends StatelessWidget {
     required this.query,
   });
 
-  final String query;
+  final SearchQueryParameters query;
 
   @override
   Widget build(BuildContext context) {
+    final SearchQueryParameters(:continent, :startDate, :endDate, :guests) =
+        query;
     return Text(
-      query,
+      '$continent - ${dateFormatStartEnd(DateTimeRange(start: startDate, end: endDate))} - Guests: $guests',
       textAlign: TextAlign.center,
       style: Theme.of(context).textTheme.bodyMedium,
     );

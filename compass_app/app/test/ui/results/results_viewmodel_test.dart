@@ -1,3 +1,4 @@
+import 'package:compass_app/routing/queries/search_query_parameters.dart';
 import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,9 +8,12 @@ void main() {
   group('ResultsViewModel tests', () {
     final viewModel = ResultsViewModel(
       destinationRepository: FakeDestinationRepository(),
-      queryParameters: {
+      queryParameters: SearchQueryParameters.fromQueryParameters({
         'continent': 'Europe',
-      },
+        'checkIn': '2024-01-01',
+        'checkOut': '2024-01-31',
+        'guests': '2',
+      }),
     )..search();
 
     // perform a simple test

@@ -8,6 +8,7 @@ import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
 import '../ui/search_form/view_models/search_form_viewmodel.dart';
 import '../ui/search_form/widgets/search_form_screen.dart';
+import 'queries/search_query_parameters.dart';
 
 /// Top go_router entry point
 final router = GoRouter(
@@ -20,7 +21,10 @@ final router = GoRouter(
         final parameters = state.uri.queryParameters;
         final viewModel = SearchFormViewModel(
           continentRepository: context.read(),
-          queryParameters: parameters,
+          queryParameters:
+              SearchQueryParameters.validQueryParameters(parameters)
+                  ? SearchQueryParameters.fromQueryParameters(parameters)
+                  : null,
         );
         return SearchFormScreen(viewModel: viewModel);
       },
@@ -30,8 +34,7 @@ final router = GoRouter(
           redirect: (context, state) {
             // Check if query parameters provided
             final parameters = state.uri.queryParameters;
-            if (['continent', 'checkIn', 'checkOut', 'guests']
-                .any((key) => !parameters.containsKey(key))) {
+            if (!SearchQueryParameters.validQueryParameters(parameters)) {
               // redirect to root if query parameters are missing
               return '/';
             }
@@ -41,7 +44,8 @@ final router = GoRouter(
             final parameters = state.uri.queryParameters;
             final viewModel = ResultsViewModel(
               destinationRepository: context.read(),
-              queryParameters: parameters,
+              queryParameters:
+                  SearchQueryParameters.fromQueryParameters(parameters),
             )..search();
             return ResultsScreen(
               viewModel: viewModel,
@@ -53,8 +57,8 @@ final router = GoRouter(
           redirect: (context, state) {
             // Check if query parameters provided
             final parameters = state.uri.queryParameters;
-            if (['continent', 'checkIn', 'checkOut', 'guests', 'destination']
-                .any((key) => !parameters.containsKey(key))) {
+            if (!SearchQueryParameters.validQueryParameters(parameters,
+                withDestination: true)) {
               // redirect to root if query parameters are missing
               return '/';
             }
@@ -64,7 +68,7 @@ final router = GoRouter(
             final parameters = state.uri.queryParameters;
             final viewModel = ActivitiesViewModel(
               activityRepository: context.read(),
-              queryParameters: parameters,
+              queryParameters: SearchQueryParameters.fromQueryParameters(parameters),
             )..loadActivities();
             return ActivitiesScreen(
               viewModel: viewModel,

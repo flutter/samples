@@ -3,9 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
+import '../../../routing/queries/search_query_parameters.dart';
 import '../../../utils/result.dart';
-
-final _dateFormat = DateFormat('yyyy-MM-dd');
 
 /// View model for the search form.
 ///
@@ -14,23 +13,15 @@ final _dateFormat = DateFormat('yyyy-MM-dd');
 class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
     required ContinentRepository continentRepository,
-    Map<String, String>? queryParameters,
+    SearchQueryParameters? queryParameters,
   }) : _continentRepository = continentRepository {
     load();
     // If query parameters are passed in, preload ViewModel state
     if (queryParameters != null) {
-      if (queryParameters.containsKey('continent')) {
-        _selectedContinent = queryParameters['continent'];
-      }
-      if (queryParameters.containsKey('checkIn') &&
-          queryParameters.containsKey('checkOut')) {
-        final startDate = _dateFormat.parse(queryParameters['checkIn']!);
-        final endDate = _dateFormat.parse(queryParameters['checkOut']!);
-        _dateRange = DateTimeRange(start: startDate, end: endDate);
-      }
-      if (queryParameters.containsKey('guests')) {
-        _guests = int.tryParse(queryParameters['guests']!) ?? 0;
-      }
+      _selectedContinent = queryParameters.continent;
+      _dateRange = DateTimeRange(
+          start: queryParameters.startDate, end: queryParameters.endDate);
+      _guests = queryParameters.guests;
       notifyListeners();
     }
   }
@@ -56,13 +47,13 @@ class SearchFormViewModel extends ChangeNotifier {
     assert(_guests > 0, "Called searchQuery without guests");
     final startDate = _dateRange!.start;
     final endDate = _dateRange!.end;
-    final uri = Uri(queryParameters: {
-      'continent': _selectedContinent!,
-      'checkIn': _dateFormat.format(startDate),
-      'checkOut': _dateFormat.format(endDate),
-      'guests': _guests.toString(),
-    });
-    return uri.query;
+
+    return SearchQueryParameters(
+      continent: _selectedContinent!,
+      startDate: startDate,
+      endDate: endDate,
+      guests: _guests,
+    ).query;
   }
 
   /// List of continents.

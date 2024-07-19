@@ -2,17 +2,18 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
+import '../../../routing/queries/search_query_parameters.dart';
 import '../../../utils/result.dart';
 
 class ActivitiesViewModel extends ChangeNotifier {
   ActivitiesViewModel({
     required ActivityRepository activityRepository,
-    required Map<String, String> queryParameters,
+    required SearchQueryParameters queryParameters,
   })  : _activityRepository = activityRepository,
         _queryParameters = queryParameters;
 
   final ActivityRepository _activityRepository;
-  final Map<String, String> _queryParameters;
+  final SearchQueryParameters _queryParameters;
   List<Activity> _activities = <Activity>[];
   final Set<String> _selectedActivities = <String>{};
 
@@ -25,10 +26,10 @@ class ActivitiesViewModel extends ChangeNotifier {
   /// Load list of [Activity] for a [Destination] by ref.
   Future<void> loadActivities() async {
     assert(
-      _queryParameters.containsKey('destination'),
+      _queryParameters.destination != null,
       '"destination" missing in query parameters',
     );
-    final destinationRef = _queryParameters['destination']!;
+    final destinationRef = _queryParameters.destination!;
     final result = await _activityRepository.getByDestination(destinationRef);
     switch (result) {
       case Ok():

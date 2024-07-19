@@ -1,6 +1,7 @@
 import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/destination/destination_repository.dart';
+import '../../../routing/queries/search_query_parameters.dart';
 import '../../../utils/result.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -11,13 +12,13 @@ import '../../activities/widgets/activities_screen.dart';
 class ResultsViewModel extends ChangeNotifier {
   ResultsViewModel({
     required DestinationRepository destinationRepository,
-    required Map<String, String> queryParameters,
+    required SearchQueryParameters queryParameters,
   })  : _destinationRepository = destinationRepository,
         _queryParameters = queryParameters;
 
   final DestinationRepository _destinationRepository;
 
-  final Map<String, String> _queryParameters;
+  final SearchQueryParameters _queryParameters;
 
   // Setters are private
   List<Destination> _destinations = [];
@@ -29,12 +30,8 @@ class ResultsViewModel extends ChangeNotifier {
   /// Loading state
   bool get loading => _loading;
 
-  /// Return a formatted String with all the filter options
-  /// TODO: Format the string nicely
-  String get filters => '${_queryParameters['continent']} - '
-      '${_queryParameters['checkIn']} - '
-      '${_queryParameters['checkOut']} - '
-      '${_queryParameters['guests']}';
+  /// Filter options
+  SearchQueryParameters get filters => _queryParameters;
 
   /// Returns the search query string to navigate to [ActivitiesScreen]
   /// adding the 'destination' parameter
@@ -45,18 +42,11 @@ class ResultsViewModel extends ChangeNotifier {
       destinationRef.isNotEmpty,
       'destination should not be empty',
     );
-    final params = Map<String, String>.from(_queryParameters)
-      ..addAll({'destination': destinationRef});
-    final uri = Uri(queryParameters: params);
-    return uri.query;
+    return _queryParameters.withDestination(destinationRef).query;
   }
 
   /// Perform search
   Future<void> search() async {
-    assert(
-      _queryParameters.containsKey('continent'),
-      '"continent" missing in query parameters',
-    );
     // Set loading state and notify the view
     _loading = true;
     notifyListeners();
@@ -70,7 +60,7 @@ class ResultsViewModel extends ChangeNotifier {
           // If the result is Ok, update the list of destinations
           _destinations = result.value
               .where((destination) =>
-                  destination.continent == _queryParameters['continent'])
+                  destination.continent == _queryParameters.continent)
               .toList();
         }
       case Error():
