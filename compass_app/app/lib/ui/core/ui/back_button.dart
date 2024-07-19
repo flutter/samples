@@ -5,7 +5,12 @@ import '../themes/colors.dart';
 
 /// Custom back button to pop navigation.
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key});
+  const CustomBackButton({
+    super.key,
+    this.onTap,
+  });
+
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,11 @@ class CustomBackButton extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(8.0),
           onTap: () {
-            context.pop();
+            if (onTap != null) {
+              onTap!();
+            } else {
+              context.pop();
+            }
           },
           child: Center(
             child: Icon(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/ui/back_button.dart';
 import '../../core/ui/home_button.dart';
@@ -28,7 +29,18 @@ class ActivitiesScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const CustomBackButton(),
+                        CustomBackButton(
+                          onTap: () {
+                            // Navigate to ResultsScreen and edit search
+                            context.go(
+                              Uri(
+                                path: '/results',
+                                queryParameters:
+                                GoRouterState.of(context).uri.queryParameters,
+                              ).toString(),
+                            );
+                          },
+                        ),
                         const HomeButton(),
                       ],
                     ),

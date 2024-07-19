@@ -77,7 +77,7 @@ class _Grid extends StatelessWidget {
             key: ValueKey(destination.ref),
             destination: destination,
             onTap: () {
-              context.push(
+              context.go(
                   '/activities?${viewModel.searchQuery(destination.ref)}');
             },
           );

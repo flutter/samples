@@ -33,7 +33,7 @@ class SearchFormSubmit extends StatelessWidget {
           return FilledButton(
             key: const ValueKey('submit_button'),
             onPressed: viewModel.valid
-                ? () => context.push('/results?${viewModel.searchQuery}')
+                ? () => context.go('/results?${viewModel.searchQuery}')
                 : null,
             child: child,
           );
