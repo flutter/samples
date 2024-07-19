@@ -7,6 +7,9 @@ void main() {
   group('ResultsViewModel tests', () {
     final viewModel = ResultsViewModel(
       destinationRepository: FakeDestinationRepository(),
+      queryParameters: {
+        'continent': 'Europe',
+      },
     )..search();
 
     // perform a simple test
