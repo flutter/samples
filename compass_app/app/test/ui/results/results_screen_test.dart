@@ -18,7 +18,7 @@ void main() {
     setUp(() {
       viewModel = ResultsViewModel(
         destinationRepository: FakeDestinationRepository(),
-        queryParameters: SearchQueryParameters.fromQueryParameters({
+        queryParameters: SearchQueryParameters.from({
           'continent': 'Europe',
           'checkIn': '2024-01-01',
           'checkOut': '2024-01-31',

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../../ui/core/ui/date_format_start_end.dart';
 
 typedef QueryParameters = Map<String, String>;
 
@@ -24,7 +21,7 @@ class SearchQueryParameters {
   final String? destination;
 
   /// true when the query parameters contain all necessary values.
-  static bool validQueryParameters(
+  static bool isValid(
     QueryParameters queryParameters, {
     bool withDestination = false,
   }) {
@@ -38,7 +35,7 @@ class SearchQueryParameters {
   }
 
   /// Parse query parameters into an instance of this class
-  factory SearchQueryParameters.fromQueryParameters(
+  factory SearchQueryParameters.from(
     QueryParameters queryParameters,
   ) {
     return SearchQueryParameters(
@@ -74,4 +71,28 @@ class SearchQueryParameters {
       destination: destination,
     );
   }
+
+  @override
+  String toString() {
+    return 'SearchQueryParameters{continent: $continent, startDate: $startDate, endDate: $endDate, guests: $guests, destination: $destination}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SearchQueryParameters &&
+          runtimeType == other.runtimeType &&
+          continent == other.continent &&
+          startDate == other.startDate &&
+          endDate == other.endDate &&
+          guests == other.guests &&
+          destination == other.destination;
+
+  @override
+  int get hashCode =>
+      continent.hashCode ^
+      startDate.hashCode ^
+      endDate.hashCode ^
+      guests.hashCode ^
+      destination.hashCode;
 }

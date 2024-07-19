@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -18,12 +17,14 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
+        // Optional query parameters for /.
+        // Allow users to navigate back to / and perform changes.
         final parameters = state.uri.queryParameters;
         final viewModel = SearchFormViewModel(
           continentRepository: context.read(),
           queryParameters:
-              SearchQueryParameters.validQueryParameters(parameters)
-                  ? SearchQueryParameters.fromQueryParameters(parameters)
+              SearchQueryParameters.isValid(parameters)
+                  ? SearchQueryParameters.from(parameters)
                   : null,
         );
         return SearchFormScreen(viewModel: viewModel);
@@ -34,7 +35,7 @@ final router = GoRouter(
           redirect: (context, state) {
             // Check if query parameters provided
             final parameters = state.uri.queryParameters;
-            if (!SearchQueryParameters.validQueryParameters(parameters)) {
+            if (!SearchQueryParameters.isValid(parameters)) {
               // redirect to root if query parameters are missing
               return '/';
             }
@@ -45,7 +46,7 @@ final router = GoRouter(
             final viewModel = ResultsViewModel(
               destinationRepository: context.read(),
               queryParameters:
-                  SearchQueryParameters.fromQueryParameters(parameters),
+                  SearchQueryParameters.from(parameters),
             )..search();
             return ResultsScreen(
               viewModel: viewModel,
@@ -57,7 +58,7 @@ final router = GoRouter(
           redirect: (context, state) {
             // Check if query parameters provided
             final parameters = state.uri.queryParameters;
-            if (!SearchQueryParameters.validQueryParameters(parameters,
+            if (!SearchQueryParameters.isValid(parameters,
                 withDestination: true)) {
               // redirect to root if query parameters are missing
               return '/';
@@ -68,7 +69,7 @@ final router = GoRouter(
             final parameters = state.uri.queryParameters;
             final viewModel = ActivitiesViewModel(
               activityRepository: context.read(),
-              queryParameters: SearchQueryParameters.fromQueryParameters(parameters),
+              queryParameters: SearchQueryParameters.from(parameters),
             )..loadActivities();
             return ActivitiesScreen(
               viewModel: viewModel,
