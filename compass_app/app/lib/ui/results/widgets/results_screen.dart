@@ -18,32 +18,38 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListenableBuilder(
-        listenable: viewModel,
+        listenable: viewModel.search,
         builder: (context, child) {
           if (viewModel.search.running) {
             return const Center(child: CircularProgressIndicator());
           }
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 24, bottom: 24),
-                    child: AppSearchBar(
-                      config: viewModel.config,
-                      onTap: () {
-                        // Navigate to SearchFormScreen and edit search
-                        context.go('/');
-                      },
+          return child!;
+        },
+        child: ListenableBuilder(
+          listenable: viewModel,
+          builder: (context, child) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 24, bottom: 24),
+                      child: AppSearchBar(
+                        config: viewModel.config,
+                        onTap: () {
+                          // Navigate to SearchFormScreen and edit search
+                          context.go('/');
+                        },
+                      ),
                     ),
                   ),
-                ),
-                _Grid(viewModel: viewModel),
-              ],
-            ),
-          );
-        },
+                  _Grid(viewModel: viewModel),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

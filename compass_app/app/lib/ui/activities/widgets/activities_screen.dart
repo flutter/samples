@@ -17,40 +17,50 @@ class ActivitiesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListenableBuilder(
-        listenable: viewModel,
+        listenable: viewModel.loadActivities,
         builder: (context, child) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 24, bottom: 24),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CustomBackButton(
-                          onTap: () {
-                            // Navigate to ResultsScreen and edit search
-                            context.go(
-                              Uri(
-                                path: '/results',
-                                queryParameters:
-                                GoRouterState.of(context).uri.queryParameters,
-                              ).toString(),
-                            );
-                          },
-                        ),
-                        const HomeButton(),
-                      ],
+          if (viewModel.loadActivities.running) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return child!;
+        },
+        child: ListenableBuilder(
+          listenable: viewModel,
+          builder: (context, child) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 24, bottom: 24),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomBackButton(
+                            onTap: () {
+                              // Navigate to ResultsScreen and edit search
+                              context.go(
+                                Uri(
+                                  path: '/results',
+                                  queryParameters: GoRouterState.of(context)
+                                      .uri
+                                      .queryParameters,
+                                ).toString(),
+                              );
+                            },
+                          ),
+                          const HomeButton(),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                // TODO: Display "activities" here
-              ],
-            ),
-          );
-        },
+                  // TODO: Display "activities" here
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

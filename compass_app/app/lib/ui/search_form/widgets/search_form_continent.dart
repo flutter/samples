@@ -24,26 +24,37 @@ class SearchFormContinent extends StatelessWidget {
     return SizedBox(
       height: 140,
       child: ListenableBuilder(
-        listenable: viewModel,
+        listenable: viewModel.load,
         builder: (context, child) {
-          return ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemCount: viewModel.continents.length,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            itemBuilder: (BuildContext context, int index) {
-              final Continent(:imageUrl, :name) = viewModel.continents[index];
-              return _CarouselItem(
-                key: ValueKey(name),
-                imageUrl: imageUrl,
-                name: name,
-                viewModel: viewModel,
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(width: 8);
-            },
-          );
+          if (viewModel.load.running) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return child!;
         },
+        child: ListenableBuilder(
+          listenable: viewModel,
+          builder: (context, child) {
+            return ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: viewModel.continents.length,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              itemBuilder: (BuildContext context, int index) {
+                final Continent(:imageUrl, :name) = viewModel.continents[index];
+                return _CarouselItem(
+                  key: ValueKey(name),
+                  imageUrl: imageUrl,
+                  name: name,
+                  viewModel: viewModel,
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(width: 8);
+              },
+            );
+          },
+        ),
       ),
     );
   }
