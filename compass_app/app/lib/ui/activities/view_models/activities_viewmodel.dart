@@ -12,7 +12,7 @@ class ActivitiesViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _activityRepository = activityRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    loadActivities = Command(_loadActivities)..execute();
+    loadActivities = Command0(_loadActivities)..execute();
   }
 
   final ActivityRepository _activityRepository;
@@ -27,7 +27,7 @@ class ActivitiesViewModel extends ChangeNotifier {
   Set<String> get selectedActivities => _selectedActivities;
 
   /// Load list of [Activity] for a [Destination] by ref.
-  late final Command<void> loadActivities;
+  late final Command0 loadActivities;
 
   Future<void> _loadActivities() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();

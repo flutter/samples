@@ -14,11 +14,10 @@ class ResultsViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _destinationRepository = destinationRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    updateItineraryConfig = Command<bool>(
+    updateItineraryConfig = Command1<bool, String>(
       _updateItineraryConfig,
-      _destinationValid,
     );
-    search = Command<void>(_search)..execute();
+    search = Command0(_search)..execute();
   }
 
   final DestinationRepository _destinationRepository;
@@ -36,19 +35,11 @@ class ResultsViewModel extends ChangeNotifier {
   /// Filter options to display on search bar
   ItineraryConfig get config => _itineraryConfig ?? const ItineraryConfig();
 
-  /// Set selected Destination
-  set destination(destination) => _destinationRef = destination;
-
-  String? _destinationRef;
-
-  bool _destinationValid() =>
-      _destinationRef != null && _destinationRef!.isNotEmpty;
-
   /// Perform search
-  late final Command<void> search;
+  late final Command0 search;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  late final Command<bool> updateItineraryConfig;
+  late final Command1<bool, String> updateItineraryConfig;
 
   Future<void> _search() async {
     // Load current itinerary config
@@ -84,7 +75,9 @@ class ResultsViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> _updateItineraryConfig() async {
+  Future<bool> _updateItineraryConfig(String destinationRef) async {
+    assert(destinationRef.isNotEmpty, "destinationRef should not be empty");
+
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
     if (resultConfig is Error) {
       // TODO: Handle error
@@ -95,7 +88,7 @@ class ResultsViewModel extends ChangeNotifier {
 
     final itineraryConfig = resultConfig.asOk.value;
     final result = await _itineraryConfigRepository.setItineraryConfig(
-        itineraryConfig.copyWith(destination: _destinationRef));
+        itineraryConfig.copyWith(destination: destinationRef));
     switch (result) {
       case Ok<void>():
         {

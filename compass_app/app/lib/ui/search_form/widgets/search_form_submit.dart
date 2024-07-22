@@ -35,11 +35,13 @@ class SearchFormSubmit extends StatelessWidget {
             key: const ValueKey('submit_button'),
             onPressed: viewModel.valid
                 ? () async {
-                    await viewModel.updateItineraryConfig.execute((result) {
-                      if (result) {
-                        context.go('/results');
-                      }
-                    });
+                    await viewModel.updateItineraryConfig.execute(
+                      onComplete: (result) {
+                        if (result) {
+                          context.go('/results');
+                        }
+                      },
+                    );
                   }
                 : null,
             child: child,

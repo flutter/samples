@@ -16,8 +16,8 @@ class SearchFormViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _continentRepository = continentRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    updateItineraryConfig = Command<bool>(_updateItineraryConfig, () => valid);
-    load = Command<void>(_load)..execute();
+    updateItineraryConfig = Command0(_updateItineraryConfig, () => valid);
+    load = Command0(_load)..execute();
   }
 
   final ContinentRepository _continentRepository;
@@ -72,10 +72,10 @@ class SearchFormViewModel extends ChangeNotifier {
   }
 
   /// Load the list of continents and current itinerary config.
-  late final Command<void> load;
+  late final Command load;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  late final Command<bool> updateItineraryConfig;
+  late final Command0<bool> updateItineraryConfig;
 
   Future<void> _load() async {
     await _loadContinents();

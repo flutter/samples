@@ -72,12 +72,14 @@ class _Grid extends StatelessWidget {
             key: ValueKey(destination.ref),
             destination: destination,
             onTap: () {
-              viewModel.destination = destination.ref;
-              viewModel.updateItineraryConfig.execute((result) {
-                if (result) {
-                  context.go('/activities');
-                }
-              });
+              viewModel.updateItineraryConfig.execute(
+                argument: destination.ref,
+                onComplete: (result) {
+                  if (result) {
+                    context.go('/activities');
+                  }
+                },
+              );
             },
           );
         },
