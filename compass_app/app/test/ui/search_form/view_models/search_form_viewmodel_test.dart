@@ -62,7 +62,9 @@ void main() {
       viewModel.dateRange = newDateRange;
 
       expect(viewModel.valid, true);
-      expect(await viewModel.updateItineraryConfig(), true);
+      await viewModel.updateItineraryConfig.execute((result) {
+        expect(result, true);
+      });
     });
   });
 }

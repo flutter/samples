@@ -17,7 +17,7 @@ void main() {
           guests: 2,
         ),
       ),
-    )..search();
+    );
 
     // perform a simple test
     // verifies that the list of items is properly loaded

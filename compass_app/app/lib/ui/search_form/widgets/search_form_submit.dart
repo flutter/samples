@@ -34,9 +34,8 @@ class SearchFormSubmit extends StatelessWidget {
           return FilledButton(
             key: const ValueKey('submit_button'),
             onPressed: viewModel.valid
-                ? () {
-                    // TODO: Action should be handled with a "command"
-                    viewModel.updateItineraryConfig().then((result) {
+                ? () async {
+                    await viewModel.updateItineraryConfig.execute((result) {
                       if (result) {
                         context.go('/results');
                       }

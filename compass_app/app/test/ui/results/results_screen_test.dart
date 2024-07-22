@@ -27,7 +27,7 @@ void main() {
             guests: 2,
           ),
         ),
-      )..search();
+      );
       goRouter = MockGoRouter();
     });
 

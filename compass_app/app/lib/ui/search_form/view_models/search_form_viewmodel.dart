@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 
 /// View model for the search form.
@@ -15,8 +16,8 @@ class SearchFormViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _continentRepository = continentRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    _loadItineraryConfig();
-    loadContinents();
+    updateItineraryConfig = Command<bool>(_updateItineraryConfig, () => valid);
+    load = Command<void>(_load)..execute();
   }
 
   final ContinentRepository _continentRepository;
@@ -33,85 +34,6 @@ class SearchFormViewModel extends ChangeNotifier {
   /// List of continents.
   /// Loaded in [loadContinents] method.
   List<Continent> get continents => _continents;
-
-  void _loadItineraryConfig() async {
-    final result = await _itineraryConfigRepository.getItineraryConfig();
-    switch (result) {
-      case Ok<ItineraryConfig>():
-        {
-          final itineraryConfig = result.value;
-          _selectedContinent = itineraryConfig.continent;
-          if (itineraryConfig.startDate != null &&
-              itineraryConfig.endDate != null) {
-            _dateRange = DateTimeRange(
-              start: itineraryConfig.startDate!,
-              end: itineraryConfig.endDate!,
-            );
-          }
-          _guests = itineraryConfig.guests ?? 0;
-          notifyListeners();
-        }
-      case Error<ItineraryConfig>():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-        }
-    }
-  }
-
-  /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  Future<bool> updateItineraryConfig() async {
-    assert(valid, "Called storeItineraryConfig when the form is not valid");
-    assert(
-      _selectedContinent != null,
-      "Called storeItineraryConfig without a continent",
-    );
-    assert(
-      _dateRange != null,
-      "Called storeItineraryConfig without a date range",
-    );
-    assert(_guests > 0, "Called storeItineraryConfig without guests");
-    final result =
-        await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
-      continent: _selectedContinent,
-      startDate: _dateRange!.start,
-      endDate: _dateRange!.end,
-      guests: _guests,
-    ));
-    switch (result) {
-      case Ok<void>():
-        {
-          // Nothing
-          return true;
-        }
-      case Error<void>():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-          return false;
-        }
-    }
-  }
-
-  /// Load the list of continents.
-  Future<void> loadContinents() async {
-    final result = await _continentRepository.getContinents();
-    switch (result) {
-      case Ok():
-        {
-          _continents = result.value;
-        }
-      case Error():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-        }
-    }
-    notifyListeners();
-  }
 
   /// Selected continent.
   /// Null means no continent is selected.
@@ -147,5 +69,83 @@ class SearchFormViewModel extends ChangeNotifier {
       _guests = quantity;
     }
     notifyListeners();
+  }
+
+  /// Load the list of continents and current itinerary config.
+  late final Command<void> load;
+
+  /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
+  late final Command<bool> updateItineraryConfig;
+
+  Future<void> _load() async {
+    await _loadContinents();
+    await _loadItineraryConfig();
+  }
+
+  Future<void> _loadContinents() async {
+    final result = await _continentRepository.getContinents();
+    switch (result) {
+      case Ok():
+        {
+          _continents = result.value;
+        }
+      case Error():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+        }
+    }
+    notifyListeners();
+  }
+
+  Future<void> _loadItineraryConfig() async {
+    final result = await _itineraryConfigRepository.getItineraryConfig();
+    switch (result) {
+      case Ok<ItineraryConfig>():
+        {
+          final itineraryConfig = result.value;
+          _selectedContinent = itineraryConfig.continent;
+          if (itineraryConfig.startDate != null &&
+              itineraryConfig.endDate != null) {
+            _dateRange = DateTimeRange(
+              start: itineraryConfig.startDate!,
+              end: itineraryConfig.endDate!,
+            );
+          }
+          _guests = itineraryConfig.guests ?? 0;
+          notifyListeners();
+        }
+      case Error<ItineraryConfig>():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+        }
+    }
+  }
+
+  Future<bool> _updateItineraryConfig() async {
+    final result =
+        await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
+      continent: _selectedContinent,
+      startDate: _dateRange!.start,
+      endDate: _dateRange!.end,
+      guests: _guests,
+    ));
+    switch (result) {
+      case Ok<void>():
+        {
+          // Nothing
+          return true;
+        }
+      case Error<void>():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+          return false;
+        }
+    }
   }
 }

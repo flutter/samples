@@ -8,10 +8,6 @@ abstract class ItineraryConfigRepository {
   /// Method is async to support writing to database, file, etc.
   Future<Result<ItineraryConfig>> getItineraryConfig();
 
-  // TODO: Maybe not needed and can be removed?
-  /// Listen to changes in the current [ItineraryConfig].
-  Stream<ItineraryConfig> getItineraryConfigUpdates();
-
   /// Sets [ItineraryConfig], overrides the previous one stored.
   /// Returns Result.Ok if set is successful.
   Future<Result<void>> setItineraryConfig(ItineraryConfig itineraryConfig);

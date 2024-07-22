@@ -29,7 +29,7 @@ final router = GoRouter(
             final viewModel = ResultsViewModel(
               destinationRepository: context.read(),
               itineraryConfigRepository: context.read(),
-            )..search();
+            );
             return ResultsScreen(
               viewModel: viewModel,
             );
@@ -41,7 +41,7 @@ final router = GoRouter(
             final viewModel = ActivitiesViewModel(
               activityRepository: context.read(),
               itineraryConfigRepository: context.read(),
-            )..loadActivities();
+            );
             return ActivitiesScreen(
               viewModel: viewModel,
             );

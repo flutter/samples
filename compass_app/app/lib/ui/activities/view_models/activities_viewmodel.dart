@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 
 class ActivitiesViewModel extends ChangeNotifier {
@@ -10,7 +11,9 @@ class ActivitiesViewModel extends ChangeNotifier {
     required ActivityRepository activityRepository,
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _activityRepository = activityRepository,
-        _itineraryConfigRepository = itineraryConfigRepository;
+        _itineraryConfigRepository = itineraryConfigRepository {
+    loadActivities = Command(_loadActivities)..execute();
+  }
 
   final ActivityRepository _activityRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
@@ -24,7 +27,9 @@ class ActivitiesViewModel extends ChangeNotifier {
   Set<String> get selectedActivities => _selectedActivities;
 
   /// Load list of [Activity] for a [Destination] by ref.
-  Future<void> loadActivities() async {
+  late final Command<void> loadActivities;
+
+  Future<void> _loadActivities() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     if (result is Error) {
       // TODO: Handle error

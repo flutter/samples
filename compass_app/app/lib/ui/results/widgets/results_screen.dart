@@ -20,7 +20,7 @@ class ResultsScreen extends StatelessWidget {
       body: ListenableBuilder(
         listenable: viewModel,
         builder: (context, child) {
-          if (viewModel.loading) {
+          if (viewModel.search.running) {
             return const Center(child: CircularProgressIndicator());
           }
           return Padding(
@@ -72,8 +72,8 @@ class _Grid extends StatelessWidget {
             key: ValueKey(destination.ref),
             destination: destination,
             onTap: () {
-              // TODO: Action should be handled with a "command"
-              viewModel.updateItineraryConfig(destination.ref).then((result) {
+              viewModel.destination = destination.ref;
+              viewModel.updateItineraryConfig.execute((result) {
                 if (result) {
                   context.go('/activities');
                 }

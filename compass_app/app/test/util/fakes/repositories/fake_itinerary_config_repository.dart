@@ -15,12 +15,6 @@ class FakeItineraryConfigRepository implements ItineraryConfigRepository {
   }
 
   @override
-  Stream<ItineraryConfig> getItineraryConfigUpdates() {
-    // TODO: implement getItineraryConfigUpdates
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Result<void>> setItineraryConfig(
       ItineraryConfig itineraryConfig) async {
     this.itineraryConfig = itineraryConfig;
