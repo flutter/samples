@@ -1,22 +1,22 @@
+import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../routing/queries/search_query_parameters.dart';
 import 'date_format_start_end.dart';
 import '../themes/colors.dart';
 import 'home_button.dart';
 
 /// Application top search bar.
 ///
-/// Displays a search bar with the current query.
+/// Displays a search bar with the current configuration.
 /// Includes [HomeButton] to navigate back to the '/' path.
 class AppSearchBar extends StatelessWidget {
   const AppSearchBar({
     super.key,
-    this.query,
+    this.config,
     this.onTap,
   });
 
-  final SearchQueryParameters? query;
+  final ItineraryConfig? config;
   final GestureTapCallback? onTap;
 
   @override
@@ -37,9 +37,7 @@ class AppSearchBar extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Align(
                   alignment: AlignmentDirectional.centerStart,
-                  child: query != null
-                      ? _QueryText(query: query!)
-                      : const _EmptySearch(),
+                  child: _QueryText(config: config),
                 ),
               ),
             ),
@@ -54,15 +52,25 @@ class AppSearchBar extends StatelessWidget {
 
 class _QueryText extends StatelessWidget {
   const _QueryText({
-    required this.query,
+    required this.config,
   });
 
-  final SearchQueryParameters query;
+  final ItineraryConfig? config;
 
   @override
   Widget build(BuildContext context) {
-    final SearchQueryParameters(:continent, :startDate, :endDate, :guests) =
-        query;
+    if (config == null) {
+      return const _EmptySearch();
+    }
+
+    final ItineraryConfig(:continent, :startDate, :endDate, :guests) = config!;
+    if (startDate == null ||
+        endDate == null ||
+        guests == null ||
+        continent == null) {
+      return const _EmptySearch();
+    }
+
     return Text(
       '$continent - ${dateFormatStartEnd(DateTimeRange(start: startDate, end: endDate))} - Guests: $guests',
       textAlign: TextAlign.center,

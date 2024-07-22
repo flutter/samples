@@ -13,6 +13,6 @@ abstract class ItineraryConfigRepository {
   Stream<ItineraryConfig> getItineraryConfigUpdates();
 
   /// Sets [ItineraryConfig], overrides the previous one stored.
-  /// Returns true if set is successful.
-  Future<Result<bool>> setItineraryConfig(ItineraryConfig itineraryConfig);
+  /// Returns Result.Ok if set is successful.
+  Future<Result<void>> setItineraryConfig(ItineraryConfig itineraryConfig);
 }

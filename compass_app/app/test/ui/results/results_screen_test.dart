@@ -1,6 +1,6 @@
-import 'package:compass_app/routing/queries/search_query_parameters.dart';
 import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
 import 'package:compass_app/ui/results/widgets/results_screen.dart';
+import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +8,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../../util/fakes/repositories/fake_destination_repository.dart';
+import '../../util/fakes/repositories/fake_itinerary_config_repository.dart';
 import '../../util/mocks.dart';
 
 void main() {
@@ -18,12 +19,14 @@ void main() {
     setUp(() {
       viewModel = ResultsViewModel(
         destinationRepository: FakeDestinationRepository(),
-        queryParameters: SearchQueryParameters.from({
-          'continent': 'Europe',
-          'checkIn': '2024-01-01',
-          'checkOut': '2024-01-31',
-          'guests': '2',
-        }),
+        itineraryConfigRepository: FakeItineraryConfigRepository(
+          itineraryConfig: ItineraryConfig(
+            continent: 'Europe',
+            startDate: DateTime(2024, 01, 01),
+            endDate: DateTime(2024, 01, 31),
+            guests: 2,
+          ),
+        ),
       )..search();
       goRouter = MockGoRouter();
     });
@@ -71,11 +74,10 @@ void main() {
         // Wait for list to load
         await tester.pumpAndSettle();
 
-        await tester.tap(find.text('NAME1'));
+        // warnIfMissed false because false negative
+        await tester.tap(find.text('NAME1'), warnIfMissed: false);
 
-        verify(() => goRouter.go(
-                '/activities?continent=Europe&checkIn=2024-01-01&checkOut=2024-01-31&guests=2&destination=ref1'))
-            .called(1);
+        verify(() => goRouter.go('/activities')).called(1);
       });
     });
   });

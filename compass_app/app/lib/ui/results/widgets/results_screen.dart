@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../utils/result.dart';
 import '../../core/ui/search_bar.dart';
 import '../view_models/results_viewmodel.dart';
 import 'result_card.dart';
@@ -30,16 +31,10 @@ class ResultsScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 24, bottom: 24),
                     child: AppSearchBar(
-                      query: viewModel.filters,
+                      config: viewModel.config,
                       onTap: () {
                         // Navigate to SearchFormScreen and edit search
-                        context.go(
-                          Uri(
-                            path: '/',
-                            queryParameters:
-                                GoRouterState.of(context).uri.queryParameters,
-                          ).toString(),
-                        );
+                        context.go('/');
                       },
                     ),
                   ),
@@ -77,8 +72,12 @@ class _Grid extends StatelessWidget {
             key: ValueKey(destination.ref),
             destination: destination,
             onTap: () {
-              context.go(
-                  '/activities?${viewModel.searchQuery(destination.ref)}');
+              // TODO: Action should be handled with a "command"
+              viewModel.updateItineraryConfig(destination.ref).then((result) {
+                if (result) {
+                  context.go('/activities');
+                }
+              });
             },
           );
         },

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
-import '../../../routing/queries/search_query_parameters.dart';
 import '../../../utils/result.dart';
 
 /// View model for the search form.
@@ -63,7 +61,7 @@ class SearchFormViewModel extends ChangeNotifier {
   }
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  Future<Result<bool>> storeItineraryConfig() async {
+  Future<bool> updateItineraryConfig() async {
     assert(valid, "Called storeItineraryConfig when the form is not valid");
     assert(
       _selectedContinent != null,
@@ -82,18 +80,19 @@ class SearchFormViewModel extends ChangeNotifier {
       guests: _guests,
     ));
     switch (result) {
-      case Ok<bool>():
+      case Ok<void>():
         {
           // Nothing
+          return true;
         }
-      case Error<bool>():
+      case Error<void>():
         {
           // TODO: Handle error
           // ignore: avoid_print
           print(result.error);
+          return false;
         }
     }
-    return result;
   }
 
   /// Load the list of continents.

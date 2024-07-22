@@ -36,8 +36,8 @@ class SearchFormSubmit extends StatelessWidget {
             onPressed: viewModel.valid
                 ? () {
                     // TODO: Action should be handled with a "command"
-                    viewModel.storeItineraryConfig().then((result) {
-                      if (result is Ok) {
+                    viewModel.updateItineraryConfig().then((result) {
+                      if (result) {
                         context.go('/results');
                       }
                     });

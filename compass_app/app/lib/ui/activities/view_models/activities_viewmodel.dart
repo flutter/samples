@@ -2,18 +2,18 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
-import '../../../routing/queries/search_query_parameters.dart';
+import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../../../utils/result.dart';
 
 class ActivitiesViewModel extends ChangeNotifier {
   ActivitiesViewModel({
     required ActivityRepository activityRepository,
-    required SearchQueryParameters queryParameters,
+    required ItineraryConfigRepository itineraryConfigRepository,
   })  : _activityRepository = activityRepository,
-        _queryParameters = queryParameters;
+        _itineraryConfigRepository = itineraryConfigRepository;
 
   final ActivityRepository _activityRepository;
-  final SearchQueryParameters _queryParameters;
+  final ItineraryConfigRepository _itineraryConfigRepository;
   List<Activity> _activities = <Activity>[];
   final Set<String> _selectedActivities = <String>{};
 
@@ -25,22 +25,31 @@ class ActivitiesViewModel extends ChangeNotifier {
 
   /// Load list of [Activity] for a [Destination] by ref.
   Future<void> loadActivities() async {
-    assert(
-      _queryParameters.destination != null,
-      '"destination" missing in query parameters',
-    );
-    final destinationRef = _queryParameters.destination!;
-    final result = await _activityRepository.getByDestination(destinationRef);
-    switch (result) {
+    final result = await _itineraryConfigRepository.getItineraryConfig();
+    if (result is Error) {
+      // TODO: Handle error
+      print(result.asError.error);
+      return;
+    }
+
+    final destinationRef = result.asOk.value.destination;
+    if (destinationRef == null) {
+      // TODO: Error here
+      return;
+    }
+
+    final resultActivities =
+        await _activityRepository.getByDestination(destinationRef);
+    switch (resultActivities) {
       case Ok():
         {
-          _activities = result.value;
+          _activities = resultActivities.value;
           print(_activities);
         }
       case Error():
         {
           // TODO: Handle error
-          print(result.error);
+          print(resultActivities.error);
         }
     }
     notifyListeners();

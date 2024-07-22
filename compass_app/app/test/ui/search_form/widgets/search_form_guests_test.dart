@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 
 import '../../../util/fakes/repositories/fake_continent_repository.dart';
+import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
 
 void main() {
   group('SearchFormGuests widget tests', () {
@@ -12,6 +13,7 @@ void main() {
     setUp(() {
       viewModel = SearchFormViewModel(
         continentRepository: FakeContinentRepository(),
+        itineraryConfigRepository: FakeItineraryConfigRepository(),
       );
     });
 

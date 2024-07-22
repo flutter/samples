@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../../../util/fakes/repositories/fake_continent_repository.dart';
+import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
 
 void main() {
   group('SearchFormContinent widget tests', () {
@@ -13,6 +14,7 @@ void main() {
     setUp(() {
       viewModel = SearchFormViewModel(
         continentRepository: FakeContinentRepository(),
+        itineraryConfigRepository: FakeItineraryConfigRepository(),
       );
     });
 
