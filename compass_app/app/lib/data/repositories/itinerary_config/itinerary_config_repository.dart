@@ -1,0 +1,18 @@
+import 'package:compass_model/model.dart';
+
+import '../../../utils/result.dart';
+
+/// Data source for the current [ItineraryConfig]
+abstract class ItineraryConfigRepository {
+  /// Get current [ItineraryConfig], may be empty if no configuration started.
+  /// Method is async to support writing to database, file, etc.
+  Future<Result<ItineraryConfig>> getItineraryConfig();
+
+  // TODO: Maybe not needed and can be removed?
+  /// Listen to changes in the current [ItineraryConfig].
+  Stream<ItineraryConfig> getItineraryConfigUpdates();
+
+  /// Sets [ItineraryConfig], overrides the previous one stored.
+  /// Returns true if set is successful.
+  Future<Result<bool>> setItineraryConfig(ItineraryConfig itineraryConfig);
+}

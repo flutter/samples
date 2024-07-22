@@ -17,15 +17,9 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
-        // Optional query parameters for /.
-        // Allow users to navigate back to / and perform changes.
-        final parameters = state.uri.queryParameters;
         final viewModel = SearchFormViewModel(
           continentRepository: context.read(),
-          queryParameters:
-              SearchQueryParameters.isValid(parameters)
-                  ? SearchQueryParameters.from(parameters)
-                  : null,
+          itineraryConfigRepository: context.read(),
         );
         return SearchFormScreen(viewModel: viewModel);
       },

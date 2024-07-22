@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
+import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../../../routing/queries/search_query_parameters.dart';
 import '../../../utils/result.dart';
 
@@ -13,20 +14,15 @@ import '../../../utils/result.dart';
 class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
     required ContinentRepository continentRepository,
-    SearchQueryParameters? queryParameters,
-  }) : _continentRepository = continentRepository {
-    load();
-    // If query parameters are passed in, preload ViewModel state
-    if (queryParameters != null) {
-      _selectedContinent = queryParameters.continent;
-      _dateRange = DateTimeRange(
-          start: queryParameters.startDate, end: queryParameters.endDate);
-      _guests = queryParameters.guests;
-      notifyListeners();
-    }
+    required ItineraryConfigRepository itineraryConfigRepository,
+  })  : _continentRepository = continentRepository,
+        _itineraryConfigRepository = itineraryConfigRepository {
+    _loadItineraryConfig();
+    loadContinents();
   }
 
   final ContinentRepository _continentRepository;
+  final ItineraryConfigRepository _itineraryConfigRepository;
   List<Continent> _continents = [];
   String? _selectedContinent;
   DateTimeRange? _dateRange;
@@ -36,32 +32,72 @@ class SearchFormViewModel extends ChangeNotifier {
   bool get valid =>
       _guests > 0 && _selectedContinent != null && _dateRange != null;
 
-  /// Returns the search query string to call the Results screen
-  /// e.g. 'destination=Europe&checkIn=2024-05-09&checkOut=2024-05-24&guests=1',
-  /// Must be called only if [valid] is true
-  get searchQuery {
-    assert(valid, "Called searchQuery when the form is not valid");
-    assert(
-        _selectedContinent != null, "Called searchQuery without a continent");
-    assert(_dateRange != null, "Called searchQuery without a date range");
-    assert(_guests > 0, "Called searchQuery without guests");
-    final startDate = _dateRange!.start;
-    final endDate = _dateRange!.end;
-
-    return SearchQueryParameters(
-      continent: _selectedContinent!,
-      startDate: startDate,
-      endDate: endDate,
-      guests: _guests,
-    ).query;
-  }
-
   /// List of continents.
-  /// Loaded in [load] method.
+  /// Loaded in [loadContinents] method.
   List<Continent> get continents => _continents;
 
+  void _loadItineraryConfig() async {
+    final result = await _itineraryConfigRepository.getItineraryConfig();
+    switch (result) {
+      case Ok<ItineraryConfig>():
+        {
+          final itineraryConfig = result.value;
+          _selectedContinent = itineraryConfig.continent;
+          if (itineraryConfig.startDate != null &&
+              itineraryConfig.endDate != null) {
+            _dateRange = DateTimeRange(
+              start: itineraryConfig.startDate!,
+              end: itineraryConfig.endDate!,
+            );
+          }
+          _guests = itineraryConfig.guests ?? 0;
+          notifyListeners();
+        }
+      case Error<ItineraryConfig>():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+        }
+    }
+  }
+
+  /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
+  Future<Result<bool>> storeItineraryConfig() async {
+    assert(valid, "Called storeItineraryConfig when the form is not valid");
+    assert(
+      _selectedContinent != null,
+      "Called storeItineraryConfig without a continent",
+    );
+    assert(
+      _dateRange != null,
+      "Called storeItineraryConfig without a date range",
+    );
+    assert(_guests > 0, "Called storeItineraryConfig without guests");
+    final result =
+        await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
+      continent: _selectedContinent,
+      startDate: _dateRange!.start,
+      endDate: _dateRange!.end,
+      guests: _guests,
+    ));
+    switch (result) {
+      case Ok<bool>():
+        {
+          // Nothing
+        }
+      case Error<bool>():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+        }
+    }
+    return result;
+  }
+
   /// Load the list of continents.
-  Future<void> load() async {
+  Future<void> loadContinents() async {
     final result = await _continentRepository.getContinents();
     switch (result) {
       case Ok():

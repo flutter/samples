@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../utils/result.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
 
@@ -33,7 +34,14 @@ class SearchFormSubmit extends StatelessWidget {
           return FilledButton(
             key: const ValueKey('submit_button'),
             onPressed: viewModel.valid
-                ? () => context.go('/results?${viewModel.searchQuery}')
+                ? () {
+                    // TODO: Action should be handled with a "command"
+                    viewModel.storeItineraryConfig().then((result) {
+                      if (result is Ok) {
+                        context.go('/results');
+                      }
+                    });
+                  }
                 : null,
             child: child,
           );

@@ -10,6 +10,8 @@ import '../data/repositories/continent/continent_repository_remote.dart';
 import '../data/repositories/destination/destination_repository.dart';
 import '../data/repositories/destination/destination_repository_local.dart';
 import '../data/repositories/destination/destination_repository_remote.dart';
+import '../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../data/repositories/itinerary_config/itinerary_config_repository_memory.dart';
 import '../data/services/api_client.dart';
 
 /// Configure dependencies for remote data.
@@ -33,6 +35,9 @@ List<SingleChildWidget> get providersRemote {
         apiClient: apiClient,
       ) as ActivityRepository,
     ),
+    Provider.value(
+      value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
+    ),
   ];
 }
 
@@ -48,6 +53,9 @@ List<SingleChildWidget> get providersLocal {
     ),
     Provider.value(
       value: ActivityRepositoryLocal() as ActivityRepository,
+    ),
+    Provider.value(
+      value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
     ),
   ];
 }
