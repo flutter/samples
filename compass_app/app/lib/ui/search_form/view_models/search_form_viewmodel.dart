@@ -16,7 +16,7 @@ class SearchFormViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _continentRepository = continentRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    updateItineraryConfig = Command0(_updateItineraryConfig, () => valid);
+    updateItineraryConfig = Command0(_updateItineraryConfig);
     load = Command0(_load)..execute();
   }
 
@@ -126,6 +126,7 @@ class SearchFormViewModel extends ChangeNotifier {
   }
 
   Future<bool> _updateItineraryConfig() async {
+    assert(valid, "called when valid was false");
     final result =
         await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
       continent: _selectedContinent,
