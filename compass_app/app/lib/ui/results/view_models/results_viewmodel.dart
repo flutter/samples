@@ -14,9 +14,7 @@ class ResultsViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _destinationRepository = destinationRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    updateItineraryConfig = Command1<bool, String>(
-      _updateItineraryConfig,
-    );
+    updateItineraryConfig = Command1<bool, String>(_updateItineraryConfig);
     search = Command0(_search)..execute();
   }
 
@@ -60,7 +58,7 @@ class ResultsViewModel extends ChangeNotifier {
           // If the result is Ok, update the list of destinations
           _destinations = result.value
               .where((destination) =>
-          destination.continent == _itineraryConfig!.continent)
+                  destination.continent == _itineraryConfig!.continent)
               .toList();
         }
       case Error():

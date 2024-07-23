@@ -68,5 +68,4 @@ class SearchFormDate extends StatelessWidget {
       ),
     );
   }
-
 }

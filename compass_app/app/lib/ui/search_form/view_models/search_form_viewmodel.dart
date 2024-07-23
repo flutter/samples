@@ -137,7 +137,6 @@ class SearchFormViewModel extends ChangeNotifier {
     switch (result) {
       case Ok<void>():
         {
-          // Nothing
           return true;
         }
       case Error<void>():

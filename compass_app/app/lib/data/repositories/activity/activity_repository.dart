@@ -22,5 +22,6 @@ class ActivitiesNotFoundException implements Exception {
   final String destinationRef;
 
   @override
-  String toString() => 'ActivitiesNotFoundException for Destination: "$destinationRef"';
+  String toString() =>
+      'ActivitiesNotFoundException for Destination: "$destinationRef"';
 }
