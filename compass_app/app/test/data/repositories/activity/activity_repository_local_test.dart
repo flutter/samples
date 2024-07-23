@@ -1,4 +1,3 @@
-import 'package:compass_app/data/repositories/activity/activity_repository.dart';
 import 'package:compass_app/data/repositories/activity/activity_repository_local.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
