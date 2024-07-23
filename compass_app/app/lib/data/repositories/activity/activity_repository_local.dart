@@ -18,10 +18,6 @@ class ActivityRepositoryLocal implements ActivityRepository {
       final activities =
           list.where((activity) => activity.destinationRef == ref).toList();
 
-      if (activities.isEmpty) {
-        return Result.error(ActivitiesNotFoundException(destinationRef: ref));
-      }
-
       return Result.ok(activities);
     } on Exception catch (error) {
       return Result.error(error);

@@ -20,14 +20,5 @@ void main() {
       final activity = list.first;
       expect(activity.name, 'Glacier Trekking and Ice Climbing');
     });
-
-    test('should get error when not found', () async {
-      final result = await repository.getByDestination('invalid');
-      expect(result, isA<Error>());
-
-      final error = result.asError.error;
-      expect(error, isA<ActivitiesNotFoundException>());
-      expect((error as ActivitiesNotFoundException).destinationRef, 'invalid');
-    });
   });
 }

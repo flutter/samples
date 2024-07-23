@@ -31,15 +31,6 @@ void main() {
       expect(apiClient.requestCount, 1);
     });
 
-    test('should get error for invalid destination', () async {
-      final result = await repository.getByDestination('invalid');
-      expect(result, isA<Error>());
-
-      final error = result.asError.error;
-      expect(error, isA<ActivitiesNotFoundException>());
-      expect((error as ActivitiesNotFoundException).destinationRef, 'invalid');
-    });
-
     test('should get destinations from cache', () async {
       // Request destination once
       var result = await repository.getByDestination('alaska');
