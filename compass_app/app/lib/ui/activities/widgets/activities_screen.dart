@@ -40,14 +40,7 @@ class ActivitiesScreen extends StatelessWidget {
                           CustomBackButton(
                             onTap: () {
                               // Navigate to ResultsScreen and edit search
-                              context.go(
-                                Uri(
-                                  path: '/results',
-                                  queryParameters: GoRouterState.of(context)
-                                      .uri
-                                      .queryParameters,
-                                ).toString(),
-                              );
+                              context.go('/results');
                             },
                           ),
                           const HomeButton(),
