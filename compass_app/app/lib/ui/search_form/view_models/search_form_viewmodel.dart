@@ -72,7 +72,7 @@ class SearchFormViewModel extends ChangeNotifier {
   }
 
   /// Load the list of continents and current itinerary config.
-  late final Command load;
+  late final Command0 load;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
   late final Command0<bool> updateItineraryConfig;
