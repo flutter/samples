@@ -32,7 +32,7 @@ class SearchFormViewModel extends ChangeNotifier {
       _guests > 0 && _selectedContinent != null && _dateRange != null;
 
   /// List of continents.
-  /// Loaded in [loadContinents] method.
+  /// Loaded in [load] command.
   List<Continent> get continents => _continents;
 
   /// Selected continent.
