@@ -46,4 +46,26 @@ class ApiClient {
       client.close();
     }
   }
+
+  Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
+    final client = HttpClient();
+    try {
+      final request =
+          await client.get('localhost', 8080, '/destination/$ref/activity');
+      final response = await request.close();
+      if (response.statusCode == 200) {
+        final stringData = await response.transform(utf8.decoder).join();
+        final json = jsonDecode(stringData) as List<dynamic>;
+        final activities =
+            json.map((element) => Activity.fromJson(element)).toList();
+        return Result.ok(activities);
+      } else {
+        return Result.error(const HttpException("Invalid response"));
+      }
+    } on Exception catch (error) {
+      return Result.error(error);
+    } finally {
+      client.close();
+    }
+  }
 }

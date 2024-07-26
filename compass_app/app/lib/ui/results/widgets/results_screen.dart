@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../utils/result.dart';
 import '../../core/ui/search_bar.dart';
 import '../view_models/results_viewmodel.dart';
 import 'result_card.dart';
@@ -16,26 +18,38 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListenableBuilder(
-        listenable: viewModel,
+        listenable: viewModel.search,
         builder: (context, child) {
-          if (viewModel.loading) {
+          if (viewModel.search.running) {
             return const Center(child: CircularProgressIndicator());
           }
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 24, bottom: 24),
-                    child: AppSearchBar(query: viewModel.filters),
-                  ),
-                ),
-                _Grid(viewModel: viewModel),
-              ],
-            ),
-          );
+          return child!;
         },
+        child: ListenableBuilder(
+          listenable: viewModel,
+          builder: (context, child) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 24, bottom: 24),
+                      child: AppSearchBar(
+                        config: viewModel.config,
+                        onTap: () {
+                          // Navigate to SearchFormScreen and edit search
+                          context.go('/');
+                        },
+                      ),
+                    ),
+                  ),
+                  _Grid(viewModel: viewModel),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -59,9 +73,20 @@ class _Grid extends StatelessWidget {
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
+          final destination = viewModel.destinations[index];
           return ResultCard(
-            key: ValueKey(viewModel.destinations[index].ref),
-            destination: viewModel.destinations[index],
+            key: ValueKey(destination.ref),
+            destination: destination,
+            onTap: () {
+              viewModel.updateItineraryConfig.execute(
+                argument: destination.ref,
+                onComplete: (result) {
+                  if (result) {
+                    context.go('/activities');
+                  }
+                },
+              );
+            },
           );
         },
         childCount: viewModel.destinations.length,

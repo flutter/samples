@@ -9,15 +9,16 @@ class ResultCard extends StatelessWidget {
   const ResultCard({
     super.key,
     required this.destination,
+    required this.onTap,
   });
 
   final Destination destination;
+  final GestureTapCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
-      // TODO: Improve image loading and caching
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -50,7 +51,16 @@ class ResultCard extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          // Handle taps
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: onTap,
+              ),
+            ),
+          ),
         ],
       ),
     );

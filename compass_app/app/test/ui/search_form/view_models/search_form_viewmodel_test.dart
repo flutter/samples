@@ -3,14 +3,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 
 import '../../../util/fakes/repositories/fake_continent_repository.dart';
+import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
 
 void main() {
   group('SearchFormViewModel Tests', () {
     late SearchFormViewModel viewModel;
 
     setUp(() {
-      viewModel =
-          SearchFormViewModel(continentRepository: FakeContinentRepository());
+      viewModel = SearchFormViewModel(
+        continentRepository: FakeContinentRepository(),
+        itineraryConfigRepository: FakeItineraryConfigRepository(),
+      );
     });
 
     test('Initial values are correct', () {
@@ -47,7 +50,7 @@ void main() {
       expect(viewModel.guests, 0);
     });
 
-    test('Set all values and obtain query', () {
+    test('Set all values and save', () async {
       expect(viewModel.valid, false);
 
       viewModel.guests = 2;
@@ -59,8 +62,11 @@ void main() {
       viewModel.dateRange = newDateRange;
 
       expect(viewModel.valid, true);
-      expect(viewModel.searchQuery,
-          'continent=CONTINENT&checkIn=2024-01-01&checkOut=2024-01-31&guests=2');
+      await viewModel.updateItineraryConfig.execute(
+        onComplete: (result) {
+          expect(result, true);
+        },
+      );
     });
   });
 }

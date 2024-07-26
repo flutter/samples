@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
+import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
 import '../../../util/mocks.dart';
 import '../../../util/fakes/repositories/fake_continent_repository.dart';
 
@@ -17,6 +18,7 @@ void main() {
     setUp(() {
       viewModel = SearchFormViewModel(
         continentRepository: FakeContinentRepository(),
+        itineraryConfigRepository: FakeItineraryConfigRepository(),
       );
       goRouter = MockGoRouter();
     });
@@ -60,9 +62,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('submit_button')));
 
       // Should navigate to results screen
-      verify(() => goRouter.go(
-              '/results?continent=CONTINENT&checkIn=2024-06-12&checkOut=2024-07-23&guests=1'))
-          .called(1);
+      verify(() => goRouter.go('/results')).called(1);
     });
   });
 }

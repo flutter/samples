@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:compass_model/model.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
+import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../utils/command.dart';
 import '../../../utils/result.dart';
-
-final _dateFormat = DateFormat('yyyy-MM-dd');
 
 /// View model for the search form.
 ///
@@ -14,11 +13,15 @@ final _dateFormat = DateFormat('yyyy-MM-dd');
 class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
     required ContinentRepository continentRepository,
-  }) : _continentRepository = continentRepository {
-    load();
+    required ItineraryConfigRepository itineraryConfigRepository,
+  })  : _continentRepository = continentRepository,
+        _itineraryConfigRepository = itineraryConfigRepository {
+    updateItineraryConfig = Command0(_updateItineraryConfig);
+    load = Command0(_load)..execute();
   }
 
   final ContinentRepository _continentRepository;
+  final ItineraryConfigRepository _itineraryConfigRepository;
   List<Continent> _continents = [];
   String? _selectedContinent;
   DateTimeRange? _dateRange;
@@ -28,47 +31,9 @@ class SearchFormViewModel extends ChangeNotifier {
   bool get valid =>
       _guests > 0 && _selectedContinent != null && _dateRange != null;
 
-  /// Returns the search query string to call the Results screen
-  /// e.g. 'destination=Europe&checkIn=2024-05-09&checkOut=2024-05-24&guests=1',
-  /// Must be called only if [valid] is true
-  get searchQuery {
-    assert(valid, "Called searchQuery when the form is not valid");
-    assert(
-        _selectedContinent != null, "Called searchQuery without a continent");
-    assert(_dateRange != null, "Called searchQuery without a date range");
-    assert(_guests > 0, "Called searchQuery without guests");
-    final startDate = _dateRange!.start;
-    final endDate = _dateRange!.end;
-    final uri = Uri(queryParameters: {
-      'continent': _selectedContinent!,
-      'checkIn': _dateFormat.format(startDate),
-      'checkOut': _dateFormat.format(endDate),
-      'guests': _guests.toString(),
-    });
-    return uri.query;
-  }
-
   /// List of continents.
-  /// Loaded in [load] method.
+  /// Loaded in [load] command.
   List<Continent> get continents => _continents;
-
-  /// Load the list of continents.
-  Future<void> load() async {
-    final result = await _continentRepository.getContinents();
-    switch (result) {
-      case Ok():
-        {
-          _continents = result.value;
-        }
-      case Error():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-        }
-    }
-    notifyListeners();
-  }
 
   /// Selected continent.
   /// Null means no continent is selected.
@@ -104,5 +69,83 @@ class SearchFormViewModel extends ChangeNotifier {
       _guests = quantity;
     }
     notifyListeners();
+  }
+
+  /// Load the list of continents and current itinerary config.
+  late final Command0 load;
+
+  /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
+  late final Command0<bool> updateItineraryConfig;
+
+  Future<void> _load() async {
+    await _loadContinents();
+    await _loadItineraryConfig();
+  }
+
+  Future<void> _loadContinents() async {
+    final result = await _continentRepository.getContinents();
+    switch (result) {
+      case Ok():
+        {
+          _continents = result.value;
+        }
+      case Error():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+        }
+    }
+    notifyListeners();
+  }
+
+  Future<void> _loadItineraryConfig() async {
+    final result = await _itineraryConfigRepository.getItineraryConfig();
+    switch (result) {
+      case Ok<ItineraryConfig>():
+        {
+          final itineraryConfig = result.value;
+          _selectedContinent = itineraryConfig.continent;
+          if (itineraryConfig.startDate != null &&
+              itineraryConfig.endDate != null) {
+            _dateRange = DateTimeRange(
+              start: itineraryConfig.startDate!,
+              end: itineraryConfig.endDate!,
+            );
+          }
+          _guests = itineraryConfig.guests ?? 0;
+          notifyListeners();
+        }
+      case Error<ItineraryConfig>():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+        }
+    }
+  }
+
+  Future<bool> _updateItineraryConfig() async {
+    assert(valid, "called when valid was false");
+    final result =
+        await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
+      continent: _selectedContinent,
+      startDate: _dateRange!.start,
+      endDate: _dateRange!.end,
+      guests: _guests,
+    ));
+    switch (result) {
+      case Ok<void>():
+        {
+          return true;
+        }
+      case Error<void>():
+        {
+          // TODO: Handle error
+          // ignore: avoid_print
+          print(result.error);
+          return false;
+        }
+    }
   }
 }
