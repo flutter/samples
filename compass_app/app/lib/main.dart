@@ -1,6 +1,3 @@
-import 'package:flutter/services.dart';
-
-import 'config/assets.dart';
 import 'ui/core/themes/theme.dart';
 import 'routing/router.dart';
 import 'package:flutter/material.dart';

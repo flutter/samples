@@ -1,15 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../core/ui/back_button.dart';
 import '../../core/ui/error_indicator.dart';
-import '../../core/ui/home_button.dart';
 import '../view_models/activities_viewmodel.dart';
 import 'activities_header.dart';
 import 'activities_list.dart';
 import 'activities_title.dart';
-import 'activity_entry.dart';
 import 'activity_time_of_day.dart';
 
 class ActivitiesScreen extends StatefulWidget {

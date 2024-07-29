@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:compass_app/utils/command.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,7 +18,6 @@ void main() {
     test('should complete bool command', () async {
       // Action that returns bool
       final command = Command0<bool>(() => Future.value(Result.ok(true)));
-      bool completed = false;
 
       // Run action with result
       await command.execute();

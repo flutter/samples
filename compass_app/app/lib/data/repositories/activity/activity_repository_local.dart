@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart';
-import 'package:logging/logging.dart';
 
 import '../../../config/assets.dart';
 import '../../../utils/result.dart';

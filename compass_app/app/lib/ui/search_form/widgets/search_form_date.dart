@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../core/ui/date_format_start_end.dart';
 import '../../core/themes/colors.dart';

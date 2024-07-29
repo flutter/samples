@@ -105,7 +105,6 @@ class _ResultsScreenState extends State<ResultsScreen> {
 
 class _AppSearchBar extends StatelessWidget {
   const _AppSearchBar({
-    super.key,
     required this.widget,
   });
 
