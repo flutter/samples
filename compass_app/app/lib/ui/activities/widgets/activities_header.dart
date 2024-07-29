@@ -27,10 +27,7 @@ class ActivitiesHeader extends StatelessWidget {
           ),
           Text(
             'Activities',
-            style: Theme
-                .of(context)
-                .textTheme
-                .titleLarge,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const HomeButton(),
         ],

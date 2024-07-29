@@ -51,7 +51,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
             children: [
               _AppSearchBar(widget: widget),
               if (widget.viewModel.search.running)
-                const Expanded(child: Center(child: CircularProgressIndicator())),
+                const Expanded(
+                    child: Center(child: CircularProgressIndicator())),
               if (widget.viewModel.search.error)
                 Expanded(
                   child: Center(
