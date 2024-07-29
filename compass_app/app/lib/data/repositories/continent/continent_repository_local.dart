@@ -10,12 +10,6 @@ import 'continent_repository.dart';
 class ContinentRepositoryLocal implements ContinentRepository {
   @override
   Future<Result<List<Continent>>> getContinents() async {
-    // Simulate network loading and random errors
-    // await Future.delayed(Durations.long1);
-    // if (Random().nextBool()) {
-    //   return Result.error(Exception('Random error!'));
-    // }
-
     return Future.value(
       Result.ok(
         [

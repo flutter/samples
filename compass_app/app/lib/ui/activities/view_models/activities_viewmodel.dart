@@ -1,5 +1,6 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
@@ -13,10 +14,17 @@ class ActivitiesViewModel extends ChangeNotifier {
   })  : _activityRepository = activityRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
     loadActivities = Command0(_loadActivities)..execute();
-    saveActivities =
-        Command0(() async => Result.error(Exception('Not implemented')));
+    saveActivities = Command0(() async {
+      _log.shout(
+        'Save activities not implemented',
+        null,
+        StackTrace.current,
+      );
+      return Result.error(Exception('Not implemented'));
+    });
   }
 
+  final _log = Logger('ActivitiesViewModel');
   final ActivityRepository _activityRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
   List<Activity> _daytimeActivities = <Activity>[];
@@ -41,13 +49,16 @@ class ActivitiesViewModel extends ChangeNotifier {
   Future<Result<void>> _loadActivities() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     if (result is Error) {
-      // TODO: Handle error
-      print(result.asError.error);
+      _log.warning(
+        'Failed to load stored ItineraryConfig',
+        result.asError.error,
+      );
       return result;
     }
 
     final destinationRef = result.asOk.value.destination;
     if (destinationRef == null) {
+      _log.severe('Destination missing in ItineraryConfig');
       return Result.error(Exception('Destination not found'));
     }
 
@@ -65,12 +76,12 @@ class ActivitiesViewModel extends ChangeNotifier {
               .where((activity) =>
                   ['evening', 'night'].contains(activity.timeOfDay))
               .toList();
-          // print(_activities);
+          _log.fine('Activities (daytime: ${_daytimeActivities.length}, '
+              'evening: ${_eveningActivities.length}) loaded');
         }
       case Error():
         {
-          // TODO: Handle error
-          print(resultActivities.error);
+          _log.warning('Failed to load activities', resultActivities.error);
         }
     }
 
@@ -86,6 +97,7 @@ class ActivitiesViewModel extends ChangeNotifier {
       "Activity $activityRef not found",
     );
     _selectedActivities.add(activityRef);
+    _log.finest('Activity $activityRef added');
     notifyListeners();
   }
 
@@ -97,6 +109,7 @@ class ActivitiesViewModel extends ChangeNotifier {
       "Activity $activityRef not found",
     );
     _selectedActivities.remove(activityRef);
+    _log.finest('Activity $activityRef removed');
     notifyListeners();
   }
 }

@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:compass_model/model.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../../../config/assets.dart';
@@ -15,12 +13,6 @@ class DestinationRepositoryLocal implements DestinationRepository {
   /// Obtain list of destinations from local assets
   @override
   Future<Result<List<Destination>>> getDestinations() async {
-    // Simulate network loading and random errors
-    // await Future.delayed(Durations.long1);
-    // if (Random().nextBool()) {
-    //   return Result.error(Exception('Random error!'));
-    // }
-
     try {
       final localData = await _loadAsset();
       final list = _parse(localData);

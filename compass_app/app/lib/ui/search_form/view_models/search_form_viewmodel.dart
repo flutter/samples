@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/rendering.dart';
+import 'package:logging/logging.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
@@ -21,6 +22,7 @@ class SearchFormViewModel extends ChangeNotifier {
     load = Command0(_load)..execute();
   }
 
+  final _log = Logger('SearchFormViewModel');
   final ContinentRepository _continentRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
   List<Continent> _continents = [];
@@ -44,6 +46,7 @@ class SearchFormViewModel extends ChangeNotifier {
   /// Set to null to clear the selection.
   set selectedContinent(String? continent) {
     _selectedContinent = continent;
+    _log.finest('Selected continent: $continent');
     notifyListeners();
   }
 
@@ -55,6 +58,7 @@ class SearchFormViewModel extends ChangeNotifier {
   /// Can be set to null to clear selection.
   set dateRange(DateTimeRange? dateRange) {
     _dateRange = dateRange;
+    _log.finest('Selected date range: $dateRange');
     notifyListeners();
   }
 
@@ -69,6 +73,7 @@ class SearchFormViewModel extends ChangeNotifier {
     } else {
       _guests = quantity;
     }
+    _log.finest('Set guests number: $_guests');
     notifyListeners();
   }
 
@@ -92,12 +97,11 @@ class SearchFormViewModel extends ChangeNotifier {
       case Ok():
         {
           _continents = result.value;
+          _log.fine('Continents (${_continents.length}) loaded');
         }
       case Error():
         {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
+          _log.warning('Failed to load continents', result.asError.error);
         }
     }
     notifyListeners();
@@ -119,13 +123,15 @@ class SearchFormViewModel extends ChangeNotifier {
             );
           }
           _guests = itineraryConfig.guests ?? 0;
+          _log.fine('ItineraryConfig loaded');
           notifyListeners();
         }
       case Error<ItineraryConfig>():
         {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
+          _log.warning(
+            'Failed to load stored ItineraryConfig',
+            result.asError.error,
+          );
         }
     }
     return result;
@@ -141,6 +147,12 @@ class SearchFormViewModel extends ChangeNotifier {
         guests: _guests,
       ),
     );
+    switch (result) {
+      case Ok<void>():
+        _log.fine('ItineraryConfig saved');
+      case Error<void>():
+        _log.warning('Failed to store ItineraryConfig', result.error);
+    }
     return result;
   }
 }
