@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/themes/dimens.dart';
 import '../../core/ui/back_button.dart';
 import '../../core/ui/home_button.dart';
 
@@ -10,11 +11,11 @@ class ActivitiesHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 24,
-        bottom: 24,
-        left: 20,
-        right: 20,
+      padding: EdgeInsets.only(
+        left: Dimens.of(context).paddingScreenHorizontal,
+        right: Dimens.of(context).paddingScreenHorizontal,
+        top: Dimens.of(context).paddingScreenVertical,
+        bottom: Dimens.paddingVertical,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

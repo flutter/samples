@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/themes/colors.dart';
+import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
 import '../view_models/search_form_viewmodel.dart';
 
@@ -49,7 +50,7 @@ class SearchFormContinent extends StatelessWidget {
             return ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: viewModel.continents.length,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: Dimens.of(context).edgeInsetsScreenHorizontal,
               itemBuilder: (BuildContext context, int index) {
                 final Continent(:imageUrl, :name) = viewModel.continents[index];
                 return _CarouselItem(

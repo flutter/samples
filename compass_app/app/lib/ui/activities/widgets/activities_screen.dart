@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
 import '../view_models/activities_viewmodel.dart';
 import 'activities_header.dart';
@@ -140,25 +141,27 @@ class _BottomArea extends StatelessWidget {
       bottom: true,
       child: Material(
         elevation: 8,
-        child: SizedBox(
-          height: 80,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '${viewModel.selectedActivities.length} selected',
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-                FilledButton(
-                  onPressed: viewModel.selectedActivities.isNotEmpty
-                      ? viewModel.saveActivities.execute
-                      : null,
-                  child: const Text('Confirm'),
-                ),
-              ],
-            ),
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: Dimens.of(context).paddingScreenHorizontal,
+            right: Dimens.of(context).paddingScreenVertical,
+            top: Dimens.paddingVertical,
+            bottom: Dimens.of(context).paddingScreenVertical,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '${viewModel.selectedActivities.length} selected',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              FilledButton(
+                onPressed: viewModel.selectedActivities.isNotEmpty
+                    ? viewModel.saveActivities.execute
+                    : null,
+                child: const Text('Confirm'),
+              ),
+            ],
           ),
         ),
       ),

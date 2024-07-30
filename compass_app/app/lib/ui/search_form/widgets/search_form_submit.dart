@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/themes/dimens.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
 
@@ -44,7 +45,12 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+      padding: EdgeInsets.only(
+        top: Dimens.paddingVertical,
+        left: Dimens.of(context).paddingScreenHorizontal,
+        right: Dimens.of(context).paddingScreenHorizontal,
+        bottom: Dimens.of(context).paddingScreenVertical,
+      ),
       child: ListenableBuilder(
         listenable: widget.viewModel,
         child: const SizedBox(

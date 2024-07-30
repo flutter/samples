@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/themes/colors.dart';
+import '../../core/themes/dimens.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Number of guests selection form
@@ -18,7 +19,11 @@ class SearchFormGuests extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 24, left: 20, right: 20),
+      padding: EdgeInsets.only(
+        top: Dimens.paddingVertical,
+        left: Dimens.of(context).paddingScreenHorizontal,
+        right: Dimens.of(context).paddingScreenHorizontal,
+      ),
       child: Container(
         height: 64,
         decoration: BoxDecoration(
@@ -26,7 +31,9 @@ class SearchFormGuests extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Dimens.paddingHorizontal,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

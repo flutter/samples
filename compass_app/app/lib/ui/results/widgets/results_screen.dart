@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
 import '../../core/ui/search_bar.dart';
 import '../view_models/results_viewmodel.dart';
@@ -70,7 +71,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
           listenable: widget.viewModel,
           builder: (context, child) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: Dimens.of(context).edgeInsetsScreenHorizontal,
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
@@ -113,7 +114,10 @@ class _AppSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 24, bottom: 24),
+      padding: EdgeInsets.only(
+        top: Dimens.of(context).paddingScreenVertical,
+        bottom: Dimens.dimensMobile.paddingScreenVertical,
+      ),
       child: AppSearchBar(
         config: widget.viewModel.config,
         onTap: () {

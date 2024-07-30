@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/themes/dimens.dart';
 import '../view_models/activities_viewmodel.dart';
 import 'activity_entry.dart';
 import 'activity_time_of_day.dart';
@@ -21,7 +22,12 @@ class ActivitiesList extends StatelessWidget {
       ActivityTimeOfDay.evening => viewModel.eveningActivities,
     };
     return SliverPadding(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.only(
+        top: Dimens.paddingVertical,
+        left: Dimens.of(context).paddingScreenHorizontal,
+        right: Dimens.of(context).paddingScreenHorizontal,
+        bottom: Dimens.paddingVertical,
+      ),
       sliver: SliverList(
         delegate: SliverChildBuilderDelegate(
           (context, index) {

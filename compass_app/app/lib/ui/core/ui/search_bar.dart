@@ -1,6 +1,7 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
+import '../themes/dimens.dart';
 import 'date_format_start_end.dart';
 import '../themes/colors.dart';
 import 'home_button.dart';
@@ -34,7 +35,9 @@ class AppSearchBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Dimens.paddingHorizontal,
+                ),
                 child: Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: _QueryText(config: config),

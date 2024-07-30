@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/themes/dimens.dart';
 import '../view_models/activities_viewmodel.dart';
 import 'activity_time_of_day.dart';
 
@@ -24,7 +25,7 @@ class ActivitiesTitle extends StatelessWidget {
     }
     return SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: Dimens.of(context).edgeInsetsScreenHorizontal,
         child: Text(_label()),
       ),
     );
