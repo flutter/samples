@@ -12,7 +12,7 @@ _$ActivityImpl _$$ActivityImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       locationName: json['locationName'] as String,
       duration: (json['duration'] as num).toInt(),
-      timeOfDay: json['timeOfDay'] as String,
+      timeOfDay: $enumDecode(_$TimeOfDayEnumMap, json['timeOfDay']),
       familyFriendly: json['familyFriendly'] as bool,
       price: (json['price'] as num).toInt(),
       destinationRef: json['destinationRef'] as String,
@@ -26,10 +26,18 @@ Map<String, dynamic> _$$ActivityImplToJson(_$ActivityImpl instance) =>
       'description': instance.description,
       'locationName': instance.locationName,
       'duration': instance.duration,
-      'timeOfDay': instance.timeOfDay,
+      'timeOfDay': _$TimeOfDayEnumMap[instance.timeOfDay]!,
       'familyFriendly': instance.familyFriendly,
       'price': instance.price,
       'destinationRef': instance.destinationRef,
       'ref': instance.ref,
       'imageUrl': instance.imageUrl,
     };
+
+const _$TimeOfDayEnumMap = {
+  TimeOfDay.any: 'any',
+  TimeOfDay.morning: 'morning',
+  TimeOfDay.afternoon: 'afternoon',
+  TimeOfDay.evening: 'evening',
+  TimeOfDay.night: 'night',
+};

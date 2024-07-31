@@ -37,7 +37,7 @@ class ActivityEntry extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  activity.timeOfDay,
+                  activity.timeOfDay.name.toUpperCase(),
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
                 Text(

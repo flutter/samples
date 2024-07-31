@@ -15,7 +15,7 @@ class FakeActivityRepository implements ActivityRepository {
         name: 'NAME',
         price: 3,
         ref: 'REF',
-        timeOfDay: 'afternoon',
+        timeOfDay: TimeOfDay.afternoon,
       ),
     ],
   };

@@ -4,6 +4,14 @@ part 'activity.freezed.dart';
 
 part 'activity.g.dart';
 
+enum TimeOfDay {
+  any,
+  morning,
+  afternoon,
+  evening,
+  night,
+}
+
 @freezed
 class Activity with _$Activity {
   const factory Activity({
@@ -21,7 +29,7 @@ class Activity with _$Activity {
     required int duration,
 
     /// e.g. 'morning'
-    required String timeOfDay,
+    required TimeOfDay timeOfDay,
 
     /// e.g. false
     required bool familyFriendly,
