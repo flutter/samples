@@ -1,6 +1,7 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
+import '../localization/applocalization.dart';
 import '../themes/dimens.dart';
 import 'date_format_start_end.dart';
 import '../themes/colors.dart';
@@ -95,7 +96,7 @@ class _EmptySearch extends StatelessWidget {
         const SizedBox(width: 12),
         Expanded(
           child: Text(
-            'Search destination',
+            AppLocalization.of(context).searchDestination,
             textAlign: TextAlign.start,
             style: Theme.of(context).inputDecorationTheme.hintStyle,
           ),

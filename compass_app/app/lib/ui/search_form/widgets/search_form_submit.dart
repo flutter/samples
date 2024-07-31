@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
@@ -53,10 +54,10 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
       ),
       child: ListenableBuilder(
         listenable: widget.viewModel,
-        child: const SizedBox(
+        child: SizedBox(
           height: 52,
           child: Center(
-            child: Text('Search'),
+            child: Text(AppLocalization.of(context).search),
           ),
         ),
         builder: (context, child) {
@@ -81,9 +82,9 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
     if (widget.viewModel.updateItineraryConfig.error) {
       widget.viewModel.updateItineraryConfig.clearResult();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: const Text('Error while saving itinerary'),
+        content: Text(AppLocalization.of(context).errorWhileSavingItinerary),
         action: SnackBarAction(
-          label: "Try again",
+          label: AppLocalization.of(context).tryAgain,
           onPressed: widget.viewModel.updateItineraryConfig.execute,
         ),
       ));

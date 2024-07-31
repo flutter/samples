@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../view_models/activities_viewmodel.dart';
 import 'activity_time_of_day.dart';
@@ -26,13 +27,13 @@ class ActivitiesTitle extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Padding(
         padding: Dimens.of(context).edgeInsetsScreenHorizontal,
-        child: Text(_label()),
+        child: Text(_label(context)),
       ),
     );
   }
 
-  String _label() => switch (activityTimeOfDay) {
-        ActivityTimeOfDay.daytime => 'Daytime',
-        ActivityTimeOfDay.evening => 'Evening',
+  String _label(BuildContext context) => switch (activityTimeOfDay) {
+        ActivityTimeOfDay.daytime => AppLocalization.of(context).daytime,
+        ActivityTimeOfDay.evening => AppLocalization.of(context).evening,
       };
 }

@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
@@ -36,8 +37,8 @@ class SearchFormContinent extends StatelessWidget {
           if (viewModel.load.error) {
             return Center(
               child: ErrorIndicator(
-                title: "Error while loading continents",
-                label: "Try again",
+                title: AppLocalization.of(context).errorWhileLoadingContinents,
+                label: AppLocalization.of(context).tryAgain,
                 onPressed: viewModel.load.execute,
               ),
             );

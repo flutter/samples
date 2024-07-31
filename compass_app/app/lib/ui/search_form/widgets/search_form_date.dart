@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
 import '../../core/themes/colors.dart';
@@ -47,7 +48,7 @@ class SearchFormDate extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'When',
+                  AppLocalization.of(context).when,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 ListenableBuilder(
@@ -61,7 +62,7 @@ class SearchFormDate extends StatelessWidget {
                       );
                     } else {
                       return Text(
-                        'Add Dates',
+                        AppLocalization.of(context).addDates,
                         style: Theme.of(context).inputDecorationTheme.hintStyle,
                       );
                     }

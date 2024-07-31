@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
 import '../view_models/activities_viewmodel.dart';
@@ -59,8 +60,9 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                 Expanded(
                   child: Center(
                     child: ErrorIndicator(
-                      title: "Error while loading activities",
-                      label: "Try again",
+                      title: AppLocalization.of(context)
+                          .errorWhileLoadingActivities,
+                      label: AppLocalization.of(context).tryAgain,
                       onPressed: widget.viewModel.loadActivities.execute,
                     ),
                   ),
@@ -117,9 +119,9 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
       widget.viewModel.saveActivities.clearResult();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Error while saving activities'),
+          content: Text(AppLocalization.of(context).errorWhileSavingActivities),
           action: SnackBarAction(
-            label: "Try again",
+            label: AppLocalization.of(context).tryAgain,
             onPressed: widget.viewModel.saveActivities.execute,
           ),
         ),
@@ -152,14 +154,15 @@ class _BottomArea extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${viewModel.selectedActivities.length} selected',
+                AppLocalization.of(context)
+                    .selected(viewModel.selectedActivities.length),
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               FilledButton(
                 onPressed: viewModel.selectedActivities.isNotEmpty
                     ? viewModel.saveActivities.execute
                     : null,
-                child: const Text('Confirm'),
+                child: Text(AppLocalization.of(context).confirm),
               ),
             ],
           ),

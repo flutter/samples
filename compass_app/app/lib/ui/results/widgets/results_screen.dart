@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
 import '../../core/ui/search_bar.dart';
@@ -58,8 +59,9 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 Expanded(
                   child: Center(
                     child: ErrorIndicator(
-                      title: "Error while loading destinations",
-                      label: "Try again",
+                      title: AppLocalization.of(context)
+                          .errorWhileLoadingDestinations,
+                      label: AppLocalization.of(context).tryAgain,
                       onPressed: widget.viewModel.search.execute,
                     ),
                   ),
@@ -96,8 +98,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
     if (widget.viewModel.updateItineraryConfig.error) {
       widget.viewModel.updateItineraryConfig.clearResult();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Error while saving itinerary'),
+        SnackBar(
+          content: Text(AppLocalization.of(context).errorWhileSavingItinerary),
         ),
       );
     }
