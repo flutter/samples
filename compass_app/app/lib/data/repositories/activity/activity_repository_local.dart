@@ -34,4 +34,20 @@ class ActivityRepositoryLocal implements ActivityRepository {
 
     return parsed.map<Activity>((json) => Activity.fromJson(json)).toList();
   }
+
+  @override
+  Future<Result<List<Activity>>> getByRef(List<String> activitiesRef) async {
+    try {
+      final localData = await _loadAsset();
+      final list = _parse(localData);
+
+      final activities = list
+          .where((activity) => activitiesRef.contains(activity.ref))
+          .toList();
+
+      return Result.ok(activities);
+    } on Exception catch (error) {
+      return Result.error(error);
+    }
+  }
 }

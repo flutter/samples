@@ -30,4 +30,10 @@ class ActivityRepositoryRemote implements ActivityRepository {
       return Result.ok(_cachedData[ref]!);
     }
   }
+
+  @override
+  Future<Result<List<Activity>>> getByRef(List<String> activitiesRef) {
+    // TODO: implement getByRef
+    throw UnimplementedError();
+  }
 }
