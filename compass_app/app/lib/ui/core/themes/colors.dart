@@ -9,6 +9,7 @@ class AppColors {
   static const whiteTransparent =
       Color(0x4DFFFFFF); // Figma rgba(255, 255, 255, 0.3)
   static const blackTransparent = Color(0x4D000000);
+  static const red1 = Color(0xFFE74C3C);
 
   static const lightColorScheme = ColorScheme(
     brightness: Brightness.light,
@@ -18,8 +19,8 @@ class AppColors {
     onSecondary: AppColors.white1,
     surface: Colors.white,
     onSurface: AppColors.black1,
-    error: Colors.red,
-    onError: Colors.white,
+    error: Colors.white,
+    onError: Colors.red,
   );
 
   static const darkColorScheme = ColorScheme(
@@ -30,7 +31,7 @@ class AppColors {
     onSecondary: AppColors.black1,
     surface: AppColors.black1,
     onSurface: Colors.white,
-    error: Colors.red,
-    onError: Colors.white,
+    error: Colors.black,
+    onError: AppColors.red1,
   );
 }

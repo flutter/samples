@@ -1,6 +1,8 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
+import '../localization/applocalization.dart';
+import '../themes/dimens.dart';
 import 'date_format_start_end.dart';
 import '../themes/colors.dart';
 import 'home_button.dart';
@@ -34,7 +36,9 @@ class AppSearchBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Dimens.paddingHorizontal,
+                ),
                 child: Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: _QueryText(config: config),
@@ -74,7 +78,7 @@ class _QueryText extends StatelessWidget {
     return Text(
       '$continent - ${dateFormatStartEnd(DateTimeRange(start: startDate, end: endDate))} - Guests: $guests',
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyMedium,
+      style: Theme.of(context).textTheme.bodyLarge,
     );
   }
 }
@@ -92,7 +96,7 @@ class _EmptySearch extends StatelessWidget {
         const SizedBox(width: 12),
         Expanded(
           child: Text(
-            'Search destination',
+            AppLocalization.of(context).searchDestination,
             textAlign: TextAlign.start,
             style: Theme.of(context).inputDecorationTheme.hintStyle,
           ),

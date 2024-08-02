@@ -3,7 +3,10 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
+import '../../core/themes/dimens.dart';
+import '../../core/ui/error_indicator.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Continent selection carousel
@@ -31,6 +34,15 @@ class SearchFormContinent extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
+          if (viewModel.load.error) {
+            return Center(
+              child: ErrorIndicator(
+                title: AppLocalization.of(context).errorWhileLoadingContinents,
+                label: AppLocalization.of(context).tryAgain,
+                onPressed: viewModel.load.execute,
+              ),
+            );
+          }
           return child!;
         },
         child: ListenableBuilder(
@@ -39,7 +51,7 @@ class SearchFormContinent extends StatelessWidget {
             return ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: viewModel.continents.length,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: Dimens.of(context).edgeInsetsScreenHorizontal,
               itemBuilder: (BuildContext context, int index) {
                 final Continent(:imageUrl, :name) = viewModel.continents[index];
                 return _CarouselItem(

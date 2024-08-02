@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../../../config/assets.dart';
 import '../../../utils/result.dart';
 import 'destination_repository.dart';
 
@@ -22,7 +23,7 @@ class DestinationRepositoryLocal implements DestinationRepository {
   }
 
   Future<String> _loadAsset() async {
-    return await rootBundle.loadString('assets/destinations.json');
+    return await rootBundle.loadString(Assets.destinations);
   }
 
   List<Destination> _parse(String localData) {

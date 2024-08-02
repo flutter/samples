@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../utils/result.dart';
+import '../../core/localization/applocalization.dart';
+import '../../core/themes/dimens.dart';
+import '../../core/ui/error_indicator.dart';
 import '../../core/ui/search_bar.dart';
 import '../view_models/results_viewmodel.dart';
 import 'result_card.dart';
 
-class ResultsScreen extends StatelessWidget {
+class ResultsScreen extends StatefulWidget {
   const ResultsScreen({
     super.key,
     required this.viewModel,
@@ -15,41 +17,115 @@ class ResultsScreen extends StatelessWidget {
   final ResultsViewModel viewModel;
 
   @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends State<ResultsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    widget.viewModel.updateItineraryConfig.addListener(_onResult);
+  }
+
+  @override
+  void didUpdateWidget(covariant ResultsScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    oldWidget.viewModel.updateItineraryConfig.removeListener(_onResult);
+    widget.viewModel.updateItineraryConfig.addListener(_onResult);
+  }
+
+  @override
+  void dispose() {
+    widget.viewModel.updateItineraryConfig.removeListener(_onResult);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListenableBuilder(
-        listenable: viewModel.search,
+        listenable: widget.viewModel.search,
         builder: (context, child) {
-          if (viewModel.search.running) {
-            return const Center(child: CircularProgressIndicator());
+          if (widget.viewModel.search.completed) {
+            return child!;
           }
-          return child!;
+          return Column(
+            children: [
+              _AppSearchBar(widget: widget),
+              if (widget.viewModel.search.running)
+                const Expanded(
+                    child: Center(child: CircularProgressIndicator())),
+              if (widget.viewModel.search.error)
+                Expanded(
+                  child: Center(
+                    child: ErrorIndicator(
+                      title: AppLocalization.of(context)
+                          .errorWhileLoadingDestinations,
+                      label: AppLocalization.of(context).tryAgain,
+                      onPressed: widget.viewModel.search.execute,
+                    ),
+                  ),
+                ),
+            ],
+          );
         },
         child: ListenableBuilder(
-          listenable: viewModel,
+          listenable: widget.viewModel,
           builder: (context, child) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: Dimens.of(context).edgeInsetsScreenHorizontal,
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 24, bottom: 24),
-                      child: AppSearchBar(
-                        config: viewModel.config,
-                        onTap: () {
-                          // Navigate to SearchFormScreen and edit search
-                          context.go('/');
-                        },
-                      ),
-                    ),
+                    child: _AppSearchBar(widget: widget),
                   ),
-                  _Grid(viewModel: viewModel),
+                  _Grid(viewModel: widget.viewModel),
                 ],
               ),
             );
           },
         ),
+      ),
+    );
+  }
+
+  void _onResult() {
+    if (widget.viewModel.updateItineraryConfig.completed) {
+      widget.viewModel.updateItineraryConfig.clearResult();
+      context.go('/activities');
+    }
+
+    if (widget.viewModel.updateItineraryConfig.error) {
+      widget.viewModel.updateItineraryConfig.clearResult();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalization.of(context).errorWhileSavingItinerary),
+        ),
+      );
+    }
+  }
+}
+
+class _AppSearchBar extends StatelessWidget {
+  const _AppSearchBar({
+    required this.widget,
+  });
+
+  final ResultsScreen widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: Dimens.of(context).paddingScreenVertical,
+        bottom: Dimens.dimensMobile.paddingScreenVertical,
+      ),
+      child: AppSearchBar(
+        config: widget.viewModel.config,
+        onTap: () {
+          // Navigate to SearchFormScreen and edit search
+          context.go('/');
+        },
       ),
     );
   }
@@ -78,14 +154,7 @@ class _Grid extends StatelessWidget {
             key: ValueKey(destination.ref),
             destination: destination,
             onTap: () {
-              viewModel.updateItineraryConfig.execute(
-                argument: destination.ref,
-                onComplete: (result) {
-                  if (result) {
-                    context.go('/activities');
-                  }
-                },
-              );
+              viewModel.updateItineraryConfig.execute(destination.ref);
             },
           );
         },

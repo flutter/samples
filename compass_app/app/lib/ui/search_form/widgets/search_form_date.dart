@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
+import '../../core/localization/applocalization.dart';
+import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
 import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
@@ -19,7 +20,11 @@ class SearchFormDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 24, left: 20, right: 20),
+      padding: EdgeInsets.only(
+        top: Dimens.paddingVertical,
+        left: Dimens.of(context).paddingScreenHorizontal,
+        right: Dimens.of(context).paddingScreenHorizontal,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(16.0),
         onTap: () {
@@ -36,12 +41,14 @@ class SearchFormDate extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.0),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.paddingHorizontal,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'When',
+                  AppLocalization.of(context).when,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 ListenableBuilder(
@@ -51,11 +58,11 @@ class SearchFormDate extends StatelessWidget {
                     if (dateRange != null) {
                       return Text(
                         dateFormatStartEnd(dateRange),
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       );
                     } else {
                       return Text(
-                        'Add Dates',
+                        AppLocalization.of(context).addDates,
                         style: Theme.of(context).inputDecorationTheme.hintStyle,
                       );
                     }

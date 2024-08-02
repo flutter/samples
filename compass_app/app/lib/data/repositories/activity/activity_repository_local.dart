@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart';
 
+import '../../../config/assets.dart';
 import '../../../utils/result.dart';
 import 'activity_repository.dart';
 
@@ -25,7 +26,7 @@ class ActivityRepositoryLocal implements ActivityRepository {
   }
 
   Future<String> _loadAsset() async {
-    return await rootBundle.loadString('assets/activities.json');
+    return await rootBundle.loadString(Assets.activities);
   }
 
   List<Activity> _parse(String localData) {

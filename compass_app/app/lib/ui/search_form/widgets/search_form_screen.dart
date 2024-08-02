@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/themes/dimens.dart';
 import '../../core/ui/search_bar.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
@@ -27,12 +28,14 @@ class SearchFormScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 24,
+          Padding(
+            padding: EdgeInsets.only(
+              top: Dimens.of(context).paddingScreenVertical,
+              left: Dimens.of(context).paddingScreenHorizontal,
+              right: Dimens.of(context).paddingScreenHorizontal,
+              bottom: Dimens.paddingVertical,
             ),
-            child: AppSearchBar(),
+            child: const AppSearchBar(),
           ),
           SearchFormContinent(viewModel: viewModel),
           SearchFormDate(viewModel: viewModel),

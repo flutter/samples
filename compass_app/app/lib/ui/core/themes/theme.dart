@@ -9,8 +9,22 @@ class AppTheme {
       fontWeight: FontWeight.w500,
     ),
     bodyMedium: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+    ),
+    bodyLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
+    ),
+    labelSmall: TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      color: AppColors.grey3,
+    ),
+    labelLarge: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w400,
+      color: AppColors.grey3,
     ),
   );
 

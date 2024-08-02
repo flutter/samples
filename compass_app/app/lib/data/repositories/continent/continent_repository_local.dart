@@ -6,7 +6,7 @@ import 'continent_repository.dart';
 /// Local data source with all possible continents.
 class ContinentRepositoryLocal implements ContinentRepository {
   @override
-  Future<Result<List<Continent>>> getContinents() {
+  Future<Result<List<Continent>>> getContinents() async {
     return Future.value(
       Result.ok(
         [

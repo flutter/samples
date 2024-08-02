@@ -34,7 +34,7 @@ mixin _$Activity {
   int get duration => throw _privateConstructorUsedError;
 
   /// e.g. 'morning'
-  String get timeOfDay => throw _privateConstructorUsedError;
+  TimeOfDay get timeOfDay => throw _privateConstructorUsedError;
 
   /// e.g. false
   bool get familyFriendly => throw _privateConstructorUsedError;
@@ -71,7 +71,7 @@ abstract class $ActivityCopyWith<$Res> {
       String description,
       String locationName,
       int duration,
-      String timeOfDay,
+      TimeOfDay timeOfDay,
       bool familyFriendly,
       int price,
       String destinationRef,
@@ -125,7 +125,7 @@ class _$ActivityCopyWithImpl<$Res, $Val extends Activity>
       timeOfDay: null == timeOfDay
           ? _value.timeOfDay
           : timeOfDay // ignore: cast_nullable_to_non_nullable
-              as String,
+              as TimeOfDay,
       familyFriendly: null == familyFriendly
           ? _value.familyFriendly
           : familyFriendly // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ abstract class _$$ActivityImplCopyWith<$Res>
       String description,
       String locationName,
       int duration,
-      String timeOfDay,
+      TimeOfDay timeOfDay,
       bool familyFriendly,
       int price,
       String destinationRef,
@@ -215,7 +215,7 @@ class __$$ActivityImplCopyWithImpl<$Res>
       timeOfDay: null == timeOfDay
           ? _value.timeOfDay
           : timeOfDay // ignore: cast_nullable_to_non_nullable
-              as String,
+              as TimeOfDay,
       familyFriendly: null == familyFriendly
           ? _value.familyFriendly
           : familyFriendly // ignore: cast_nullable_to_non_nullable
@@ -277,7 +277,7 @@ class _$ActivityImpl implements _Activity {
 
   /// e.g. 'morning'
   @override
-  final String timeOfDay;
+  final TimeOfDay timeOfDay;
 
   /// e.g. false
   @override
@@ -365,7 +365,7 @@ abstract class _Activity implements Activity {
       required final String description,
       required final String locationName,
       required final int duration,
-      required final String timeOfDay,
+      required final TimeOfDay timeOfDay,
       required final bool familyFriendly,
       required final int price,
       required final String destinationRef,
@@ -394,7 +394,7 @@ abstract class _Activity implements Activity {
 
   /// e.g. 'morning'
   @override
-  String get timeOfDay;
+  TimeOfDay get timeOfDay;
 
   /// e.g. false
   @override

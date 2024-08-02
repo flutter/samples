@@ -46,6 +46,18 @@ void main() {
     expect(destination.first.name, 'Alaska');
   });
 
+  test('Get Activities end-point', () async {
+    // Query /destination/alaska/activity end-point
+    final response = await get(Uri.parse('$host/destination/alaska/activity'));
+    expect(response.statusCode, 200);
+    // Parse json response list
+    final list = jsonDecode(response.body) as List<dynamic>;
+    // Parse items
+    final activity = list.map((element) => Activity.fromJson(element));
+    expect(activity.length, 20);
+    expect(activity.first.name, 'Glacier Trekking and Ice Climbing');
+  });
+
   test('404', () async {
     final response = await get(Uri.parse('$host/foobar'));
     expect(response.statusCode, 404);

@@ -1,17 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 
-typedef CommandAction0<T> = Future<T> Function();
-typedef CommandAction1<T, A> = Future<T> Function(A);
-typedef OnComplete<T> = Function(T);
+import 'result.dart';
+
+typedef CommandAction0<T> = Future<Result<T>> Function();
+typedef CommandAction1<T, A> = Future<Result<T>> Function(A);
 
 /// Facilitates interaction with a ViewModel.
 ///
 /// Encapsulates an action,
-/// exposes its running state,
+/// exposes its running and error states,
 /// and ensures that it can't be launched again until it finishes.
 ///
 /// Use [Command0] for actions without arguments.
 /// Use [Command1] for actions with one argument.
+///
+/// Actions must return a [Result].
+///
+/// Consume the action result by listening to changes,
+/// then call to [clearResult] when the state is consumed.
 abstract class Command<T> extends ChangeNotifier {
   Command();
 
@@ -20,11 +28,25 @@ abstract class Command<T> extends ChangeNotifier {
   /// True when the action is running.
   bool get running => _running;
 
+  Result<T>? _result;
+
+  /// true if action completed with error
+  bool get error => _result is Error;
+
+  /// true if action completed successfully
+  bool get completed => _result is Ok;
+
+  /// Get last action result
+  Result? get result => _result;
+
+  /// Clear last action result
+  void clearResult() {
+    _result = null;
+    notifyListeners();
+  }
+
   /// Internal execute implementation
-  Future<void> _execute(
-    CommandAction0<T> action,
-    OnComplete<T>? onComplete,
-  ) async {
+  Future<void> _execute(CommandAction0<T> action) async {
     // Ensure the action can't launch multiple times.
     // e.g. avoid multiple taps on button
     if (_running) return;
@@ -32,11 +54,11 @@ abstract class Command<T> extends ChangeNotifier {
     // Notify listeners.
     // e.g. button shows loading state
     _running = true;
+    _result = null;
     notifyListeners();
 
     try {
-      final result = await action();
-      onComplete?.call(result);
+      _result = await action();
     } finally {
       _running = false;
       notifyListeners();
@@ -52,9 +74,8 @@ class Command0<T> extends Command<T> {
   final CommandAction0<T> _action;
 
   /// Executes the action.
-  /// onComplete is called when the action completes.
-  Future<void> execute({OnComplete<T>? onComplete}) async {
-    await _execute(() => _action(), onComplete);
+  Future<void> execute() async {
+    await _execute(() => _action());
   }
 }
 
@@ -66,8 +87,7 @@ class Command1<T, A> extends Command<T> {
   final CommandAction1<T, A> _action;
 
   /// Executes the action with the argument.
-  /// onComplete is called when the action completes.
-  Future<void> execute({required A argument, OnComplete<T>? onComplete}) async {
-    await _execute(() => _action(argument), onComplete);
+  Future<void> execute(A argument) async {
+    await _execute(() => _action(argument));
   }
 }

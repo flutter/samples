@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:compass_model/model.dart';
+import 'package:logging/logging.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
@@ -20,6 +21,7 @@ class SearchFormViewModel extends ChangeNotifier {
     load = Command0(_load)..execute();
   }
 
+  final _log = Logger('SearchFormViewModel');
   final ContinentRepository _continentRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
   List<Continent> _continents = [];
@@ -43,6 +45,7 @@ class SearchFormViewModel extends ChangeNotifier {
   /// Set to null to clear the selection.
   set selectedContinent(String? continent) {
     _selectedContinent = continent;
+    _log.finest('Selected continent: $continent');
     notifyListeners();
   }
 
@@ -54,6 +57,7 @@ class SearchFormViewModel extends ChangeNotifier {
   /// Can be set to null to clear selection.
   set dateRange(DateTimeRange? dateRange) {
     _dateRange = dateRange;
+    _log.finest('Selected date range: $dateRange');
     notifyListeners();
   }
 
@@ -68,6 +72,7 @@ class SearchFormViewModel extends ChangeNotifier {
     } else {
       _guests = quantity;
     }
+    _log.finest('Set guests number: $_guests');
     notifyListeners();
   }
 
@@ -75,31 +80,34 @@ class SearchFormViewModel extends ChangeNotifier {
   late final Command0 load;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  late final Command0<bool> updateItineraryConfig;
+  late final Command0 updateItineraryConfig;
 
-  Future<void> _load() async {
-    await _loadContinents();
-    await _loadItineraryConfig();
+  Future<Result<void>> _load() async {
+    final result = await _loadContinents();
+    if (result is Error) {
+      return result;
+    }
+    return await _loadItineraryConfig();
   }
 
-  Future<void> _loadContinents() async {
+  Future<Result<void>> _loadContinents() async {
     final result = await _continentRepository.getContinents();
     switch (result) {
       case Ok():
         {
           _continents = result.value;
+          _log.fine('Continents (${_continents.length}) loaded');
         }
       case Error():
         {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
+          _log.warning('Failed to load continents', result.asError.error);
         }
     }
     notifyListeners();
+    return result;
   }
 
-  Future<void> _loadItineraryConfig() async {
+  Future<Result<void>> _loadItineraryConfig() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     switch (result) {
       case Ok<ItineraryConfig>():
@@ -114,38 +122,36 @@ class SearchFormViewModel extends ChangeNotifier {
             );
           }
           _guests = itineraryConfig.guests ?? 0;
+          _log.fine('ItineraryConfig loaded');
           notifyListeners();
         }
       case Error<ItineraryConfig>():
         {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
+          _log.warning(
+            'Failed to load stored ItineraryConfig',
+            result.asError.error,
+          );
         }
     }
+    return result;
   }
 
-  Future<bool> _updateItineraryConfig() async {
+  Future<Result<void>> _updateItineraryConfig() async {
     assert(valid, "called when valid was false");
-    final result =
-        await _itineraryConfigRepository.setItineraryConfig(ItineraryConfig(
-      continent: _selectedContinent,
-      startDate: _dateRange!.start,
-      endDate: _dateRange!.end,
-      guests: _guests,
-    ));
+    final result = await _itineraryConfigRepository.setItineraryConfig(
+      ItineraryConfig(
+        continent: _selectedContinent,
+        startDate: _dateRange!.start,
+        endDate: _dateRange!.end,
+        guests: _guests,
+      ),
+    );
     switch (result) {
       case Ok<void>():
-        {
-          return true;
-        }
+        _log.fine('ItineraryConfig saved');
       case Error<void>():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-          return false;
-        }
+        _log.warning('Failed to store ItineraryConfig', result.error);
     }
+    return result;
   }
 }

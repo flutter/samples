@@ -55,7 +55,7 @@ class FakeApiClient implements ApiClient {
               'Embark on a thrilling adventure exploring the awe-inspiring glaciers of Alaska. Hike across the icy terrain, marvel at the deep blue crevasses, and even try your hand at ice climbing for an unforgettable experience.',
           locationName: 'Matanuska Glacier or Mendenhall Glacier',
           duration: 8,
-          timeOfDay: 'morning',
+          timeOfDay: TimeOfDay.morning,
           familyFriendly: false,
           price: 4,
           destinationRef: 'alaska',

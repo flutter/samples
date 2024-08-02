@@ -1,4 +1,5 @@
 import 'package:compass_model/model.dart';
+import 'package:logging/logging.dart';
 
 import '../../../data/repositories/destination/destination_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
@@ -14,9 +15,11 @@ class ResultsViewModel extends ChangeNotifier {
     required ItineraryConfigRepository itineraryConfigRepository,
   })  : _destinationRepository = destinationRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
-    updateItineraryConfig = Command1<bool, String>(_updateItineraryConfig);
+    updateItineraryConfig = Command1<void, String>(_updateItineraryConfig);
     search = Command0(_search)..execute();
   }
+
+  final _log = Logger('ResultsViewModel');
 
   final DestinationRepository _destinationRepository;
 
@@ -37,16 +40,17 @@ class ResultsViewModel extends ChangeNotifier {
   late final Command0 search;
 
   /// Store ViewModel data into [ItineraryConfigRepository] before navigating.
-  late final Command1<bool, String> updateItineraryConfig;
+  late final Command1<void, String> updateItineraryConfig;
 
-  Future<void> _search() async {
+  Future<Result<void>> _search() async {
     // Load current itinerary config
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
     if (resultConfig is Error) {
-      // TODO: Handle error
-      // ignore: avoid_print
-      print(resultConfig.asError.error);
-      return;
+      _log.warning(
+        'Failed to load stored ItineraryConfig',
+        resultConfig.asError.error,
+      );
+      return resultConfig;
     }
     _itineraryConfig = resultConfig.asOk.value;
     notifyListeners();
@@ -60,45 +64,40 @@ class ResultsViewModel extends ChangeNotifier {
               .where((destination) =>
                   destination.continent == _itineraryConfig!.continent)
               .toList();
+          _log.fine('Destinations (${_destinations.length}) loaded');
         }
       case Error():
         {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
+          _log.warning('Failed to load destinations', result.error);
         }
     }
 
     // After finish loading results, notify the view
     notifyListeners();
+    return result;
   }
 
-  Future<bool> _updateItineraryConfig(String destinationRef) async {
+  Future<Result<void>> _updateItineraryConfig(String destinationRef) async {
     assert(destinationRef.isNotEmpty, "destinationRef should not be empty");
 
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
     if (resultConfig is Error) {
-      // TODO: Handle error
-      // ignore: avoid_print
-      print(resultConfig.asError.error);
-      return false;
+      _log.warning(
+        'Failed to load stored ItineraryConfig',
+        resultConfig.asError.error,
+      );
+      return resultConfig;
     }
 
     final itineraryConfig = resultConfig.asOk.value;
     final result = await _itineraryConfigRepository.setItineraryConfig(
         itineraryConfig.copyWith(destination: destinationRef));
-    switch (result) {
-      case Ok<void>():
-        {
-          return true;
-        }
-      case Error<void>():
-        {
-          // TODO: Handle error
-          // ignore: avoid_print
-          print(result.error);
-          return false;
-        }
+    if (result is Error) {
+      _log.warning(
+        'Failed to store ItineraryConfig',
+        result.asError.error,
+      );
     }
+    return result;
   }
 }
