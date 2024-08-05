@@ -160,6 +160,7 @@ class _BottomArea extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               FilledButton(
+                key: const Key('confirm-button'),
                 onPressed: viewModel.selectedActivities.isNotEmpty
                     ? viewModel.saveActivities.execute
                     : null,

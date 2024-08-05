@@ -4,6 +4,7 @@ import 'package:compass_app/ui/activities/widgets/activity_entry.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../../../testing/app.dart';
@@ -55,11 +56,22 @@ void main() {
       });
     });
 
-    testWidgets('should select activity', (WidgetTester tester) async {
+    testWidgets('should select activity and confirm', (WidgetTester tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
+        // Select one activity
         await tester.tap(find.byKey(const ValueKey('REF-checkbox')));
         expect(viewModel.selectedActivities, contains('REF'));
+        
+        // Text 1 selected should appear
+        await tester.pumpAndSettle();
+        expect(find.text('1 selected'), findsOneWidget);
+        
+        // Submit selection
+        await tester.tap(find.byKey(const ValueKey('confirm-button')));
+        
+        // Should navigate to results screen
+        verify(() => goRouter.go('/booking')).called(1);
       });
     });
   });
