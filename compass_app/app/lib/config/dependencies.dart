@@ -1,6 +1,5 @@
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
