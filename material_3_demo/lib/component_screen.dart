@@ -2417,14 +2417,9 @@ class _SearchAnchorsState extends State<SearchAnchors> {
   }
 }
 
-class Carousels extends StatefulWidget {
+class Carousels extends StatelessWidget {
   const Carousels({super.key});
 
-  @override
-  State<Carousels> createState() => _CarouselsState();
-}
-
-class _CarouselsState extends State<Carousels> {
   @override
   Widget build(BuildContext context) {
     return ComponentDecoration(
