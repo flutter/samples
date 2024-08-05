@@ -2,14 +2,13 @@ import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
 import 'package:compass_app/ui/results/widgets/results_screen.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import '../../util/fakes/repositories/fake_destination_repository.dart';
-import '../../util/fakes/repositories/fake_itinerary_config_repository.dart';
-import '../../util/mocks.dart';
+import '../../../testing/app.dart';
+import '../../../testing/fakes/repositories/fake_destination_repository.dart';
+import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../testing/mocks.dart';
 
 void main() {
   group('ResultsScreen widget tests', () {
@@ -31,18 +30,11 @@ void main() {
       goRouter = MockGoRouter();
     });
 
-    // Build and render the ResultsScreen widget
     Future<void> loadScreen(WidgetTester tester) async {
-      // Load some data
-      await tester.pumpWidget(
-        MaterialApp(
-          home: InheritedGoRouter(
-            goRouter: goRouter,
-            child: ResultsScreen(
-              viewModel: viewModel,
-            ),
-          ),
-        ),
+      await testApp(
+        tester,
+        ResultsScreen(viewModel: viewModel),
+        goRouter: goRouter,
       );
     }
 

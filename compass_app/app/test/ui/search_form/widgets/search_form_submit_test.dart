@@ -5,9 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../../util/fakes/repositories/fake_continent_repository.dart';
-import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
-import '../../../util/mocks.dart';
+import '../../../../testing/app.dart';
+import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
+import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../../testing/mocks.dart';
 
 void main() {
   group('SearchFormSubmit widget tests', () {
@@ -23,17 +24,10 @@ void main() {
     });
 
     loadWidget(WidgetTester tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: InheritedGoRouter(
-            goRouter: goRouter,
-            child: Scaffold(
-              body: SearchFormSubmit(
-                viewModel: viewModel,
-              ),
-            ),
-          ),
-        ),
+      await testApp(
+        tester,
+        SearchFormSubmit(viewModel: viewModel),
+        goRouter: goRouter,
       );
     }
 

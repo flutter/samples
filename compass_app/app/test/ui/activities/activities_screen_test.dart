@@ -1,18 +1,20 @@
 import 'package:compass_app/ui/activities/view_models/activities_viewmodel.dart';
 import 'package:compass_app/ui/activities/widgets/activities_screen.dart';
 import 'package:compass_app/ui/activities/widgets/activity_entry.dart';
-import 'package:compass_app/ui/core/themes/theme.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import '../../util/fakes/repositories/fake_activities_repository.dart';
-import '../../util/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../testing/app.dart';
+import '../../../testing/fakes/repositories/fake_activities_repository.dart';
+import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../testing/mocks.dart';
 
 void main() {
   group('ResultsScreen widget tests', () {
     late ActivitiesViewModel viewModel;
+    late MockGoRouter goRouter;
 
     setUp(() {
       viewModel = ActivitiesViewModel(
@@ -27,18 +29,14 @@ void main() {
           ),
         ),
       );
+      goRouter = MockGoRouter();
     });
 
-    // Build and render the ResultsScreen widget
     Future<void> loadScreen(WidgetTester tester) async {
-      // Load some data
-      await tester.pumpWidget(
-        MaterialApp(
-          theme: AppTheme.lightTheme,
-          home: ActivitiesScreen(
-            viewModel: viewModel,
-          ),
-        ),
+      await testApp(
+        tester,
+        ActivitiesScreen(viewModel: viewModel),
+        goRouter: goRouter,
       );
     }
 

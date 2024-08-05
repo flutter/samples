@@ -24,4 +24,9 @@ class FakeActivityRepository implements ActivityRepository {
   Future<Result<List<Activity>>> getByDestination(String ref) async {
     return Result.ok(activities[ref]!);
   }
+
+  @override
+  Future<Result<List<Activity>>> getByRef(List<String> activitiesRef) {
+    throw UnimplementedError();
+  }
 }

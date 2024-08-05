@@ -3,8 +3,10 @@ import 'package:compass_app/ui/search_form/widgets/search_form_date.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 
-import '../../../util/fakes/repositories/fake_continent_repository.dart';
-import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../../testing/app.dart';
+import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
+import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+
 
 void main() {
   group('SearchFormDate widget tests', () {
@@ -18,15 +20,7 @@ void main() {
     });
 
     loadWidget(WidgetTester tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: SearchFormDate(
-              viewModel: viewModel,
-            ),
-          ),
-        ),
-      );
+      await testApp(tester, SearchFormDate(viewModel: viewModel));
     }
 
     testWidgets('should display date in different month',

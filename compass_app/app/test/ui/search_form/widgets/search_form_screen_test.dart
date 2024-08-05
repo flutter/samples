@@ -1,4 +1,5 @@
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
+import 'package:compass_app/ui/search_form/widgets/search_form_guests.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,9 +7,10 @@ import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import '../../../util/fakes/repositories/fake_itinerary_config_repository.dart';
-import '../../../util/mocks.dart';
-import '../../../util/fakes/repositories/fake_continent_repository.dart';
+import '../../../../testing/app.dart';
+import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
+import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../../testing/mocks.dart';
 
 void main() {
   group('SearchFormScreen widget tests', () {
@@ -24,20 +26,11 @@ void main() {
     });
 
     loadWidget(WidgetTester tester) async {
-      await mockNetworkImages(() async {
-        await tester.pumpWidget(
-          MaterialApp(
-            home: InheritedGoRouter(
-              goRouter: goRouter,
-              child: Scaffold(
-                body: SearchFormScreen(
-                  viewModel: viewModel,
-                ),
-              ),
-            ),
-          ),
-        );
-      });
+      await testApp(
+        tester,
+        SearchFormScreen(viewModel: viewModel),
+        goRouter: goRouter,
+      );
     }
 
     testWidgets('Should fill form and perform search',
