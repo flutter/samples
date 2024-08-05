@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
-import '../ui/booking/view_models/booking_screen.dart';
+import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
 import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
