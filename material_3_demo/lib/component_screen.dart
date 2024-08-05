@@ -242,6 +242,7 @@ class Containment extends StatelessWidget {
     return const ComponentGroupDecoration(label: 'Containment', children: [
       BottomSheetSection(),
       Cards(),
+      Carousels(),
       Dialogs(),
       Dividers(),
       // TODO: Add Lists, https://github.com/flutter/flutter/issues/114006
@@ -2410,6 +2411,70 @@ class _SearchAnchorsState extends State<SearchAnchors> {
             const Text('Select a color')
           else
             Text('Last selected color is $selectedColor')
+        ],
+      ),
+    );
+  }
+}
+
+class Carousels extends StatefulWidget {
+  const Carousels({super.key});
+
+  @override
+  State<Carousels> createState() => _CarouselsState();
+}
+
+class _CarouselsState extends State<Carousels> {
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Carousel',
+      tooltipMessage: 'Use CarouselView',
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text('Uncontained Carousel'),
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints.tightFor(height: 150),
+            child: CarouselView(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+              ),
+              shrinkExtent: 100,
+              itemExtent: 180,
+              children: List<Widget>.generate(20, (index) {
+                return Center(
+                  child: Text('Item $index'),
+                );
+              }),
+            ),
+          ),
+          colDivider,
+          const Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text('Uncontained Carousel with snapping effect'),
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints.tightFor(height: 150),
+            child: CarouselView(
+              itemSnapping: true,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+              ),
+              shrinkExtent: 100,
+              itemExtent: 180,
+              children: List<Widget>.generate(20, (index) {
+                return Center(
+                  child: Text('Item $index'),
+                );
+              }),
+            ),
+          ),
         ],
       ),
     );
