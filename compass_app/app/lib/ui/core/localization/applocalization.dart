@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 /// Simple Localizations similar to
 /// https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization#an-alternative-class-for-the-apps-localized-resources
 class AppLocalization {
+
   static AppLocalization of(BuildContext context) {
     return Localizations.of(context, AppLocalization);
   }
@@ -22,6 +23,7 @@ class AppLocalization {
     'search': 'Search',
     'searchDestination': 'Search destination',
     'selected': '{1} selected',
+    'shareTrip': 'Share Trip',
     'tryAgain': 'Try again',
     'when': 'When',
   };
@@ -54,6 +56,8 @@ class AppLocalization {
   String get search => _get('search');
 
   String get searchDestination => _get('searchDestination');
+
+  String get shareTrip => _get('shareTrip');
 
   String get tryAgain => _get('tryAgain');
 

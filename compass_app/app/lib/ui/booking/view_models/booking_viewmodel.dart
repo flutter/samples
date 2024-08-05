@@ -1,4 +1,5 @@
 import 'package:compass_model/model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
@@ -7,7 +8,7 @@ import '../../../utils/result.dart';
 import '../components/booking_create_component.dart';
 import '../components/booking_share_component.dart';
 
-class BookingViewModel {
+class BookingViewModel extends ChangeNotifier {
   BookingViewModel({
     required BookingCreateComponent bookingComponent,
     required BookingShareComponent shareComponent,
@@ -44,13 +45,16 @@ class BookingViewModel {
           case Ok<Booking>():
             _log.fine('Created Booking');
             _booking = result.value;
+            notifyListeners();
             return Result.ok(null);
           case Error<Booking>():
             _log.warning('Booking error: ${result.error}');
+            notifyListeners();
             return Result.error(result.asError.error);
         }
       case Error<ItineraryConfig>():
         _log.warning('ItineraryConfig error: ${itineraryConfig.error}');
+        notifyListeners();
         return Result.error(itineraryConfig.error);
     }
   }
