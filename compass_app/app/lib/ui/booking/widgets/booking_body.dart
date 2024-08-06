@@ -43,7 +43,6 @@ class BookingBody extends StatelessWidget {
 
 class _Activity extends StatelessWidget {
   const _Activity({
-    super.key,
     required this.activity,
   });
 

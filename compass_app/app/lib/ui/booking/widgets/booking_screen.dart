@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../core/localization/applocalization.dart';
-import '../../core/themes/dimens.dart';
-import '../../core/ui/back_button.dart';
 import '../../core/ui/error_indicator.dart';
-import '../../core/ui/home_button.dart';
 import '../view_models/booking_viewmodel.dart';
 import 'booking_body.dart';
 import 'booking_share_button.dart';

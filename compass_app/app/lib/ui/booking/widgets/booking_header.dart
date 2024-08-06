@@ -49,7 +49,6 @@ class BookingHeader extends StatelessWidget {
 
 class _Top extends StatelessWidget {
   const _Top({
-    super.key,
     required this.booking,
   });
 
@@ -92,7 +91,6 @@ class _Top extends StatelessWidget {
 
 class _Tags extends StatelessWidget {
   const _Tags({
-    super.key,
     required this.booking,
   });
 
@@ -127,7 +125,6 @@ class _Tags extends StatelessWidget {
 
 class _Headline extends StatelessWidget {
   const _Headline({
-    super.key,
     required this.booking,
   });
 
@@ -165,7 +162,6 @@ class _Headline extends StatelessWidget {
 
 class _HeaderImage extends StatelessWidget {
   const _HeaderImage({
-    super.key,
     required this.booking,
   });
 
@@ -181,9 +177,7 @@ class _HeaderImage extends StatelessWidget {
 }
 
 class _Gradient extends StatelessWidget {
-  const _Gradient({
-    super.key,
-  });
+  const _Gradient();
 
   @override
   Widget build(BuildContext context) {
