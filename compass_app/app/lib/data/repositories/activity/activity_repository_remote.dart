@@ -32,7 +32,10 @@ class ActivityRepositoryRemote implements ActivityRepository {
   }
 
   @override
-  Future<Result<List<Activity>>> getByRef(List<String> activitiesRef) {
+  Future<Result<List<Activity>>> getByRef(
+    String destinationRef,
+    List<String> activitiesRef,
+  ) {
     // TODO: implement getByRef
     throw UnimplementedError();
   }

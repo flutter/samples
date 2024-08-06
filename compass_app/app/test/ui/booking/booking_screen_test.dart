@@ -10,6 +10,8 @@ import '../../../testing/fakes/repositories/fake_activities_repository.dart';
 import '../../../testing/fakes/repositories/fake_destination_repository.dart';
 import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
 import '../../../testing/mocks.dart';
+import '../../../testing/models/activity.dart';
+import '../../../testing/models/destination.dart';
 
 void main() {
   group('ResultsScreen widget tests', () {
@@ -24,6 +26,8 @@ void main() {
             startDate: DateTime(2024, 01, 01),
             endDate: DateTime(2024, 01, 31),
             guests: 2,
+            destination: kDestination1.ref,
+            activities: [kActivity.ref],
           ),
         ),
         bookingComponent: BookingCreateComponent(
@@ -54,7 +58,7 @@ void main() {
       // Wait for list to load
       await tester.pumpAndSettle();
 
-      expect(find.text('NAME1'), findsOneWidget);
+      expect(find.text('name1'), findsOneWidget);
       expect(find.text('tags1'), findsOneWidget);
     });
   });

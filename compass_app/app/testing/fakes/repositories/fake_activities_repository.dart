@@ -3,6 +3,7 @@ import 'package:compass_app/utils/result.dart';
 import 'package:compass_model/src/model/activity/activity.dart';
 
 import '../../models/activity.dart';
+import '../../models/destination.dart';
 
 class FakeActivityRepository implements ActivityRepository {
   Map<String, List<Activity>> activities = {
@@ -15,7 +16,11 @@ class FakeActivityRepository implements ActivityRepository {
   }
 
   @override
-  Future<Result<List<Activity>>> getByRef(List<String> activitiesRef) {
+  Future<Result<List<Activity>>> getByRef(
+    String destinationRef,
+    List<String> activitiesRef,
+  ) {
+    assert(destinationRef == kDestination1.ref);
     assert(activitiesRef.first == kActivity.ref);
     return Future.value(Result.ok([kActivity]));
   }

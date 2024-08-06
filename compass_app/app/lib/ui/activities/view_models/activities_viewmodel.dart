@@ -55,6 +55,8 @@ class ActivitiesViewModel extends ChangeNotifier {
       return Result.error(Exception('Destination not found'));
     }
 
+    _selectedActivities.addAll(result.asOk.value.activities);
+
     final resultActivities =
         await _activityRepository.getByDestination(destinationRef);
     switch (resultActivities) {

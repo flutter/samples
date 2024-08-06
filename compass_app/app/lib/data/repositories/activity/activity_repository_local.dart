@@ -36,13 +36,18 @@ class ActivityRepositoryLocal implements ActivityRepository {
   }
 
   @override
-  Future<Result<List<Activity>>> getByRef(List<String> activitiesRef) async {
+  Future<Result<List<Activity>>> getByRef(
+    String destinationRef,
+    List<String> activitiesRef,
+  ) async {
     try {
       final localData = await _loadAsset();
       final list = _parse(localData);
 
       final activities = list
-          .where((activity) => activitiesRef.contains(activity.ref))
+          .where((activity) =>
+              activitiesRef.contains(activity.ref) &&
+              activity.destinationRef == destinationRef)
           .toList();
 
       return Result.ok(activities);

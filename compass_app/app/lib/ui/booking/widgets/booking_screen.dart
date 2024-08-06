@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/back_button.dart';
+import '../../core/ui/error_indicator.dart';
 import '../../core/ui/home_button.dart';
 import '../view_models/booking_viewmodel.dart';
 import 'booking_body.dart';
@@ -19,26 +21,31 @@ class BookingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          BookingBody(viewModel: viewModel),
-          Positioned(
-            left: Dimens.of(context).paddingScreenHorizontal,
-            top: Dimens.of(context).paddingScreenVertical,
-            child: CustomBackButton(
-              onTap: () => context.go('/activities'),
-              blur: true,
-            ),
-          ),
-          Positioned(
-            right: Dimens.of(context).paddingScreenHorizontal,
-            top: Dimens.of(context).paddingScreenVertical,
-            child: const HomeButton(
-              blur: true,
-            ),
-          ),
-          BookingShareButton(viewModel: viewModel),
-        ],
+      body: ListenableBuilder(
+        listenable: viewModel.loadBooking,
+        builder: (context, child) {
+          if (viewModel.loadBooking.completed) {
+            return child!;
+          }
+          if (viewModel.loadBooking.error) {
+            return Center(
+              child: ErrorIndicator(
+                title: 'Error loading booking',
+                label: AppLocalization.of(context).tryAgain,
+                onPressed: viewModel.loadBooking.execute,
+              ),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+        child: Stack(
+          children: [
+            BookingBody(viewModel: viewModel),
+            BookingShareButton(viewModel: viewModel),
+          ],
+        ),
       ),
     );
   }

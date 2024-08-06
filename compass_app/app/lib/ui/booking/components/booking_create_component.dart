@@ -40,8 +40,10 @@ class BookingCreateComponent {
       _log.warning('Activities are not set');
       return Result.error(Exception('Activities are not set'));
     }
-    final activitiesResult =
-        await _activityRepository.getByRef(itineraryConfig.activities);
+    final activitiesResult = await _activityRepository.getByRef(
+      itineraryConfig.destination!,
+      itineraryConfig.activities,
+    );
     if (activitiesResult is Error<List<Activity>>) {
       _log.warning('Error fetching activities: ${activitiesResult.error}');
       return Result.error(activitiesResult.error);
