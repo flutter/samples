@@ -14,6 +14,7 @@ class AppLocalization {
     'confirm': 'Confirm',
     'daytime': 'Daytime',
     'errorWhileLoadingActivities': 'Error while loading activities',
+    'errorWhileLoadingBooking': 'Error while loading booking',
     'errorWhileLoadingContinents': 'Error while loading continents',
     'errorWhileLoadingDestinations': 'Error while loading destinations',
     'errorWhileSavingActivities': 'Error while saving activities',
@@ -24,6 +25,7 @@ class AppLocalization {
     'selected': '{1} selected',
     'shareTrip': 'Share Trip',
     'tryAgain': 'Try again',
+    'yourChosenActivities': 'Your chosen activities',
     'when': 'When',
   };
 
@@ -40,6 +42,8 @@ class AppLocalization {
   String get daytime => _get('daytime');
 
   String get errorWhileLoadingActivities => _get('errorWhileLoadingActivities');
+  
+  String get errorWhileLoadingBooking => _get('errorWhileLoadingBooking');
 
   String get errorWhileLoadingContinents => _get('errorWhileLoadingContinents');
 
@@ -59,6 +63,8 @@ class AppLocalization {
   String get shareTrip => _get('shareTrip');
 
   String get tryAgain => _get('tryAgain');
+  
+  String get yourChosenActivities => _get('yourChosenActivities');
 
   String get when => _get('when');
 

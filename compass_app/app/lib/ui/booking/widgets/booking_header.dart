@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/back_button.dart';
@@ -36,8 +37,10 @@ class BookingHeader extends StatelessWidget {
         const SizedBox(height: Dimens.paddingVertical),
         Padding(
           padding: Dimens.of(context).edgeInsetsScreenHorizontal,
-          child: Text('Your Chosen Activities',
-              style: Theme.of(context).textTheme.headlineSmall),
+          child: Text(
+            AppLocalization.of(context).yourChosenActivities,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
         ),
       ],
     );

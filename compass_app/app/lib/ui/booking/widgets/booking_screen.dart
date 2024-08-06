@@ -32,7 +32,7 @@ class BookingScreen extends StatelessWidget {
           if (viewModel.loadBooking.error) {
             return Center(
               child: ErrorIndicator(
-                title: "Error while loading booking",
+                title: AppLocalization.of(context).errorWhileLoadingBooking,
                 label: AppLocalization.of(context).tryAgain,
                 onPressed: viewModel.loadBooking.execute,
               ),

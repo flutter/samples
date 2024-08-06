@@ -30,7 +30,7 @@ class BookingViewModel extends ChangeNotifier {
 
   late final Command0 loadBooking;
 
-  /// Calls to SharePlus.share() to share the booking.
+  /// Share the current booking using the OS share dialog.
   late final Command0 shareBooking;
 
   Future<Result<void>> _loadBooking() async {
