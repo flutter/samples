@@ -2,9 +2,6 @@
 
 set -e
 
-DIR="${BASH_SOURCE%/*}"
-source "$DIR/flutter_ci_script_shared.sh"
-
 flutter doctor -v
 
 declare -ar PROJECT_NAMES=(
@@ -64,6 +61,20 @@ declare -ar PROJECT_NAMES=(
     "web/samples_index"
 )
 
-ci_projects "beta" "${PROJECT_NAMES[@]}"
+echo "--- Running flutter clean and flutter pub get for each sample ---"
 
-echo "-- Success --"
+for PROJECT_NAME in "${PROJECT_NAMES[@]}"
+    do
+      echo "== Cleaning '${PROJECT_NAME}' with Flutter clean =="
+      pushd "${PROJECT_NAME}"
+
+      # run `flutter clean` for project
+      flutter clean
+
+      # Grab packages.
+      flutter pub get
+
+      popd
+    done
+
+echo "--- Success ---"
