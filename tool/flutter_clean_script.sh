@@ -77,10 +77,6 @@ for PROJECT_NAME in "${PROJECT_NAMES[@]}"
       popd
     done
 
-
-
-
-
 echo "--- Success ---"
 
 
