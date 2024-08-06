@@ -3,6 +3,7 @@ import 'package:compass_app/ui/booking/components/booking_share_component.dart';
 import 'package:compass_app/ui/booking/view_models/booking_viewmodel.dart';
 import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
 import 'package:compass_model/model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../testing/app.dart';
@@ -17,8 +18,10 @@ void main() {
   group('ResultsScreen widget tests', () {
     late MockGoRouter goRouter;
     late BookingViewModel viewModel;
+    late bool shared;
 
     setUp(() {
+      shared = false;
       viewModel = BookingViewModel(
         itineraryConfigRepository: FakeItineraryConfigRepository(
           itineraryConfig: ItineraryConfig(
@@ -34,7 +37,9 @@ void main() {
           activityRepository: FakeActivityRepository(),
           destinationRepository: FakeDestinationRepository(),
         ),
-        shareComponent: BookingShareComponent.custom((text) async {}),
+        shareComponent: BookingShareComponent.custom((text) async {
+          shared = true;
+        }),
       );
       goRouter = MockGoRouter();
     });
@@ -60,6 +65,13 @@ void main() {
 
       expect(find.text('name1'), findsOneWidget);
       expect(find.text('tags1'), findsOneWidget);
+    });
+
+    testWidgets('should share booking', (WidgetTester tester) async {
+      await loadScreen(tester);
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('share-button')));
+      expect(shared, true);
     });
   });
 }

@@ -30,6 +30,7 @@ class BookingShareButton extends StatelessWidget {
               child: Padding(
                 padding: Dimens.of(context).edgeInsetsScreenSymmetric,
                 child: FilledButton(
+                  key: const Key('share-button'),
                   onPressed: viewModel.shareBooking.execute,
                   child: Text(AppLocalization.of(context).shareTrip),
                 ),
