@@ -9,13 +9,13 @@ class Booking with _$Booking {
   const factory Booking({
     /// Start date of the trip
     required DateTime startDate,
-    
+
     /// End date of the trip
     required DateTime endDate,
-    
+
     /// Destination of the trip
     required Destination destination,
-    
+
     /// List of chosen activities
     required List<Activity> activity,
   }) = _Booking;

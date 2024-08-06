@@ -42,7 +42,7 @@ class AppLocalization {
   String get daytime => _get('daytime');
 
   String get errorWhileLoadingActivities => _get('errorWhileLoadingActivities');
-  
+
   String get errorWhileLoadingBooking => _get('errorWhileLoadingBooking');
 
   String get errorWhileLoadingContinents => _get('errorWhileLoadingContinents');
@@ -63,7 +63,7 @@ class AppLocalization {
   String get shareTrip => _get('shareTrip');
 
   String get tryAgain => _get('tryAgain');
-  
+
   String get yourChosenActivities => _get('yourChosenActivities');
 
   String get when => _get('when');
