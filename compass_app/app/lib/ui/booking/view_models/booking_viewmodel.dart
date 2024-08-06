@@ -1,5 +1,5 @@
 import 'package:compass_model/model.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
