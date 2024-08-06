@@ -29,11 +29,17 @@ class BookingShareButton extends StatelessWidget {
               filter: kBlurFilter,
               child: Padding(
                 padding: Dimens.of(context).edgeInsetsScreenSymmetric,
-                child: FilledButton(
-                  key: const Key('share-button'),
-                  onPressed: viewModel.shareBooking.execute,
-                  child: Text(AppLocalization.of(context).shareTrip),
-                ),
+                child: ListenableBuilder(
+                    listenable: viewModel,
+                    builder: (context, _) {
+                      return FilledButton(
+                        key: const Key('share-button'),
+                        onPressed: viewModel.booking != null
+                            ? viewModel.shareBooking.execute
+                            : null,
+                        child: Text(AppLocalization.of(context).shareTrip),
+                      );
+                    }),
               ),
             ),
           ),
