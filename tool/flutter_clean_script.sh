@@ -2,6 +2,8 @@
 
 set -e
 
+flutter doctor -v
+
 declare -ar PROJECT_NAMES=(
     "add_to_app/android_view/flutter_module_using_plugin"
     "add_to_app/books/flutter_module_books"
@@ -59,16 +61,26 @@ declare -ar PROJECT_NAMES=(
     "web/samples_index"
 )
 
-for PROJECT_NAME in ${PROJECT_NAMES}
-  do
-    echo "== Cleaning '${PROJECT_NAME}' with Flutter clean =="
-    pushd "${PROJECT_NAME}"
+echo "--- Running flutter clean and flutter pub get for each sample ---"
 
-    # run `flutter clean` for project
-    flutter clean
+for PROJECT_NAME in "${PROJECT_NAMES[@]}"
+    do
+      echo "== Cleaning '${PROJECT_NAME}' with Flutter clean =="
+      pushd "${PROJECT_NAME}"
 
-    # Grab packages.
-    flutter pub get
+      # run `flutter clean` for project
+      flutter clean
 
-    popd
-  done
+      # Grab packages.
+      flutter pub get
+
+      popd
+    done
+
+
+
+
+
+echo "--- Success ---"
+
+
