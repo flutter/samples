@@ -5,7 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../testing/fakes/repositories/fake_destination_repository.dart';
 import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
 
-
 void main() {
   group('ResultsViewModel tests', () {
     final viewModel = ResultsViewModel(

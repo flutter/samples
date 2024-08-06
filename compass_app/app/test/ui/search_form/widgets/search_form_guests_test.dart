@@ -7,7 +7,6 @@ import '../../../../testing/app.dart';
 import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
 import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
 
-
 void main() {
   group('SearchFormGuests widget tests', () {
     late SearchFormViewModel viewModel;

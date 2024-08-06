@@ -9,20 +9,11 @@ import '../../models/destination.dart';
 class FakeActivityRepository implements ActivityRepository {
   Map<String, List<Activity>> activities = {
     "DESTINATION": [kActivity],
+    kDestination1.ref: [kActivity],
   };
 
   @override
-  Future<Result<List<Activity>>> getByDestination(String ref) async {
-    return Result.ok(activities[ref]!);
-  }
-
-  @override
-  Future<Result<List<Activity>>> getByRef(
-    String destinationRef,
-    List<String> activitiesRef,
-  ) {
-    assert(destinationRef == kDestination1.ref);
-    assert(activitiesRef.first == kActivity.ref);
-    return SynchronousFuture(Result.ok([kActivity]));
+  Future<Result<List<Activity>>> getByDestination(String ref) {
+    return SynchronousFuture(Result.ok(activities[ref]!));
   }
 }

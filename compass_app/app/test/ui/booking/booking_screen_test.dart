@@ -15,7 +15,7 @@ import '../../../testing/models/activity.dart';
 import '../../../testing/models/destination.dart';
 
 void main() {
-  group('ResultsScreen widget tests', () {
+  group('BookingScreen widget tests', () {
     late MockGoRouter goRouter;
     late BookingViewModel viewModel;
     late bool shared;

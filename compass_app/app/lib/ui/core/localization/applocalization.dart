@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 /// Simple Localizations similar to
 /// https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization#an-alternative-class-for-the-apps-localized-resources
 class AppLocalization {
-
   static AppLocalization of(BuildContext context) {
     return Localizations.of(context, AppLocalization);
   }

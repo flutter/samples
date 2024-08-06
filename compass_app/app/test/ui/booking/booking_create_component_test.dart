@@ -15,7 +15,7 @@ void main() {
         activityRepository: FakeActivityRepository(),
         destinationRepository: FakeDestinationRepository(),
       );
-      
+
       final booking = await component.createFrom(
         ItineraryConfig(
           startDate: DateTime(2024, 01, 01),
@@ -24,7 +24,7 @@ void main() {
           activities: [kActivity.ref],
         ),
       );
-      
+
       expect(booking.asOk.value, kBooking);
     });
   });

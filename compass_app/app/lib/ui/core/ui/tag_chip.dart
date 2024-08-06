@@ -44,7 +44,9 @@ class TagChip extends StatelessWidget {
                   Icon(
                     _iconFrom(tag),
                     color: onChipColor ??
-                        Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
+                        Theme.of(context)
+                            .extension<TagChipTheme>()
+                            ?.onChipColor ??
                         Colors.white,
                     size: fontSize,
                   ),

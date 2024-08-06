@@ -40,15 +40,19 @@ class BookingCreateComponent {
       _log.warning('Activities are not set');
       return Result.error(Exception('Activities are not set'));
     }
-    final activitiesResult = await _activityRepository.getByRef(
+    final activitiesResult = await _activityRepository.getByDestination(
       itineraryConfig.destination!,
-      itineraryConfig.activities,
     );
     if (activitiesResult is Error<List<Activity>>) {
       _log.warning('Error fetching activities: ${activitiesResult.error}');
       return Result.error(activitiesResult.error);
     }
-    _log.fine('Activities loaded (${activitiesResult.asOk.value.length})');
+    final activities = activitiesResult.asOk.value
+        .where(
+          (activity) => itineraryConfig.activities.contains(activity.ref),
+        )
+        .toList();
+    _log.fine('Activities loaded (${activities.length})');
 
     // Check if dates are set
     if (itineraryConfig.startDate == null || itineraryConfig.endDate == null) {
@@ -62,7 +66,7 @@ class BookingCreateComponent {
         startDate: itineraryConfig.startDate!,
         endDate: itineraryConfig.endDate!,
         destination: destinationResult.asOk.value,
-        activity: activitiesResult.asOk.value,
+        activity: activities,
       ),
     );
   }

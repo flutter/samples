@@ -56,20 +56,21 @@ void main() {
       });
     });
 
-    testWidgets('should select activity and confirm', (WidgetTester tester) async {
+    testWidgets('should select activity and confirm',
+        (WidgetTester tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         // Select one activity
         await tester.tap(find.byKey(const ValueKey('REF-checkbox')));
         expect(viewModel.selectedActivities, contains('REF'));
-        
+
         // Text 1 selected should appear
         await tester.pumpAndSettle();
         expect(find.text('1 selected'), findsOneWidget);
-        
+
         // Submit selection
         await tester.tap(find.byKey(const ValueKey('confirm-button')));
-        
+
         // Should navigate to results screen
         verify(() => goRouter.go('/booking')).called(1);
       });

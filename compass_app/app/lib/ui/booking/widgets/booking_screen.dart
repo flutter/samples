@@ -24,21 +24,21 @@ class BookingScreen extends StatelessWidget {
       body: ListenableBuilder(
         listenable: viewModel.loadBooking,
         builder: (context, child) {
-          if (viewModel.loadBooking.completed) {
-            return child!;
+          if (viewModel.loadBooking.running) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
           if (viewModel.loadBooking.error) {
             return Center(
               child: ErrorIndicator(
-                title: 'Error loading booking',
+                title: "Error while loading booking",
                 label: AppLocalization.of(context).tryAgain,
                 onPressed: viewModel.loadBooking.execute,
               ),
             );
           }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return child!;
         },
         child: Stack(
           children: [
