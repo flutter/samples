@@ -19,13 +19,14 @@ class BookingShareButton extends StatelessWidget {
       left: 0,
       right: 0,
       bottom: 0,
-      child: ClipRect(
-        child: SizedBox(
-          height: (Dimens.of(context).paddingScreenVertical * 2) + 64,
-          child: BackdropFilter(
-            filter: kBlurFilter,
-            child: SafeArea(
-              bottom: true,
+      child: SafeArea(
+        bottom: true,
+        top: false,
+        child: ClipRect(
+          child: SizedBox(
+            height: (Dimens.of(context).paddingScreenVertical * 2) + 64,
+            child: BackdropFilter(
+              filter: kBlurFilter,
               child: Padding(
                 padding: Dimens.of(context).edgeInsetsScreenSymmetric,
                 child: FilledButton(
