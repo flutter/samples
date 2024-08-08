@@ -115,17 +115,21 @@ class _AppSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: Dimens.of(context).paddingScreenVertical,
-        bottom: Dimens.dimensMobile.paddingScreenVertical,
-      ),
-      child: AppSearchBar(
-        config: widget.viewModel.config,
-        onTap: () {
-          // Navigate to SearchFormScreen and edit search
-          context.go('/');
-        },
+    return SafeArea(
+      top: true,
+      bottom: false,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: Dimens.of(context).paddingScreenVertical,
+          bottom: Dimens.dimensMobile.paddingScreenVertical,
+        ),
+        child: AppSearchBar(
+          config: widget.viewModel.config,
+          onTap: () {
+            // Navigate to SearchFormScreen and edit search
+            context.pop();
+          },
+        ),
       ),
     );
   }
