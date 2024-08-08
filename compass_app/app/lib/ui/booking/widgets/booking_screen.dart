@@ -19,9 +19,7 @@ class BookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (_) {
-        context.go('/activities');
-      },
+      onPopInvokedWithResult: (d, r) => context.go('/activities'),
       child: Scaffold(
         body: ListenableBuilder(
           listenable: viewModel.loadBooking,
