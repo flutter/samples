@@ -3,7 +3,7 @@ import 'package:compass_app/data/repositories/destination/destination_repository
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../util/fakes/services/fake_api_client.dart';
+import '../../../../testing/fakes/services/fake_api_client.dart';
 
 void main() {
   group('DestinationRepositoryRemote tests', () {

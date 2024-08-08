@@ -14,14 +14,7 @@ class ActivitiesViewModel extends ChangeNotifier {
   })  : _activityRepository = activityRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
     loadActivities = Command0(_loadActivities)..execute();
-    saveActivities = Command0(() async {
-      _log.shout(
-        'Save activities not implemented',
-        null,
-        StackTrace.current,
-      );
-      return Result.error(Exception('Not implemented'));
-    });
+    saveActivities = Command0(_saveActivities);
   }
 
   final _log = Logger('ActivitiesViewModel');
@@ -61,6 +54,8 @@ class ActivitiesViewModel extends ChangeNotifier {
       _log.severe('Destination missing in ItineraryConfig');
       return Result.error(Exception('Destination not found'));
     }
+
+    _selectedActivities.addAll(result.asOk.value.activities);
 
     final resultActivities =
         await _activityRepository.getByDestination(destinationRef);
@@ -117,5 +112,27 @@ class ActivitiesViewModel extends ChangeNotifier {
     _selectedActivities.remove(activityRef);
     _log.finest('Activity $activityRef removed');
     notifyListeners();
+  }
+
+  Future<Result<void>> _saveActivities() async {
+    final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
+    if (resultConfig is Error) {
+      _log.warning(
+        'Failed to load stored ItineraryConfig',
+        resultConfig.asError.error,
+      );
+      return resultConfig;
+    }
+
+    final itineraryConfig = resultConfig.asOk.value;
+    final result = await _itineraryConfigRepository.setItineraryConfig(
+        itineraryConfig.copyWith(activities: _selectedActivities.toList()));
+    if (result is Error) {
+      _log.warning(
+        'Failed to store ItineraryConfig',
+        result.asError.error,
+      );
+    }
+    return result;
   }
 }

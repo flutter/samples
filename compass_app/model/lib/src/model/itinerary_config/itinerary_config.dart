@@ -21,6 +21,9 @@ class ItineraryConfig with _$ItineraryConfig {
 
     /// Selected [Destination] reference
     String? destination,
+
+    /// Selected [Activity] references
+    @Default([]) List<String> activities,
   }) = _ItineraryConfig;
 
   factory ItineraryConfig.fromJson(Map<String, Object?> json) =>

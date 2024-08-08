@@ -11,28 +11,32 @@ class ActivitiesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: Dimens.of(context).paddingScreenHorizontal,
-        right: Dimens.of(context).paddingScreenHorizontal,
-        top: Dimens.of(context).paddingScreenVertical,
-        bottom: Dimens.paddingVertical,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomBackButton(
-            onTap: () {
-              // Navigate to ResultsScreen and edit search
-              context.go('/results');
-            },
-          ),
-          Text(
-            AppLocalization.of(context).activities,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const HomeButton(),
-        ],
+    return SafeArea(
+      top: true,
+      bottom: false,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: Dimens.of(context).paddingScreenHorizontal,
+          right: Dimens.of(context).paddingScreenHorizontal,
+          top: Dimens.of(context).paddingScreenVertical,
+          bottom: Dimens.paddingVertical,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomBackButton(
+              onTap: () {
+                // Navigate to ResultsScreen and edit search
+                context.go('/results');
+              },
+            ),
+            Text(
+              AppLocalization.of(context).activities,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const HomeButton(),
+          ],
+        ),
       ),
     );
   }

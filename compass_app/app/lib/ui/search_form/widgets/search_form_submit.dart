@@ -32,9 +32,9 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
 
   @override
   void didUpdateWidget(covariant SearchFormSubmit oldWidget) {
-    super.didUpdateWidget(oldWidget);
     oldWidget.viewModel.updateItineraryConfig.removeListener(_onResult);
     widget.viewModel.updateItineraryConfig.addListener(_onResult);
+    super.didUpdateWidget(oldWidget);
   }
 
   @override

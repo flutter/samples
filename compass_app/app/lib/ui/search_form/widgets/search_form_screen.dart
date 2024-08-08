@@ -28,14 +28,18 @@ class SearchFormScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: EdgeInsets.only(
-              top: Dimens.of(context).paddingScreenVertical,
-              left: Dimens.of(context).paddingScreenHorizontal,
-              right: Dimens.of(context).paddingScreenHorizontal,
-              bottom: Dimens.paddingVertical,
+          SafeArea(
+            top: true,
+            bottom: false,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: Dimens.of(context).paddingScreenVertical,
+                left: Dimens.of(context).paddingScreenHorizontal,
+                right: Dimens.of(context).paddingScreenHorizontal,
+                bottom: Dimens.paddingVertical,
+              ),
+              child: const AppSearchBar(),
             ),
-            child: const AppSearchBar(),
           ),
           SearchFormContinent(viewModel: viewModel),
           SearchFormDate(viewModel: viewModel),
