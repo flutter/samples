@@ -8,23 +8,33 @@ class TagChip extends StatelessWidget {
   const TagChip({
     super.key,
     required this.tag,
+    this.fontSize = 10,
+    this.height = 20,
+    this.chipColor,
+    this.onChipColor,
   });
 
   final String tag;
 
+  final double fontSize;
+  final double height;
+  final Color? chipColor;
+  final Color? onChipColor;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(10.0),
+      borderRadius: BorderRadius.circular(height / 2),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: Theme.of(context).extension<TagChipTheme>()?.chipColor ??
+            color: chipColor ??
+                Theme.of(context).extension<TagChipTheme>()?.chipColor ??
                 AppColors.whiteTransparent,
           ),
           child: SizedBox(
-            height: 20.0,
+            height: height,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 6.0),
               child: Row(
@@ -33,10 +43,12 @@ class TagChip extends StatelessWidget {
                 children: [
                   Icon(
                     _iconFrom(tag),
-                    color: Theme.of(context)
-                        .extension<TagChipTheme>()
-                        ?.onChipColor,
-                    size: 10,
+                    color: onChipColor ??
+                        Theme.of(context)
+                            .extension<TagChipTheme>()
+                            ?.onChipColor ??
+                        Colors.white,
+                    size: fontSize,
                   ),
                   const SizedBox(width: 4),
                   Text(
@@ -83,8 +95,9 @@ class TagChip extends StatelessWidget {
   _textStyle(BuildContext context) => GoogleFonts.openSans(
         textStyle: TextStyle(
           fontWeight: FontWeight.w500,
-          fontSize: 10,
-          color: Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
+          fontSize: fontSize,
+          color: onChipColor ??
+              Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
               Colors.white,
           textBaseline: TextBaseline.alphabetic,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
@@ -112,7 +113,7 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
   void _onResult() {
     if (widget.viewModel.saveActivities.completed) {
       widget.viewModel.saveActivities.clearResult();
-      // TODO
+      context.go('/booking');
     }
 
     if (widget.viewModel.saveActivities.error) {
@@ -159,6 +160,7 @@ class _BottomArea extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               FilledButton(
+                key: const Key('confirm-button'),
                 onPressed: viewModel.selectedActivities.isNotEmpty
                     ? viewModel.saveActivities.execute
                     : null,

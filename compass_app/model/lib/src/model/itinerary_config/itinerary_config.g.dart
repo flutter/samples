@@ -18,6 +18,10 @@ _$ItineraryConfigImpl _$$ItineraryConfigImplFromJson(
           : DateTime.parse(json['endDate'] as String),
       guests: (json['guests'] as num?)?.toInt(),
       destination: json['destination'] as String?,
+      activities: (json['activities'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$ItineraryConfigImplToJson(
@@ -28,4 +32,5 @@ Map<String, dynamic> _$$ItineraryConfigImplToJson(
       'endDate': instance.endDate?.toIso8601String(),
       'guests': instance.guests,
       'destination': instance.destination,
+      'activities': instance.activities,
     };
