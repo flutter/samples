@@ -107,6 +107,7 @@ class _Tags extends StatelessWidget {
       padding: Dimens.of(context).edgeInsetsScreenHorizontal,
       child: Wrap(
         spacing: 6,
+        runSpacing: 6,
         children: booking.destination.tags
             .map(
               (tag) => TagChip(

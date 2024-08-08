@@ -42,13 +42,14 @@ class ActivityEntry extends StatelessWidget {
                 ),
                 Text(
                   activity.name,
-                  maxLines: 1,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),
           ),
+          const SizedBox(width: 20),
           CustomCheckbox(
             key: ValueKey('${activity.ref}-checkbox'),
             value: selected,
