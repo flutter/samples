@@ -1,10 +1,12 @@
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../data/components/auth_component.dart';
+import '../data/components/auth/auth_component.dart';
+import '../data/components/auth/auth_component_dev.dart';
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
 import '../data/repositories/activity/activity_repository_remote.dart';
+import '../data/repositories/auth/auth_token_repository.dart';
 import '../data/repositories/auth/auth_token_repository_shared_prefs.dart';
 import '../data/repositories/continent/continent_repository.dart';
 import '../data/repositories/continent/continent_repository_local.dart';
@@ -36,25 +38,32 @@ List<SingleChildWidget> _sharedProviders = [
 /// Configure dependencies for remote data.
 /// This dependency list uses repositories that connect to a remote server.
 List<SingleChildWidget> get providersRemote {
-  final authTokenRepository = AuthTokenRepositorySharedPrefs();
-  final authComponent = AuthComponent(authTokenRepository: authTokenRepository);
-  final apiClient = ApiClient(authTokenProvider: authComponent.authToken);
-
   return [
-    Provider.value(value: authComponent),
     Provider.value(
-      value: DestinationRepositoryRemote(
-        apiClient: apiClient,
+      value: AuthTokenRepositorySharedPrefs() as AuthTokenRepository,
+    ),
+    Provider(
+      create: (context) => ApiClient(authTokenProvider: context.read()),
+    ),
+    Provider(
+      create: (context) => AuthComponent(
+        authTokenRepository: context.read(),
+        apiClient: context.read(),
+      ),
+    ),
+    Provider(
+      create: (context) => DestinationRepositoryRemote(
+        apiClient: context.read(),
       ) as DestinationRepository,
     ),
-    Provider.value(
-      value: ContinentRepositoryRemote(
-        apiClient: apiClient,
+    Provider(
+      create: (context) => ContinentRepositoryRemote(
+        apiClient: context.read(),
       ) as ContinentRepository,
     ),
-    Provider.value(
-      value: ActivityRepositoryRemote(
-        apiClient: apiClient,
+    Provider(
+      create: (context) => ActivityRepositoryRemote(
+        apiClient: context.read(),
       ) as ActivityRepository,
     ),
     Provider.value(
@@ -67,11 +76,8 @@ List<SingleChildWidget> get providersRemote {
 /// Configure dependencies for local data.
 /// This dependency list uses repositories that provide local data.
 List<SingleChildWidget> get providersLocal {
-  final authTokenRepository = AuthTokenRepositorySharedPrefs();
-  final authComponent = AuthComponent(authTokenRepository: authTokenRepository);
-
   return [
-    Provider.value(value: authComponent),
+    Provider.value(value: AuthComponentDev() as AuthComponent),
     Provider.value(
       value: DestinationRepositoryLocal() as DestinationRepository,
     ),

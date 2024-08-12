@@ -1,14 +1,19 @@
+import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
-import '../../utils/result.dart';
-import '../repositories/auth/auth_token_repository.dart';
+import '../../../utils/result.dart';
+import '../../repositories/auth/auth_token_repository.dart';
+import '../../services/api_client.dart';
 
 class AuthComponent {
   AuthComponent({
     required AuthTokenRepository authTokenRepository,
-  }) : _authTokenRepository = authTokenRepository;
+    required ApiClient apiClient,
+  })  : _authTokenRepository = authTokenRepository,
+        _apiClient = apiClient;
 
   final AuthTokenRepository _authTokenRepository;
+  final ApiClient _apiClient;
   final _log = Logger('AuthComponent');
 
   Future<bool> isSignedIn() async {
@@ -42,8 +47,19 @@ class AuthComponent {
     required String email,
     required String password,
   }) async {
-    Future.delayed(Duration(seconds: 1));
-    // TODO
-    return Result.ok(null);
+    final result = await _apiClient.login(
+      LoginRequest(
+        email: email,
+        password: password,
+      ),
+    );
+    switch (result) {
+      case Ok<LoginResponse>():
+        _log.fine('Logged int');
+        return await _authTokenRepository.saveToken(result.value.token);
+      case Error<LoginResponse>():
+        _log.warning('Error logging in: ${result.error}');
+        return Result.error(result.error);
+    }
   }
 }
