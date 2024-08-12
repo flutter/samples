@@ -90,8 +90,11 @@ class ResultsViewModel extends ChangeNotifier {
     }
 
     final itineraryConfig = resultConfig.asOk.value;
-    final result = await _itineraryConfigRepository.setItineraryConfig(
-        itineraryConfig.copyWith(destination: destinationRef));
+    final result = await _itineraryConfigRepository
+        .setItineraryConfig(itineraryConfig.copyWith(
+      destination: destinationRef,
+      activities: [],
+    ));
     if (result is Error) {
       _log.warning(
         'Failed to store ItineraryConfig',

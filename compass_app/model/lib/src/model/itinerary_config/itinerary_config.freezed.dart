@@ -35,6 +35,9 @@ mixin _$ItineraryConfig {
   /// Selected [Destination] reference
   String? get destination => throw _privateConstructorUsedError;
 
+  /// Selected [Activity] references
+  List<String> get activities => throw _privateConstructorUsedError;
+
   /// Serializes this ItineraryConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -56,7 +59,8 @@ abstract class $ItineraryConfigCopyWith<$Res> {
       DateTime? startDate,
       DateTime? endDate,
       int? guests,
-      String? destination});
+      String? destination,
+      List<String> activities});
 }
 
 /// @nodoc
@@ -79,6 +83,7 @@ class _$ItineraryConfigCopyWithImpl<$Res, $Val extends ItineraryConfig>
     Object? endDate = freezed,
     Object? guests = freezed,
     Object? destination = freezed,
+    Object? activities = null,
   }) {
     return _then(_value.copyWith(
       continent: freezed == continent
@@ -101,6 +106,10 @@ class _$ItineraryConfigCopyWithImpl<$Res, $Val extends ItineraryConfig>
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as String?,
+      activities: null == activities
+          ? _value.activities
+          : activities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -118,7 +127,8 @@ abstract class _$$ItineraryConfigImplCopyWith<$Res>
       DateTime? startDate,
       DateTime? endDate,
       int? guests,
-      String? destination});
+      String? destination,
+      List<String> activities});
 }
 
 /// @nodoc
@@ -139,6 +149,7 @@ class __$$ItineraryConfigImplCopyWithImpl<$Res>
     Object? endDate = freezed,
     Object? guests = freezed,
     Object? destination = freezed,
+    Object? activities = null,
   }) {
     return _then(_$ItineraryConfigImpl(
       continent: freezed == continent
@@ -161,6 +172,10 @@ class __$$ItineraryConfigImplCopyWithImpl<$Res>
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as String?,
+      activities: null == activities
+          ? _value._activities
+          : activities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -173,7 +188,9 @@ class _$ItineraryConfigImpl implements _ItineraryConfig {
       this.startDate,
       this.endDate,
       this.guests,
-      this.destination});
+      this.destination,
+      final List<String> activities = const []})
+      : _activities = activities;
 
   factory _$ItineraryConfigImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItineraryConfigImplFromJson(json);
@@ -198,9 +215,21 @@ class _$ItineraryConfigImpl implements _ItineraryConfig {
   @override
   final String? destination;
 
+  /// Selected [Activity] references
+  final List<String> _activities;
+
+  /// Selected [Activity] references
+  @override
+  @JsonKey()
+  List<String> get activities {
+    if (_activities is EqualUnmodifiableListView) return _activities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_activities);
+  }
+
   @override
   String toString() {
-    return 'ItineraryConfig(continent: $continent, startDate: $startDate, endDate: $endDate, guests: $guests, destination: $destination)';
+    return 'ItineraryConfig(continent: $continent, startDate: $startDate, endDate: $endDate, guests: $guests, destination: $destination, activities: $activities)';
   }
 
   @override
@@ -215,13 +244,15 @@ class _$ItineraryConfigImpl implements _ItineraryConfig {
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.guests, guests) || other.guests == guests) &&
             (identical(other.destination, destination) ||
-                other.destination == destination));
+                other.destination == destination) &&
+            const DeepCollectionEquality()
+                .equals(other._activities, _activities));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, continent, startDate, endDate, guests, destination);
+  int get hashCode => Object.hash(runtimeType, continent, startDate, endDate,
+      guests, destination, const DeepCollectionEquality().hash(_activities));
 
   /// Create a copy of ItineraryConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -246,7 +277,8 @@ abstract class _ItineraryConfig implements ItineraryConfig {
       final DateTime? startDate,
       final DateTime? endDate,
       final int? guests,
-      final String? destination}) = _$ItineraryConfigImpl;
+      final String? destination,
+      final List<String> activities}) = _$ItineraryConfigImpl;
 
   factory _ItineraryConfig.fromJson(Map<String, dynamic> json) =
       _$ItineraryConfigImpl.fromJson;
@@ -270,6 +302,10 @@ abstract class _ItineraryConfig implements ItineraryConfig {
   /// Selected [Destination] reference
   @override
   String? get destination;
+
+  /// Selected [Activity] references
+  @override
+  List<String> get activities;
 
   /// Create a copy of ItineraryConfig
   /// with the given fields replaced by the non-null parameter values.

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
@@ -43,67 +44,71 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListenableBuilder(
-        listenable: widget.viewModel.loadActivities,
-        builder: (context, child) {
-          if (widget.viewModel.loadActivities.completed) {
-            return child!;
-          }
-          return Column(
-            children: [
-              const ActivitiesHeader(),
-              if (widget.viewModel.loadActivities.running)
-                const Expanded(
-                    child: Center(child: CircularProgressIndicator())),
-              if (widget.viewModel.loadActivities.error)
-                Expanded(
-                  child: Center(
-                    child: ErrorIndicator(
-                      title: AppLocalization.of(context)
-                          .errorWhileLoadingActivities,
-                      label: AppLocalization.of(context).tryAgain,
-                      onPressed: widget.viewModel.loadActivities.execute,
-                    ),
-                  ),
-                ),
-            ],
-          );
-        },
-        child: ListenableBuilder(
-          listenable: widget.viewModel,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (d, r) => context.go('/results'),
+      child: Scaffold(
+        body: ListenableBuilder(
+          listenable: widget.viewModel.loadActivities,
           builder: (context, child) {
+            if (widget.viewModel.loadActivities.completed) {
+              return child!;
+            }
             return Column(
               children: [
-                Expanded(
-                  child: CustomScrollView(
-                    slivers: [
-                      const SliverToBoxAdapter(
-                        child: ActivitiesHeader(),
+                const ActivitiesHeader(),
+                if (widget.viewModel.loadActivities.running)
+                  const Expanded(
+                      child: Center(child: CircularProgressIndicator())),
+                if (widget.viewModel.loadActivities.error)
+                  Expanded(
+                    child: Center(
+                      child: ErrorIndicator(
+                        title: AppLocalization.of(context)
+                            .errorWhileLoadingActivities,
+                        label: AppLocalization.of(context).tryAgain,
+                        onPressed: widget.viewModel.loadActivities.execute,
                       ),
-                      ActivitiesTitle(
-                        viewModel: widget.viewModel,
-                        activityTimeOfDay: ActivityTimeOfDay.daytime,
-                      ),
-                      ActivitiesList(
-                        viewModel: widget.viewModel,
-                        activityTimeOfDay: ActivityTimeOfDay.daytime,
-                      ),
-                      ActivitiesTitle(
-                        viewModel: widget.viewModel,
-                        activityTimeOfDay: ActivityTimeOfDay.evening,
-                      ),
-                      ActivitiesList(
-                        viewModel: widget.viewModel,
-                        activityTimeOfDay: ActivityTimeOfDay.evening,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                _BottomArea(viewModel: widget.viewModel),
               ],
             );
           },
+          child: ListenableBuilder(
+            listenable: widget.viewModel,
+            builder: (context, child) {
+              return Column(
+                children: [
+                  Expanded(
+                    child: CustomScrollView(
+                      slivers: [
+                        const SliverToBoxAdapter(
+                          child: ActivitiesHeader(),
+                        ),
+                        ActivitiesTitle(
+                          viewModel: widget.viewModel,
+                          activityTimeOfDay: ActivityTimeOfDay.daytime,
+                        ),
+                        ActivitiesList(
+                          viewModel: widget.viewModel,
+                          activityTimeOfDay: ActivityTimeOfDay.daytime,
+                        ),
+                        ActivitiesTitle(
+                          viewModel: widget.viewModel,
+                          activityTimeOfDay: ActivityTimeOfDay.evening,
+                        ),
+                        ActivitiesList(
+                          viewModel: widget.viewModel,
+                          activityTimeOfDay: ActivityTimeOfDay.evening,
+                        ),
+                      ],
+                    ),
+                  ),
+                  _BottomArea(viewModel: widget.viewModel),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
@@ -112,7 +117,7 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
   void _onResult() {
     if (widget.viewModel.saveActivities.completed) {
       widget.viewModel.saveActivities.clearResult();
-      // TODO
+      context.go('/booking');
     }
 
     if (widget.viewModel.saveActivities.error) {
@@ -159,6 +164,7 @@ class _BottomArea extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               FilledButton(
+                key: const Key('confirm-button'),
                 onPressed: viewModel.selectedActivities.isNotEmpty
                     ? viewModel.saveActivities.execute
                     : null,

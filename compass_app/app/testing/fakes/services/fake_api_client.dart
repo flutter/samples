@@ -1,6 +1,7 @@
 import 'package:compass_app/data/services/api_client.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:compass_model/model.dart';
+import 'package:flutter/foundation.dart';
 
 class FakeApiClient implements ApiClient {
   // Should not increase when using cached data
@@ -44,11 +45,11 @@ class FakeApiClient implements ApiClient {
   }
 
   @override
-  Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
+  Future<Result<List<Activity>>> getActivityByDestination(String ref) {
     requestCount++;
 
     if (ref == 'alaska') {
-      return Result.ok([
+      return SynchronousFuture(Result.ok([
         const Activity(
           name: 'Glacier Trekking and Ice Climbing',
           description:
@@ -63,9 +64,9 @@ class FakeApiClient implements ApiClient {
           imageUrl:
               'https://storage.googleapis.com/tripedia-images/activities/alaska_glacier-trekking-and-ice-climbing.jpg',
         ),
-      ]);
+      ]));
     }
 
-    return Result.ok([]);
+    return SynchronousFuture(Result.ok([]));
   }
 }
