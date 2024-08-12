@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:compass_model/model.dart';
+import 'package:compass_server/config/constants.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 
@@ -9,6 +10,10 @@ void main() {
   final port = '8080';
   final host = 'http://0.0.0.0:$port';
   late Process p;
+
+  var headers = {
+    'Authorization': 'Bearer ${Constants.token}',
+  };
 
   setUp(() async {
     p = await Process.start(
@@ -24,7 +29,11 @@ void main() {
 
   test('Get Continent end-point', () async {
     // Query /continent end-point
-    final response = await get(Uri.parse('$host/continent'));
+    final response = await get(
+      Uri.parse('$host/continent'),
+      headers: headers,
+    );
+
     expect(response.statusCode, 200);
     // Parse json response list
     final list = jsonDecode(response.body) as List<dynamic>;
@@ -36,7 +45,10 @@ void main() {
 
   test('Get Destination end-point', () async {
     // Query /destination end-point
-    final response = await get(Uri.parse('$host/destination'));
+    final response = await get(
+      Uri.parse('$host/destination'),
+      headers: headers,
+    );
     expect(response.statusCode, 200);
     // Parse json response list
     final list = jsonDecode(response.body) as List<dynamic>;
@@ -48,7 +60,10 @@ void main() {
 
   test('Get Activities end-point', () async {
     // Query /destination/alaska/activity end-point
-    final response = await get(Uri.parse('$host/destination/alaska/activity'));
+    final response = await get(
+      Uri.parse('$host/destination/alaska/activity'),
+      headers: headers,
+    );
     expect(response.statusCode, 200);
     // Parse json response list
     final list = jsonDecode(response.body) as List<dynamic>;
@@ -59,7 +74,39 @@ void main() {
   });
 
   test('404', () async {
-    final response = await get(Uri.parse('$host/foobar'));
+    final response = await get(
+      Uri.parse('$host/foobar'),
+      headers: headers,
+    );
     expect(response.statusCode, 404);
+  });
+
+  test('Login with valid credentials', () async {
+    final response = await post(
+      Uri.parse('$host/login'),
+      body: jsonEncode(
+        LoginRequest(
+          email: Constants.email,
+          password: Constants.password,
+        ),
+      ),
+    );
+    expect(response.statusCode, 200);
+    final loginResponse = LoginResponse.fromJson(jsonDecode(response.body));
+    expect(loginResponse.token, Constants.token);
+    expect(loginResponse.userId, Constants.userId);
+  });
+
+  test('Login with wrong credentials', () async {
+    final response = await post(
+      Uri.parse('$host/login'),
+      body: jsonEncode(
+        LoginRequest(
+          email: 'INVALID',
+          password: 'INVALID',
+        ),
+      ),
+    );
+    expect(response.statusCode, 401);
   });
 }
