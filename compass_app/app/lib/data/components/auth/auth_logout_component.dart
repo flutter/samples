@@ -26,7 +26,8 @@ class AuthLogoutComponent {
     _log.info('User logged out');
 
     // Clear stored ItineraryConfig
-    await _itineraryConfigRepository.setItineraryConfig(const ItineraryConfig());
+    await _itineraryConfigRepository
+        .setItineraryConfig(const ItineraryConfig());
 
     // Clear stored auth token
     await _authTokenRepository.saveToken(null);
