@@ -17,10 +17,12 @@ class AppSearchBar extends StatelessWidget {
     super.key,
     this.config,
     this.onTap,
+    this.homeScreen = false,
   });
 
   final ItineraryConfig? config;
   final GestureTapCallback? onTap;
+  final bool homeScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class AppSearchBar extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         // Display a logout button if at the root route
-        Navigator.of(context).canPop() ? HomeButton() : LogoutButton(),
+        homeScreen ? LogoutButton() : HomeButton(),
       ],
     );
   }

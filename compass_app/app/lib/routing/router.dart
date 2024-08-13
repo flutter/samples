@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../data/components/auth/auth_login_component.dart';
 import '../data/repositories/auth/auth_token_repository.dart';
 import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
+import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
 import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
@@ -39,7 +41,14 @@ GoRouter router(
             GoRoute(
               path: 'login',
               builder: (context, state) {
-                return LoginScreen();
+                return LoginScreen(
+                  viewModel: LoginViewModel(
+                    authLoginComponent: AuthLoginComponent(
+                      authTokenRepository: context.read(),
+                      apiClient: context.read(),
+                    ),
+                  ),
+                );
               },
             ),
             GoRoute(

@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
   go_router: ^14.2.0
   google_fonts: ^6.2.1
   intl: any
@@ -34,3 +35,4 @@ flutter:
   assets:
     - assets/activities.json
     - assets/destinations.json
+    - assets/logo.svg
