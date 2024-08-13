@@ -7,7 +7,7 @@ class TiltedCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: 375,
       child: Stack(
         alignment: Alignment.center,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../data/components/auth/auth_login_component.dart';
 import '../../../core/localization/applocalization.dart';
 import '../../../core/themes/dimens.dart';
 import '../view_models/login_viewmodel.dart';
@@ -52,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          TiltedCards(),
+          const TiltedCards(),
           Padding(
             padding: Dimens.of(context).edgeInsetsScreenSymmetric,
             child: Column(
@@ -61,12 +59,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextField(
                   controller: _email,
                 ),
-                SizedBox(height: Dimens.paddingVertical),
+                const SizedBox(height: Dimens.paddingVertical),
                 TextField(
                   controller: _password,
                   obscureText: true,
                 ),
-                SizedBox(height: Dimens.paddingVertical),
+                const SizedBox(height: Dimens.paddingVertical),
                 ListenableBuilder(
                   listenable: widget.viewModel.login,
                   builder: (context, _) {
@@ -75,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         widget.viewModel.login
                             .execute((_email.value.text, _password.value.text));
                       },
-                      child: Text('Login'),
+                      child: Text(AppLocalization.of(context).login),
                     );
                   },
                 ),

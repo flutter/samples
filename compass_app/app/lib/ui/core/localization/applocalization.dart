@@ -21,6 +21,7 @@ class AppLocalization {
     'errorWhileSavingActivities': 'Error while saving activities',
     'errorWhileSavingItinerary': 'Error while saving itinerary',
     'evening': 'Evening',
+    'login': 'Login',
     'search': 'Search',
     'searchDestination': 'Search destination',
     'selected': '{1} selected',
@@ -70,6 +71,8 @@ class AppLocalization {
   String get when => _get('when');
 
   String get errorWhileLogin => _get('errorWhileLogin');
+
+  String get login => _get('login');
 
   String selected(int value) =>
       _get('selected').replaceAll('{1}', value.toString());

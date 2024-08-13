@@ -7,7 +7,7 @@ import '../../../../utils/result.dart';
 class LoginViewModel {
   LoginViewModel({
     required AuthLoginComponent authLoginComponent,
-  }) : this._authLoginComponent = authLoginComponent {
+  }) : _authLoginComponent = authLoginComponent {
     login = Command1<void, (String email, String password)>(_login);
   }
 

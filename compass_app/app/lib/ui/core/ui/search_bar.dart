@@ -52,7 +52,7 @@ class AppSearchBar extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         // Display a logout button if at the root route
-        homeScreen ? LogoutButton() : HomeButton(),
+        homeScreen ? const LogoutButton() : const HomeButton(),
       ],
     );
   }
