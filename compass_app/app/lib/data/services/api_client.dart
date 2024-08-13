@@ -10,10 +10,10 @@ typedef AuthTokenProvider = Future<String?> Function();
 // TODO: Configurable baseurl/host/port
 class ApiClient {
   ApiClient({
-    /// Provide the auth token to be used in the request
     required AuthTokenRepository authTokenRepository,
   }) : _authTokenRepository = authTokenRepository;
 
+  /// Provides the auth token to be used in the request
   final AuthTokenRepository _authTokenRepository;
 
   Future<void> _authHeader(HttpHeaders headers) async {
