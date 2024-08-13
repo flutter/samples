@@ -1,6 +1,5 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../auth/logout/logout_button.dart';
 import '../localization/applocalization.dart';
