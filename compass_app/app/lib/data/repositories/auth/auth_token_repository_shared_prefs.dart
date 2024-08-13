@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/result.dart';
 import 'auth_token_repository.dart';
 
+/// [AuthTokenRepository] that stores the token in Shared Preferences.
 class AuthTokenRepositorySharedPrefs extends AuthTokenRepository {
   static const _tokenKey = 'TOKEN';
   String? cachedToken;

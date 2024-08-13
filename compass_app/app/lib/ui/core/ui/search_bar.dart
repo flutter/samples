@@ -1,6 +1,8 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../auth/logout/logout_button.dart';
 import '../localization/applocalization.dart';
 import '../themes/dimens.dart';
 import 'date_format_start_end.dart';
@@ -48,7 +50,8 @@ class AppSearchBar extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        const HomeButton(),
+        // Display a logout button if at the root route
+        Navigator.of(context).canPop() ? HomeButton() : LogoutButton(),
       ],
     );
   }

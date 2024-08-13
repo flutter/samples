@@ -5,6 +5,7 @@ import '../../../utils/result.dart';
 import '../../repositories/auth/auth_token_repository.dart';
 import '../../services/api_client.dart';
 
+/// Performs user login.
 class AuthLoginComponent {
   AuthLoginComponent({
     required AuthTokenRepository authTokenRepository,
@@ -16,6 +17,8 @@ class AuthLoginComponent {
   final ApiClient _apiClient;
   final _log = Logger('AuthLoginComponent');
 
+  /// Login with username and password.
+  /// Performs login with the server and stores the obtained auth token.
   Future<Result<void>> login({
     required String email,
     required String password,

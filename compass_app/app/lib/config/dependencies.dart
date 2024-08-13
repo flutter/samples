@@ -2,7 +2,6 @@ import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../data/components/auth/auth_login_component.dart';
-import '../data/components/auth/auth_signedin_component.dart';
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
 import '../data/repositories/activity/activity_repository_remote.dart';
@@ -33,11 +32,6 @@ List<SingleChildWidget> _sharedProviders = [
   Provider(
     lazy: true,
     create: (context) => BookingShareComponent.withSharePlus(),
-  ),
-  ChangeNotifierProvider(
-    create: (context) => AuthSignedInComponent(
-      authTokenRepository: context.read(),
-    ),
   ),
 ];
 
@@ -81,6 +75,7 @@ List<SingleChildWidget> get providersRemote {
 
 /// Configure dependencies for local data.
 /// This dependency list uses repositories that provide local data.
+/// The user is always logged in.
 List<SingleChildWidget> get providersLocal {
   return [
     ChangeNotifierProvider.value(
