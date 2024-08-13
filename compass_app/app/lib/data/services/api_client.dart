@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:compass_model/model.dart';
 
 import '../../utils/result.dart';
+import '../repositories/auth/auth_token_repository.dart';
 
 typedef AuthTokenProvider = Future<String?> Function();
 
@@ -10,15 +11,17 @@ typedef AuthTokenProvider = Future<String?> Function();
 class ApiClient {
   ApiClient({
     /// Provide the auth token to be used in the request
-    required AuthTokenProvider authTokenProvider,
-  }) : _authTokenProvider = authTokenProvider;
+    required AuthTokenRepository authTokenRepository,
+  }) : _authTokenRepository = authTokenRepository;
 
-  final AuthTokenProvider _authTokenProvider;
+  final AuthTokenRepository _authTokenRepository;
 
   Future<void> _authHeader(HttpHeaders headers) async {
-    final value = await _authTokenProvider();
-    if (value != null) {
-      headers.add(HttpHeaders.authorizationHeader, 'Bearer $value');
+    final result = await _authTokenRepository.getToken();
+    if (result is Ok<String?>) {
+      if (result.value != null) {
+        headers.add(HttpHeaders.authorizationHeader, 'Bearer ${result.value}');
+      }
     }
   }
 

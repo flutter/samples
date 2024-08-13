@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/result.dart';
 import 'auth_token_repository.dart';
 
-class AuthTokenRepositorySharedPrefs implements AuthTokenRepository {
+class AuthTokenRepositorySharedPrefs extends AuthTokenRepository {
   static const _tokenKey = 'TOKEN';
   String? cachedToken;
 
@@ -22,8 +22,6 @@ class AuthTokenRepositorySharedPrefs implements AuthTokenRepository {
 
   @override
   Future<Result<void>> saveToken(String? token) async {
-    cachedToken = token;
-
     try {
       final sharedPreferences = await SharedPreferences.getInstance();
       if (token == null) {
@@ -31,6 +29,8 @@ class AuthTokenRepositorySharedPrefs implements AuthTokenRepository {
       } else {
         await sharedPreferences.setString(_tokenKey, token);
       }
+      cachedToken = token;
+      notifyListeners();
       return Result.ok(null);
     } on Exception catch (e) {
       return Result.error(e);

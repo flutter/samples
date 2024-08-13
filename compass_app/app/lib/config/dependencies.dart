@@ -1,12 +1,13 @@
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../data/components/auth/auth_component.dart';
-import '../data/components/auth/auth_component_dev.dart';
+import '../data/components/auth/auth_login_component.dart';
+import '../data/components/auth/auth_signedin_component.dart';
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
 import '../data/repositories/activity/activity_repository_remote.dart';
 import '../data/repositories/auth/auth_token_repository.dart';
+import '../data/repositories/auth/auth_token_repository_dev.dart';
 import '../data/repositories/auth/auth_token_repository_shared_prefs.dart';
 import '../data/repositories/continent/continent_repository.dart';
 import '../data/repositories/continent/continent_repository_local.dart';
@@ -33,20 +34,25 @@ List<SingleChildWidget> _sharedProviders = [
     lazy: true,
     create: (context) => BookingShareComponent.withSharePlus(),
   ),
+  ChangeNotifierProvider(
+    create: (context) => AuthSignedInComponent(
+      authTokenRepository: context.read(),
+    ),
+  ),
 ];
 
 /// Configure dependencies for remote data.
 /// This dependency list uses repositories that connect to a remote server.
 List<SingleChildWidget> get providersRemote {
   return [
-    Provider.value(
+    ChangeNotifierProvider.value(
       value: AuthTokenRepositorySharedPrefs() as AuthTokenRepository,
     ),
     Provider(
-      create: (context) => ApiClient(authTokenProvider: context.read()),
+      create: (context) => ApiClient(authTokenRepository: context.read()),
     ),
     Provider(
-      create: (context) => AuthComponent(
+      create: (context) => AuthLoginComponent(
         authTokenRepository: context.read(),
         apiClient: context.read(),
       ),
@@ -77,7 +83,9 @@ List<SingleChildWidget> get providersRemote {
 /// This dependency list uses repositories that provide local data.
 List<SingleChildWidget> get providersLocal {
   return [
-    Provider.value(value: AuthComponentDev() as AuthComponent),
+    ChangeNotifierProvider.value(
+      value: AuthTokenRepositoryDev() as AuthTokenRepository,
+    ),
     Provider.value(
       value: DestinationRepositoryLocal() as DestinationRepository,
     ),

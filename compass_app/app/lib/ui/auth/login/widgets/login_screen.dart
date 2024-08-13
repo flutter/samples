@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../data/components/auth/auth_component.dart';
+import '../../../../data/components/auth/auth_login_component.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,9 +12,13 @@ class LoginScreen extends StatelessWidget {
     return Center(
       child: FilledButton(
         onPressed: () {
-          context
-              .read<AuthComponent>()
-              .login(email: 'email@example.com', password: 'password');
+          AuthLoginComponent(
+                  apiClient: context.read(),
+                  authTokenRepository: context.read())
+              .login(email: 'email@example.com', password: 'password')
+              .then((_) {
+            context.go('/');
+          });
         },
         child: Text('Login'),
       ),
