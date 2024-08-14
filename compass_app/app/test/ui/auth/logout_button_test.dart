@@ -1,13 +1,9 @@
 import 'package:compass_app/data/components/auth/auth_logout_component.dart';
-import 'package:compass_app/data/repositories/auth/auth_token_repository.dart';
-import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_repository.dart';
-import 'package:compass_app/ui/auth/login/view_models/login_viewmodel.dart';
 import 'package:compass_app/ui/auth/logout/view_models/logout_viewmodel.dart';
 import 'package:compass_app/ui/auth/logout/widgets/logout_button.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
-import 'package:provider/provider.dart';
 
 import '../../../testing/app.dart';
 import '../../../testing/fakes/repositories/fake_auth_token_repository.dart';
@@ -28,7 +24,7 @@ void main() {
       fakeAuthTokenRepository.token = 'TOKEN';
       // Setup an ItineraryConfig with some data, should be cleared after logout
       fakeItineraryConfigRepository = FakeItineraryConfigRepository(
-          itineraryConfig: ItineraryConfig(continent: 'CONTINENT'));
+          itineraryConfig: const ItineraryConfig(continent: 'CONTINENT'));
       viewModel = LogoutViewModel(
         authLogoutComponent: AuthLogoutComponent(
           authTokenRepository: fakeAuthTokenRepository,
@@ -61,7 +57,7 @@ void main() {
         // Itinerary config should have data
         expect(
           fakeItineraryConfigRepository.itineraryConfig,
-          ItineraryConfig(continent: 'CONTINENT'),
+          const ItineraryConfig(continent: 'CONTINENT'),
         );
 
         // // Perform logout
@@ -73,7 +69,7 @@ void main() {
         // Itinerary config should be cleared
         expect(
           fakeItineraryConfigRepository.itineraryConfig,
-          ItineraryConfig(),
+          const ItineraryConfig(),
         );
       });
     });

@@ -8,8 +8,8 @@ class TiltedCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 300),
-      child: AspectRatio(
+      constraints: const BoxConstraints(maxWidth: 300),
+      child: const AspectRatio(
         aspectRatio: 1,
         child: Stack(
           alignment: Alignment.center,

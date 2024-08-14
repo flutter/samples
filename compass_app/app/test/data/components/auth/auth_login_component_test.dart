@@ -51,7 +51,7 @@ class _ApiClient extends FakeApiClient {
   @override
   Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {
     if (loginRequest.email == 'EMAIL' && loginRequest.password == 'PASSWORD') {
-      return Result.ok(LoginResponse(token: 'TOKEN', userId: '1234'));
+      return Result.ok(const LoginResponse(token: 'TOKEN', userId: '1234'));
     } else {
       return Result.error(Exception('ERROR'));
     }

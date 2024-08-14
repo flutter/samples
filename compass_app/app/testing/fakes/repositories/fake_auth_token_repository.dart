@@ -2,7 +2,7 @@ import 'package:compass_app/data/repositories/auth/auth_token_repository.dart';
 import 'package:compass_app/utils/result.dart';
 
 class FakeAuthTokenRepository extends AuthTokenRepository {
-  String? token = null;
+  String? token;
 
   @override
   Future<Result<String?>> getToken() async {

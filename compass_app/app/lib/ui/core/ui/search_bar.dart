@@ -2,8 +2,6 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/components/auth/auth_logout_component.dart';
-import '../../../routing/router.dart';
 import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../../auth/logout/widgets/logout_button.dart';
 import '../localization/applocalization.dart';

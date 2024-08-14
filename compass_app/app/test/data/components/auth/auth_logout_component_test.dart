@@ -14,7 +14,7 @@ void main() {
     setUp(() {
       authTokenRepository = FakeAuthTokenRepository();
       itineraryConfigRepository = FakeItineraryConfigRepository(
-        itineraryConfig: ItineraryConfig(continent: 'CONTINENT'),
+        itineraryConfig: const ItineraryConfig(continent: 'CONTINENT'),
       );
       authLogoutComponent = AuthLogoutComponent(
         authTokenRepository: authTokenRepository,
@@ -29,7 +29,7 @@ void main() {
       // Itinerary config should be cleared
       expect(
         itineraryConfigRepository.itineraryConfig,
-        ItineraryConfig(),
+        const ItineraryConfig(),
       );
     });
   });
