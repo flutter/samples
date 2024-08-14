@@ -7,37 +7,40 @@ class TiltedCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      width: 375,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            left: 0,
-            child: _Card(
-              imageUrl: 'https://rstr.in/google/tripedia/g2i0BsYPKW-',
-              width: 250,
-              height: 342,
-              tilt: -3.83 / 360,
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 300),
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              left: 0,
+              child: _Card(
+                imageUrl: 'https://rstr.in/google/tripedia/g2i0BsYPKW-',
+                width: 200,
+                height: 273,
+                tilt: -3.83 / 360,
+              ),
             ),
-          ),
-          Positioned(
-            right: 0,
-            child: _Card(
-              imageUrl: 'https://rstr.in/google/tripedia/980sqNgaDRK',
-              width: 245,
-              height: 312,
-              tilt: 3.46 / 360,
+            Positioned(
+              right: 0,
+              child: _Card(
+                imageUrl: 'https://rstr.in/google/tripedia/980sqNgaDRK',
+                width: 180,
+                height: 230,
+                tilt: 3.46 / 360,
+              ),
             ),
-          ),
-          _Card(
-            imageUrl: 'https://rstr.in/google/tripedia/pHfPmf3o5NU',
-            width: 275,
-            height: 482,
-            tilt: 0,
-            showTitle: true,
-          ),
-        ],
+            _Card(
+              imageUrl: 'https://rstr.in/google/tripedia/pHfPmf3o5NU',
+              width: 225,
+              height: 322,
+              tilt: 0,
+              showTitle: true,
+            ),
+          ],
+        ),
       ),
     );
   }
