@@ -71,7 +71,7 @@ class FakeApiClient implements ApiClient {
   }
 
   @override
-  Future<Result<LoginResponse>> login(LoginRequest loginRequest) {
-    throw UnimplementedError();
+  Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {
+    return Result.ok(LoginResponse(token: 'TOKEN', userId: '1234'));
   }
 }
