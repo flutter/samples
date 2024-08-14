@@ -109,4 +109,14 @@ void main() {
     );
     expect(response.statusCode, 401);
   });
+
+  test('Unauthorized request', () async {
+    // Query /continent end-point
+    // No auth headers
+    final response = await get(
+      Uri.parse('$host/continent'),
+    );
+
+    expect(response.statusCode, 401);
+  });
 }
