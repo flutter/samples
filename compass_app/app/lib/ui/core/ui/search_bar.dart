@@ -1,7 +1,11 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../auth/logout/logout_button.dart';
+import '../../../data/components/auth/auth_logout_component.dart';
+import '../../../routing/router.dart';
+import '../../auth/logout/view_models/logout_viewmodel.dart';
+import '../../auth/logout/widgets/logout_button.dart';
 import '../localization/applocalization.dart';
 import '../themes/dimens.dart';
 import 'date_format_start_end.dart';
@@ -52,7 +56,11 @@ class AppSearchBar extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         // Display a logout button if at the root route
-        homeScreen ? const LogoutButton() : const HomeButton(),
+        homeScreen
+            ? LogoutButton(
+                viewModel: LogoutViewModel(authLogoutComponent: context.read()),
+              )
+            : const HomeButton(),
       ],
     );
   }

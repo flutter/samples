@@ -1,12 +1,17 @@
+import 'package:compass_app/data/components/auth/auth_login_component.dart';
+import 'package:compass_app/data/components/auth/auth_logout_component.dart';
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../testing/app.dart';
+import '../../../../testing/fakes/repositories/fake_auth_token_repository.dart';
 import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
 import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../../testing/fakes/services/fake_api_client.dart';
 import '../../../../testing/mocks.dart';
 
 void main() {
@@ -25,7 +30,13 @@ void main() {
     loadWidget(WidgetTester tester) async {
       await testApp(
         tester,
-        SearchFormScreen(viewModel: viewModel),
+        Provider.value(
+          value: AuthLogoutComponent(
+            authTokenRepository: FakeAuthTokenRepository(),
+            itineraryConfigRepository: FakeItineraryConfigRepository(),
+          ),
+          child: SearchFormScreen(viewModel: viewModel),
+        ),
         goRouter: goRouter,
       );
     }

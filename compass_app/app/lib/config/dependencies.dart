@@ -2,6 +2,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../data/components/auth/auth_login_component.dart';
+import '../data/components/auth/auth_logout_component.dart';
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
 import '../data/repositories/activity/activity_repository_remote.dart';
@@ -32,6 +33,13 @@ List<SingleChildWidget> _sharedProviders = [
   Provider(
     lazy: true,
     create: (context) => BookingShareComponent.withSharePlus(),
+  ),
+  Provider(
+    lazy: true,
+    create: (context) => AuthLogoutComponent(
+      authTokenRepository: context.read(),
+      itineraryConfigRepository: context.read(),
+    ),
   ),
 ];
 

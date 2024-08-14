@@ -18,6 +18,7 @@ class AppLocalization {
     'errorWhileLoadingContinents': 'Error while loading continents',
     'errorWhileLoadingDestinations': 'Error while loading destinations',
     'errorWhileLogin': 'Error while trying to login',
+    'errorWhileLogout': 'Error while trying to logout',
     'errorWhileSavingActivities': 'Error while saving activities',
     'errorWhileSavingItinerary': 'Error while saving itinerary',
     'evening': 'Evening',
@@ -73,6 +74,8 @@ class AppLocalization {
   String get errorWhileLogin => _get('errorWhileLogin');
 
   String get login => _get('login');
+
+  String get errorWhileLogout => _get('errorWhileLogout');
 
   String selected(int value) =>
       _get('selected').replaceAll('{1}', value.toString());

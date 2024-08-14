@@ -1,6 +1,9 @@
+import 'package:compass_app/data/components/auth/auth_logout_component.dart';
 import 'package:compass_app/data/repositories/auth/auth_token_repository.dart';
 import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_repository.dart';
-import 'package:compass_app/ui/auth/logout/logout_button.dart';
+import 'package:compass_app/ui/auth/login/view_models/login_viewmodel.dart';
+import 'package:compass_app/ui/auth/logout/view_models/logout_viewmodel.dart';
+import 'package:compass_app/ui/auth/logout/widgets/logout_button.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
@@ -16,6 +19,7 @@ void main() {
     late MockGoRouter goRouter;
     late FakeAuthTokenRepository fakeAuthTokenRepository;
     late FakeItineraryConfigRepository fakeItineraryConfigRepository;
+    late LogoutViewModel viewModel;
 
     setUp(() {
       goRouter = MockGoRouter();
@@ -25,22 +29,18 @@ void main() {
       // Setup an ItineraryConfig with some data, should be cleared after logout
       fakeItineraryConfigRepository = FakeItineraryConfigRepository(
           itineraryConfig: ItineraryConfig(continent: 'CONTINENT'));
+      viewModel = LogoutViewModel(
+        authLogoutComponent: AuthLogoutComponent(
+          authTokenRepository: fakeAuthTokenRepository,
+          itineraryConfigRepository: fakeItineraryConfigRepository,
+        ),
+      );
     });
 
     Future<void> loadScreen(WidgetTester tester) async {
       await testApp(
         tester,
-        MultiProvider(
-          providers: [
-            ChangeNotifierProvider.value(
-              value: fakeAuthTokenRepository as AuthTokenRepository,
-            ),
-            Provider.value(
-              value: fakeItineraryConfigRepository as ItineraryConfigRepository,
-            )
-          ],
-          child: LogoutButton(),
-        ),
+        LogoutButton(viewModel: viewModel),
         goRouter: goRouter,
       );
     }

@@ -1,6 +1,7 @@
 import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
+import '../../../utils/result.dart';
 import '../../repositories/auth/auth_token_repository.dart';
 import '../../repositories/itinerary_config/itinerary_config_repository.dart';
 
@@ -22,14 +23,23 @@ class AuthLogoutComponent {
   /// 2. Clears the stored auth token.
   ///
   /// GoRouter will automatically redirect the user to /login
-  Future<void> logout() async {
+  Future<Result<void>> logout() async {
     _log.info('User logged out');
 
     // Clear stored ItineraryConfig
-    await _itineraryConfigRepository
+    var result = await _itineraryConfigRepository
         .setItineraryConfig(const ItineraryConfig());
+    if (result is Error<void>) {
+      _log.severe('Failed to clear stored ItineraryConfig');
+      return result;
+    }
 
     // Clear stored auth token
-    await _authTokenRepository.saveToken(null);
+    result = await _authTokenRepository.saveToken(null);
+    if (result is Error<void>) {
+      _log.severe('Failed to clear stored auth token');
+    }
+
+    return result;
   }
 }
