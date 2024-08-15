@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.2
-  url_launcher: ^6.0.6
-  sensors: ^2.0.3
+  url_launcher: ^6.0.20
+  sensors_plus: ^5.0.1
 
 dev_dependencies:
   analysis_defaults:
