@@ -1,4 +1,4 @@
-import '../../../../data/components/auth/auth_logout_component.dart';
+import '../../../../domain/components/auth/auth_logout_component.dart';
 import '../../../../utils/command.dart';
 import '../../../../utils/result.dart';
 

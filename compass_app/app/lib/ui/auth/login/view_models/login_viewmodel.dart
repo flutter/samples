@@ -1,6 +1,6 @@
 import 'package:logging/logging.dart';
 
-import '../../../../data/components/auth/auth_login_component.dart';
+import '../../../../domain/components/auth/auth_login_component.dart';
 import '../../../../utils/command.dart';
 import '../../../../utils/result.dart';
 

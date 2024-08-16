@@ -1,4 +1,4 @@
-import 'package:compass_app/data/components/auth/auth_login_component.dart';
+import 'package:compass_app/domain/components/auth/auth_login_component.dart';
 import 'package:compass_app/data/services/api_client.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:compass_model/model.dart';

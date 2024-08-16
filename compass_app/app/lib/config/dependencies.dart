@@ -1,8 +1,8 @@
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../data/components/auth/auth_login_component.dart';
-import '../data/components/auth/auth_logout_component.dart';
+import '../domain/components/auth/auth_login_component.dart';
+import '../domain/components/auth/auth_logout_component.dart';
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
 import '../data/repositories/activity/activity_repository_remote.dart';
@@ -18,8 +18,8 @@ import '../data/repositories/destination/destination_repository_remote.dart';
 import '../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../data/repositories/itinerary_config/itinerary_config_repository_memory.dart';
 import '../data/services/api_client.dart';
-import '../ui/booking/components/booking_create_component.dart';
-import '../ui/booking/components/booking_share_component.dart';
+import '../domain/components/booking/booking_create_component.dart';
+import '../domain/components/booking/booking_share_component.dart';
 
 /// Shared providers for all configurations.
 List<SingleChildWidget> _sharedProviders = [

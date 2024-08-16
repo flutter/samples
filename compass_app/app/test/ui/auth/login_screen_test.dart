@@ -1,4 +1,4 @@
-import 'package:compass_app/data/components/auth/auth_login_component.dart';
+import 'package:compass_app/domain/components/auth/auth_login_component.dart';
 import 'package:compass_app/ui/auth/login/view_models/login_viewmodel.dart';
 import 'package:compass_app/ui/auth/login/widgets/login_screen.dart';
 import 'package:flutter_test/flutter_test.dart';

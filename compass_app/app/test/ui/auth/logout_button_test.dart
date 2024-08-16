@@ -1,4 +1,4 @@
-import 'package:compass_app/data/components/auth/auth_logout_component.dart';
+import 'package:compass_app/domain/components/auth/auth_logout_component.dart';
 import 'package:compass_app/ui/auth/logout/view_models/logout_viewmodel.dart';
 import 'package:compass_app/ui/auth/logout/widgets/logout_button.dart';
 import 'package:compass_model/model.dart';

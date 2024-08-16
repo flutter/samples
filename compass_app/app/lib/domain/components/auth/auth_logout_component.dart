@@ -2,8 +2,8 @@ import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../utils/result.dart';
-import '../../repositories/auth/auth_token_repository.dart';
-import '../../repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../data/repositories/auth/auth_token_repository.dart';
+import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 
 /// Performs user logout.
 class AuthLogoutComponent {

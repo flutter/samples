@@ -4,7 +4,7 @@ import 'package:logging/logging.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../utils/result.dart';
-import '../../core/ui/date_format_start_end.dart';
+import '../../../ui/core/ui/date_format_start_end.dart';
 
 typedef ShareFunction = Future<void> Function(String text);
 

@@ -1,4 +1,4 @@
-import 'package:compass_app/data/components/auth/auth_logout_component.dart';
+import 'package:compass_app/domain/components/auth/auth_logout_component.dart';
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
 import 'package:flutter/material.dart';

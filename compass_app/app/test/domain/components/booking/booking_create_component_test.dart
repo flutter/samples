@@ -1,12 +1,12 @@
-import 'package:compass_app/ui/booking/components/booking_create_component.dart';
+import 'package:compass_app/domain/components/booking/booking_create_component.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../testing/fakes/repositories/fake_activities_repository.dart';
-import '../../../testing/fakes/repositories/fake_destination_repository.dart';
-import '../../../testing/models/activity.dart';
-import '../../../testing/models/booking.dart';
-import '../../../testing/models/destination.dart';
+import '../../../../testing/fakes/repositories/fake_activities_repository.dart';
+import '../../../../testing/fakes/repositories/fake_destination_repository.dart';
+import '../../../../testing/models/activity.dart';
+import '../../../../testing/models/booking.dart';
+import '../../../../testing/models/destination.dart';
 
 void main() {
   group('BookingCreateComponent tests', () {

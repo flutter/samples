@@ -2,8 +2,8 @@ import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../utils/result.dart';
-import '../../repositories/auth/auth_token_repository.dart';
-import '../../services/api_client.dart';
+import '../../../data/repositories/auth/auth_token_repository.dart';
+import '../../../data/services/api_client.dart';
 
 /// Performs user login.
 class AuthLoginComponent {

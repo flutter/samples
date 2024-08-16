@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../data/components/auth/auth_login_component.dart';
+import '../domain/components/auth/auth_login_component.dart';
 import '../data/repositories/auth/auth_token_repository.dart';
 import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
