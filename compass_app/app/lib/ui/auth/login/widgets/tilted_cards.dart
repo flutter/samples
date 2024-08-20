@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../utils/image_error_listener.dart';
+
 class TiltedCards extends StatelessWidget {
   const TiltedCards({super.key});
 
@@ -79,6 +81,7 @@ class _Card extends StatelessWidget {
                 fit: BoxFit.cover,
                 color: showTitle ? Colors.black.withOpacity(0.5) : null,
                 colorBlendMode: showTitle ? BlendMode.darken : null,
+                errorListener: imageErrorListener,
               ),
               if (showTitle) Center(child: SvgPicture.asset('assets/logo.svg')),
             ],

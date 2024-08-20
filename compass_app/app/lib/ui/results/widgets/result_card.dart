@@ -2,6 +2,7 @@ import 'package:compass_model/model.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../../utils/image_error_listener.dart';
 import '../../core/themes/text_styles.dart';
 import '../../core/ui/tag_chip.dart';
 
@@ -26,6 +27,7 @@ class ResultCard extends StatelessWidget {
             imageUrl: destination.imageUrl,
             fit: BoxFit.fitHeight,
             errorWidget: (context, url, error) => const Icon(Icons.error),
+            errorListener: imageErrorListener,
           ),
           Positioned(
             bottom: 12.0,

@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../utils/image_error_listener.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
@@ -100,6 +101,7 @@ class _CarouselItem extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: imageUrl,
               fit: BoxFit.cover,
+              errorListener: imageErrorListener,
               errorWidget: (context, url, error) {
                 // NOTE: Getting "invalid image data" error for some of the images
                 // e.g. https://rstr.in/google/tripedia/jlbgFDrSUVE

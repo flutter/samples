@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../utils/image_error_listener.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
@@ -173,6 +174,7 @@ class _HeaderImage extends StatelessWidget {
     return CachedNetworkImage(
       fit: BoxFit.fitWidth,
       imageUrl: booking.destination.imageUrl,
+      errorListener: imageErrorListener,
     );
   }
 }
