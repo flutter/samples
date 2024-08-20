@@ -69,4 +69,9 @@ class FakeApiClient implements ApiClient {
 
     return SynchronousFuture(Result.ok([]));
   }
+
+  @override
+  Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {
+    return Result.ok(const LoginResponse(token: 'TOKEN', userId: '1234'));
+  }
 }
