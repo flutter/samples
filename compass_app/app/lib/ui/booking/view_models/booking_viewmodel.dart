@@ -5,8 +5,8 @@ import 'package:logging/logging.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
-import '../components/booking_create_component.dart';
-import '../components/booking_share_component.dart';
+import '../../../domain/components/booking/booking_create_component.dart';
+import '../../../domain/components/booking/booking_share_component.dart';
 
 class BookingViewModel extends ChangeNotifier {
   BookingViewModel({

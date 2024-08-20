@@ -46,7 +46,9 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (d, r) => context.go('/results'),
+      onPopInvokedWithResult: (didPop, r) {
+        if (!didPop) context.go('/results');
+      },
       child: Scaffold(
         body: ListenableBuilder(
           listenable: widget.viewModel.loadActivities,

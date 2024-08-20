@@ -1,9 +1,9 @@
-import 'package:compass_app/ui/booking/components/booking_share_component.dart';
+import 'package:compass_app/domain/components/booking/booking_share_component.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../testing/models/activity.dart';
-import '../../../testing/models/destination.dart';
+import '../../../../testing/models/activity.dart';
+import '../../../../testing/models/destination.dart';
 
 void main() {
   group('BookingShareComponent tests', () {

@@ -38,7 +38,7 @@ class SearchFormScreen extends StatelessWidget {
                 right: Dimens.of(context).paddingScreenHorizontal,
                 bottom: Dimens.paddingVertical,
               ),
-              child: const AppSearchBar(),
+              child: const AppSearchBar(homeScreen: true),
             ),
           ),
           SearchFormContinent(viewModel: viewModel),
