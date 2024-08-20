@@ -11,10 +11,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:provider/provider.dart';
 
+/// This Integration Test launches the Compass-App with the local configuration.
+/// The app uses data from the assets folder to create a booking.
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  group('end-to-end test', () {
+  group('end-to-end test with local data', () {
     testWidgets('should load app', (tester) async {
       // Load app widget.
       await tester.pumpWidget(
