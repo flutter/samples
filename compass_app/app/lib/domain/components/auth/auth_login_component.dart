@@ -1,20 +1,20 @@
 import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
+import '../../../data/services/auth_api_client.dart';
 import '../../../utils/result.dart';
 import '../../../data/repositories/auth/auth_token_repository.dart';
-import '../../../data/services/api_client.dart';
 
 /// Performs user login.
 class AuthLoginComponent {
   AuthLoginComponent({
     required AuthTokenRepository authTokenRepository,
-    required ApiClient apiClient,
+    required AuthApiClient apiClient,
   })  : _authTokenRepository = authTokenRepository,
         _apiClient = apiClient;
 
   final AuthTokenRepository _authTokenRepository;
-  final ApiClient _apiClient;
+  final AuthApiClient _apiClient;
   final _log = Logger('AuthLoginComponent');
 
   /// Login with username and password.

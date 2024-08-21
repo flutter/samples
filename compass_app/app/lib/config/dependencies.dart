@@ -1,6 +1,7 @@
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
+import '../data/services/auth_api_client.dart';
 import '../domain/components/auth/auth_login_component.dart';
 import '../domain/components/auth/auth_logout_component.dart';
 import '../data/repositories/activity/activity_repository.dart';
@@ -51,7 +52,14 @@ List<SingleChildWidget> get providersRemote {
       value: AuthTokenRepositorySharedPrefs() as AuthTokenRepository,
     ),
     Provider(
-      create: (context) => ApiClient(authTokenRepository: context.read()),
+      create: (context) => AuthApiClient(),
+    ),
+    ProxyProvider<AuthTokenRepository, ApiClient>(
+      create: (context) => ApiClient(
+        authToken: context.read<AuthTokenRepository>().token,
+      ),
+      update: (context, authTokenRepository, ApiClient? previous) =>
+          ApiClient(authToken: authTokenRepository.token),
     ),
     Provider(
       create: (context) => AuthLoginComponent(

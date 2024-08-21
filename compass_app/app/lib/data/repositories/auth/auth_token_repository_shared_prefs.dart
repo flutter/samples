@@ -10,13 +10,22 @@ class AuthTokenRepositorySharedPrefs extends AuthTokenRepository {
   String? cachedToken;
 
   @override
-  Future<Result<String?>> getToken() async {
+  String? get token => cachedToken;
+
+  @override
+  bool get isAuthenticated => cachedToken != null;
+
+  @override
+  Future<Result<String?>> fetchToken({bool notify = false}) async {
     if (cachedToken != null) return Result.ok(cachedToken);
 
     try {
       final sharedPreferences = await SharedPreferences.getInstance();
-      final token = sharedPreferences.getString(_tokenKey);
-      return Result.ok(token);
+      cachedToken = sharedPreferences.getString(_tokenKey);
+      if (notify) {
+        notifyListeners();
+      }
+      return Result.ok(cachedToken);
     } on Exception catch (e) {
       return Result.error(e);
     }
