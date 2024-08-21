@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/image_error_listener.dart';
 import '../../core/ui/custom_checkbox.dart';
 
 class ActivityEntry extends StatelessWidget {
@@ -28,6 +29,7 @@ class ActivityEntry extends StatelessWidget {
               imageUrl: activity.imageUrl,
               height: 80,
               width: 80,
+              errorListener: imageErrorListener,
             ),
           ),
           const SizedBox(width: 20),
