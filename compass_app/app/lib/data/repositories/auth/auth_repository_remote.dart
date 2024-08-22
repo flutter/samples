@@ -1,13 +1,10 @@
 import 'package:compass_model/model.dart';
-import 'package:flutter/rendering.dart';
 import 'package:logging/logging.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/result.dart';
 import '../../services/api_client.dart';
 import '../../services/auth_api_client.dart';
 import '../../services/shared_preferences_service.dart';
-import '../itinerary_config/itinerary_config_repository.dart';
 import 'auth_repository.dart';
 
 class AuthRepositoryRemote extends AuthRepository {
