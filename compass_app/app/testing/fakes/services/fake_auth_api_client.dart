@@ -7,7 +7,7 @@ class FakeAuthApiClient implements AuthApiClient {
   @override
   Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {
     if (loginRequest.email == 'EMAIL' && loginRequest.password == 'PASSWORD') {
-      return Result.ok(LoginResponse(token: 'TOKEN', userId: '123'));
+      return Result.ok(const LoginResponse(token: 'TOKEN', userId: '123'));
     }
     return Result.error(Exception('ERROR!'));
   }

@@ -74,6 +74,6 @@ class FakeApiClient implements ApiClient {
 
   @override
   set token(String? token) {
-    this.fakeToken = token;
+    fakeToken = token;
   }
 }
