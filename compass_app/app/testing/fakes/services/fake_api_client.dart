@@ -69,9 +69,11 @@ class FakeApiClient implements ApiClient {
 
     return SynchronousFuture(Result.ok([]));
   }
-  
+
+  String? fakeToken;
+
   @override
   set token(String? token) {
-    // Nothing
+    this.fakeToken = token;
   }
 }

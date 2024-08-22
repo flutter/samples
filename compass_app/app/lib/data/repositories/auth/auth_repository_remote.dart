@@ -22,14 +22,16 @@ class AuthRepositoryRemote extends AuthRepository {
   final ApiClient _apiClient;
   final SharedPreferencesService _sharedPreferencesService;
 
-  String? _token;
+  bool? _isAuthenticated;
   final _log = Logger('AuthRepositoryRemote');
 
+  /// Fetch token from shared preferences
   Future<void> _fetch() async {
     final result = await _sharedPreferencesService.fetchToken();
     switch (result) {
       case Ok<String?>():
-        _token = result.value;
+        _apiClient.token = result.value;
+        _isAuthenticated = result.value != null;
       case Error<String?>():
         _log.severe(
           'Failed to fech Token from SharedPreferences',
@@ -40,13 +42,13 @@ class AuthRepositoryRemote extends AuthRepository {
 
   @override
   Future<bool> get isAuthenticated async {
-    // Token is cached, return true
-    if (_token != null) {
-      return true;
+    // Status is cached
+    if (_isAuthenticated != null) {
+      return _isAuthenticated!;
     }
-    // No token cached, fetch from storage
+    // No status cached, fetch from storage
     await _fetch();
-    return _token != null;
+    return _isAuthenticated ?? false;
   }
 
   @override
@@ -64,10 +66,10 @@ class AuthRepositoryRemote extends AuthRepository {
       switch (result) {
         case Ok<LoginResponse>():
           _log.info('User logged int');
-          // Keep token in cache
-          _token = result.value.token;
+          // Set auth status
+          _isAuthenticated = true;
           // Configure ApiClient token
-          _apiClient.token = _token;
+          _apiClient.token = result.value.token;
           // Store in Shared preferences
           return await _sharedPreferencesService.saveToken(result.value.token);
         case Error<LoginResponse>():
@@ -96,7 +98,12 @@ class AuthRepositoryRemote extends AuthRepository {
       if (result is Error<void>) {
         _log.severe('Failed to clear stored auth token');
       }
-      _token = null;
+
+      // Clear token in ApiClient
+      _apiClient.token = null;
+
+      // Clear authenticated status
+      _isAuthenticated = false;
       return result;
     } finally {
       notifyListeners();
