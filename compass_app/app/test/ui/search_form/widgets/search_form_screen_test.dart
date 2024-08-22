@@ -1,6 +1,5 @@
 import 'package:compass_app/data/repositories/auth/auth_repository.dart';
 import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_repository.dart';
-import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_repository_memory.dart';
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
 import 'package:flutter/material.dart';
