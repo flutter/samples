@@ -56,7 +56,7 @@ class AppSearchBar extends StatelessWidget {
         // Display a logout button if at the root route
         homeScreen
             ? LogoutButton(
-                viewModel: LogoutViewModel(authLogoutComponent: context.read()),
+                viewModel: LogoutViewModel(authRepository: context.read()),
               )
             : const HomeButton(),
       ],

@@ -26,7 +26,7 @@ void main() {
       fakeItineraryConfigRepository = FakeItineraryConfigRepository(
           itineraryConfig: const ItineraryConfig(continent: 'CONTINENT'));
       viewModel = LogoutViewModel(
-        authLogoutComponent: AuthLogoutComponent(
+        authRepository: AuthLogoutComponent(
           authTokenRepository: fakeAuthTokenRepository,
           itineraryConfigRepository: fakeItineraryConfigRepository,
         ),

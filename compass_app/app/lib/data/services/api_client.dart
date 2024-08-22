@@ -6,11 +6,13 @@ import '../../utils/result.dart';
 
 // TODO: Configurable baseurl/host/port
 class ApiClient {
-  ApiClient({
-    required String? authToken,
-  }) : _authToken = authToken;
+  ApiClient();
 
-  final String? _authToken;
+  String? _authToken;
+
+  set token(String? token) {
+    _authToken = token;
+  }
 
   Future<void> _authHeader(HttpHeaders headers) async {
     if (_authToken != null) {
