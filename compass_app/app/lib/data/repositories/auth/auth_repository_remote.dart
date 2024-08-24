@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
@@ -14,13 +16,16 @@ class AuthRepositoryRemote extends AuthRepository {
     required SharedPreferencesService sharedPreferencesService,
   })  : _apiClient = apiClient,
         _authApiClient = authApiClient,
-        _sharedPreferencesService = sharedPreferencesService;
+        _sharedPreferencesService = sharedPreferencesService {
+    _apiClient.authHeaderProvider = _authHeaderProvider;
+  }
 
   final AuthApiClient _authApiClient;
   final ApiClient _apiClient;
   final SharedPreferencesService _sharedPreferencesService;
 
   bool? _isAuthenticated;
+  String? _authToken;
   final _log = Logger('AuthRepositoryRemote');
 
   /// Fetch token from shared preferences
@@ -28,7 +33,7 @@ class AuthRepositoryRemote extends AuthRepository {
     final result = await _sharedPreferencesService.fetchToken();
     switch (result) {
       case Ok<String?>():
-        _apiClient.token = result.value;
+        _authToken = result.value;
         _isAuthenticated = result.value != null;
       case Error<String?>():
         _log.severe(
@@ -66,8 +71,7 @@ class AuthRepositoryRemote extends AuthRepository {
           _log.info('User logged int');
           // Set auth status
           _isAuthenticated = true;
-          // Configure ApiClient token
-          _apiClient.token = result.value.token;
+          _authToken = result.value.token;
           // Store in Shared preferences
           return await _sharedPreferencesService.saveToken(result.value.token);
         case Error<LoginResponse>():
@@ -98,13 +102,19 @@ class AuthRepositoryRemote extends AuthRepository {
       }
 
       // Clear token in ApiClient
-      _apiClient.token = null;
+      _authToken = null;
 
       // Clear authenticated status
       _isAuthenticated = false;
       return result;
     } finally {
       notifyListeners();
+    }
+  }
+
+  void _authHeaderProvider(HttpHeaders headers) {
+    if (_authToken != null) {
+      headers.add(HttpHeaders.authorizationHeader, 'Bearer $_authToken');
     }
   }
 }

@@ -27,8 +27,6 @@ void main() {
     test('fetch on start, has token', () async {
       // Stored token in shared preferences
       sharedPreferencesService.token = 'TOKEN';
-      // No token configured in ApiClient
-      apiClient.fakeToken = null;
 
       // Create an AuthRepository, should perform initial fetch
       final repository = AuthRepositoryRemote(
@@ -41,16 +39,11 @@ void main() {
 
       // True because Token is SharedPreferences
       expect(isAuthenticated, isTrue);
-
-      // Token was fetched
-      expect(apiClient.fakeToken, 'TOKEN');
     });
 
     test('fetch on start, no token', () async {
       // Stored token in shared preferences
       sharedPreferencesService.token = null;
-      // No token configured in ApiClient
-      apiClient.fakeToken = null;
 
       // Create an AuthRepository, should perform initial fetch
       final repository = AuthRepositoryRemote(
@@ -63,9 +56,6 @@ void main() {
 
       // True because Token is SharedPreferences
       expect(isAuthenticated, isFalse);
-
-      // Token was not fetched
-      expect(apiClient.fakeToken, null);
     });
 
     test('perform login', () async {
@@ -74,18 +64,17 @@ void main() {
         password: 'PASSWORD',
       );
       expect(result, isA<Ok>());
-      expect(apiClient.fakeToken, 'TOKEN');
+      expect(await repository.isAuthenticated, isTrue);
       expect(sharedPreferencesService.token, 'TOKEN');
     });
 
     test('perform logout', () async {
       // logged in status
       sharedPreferencesService.token = 'TOKEN';
-      apiClient.token = 'TOKEN';
 
       final result = await repository.logout();
       expect(result, isA<Ok>());
-      expect(apiClient.fakeToken, null);
+      expect(await repository.isAuthenticated, isFalse);
       expect(sharedPreferencesService.token, null);
     });
   });
