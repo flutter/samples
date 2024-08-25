@@ -5,7 +5,7 @@ import 'package:compass_model/model.dart';
 import '../../utils/result.dart';
 
 /// Adds the `Authentication` header to a header configuration.
-typedef AuthHeaderProvider = void Function(HttpHeaders headers);
+typedef AuthHeaderProvider = String? Function();
 
 // TODO: Configurable baseurl/host/port
 class ApiClient {
@@ -18,7 +18,10 @@ class ApiClient {
   }
 
   Future<void> _authHeader(HttpHeaders headers) async {
-    _authHeaderProvider?.call(headers);
+    final header = _authHeaderProvider?.call();
+    if (header != null) {
+      headers.add(HttpHeaders.authorizationHeader, header);
+    }
   }
 
   Future<Result<List<Continent>>> getContinents() async {

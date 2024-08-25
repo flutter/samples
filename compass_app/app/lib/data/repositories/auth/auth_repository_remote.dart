@@ -112,9 +112,6 @@ class AuthRepositoryRemote extends AuthRepository {
     }
   }
 
-  void _authHeaderProvider(HttpHeaders headers) {
-    if (_authToken != null) {
-      headers.add(HttpHeaders.authorizationHeader, 'Bearer $_authToken');
-    }
-  }
+  String? _authHeaderProvider() =>
+      _authToken != null ? 'Bearer $_authToken' : null;
 }

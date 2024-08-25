@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:compass_app/data/repositories/auth/auth_repository_remote.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -39,6 +41,9 @@ void main() {
 
       // True because Token is SharedPreferences
       expect(isAuthenticated, isTrue);
+
+      // Check auth token
+      await expectAuthHeader(apiClient, 'Bearer TOKEN');
     });
 
     test('fetch on start, no token', () async {
@@ -56,6 +61,9 @@ void main() {
 
       // True because Token is SharedPreferences
       expect(isAuthenticated, isFalse);
+
+      // Check auth token
+      await expectAuthHeader(apiClient, null);
     });
 
     test('perform login', () async {
@@ -66,6 +74,9 @@ void main() {
       expect(result, isA<Ok>());
       expect(await repository.isAuthenticated, isTrue);
       expect(sharedPreferencesService.token, 'TOKEN');
+
+      // Check auth token
+      await expectAuthHeader(apiClient, 'Bearer TOKEN');
     });
 
     test('perform logout', () async {
@@ -76,6 +87,14 @@ void main() {
       expect(result, isA<Ok>());
       expect(await repository.isAuthenticated, isFalse);
       expect(sharedPreferencesService.token, null);
+
+      // Check auth token
+      await expectAuthHeader(apiClient, null);
     });
   });
+}
+
+Future<void> expectAuthHeader(FakeApiClient apiClient, String? header) async {
+  final header = apiClient.authHeaderProvider?.call();
+  expect(header, header);
 }
