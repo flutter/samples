@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:compass_app/data/repositories/auth/auth_repository_remote.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
