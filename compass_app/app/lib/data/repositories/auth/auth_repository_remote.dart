@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
@@ -87,14 +85,6 @@ class AuthRepositoryRemote extends AuthRepository {
   Future<Result<void>> logout() async {
     _log.info('User logged out');
     try {
-      // Clear stored ItineraryConfig
-      // var result = await _itineraryConfigRepository
-      //     .setItineraryConfig(const ItineraryConfig());
-      // if (result is Error<void>) {
-      //   _log.severe('Failed to clear stored ItineraryConfig');
-      //   return result;
-      // }
-
       // Clear stored auth token
       final result = await _sharedPreferencesService.saveToken(null);
       if (result is Error<void>) {
