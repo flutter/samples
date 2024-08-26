@@ -32,7 +32,7 @@ class SearchFormDate extends StatelessWidget {
             context: context,
             firstDate: DateTime.now(),
             lastDate: DateTime.now().add(const Duration(days: 365)),
-          ).then((dateRange) => viewModel.dateRange = dateRange);
+          ).then((dateRange) => viewModel.updateDateRange(dateRange));
         },
         child: Container(
           height: 64,
@@ -54,7 +54,7 @@ class SearchFormDate extends StatelessWidget {
                 ListenableBuilder(
                   listenable: viewModel,
                   builder: (context, _) {
-                    final dateRange = viewModel.dateRange;
+                    final dateRange = viewModel.searchFormState.dateRange;
                     if (dateRange != null) {
                       return Text(
                         dateFormatStartEnd(dateRange),

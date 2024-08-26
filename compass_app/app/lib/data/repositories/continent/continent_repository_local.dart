@@ -1,6 +1,5 @@
-import 'package:compass_model/model.dart';
-
 import '../../../utils/result.dart';
+import '../../models/continent.dart';
 import 'continent_repository.dart';
 
 /// Local data source with all possible continents.

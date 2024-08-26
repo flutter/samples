@@ -1,11 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
+import '../../../data/models/continent.dart';
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
+import '../../../utils/view_command.dart';
+import 'search_form_state.dart';
 
 /// View model for the search form.
 ///
@@ -24,55 +29,55 @@ class SearchFormViewModel extends ChangeNotifier {
   final _log = Logger('SearchFormViewModel');
   final ContinentRepository _continentRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
-  List<Continent> _continents = [];
-  String? _selectedContinent;
-  DateTimeRange? _dateRange;
-  int _guests = 0;
+
+  // Immutable data class that holds state the View needs to display
+  SearchFormState searchFormState = SearchFormState();
 
   /// True if the form is valid and can be submitted
   bool get valid =>
-      _guests > 0 && _selectedContinent != null && _dateRange != null;
-
-  /// List of continents.
-  /// Loaded in [load] command.
-  List<Continent> get continents => _continents;
-
-  /// Selected continent.
-  /// Null means no continent is selected.
-  String? get selectedContinent => _selectedContinent;
+      searchFormState.guests > 0 &&
+      searchFormState.selectedContinent != null &&
+      searchFormState.dateRange != null;
 
   /// Set selected continent.
   /// Set to null to clear the selection.
-  set selectedContinent(String? continent) {
-    _selectedContinent = continent;
+  /// A [TypedCommand] that set's the selected continent on the [SearchFormState]
+  void updateSelectedContinent(Continent? continent) {
+    if (continent == searchFormState.selectedContinent) {
+      searchFormState = searchFormState.copy(selectedContinent: null);
+    } else {
+      searchFormState = searchFormState.copy(selectedContinent: continent);
+    }
     _log.finest('Selected continent: $continent');
     notifyListeners();
   }
 
-  /// Date range.
-  /// Null means no range is selected.
-  DateTimeRange? get dateRange => _dateRange;
-
   /// Set date range.
   /// Can be set to null to clear selection.
-  set dateRange(DateTimeRange? dateRange) {
-    _dateRange = dateRange;
+  /// A [TypedCommand] that set's the date range on the [SearchFormState]
+  void updateDateRange(DateTimeRange? dateRange) {
+    searchFormState = searchFormState.copy(dateRange: dateRange);
     _log.finest('Selected date range: $dateRange');
     notifyListeners();
   }
 
-  /// Number of guests
-  int get guests => _guests;
-
-  /// Set number of guests
+  /// Subtracts one from the number of guests
   /// If the quantity is negative, it will be set to 0
-  set guests(int quantity) {
-    if (quantity < 0) {
-      _guests = 0;
+  void decreaseGuests() {
+    var quantity = searchFormState.guests;
+    if (quantity - 1 < 0) {
+      searchFormState = searchFormState.copy(guests: 0);
     } else {
-      _guests = quantity;
+      searchFormState = searchFormState.copy(guests: quantity - 1);
     }
-    _log.finest('Set guests number: $_guests');
+    _log.finest('Set guests number: ${searchFormState.guests}');
+    notifyListeners();
+  }
+
+  /// Adds one to the quantity of guests
+  void increaseGuests() {
+    searchFormState = searchFormState.copy(guests: searchFormState.guests + 1);
+    _log.finest('Set guests number: ${searchFormState.guests}');
     notifyListeners();
   }
 
@@ -94,14 +99,9 @@ class SearchFormViewModel extends ChangeNotifier {
     final result = await _continentRepository.getContinents();
     switch (result) {
       case Ok():
-        {
-          _continents = result.value;
-          _log.fine('Continents (${_continents.length}) loaded');
-        }
+        searchFormState = searchFormState.copy(continents: result.value);
       case Error():
-        {
-          _log.warning('Failed to load continents', result.asError.error);
-        }
+        _log.warning('Failed to load continents', result.asError.error);
     }
     notifyListeners();
     return result;
@@ -113,15 +113,22 @@ class SearchFormViewModel extends ChangeNotifier {
       case Ok<ItineraryConfig>():
         {
           final itineraryConfig = result.value;
-          _selectedContinent = itineraryConfig.continent;
-          if (itineraryConfig.startDate != null &&
-              itineraryConfig.endDate != null) {
-            _dateRange = DateTimeRange(
-              start: itineraryConfig.startDate!,
-              end: itineraryConfig.endDate!,
-            );
-          }
-          _guests = itineraryConfig.guests ?? 0;
+          final dateRage = itineraryConfig.startDate != null &&
+                  itineraryConfig.endDate != null
+              ? DateTimeRange(
+                  start: itineraryConfig.startDate!,
+                  end: itineraryConfig.endDate!)
+              : null;
+          final selectedContinent = itineraryConfig.continent != null
+              ? searchFormState.continents.firstWhere(
+                  (continent) => continent.name == itineraryConfig.continent,
+                )
+              : null;
+          searchFormState = searchFormState.copy(
+            selectedContinent: selectedContinent,
+            dateRange: dateRage,
+            guests: itineraryConfig.guests ?? 0,
+          );
           _log.fine('ItineraryConfig loaded');
           notifyListeners();
         }
@@ -140,10 +147,10 @@ class SearchFormViewModel extends ChangeNotifier {
     assert(valid, "called when valid was false");
     final result = await _itineraryConfigRepository.setItineraryConfig(
       ItineraryConfig(
-        continent: _selectedContinent,
-        startDate: _dateRange!.start,
-        endDate: _dateRange!.end,
-        guests: _guests,
+        continent: searchFormState.selectedContinent!.name,
+        startDate: searchFormState.dateRange!.start,
+        endDate: searchFormState.dateRange!.end,
+        guests: searchFormState.guests,
       ),
     );
     switch (result) {

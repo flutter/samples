@@ -5,15 +5,15 @@ part 'continent.freezed.dart';
 part 'continent.g.dart';
 
 @freezed
-class ContinentApi with _$ContinentApi {
-  const factory ContinentApi({
+class Continent with _$Continent {
+  const factory Continent({
     /// e.g. 'Europe'
     required String name,
 
     /// e.g. 'https://rstr.in/google/tripedia/TmR12QdlVTT'
     required String imageUrl,
-  }) = _ContinentApi;
+  }) = _Continent;
 
-  factory ContinentApi.fromJson(Map<String, Object?> json) =>
-      _$ContinentApiFromJson(json);
+  factory Continent.fromJson(Map<String, Object?> json) =>
+      _$ContinentFromJson(json);
 }

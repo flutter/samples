@@ -14,48 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ContinentApi _$ContinentApiFromJson(Map<String, dynamic> json) {
-  return _ContinentApi.fromJson(json);
+Continent _$ContinentFromJson(Map<String, dynamic> json) {
+  return _Continent.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ContinentApi {
-  /// e.g. 'Europe'
+mixin _$Continent {
   String get name => throw _privateConstructorUsedError;
-
-  /// e.g. 'https://rstr.in/google/tripedia/TmR12QdlVTT'
   String get imageUrl => throw _privateConstructorUsedError;
 
-  /// Serializes this ContinentApi to a JSON map.
+  /// Serializes this Continent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ContinentApi
+  /// Create a copy of Continent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ContinentApiCopyWith<ContinentApi> get copyWith =>
+  $ContinentCopyWith<Continent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ContinentApiCopyWith<$Res> {
-  factory $ContinentApiCopyWith(
-          ContinentApi value, $Res Function(ContinentApi) then) =
-      _$ContinentApiCopyWithImpl<$Res, ContinentApi>;
+abstract class $ContinentCopyWith<$Res> {
+  factory $ContinentCopyWith(Continent value, $Res Function(Continent) then) =
+      _$ContinentCopyWithImpl<$Res, Continent>;
   @useResult
   $Res call({String name, String imageUrl});
 }
 
 /// @nodoc
-class _$ContinentApiCopyWithImpl<$Res, $Val extends ContinentApi>
-    implements $ContinentApiCopyWith<$Res> {
-  _$ContinentApiCopyWithImpl(this._value, this._then);
+class _$ContinentCopyWithImpl<$Res, $Val extends Continent>
+    implements $ContinentCopyWith<$Res> {
+  _$ContinentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ContinentApi
+  /// Create a copy of Continent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -77,25 +73,25 @@ class _$ContinentApiCopyWithImpl<$Res, $Val extends ContinentApi>
 }
 
 /// @nodoc
-abstract class _$$ContinentApiImplCopyWith<$Res>
-    implements $ContinentApiCopyWith<$Res> {
-  factory _$$ContinentApiImplCopyWith(
-          _$ContinentApiImpl value, $Res Function(_$ContinentApiImpl) then) =
-      __$$ContinentApiImplCopyWithImpl<$Res>;
+abstract class _$$ContinentImplCopyWith<$Res>
+    implements $ContinentCopyWith<$Res> {
+  factory _$$ContinentImplCopyWith(
+          _$ContinentImpl value, $Res Function(_$ContinentImpl) then) =
+      __$$ContinentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String imageUrl});
 }
 
 /// @nodoc
-class __$$ContinentApiImplCopyWithImpl<$Res>
-    extends _$ContinentApiCopyWithImpl<$Res, _$ContinentApiImpl>
-    implements _$$ContinentApiImplCopyWith<$Res> {
-  __$$ContinentApiImplCopyWithImpl(
-      _$ContinentApiImpl _value, $Res Function(_$ContinentApiImpl) _then)
+class __$$ContinentImplCopyWithImpl<$Res>
+    extends _$ContinentCopyWithImpl<$Res, _$ContinentImpl>
+    implements _$$ContinentImplCopyWith<$Res> {
+  __$$ContinentImplCopyWithImpl(
+      _$ContinentImpl _value, $Res Function(_$ContinentImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ContinentApi
+  /// Create a copy of Continent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -103,7 +99,7 @@ class __$$ContinentApiImplCopyWithImpl<$Res>
     Object? name = null,
     Object? imageUrl = null,
   }) {
-    return _then(_$ContinentApiImpl(
+    return _then(_$ContinentImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -118,30 +114,27 @@ class __$$ContinentApiImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ContinentApiImpl implements _ContinentApi {
-  const _$ContinentApiImpl({required this.name, required this.imageUrl});
+class _$ContinentImpl implements _Continent {
+  const _$ContinentImpl({required this.name, required this.imageUrl});
 
-  factory _$ContinentApiImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContinentApiImplFromJson(json);
+  factory _$ContinentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ContinentImplFromJson(json);
 
-  /// e.g. 'Europe'
   @override
   final String name;
-
-  /// e.g. 'https://rstr.in/google/tripedia/TmR12QdlVTT'
   @override
   final String imageUrl;
 
   @override
   String toString() {
-    return 'ContinentApi(name: $name, imageUrl: $imageUrl)';
+    return 'Continent(name: $name, imageUrl: $imageUrl)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContinentApiImpl &&
+            other is _$ContinentImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl));
@@ -151,42 +144,39 @@ class _$ContinentApiImpl implements _ContinentApi {
   @override
   int get hashCode => Object.hash(runtimeType, name, imageUrl);
 
-  /// Create a copy of ContinentApi
+  /// Create a copy of Continent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContinentApiImplCopyWith<_$ContinentApiImpl> get copyWith =>
-      __$$ContinentApiImplCopyWithImpl<_$ContinentApiImpl>(this, _$identity);
+  _$$ContinentImplCopyWith<_$ContinentImpl> get copyWith =>
+      __$$ContinentImplCopyWithImpl<_$ContinentImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ContinentApiImplToJson(
+    return _$$ContinentImplToJson(
       this,
     );
   }
 }
 
-abstract class _ContinentApi implements ContinentApi {
-  const factory _ContinentApi(
+abstract class _Continent implements Continent {
+  const factory _Continent(
       {required final String name,
-      required final String imageUrl}) = _$ContinentApiImpl;
+      required final String imageUrl}) = _$ContinentImpl;
 
-  factory _ContinentApi.fromJson(Map<String, dynamic> json) =
-      _$ContinentApiImpl.fromJson;
+  factory _Continent.fromJson(Map<String, dynamic> json) =
+      _$ContinentImpl.fromJson;
 
-  /// e.g. 'Europe'
   @override
   String get name;
-
-  /// e.g. 'https://rstr.in/google/tripedia/TmR12QdlVTT'
   @override
   String get imageUrl;
 
-  /// Create a copy of ContinentApi
+  /// Create a copy of Continent
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ContinentApiImplCopyWith<_$ContinentApiImpl> get copyWith =>
+  _$$ContinentImplCopyWith<_$ContinentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

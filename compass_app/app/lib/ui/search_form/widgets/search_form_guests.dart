@@ -64,9 +64,7 @@ class _QuantitySelector extends StatelessWidget {
         children: [
           InkWell(
             key: const ValueKey('remove_guests'),
-            onTap: () {
-              viewModel.guests--;
-            },
+            onTap: viewModel.decreaseGuests,
             child: const Icon(
               Icons.remove_circle_outline,
               color: AppColors.grey3,
@@ -75,17 +73,15 @@ class _QuantitySelector extends StatelessWidget {
           ListenableBuilder(
             listenable: viewModel,
             builder: (context, _) => Text(
-              viewModel.guests.toString(),
-              style: viewModel.guests == 0
+              viewModel.searchFormState.guests.toString(),
+              style: viewModel.searchFormState.guests == 0
                   ? Theme.of(context).inputDecorationTheme.hintStyle
                   : Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           InkWell(
             key: const ValueKey('add_guests'),
-            onTap: () {
-              viewModel.guests++;
-            },
+            onTap: viewModel.increaseGuests,
             child: const Icon(
               Icons.add_circle_outline,
               color: AppColors.grey3,

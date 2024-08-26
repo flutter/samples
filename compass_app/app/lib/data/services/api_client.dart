@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:compass_model/model.dart';
 
 import '../../utils/result.dart';
+import '../models/continent.dart';
 import '../repositories/auth/auth_token_repository.dart';
 
 typedef AuthTokenProvider = Future<String?> Function();
