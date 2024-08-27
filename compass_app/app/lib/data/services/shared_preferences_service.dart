@@ -1,40 +1,36 @@
+import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../utils/result.dart';
-import 'auth_token_repository.dart';
+import '../../utils/result.dart';
 
-/// [AuthTokenRepository] that stores the token in Shared Preferences.
-/// Provided for demo purposes, consider using a secure store instead.
-class AuthTokenRepositorySharedPrefs extends AuthTokenRepository {
+class SharedPreferencesService {
   static const _tokenKey = 'TOKEN';
-  String? cachedToken;
+  final _log = Logger('SharedPreferencesService');
 
-  @override
-  Future<Result<String?>> getToken() async {
-    if (cachedToken != null) return Result.ok(cachedToken);
-
+  Future<Result<String?>> fetchToken() async {
     try {
       final sharedPreferences = await SharedPreferences.getInstance();
-      final token = sharedPreferences.getString(_tokenKey);
-      return Result.ok(token);
+      _log.finer('Got token from SharedPreferences');
+      return Result.ok(sharedPreferences.getString(_tokenKey));
     } on Exception catch (e) {
+      _log.warning('Failed to get token', e);
       return Result.error(e);
     }
   }
 
-  @override
   Future<Result<void>> saveToken(String? token) async {
     try {
       final sharedPreferences = await SharedPreferences.getInstance();
       if (token == null) {
+        _log.finer('Removed token');
         await sharedPreferences.remove(_tokenKey);
       } else {
+        _log.finer('Replaced token');
         await sharedPreferences.setString(_tokenKey, token);
       }
-      cachedToken = token;
-      notifyListeners();
       return Result.ok(null);
     } on Exception catch (e) {
+      _log.warning('Failed to set token', e);
       return Result.error(e);
     }
   }

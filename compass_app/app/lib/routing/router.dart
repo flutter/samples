@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../domain/components/auth/auth_login_component.dart';
-import '../data/repositories/auth/auth_token_repository.dart';
+import '../data/repositories/auth/auth_repository.dart';
 import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
 import '../ui/auth/login/view_models/login_viewmodel.dart';
@@ -20,13 +19,13 @@ import '../ui/search_form/widgets/search_form_screen.dart';
 /// Listens to changes in [AuthTokenRepository] to redirect the user
 /// to /login when the user logs out.
 GoRouter router(
-  AuthTokenRepository authTokenRepository,
+  AuthRepository authRepository,
 ) =>
     GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       redirect: _redirect,
-      refreshListenable: authTokenRepository,
+      refreshListenable: authRepository,
       routes: [
         GoRoute(
           path: '/',
@@ -43,10 +42,7 @@ GoRouter router(
               builder: (context, state) {
                 return LoginScreen(
                   viewModel: LoginViewModel(
-                    authLoginComponent: AuthLoginComponent(
-                      authTokenRepository: context.read(),
-                      apiClient: context.read(),
-                    ),
+                    authRepository: context.read(),
                   ),
                 );
               },
@@ -96,7 +92,7 @@ GoRouter router(
 // From https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/redirection.dart
 Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   // if the user is not logged in, they need to login
-  final bool loggedIn = await context.read<AuthTokenRepository>().hasToken();
+  final bool loggedIn = await context.read<AuthRepository>().isAuthenticated;
   final bool loggingIn = state.matchedLocation == '/login';
   if (!loggedIn) {
     return '/login';

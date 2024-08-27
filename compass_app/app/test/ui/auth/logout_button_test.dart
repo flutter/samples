@@ -1,4 +1,3 @@
-import 'package:compass_app/domain/components/auth/auth_logout_component.dart';
 import 'package:compass_app/ui/auth/logout/view_models/logout_viewmodel.dart';
 import 'package:compass_app/ui/auth/logout/widgets/logout_button.dart';
 import 'package:compass_model/model.dart';
@@ -6,30 +5,28 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../../../testing/app.dart';
-import '../../../testing/fakes/repositories/fake_auth_token_repository.dart';
+import '../../../testing/fakes/repositories/fake_auth_repository.dart';
 import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
 import '../../../testing/mocks.dart';
 
 void main() {
   group('LogoutButton test', () {
     late MockGoRouter goRouter;
-    late FakeAuthTokenRepository fakeAuthTokenRepository;
+    late FakeAuthRepository fakeAuthRepository;
     late FakeItineraryConfigRepository fakeItineraryConfigRepository;
     late LogoutViewModel viewModel;
 
     setUp(() {
       goRouter = MockGoRouter();
-      fakeAuthTokenRepository = FakeAuthTokenRepository();
+      fakeAuthRepository = FakeAuthRepository();
       // Setup a token, should be cleared after logout
-      fakeAuthTokenRepository.token = 'TOKEN';
+      fakeAuthRepository.token = 'TOKEN';
       // Setup an ItineraryConfig with some data, should be cleared after logout
       fakeItineraryConfigRepository = FakeItineraryConfigRepository(
           itineraryConfig: const ItineraryConfig(continent: 'CONTINENT'));
       viewModel = LogoutViewModel(
-        authLogoutComponent: AuthLogoutComponent(
-          authTokenRepository: fakeAuthTokenRepository,
-          itineraryConfigRepository: fakeItineraryConfigRepository,
-        ),
+        authRepository: fakeAuthRepository,
+        itineraryConfigRepository: fakeItineraryConfigRepository,
       );
     });
 
@@ -53,7 +50,7 @@ void main() {
         await loadScreen(tester);
 
         // Repo should have a key
-        expect(fakeAuthTokenRepository.token, 'TOKEN');
+        expect(fakeAuthRepository.token, 'TOKEN');
         // Itinerary config should have data
         expect(
           fakeItineraryConfigRepository.itineraryConfig,
@@ -65,7 +62,7 @@ void main() {
         await tester.pumpAndSettle();
 
         // Repo should have no key
-        expect(fakeAuthTokenRepository.token, null);
+        expect(fakeAuthRepository.token, null);
         // Itinerary config should be cleared
         expect(
           fakeItineraryConfigRepository.itineraryConfig,
