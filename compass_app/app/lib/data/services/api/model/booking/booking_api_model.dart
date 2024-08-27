@@ -1,0 +1,27 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'booking_api_model.freezed.dart';
+part 'booking_api_model.g.dart';
+
+@freezed
+class BookingApiModel with _$BookingApiModel {
+  const factory BookingApiModel({
+    /// Booking ID. Generated when stored in server.
+    int? id,
+
+    /// Start date of the trip
+    required DateTime startDate,
+
+    /// End date of the trip
+    required DateTime endDate,
+
+    /// Destination of the trip
+    required String destinationRef,
+
+    /// List of chosen activities
+    required List<String> activitiesRef,
+  }) = _BookingApiModel;
+
+  factory BookingApiModel.fromJson(Map<String, Object?> json) =>
+      _$BookingApiModelFromJson(json);
+}
