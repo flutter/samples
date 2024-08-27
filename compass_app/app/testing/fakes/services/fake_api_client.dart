@@ -1,4 +1,4 @@
-import 'package:compass_app/data/services/api_client.dart';
+import 'package:compass_app/data/services/api/api_client.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
