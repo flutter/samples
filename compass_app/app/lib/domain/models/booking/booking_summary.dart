@@ -3,6 +3,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'booking_summary.freezed.dart';
 part 'booking_summary.g.dart';
 
+/// BookingSummary contains the necessary data to display a booking
+/// in the user home screen, but lacks the rest of the booking data
+/// like activitities or destination.
+/// 
+/// Use the [BookingRepository] to obtain a full [Booking]
+/// using the [BookingSummary.id].
 @freezed
 class BookingSummary with _$BookingSummary {
   const factory BookingSummary({

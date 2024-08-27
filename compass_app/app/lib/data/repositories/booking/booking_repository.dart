@@ -7,7 +7,7 @@ abstract class BookingRepository {
   /// Returns the list of [BookingSummary] for the current user.
   Future<Result<List<BookingSummary>>> getBookingsList();
 
-  /// Returns a [Booking] given the id.
+  /// Returns a full [Booking] given the id.
   Future<Result<Booking>> getBooking(int id);
 
   /// Creates a new [Booking].
