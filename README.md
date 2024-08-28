@@ -32,13 +32,7 @@ git clone --filter=blob:none https://github.com/flutter/samples.git
 
 See the [contributor's guide](CONTRIBUTING.md)!
 
-## Questions or issues?
-
-If you have a general question about one of these samples or how to adapt its
-techniques for one of your own apps, try one of these resources:
-
-* [The FlutterDev Discord](https://discord.gg/rflutterdev)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+## Issues?
 
 If you run into a bug in one of the samples, please file an issue in the
 [`flutter/samples` issue tracker](https://github.com/flutter/samples/issues).
