@@ -54,4 +54,4 @@ functionality, similar to a full Flutter app.
 ## Issues
 
 If you run into an issue with the sample itself, please file an issue
-in the [main Flutter repo](https://github.com/flutter/flutter/issues).
+in the [Flutter samples repo](https://github.com/flutter/samples/issues).
