@@ -3,12 +3,15 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../data/repositories/auth/auth_repository.dart';
+import '../data/repositories/booking/booking_repository_local.dart';
 import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
 import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
 import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
+import '../ui/home/view_models/home_viewmodel.dart';
+import '../ui/home/widgets/home_screen.dart';
 import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
 import '../ui/search_form/view_models/search_form_viewmodel.dart';
@@ -28,23 +31,32 @@ GoRouter router(
       refreshListenable: authRepository,
       routes: [
         GoRoute(
+          path: '/login',
+          builder: (context, state) {
+            return LoginScreen(
+              viewModel: LoginViewModel(
+                authRepository: context.read(),
+              ),
+            );
+          },
+        ),
+        GoRoute(
           path: '/',
           builder: (context, state) {
-            final viewModel = SearchFormViewModel(
-              continentRepository: context.read(),
-              itineraryConfigRepository: context.read(),
+            final viewModel = HomeViewModel(
+              bookingRepository: BookingRepositoryLocal(),
             );
-            return SearchFormScreen(viewModel: viewModel);
+            return HomeScreen(viewModel: viewModel);
           },
           routes: [
             GoRoute(
-              path: 'login',
+              path: 'search',
               builder: (context, state) {
-                return LoginScreen(
-                  viewModel: LoginViewModel(
-                    authRepository: context.read(),
-                  ),
+                final viewModel = SearchFormViewModel(
+                  continentRepository: context.read(),
+                  itineraryConfigRepository: context.read(),
                 );
+                return SearchFormScreen(viewModel: viewModel);
               },
             ),
             GoRoute(
