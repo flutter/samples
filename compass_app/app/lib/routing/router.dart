@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../data/repositories/auth/auth_repository.dart';
-import '../data/repositories/booking/booking_repository_local.dart';
 import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
 import '../ui/auth/login/view_models/login_viewmodel.dart';
