@@ -17,12 +17,28 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => context.go('/search'),
+        label: const Text('Book New Trip'),
+        icon: const Icon(Icons.add_location_outlined),
+      ),
       body: ListenableBuilder(
         listenable: viewModel,
         builder: (context, _) {
+          // TODO: Make scrollable
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: Dimens.of(context).paddingScreenVertical,
+                  horizontal: Dimens.of(context).paddingScreenHorizontal,
+                ),
+                child: Text(
+                  'Your bookings:',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
               Expanded(
                 child: ListView.builder(
                   itemCount: viewModel.bookings.length,
@@ -33,10 +49,6 @@ class HomeScreen extends StatelessWidget {
                         context.go('/booking/${viewModel.bookings[index].id}'),
                   ),
                 ),
-              ),
-              FilledButton(
-                onPressed: () => context.go('/search'),
-                child: const Text('Book New Trip'),
               ),
             ],
           );
@@ -70,7 +82,7 @@ class _Booking extends StatelessWidget {
           children: [
             Text(
               booking.destinationName,
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(
               dateFormatStartEnd(
@@ -79,7 +91,7 @@ class _Booking extends StatelessWidget {
                   end: booking.endDate,
                 ),
               ),
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),
