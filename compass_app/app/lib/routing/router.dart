@@ -44,7 +44,7 @@ GoRouter router(
           path: '/',
           builder: (context, state) {
             final viewModel = HomeViewModel(
-              bookingRepository: BookingRepositoryLocal(),
+              bookingRepository: context.read(),
             );
             return HomeScreen(viewModel: viewModel);
           },
@@ -90,6 +90,7 @@ GoRouter router(
                   itineraryConfigRepository: context.read(),
                   bookingComponent: context.read(),
                   shareComponent: context.read(),
+                  bookingRepository: context.read(),
                 );
                 return BookingScreen(
                   viewModel: viewModel,

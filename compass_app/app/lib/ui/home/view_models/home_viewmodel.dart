@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 
@@ -15,10 +17,9 @@ class HomeViewModel extends ChangeNotifier {
 
   final BookingRepository _bookingRepository;
   final _log = Logger('HomeViewModel');
+  List<BookingSummary> _bookings = [];
 
   late Command0 load;
-
-  List<BookingSummary> _bookings = [];
 
   List<BookingSummary> get bookings => _bookings;
 

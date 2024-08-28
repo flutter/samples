@@ -24,7 +24,7 @@ class BookingShareButton extends StatelessWidget {
         top: false,
         child: ClipRect(
           child: SizedBox(
-            height: (Dimens.of(context).paddingScreenVertical * 2) + 64,
+            height: (Dimens.of(context).paddingScreenVertical * 2) + 90,
             child: BackdropFilter(
               filter: kBlurFilter,
               child: Padding(
@@ -32,12 +32,24 @@ class BookingShareButton extends StatelessWidget {
                 child: ListenableBuilder(
                     listenable: viewModel,
                     builder: (context, _) {
-                      return FilledButton(
-                        key: const Key('share-button'),
-                        onPressed: viewModel.booking != null
-                            ? viewModel.shareBooking.execute
-                            : null,
-                        child: Text(AppLocalization.of(context).shareTrip),
+                      return Column(
+                        children: [
+                          FilledButton(
+                            key: const Key('share-button'),
+                            onPressed: viewModel.booking != null
+                                ? viewModel.shareBooking.execute
+                                : null,
+                            child: Text(AppLocalization.of(context).shareTrip),
+                          ),
+                          const SizedBox(height: Dimens.paddingHorizontal),
+                          FilledButton(
+                            key: const Key('save-button'),
+                            onPressed: viewModel.booking != null
+                                ? viewModel.saveBooking.execute
+                                : null,
+                            child: Text('Save & Exit'),
+                          ),
+                        ],
                       );
                     }),
               ),

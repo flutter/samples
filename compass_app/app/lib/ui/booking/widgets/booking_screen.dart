@@ -7,13 +7,32 @@ import '../view_models/booking_viewmodel.dart';
 import 'booking_body.dart';
 import 'booking_share_button.dart';
 
-class BookingScreen extends StatelessWidget {
+class BookingScreen extends StatefulWidget {
   const BookingScreen({
     super.key,
     required this.viewModel,
   });
 
   final BookingViewModel viewModel;
+
+  @override
+  State<BookingScreen> createState() => _BookingScreenState();
+}
+
+class _BookingScreenState extends State<BookingScreen> {
+  @override
+  void initState() {
+    super.initState();
+    widget.viewModel.saveBooking.addListener(_listener);
+    widget.viewModel.shareBooking.addListener(_listener);
+  }
+
+  @override
+  void dispose() {
+    widget.viewModel.saveBooking.removeListener(_listener);
+    widget.viewModel.shareBooking.removeListener(_listener);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,19 +43,19 @@ class BookingScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: ListenableBuilder(
-          listenable: viewModel.loadBooking,
+          listenable: widget.viewModel.loadBooking,
           builder: (context, child) {
-            if (viewModel.loadBooking.running) {
+            if (widget.viewModel.loadBooking.running) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
-            if (viewModel.loadBooking.error) {
+            if (widget.viewModel.loadBooking.error) {
               return Center(
                 child: ErrorIndicator(
                   title: AppLocalization.of(context).errorWhileLoadingBooking,
                   label: AppLocalization.of(context).tryAgain,
-                  onPressed: viewModel.loadBooking.execute,
+                  onPressed: widget.viewModel.loadBooking.execute,
                 ),
               );
             }
@@ -44,12 +63,20 @@ class BookingScreen extends StatelessWidget {
           },
           child: Stack(
             children: [
-              BookingBody(viewModel: viewModel),
-              BookingShareButton(viewModel: viewModel),
+              BookingBody(viewModel: widget.viewModel),
+              BookingShareButton(viewModel: widget.viewModel),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _listener() {
+    if (widget.viewModel.saveBooking.completed) {
+      widget.viewModel.saveBooking.clearResult();
+      context.go('/');
+    }
+    // TODO show error
   }
 }

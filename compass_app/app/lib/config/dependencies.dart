@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../data/repositories/auth/auth_repository.dart';
 import '../data/repositories/auth/auth_repository_dev.dart';
 import '../data/repositories/auth/auth_repository_remote.dart';
+import '../data/repositories/booking/booking_repository.dart';
+import '../data/repositories/booking/booking_repository_local.dart';
 import '../data/services/api/auth_api_client.dart';
 import '../data/services/shared_preferences_service.dart';
 import '../data/repositories/activity/activity_repository.dart';
@@ -97,6 +99,9 @@ List<SingleChildWidget> get providersLocal {
     ),
     Provider.value(
       value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
+    ),
+    Provider.value(
+      value: BookingRepositoryLocal() as BookingRepository,
     ),
     ..._sharedProviders,
   ];

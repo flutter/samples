@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:compass_model/model.dart';
 import 'package:collection/collection.dart';
-
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
 
@@ -31,19 +32,20 @@ class BookingRepositoryLocal implements BookingRepository {
   @override
   Future<Result<List<BookingSummary>>> getBookingsList() async {
     await _createDefaultBooking();
+    return Result.ok(_createSummaries());
+  }
 
-    return Result.ok(
-      _bookings
-          .mapIndexed(
-            (index, booking) => BookingSummary(
-              id: index,
-              destinationName: booking.destination.name,
-              startDate: booking.startDate,
-              endDate: booking.endDate,
-            ),
-          )
-          .toList(),
-    );
+  List<BookingSummary> _createSummaries() {
+    return _bookings
+        .mapIndexed(
+          (index, booking) => BookingSummary(
+            id: index,
+            destinationName: booking.destination.name,
+            startDate: booking.startDate,
+            endDate: booking.endDate,
+          ),
+        )
+        .toList();
   }
 
   Future<Result<void>> _createDefaultBooking() async {
