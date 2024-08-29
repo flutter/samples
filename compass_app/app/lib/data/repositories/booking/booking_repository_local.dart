@@ -53,7 +53,7 @@ class BookingRepositoryLocal implements BookingRepository {
         .toList();
   }
 
-  Future<Result<void>> _createDefaultBooking() async {
+  Future<void> _createDefaultBooking() async {
     // create a default booking the first time
     if (_bookings.isEmpty) {
       final destination = (await _localDataService.getDestinations()).first;
@@ -71,6 +71,5 @@ class BookingRepositoryLocal implements BookingRepository {
         ),
       );
     }
-    return Result.ok(null);
   }
 }
