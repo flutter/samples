@@ -14,7 +14,7 @@ abstract class Styles {
         fontSize: 16,
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.normal,
-        fontFamily: 'NotoSans',
+        fontFamily: 'CupertinoSystemText',
         letterSpacing: -0.41,
         decoration: TextDecoration.none,
       ),
