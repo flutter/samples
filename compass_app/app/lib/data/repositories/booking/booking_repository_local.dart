@@ -5,12 +5,16 @@ import 'package:collection/collection.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
 
-import '../activity/activity_repository_local.dart';
-import '../destination/destination_repository_local.dart';
+import '../../services/local/local_data_service.dart';
 import 'booking_repository.dart';
 
 class BookingRepositoryLocal implements BookingRepository {
+  BookingRepositoryLocal({
+    required LocalDataService localDataService,
+  }) : _localDataService = localDataService;
+
   final _bookings = List<Booking>.empty(growable: true);
+  final LocalDataService _localDataService;
 
   @override
   Future<Result<void>> createBooking(Booking booking) async {
@@ -40,7 +44,8 @@ class BookingRepositoryLocal implements BookingRepository {
         .mapIndexed(
           (index, booking) => BookingSummary(
             id: index,
-            destinationName: '${booking.destination.name}, ${booking.destination.continent}',
+            destinationName:
+                '${booking.destination.name}, ${booking.destination.continent}',
             startDate: booking.startDate,
             endDate: booking.endDate,
           ),
@@ -51,21 +56,11 @@ class BookingRepositoryLocal implements BookingRepository {
   Future<Result<void>> _createDefaultBooking() async {
     // create a default booking the first time
     if (_bookings.isEmpty) {
-      final destinationRepositoryLocal = DestinationRepositoryLocal();
-      final activityRepositoryLocal = ActivityRepositoryLocal();
-      final resultDestination =
-          await destinationRepositoryLocal.getDestinations();
-      if (resultDestination is Error<Destination>) {
-        return Result.error(resultDestination.asError.error);
-      }
-      final destination = resultDestination.asOk.value.first;
-
-      final resultActivities =
-          await activityRepositoryLocal.getByDestination(destination.ref);
-      if (resultActivities is Error<List<Activity>>) {
-        return Result.error(resultActivities.asError.error);
-      }
-      final activities = resultActivities.asOk.value.take(4).toList();
+      final destination = (await _localDataService.getDestinations()).first;
+      final activities = (await _localDataService.getActivities())
+          .where((activity) => activity.destinationRef == destination.ref)
+          .take(4)
+          .toList();
 
       _bookings.add(
         Booking(

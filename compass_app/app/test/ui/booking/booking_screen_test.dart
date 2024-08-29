@@ -5,9 +5,11 @@ import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../../testing/app.dart';
 import '../../../testing/fakes/repositories/fake_activities_repository.dart';
+import '../../../testing/fakes/repositories/fake_booking_repository.dart';
 import '../../../testing/fakes/repositories/fake_destination_repository.dart';
 import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
 import '../../../testing/mocks.dart';
@@ -19,9 +21,11 @@ void main() {
     late MockGoRouter goRouter;
     late BookingViewModel viewModel;
     late bool shared;
+    late FakeBookingRepository bookingRepository;
 
     setUp(() {
       shared = false;
+      bookingRepository = FakeBookingRepository();
       viewModel = BookingViewModel(
         itineraryConfigRepository: FakeItineraryConfigRepository(
           itineraryConfig: ItineraryConfig(
@@ -40,6 +44,7 @@ void main() {
         shareComponent: BookingShareComponent.custom((text) async {
           shared = true;
         }),
+        bookingRepository: bookingRepository,
       );
       goRouter = MockGoRouter();
     });
@@ -72,6 +77,24 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('share-button')));
       expect(shared, true);
+    });
+
+    testWidgets('should save booking and exit', (WidgetTester tester) async {
+      // No bookings saved yet
+      expect(bookingRepository.bookings, isEmpty);
+
+      await loadScreen(tester);
+      await tester.pumpAndSettle();
+
+      // Perform save
+      await tester.tap(find.byKey(const Key('save-button')));
+      await tester.pumpAndSettle();
+
+      // Booking is saved
+      expect(bookingRepository.bookings.length, 1);
+
+      // Should navigate to home screen
+      verify(() => goRouter.go('/')).called(1);
     });
   });
 }

@@ -7,6 +7,7 @@ import '../data/repositories/auth/auth_repository_remote.dart';
 import '../data/repositories/booking/booking_repository.dart';
 import '../data/repositories/booking/booking_repository_local.dart';
 import '../data/services/api/auth_api_client.dart';
+import '../data/services/local/local_data_service.dart';
 import '../data/services/shared_preferences_service.dart';
 import '../data/repositories/activity/activity_repository.dart';
 import '../data/repositories/activity/activity_repository_local.dart';
@@ -89,19 +90,30 @@ List<SingleChildWidget> get providersLocal {
       value: AuthRepositoryDev() as AuthRepository,
     ),
     Provider.value(
-      value: DestinationRepositoryLocal() as DestinationRepository,
+      value: LocalDataService(),
     ),
-    Provider.value(
-      value: ContinentRepositoryLocal() as ContinentRepository,
+    Provider(
+      create: (context) => DestinationRepositoryLocal(
+        localDataService: context.read(),
+      ) as DestinationRepository,
     ),
-    Provider.value(
-      value: ActivityRepositoryLocal() as ActivityRepository,
+    Provider(
+      create: (context) => ContinentRepositoryLocal(
+        localDataService: context.read(),
+      ) as ContinentRepository,
+    ),
+    Provider(
+      create: (context) => ActivityRepositoryLocal(
+        localDataService: context.read(),
+      ) as ActivityRepository,
+    ),
+    Provider(
+      create: (context) => BookingRepositoryLocal(
+        localDataService: context.read(),
+      ) as BookingRepository,
     ),
     Provider.value(
       value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
-    ),
-    Provider.value(
-      value: BookingRepositoryLocal() as BookingRepository,
     ),
     ..._sharedProviders,
   ];

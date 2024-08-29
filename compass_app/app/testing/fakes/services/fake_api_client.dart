@@ -1,4 +1,5 @@
 import 'package:compass_app/data/services/api/api_client.dart';
+import 'package:compass_app/data/services/api/model/booking/booking_api_model.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
@@ -72,4 +73,22 @@ class FakeApiClient implements ApiClient {
 
   @override
   AuthHeaderProvider? authHeaderProvider;
+
+  @override
+  Future<Result<BookingApiModel>> getBooking(int id) {
+    // TODO: implement getBooking
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<List<BookingApiModel>>> getBookings() {
+    // TODO: implement getBookings
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<BookingApiModel>> postBooking(BookingApiModel booking) {
+    // TODO: implement postBooking
+    throw UnimplementedError();
+  }
 }
