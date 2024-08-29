@@ -5,7 +5,6 @@ import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../../testing/app.dart';
 import '../../../testing/fakes/repositories/fake_activities_repository.dart';
