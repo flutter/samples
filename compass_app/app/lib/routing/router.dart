@@ -89,7 +89,6 @@ GoRouter router(
                   itineraryConfigRepository: context.read(),
                   bookingComponent: context.read(),
                   shareComponent: context.read(),
-                  bookingRepository: context.read(),
                 );
                 return BookingScreen(
                   viewModel: viewModel,

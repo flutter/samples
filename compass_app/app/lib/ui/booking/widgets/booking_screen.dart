@@ -23,13 +23,11 @@ class _BookingScreenState extends State<BookingScreen> {
   @override
   void initState() {
     super.initState();
-    widget.viewModel.saveBooking.addListener(_listener);
     widget.viewModel.shareBooking.addListener(_listener);
   }
 
   @override
   void dispose() {
-    widget.viewModel.saveBooking.removeListener(_listener);
     widget.viewModel.shareBooking.removeListener(_listener);
     super.dispose();
   }
@@ -43,19 +41,19 @@ class _BookingScreenState extends State<BookingScreen> {
       },
       child: Scaffold(
         body: ListenableBuilder(
-          listenable: widget.viewModel.loadBooking,
+          listenable: widget.viewModel.createBooking,
           builder: (context, child) {
-            if (widget.viewModel.loadBooking.running) {
+            if (widget.viewModel.createBooking.running) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
-            if (widget.viewModel.loadBooking.error) {
+            if (widget.viewModel.createBooking.error) {
               return Center(
                 child: ErrorIndicator(
                   title: AppLocalization.of(context).errorWhileLoadingBooking,
                   label: AppLocalization.of(context).tryAgain,
-                  onPressed: widget.viewModel.loadBooking.execute,
+                  onPressed: widget.viewModel.createBooking.execute,
                 ),
               );
             }
@@ -73,10 +71,9 @@ class _BookingScreenState extends State<BookingScreen> {
   }
 
   void _listener() {
-    if (widget.viewModel.saveBooking.completed) {
-      widget.viewModel.saveBooking.clearResult();
-      context.go('/');
+    if (widget.viewModel.shareBooking.error) {
+      widget.viewModel.shareBooking.clearResult();
+      // TODO show error
     }
-    // TODO show error
   }
 }

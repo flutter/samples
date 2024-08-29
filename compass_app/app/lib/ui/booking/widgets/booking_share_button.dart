@@ -24,34 +24,27 @@ class BookingShareButton extends StatelessWidget {
         top: false,
         child: ClipRect(
           child: SizedBox(
-            height: (Dimens.of(context).paddingScreenVertical * 2) + 90,
+            height: (Dimens.of(context).paddingScreenVertical * 2) + 64,
             child: BackdropFilter(
               filter: kBlurFilter,
               child: Padding(
                 padding: Dimens.of(context).edgeInsetsScreenSymmetric,
                 child: ListenableBuilder(
-                    listenable: viewModel,
-                    builder: (context, _) {
-                      return Column(
-                        children: [
-                          FilledButton(
-                            key: const Key('share-button'),
-                            onPressed: viewModel.booking != null
-                                ? viewModel.shareBooking.execute
-                                : null,
-                            child: Text(AppLocalization.of(context).shareTrip),
-                          ),
-                          const SizedBox(height: Dimens.paddingHorizontal),
-                          FilledButton(
-                            key: const Key('save-button'),
-                            onPressed: viewModel.booking != null
-                                ? viewModel.saveBooking.execute
-                                : null,
-                            child: Text('Save & Exit'),
-                          ),
-                        ],
-                      );
-                    }),
+                  listenable: viewModel,
+                  builder: (context, _) {
+                    return Column(
+                      children: [
+                        FilledButton(
+                          key: const Key('share-button'),
+                          onPressed: viewModel.booking != null
+                              ? viewModel.shareBooking.execute
+                              : null,
+                          child: Text(AppLocalization.of(context).shareTrip),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ),

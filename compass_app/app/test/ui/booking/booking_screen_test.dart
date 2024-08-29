@@ -40,11 +40,11 @@ void main() {
         bookingComponent: BookingCreateComponent(
           activityRepository: FakeActivityRepository(),
           destinationRepository: FakeDestinationRepository(),
+          bookingRepository: bookingRepository,
         ),
         shareComponent: BookingShareComponent.custom((text) async {
           shared = true;
         }),
-        bookingRepository: bookingRepository,
       );
       goRouter = MockGoRouter();
     });
@@ -70,6 +70,9 @@ void main() {
 
       expect(find.text('name1'), findsOneWidget);
       expect(find.text('tags1'), findsOneWidget);
+
+      // Booking is saved
+      expect(bookingRepository.bookings.length, 1);
     });
 
     testWidgets('should share booking', (WidgetTester tester) async {
@@ -77,24 +80,6 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('share-button')));
       expect(shared, true);
-    });
-
-    testWidgets('should save booking and exit', (WidgetTester tester) async {
-      // No bookings saved yet
-      expect(bookingRepository.bookings, isEmpty);
-
-      await loadScreen(tester);
-      await tester.pumpAndSettle();
-
-      // Perform save
-      await tester.tap(find.byKey(const Key('save-button')));
-      await tester.pumpAndSettle();
-
-      // Booking is saved
-      expect(bookingRepository.bookings.length, 1);
-
-      // Should navigate to home screen
-      verify(() => goRouter.go('/')).called(1);
     });
   });
 }

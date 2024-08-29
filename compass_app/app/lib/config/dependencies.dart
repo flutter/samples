@@ -31,6 +31,7 @@ List<SingleChildWidget> _sharedProviders = [
     create: (context) => BookingCreateComponent(
       destinationRepository: context.read(),
       activityRepository: context.read(),
+      bookingRepository: context.read(),
     ),
   ),
   Provider(
