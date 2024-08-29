@@ -186,7 +186,7 @@ void main() {
   });
 
   testWidgets(
-      'Material version switches between Material3 and Material2 when'
+      'Material version switches between Material3 and Material2 when '
       'the version icon is clicked', (tester) async {
     widgetSetup(tester, 450, windowHeight: 7000);
     await tester.pumpWidget(const App());
