@@ -108,7 +108,7 @@ class MockEntryApi implements EntryApi {
     var list = _storage.keys
         .where((k) => k.startsWith(categoryId))
         .map((k) => _storage[k])
-        .whereNotNull()
+        .nonNulls
         .toList();
     return list;
   }
