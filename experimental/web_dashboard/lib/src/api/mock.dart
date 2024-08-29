@@ -5,7 +5,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:collection/collection.dart';
 import 'package:uuid/uuid.dart' as uuid;
 
 import 'api.dart';
