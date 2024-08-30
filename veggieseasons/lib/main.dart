@@ -20,7 +20,7 @@ import 'screens/list.dart';
 import 'screens/search.dart';
 import 'screens/settings.dart';
 import 'styles.dart';
-import 'widgets/fade_transition_page.dart';
+import 'widgets/veggie_seasons_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -136,7 +136,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.list',
                       child: const ListScreen(restorationId: 'list'),
@@ -149,7 +149,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.favorites',
                       child: const FavoritesScreen(restorationId: 'favorites'),
@@ -162,7 +162,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.search',
                       child: const SearchScreen(restorationId: 'search'),
@@ -175,7 +175,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.settings',
                       child: const SettingsScreen(restorationId: 'settings'),
