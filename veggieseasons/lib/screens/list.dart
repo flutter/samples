@@ -6,11 +6,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/preferences.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
-import 'package:veggieseasons/widgets/veggie_card.dart';
+import '../data/app_state.dart';
+import '../data/preferences.dart';
+import '../data/veggie.dart';
+import '../styles.dart';
+import '../widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
   const ListScreen({this.restorationId, super.key});

@@ -9,18 +9,18 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/preferences.dart';
-import 'package:veggieseasons/screens/home.dart';
-import 'package:veggieseasons/styles.dart';
-import 'package:veggieseasons/widgets/fade_transition_page.dart';
 import 'package:window_size/window_size.dart';
 
+import 'data/app_state.dart';
+import 'data/preferences.dart';
 import 'screens/details.dart';
 import 'screens/favorites.dart';
+import 'screens/home.dart';
 import 'screens/list.dart';
 import 'screens/search.dart';
 import 'screens/settings.dart';
+import 'styles.dart';
+import 'widgets/fade_transition_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

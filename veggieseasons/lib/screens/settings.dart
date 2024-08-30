@@ -5,11 +5,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/preferences.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
-import 'package:veggieseasons/widgets/settings_group.dart';
-import 'package:veggieseasons/widgets/settings_item.dart';
+import '../data/preferences.dart';
+import '../data/veggie.dart';
+import '../styles.dart';
+import '../widgets/settings_group.dart';
+import '../widgets/settings_item.dart';
 
 class VeggieCategorySettingsScreen extends StatelessWidget {
   const VeggieCategorySettingsScreen({super.key, this.restorationId});

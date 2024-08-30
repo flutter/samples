@@ -5,7 +5,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
-import 'package:veggieseasons/styles.dart';
+import '../styles.dart';
 
 /// Partially overlays and then blurs its child's background.
 class FrostedBox extends StatelessWidget {

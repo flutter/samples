@@ -4,7 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:veggieseasons/data/veggie.dart';
+import 'data/veggie.dart';
 
 abstract class Styles {
   static CupertinoThemeData veggieThemeData = const CupertinoThemeData(

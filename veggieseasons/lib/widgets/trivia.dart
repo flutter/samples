@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
+import '../data/app_state.dart';
+import '../data/veggie.dart';
+import '../styles.dart';
 
 /// Presents a series of trivia questions about a particular widget, and tracks
 /// the user's score.

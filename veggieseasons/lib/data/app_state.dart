@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/foundation.dart';
-import 'package:veggieseasons/data/local_veggie_provider.dart';
-import 'package:veggieseasons/data/veggie.dart';
+import 'local_veggie_provider.dart';
+import 'veggie.dart';
 
 class AppState extends ChangeNotifier {
   final List<Veggie> _veggies;

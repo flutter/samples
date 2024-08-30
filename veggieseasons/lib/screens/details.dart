@@ -5,12 +5,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/preferences.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
-import 'package:veggieseasons/widgets/close_button.dart';
-import 'package:veggieseasons/widgets/trivia.dart';
+import '../data/app_state.dart';
+import '../data/preferences.dart';
+import '../data/veggie.dart';
+import '../styles.dart';
+import '../widgets/close_button.dart';
+import '../widgets/trivia.dart';
 
 class ServingInfoChart extends StatelessWidget {
   const ServingInfoChart(this.veggie, this.prefs, {super.key});
