@@ -43,19 +43,6 @@ class ServingInfoChart extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 16),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 9,
-              bottom: 4,
-            ),
-            child: Text(
-              'Serving info',
-              style: CupertinoTheme.of(context).textTheme.textStyle,
-            ),
-          ),
-        ),
         Container(
           decoration: BoxDecoration(
             border: Border.all(color: Styles.servingInfoBorderColor),
