@@ -228,7 +228,7 @@ class DetailsScreen extends StatelessWidget {
     final veggie = model.getVeggie(id);
 
     return SizedBox(
-      height: 150,
+      height: 240,
       child: Stack(
         children: [
           Positioned(
