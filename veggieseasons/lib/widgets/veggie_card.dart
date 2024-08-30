@@ -10,14 +10,10 @@ import '../styles.dart';
 
 /// A Card-like Widget that responds to tap events by animating changes to its
 /// elevation and invoking an optional [onPressed] callback.
-class PressableCard extends StatefulWidget {
+class PressableCard extends StatelessWidget {
   const PressableCard({
     required this.child,
     this.borderRadius = const BorderRadius.all(Radius.circular(16)),
-    this.upElevation = 2,
-    this.downElevation = 0,
-    this.shadowColor = CupertinoColors.black,
-    this.duration = const Duration(milliseconds: 100),
     this.onPressed,
     super.key,
   });
@@ -28,42 +24,17 @@ class PressableCard extends StatefulWidget {
 
   final BorderRadius borderRadius;
 
-  final double upElevation;
-
-  final double downElevation;
-
-  final Color shadowColor;
-
-  final Duration duration;
-
-  @override
-  State<PressableCard> createState() => _PressableCardState();
-}
-
-class _PressableCardState extends State<PressableCard> {
-  bool cardIsDown = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() => cardIsDown = false);
-        if (widget.onPressed != null) {
-          widget.onPressed!();
-        }
-      },
-      onTapDown: (details) => setState(() => cardIsDown = true),
-      onTapCancel: () => setState(() => cardIsDown = false),
-      child: AnimatedPhysicalModel(
-        elevation: cardIsDown ? widget.downElevation : widget.upElevation,
-        borderRadius: widget.borderRadius,
-        shape: BoxShape.rectangle,
-        shadowColor: widget.shadowColor,
-        duration: widget.duration,
-        color: CupertinoColors.lightBackgroundGray,
+      onTap: onPressed,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+        ),
         child: ClipRRect(
-          borderRadius: widget.borderRadius,
-          child: widget.child,
+          borderRadius: borderRadius,
+          child: child,
         ),
       ),
     );
