@@ -195,23 +195,6 @@ class InfoView extends StatelessWidget {
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
           ServingInfoChart(veggie, prefs),
-          const SizedBox(height: 24),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CupertinoSwitch(
-                value: veggie.isFavorite,
-                onChanged: (value) {
-                  appState.setFavorite(id, value);
-                },
-              ),
-              const SizedBox(width: 8),
-              Text(
-                'Save to Garden',
-                style: CupertinoTheme.of(context).textTheme.textStyle,
-              ),
-            ],
-          ),
         ],
       ),
     );
