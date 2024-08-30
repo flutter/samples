@@ -52,15 +52,8 @@ class ListScreen extends StatelessWidget {
                 if (index == 0) {
                   return Padding(
                     padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(dateString.toUpperCase(),
-                            style: Styles.minorText(themeData)),
-                        Text('In season today',
-                            style: Styles.headlineText(themeData)),
-                      ],
-                    ),
+                    child: Text('In season today',
+                        style: Styles.headlineText(themeData)),
                   );
                 } else if (index <= appState.availableVeggies.length) {
                   return _generateVeggieRow(
