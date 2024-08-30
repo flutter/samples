@@ -9,7 +9,7 @@ import '../data/app_state.dart';
 import '../data/preferences.dart';
 import '../data/veggie.dart';
 import '../styles.dart';
-import '../widgets/close_button.dart';
+import '../widgets/detail_buttons.dart';
 
 class ServingInfoChart extends StatelessWidget {
   const ServingInfoChart(this.veggie, this.prefs, {super.key});
@@ -247,6 +247,48 @@ class DetailsScreen extends StatelessWidget {
               child: CloseButton(() {
                 context.pop();
               }),
+            ),
+          ),
+          Positioned(
+            top: 16,
+            right: 16,
+            child: SafeArea(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ShareButton(
+                    () {
+                      showCupertinoModalPopup<void>(
+                        context: context,
+                        builder: (context) {
+                          return CupertinoActionSheet(
+                            title: Text('Share ${veggie.name}'),
+                            message: Text(veggie.shortDescription),
+                            actions: [
+                              CupertinoActionSheetAction(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  Builder(builder: (context) {
+                    final appState = Provider.of<AppState>(context);
+                    final veggie = appState.getVeggie(id);
+
+                    return FavoriteButton(
+                      () => appState.setFavorite(id, !veggie.isFavorite),
+                      veggie.isFavorite,
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
         ],
