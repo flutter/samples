@@ -4,7 +4,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../data/app_state.dart';
 import '../data/preferences.dart';
@@ -35,8 +34,6 @@ class ListScreen extends StatelessWidget {
     return CupertinoTabView(
       restorationScopeId: restorationId,
       builder: (context) {
-        var dateString = DateFormat('MMMM y').format(DateTime.now());
-
         final appState = Provider.of<AppState>(context);
         final prefs = Provider.of<Preferences>(context);
         final themeData = CupertinoTheme.of(context);
