@@ -29,6 +29,30 @@ void main() {
       );
     });
 
+    testWidgets('Open a booking', (tester) async {
+      // Load app widget with local configuration
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: providersLocal,
+          child: const MainApp(),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+      await tester.pumpAndSettle();
+
+      // Tap on booking (Alaska is created by default)
+      await tester.tap(find.text('Alaska, North America'));
+      await tester.pumpAndSettle();
+
+      // Should be at booking screen
+      expect(find.byType(BookingScreen), findsOneWidget);
+      expect(find.text('Alaska, North America'), findsOneWidget);
+    });
+
     testWidgets('Create booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(

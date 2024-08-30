@@ -62,6 +62,52 @@ void main() {
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
+    testWidgets('Open a booking', (tester) async {
+      // Load app widget with local configuration
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: providersRemote,
+          child: const MainApp(),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Login screen because logget out
+      expect(find.byType(LoginScreen), findsOneWidget);
+
+      // Perform login (credentials are prefilled)
+      await tester.tap(find.text('Login'));
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+      await tester.pumpAndSettle();
+
+      // Tap on booking (Alaska is created by default)
+      await tester.tap(find.text('Alaska, North America'));
+      await tester.pumpAndSettle();
+
+      // Should be at booking screen
+      expect(find.byType(BookingScreen), findsOneWidget);
+      expect(find.text('Alaska, North America'), findsOneWidget);
+
+      // Navigate back to home
+      await tester.tap(find.byType(HomeButton).first);
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+
+      // New Booking should appear
+      expect(find.text('Amalfi Coast, Europe'), findsOneWidget);
+
+      // Perform logout
+      await tester.tap(find.byType(LogoutButton).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(LoginScreen), findsOneWidget);
+    });
+
     testWidgets('Create booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(
