@@ -16,7 +16,7 @@ class ListScreen extends StatelessWidget {
 
   final String? restorationId;
 
-  Widget _generateVeggieRow(Veggie veggie, Preferences prefs,
+  Widget _generateVeggieCard(Veggie veggie, Preferences prefs,
       {bool inSeason = true}) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
@@ -53,7 +53,7 @@ class ListScreen extends StatelessWidget {
                         style: Styles.headlineText(themeData)),
                   );
                 } else if (index <= appState.availableVeggies.length) {
-                  return _generateVeggieRow(
+                  return _generateVeggieCard(
                     appState.availableVeggies[index - 1],
                     prefs,
                   );
@@ -66,7 +66,7 @@ class ListScreen extends StatelessWidget {
                 } else {
                   var relativeIndex =
                       index - (appState.availableVeggies.length + 2);
-                  return _generateVeggieRow(
+                  return _generateVeggieCard(
                       appState.unavailableVeggies[relativeIndex], prefs,
                       inSeason: false);
                 }
