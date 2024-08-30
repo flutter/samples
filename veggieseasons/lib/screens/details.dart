@@ -10,7 +10,6 @@ import '../data/preferences.dart';
 import '../data/veggie.dart';
 import '../styles.dart';
 import '../widgets/close_button.dart';
-import '../widgets/trivia.dart';
 
 class ServingInfoChart extends StatelessWidget {
   const ServingInfoChart(this.veggie, this.prefs, {super.key});
@@ -235,35 +234,14 @@ class InfoView extends StatelessWidget {
   }
 }
 
-class DetailsScreen extends StatefulWidget {
+class DetailsScreen extends StatelessWidget {
   final int? id;
   final String? restorationId;
 
   const DetailsScreen({this.id, this.restorationId, super.key});
 
-  @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
-}
-
-class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
-  final RestorableInt _selectedViewIndex = RestorableInt(0);
-
-  @override
-  String? get restorationId => widget.restorationId;
-
-  @override
-  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_selectedViewIndex, 'tab');
-  }
-
-  @override
-  void dispose() {
-    _selectedViewIndex.dispose();
-    super.dispose();
-  }
-
   Widget _buildHeader(BuildContext context, AppState model) {
-    final veggie = model.getVeggie(widget.id);
+    final veggie = model.getVeggie(id);
 
     return SizedBox(
       height: 150,
@@ -296,41 +274,22 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
 
-    return UnmanagedRestorationScope(
-      bucket: bucket,
-      child: CupertinoPageScaffold(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: ListView(
-                restorationId: 'list',
-                children: [
-                  _buildHeader(context, appState),
-                  const SizedBox(height: 20),
-                  CupertinoSegmentedControl<int>(
-                    children: const {
-                      0: Text(
-                        'Facts & Info',
-                      ),
-                      1: Text(
-                        'Trivia',
-                      )
-                    },
-                    groupValue: _selectedViewIndex.value,
-                    onValueChanged: (value) {
-                      setState(() => _selectedViewIndex.value = value);
-                    },
-                  ),
-                  _selectedViewIndex.value == 0
-                      ? InfoView(widget.id)
-                      : TriviaView(id: widget.id, restorationId: 'trivia'),
-                ],
-              ),
+    return CupertinoPageScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: ListView(
+              restorationId: 'list',
+              children: [
+                _buildHeader(context, appState),
+                const SizedBox(height: 20),
+                InfoView(id),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
