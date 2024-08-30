@@ -44,9 +44,6 @@ class ServingInfoChart extends StatelessWidget {
       children: [
         const SizedBox(height: 16),
         Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Styles.servingInfoBorderColor),
-          ),
           padding: const EdgeInsets.all(8),
           child: Column(
             children: [
