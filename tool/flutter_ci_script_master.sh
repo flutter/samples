@@ -59,7 +59,8 @@ declare -ar PROJECT_NAMES=(
     "simplistic_calculator"
     "simplistic_editor"
     "testing_app"
-    "veggieseasons"
+#    todo @ewindmill
+#    "veggieseasons"
     "web_embedding/element_embedding_demo"
     "web/_tool"
     "web/samples_index"
