@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../routing/routes.dart';
 import '../../../core/localization/applocalization.dart';
 import '../../../core/themes/dimens.dart';
 import '../view_models/login_viewmodel.dart';
@@ -88,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _onResult() {
     if (widget.viewModel.login.completed) {
       widget.viewModel.login.clearResult();
-      context.go('/');
+      context.go(Routes.home);
     }
 
     if (widget.viewModel.login.error) {

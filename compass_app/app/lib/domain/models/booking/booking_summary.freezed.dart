@@ -24,7 +24,7 @@ mixin _$BookingSummary {
   int get id => throw _privateConstructorUsedError;
 
   /// Destination name to be displayed.
-  String get destinationName => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   /// Start date of the booking.
   DateTime get startDate => throw _privateConstructorUsedError;
@@ -48,8 +48,7 @@ abstract class $BookingSummaryCopyWith<$Res> {
           BookingSummary value, $Res Function(BookingSummary) then) =
       _$BookingSummaryCopyWithImpl<$Res, BookingSummary>;
   @useResult
-  $Res call(
-      {int id, String destinationName, DateTime startDate, DateTime endDate});
+  $Res call({int id, String name, DateTime startDate, DateTime endDate});
 }
 
 /// @nodoc
@@ -68,7 +67,7 @@ class _$BookingSummaryCopyWithImpl<$Res, $Val extends BookingSummary>
   @override
   $Res call({
     Object? id = null,
-    Object? destinationName = null,
+    Object? name = null,
     Object? startDate = null,
     Object? endDate = null,
   }) {
@@ -77,9 +76,9 @@ class _$BookingSummaryCopyWithImpl<$Res, $Val extends BookingSummary>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      destinationName: null == destinationName
-          ? _value.destinationName
-          : destinationName // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       startDate: null == startDate
           ? _value.startDate
@@ -101,8 +100,7 @@ abstract class _$$BookingSummaryImplCopyWith<$Res>
       __$$BookingSummaryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id, String destinationName, DateTime startDate, DateTime endDate});
+  $Res call({int id, String name, DateTime startDate, DateTime endDate});
 }
 
 /// @nodoc
@@ -119,7 +117,7 @@ class __$$BookingSummaryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? destinationName = null,
+    Object? name = null,
     Object? startDate = null,
     Object? endDate = null,
   }) {
@@ -128,9 +126,9 @@ class __$$BookingSummaryImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      destinationName: null == destinationName
-          ? _value.destinationName
-          : destinationName // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       startDate: null == startDate
           ? _value.startDate
@@ -149,7 +147,7 @@ class __$$BookingSummaryImplCopyWithImpl<$Res>
 class _$BookingSummaryImpl implements _BookingSummary {
   const _$BookingSummaryImpl(
       {required this.id,
-      required this.destinationName,
+      required this.name,
       required this.startDate,
       required this.endDate});
 
@@ -162,7 +160,7 @@ class _$BookingSummaryImpl implements _BookingSummary {
 
   /// Destination name to be displayed.
   @override
-  final String destinationName;
+  final String name;
 
   /// Start date of the booking.
   @override
@@ -174,7 +172,7 @@ class _$BookingSummaryImpl implements _BookingSummary {
 
   @override
   String toString() {
-    return 'BookingSummary(id: $id, destinationName: $destinationName, startDate: $startDate, endDate: $endDate)';
+    return 'BookingSummary(id: $id, name: $name, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -183,8 +181,7 @@ class _$BookingSummaryImpl implements _BookingSummary {
         (other.runtimeType == runtimeType &&
             other is _$BookingSummaryImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.destinationName, destinationName) ||
-                other.destinationName == destinationName) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate));
@@ -192,8 +189,7 @@ class _$BookingSummaryImpl implements _BookingSummary {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, destinationName, startDate, endDate);
+  int get hashCode => Object.hash(runtimeType, id, name, startDate, endDate);
 
   /// Create a copy of BookingSummary
   /// with the given fields replaced by the non-null parameter values.
@@ -215,7 +211,7 @@ class _$BookingSummaryImpl implements _BookingSummary {
 abstract class _BookingSummary implements BookingSummary {
   const factory _BookingSummary(
       {required final int id,
-      required final String destinationName,
+      required final String name,
       required final DateTime startDate,
       required final DateTime endDate}) = _$BookingSummaryImpl;
 
@@ -228,7 +224,7 @@ abstract class _BookingSummary implements BookingSummary {
 
   /// Destination name to be displayed.
   @override
-  String get destinationName;
+  String get name;
 
   /// Start date of the booking.
   @override

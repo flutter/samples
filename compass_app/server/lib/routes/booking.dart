@@ -17,18 +17,19 @@ import '../model/booking/booking.dart';
 class BookingApi {
   BookingApi() {
     // Create a default booking
-    final destinationRef = Assets.destinations.first.ref;
+    var destination = Assets.destinations.first;
     final activitiesRef = Assets.activities
-        .where((activity) => activity.destinationRef == destinationRef)
+        .where((activity) => activity.destinationRef == destination.ref)
         .map((activity) => activity.ref)
         .toList();
     _bookings.insert(
       0,
       Booking(
         id: 0,
+        name: '${destination.name}, ${destination.continent}',
         startDate: DateTime(2024, 7, 20),
         endDate: DateTime(2024, 8, 15),
-        destinationRef: destinationRef,
+        destinationRef: destination.ref,
         activitiesRef: activitiesRef,
       ),
     );
@@ -36,7 +37,7 @@ class BookingApi {
 
   // Bookings are kept in memory for demo purposes.
   // To keep things simple, the id is also the index in the list.
-  List<Booking> _bookings = List.empty(growable: true);
+  final List<Booking> _bookings = List.empty(growable: true);
 
   Router get router {
     final router = Router();

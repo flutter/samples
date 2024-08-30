@@ -108,6 +108,7 @@ void main() {
       headers: headers,
       body: jsonEncode(
         Booking(
+          name: "DESTINATION, CONTINENT",
           startDate: DateTime(2024, 1, 1),
           endDate: DateTime(2024, 2, 2),
           destinationRef: 'REF',

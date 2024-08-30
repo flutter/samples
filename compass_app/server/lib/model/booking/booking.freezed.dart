@@ -29,6 +29,10 @@ mixin _$Booking {
   /// End date of the trip
   DateTime get endDate => throw _privateConstructorUsedError;
 
+  /// Booking display name
+  /// Should be "Destination, Continent"
+  String get name => throw _privateConstructorUsedError;
+
   /// Destination of the trip
   String get destinationRef => throw _privateConstructorUsedError;
 
@@ -53,6 +57,7 @@ abstract class $BookingCopyWith<$Res> {
       {int? id,
       DateTime startDate,
       DateTime endDate,
+      String name,
       String destinationRef,
       List<String> activitiesRef});
 }
@@ -75,6 +80,7 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
     Object? id = freezed,
     Object? startDate = null,
     Object? endDate = null,
+    Object? name = null,
     Object? destinationRef = null,
     Object? activitiesRef = null,
   }) {
@@ -91,6 +97,10 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       destinationRef: null == destinationRef
           ? _value.destinationRef
           : destinationRef // ignore: cast_nullable_to_non_nullable
@@ -114,6 +124,7 @@ abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
       {int? id,
       DateTime startDate,
       DateTime endDate,
+      String name,
       String destinationRef,
       List<String> activitiesRef});
 }
@@ -134,6 +145,7 @@ class __$$BookingImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? startDate = null,
     Object? endDate = null,
+    Object? name = null,
     Object? destinationRef = null,
     Object? activitiesRef = null,
   }) {
@@ -150,6 +162,10 @@ class __$$BookingImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       destinationRef: null == destinationRef
           ? _value.destinationRef
           : destinationRef // ignore: cast_nullable_to_non_nullable
@@ -169,6 +185,7 @@ class _$BookingImpl implements _Booking {
       {this.id,
       required this.startDate,
       required this.endDate,
+      required this.name,
       required this.destinationRef,
       required final List<String> activitiesRef})
       : _activitiesRef = activitiesRef;
@@ -188,6 +205,11 @@ class _$BookingImpl implements _Booking {
   @override
   final DateTime endDate;
 
+  /// Booking display name
+  /// Should be "Destination, Continent"
+  @override
+  final String name;
+
   /// Destination of the trip
   @override
   final String destinationRef;
@@ -205,7 +227,7 @@ class _$BookingImpl implements _Booking {
 
   @override
   String toString() {
-    return 'Booking(id: $id, startDate: $startDate, endDate: $endDate, destinationRef: $destinationRef, activitiesRef: $activitiesRef)';
+    return 'Booking(id: $id, startDate: $startDate, endDate: $endDate, name: $name, destinationRef: $destinationRef, activitiesRef: $activitiesRef)';
   }
 
   @override
@@ -217,6 +239,7 @@ class _$BookingImpl implements _Booking {
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.destinationRef, destinationRef) ||
                 other.destinationRef == destinationRef) &&
             const DeepCollectionEquality()
@@ -225,7 +248,7 @@ class _$BookingImpl implements _Booking {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, startDate, endDate,
+  int get hashCode => Object.hash(runtimeType, id, startDate, endDate, name,
       destinationRef, const DeepCollectionEquality().hash(_activitiesRef));
 
   /// Create a copy of Booking
@@ -249,6 +272,7 @@ abstract class _Booking implements Booking {
       {final int? id,
       required final DateTime startDate,
       required final DateTime endDate,
+      required final String name,
       required final String destinationRef,
       required final List<String> activitiesRef}) = _$BookingImpl;
 
@@ -265,6 +289,11 @@ abstract class _Booking implements Booking {
   /// End date of the trip
   @override
   DateTime get endDate;
+
+  /// Booking display name
+  /// Should be "Destination, Continent"
+  @override
+  String get name;
 
   /// Destination of the trip
   @override

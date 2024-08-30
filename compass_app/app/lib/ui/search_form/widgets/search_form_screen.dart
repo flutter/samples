@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/search_bar.dart';
 import '../../results/widgets/results_screen.dart';
@@ -24,29 +26,35 @@ class SearchFormScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SafeArea(
-            top: true,
-            bottom: false,
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: Dimens.of(context).paddingScreenVertical,
-                left: Dimens.of(context).paddingScreenHorizontal,
-                right: Dimens.of(context).paddingScreenHorizontal,
-                bottom: Dimens.paddingVertical,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, r) {
+        if (!didPop) context.go(Routes.home);
+      },
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SafeArea(
+              top: true,
+              bottom: false,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: Dimens.of(context).paddingScreenVertical,
+                  left: Dimens.of(context).paddingScreenHorizontal,
+                  right: Dimens.of(context).paddingScreenHorizontal,
+                  bottom: Dimens.paddingVertical,
+                ),
+                child: const AppSearchBar(),
               ),
-              child: const AppSearchBar(homeScreen: true),
             ),
-          ),
-          SearchFormContinent(viewModel: viewModel),
-          SearchFormDate(viewModel: viewModel),
-          SearchFormGuests(viewModel: viewModel),
-          const Spacer(),
-          SearchFormSubmit(viewModel: viewModel),
-        ],
+            SearchFormContinent(viewModel: viewModel),
+            SearchFormDate(viewModel: viewModel),
+            SearchFormGuests(viewModel: viewModel),
+            const Spacer(),
+            SearchFormSubmit(viewModel: viewModel),
+          ],
+        ),
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../../utils/image_error_listener.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
@@ -71,7 +72,7 @@ class _Top extends StatelessWidget {
             child: SafeArea(
               top: true,
               child: CustomBackButton(
-                onTap: () => context.go('/activities'),
+                onTap: () => context.go(Routes.activities),
                 blur: true,
               ),
             ),

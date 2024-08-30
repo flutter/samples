@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 import '../../../domain/models/booking/booking_summary.dart';
+import '../../../routing/routes.dart';
+import '../../auth/logout/view_models/logout_viewmodel.dart';
+import '../../auth/logout/widgets/logout_button.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
 import '../view_models/home_viewmodel.dart';
@@ -19,14 +23,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         key: const ValueKey('booking-button'),
-        onPressed: () => context.go('/search'),
+        onPressed: () => context.go(Routes.search),
         label: const Text('Book New Trip'),
         icon: const Icon(Icons.add_location_outlined),
       ),
       body: ListenableBuilder(
         listenable: viewModel,
         builder: (context, _) {
-          // TODO: Make scrollable
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -35,9 +38,20 @@ class HomeScreen extends StatelessWidget {
                   vertical: Dimens.of(context).paddingScreenVertical,
                   horizontal: Dimens.of(context).paddingScreenHorizontal,
                 ),
-                child: Text(
-                  'Your bookings:',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Your bookings:',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    LogoutButton(
+                      viewModel: LogoutViewModel(
+                        authRepository: context.read(),
+                        itineraryConfigRepository: context.read(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
@@ -46,8 +60,8 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (_, index) => _Booking(
                     key: ValueKey(index),
                     booking: viewModel.bookings[index],
-                    onTap: () =>
-                        context.go('/booking/${viewModel.bookings[index].id}'),
+                    onTap: () => context
+                        .go(Routes.bookingWithId(viewModel.bookings[index].id)),
                   ),
                 ),
               ),
@@ -82,7 +96,7 @@ class _Booking extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              booking.destinationName,
+              booking.name,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(

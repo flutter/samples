@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../themes/colors.dart';
 import 'blur_filter.dart';
 
@@ -37,7 +38,7 @@ class HomeButton extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(8.0),
               onTap: () {
-                context.go('/');
+                context.go(Routes.home);
               },
               child: Center(
                 child: Icon(

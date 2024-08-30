@@ -15,6 +15,10 @@ class BookingApiModel with _$BookingApiModel {
     /// End date of the trip
     required DateTime endDate,
 
+    /// Booking name
+    /// Should be "Destination, Continent"
+    required String name,
+
     /// Destination of the trip
     required String destinationRef,
 

@@ -28,7 +28,7 @@ class FakeBookingRepository implements BookingRepository {
         .mapIndexed(
           (index, booking) => BookingSummary(
             id: index,
-            destinationName:
+            name:
                 '${booking.destination.name}, ${booking.destination.continent}',
             startDate: booking.startDate,
             endDate: booking.endDate,

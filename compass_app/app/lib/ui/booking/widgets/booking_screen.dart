@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/ui/error_indicator.dart';
 import '../view_models/booking_viewmodel.dart';
@@ -37,7 +38,7 @@ class _BookingScreenState extends State<BookingScreen> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, r) {
-        if (!didPop) context.go('/activities');
+        if (!didPop) context.go(Routes.activities);
       },
       child: Scaffold(
         body: ListenableBuilder(

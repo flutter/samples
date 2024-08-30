@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/error_indicator.dart';
@@ -47,7 +48,7 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, r) {
-        if (!didPop) context.go('/results');
+        if (!didPop) context.go(Routes.results);
       },
       child: Scaffold(
         body: ListenableBuilder(
@@ -119,7 +120,7 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
   void _onResult() {
     if (widget.viewModel.saveActivities.completed) {
       widget.viewModel.saveActivities.clearResult();
-      context.go('/booking');
+      context.go(Routes.booking);
     }
 
     if (widget.viewModel.saveActivities.error) {

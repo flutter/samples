@@ -6,7 +6,7 @@ part 'booking_summary.g.dart';
 /// BookingSummary contains the necessary data to display a booking
 /// in the user home screen, but lacks the rest of the booking data
 /// like activitities or destination.
-/// 
+///
 /// Use the [BookingRepository] to obtain a full [Booking]
 /// using the [BookingSummary.id].
 @freezed
@@ -15,10 +15,10 @@ class BookingSummary with _$BookingSummary {
     /// Booking id
     required int id,
 
-    /// Destination name to be displayed.
-    required String destinationName,
+    /// Name to be displayed
+    required String name,
 
-    /// Start date of the booking.
+    /// Start date of the booking
     required DateTime startDate,
 
     /// End date of the booking

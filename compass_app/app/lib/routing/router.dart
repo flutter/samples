@@ -15,6 +15,7 @@ import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
 import '../ui/search_form/view_models/search_form_viewmodel.dart';
 import '../ui/search_form/widgets/search_form_screen.dart';
+import 'routes.dart';
 
 /// Top go_router entry point.
 ///
@@ -24,13 +25,13 @@ GoRouter router(
   AuthRepository authRepository,
 ) =>
     GoRouter(
-      initialLocation: '/',
+      initialLocation: Routes.home,
       debugLogDiagnostics: true,
       redirect: _redirect,
       refreshListenable: authRepository,
       routes: [
         GoRoute(
-          path: '/login',
+          path: Routes.login,
           builder: (context, state) {
             return LoginScreen(
               viewModel: LoginViewModel(
@@ -40,7 +41,7 @@ GoRouter router(
           },
         ),
         GoRoute(
-          path: '/',
+          path: Routes.home,
           builder: (context, state) {
             final viewModel = HomeViewModel(
               bookingRepository: context.read(),
@@ -49,7 +50,7 @@ GoRouter router(
           },
           routes: [
             GoRoute(
-              path: 'search',
+              path: Routes.searchRelative,
               builder: (context, state) {
                 final viewModel = SearchFormViewModel(
                   continentRepository: context.read(),
@@ -59,7 +60,7 @@ GoRouter router(
               },
             ),
             GoRoute(
-              path: 'results',
+              path: Routes.resultsRelative,
               builder: (context, state) {
                 final viewModel = ResultsViewModel(
                   destinationRepository: context.read(),
@@ -71,7 +72,7 @@ GoRouter router(
               },
             ),
             GoRoute(
-              path: 'activities',
+              path: Routes.activitiesRelative,
               builder: (context, state) {
                 final viewModel = ActivitiesViewModel(
                   activityRepository: context.read(),
@@ -83,7 +84,7 @@ GoRouter router(
               },
             ),
             GoRoute(
-              path: 'booking',
+              path: Routes.bookingRelative,
               builder: (context, state) {
                 final viewModel = BookingViewModel(
                   itineraryConfigRepository: context.read(),
@@ -104,15 +105,15 @@ GoRouter router(
 Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   // if the user is not logged in, they need to login
   final bool loggedIn = await context.read<AuthRepository>().isAuthenticated;
-  final bool loggingIn = state.matchedLocation == '/login';
+  final bool loggingIn = state.matchedLocation == Routes.login;
   if (!loggedIn) {
-    return '/login';
+    return Routes.login;
   }
 
   // if the user is logged in but still on the login page, send them to
   // the home page
   if (loggingIn) {
-    return '/';
+    return Routes.home;
   }
 
   // no need to redirect at all
