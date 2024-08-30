@@ -2,40 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' as ui;
-
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../data/veggie.dart';
 import '../styles.dart';
-
-class FrostyBackground extends StatelessWidget {
-  const FrostyBackground({
-    this.color,
-    this.intensity = 25,
-    this.child,
-    super.key,
-  });
-
-  final Color? color;
-  final double intensity;
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRect(
-      child: BackdropFilter(
-        filter: ui.ImageFilter.blur(sigmaX: intensity, sigmaY: intensity),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: color,
-          ),
-          child: child,
-        ),
-      ),
-    );
-  }
-}
 
 /// A Card-like Widget that responds to tap events by animating changes to its
 /// elevation and invoking an optional [onPressed] callback.
@@ -115,10 +86,10 @@ class VeggieCard extends StatelessWidget {
 
   Widget _buildDetails(BuildContext context) {
     final themeData = CupertinoTheme.of(context);
-    return FrostyBackground(
-      color: const Color(0x90ffffff),
+    return Container(
+      color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 16, 16, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -126,6 +97,7 @@ class VeggieCard extends StatelessWidget {
               veggie.name,
               style: Styles.cardTitleText(themeData),
             ),
+            const SizedBox(height: 8),
             Text(
               veggie.shortDescription,
               style: Styles.cardDescriptionText(themeData),
