@@ -3,6 +3,8 @@ import 'package:compass_app/main.dart';
 import 'package:compass_app/ui/activities/widgets/activities_screen.dart';
 import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
 import 'package:compass_app/ui/core/ui/custom_checkbox.dart';
+import 'package:compass_app/ui/core/ui/home_button.dart';
+import 'package:compass_app/ui/home/widgets/home_screen.dart';
 import 'package:compass_app/ui/results/widgets/result_card.dart';
 import 'package:compass_app/ui/results/widgets/results_screen.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
@@ -35,7 +37,14 @@ void main() {
           child: const MainApp(),
         ),
       );
+      await tester.pumpAndSettle();
 
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+      await tester.pumpAndSettle();
+
+      // Select create new booking
+      await tester.tap(find.byKey(const ValueKey('booking-button')));
       await tester.pumpAndSettle();
 
       // Search destinations screen
@@ -91,6 +100,16 @@ void main() {
       // Should be at booking screen
       expect(find.byType(BookingScreen), findsOneWidget);
       expect(find.text('Amalfi Coast'), findsOneWidget);
+
+      // Navigate back home
+      await tester.tap(find.byType(HomeButton));
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+
+      // New Booking should appear
+      expect(find.text('Amalfi Coast, Europe'), findsOneWidget);
     });
   });
 }

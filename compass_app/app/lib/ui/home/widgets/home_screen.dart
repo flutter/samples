@@ -18,6 +18,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
+        key: const ValueKey('booking-button'),
         onPressed: () => context.go('/search'),
         label: const Text('Book New Trip'),
         icon: const Icon(Icons.add_location_outlined),
