@@ -5,7 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:veggieseasons/styles.dart';
+import '../styles.dart';
 
 // The widgets in this file present a Cupertino-style settings item to the user.
 // In the future, the Cupertino package in the Flutter SDK will include

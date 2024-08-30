@@ -5,7 +5,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
-import 'package:veggieseasons/styles.dart';
+import '../styles.dart';
 
 /// Partially overlays and then blurs its child's background.
 class FrostedBox extends StatelessWidget {
@@ -75,17 +75,38 @@ class _ColorChangingIconState
   }
 }
 
-/// A simple "close this modal" button that invokes a callback when pressed.
-class CloseButton extends StatefulWidget {
-  const CloseButton(this.onPressed, {super.key});
-
-  final VoidCallback onPressed;
-
-  @override
-  State<CloseButton> createState() => _CloseButtonState();
+/// A close button that invokes a callback when pressed.
+class CloseButton extends _DetailPageButton {
+  const CloseButton(VoidCallback onPressed, {super.key})
+      : super(onPressed, CupertinoIcons.chevron_back);
 }
 
-class _CloseButtonState extends State<CloseButton> {
+/// A share button that invokes a callback when pressed.
+class ShareButton extends _DetailPageButton {
+  const ShareButton(VoidCallback onPressed, {super.key})
+      : super(onPressed, CupertinoIcons.share);
+}
+
+/// A favorite button that invokes a callback when pressed.
+class FavoriteButton extends _DetailPageButton {
+  const FavoriteButton(VoidCallback onPressed, bool isFavorite, {super.key})
+      : super(
+          onPressed,
+          isFavorite ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
+        );
+}
+
+class _DetailPageButton extends StatefulWidget {
+  const _DetailPageButton(this.onPressed, this.icon, {super.key});
+
+  final VoidCallback onPressed;
+  final IconData icon;
+
+  @override
+  State<_DetailPageButton> createState() => _DetailPageButtonState();
+}
+
+class _DetailPageButtonState extends State<_DetailPageButton> {
   bool tapInProgress = false;
 
   @override
@@ -111,7 +132,7 @@ class _CloseButtonState extends State<CloseButton> {
             ),
             child: Center(
               child: ColorChangingIcon(
-                CupertinoIcons.clear_thick,
+                widget.icon,
                 duration: const Duration(milliseconds: 300),
                 color: tapInProgress
                     ? Styles.closeButtonPressed

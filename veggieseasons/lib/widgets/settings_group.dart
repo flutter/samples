@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:veggieseasons/styles.dart';
+import '../styles.dart';
 
 import 'settings_item.dart';
 

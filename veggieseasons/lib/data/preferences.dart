@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:veggieseasons/data/veggie.dart';
+import 'veggie.dart';
 
 /// A model class that mirrors the options in [SettingsScreen] and stores data
 /// in shared preferences.
