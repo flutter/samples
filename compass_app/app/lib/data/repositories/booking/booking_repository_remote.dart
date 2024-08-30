@@ -43,7 +43,7 @@ class BookingRepositoryRemote implements BookingRepository {
       final booking = resultBooking.asOk.value;
 
       // Load destinations if not loaded yet
-      if (_cachedDestinations != null) {
+      if (_cachedDestinations == null) {
         final resultDestination = await _apiClient.getDestinations();
         if (resultDestination is Error<List<Destination>>) {
           return Result.error(resultDestination.error);

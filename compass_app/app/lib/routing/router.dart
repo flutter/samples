@@ -90,11 +90,39 @@ GoRouter router(
                   itineraryConfigRepository: context.read(),
                   bookingComponent: context.read(),
                   shareComponent: context.read(),
+                  bookingRepository: context.read(),
                 );
+
+                // When opening the booking screen directly
+                // create a new booking from the stored ItineraryConfig.
+                viewModel.createBooking.execute();
+
                 return BookingScreen(
                   viewModel: viewModel,
                 );
               },
+              routes: [
+                GoRoute(
+                  path: ':id',
+                  builder: (context, state) {
+                    final id = int.parse(state.pathParameters['id']!);
+                    final viewModel = BookingViewModel(
+                      itineraryConfigRepository: context.read(),
+                      bookingComponent: context.read(),
+                      shareComponent: context.read(),
+                      bookingRepository: context.read(),
+                    );
+
+                    // When opening the booking screen with an existing id
+                    // load and display that booking.
+                    viewModel.loadBooking.execute(id);
+
+                    return BookingScreen(
+                      viewModel: viewModel,
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),

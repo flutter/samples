@@ -50,7 +50,7 @@ void main() {
 
       // Should be at booking screen
       expect(find.byType(BookingScreen), findsOneWidget);
-      expect(find.text('Alaska, North America'), findsOneWidget);
+      expect(find.text('Alaska'), findsOneWidget);
     });
 
     testWidgets('Create booking', (tester) async {
