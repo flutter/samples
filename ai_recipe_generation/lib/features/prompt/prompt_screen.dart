@@ -223,7 +223,7 @@ class PromptScreen extends StatelessWidget {
                               iconColor: Colors.black45,
                               buttonBackgroundColor: Colors.transparent,
                               hoverColor:
-                                  MarketplaceTheme.secondary.withOpacity(.1),
+                                  MarketplaceTheme.secondary.withAlpha(25),
                             ),
                           ),
                         const Spacer(flex: 1),
@@ -292,7 +292,7 @@ class PromptScreen extends StatelessWidget {
                         icon: Symbols.restart_alt,
                         iconColor: Colors.black45,
                         buttonBackgroundColor: Colors.transparent,
-                        hoverColor: MarketplaceTheme.secondary.withOpacity(.1),
+                        hoverColor: MarketplaceTheme.secondary.withAlpha(25),
                       ),
                     ),
                   const SizedBox(height: 200.0),
@@ -322,7 +322,7 @@ class _FilterChipSection extends StatelessWidget {
       child: Container(
         height: 230,
         decoration: BoxDecoration(
-          color: Theme.of(context).splashColor.withOpacity(.1),
+          color: Theme.of(context).splashColor.withAlpha(25),
           border: Border.all(
             color: MarketplaceTheme.borderColor,
           ),
