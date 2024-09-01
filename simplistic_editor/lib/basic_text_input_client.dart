@@ -1112,7 +1112,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 minLines: null,
                 expands: false, // expands to height of parent.
                 strutStyle: null,
-                selectionColor: Colors.blue.withOpacity(0.40),
+                selectionColor: Colors.blue.withAlpha(102),
                 textScaler: MediaQuery.textScalerOf(context),
                 textAlign: TextAlign.left,
                 textDirection: _textDirection,

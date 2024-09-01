@@ -13,7 +13,7 @@ abstract class AppTheme {
     return base.copyWith(
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.blue700,
-        modalBackgroundColor: Colors.white.withOpacity(0.7),
+        modalBackgroundColor: Colors.white.withAlpha(179),
       ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: AppColors.blue700,
@@ -53,7 +53,7 @@ abstract class AppTheme {
     return base.copyWith(
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.darkDrawerBackground,
-        modalBackgroundColor: Colors.black.withOpacity(0.7),
+        modalBackgroundColor: Colors.black.withAlpha(179),
       ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: AppColors.darkBottomAppBarBackground,
@@ -102,9 +102,9 @@ abstract class AppTheme {
     Brightness brightness,
   ) {
     return ChipThemeData(
-      backgroundColor: primaryColor.withOpacity(0.12),
-      disabledColor: primaryColor.withOpacity(0.87),
-      selectedColor: primaryColor.withOpacity(0.05),
+      backgroundColor: primaryColor.withAlpha(31),
+      disabledColor: primaryColor.withAlpha(222),
+      selectedColor: primaryColor.withAlpha(12),
       secondarySelectedColor: chipBackground,
       padding: const EdgeInsets.all(4),
       shape: const StadiumBorder(),

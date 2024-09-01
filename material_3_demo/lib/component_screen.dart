@@ -2242,7 +2242,7 @@ class _MenusState extends State<Menus> {
               ),
               Icon(
                 selectedIcon?.icon,
-                color: selectedColor?.color ?? Colors.grey.withOpacity(0.5),
+                color: selectedColor?.color ?? Colors.grey.withAlpha(128),
               )
             ],
           ),
@@ -2568,10 +2568,8 @@ class ComponentGroupDecoration extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.zero,
         elevation: 0,
-        color: Theme.of(context)
-            .colorScheme
-            .surfaceContainerHighest
-            .withOpacity(0.3),
+        color:
+            Theme.of(context).colorScheme.surfaceContainerHighest.withAlpha(77),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: Center(
