@@ -1,3 +1,5 @@
+import 'package:compass_app/data/services/api/model/booking/booking_api_model.dart';
+import 'package:compass_app/domain/models/booking/booking_summary.dart';
 import 'package:compass_model/model.dart';
 
 import 'activity.dart';
@@ -8,4 +10,20 @@ final kBooking = Booking(
   endDate: DateTime(2024, 02, 12),
   destination: kDestination1,
   activity: [kActivity],
+);
+
+final kBookingSummary = BookingSummary(
+  id: 0,
+  startDate: kBooking.startDate,
+  endDate: kBooking.endDate,
+  name: '${kDestination1.name}, ${kDestination1.continent}',
+);
+
+final kBookingApiModel = BookingApiModel(
+  id: 0,
+  startDate: kBooking.startDate,
+  endDate: kBooking.endDate,
+  name: '${kDestination1.name}, ${kDestination1.continent}',
+  destinationRef: kDestination1.ref,
+  activitiesRef: [kActivity.ref],
 );
