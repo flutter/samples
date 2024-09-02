@@ -76,7 +76,7 @@ class RecipeDisplayWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(MarketplaceTheme.defaultBorderRadius),
-            color: MarketplaceTheme.primary.withOpacity(.5),
+            color: MarketplaceTheme.primary.withAlpha(128),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -106,7 +106,7 @@ class RecipeDisplayWidget extends StatelessWidget {
                       style: ButtonStyle(
                         backgroundColor: WidgetStateColor.resolveWith((states) {
                           if (states.contains(WidgetState.hovered)) {
-                            return MarketplaceTheme.scrim.withOpacity(.6);
+                            return MarketplaceTheme.scrim.withAlpha(153);
                           }
                           return Colors.white;
                         }),

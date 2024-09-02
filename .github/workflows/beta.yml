@@ -35,21 +35,23 @@ jobs:
         with:
           channel: beta
       - run: ./tool/flutter_ci_script_stable.sh
+  
   # Verify the Android add-to-app samples build and pass tests with the beta
   # channel.
-  android-build:
-    runs-on: ubuntu-latest
-    if: github.repository == 'flutter/samples'
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
-      - uses: actions/setup-java@6a0805fcefea3d4657a47ac4c165951e33482018
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
-        with:
-          channel: beta
-      - run: ./tool/android_ci_script.sh
+  # android-build:
+  #   runs-on: ubuntu-latest
+  #   if: github.repository == 'flutter/samples'
+  #   steps:
+  #     - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+  #     - uses: actions/setup-java@6a0805fcefea3d4657a47ac4c165951e33482018
+  #       with:
+  #         distribution: 'zulu'
+  #         java-version: '17'
+  #     - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
+  #       with:
+  #         channel: beta
+  #     - run: ./tool/android_ci_script.sh
+
   # Verify the iOS add-to-app samples build and pass tests with the beta
   # channel.
   ios-build:

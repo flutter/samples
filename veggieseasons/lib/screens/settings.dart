@@ -8,8 +8,6 @@ import 'package:provider/provider.dart';
 import '../data/preferences.dart';
 import '../data/veggie.dart';
 import '../styles.dart';
-import '../widgets/settings_group.dart';
-import '../widgets/settings_item.dart';
 
 class VeggieCategorySettingsScreen extends StatelessWidget {
   const VeggieCategorySettingsScreen({super.key, this.restorationId});
@@ -40,7 +38,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
         child: FutureBuilder<Set<VeggieCategory>>(
           future: currentPrefs,
           builder: (context, snapshot) {
-            final items = <SettingsItem>[];
+            final tiles = <CupertinoListTile>[];
 
             for (final category in VeggieCategory.values) {
               CupertinoSwitch toggle;
@@ -66,17 +64,20 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
                 );
               }
 
-              items.add(SettingsItem(
-                label: veggieCategoryNames[category]!,
-                content: toggle,
-              ));
+              tiles.add(
+                CupertinoListTile.notched(
+                  title: Text(veggieCategoryNames[category]!),
+                  trailing: toggle,
+                ),
+              );
             }
 
             return ListView(
               restorationId: 'list',
               children: [
-                SettingsGroup(
-                  items: items,
+                CupertinoListSection.insetGrouped(
+                  hasLeading: false,
+                  children: tiles,
                 ),
               ],
             );
@@ -121,33 +122,39 @@ class CalorieSettingsScreen extends StatelessWidget {
             FutureBuilder<int>(
               future: model.desiredCalories,
               builder: (context, snapshot) {
-                final steps = <SettingsItem>[];
+                final tiles = <CupertinoListTile>[];
 
                 for (var cals = max; cals < min; cals += step) {
-                  steps.add(
-                    SettingsItem(
-                      label: cals.toString(),
-                      icon: SettingsIcon(
-                        icon: Styles.checkIcon,
+                  tiles.add(
+                    CupertinoListTile.notched(
+                      title: Text('$cals calories'),
+                      trailing: SettingsIcon(
+                        icon: CupertinoIcons.check_mark,
                         foregroundColor:
                             snapshot.hasData && snapshot.data == cals
                                 ? CupertinoColors.activeBlue
                                 : Styles.transparentColor,
                         backgroundColor: Styles.transparentColor,
                       ),
-                      onPress: snapshot.hasData
+                      onTap: snapshot.hasData
                           ? () => model.setDesiredCalories(cals)
                           : null,
                     ),
                   );
                 }
 
-                return SettingsGroup(
-                  items: steps,
-                  header: const SettingsGroupHeader('Available calorie levels'),
-                  footer:
-                      const SettingsGroupFooter('These are used for serving '
-                          'calculations'),
+                return CupertinoListSection.insetGrouped(
+                  header: Text(
+                    'Available calorie levels'.toUpperCase(),
+                    style: Styles.settingsGroupHeaderText(
+                        CupertinoTheme.of(context)),
+                  ),
+                  footer: Text(
+                    'These are used for serving calculations',
+                    style: Styles.settingsGroupFooterText(
+                        CupertinoTheme.of(context)),
+                  ),
+                  children: tiles,
                 );
               },
             ),
@@ -168,59 +175,50 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  SettingsItem _buildCaloriesItem(BuildContext context, Preferences prefs) {
-    return SettingsItem(
-      label: 'Calorie Target',
-      icon: const SettingsIcon(
-        backgroundColor: Styles.iconBlue,
+  CupertinoListTile _buildCaloriesTile(
+      BuildContext context, Preferences prefs) {
+    return CupertinoListTile.notched(
+      leading: const SettingsIcon(
+        backgroundColor: CupertinoColors.systemBlue,
         icon: Styles.calorieIcon,
       ),
-      content: FutureBuilder<int>(
+      title: const Text('Calorie Target'),
+      additionalInfo: FutureBuilder<int>(
         future: prefs.desiredCalories,
         builder: (context, snapshot) {
-          return Row(
-            children: [
-              Text(
-                snapshot.data?.toString() ?? '',
-                style: CupertinoTheme.of(context).textTheme.textStyle,
-              ),
-              const SizedBox(width: 8),
-              const SettingsNavigationIndicator(),
-            ],
+          return Text(
+            snapshot.data?.toString() ?? '',
+            style: CupertinoTheme.of(context).textTheme.textStyle,
           );
         },
       ),
-      onPress: () {
-        context.go('/settings/calories');
-      },
+      trailing: const CupertinoListTileChevron(),
+      onTap: () => context.go('/settings/calories'),
     );
   }
 
-  SettingsItem _buildCategoriesItem(BuildContext context, Preferences prefs) {
-    return SettingsItem(
-      label: 'Preferred Categories',
-      subtitle: 'What types of veggies you prefer!',
-      icon: const SettingsIcon(
-        backgroundColor: Styles.iconGold,
+  CupertinoListTile _buildCategoriesTile(
+      BuildContext context, Preferences prefs) {
+    return CupertinoListTile.notched(
+      leading: const SettingsIcon(
+        backgroundColor: CupertinoColors.systemOrange,
         icon: Styles.preferenceIcon,
       ),
-      content: const SettingsNavigationIndicator(),
-      onPress: () {
-        context.go('/settings/categories');
-      },
+      title: const Text('Preferred Categories'),
+      trailing: const CupertinoListTileChevron(),
+      onTap: () => context.go('/settings/categories'),
     );
   }
 
-  SettingsItem _buildRestoreDefaultsItem(
+  CupertinoListTile _buildRestoreDefaultsTile(
       BuildContext context, Preferences prefs) {
-    return SettingsItem(
-      label: 'Restore Defaults',
-      icon: const SettingsIcon(
+    return CupertinoListTile.notched(
+      leading: const SettingsIcon(
         backgroundColor: CupertinoColors.systemRed,
         icon: Styles.resetIcon,
       ),
-      content: const SettingsNavigationIndicator(),
-      onPress: () {
+      title: const Text('Restore Defaults'),
+      onTap: () {
         showCupertinoDialog<void>(
           context: context,
           builder: (context) => CupertinoAlertDialog(
@@ -254,36 +252,61 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final prefs = Provider.of<Preferences>(context);
 
-    return RestorationScope(
-      restorationId: widget.restorationId,
-      child: CupertinoPageScaffold(
-        child: Container(
-          color:
-              Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
-          child: CustomScrollView(
-            restorationId: 'list',
-            slivers: [
-              const CupertinoSliverNavigationBar(
-                largeTitle: Text('Settings'),
-              ),
-              SliverSafeArea(
-                top: false,
-                sliver: SliverList(
-                  delegate: SliverChildListDelegate(
-                    [
-                      SettingsGroup(
-                        items: [
-                          _buildCaloriesItem(context, prefs),
-                          _buildCategoriesItem(context, prefs),
-                          _buildRestoreDefaultsItem(context, prefs),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+    return CupertinoPageScaffold(
+      backgroundColor:
+          Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
+      child: CustomScrollView(
+        slivers: <Widget>[
+          const CupertinoSliverNavigationBar(
+            largeTitle: Text('Settings'),
           ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CupertinoListSection.insetGrouped(
+                  children: [
+                    _buildCaloriesTile(context, prefs),
+                    _buildCategoriesTile(context, prefs),
+                  ],
+                ),
+                CupertinoListSection.insetGrouped(
+                  children: [
+                    _buildRestoreDefaultsTile(context, prefs),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SettingsIcon extends StatelessWidget {
+  const SettingsIcon({
+    required this.icon,
+    this.foregroundColor = CupertinoColors.white,
+    this.backgroundColor = CupertinoColors.black,
+    super.key,
+  });
+
+  final Color backgroundColor;
+  final Color foregroundColor;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: backgroundColor,
+      ),
+      child: Center(
+        child: Icon(
+          icon,
+          color: foregroundColor,
+          size: 20,
         ),
       ),
     );
