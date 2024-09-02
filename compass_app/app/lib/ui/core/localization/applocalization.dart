@@ -11,6 +11,7 @@ class AppLocalization {
   static const _strings = <String, String>{
     'activities': 'Activities',
     'addDates': 'Add Dates',
+    'bookNewTrip': 'Book New Trip',
     'close': 'Close',
     'confirm': 'Confirm',
     'daytime': 'Daytime',
@@ -30,6 +31,7 @@ class AppLocalization {
     'selected': '{1} selected',
     'shareTrip': 'Share Trip',
     'tryAgain': 'Try again',
+    'yourBookings': 'Your bookings:',
     'yourChosenActivities': 'Your chosen activities',
     'when': 'When',
   };
@@ -82,6 +84,10 @@ class AppLocalization {
   String get close => _get('close');
 
   String get errorWhileSharing => _get('errorWhileSharing');
+
+  String get bookNewTrip => _get('bookNewTrip');
+
+  String get yourBookings => _get('yourBookings');
 
   String selected(int value) =>
       _get('selected').replaceAll('{1}', value.toString());

@@ -6,6 +6,7 @@ import '../../../domain/models/booking/booking_summary.dart';
 import '../../../routing/routes.dart';
 import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../../auth/logout/widgets/logout_button.dart';
+import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
 import '../view_models/home_viewmodel.dart';
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         heroTag: null,
         key: const ValueKey('booking-button'),
         onPressed: () => context.go(Routes.search),
-        label: const Text('Book New Trip'),
+        label: Text(AppLocalization.of(context).bookNewTrip),
         icon: const Icon(Icons.add_location_outlined),
       ),
       body: SafeArea(
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Your bookings:',
+                          AppLocalization.of(context).yourBookings,
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                         LogoutButton(
