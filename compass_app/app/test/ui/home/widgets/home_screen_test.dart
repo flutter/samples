@@ -25,6 +25,7 @@ void main() {
         bookingRepository: FakeBookingRepository()..createBooking(kBooking),
       );
       goRouter = MockGoRouter();
+      when(() => goRouter.push(any())).thenAnswer((_) => Future.value(null));
     });
 
     loadWidget(WidgetTester tester) async {
@@ -69,7 +70,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Should navigate to results screen
-      verify(() => goRouter.go(Routes.bookingWithId(0))).called(1);
+      verify(() => goRouter.push(Routes.bookingWithId(0))).called(1);
     });
   });
 }

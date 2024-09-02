@@ -66,8 +66,8 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (_, index) => _Booking(
                     key: ValueKey(index),
                     booking: viewModel.bookings[index],
-                    onTap: () => context
-                        .go(Routes.bookingWithId(viewModel.bookings[index].id)),
+                    onTap: () => context.push(
+                        Routes.bookingWithId(viewModel.bookings[index].id)),
                   ),
                 )
               ],
