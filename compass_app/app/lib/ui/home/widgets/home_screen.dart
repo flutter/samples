@@ -22,6 +22,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
+        // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
+        heroTag: null,
         key: const ValueKey('booking-button'),
         onPressed: () => context.go(Routes.search),
         label: const Text('Book New Trip'),
@@ -63,8 +65,8 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (_, index) => _Booking(
                     key: ValueKey(index),
                     booking: viewModel.bookings[index],
-                    onTap: () => context
-                        .go(Routes.bookingWithId(viewModel.bookings[index].id)),
+                    onTap: () => context.push(
+                        Routes.bookingWithId(viewModel.bookings[index].id)),
                   ),
                 )
               ],

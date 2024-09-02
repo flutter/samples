@@ -6,7 +6,6 @@ import '../../core/localization/applocalization.dart';
 import '../../core/ui/error_indicator.dart';
 import '../view_models/booking_viewmodel.dart';
 import 'booking_body.dart';
-import 'booking_share_button.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({
@@ -38,9 +37,19 @@ class _BookingScreenState extends State<BookingScreen> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, r) {
-        if (!didPop) context.go(Routes.activities);
+        if (!didPop) context.go(Routes.home);
       },
       child: Scaffold(
+        floatingActionButton: FloatingActionButton.extended(
+          // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
+          heroTag: null,
+          key: const ValueKey('share-button'),
+          onPressed: widget.viewModel.booking != null
+              ? widget.viewModel.shareBooking.execute
+              : null,
+          label: Text(AppLocalization.of(context).shareTrip),
+          icon: const Icon(Icons.share_outlined),
+        ),
         body: ListenableBuilder(
           listenable: widget.viewModel.createBooking,
           builder: (context, child) {
@@ -60,12 +69,7 @@ class _BookingScreenState extends State<BookingScreen> {
             }
             return child!;
           },
-          child: Stack(
-            children: [
-              BookingBody(viewModel: widget.viewModel),
-              BookingShareButton(viewModel: widget.viewModel),
-            ],
-          ),
+          child: BookingBody(viewModel: widget.viewModel),
         ),
       ),
     );
