@@ -42,97 +42,81 @@ class ServingInfoChart extends StatelessWidget {
     final themeData = CupertinoTheme.of(context);
     return Column(
       children: [
-        const SizedBox(height: 16),
-        Container(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            children: [
-              Table(
-                children: [
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Serving size:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: Text(
-                          veggie.servingSize,
-                          textAlign: TextAlign.end,
-                          style: CupertinoTheme.of(context).textTheme.textStyle,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Calories:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: Text(
-                          '${veggie.caloriesPerServing} kCal',
-                          style: CupertinoTheme.of(context).textTheme.textStyle,
-                          textAlign: TextAlign.end,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Vitamin A:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: _buildVitaminText(
-                          veggie.vitaminAPercentage,
-                          prefs.desiredCalories,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Vitamin C:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: _buildVitaminText(
-                          veggie.vitaminCPercentage,
-                          prefs.desiredCalories,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: FutureBuilder(
-                  future: prefs.desiredCalories,
-                  builder: (context, snapshot) {
-                    return Text(
-                      'Percent daily values based on a diet of '
-                      '${snapshot.data ?? '2,000'} calories.',
-                      style: Styles.detailsServingNoteText(themeData),
-                    );
-                  },
-                ),
-              ),
-            ],
+        const SizedBox(height: 32),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Serving size',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            Text(
+              veggie.servingSize,
+              textAlign: TextAlign.end,
+              style: CupertinoTheme.of(context).textTheme.textStyle,
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Calories',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            Text(
+              '${veggie.caloriesPerServing} kCal',
+              style: CupertinoTheme.of(context).textTheme.textStyle,
+              textAlign: TextAlign.end,
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Vitamin A',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            _buildVitaminText(
+              veggie.vitaminAPercentage,
+              prefs.desiredCalories,
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Vitamin C',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            _buildVitaminText(
+              veggie.vitaminCPercentage,
+              prefs.desiredCalories,
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 32),
+          child: FutureBuilder(
+            future: prefs.desiredCalories,
+            builder: (context, snapshot) {
+              return Text(
+                'Percent daily values based on a diet of '
+                '${snapshot.data ?? '2,000'} calories.',
+                style: Styles.detailsServingNoteText(themeData),
+              );
+            },
           ),
-        )
+        ),
       ],
     );
   }
@@ -155,36 +139,6 @@ class InfoView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              FutureBuilder<Set<VeggieCategory>>(
-                future: prefs.preferredCategories,
-                builder: (context, snapshot) {
-                  return Text(
-                    veggie.categoryName!.toUpperCase(),
-                    style: (snapshot.hasData &&
-                            snapshot.data!.contains(veggie.category))
-                        ? Styles.detailsPreferredCategoryText(themeData)
-                        : themeData.textTheme.textStyle,
-                  );
-                },
-              ),
-              const Spacer(),
-              for (Season season in veggie.seasons) ...[
-                const SizedBox(width: 12),
-                Padding(
-                  padding: Styles.seasonIconPadding[season]!,
-                  child: Icon(
-                    Styles.seasonIconData[season],
-                    semanticLabel: seasonNames[season],
-                    color: Styles.seasonColors[season],
-                  ),
-                ),
-              ],
-            ],
-          ),
-          const SizedBox(height: 8),
           Text(
             veggie.name,
             style: Styles.detailsTitleText(themeData),
@@ -193,6 +147,40 @@ class InfoView extends StatelessWidget {
           Text(
             veggie.shortDescription,
             style: CupertinoTheme.of(context).textTheme.textStyle,
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Seasons',
+            style: Styles.detailsServingLabelText(themeData),
+          ),
+          const SizedBox(height: 12),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              for (var season in Season.values) ...[
+                const Spacer(),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Styles.seasonIconData[season],
+                      color: veggie.seasons.contains(season)
+                          ? Styles.seasonColors[season]
+                          : const Color.fromRGBO(128, 128, 128, 1),
+                      size: 24,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      season.name.characters.first.toUpperCase() +
+                          season.name.characters.skip(1).string,
+                      style: Styles.minorText(CupertinoTheme.of(context))
+                          .copyWith(fontSize: 11),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+              ],
+            ],
           ),
           ServingInfoChart(veggie, prefs),
         ],
