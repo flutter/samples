@@ -27,35 +27,38 @@ class HomeScreen extends StatelessWidget {
         label: const Text('Book New Trip'),
         icon: const Icon(Icons.add_location_outlined),
       ),
-      body: ListenableBuilder(
-        listenable: viewModel,
-        builder: (context, _) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: Dimens.of(context).paddingScreenVertical,
-                  horizontal: Dimens.of(context).paddingScreenHorizontal,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Your bookings:',
-                      style: Theme.of(context).textTheme.headlineMedium,
+      body: SafeArea(
+        top: true,
+        bottom: true,
+        child: ListenableBuilder(
+          listenable: viewModel,
+          builder: (context, _) {
+            return CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: Dimens.of(context).paddingScreenVertical,
+                      horizontal: Dimens.of(context).paddingScreenHorizontal,
                     ),
-                    LogoutButton(
-                      viewModel: LogoutViewModel(
-                        authRepository: context.read(),
-                        itineraryConfigRepository: context.read(),
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Your bookings:',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        LogoutButton(
+                          viewModel: LogoutViewModel(
+                            authRepository: context.read(),
+                            itineraryConfigRepository: context.read(),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: ListView.builder(
+                SliverList.builder(
                   itemCount: viewModel.bookings.length,
                   itemBuilder: (_, index) => _Booking(
                     key: ValueKey(index),
@@ -63,11 +66,11 @@ class HomeScreen extends StatelessWidget {
                     onTap: () => context
                         .go(Routes.bookingWithId(viewModel.bookings[index].id)),
                   ),
-                ),
-              ),
-            ],
-          );
-        },
+                )
+              ],
+            );
+          },
+        ),
       ),
     );
   }
