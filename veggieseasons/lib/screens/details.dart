@@ -155,36 +155,6 @@ class InfoView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              FutureBuilder<Set<VeggieCategory>>(
-                future: prefs.preferredCategories,
-                builder: (context, snapshot) {
-                  return Text(
-                    veggie.categoryName!.toUpperCase(),
-                    style: (snapshot.hasData &&
-                            snapshot.data!.contains(veggie.category))
-                        ? Styles.detailsPreferredCategoryText(themeData)
-                        : themeData.textTheme.textStyle,
-                  );
-                },
-              ),
-              const Spacer(),
-              for (Season season in veggie.seasons) ...[
-                const SizedBox(width: 12),
-                Padding(
-                  padding: Styles.seasonIconPadding[season]!,
-                  child: Icon(
-                    Styles.seasonIconData[season],
-                    semanticLabel: seasonNames[season],
-                    color: Styles.seasonColors[season],
-                  ),
-                ),
-              ],
-            ],
-          ),
-          const SizedBox(height: 8),
           Text(
             veggie.name,
             style: Styles.detailsTitleText(themeData),
@@ -193,6 +163,40 @@ class InfoView extends StatelessWidget {
           Text(
             veggie.shortDescription,
             style: CupertinoTheme.of(context).textTheme.textStyle,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Seasons',
+            style: Styles.detailsServingLabelText(themeData),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              for (var season in Season.values) ...[
+                const Spacer(),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Styles.seasonIconData[season],
+                      color: veggie.seasons.contains(season)
+                          ? Styles.seasonColors[season]
+                          : const Color.fromRGBO(128, 128, 128, 1),
+                      size: 24,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      season.name.characters.first.toUpperCase() +
+                          season.name.characters.skip(1).string,
+                      style: Styles.minorText(CupertinoTheme.of(context))
+                          .copyWith(fontSize: 11),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+              ],
+            ],
           ),
           ServingInfoChart(veggie, prefs),
         ],
