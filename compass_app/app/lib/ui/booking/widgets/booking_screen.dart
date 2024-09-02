@@ -37,33 +37,54 @@ class _BookingScreenState extends State<BookingScreen> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, r) {
+        // Back navigation always goes to home
         if (!didPop) context.go(Routes.home);
       },
       child: Scaffold(
-        floatingActionButton: FloatingActionButton.extended(
-          // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
-          heroTag: null,
-          key: const ValueKey('share-button'),
-          onPressed: widget.viewModel.booking != null
-              ? widget.viewModel.shareBooking.execute
-              : null,
-          label: Text(AppLocalization.of(context).shareTrip),
-          icon: const Icon(Icons.share_outlined),
+        floatingActionButton: ListenableBuilder(
+          listenable: widget.viewModel,
+          builder: (context, _) => FloatingActionButton.extended(
+            // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
+            heroTag: null,
+            key: const ValueKey('share-button'),
+            onPressed: widget.viewModel.booking != null
+                ? widget.viewModel.shareBooking.execute
+                : null,
+            label: Text(AppLocalization.of(context).shareTrip),
+            icon: const Icon(Icons.share_outlined),
+          ),
         ),
         body: ListenableBuilder(
-          listenable: widget.viewModel.createBooking,
+          // Listen to changes in both commands
+          listenable: Listenable.merge([
+            widget.viewModel.createBooking,
+            widget.viewModel.loadBooking,
+          ]),
           builder: (context, child) {
-            if (widget.viewModel.createBooking.running) {
+            // If either command is running, show progress indicator
+            if (widget.viewModel.createBooking.running ||
+                widget.viewModel.loadBooking.running) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
+            // If fails to create booking, tap to try again
             if (widget.viewModel.createBooking.error) {
               return Center(
                 child: ErrorIndicator(
                   title: AppLocalization.of(context).errorWhileLoadingBooking,
                   label: AppLocalization.of(context).tryAgain,
                   onPressed: widget.viewModel.createBooking.execute,
+                ),
+              );
+            }
+            // If existing booking fails to load, tap to go /home
+            if (widget.viewModel.loadBooking.error) {
+              return Center(
+                child: ErrorIndicator(
+                  title: AppLocalization.of(context).errorWhileLoadingBooking,
+                  label: AppLocalization.of(context).close,
+                  onPressed: () => context.go(Routes.home),
                 ),
               );
             }
@@ -78,7 +99,13 @@ class _BookingScreenState extends State<BookingScreen> {
   void _listener() {
     if (widget.viewModel.shareBooking.error) {
       widget.viewModel.shareBooking.clearResult();
-      // TODO show error
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(AppLocalization.of(context).errorWhileSharing),
+        action: SnackBarAction(
+          label: AppLocalization.of(context).tryAgain,
+          onPressed: widget.viewModel.shareBooking.execute,
+        ),
+      ));
     }
   }
 }
