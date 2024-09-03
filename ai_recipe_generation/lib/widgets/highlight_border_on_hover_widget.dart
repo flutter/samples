@@ -38,7 +38,7 @@ class _HighlightBorderOnHoverWidgetState
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).splashColor.withOpacity(.1),
+          color: Theme.of(context).splashColor.withAlpha(25),
           border: Border.all(
             color: hovered ? widget.color : MarketplaceTheme.borderColor,
           ),

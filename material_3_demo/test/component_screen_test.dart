@@ -10,7 +10,7 @@ import 'package:material_3_demo/main.dart';
 
 void main() {
   testWidgets('Default main page shows all M3 components', (tester) async {
-    widgetSetup(tester, 800, windowHeight: 7000);
+    widgetSetup(tester, 800, windowHeight: 7500);
     await tester.pumpWidget(const App());
 
     // Elements on the app bar
@@ -66,6 +66,9 @@ void main() {
     expect(find.widgetWithText(Cards, 'Elevated'), findsOneWidget);
     expect(find.widgetWithText(Cards, 'Filled'), findsOneWidget);
     expect(find.widgetWithText(Cards, 'Outlined'), findsOneWidget);
+
+    // Carousels
+    expect(find.byType(CarouselView), findsNWidgets(2));
 
     // Dialogs
     expect(find.widgetWithText(TextButton, 'Show dialog'), findsOneWidget);
@@ -183,7 +186,7 @@ void main() {
   });
 
   testWidgets(
-      'Material version switches between Material3 and Material2 when'
+      'Material version switches between Material3 and Material2 when '
       'the version icon is clicked', (tester) async {
     widgetSetup(tester, 450, windowHeight: 7000);
     await tester.pumpWidget(const App());

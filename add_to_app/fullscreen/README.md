@@ -38,6 +38,7 @@ you're building for both iOS and Android, with both toolchains installed):
   cd ../ios_fullscreen
   pod install
   open IOSFullScreen.xcworkspace
+  # Then, click "Run" in Xcode to launch the app into your Simulator or device
 ```
 
 ## Requirements

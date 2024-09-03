@@ -4,7 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:veggieseasons/data/veggie.dart';
+import 'data/veggie.dart';
 
 abstract class Styles {
   static CupertinoThemeData veggieThemeData = const CupertinoThemeData(
@@ -14,7 +14,7 @@ abstract class Styles {
         fontSize: 16,
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.normal,
-        fontFamily: 'NotoSans',
+        fontFamily: 'CupertinoSystemText',
         letterSpacing: -0.41,
         decoration: TextDecoration.none,
       ),
@@ -107,7 +107,7 @@ abstract class Styles {
 
   static TextStyle settingsGroupFooterText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Styles.settingsGroupSubtitle,
+        color: const Color(0xff777777),
         fontSize: 13,
         letterSpacing: -0.08,
       );
@@ -116,7 +116,7 @@ abstract class Styles {
 
   static Color? scaffoldBackground(Brightness brightness) =>
       brightness == Brightness.light
-          ? CupertinoColors.lightBackgroundGray
+          ? CupertinoColors.extraLightBackgroundGray
           : null;
 
   static const frostedBackground = Color(0xccf8f8f8);
@@ -203,12 +203,6 @@ abstract class Styles {
 
   static const Color settingsBackground = Color(0xffefeff4);
 
-  static const Color settingsGroupSubtitle = Color(0xff777777);
-
-  static const Color iconBlue = Color(0xff0000ff);
-
-  static const Color iconGold = Color(0xffdba800);
-
   static const preferenceIcon = IconData(
     0xf443,
     fontFamily: CupertinoIcons.iconFont,
@@ -223,12 +217,6 @@ abstract class Styles {
 
   static const calorieIcon = IconData(
     0xf3bb,
-    fontFamily: CupertinoIcons.iconFont,
-    fontPackage: CupertinoIcons.iconFontPackage,
-  );
-
-  static const checkIcon = IconData(
-    0xf383,
     fontFamily: CupertinoIcons.iconFont,
     fontPackage: CupertinoIcons.iconFontPackage,
   );

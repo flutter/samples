@@ -4,9 +4,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/widgets/veggie_headline.dart';
+import '../data/app_state.dart';
+import '../data/veggie.dart';
+import '../widgets/veggie_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({this.restorationId, super.key});

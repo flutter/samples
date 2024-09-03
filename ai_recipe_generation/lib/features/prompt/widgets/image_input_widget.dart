@@ -201,7 +201,7 @@ class _CameraViewState extends State<CameraView> {
           right: 0,
           height: 89.5,
           child: Container(
-            color: Colors.black.withOpacity(.7),
+            color: Colors.black.withAlpha(179),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -247,7 +247,7 @@ class _CameraViewState extends State<CameraView> {
           right: 0,
           height: 150,
           child: Container(
-            color: Colors.black.withOpacity(.7),
+            color: Colors.black.withAlpha(179),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

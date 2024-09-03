@@ -5,6 +5,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
+const _bottomNavigationBarItemIconPadding = EdgeInsets.only(top: 4.0);
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,
@@ -30,19 +32,31 @@ class HomeScreen extends StatelessWidget {
               currentIndex: index,
               items: const [
                 BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.home),
+                  icon: Padding(
+                    padding: _bottomNavigationBarItemIconPadding,
+                    child: Icon(CupertinoIcons.home),
+                  ),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.book),
+                  icon: Padding(
+                    padding: _bottomNavigationBarItemIconPadding,
+                    child: Icon(CupertinoIcons.book),
+                  ),
                   label: 'My Garden',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.search),
+                  icon: Padding(
+                    padding: _bottomNavigationBarItemIconPadding,
+                    child: Icon(CupertinoIcons.search),
+                  ),
                   label: 'Search',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.settings),
+                  icon: Padding(
+                    padding: _bottomNavigationBarItemIconPadding,
+                    child: Icon(CupertinoIcons.settings),
+                  ),
                   label: 'Settings',
                 ),
               ],

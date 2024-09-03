@@ -35,9 +35,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
     super.initState();
     tabController = TabController(length: 2, vsync: this);
     _textStyle = MarketplaceTheme.heading1.copyWith(
-      color: Colors.black87.withOpacity(
-        1.0,
-      ),
+      color: Colors.black87.withAlpha(255),
     );
 
     scrollController = ScrollController();
@@ -60,7 +58,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
       // By offset 200, ensure the text is transparent
       if (scrollController.offset > 200) {
         _textStyle = _textStyle.copyWith(
-          color: Colors.black87.withOpacity(0),
+          color: Colors.black87.withAlpha(0),
         );
         return;
       }
@@ -73,9 +71,7 @@ class _AdaptiveRouterState extends State<AdaptiveRouter>
       if (value > 1) value = 1;
       if (value < 0) value = 0;
       _textStyle = _textStyle.copyWith(
-        color: Colors.black87.withOpacity(
-          value,
-        ),
+        color: Colors.black87.withAlpha((255 * value).ceil()),
       );
     });
   }

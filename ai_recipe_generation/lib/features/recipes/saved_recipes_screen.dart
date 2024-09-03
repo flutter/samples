@@ -193,7 +193,7 @@ class _ListTileState extends State<_ListTile> {
                 bottomLeft:
                     Radius.circular(MarketplaceTheme.defaultBorderRadius),
               ),
-              color: color.withOpacity(.3),
+              color: color.withAlpha(77),
             ),
             padding: const EdgeInsets.all(MarketplaceTheme.spacing7),
             child: Stack(

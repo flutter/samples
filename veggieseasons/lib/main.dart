@@ -9,18 +9,18 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/preferences.dart';
-import 'package:veggieseasons/screens/home.dart';
-import 'package:veggieseasons/styles.dart';
-import 'package:veggieseasons/widgets/fade_transition_page.dart';
 import 'package:window_size/window_size.dart';
 
+import 'data/app_state.dart';
+import 'data/preferences.dart';
 import 'screens/details.dart';
 import 'screens/favorites.dart';
+import 'screens/home.dart';
 import 'screens/list.dart';
 import 'screens/search.dart';
 import 'screens/settings.dart';
+import 'styles.dart';
+import 'widgets/veggie_seasons_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -136,7 +136,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.list',
                       child: const ListScreen(restorationId: 'list'),
@@ -149,7 +149,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.favorites',
                       child: const FavoritesScreen(restorationId: 'favorites'),
@@ -162,7 +162,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.search',
                       child: const SearchScreen(restorationId: 'search'),
@@ -175,7 +175,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return VeggieSeasonsPage(
                       key: state.pageKey,
                       restorationId: 'route.settings',
                       child: const SettingsScreen(restorationId: 'settings'),
@@ -217,7 +217,6 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         final veggieId = int.parse(state.pathParameters['id']!);
         return CupertinoPage(
           restorationId: 'route.details',
-          fullscreenDialog: true,
           child: DetailsScreen(
             id: veggieId,
             restorationId: 'details',
