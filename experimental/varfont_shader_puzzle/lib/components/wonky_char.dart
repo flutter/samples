@@ -158,7 +158,6 @@ class WonkyCharState extends State<WonkyChar>
                     '**ERROR** unrecognized property to animate: ${s.property}');
               }
             }
-            break;
         }
       }
       // save refs to all curves just to persist in mem, don't need to touch them again

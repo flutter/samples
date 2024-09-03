@@ -4,8 +4,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
+import '../data/veggie.dart';
+import '../styles.dart';
 
 class ZoomClipAssetImage extends StatelessWidget {
   const ZoomClipAssetImage({

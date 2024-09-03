@@ -2,51 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' as ui;
-
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
-
-class FrostyBackground extends StatelessWidget {
-  const FrostyBackground({
-    this.color,
-    this.intensity = 25,
-    this.child,
-    super.key,
-  });
-
-  final Color? color;
-  final double intensity;
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRect(
-      child: BackdropFilter(
-        filter: ui.ImageFilter.blur(sigmaX: intensity, sigmaY: intensity),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: color,
-          ),
-          child: child,
-        ),
-      ),
-    );
-  }
-}
+import '../data/veggie.dart';
+import '../styles.dart';
 
 /// A Card-like Widget that responds to tap events by animating changes to its
 /// elevation and invoking an optional [onPressed] callback.
-class PressableCard extends StatefulWidget {
+class PressableCard extends StatelessWidget {
   const PressableCard({
     required this.child,
-    this.borderRadius = const BorderRadius.all(Radius.circular(5)),
-    this.upElevation = 2,
-    this.downElevation = 0,
-    this.shadowColor = CupertinoColors.black,
-    this.duration = const Duration(milliseconds: 100),
+    this.borderRadius = const BorderRadius.all(Radius.circular(16)),
     this.onPressed,
     super.key,
   });
@@ -57,42 +24,17 @@ class PressableCard extends StatefulWidget {
 
   final BorderRadius borderRadius;
 
-  final double upElevation;
-
-  final double downElevation;
-
-  final Color shadowColor;
-
-  final Duration duration;
-
-  @override
-  State<PressableCard> createState() => _PressableCardState();
-}
-
-class _PressableCardState extends State<PressableCard> {
-  bool cardIsDown = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() => cardIsDown = false);
-        if (widget.onPressed != null) {
-          widget.onPressed!();
-        }
-      },
-      onTapDown: (details) => setState(() => cardIsDown = true),
-      onTapCancel: () => setState(() => cardIsDown = false),
-      child: AnimatedPhysicalModel(
-        elevation: cardIsDown ? widget.downElevation : widget.upElevation,
-        borderRadius: widget.borderRadius,
-        shape: BoxShape.rectangle,
-        shadowColor: widget.shadowColor,
-        duration: widget.duration,
-        color: CupertinoColors.lightBackgroundGray,
+      onTap: onPressed,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+        ),
         child: ClipRRect(
-          borderRadius: widget.borderRadius,
-          child: widget.child,
+          borderRadius: borderRadius,
+          child: child,
         ),
       ),
     );
@@ -115,10 +57,10 @@ class VeggieCard extends StatelessWidget {
 
   Widget _buildDetails(BuildContext context) {
     final themeData = CupertinoTheme.of(context);
-    return FrostyBackground(
-      color: const Color(0x90ffffff),
+    return Container(
+      color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 16, 16, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -126,6 +68,7 @@ class VeggieCard extends StatelessWidget {
               veggie.name,
               style: Styles.cardTitleText(themeData),
             ),
+            const SizedBox(height: 8),
             Text(
               veggie.shortDescription,
               style: Styles.cardDescriptionText(themeData),
