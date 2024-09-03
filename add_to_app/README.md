@@ -66,13 +66,16 @@ in the [main Flutter repo](https://github.com/flutter/flutter/issues).
 
 ## Updating Android samples and its dependencies
 
-* Open the top level build.gradle file in android studio
-* Open “Upgrade Assistant” and click upgrade
-* If after upgrading it fails to build try upgrading to a slightly less new version
-* If you get an unknown class version exception 61, 66, etc, try setting the version of Java used by modifying JAVA_HOME
-* If it still fails to build try checking if the Flutter code referenced in the build is up-to-date and doesn't use discontinued plugins. (Common cases include “namespace”)
+1. Open the top level build.gradle file in Android Studio
+2. Open “Upgrade Assistant” and click upgrade
+
+### Troubleshooting Android updates
+
+* If after upgrading it fails to build, try upgrading to a slightly less new version
+* If there's an "Unknown class version exception <VERSION NUMBER>"  try setting the version of Java used by modifying JAVA_HOME
+* If it still fails to build, check that the Flutter code referenced in the build is up-to-date and doesn't use discontinued plugins. (Common cases include “namespace”)
 * The 'project structure' -> 'modules' view can be helpful in understanding the dependency tree.
-* Once the app builds with the latest gradle/agp update any deprecated usages in app/build.gradle
+* Once the app builds with the latest gradle/agp, update any deprecated usages in app/build.gradle
 
 * compileSdkVersion -> sdkVersion
 * Update the target sdk version and read through each target sdk update
