@@ -1,9 +1,10 @@
-import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../domain/models/booking/booking.dart';
+import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 import '../../../domain/components/booking/booking_create_component.dart';

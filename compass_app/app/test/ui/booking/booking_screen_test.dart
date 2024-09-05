@@ -1,8 +1,8 @@
 import 'package:compass_app/domain/components/booking/booking_create_component.dart';
 import 'package:compass_app/domain/components/booking/booking_share_component.dart';
+import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:compass_app/ui/booking/view_models/booking_viewmodel.dart';
 import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
-import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 

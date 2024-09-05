@@ -1,7 +1,6 @@
-import 'package:compass_model/model.dart';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../../domain/models/destination/destination.dart';
 import '../../../utils/image_error_listener.dart';
 import '../../core/themes/text_styles.dart';
 import '../../core/ui/tag_chip.dart';

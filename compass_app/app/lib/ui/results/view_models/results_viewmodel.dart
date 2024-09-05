@@ -1,8 +1,9 @@
-import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/destination/destination_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../domain/models/destination/destination.dart';
+import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 import 'package:flutter/cupertino.dart';

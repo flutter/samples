@@ -1,9 +1,11 @@
 import 'dart:convert';
 
-import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart';
 
 import '../../../config/assets.dart';
+import '../../../domain/models/activity/activity.dart';
+import '../../../domain/models/continent/continent.dart';
+import '../../../domain/models/destination/destination.dart';
 
 class LocalDataService {
   List<Continent> getContinents() {

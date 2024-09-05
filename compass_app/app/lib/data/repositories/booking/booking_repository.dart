@@ -1,5 +1,4 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
 

@@ -1,9 +1,9 @@
-import 'package:compass_model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../domain/models/activity/activity.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 

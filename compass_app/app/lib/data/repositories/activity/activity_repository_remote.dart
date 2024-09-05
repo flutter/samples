@@ -1,5 +1,4 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/activity/activity.dart';
 import '../../../utils/result.dart';
 import '../../services/api/api_client.dart';
 import 'activity_repository.dart';

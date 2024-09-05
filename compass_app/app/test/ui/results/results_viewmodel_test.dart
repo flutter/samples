@@ -1,5 +1,5 @@
+import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:compass_app/ui/results/view_models/results_viewmodel.dart';
-import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../testing/fakes/repositories/fake_destination_repository.dart';

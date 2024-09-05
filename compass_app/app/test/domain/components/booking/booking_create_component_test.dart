@@ -1,5 +1,5 @@
 import 'package:compass_app/domain/components/booking/booking_create_component.dart';
-import 'package:compass_model/model.dart';
+import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../testing/fakes/repositories/fake_activities_repository.dart';
