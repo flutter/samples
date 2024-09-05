@@ -51,10 +51,10 @@ class _CategorySelectionInputState<T extends Enum>
               return FilterChip(
                 color: WidgetStateColor.resolveWith((states) {
                   if (states.contains(WidgetState.hovered)) {
-                    return MarketplaceTheme.secondary.withOpacity(.5);
+                    return MarketplaceTheme.secondary.withAlpha(128);
                   }
                   if (states.contains(WidgetState.selected)) {
-                    return MarketplaceTheme.secondary.withOpacity(.3);
+                    return MarketplaceTheme.secondary.withAlpha(77);
                   }
                   return Theme.of(context).splashColor;
                 }),

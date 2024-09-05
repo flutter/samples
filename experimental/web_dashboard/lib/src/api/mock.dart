@@ -5,7 +5,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:collection/collection.dart';
 import 'package:uuid/uuid.dart' as uuid;
 
 import 'api.dart';
@@ -108,7 +107,7 @@ class MockEntryApi implements EntryApi {
     var list = _storage.keys
         .where((k) => k.startsWith(categoryId))
         .map((k) => _storage[k])
-        .whereNotNull()
+        .nonNulls
         .toList();
     return list;
   }

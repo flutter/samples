@@ -51,14 +51,29 @@ module](https://docs.flutter.dev/add-to-app/debugging). This will
 allow you to hot reload, set breakpoints, and use DevTools and other debugging
 functionality, similar to a full Flutter app.
 
-## Questions/issues
-
-If you have a general question about incorporating Flutter into an existing
-iOS or Android app, the best places to go are:
-
-* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
-* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+## Issues
 
 If you run into an issue with the sample itself, please file an issue
-in the [main Flutter repo](https://github.com/flutter/flutter/issues).
+in the [Flutter samples repo](https://github.com/flutter/samples/issues).
+
+
+## Updating Android samples and its dependencies
+
+1. Open the top level build.gradle file in Android Studio
+2. Open “Upgrade Assistant” and click upgrade
+
+### Troubleshooting Android updates
+
+* If after upgrading it fails to build, try upgrading to a slightly less new version
+* If there's an "Unknown class version exception <VERSION NUMBER>"  try setting the version of Java used by modifying JAVA_HOME
+* If it still fails to build, check that the Flutter code referenced in the build is up-to-date and doesn't use discontinued plugins. (Common cases include “namespace”)
+* The 'project structure' -> 'modules' view can be helpful in understanding the dependency tree.
+* Once the app builds with the latest gradle/agp, update any deprecated usages in app/build.gradle
+
+* compileSdkVersion -> sdkVersion
+* Update the target sdk version and read through each target sdk update
+* Export broadcast receivers
+* Update the way flutter is imported to use flutter gradle plugin
+* https://flutter.dev/go/flutter-gradle-plugin-apply
+
+* **When updating an app that uses AAR as a Flutter module** -- In android studio update any android dependencies that are indicated as in yellow as old. Keep `androidx.test:runner`, `androidx.test.espresso:espresso-core`, and `androidx.test:core`, as defined in https://github.com/flutter/packages/tree/main/packages/espresso

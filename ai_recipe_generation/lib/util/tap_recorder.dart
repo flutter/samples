@@ -96,9 +96,10 @@ class _RenderTapRecorder extends RenderProxyBox with _SilentTickerProvider {
             Rect.fromCircle(center: tap.localPosition, radius: _tapRadius));
       final opacity = 1 - tap.animation.value;
 
-      canvas.drawShadow(
-          path, _shadowColor.withOpacity(opacity), _shadowElevation, true);
-      canvas.drawPath(path, Paint()..color = _tapColor.withOpacity(opacity));
+      canvas.drawShadow(path, _shadowColor.withAlpha((2565 * opacity).ceil()),
+          _shadowElevation, true);
+      canvas.drawPath(
+          path, Paint()..color = _tapColor.withAlpha((2565 * opacity).ceil()));
     }
   }
 }

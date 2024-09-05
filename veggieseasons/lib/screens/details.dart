@@ -5,12 +5,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/preferences.dart';
-import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
-import 'package:veggieseasons/widgets/close_button.dart';
-import 'package:veggieseasons/widgets/trivia.dart';
+import '../data/app_state.dart';
+import '../data/preferences.dart';
+import '../data/veggie.dart';
+import '../styles.dart';
+import '../widgets/detail_buttons.dart';
 
 class ServingInfoChart extends StatelessWidget {
   const ServingInfoChart(this.veggie, this.prefs, {super.key});
@@ -43,113 +42,81 @@ class ServingInfoChart extends StatelessWidget {
     final themeData = CupertinoTheme.of(context);
     return Column(
       children: [
-        const SizedBox(height: 16),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 9,
-              bottom: 4,
+        const SizedBox(height: 32),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Serving size',
+              style: Styles.detailsServingLabelText(themeData),
             ),
-            child: Text(
-              'Serving info',
+            const Spacer(),
+            Text(
+              veggie.servingSize,
+              textAlign: TextAlign.end,
               style: CupertinoTheme.of(context).textTheme.textStyle,
             ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Calories',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            Text(
+              '${veggie.caloriesPerServing} kCal',
+              style: CupertinoTheme.of(context).textTheme.textStyle,
+              textAlign: TextAlign.end,
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Vitamin A',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            _buildVitaminText(
+              veggie.vitaminAPercentage,
+              prefs.desiredCalories,
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Vitamin C',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
+            const Spacer(),
+            _buildVitaminText(
+              veggie.vitaminCPercentage,
+              prefs.desiredCalories,
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 32),
+          child: FutureBuilder(
+            future: prefs.desiredCalories,
+            builder: (context, snapshot) {
+              return Text(
+                'Percent daily values based on a diet of '
+                '${snapshot.data ?? '2,000'} calories.',
+                style: Styles.detailsServingNoteText(themeData),
+              );
+            },
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Styles.servingInfoBorderColor),
-          ),
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            children: [
-              Table(
-                children: [
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Serving size:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: Text(
-                          veggie.servingSize,
-                          textAlign: TextAlign.end,
-                          style: CupertinoTheme.of(context).textTheme.textStyle,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Calories:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: Text(
-                          '${veggie.caloriesPerServing} kCal',
-                          style: CupertinoTheme.of(context).textTheme.textStyle,
-                          textAlign: TextAlign.end,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Vitamin A:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: _buildVitaminText(
-                          veggie.vitaminAPercentage,
-                          prefs.desiredCalories,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Text(
-                          'Vitamin C:',
-                          style: Styles.detailsServingLabelText(themeData),
-                        ),
-                      ),
-                      TableCell(
-                        child: _buildVitaminText(
-                          veggie.vitaminCPercentage,
-                          prefs.desiredCalories,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: FutureBuilder(
-                  future: prefs.desiredCalories,
-                  builder: (context, snapshot) {
-                    return Text(
-                      'Percent daily values based on a diet of '
-                      '${snapshot.data ?? '2,000'} calories.',
-                      style: Styles.detailsServingNoteText(themeData),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        )
       ],
     );
   }
@@ -172,36 +139,6 @@ class InfoView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              FutureBuilder<Set<VeggieCategory>>(
-                future: prefs.preferredCategories,
-                builder: (context, snapshot) {
-                  return Text(
-                    veggie.categoryName!.toUpperCase(),
-                    style: (snapshot.hasData &&
-                            snapshot.data!.contains(veggie.category))
-                        ? Styles.detailsPreferredCategoryText(themeData)
-                        : themeData.textTheme.textStyle,
-                  );
-                },
-              ),
-              const Spacer(),
-              for (Season season in veggie.seasons) ...[
-                const SizedBox(width: 12),
-                Padding(
-                  padding: Styles.seasonIconPadding[season]!,
-                  child: Icon(
-                    Styles.seasonIconData[season],
-                    semanticLabel: seasonNames[season],
-                    color: Styles.seasonColors[season],
-                  ),
-                ),
-              ],
-            ],
-          ),
-          const SizedBox(height: 8),
           Text(
             veggie.name,
             style: Styles.detailsTitleText(themeData),
@@ -211,62 +148,58 @@ class InfoView extends StatelessWidget {
             veggie.shortDescription,
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
-          ServingInfoChart(veggie, prefs),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
+          Text(
+            'Seasons',
+            style: Styles.detailsServingLabelText(themeData),
+          ),
+          const SizedBox(height: 12),
           Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CupertinoSwitch(
-                value: veggie.isFavorite,
-                onChanged: (value) {
-                  appState.setFavorite(id, value);
-                },
-              ),
-              const SizedBox(width: 8),
-              Text(
-                'Save to Garden',
-                style: CupertinoTheme.of(context).textTheme.textStyle,
-              ),
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              for (var season in Season.values) ...[
+                const Spacer(),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Styles.seasonIconData[season],
+                      color: veggie.seasons.contains(season)
+                          ? Styles.seasonColors[season]
+                          : const Color.fromRGBO(128, 128, 128, 1),
+                      size: 24,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      season.name.characters.first.toUpperCase() +
+                          season.name.characters.skip(1).string,
+                      style: Styles.minorText(CupertinoTheme.of(context))
+                          .copyWith(fontSize: 11),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+              ],
             ],
           ),
+          ServingInfoChart(veggie, prefs),
         ],
       ),
     );
   }
 }
 
-class DetailsScreen extends StatefulWidget {
+class DetailsScreen extends StatelessWidget {
   final int? id;
   final String? restorationId;
 
   const DetailsScreen({this.id, this.restorationId, super.key});
 
-  @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
-}
-
-class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
-  final RestorableInt _selectedViewIndex = RestorableInt(0);
-
-  @override
-  String? get restorationId => widget.restorationId;
-
-  @override
-  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_selectedViewIndex, 'tab');
-  }
-
-  @override
-  void dispose() {
-    _selectedViewIndex.dispose();
-    super.dispose();
-  }
-
   Widget _buildHeader(BuildContext context, AppState model) {
-    final veggie = model.getVeggie(widget.id);
+    final veggie = model.getVeggie(id);
 
     return SizedBox(
-      height: 150,
+      height: 240,
       child: Stack(
         children: [
           Positioned(
@@ -287,6 +220,48 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
               }),
             ),
           ),
+          Positioned(
+            top: 16,
+            right: 16,
+            child: SafeArea(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ShareButton(
+                    () {
+                      showCupertinoModalPopup<void>(
+                        context: context,
+                        builder: (context) {
+                          return CupertinoActionSheet(
+                            title: Text('Share ${veggie.name}'),
+                            message: Text(veggie.shortDescription),
+                            actions: [
+                              CupertinoActionSheetAction(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  Builder(builder: (context) {
+                    final appState = Provider.of<AppState>(context);
+                    final veggie = appState.getVeggie(id);
+
+                    return FavoriteButton(
+                      () => appState.setFavorite(id, !veggie.isFavorite),
+                      veggie.isFavorite,
+                    );
+                  }),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -296,41 +271,22 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
 
-    return UnmanagedRestorationScope(
-      bucket: bucket,
-      child: CupertinoPageScaffold(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: ListView(
-                restorationId: 'list',
-                children: [
-                  _buildHeader(context, appState),
-                  const SizedBox(height: 20),
-                  CupertinoSegmentedControl<int>(
-                    children: const {
-                      0: Text(
-                        'Facts & Info',
-                      ),
-                      1: Text(
-                        'Trivia',
-                      )
-                    },
-                    groupValue: _selectedViewIndex.value,
-                    onValueChanged: (value) {
-                      setState(() => _selectedViewIndex.value = value);
-                    },
-                  ),
-                  _selectedViewIndex.value == 0
-                      ? InfoView(widget.id)
-                      : TriviaView(id: widget.id, restorationId: 'trivia'),
-                ],
-              ),
+    return CupertinoPageScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: ListView(
+              restorationId: 'list',
+              children: [
+                _buildHeader(context, appState),
+                const SizedBox(height: 20),
+                InfoView(id),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
