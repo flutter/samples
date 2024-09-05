@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:compass_model/model.dart' hide Booking;
 import 'package:compass_server/config/constants.dart';
 import 'package:compass_server/model/booking/booking.dart';
+import 'package:compass_server/model/login_request/login_request.dart';
+import 'package:compass_server/model/login_response/login_response.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 

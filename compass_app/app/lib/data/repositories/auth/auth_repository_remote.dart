@@ -1,9 +1,10 @@
-import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../utils/result.dart';
 import '../../services/api/api_client.dart';
 import '../../services/api/auth_api_client.dart';
+import '../../services/api/model/login_request/login_request.dart';
+import '../../services/api/model/login_response/login_response.dart';
 import '../../services/shared_preferences_service.dart';
 import 'auth_repository.dart';
 
