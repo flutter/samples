@@ -11,6 +11,8 @@ class AppLocalization {
   static const _strings = <String, String>{
     'activities': 'Activities',
     'addDates': 'Add Dates',
+    'bookNewTrip': 'Book New Trip',
+    'close': 'Close',
     'confirm': 'Confirm',
     'daytime': 'Daytime',
     'errorWhileLoadingActivities': 'Error while loading activities',
@@ -21,6 +23,7 @@ class AppLocalization {
     'errorWhileLogout': 'Error while trying to logout',
     'errorWhileSavingActivities': 'Error while saving activities',
     'errorWhileSavingItinerary': 'Error while saving itinerary',
+    'errorWhileSharing': 'Error while sharing booking',
     'evening': 'Evening',
     'login': 'Login',
     'search': 'Search',
@@ -28,6 +31,7 @@ class AppLocalization {
     'selected': '{1} selected',
     'shareTrip': 'Share Trip',
     'tryAgain': 'Try again',
+    'yourBookings': 'Your bookings:',
     'yourChosenActivities': 'Your chosen activities',
     'when': 'When',
   };
@@ -76,6 +80,14 @@ class AppLocalization {
   String get login => _get('login');
 
   String get errorWhileLogout => _get('errorWhileLogout');
+
+  String get close => _get('close');
+
+  String get errorWhileSharing => _get('errorWhileSharing');
+
+  String get bookNewTrip => _get('bookNewTrip');
+
+  String get yourBookings => _get('yourBookings');
 
   String selected(int value) =>
       _get('selected').replaceAll('{1}', value.toString());

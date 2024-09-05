@@ -1,3 +1,4 @@
+import 'package:compass_app/data/services/local/local_data_service.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:compass_app/data/repositories/destination/destination_repository_local.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,7 +8,9 @@ void main() {
     // To load assets
     TestWidgetsFlutterBinding.ensureInitialized();
 
-    final repository = DestinationRepositoryLocal();
+    final repository = DestinationRepositoryLocal(
+      localDataService: LocalDataService(),
+    );
 
     test('should load and parse', () async {
       // Should load the json and parse it

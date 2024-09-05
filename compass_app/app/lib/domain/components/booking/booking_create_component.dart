@@ -2,6 +2,7 @@ import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
+import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/destination/destination_repository.dart';
 import '../../../utils/result.dart';
 
@@ -13,11 +14,14 @@ class BookingCreateComponent {
   BookingCreateComponent({
     required DestinationRepository destinationRepository,
     required ActivityRepository activityRepository,
+    required BookingRepository bookingRepository,
   })  : _destinationRepository = destinationRepository,
-        _activityRepository = activityRepository;
+        _activityRepository = activityRepository,
+        _bookingRepository = bookingRepository;
 
   final DestinationRepository _destinationRepository;
   final ActivityRepository _activityRepository;
+  final BookingRepository _bookingRepository;
   final _log = Logger('BookingComponent');
 
   /// Create [Booking] from a stored [ItineraryConfig]
@@ -60,15 +64,25 @@ class BookingCreateComponent {
       return Result.error(Exception('Dates are not set'));
     }
 
-    // Create Booking object
-    return Result.ok(
-      Booking(
-        startDate: itineraryConfig.startDate!,
-        endDate: itineraryConfig.endDate!,
-        destination: destinationResult.asOk.value,
-        activity: activities,
-      ),
+    final booking = Booking(
+      startDate: itineraryConfig.startDate!,
+      endDate: itineraryConfig.endDate!,
+      destination: destinationResult.asOk.value,
+      activity: activities,
     );
+
+    final saveBookingResult = await _bookingRepository.createBooking(booking);
+    switch (saveBookingResult) {
+      case Ok<void>():
+        _log.fine('Booking saved successfully');
+        break;
+      case Error<void>():
+        _log.warning('Failed to save booking', saveBookingResult.error);
+        return Result.error(saveBookingResult.error);
+    }
+
+    // Create Booking object
+    return Result.ok(booking);
   }
 
   Future<Result<Destination>> _fetchDestination(String destinationRef) async {

@@ -9,10 +9,13 @@ import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
 import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
+import '../ui/home/view_models/home_viewmodel.dart';
+import '../ui/home/widgets/home_screen.dart';
 import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
 import '../ui/search_form/view_models/search_form_viewmodel.dart';
 import '../ui/search_form/widgets/search_form_screen.dart';
+import 'routes.dart';
 
 /// Top go_router entry point.
 ///
@@ -22,33 +25,42 @@ GoRouter router(
   AuthRepository authRepository,
 ) =>
     GoRouter(
-      initialLocation: '/',
+      initialLocation: Routes.home,
       debugLogDiagnostics: true,
       redirect: _redirect,
       refreshListenable: authRepository,
       routes: [
         GoRoute(
-          path: '/',
+          path: Routes.login,
           builder: (context, state) {
-            final viewModel = SearchFormViewModel(
-              continentRepository: context.read(),
-              itineraryConfigRepository: context.read(),
+            return LoginScreen(
+              viewModel: LoginViewModel(
+                authRepository: context.read(),
+              ),
             );
-            return SearchFormScreen(viewModel: viewModel);
+          },
+        ),
+        GoRoute(
+          path: Routes.home,
+          builder: (context, state) {
+            final viewModel = HomeViewModel(
+              bookingRepository: context.read(),
+            );
+            return HomeScreen(viewModel: viewModel);
           },
           routes: [
             GoRoute(
-              path: 'login',
+              path: Routes.searchRelative,
               builder: (context, state) {
-                return LoginScreen(
-                  viewModel: LoginViewModel(
-                    authRepository: context.read(),
-                  ),
+                final viewModel = SearchFormViewModel(
+                  continentRepository: context.read(),
+                  itineraryConfigRepository: context.read(),
                 );
+                return SearchFormScreen(viewModel: viewModel);
               },
             ),
             GoRoute(
-              path: 'results',
+              path: Routes.resultsRelative,
               builder: (context, state) {
                 final viewModel = ResultsViewModel(
                   destinationRepository: context.read(),
@@ -60,7 +72,7 @@ GoRouter router(
               },
             ),
             GoRoute(
-              path: 'activities',
+              path: Routes.activitiesRelative,
               builder: (context, state) {
                 final viewModel = ActivitiesViewModel(
                   activityRepository: context.read(),
@@ -72,17 +84,45 @@ GoRouter router(
               },
             ),
             GoRoute(
-              path: 'booking',
+              path: Routes.bookingRelative,
               builder: (context, state) {
                 final viewModel = BookingViewModel(
                   itineraryConfigRepository: context.read(),
                   bookingComponent: context.read(),
                   shareComponent: context.read(),
+                  bookingRepository: context.read(),
                 );
+
+                // When opening the booking screen directly
+                // create a new booking from the stored ItineraryConfig.
+                viewModel.createBooking.execute();
+
                 return BookingScreen(
                   viewModel: viewModel,
                 );
               },
+              routes: [
+                GoRoute(
+                  path: ':id',
+                  builder: (context, state) {
+                    final id = int.parse(state.pathParameters['id']!);
+                    final viewModel = BookingViewModel(
+                      itineraryConfigRepository: context.read(),
+                      bookingComponent: context.read(),
+                      shareComponent: context.read(),
+                      bookingRepository: context.read(),
+                    );
+
+                    // When opening the booking screen with an existing id
+                    // load and display that booking.
+                    viewModel.loadBooking.execute(id);
+
+                    return BookingScreen(
+                      viewModel: viewModel,
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),
@@ -93,15 +133,15 @@ GoRouter router(
 Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   // if the user is not logged in, they need to login
   final bool loggedIn = await context.read<AuthRepository>().isAuthenticated;
-  final bool loggingIn = state.matchedLocation == '/login';
+  final bool loggingIn = state.matchedLocation == Routes.login;
   if (!loggedIn) {
-    return '/login';
+    return Routes.login;
   }
 
   // if the user is logged in but still on the login page, send them to
   // the home page
   if (loggingIn) {
-    return '/';
+    return Routes.home;
   }
 
   // no need to redirect at all

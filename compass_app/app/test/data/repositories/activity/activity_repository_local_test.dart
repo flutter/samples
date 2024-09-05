@@ -1,4 +1,5 @@
 import 'package:compass_app/data/repositories/activity/activity_repository_local.dart';
+import 'package:compass_app/data/services/local/local_data_service.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,7 +8,9 @@ void main() {
     // To load assets
     TestWidgetsFlutterBinding.ensureInitialized();
 
-    final repository = ActivityRepositoryLocal();
+    final repository = ActivityRepositoryLocal(
+      localDataService: LocalDataService(),
+    );
 
     test('should get by destination ref', () async {
       final result = await repository.getByDestination('alaska');

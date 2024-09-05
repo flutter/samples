@@ -8,10 +8,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../testing/app.dart';
 import '../../../testing/fakes/repositories/fake_activities_repository.dart';
+import '../../../testing/fakes/repositories/fake_booking_repository.dart';
 import '../../../testing/fakes/repositories/fake_destination_repository.dart';
 import '../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
 import '../../../testing/mocks.dart';
 import '../../../testing/models/activity.dart';
+import '../../../testing/models/booking.dart';
 import '../../../testing/models/destination.dart';
 
 void main() {
@@ -19,9 +21,11 @@ void main() {
     late MockGoRouter goRouter;
     late BookingViewModel viewModel;
     late bool shared;
+    late FakeBookingRepository bookingRepository;
 
     setUp(() {
       shared = false;
+      bookingRepository = FakeBookingRepository();
       viewModel = BookingViewModel(
         itineraryConfigRepository: FakeItineraryConfigRepository(
           itineraryConfig: ItineraryConfig(
@@ -36,10 +40,12 @@ void main() {
         bookingComponent: BookingCreateComponent(
           activityRepository: FakeActivityRepository(),
           destinationRepository: FakeDestinationRepository(),
+          bookingRepository: bookingRepository,
         ),
         shareComponent: BookingShareComponent.custom((text) async {
           shared = true;
         }),
+        bookingRepository: bookingRepository,
       );
       goRouter = MockGoRouter();
     });
@@ -57,18 +63,44 @@ void main() {
       expect(find.byType(BookingScreen), findsOneWidget);
     });
 
-    testWidgets('should display booking', (WidgetTester tester) async {
+    testWidgets('should display booking from ID', (WidgetTester tester) async {
+      // Add a booking to repository
+      bookingRepository.createBooking(kBooking);
+
+      // Load screen
       await loadScreen(tester);
 
-      // Wait for list to load
+      // Load booking with ID 0
+      viewModel.loadBooking.execute(0);
+
+      // Wait for booking to load
+      await tester.pumpAndSettle();
+
+      expect(find.text(kBooking.destination.name), findsOneWidget);
+      expect(find.text(kBooking.destination.tags.first), findsOneWidget);
+    });
+
+    testWidgets('should create booking from itinerary config',
+        (WidgetTester tester) async {
+      await loadScreen(tester);
+
+      // Create a new booking from stored itinerary config
+      viewModel.createBooking.execute();
+
+      // Wait for booking to load
       await tester.pumpAndSettle();
 
       expect(find.text('name1'), findsOneWidget);
       expect(find.text('tags1'), findsOneWidget);
+
+      // Booking is saved
+      expect(bookingRepository.bookings.length, 1);
     });
 
     testWidgets('should share booking', (WidgetTester tester) async {
+      bookingRepository.createBooking(kBooking);
       await loadScreen(tester);
+      viewModel.loadBooking.execute(0);
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('share-button')));
       expect(shared, true);

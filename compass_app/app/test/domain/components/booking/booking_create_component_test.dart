@@ -3,6 +3,7 @@ import 'package:compass_model/model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../testing/fakes/repositories/fake_activities_repository.dart';
+import '../../../../testing/fakes/repositories/fake_booking_repository.dart';
 import '../../../../testing/fakes/repositories/fake_destination_repository.dart';
 import '../../../../testing/models/activity.dart';
 import '../../../../testing/models/booking.dart';
@@ -14,6 +15,7 @@ void main() {
       final component = BookingCreateComponent(
         activityRepository: FakeActivityRepository(),
         destinationRepository: FakeDestinationRepository(),
+        bookingRepository: FakeBookingRepository(),
       );
 
       final booking = await component.createFrom(

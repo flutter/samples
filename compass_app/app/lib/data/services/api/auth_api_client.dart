@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:compass_model/model.dart';
 
-import '../../utils/result.dart';
+import '../../../utils/result.dart';
 
 class AuthApiClient {
   Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {

@@ -8,6 +8,7 @@ import 'package:compass_app/ui/auth/logout/widgets/logout_button.dart';
 import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
 import 'package:compass_app/ui/core/ui/custom_checkbox.dart';
 import 'package:compass_app/ui/core/ui/home_button.dart';
+import 'package:compass_app/ui/home/widgets/home_screen.dart';
 import 'package:compass_app/ui/results/widgets/result_card.dart';
 import 'package:compass_app/ui/results/widgets/results_screen.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
@@ -24,7 +25,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test with remote data', () {
-    final port = '8080';
+    const port = '8080';
     late Process p;
 
     setUpAll(() async {
@@ -61,6 +62,49 @@ void main() {
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
+    testWidgets('Open a booking', (tester) async {
+      // Load app widget with local configuration
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: providersRemote,
+          child: const MainApp(),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Login screen because logget out
+      expect(find.byType(LoginScreen), findsOneWidget);
+
+      // Perform login (credentials are prefilled)
+      await tester.tap(find.text('Login'));
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+      await tester.pumpAndSettle();
+
+      // Tap on booking (Alaska is created by default)
+      await tester.tap(find.text('Alaska, North America'));
+      await tester.pumpAndSettle();
+
+      // Should be at booking screen
+      expect(find.byType(BookingScreen), findsOneWidget);
+      expect(find.text('Alaska'), findsOneWidget);
+
+      // Navigate back to home
+      await tester.tap(find.byType(HomeButton).first);
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+
+      // Perform logout
+      await tester.tap(find.byType(LogoutButton).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(LoginScreen), findsOneWidget);
+    });
+
     testWidgets('Create booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(
@@ -77,6 +121,14 @@ void main() {
 
       // Perform login (credentials are prefilled)
       await tester.tap(find.text('Login'));
+      await tester.pumpAndSettle();
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+      await tester.pumpAndSettle();
+
+      // Select create new booking
+      await tester.tap(find.byKey(const ValueKey('booking-button')));
       await tester.pumpAndSettle();
 
       // Search destinations screen
@@ -136,7 +188,12 @@ void main() {
       // Navigate back to home
       await tester.tap(find.byType(HomeButton).first);
       await tester.pumpAndSettle();
-      expect(find.byType(SearchFormScreen), findsOneWidget);
+
+      // Home screen
+      expect(find.byType(HomeScreen), findsOneWidget);
+
+      // New Booking should appear
+      expect(find.text('Amalfi Coast, Europe'), findsOneWidget);
 
       // Perform logout
       await tester.tap(find.byType(LogoutButton).first);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/back_button.dart';
@@ -27,7 +28,7 @@ class ActivitiesHeader extends StatelessWidget {
             CustomBackButton(
               onTap: () {
                 // Navigate to ResultsScreen and edit search
-                context.go('/results');
+                context.go(Routes.results);
               },
             ),
             Text(

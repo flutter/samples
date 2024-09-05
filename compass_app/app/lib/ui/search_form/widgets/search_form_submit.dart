@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../results/widgets/results_screen.dart';
@@ -76,7 +77,7 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
   void _onResult() {
     if (widget.viewModel.updateItineraryConfig.completed) {
       widget.viewModel.updateItineraryConfig.clearResult();
-      context.go('/results');
+      context.go(Routes.results);
     }
 
     if (widget.viewModel.updateItineraryConfig.error) {

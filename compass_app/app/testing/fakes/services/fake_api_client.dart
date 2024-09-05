@@ -1,7 +1,10 @@
-import 'package:compass_app/data/services/api_client.dart';
+import 'package:compass_app/data/services/api/api_client.dart';
+import 'package:compass_app/data/services/api/model/booking/booking_api_model.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:compass_model/model.dart';
-import 'package:flutter/foundation.dart';
+
+import '../../models/activity.dart';
+import '../../models/booking.dart';
 
 class FakeApiClient implements ApiClient {
   // Should not increase when using cached data
@@ -45,11 +48,11 @@ class FakeApiClient implements ApiClient {
   }
 
   @override
-  Future<Result<List<Activity>>> getActivityByDestination(String ref) {
+  Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
     requestCount++;
 
     if (ref == 'alaska') {
-      return SynchronousFuture(Result.ok([
+      return Result.ok([
         const Activity(
           name: 'Glacier Trekking and Ice Climbing',
           description:
@@ -64,12 +67,35 @@ class FakeApiClient implements ApiClient {
           imageUrl:
               'https://storage.googleapis.com/tripedia-images/activities/alaska_glacier-trekking-and-ice-climbing.jpg',
         ),
-      ]));
+      ]);
     }
 
-    return SynchronousFuture(Result.ok([]));
+    if (ref == kBooking.destination.ref) {
+      return Result.ok([kActivity]);
+    }
+
+    return Result.ok([]);
   }
 
   @override
   AuthHeaderProvider? authHeaderProvider;
+
+  @override
+  Future<Result<BookingApiModel>> getBooking(int id) async {
+    return Result.ok(kBookingApiModel);
+  }
+
+  @override
+  Future<Result<List<BookingApiModel>>> getBookings() async {
+    return Result.ok([kBookingApiModel]);
+  }
+
+  List<BookingApiModel> bookings = [];
+
+  @override
+  Future<Result<BookingApiModel>> postBooking(BookingApiModel booking) async {
+    final bookingWithId = booking.copyWith(id: bookings.length);
+    bookings.add(bookingWithId);
+    return Result.ok(bookingWithId);
+  }
 }

@@ -1,13 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../utils/image_error_listener.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
-import '../../core/ui/back_button.dart';
 import '../../core/ui/date_format_start_end.dart';
 import '../../core/ui/home_button.dart';
 import '../../core/ui/tag_chip.dart';
@@ -65,17 +63,6 @@ class _Top extends StatelessWidget {
           _HeaderImage(booking: booking),
           const _Gradient(),
           _Headline(booking: booking),
-          Positioned(
-            left: Dimens.of(context).paddingScreenHorizontal,
-            top: Dimens.of(context).paddingScreenVertical,
-            child: SafeArea(
-              top: true,
-              child: CustomBackButton(
-                onTap: () => context.go('/activities'),
-                blur: true,
-              ),
-            ),
-          ),
           Positioned(
             right: Dimens.of(context).paddingScreenHorizontal,
             top: Dimens.of(context).paddingScreenVertical,

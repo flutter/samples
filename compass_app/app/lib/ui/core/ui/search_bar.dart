@@ -1,13 +1,10 @@
 import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../auth/logout/view_models/logout_viewmodel.dart';
-import '../../auth/logout/widgets/logout_button.dart';
 import '../localization/applocalization.dart';
+import '../themes/colors.dart';
 import '../themes/dimens.dart';
 import 'date_format_start_end.dart';
-import '../themes/colors.dart';
 import 'home_button.dart';
 
 /// Application top search bar.
@@ -19,12 +16,10 @@ class AppSearchBar extends StatelessWidget {
     super.key,
     this.config,
     this.onTap,
-    this.homeScreen = false,
   });
 
   final ItineraryConfig? config;
   final GestureTapCallback? onTap;
-  final bool homeScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -53,15 +48,7 @@ class AppSearchBar extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        // Display a logout button if at the root route
-        homeScreen
-            ? LogoutButton(
-                viewModel: LogoutViewModel(
-                  authRepository: context.read(),
-                  itineraryConfigRepository: context.read(),
-                ),
-              )
-            : const HomeButton(),
+        const HomeButton(),
       ],
     );
   }

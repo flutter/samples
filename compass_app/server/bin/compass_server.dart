@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:compass_server/middleware/auth.dart';
+import 'package:compass_server/routes/booking.dart';
 import 'package:compass_server/routes/continent.dart';
 import 'package:compass_server/routes/destination.dart';
 import 'package:compass_server/routes/login.dart';
@@ -12,6 +13,7 @@ import 'package:shelf_router/shelf_router.dart';
 final _router = Router()
   ..get('/continent', continentHandler)
   ..mount('/destination', DestinationApi().router.call)
+  ..mount('/booking', BookingApi().router.call)
   ..mount('/login', LoginApi().router.call);
 
 void main(List<String> args) async {

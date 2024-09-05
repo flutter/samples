@@ -1,0 +1,56 @@
+import 'dart:convert';
+
+import 'package:compass_model/model.dart';
+import 'package:flutter/services.dart';
+
+import '../../../config/assets.dart';
+
+class LocalDataService {
+  List<Continent> getContinents() {
+    return [
+      const Continent(
+        name: 'Europe',
+        imageUrl: 'https://rstr.in/google/tripedia/TmR12QdlVTT',
+      ),
+      const Continent(
+        name: 'Asia',
+        imageUrl: 'https://rstr.in/google/tripedia/VJ8BXlQg8O1',
+      ),
+      const Continent(
+        name: 'South America',
+        imageUrl: 'https://rstr.in/google/tripedia/flm_-o1aI8e',
+      ),
+      const Continent(
+        name: 'Africa',
+        imageUrl: 'https://rstr.in/google/tripedia/-nzi8yFOBpF',
+      ),
+      const Continent(
+        name: 'North America',
+        imageUrl: 'https://rstr.in/google/tripedia/jlbgFDrSUVE',
+      ),
+      const Continent(
+        name: 'Oceania',
+        imageUrl: 'https://rstr.in/google/tripedia/vxyrDE-fZVL',
+      ),
+      const Continent(
+        name: 'Australia',
+        imageUrl: 'https://rstr.in/google/tripedia/z6vy6HeRyvZ',
+      ),
+    ];
+  }
+
+  Future<List<Activity>> getActivities() async {
+    final json = await _loadStringAsset(Assets.activities);
+    return json.map<Activity>((json) => Activity.fromJson(json)).toList();
+  }
+
+  Future<List<Destination>> getDestinations() async {
+    final json = await _loadStringAsset(Assets.destinations);
+    return json.map<Destination>((json) => Destination.fromJson(json)).toList();
+  }
+
+  Future<List<Map<String, dynamic>>> _loadStringAsset(String asset) async {
+    final localData = await rootBundle.loadString(asset);
+    return (jsonDecode(localData) as List).cast<Map<String, dynamic>>();
+  }
+}

@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:compass_model/model.dart';
+// TODO: Remove the compass_model and replace by a server-side model
+import 'package:compass_model/model.dart' hide Booking;
 import 'package:compass_server/config/constants.dart';
+import 'package:compass_server/model/booking/booking.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 
@@ -71,6 +73,55 @@ void main() {
     final activity = list.map((element) => Activity.fromJson(element));
     expect(activity.length, 20);
     expect(activity.first.name, 'Glacier Trekking and Ice Climbing');
+  });
+
+  test('Get bookings end-point', () async {
+    final response = await get(
+      Uri.parse('$host/booking'),
+      headers: headers,
+    );
+    expect(response.statusCode, 200);
+    // Parse json response list
+    final list = jsonDecode(response.body) as List<dynamic>;
+    // Parse items
+    final bookings = list.map((element) => Booking.fromJson(element));
+    expect(bookings.length, 1);
+    expect(bookings.first.id, 0);
+  });
+
+  test('Get booking with id 0', () async {
+    final response = await get(
+      Uri.parse('$host/booking/0'),
+      headers: headers,
+    );
+
+    expect(response.statusCode, 200);
+    final booking = Booking.fromJson(jsonDecode(response.body));
+
+    // Got booking with id 0
+    expect(booking.id, 0);
+  });
+
+  test('Store a booking', () async {
+    final response = await post(
+      Uri.parse('$host/booking'),
+      headers: headers,
+      body: jsonEncode(
+        Booking(
+          name: "DESTINATION, CONTINENT",
+          startDate: DateTime(2024, 1, 1),
+          endDate: DateTime(2024, 2, 2),
+          destinationRef: 'REF',
+          activitiesRef: ['ACT1', 'ACT2'],
+        ),
+      ),
+    );
+
+    expect(response.statusCode, 201);
+    final booking = Booking.fromJson(jsonDecode(response.body));
+
+    // New ID should be 1
+    expect(booking.id, 1);
   });
 
   test('404', () async {
