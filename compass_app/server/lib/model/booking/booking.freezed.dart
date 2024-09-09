@@ -29,7 +29,7 @@ mixin _$Booking {
   /// End date of the trip
   DateTime get endDate => throw _privateConstructorUsedError;
 
-  /// Booking display name
+  /// Booking name
   /// Should be "Destination, Continent"
   String get name => throw _privateConstructorUsedError;
 
@@ -205,7 +205,7 @@ class _$BookingImpl implements _Booking {
   @override
   final DateTime endDate;
 
-  /// Booking display name
+  /// Booking name
   /// Should be "Destination, Continent"
   @override
   final String name;
@@ -290,7 +290,7 @@ abstract class _Booking implements Booking {
   @override
   DateTime get endDate;
 
-  /// Booking display name
+  /// Booking name
   /// Should be "Destination, Continent"
   @override
   String get name;
