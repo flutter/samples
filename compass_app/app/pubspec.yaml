@@ -9,8 +9,6 @@ environment:
 dependencies:
   cached_network_image: ^3.3.1
   collection: ^1.18.0
-  compass_model:
-    path: ../model
   flutter:
     sdk: flutter
   flutter_localizations:

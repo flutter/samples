@@ -1,6 +1,6 @@
-import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../localization/applocalization.dart';
 import '../themes/colors.dart';
 import '../themes/dimens.dart';

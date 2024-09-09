@@ -1,11 +1,11 @@
-// TODO: Configurable baseurl/host/port
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:compass_model/model.dart';
-
 import '../../../utils/result.dart';
+import 'model/login_request/login_request.dart';
+import 'model/login_response/login_response.dart';
 
+// TODO: Configurable baseurl/host/port
 class AuthApiClient {
   Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {
     final client = HttpClient();

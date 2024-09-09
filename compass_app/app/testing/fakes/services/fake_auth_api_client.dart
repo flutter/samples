@@ -1,7 +1,7 @@
 import 'package:compass_app/data/services/api/auth_api_client.dart';
+import 'package:compass_app/data/services/api/model/login_request/login_request.dart';
+import 'package:compass_app/data/services/api/model/login_response/login_response.dart';
 import 'package:compass_app/utils/result.dart';
-import 'package:compass_model/src/model/auth/login_request/login_request.dart';
-import 'package:compass_model/src/model/auth/login_response/login_response.dart';
 
 class FakeAuthApiClient implements AuthApiClient {
   @override

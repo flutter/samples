@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:compass_app/data/repositories/booking/booking_repository.dart';
+import 'package:compass_app/domain/models/booking/booking.dart';
 import 'package:compass_app/domain/models/booking/booking_summary.dart';
 import 'package:compass_app/utils/result.dart';
-import 'package:compass_model/src/model/booking/booking.dart';
 
 class FakeBookingRepository implements BookingRepository {
   List<Booking> bookings = List.empty(growable: true);

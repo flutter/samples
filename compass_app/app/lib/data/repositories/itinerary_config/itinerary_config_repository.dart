@@ -1,5 +1,4 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/result.dart';
 
 /// Data source for the current [ItineraryConfig]

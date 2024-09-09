@@ -1,6 +1,6 @@
 import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_repository.dart';
+import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:compass_app/utils/result.dart';
-import 'package:compass_model/src/model/itinerary_config/itinerary_config.dart';
 import 'package:flutter/foundation.dart';
 
 class FakeItineraryConfigRepository implements ItineraryConfigRepository {

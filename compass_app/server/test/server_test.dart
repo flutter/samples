@@ -2,9 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 
 // TODO: Remove the compass_model and replace by a server-side model
-import 'package:compass_model/model.dart' hide Booking;
 import 'package:compass_server/config/constants.dart';
+import 'package:compass_server/model/activity/activity.dart';
 import 'package:compass_server/model/booking/booking.dart';
+import 'package:compass_server/model/continent/continent.dart';
+import 'package:compass_server/model/destination/destination.dart';
+import 'package:compass_server/model/login_request/login_request.dart';
+import 'package:compass_server/model/login_response/login_response.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 

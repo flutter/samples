@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../domain/models/activity/activity.dart';
 import '../../../utils/image_error_listener.dart';
 import '../../core/themes/dimens.dart';
 import '../view_models/booking_viewmodel.dart';

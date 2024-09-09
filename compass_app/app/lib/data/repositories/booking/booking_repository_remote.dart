@@ -1,6 +1,7 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/activity/activity.dart';
+import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
+import '../../../domain/models/destination/destination.dart';
 import '../../../utils/result.dart';
 import '../../services/api/api_client.dart';
 import '../../services/api/model/booking/booking_api_model.dart';

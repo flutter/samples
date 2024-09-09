@@ -1,7 +1,9 @@
 import 'package:compass_app/data/services/api/api_client.dart';
 import 'package:compass_app/data/services/api/model/booking/booking_api_model.dart';
+import 'package:compass_app/domain/models/activity/activity.dart';
+import 'package:compass_app/domain/models/continent/continent.dart';
+import 'package:compass_app/domain/models/destination/destination.dart';
 import 'package:compass_app/utils/result.dart';
-import 'package:compass_model/model.dart';
 
 import '../../models/activity.dart';
 import '../../models/booking.dart';

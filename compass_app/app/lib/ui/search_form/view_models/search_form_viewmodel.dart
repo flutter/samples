@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/continent/continent_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
+import '../../../domain/models/continent/continent.dart';
+import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 

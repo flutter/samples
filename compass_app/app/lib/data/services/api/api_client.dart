@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:compass_model/model.dart';
 
+import '../../../domain/models/activity/activity.dart';
+import '../../../domain/models/continent/continent.dart';
+import '../../../domain/models/destination/destination.dart';
 import '../../../utils/result.dart';
 import 'model/booking/booking_api_model.dart';
 

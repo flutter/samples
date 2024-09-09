@@ -1,5 +1,4 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/continent/continent.dart';
 import '../../../utils/result.dart';
 import '../../services/api/api_client.dart';
 import 'continent_repository.dart';

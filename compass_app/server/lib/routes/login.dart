@@ -1,9 +1,11 @@
 import 'dart:convert';
 
-import 'package:compass_model/model.dart';
 import 'package:compass_server/config/constants.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
+
+import '../model/login_request/login_request.dart';
+import '../model/login_response/login_response.dart';
 
 /// Implements a simple login API.
 ///

@@ -1,4 +1,4 @@
-import 'package:compass_model/model.dart';
+import 'package:compass_app/domain/models/activity/activity.dart';
 
 const kActivity = Activity(
   description: 'DESCRIPTION',
