@@ -60,6 +60,7 @@ class LocalDataService {
   User getUser() {
     return const User(
       name: 'Sofie',
+      // For demo purposes we use a local asset
       picture: 'assets/user.jpg',
     );
   }

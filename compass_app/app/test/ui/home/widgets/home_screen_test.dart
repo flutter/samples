@@ -51,6 +51,13 @@ void main() {
       expect(find.byType(HomeScreen), findsOneWidget);
     });
 
+    testWidgets('should show user name', (tester) async {
+      await loadWidget(tester);
+      await tester.pumpAndSettle();
+
+      expect(find.text('NAME\'s Trips'), findsOneWidget);
+    });
+
     testWidgets('should navigate to search', (tester) async {
       await loadWidget(tester);
       await tester.pumpAndSettle();

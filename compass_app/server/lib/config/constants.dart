@@ -17,7 +17,7 @@ class Constants {
   /// User name for the hardcoded user.
   static const name = 'Sofie';
 
-  /// For demo purposes, we use the assets folder.
+  /// For demo purposes we use a local asset.
   static const picture = 'assets/user.jpg';
 
   /// Hardcoded user.

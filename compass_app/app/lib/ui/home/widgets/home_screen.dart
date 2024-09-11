@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../routing/routes.dart';
-import '../../auth/logout/view_models/logout_viewmodel.dart';
-import '../../auth/logout/widgets/logout_button.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
