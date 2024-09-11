@@ -84,6 +84,9 @@ void main() {
       expect(find.byType(HomeScreen), findsOneWidget);
       await tester.pumpAndSettle();
 
+      // Should show user name
+      expect(find.text('Sofie\'s Trips'), findsOneWidget);
+
       // Tap on booking (Alaska is created by default)
       await tester.tap(find.text('Alaska, North America'));
       await tester.pumpAndSettle();
