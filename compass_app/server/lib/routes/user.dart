@@ -6,11 +6,7 @@ import 'package:shelf_router/shelf_router.dart';
 
 /// Implements a simple user API.
 ///
-/// This is provided as an example for Flutter architectural purposes only
-/// and shouldn't be used as example on how to use tokens and authentication
-/// in production.
-///
-/// This API only returns a hardcoded user.
+/// This API only returns a hardcoded user for demonstration purposes.
 class UserApi {
   Router get router {
     final router = Router();

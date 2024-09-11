@@ -19,6 +19,7 @@ class AppLocalization {
     'errorWhileLoadingBooking': 'Error while loading booking',
     'errorWhileLoadingContinents': 'Error while loading continents',
     'errorWhileLoadingDestinations': 'Error while loading destinations',
+    'errorWhileLoadingHome': 'Error while loading home',
     'errorWhileLogin': 'Error while trying to login',
     'errorWhileLogout': 'Error while trying to logout',
     'errorWhileSavingActivities': 'Error while saving activities',
@@ -26,12 +27,12 @@ class AppLocalization {
     'errorWhileSharing': 'Error while sharing booking',
     'evening': 'Evening',
     'login': 'Login',
+    'nameTrips': '{name}\'s Trips',
     'search': 'Search',
     'searchDestination': 'Search destination',
     'selected': '{1} selected',
     'shareTrip': 'Share Trip',
     'tryAgain': 'Try again',
-    'yourBookings': 'Your bookings:',
     'yourChosenActivities': 'Your chosen activities',
     'when': 'When',
   };
@@ -87,7 +88,9 @@ class AppLocalization {
 
   String get bookNewTrip => _get('bookNewTrip');
 
-  String get yourBookings => _get('yourBookings');
+  String get errorWhileLoadingHome => _get('errorWhileLoadingHome');
+
+  String nameTrips(String name) => _get('nameTrips').replaceAll('{name}', name);
 
   String selected(int value) =>
       _get('selected').replaceAll('{1}', value.toString());

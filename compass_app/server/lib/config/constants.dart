@@ -17,10 +17,14 @@ class Constants {
   /// User name for the hardcoded user.
   static const name = 'Sofie';
 
+  /// For demo purposes, we use the assets folder.
+  static const picture = 'assets/user.jpg';
+
   /// Hardcoded user.
   static const user = User(
     id: Constants.userId,
     name: Constants.name,
     email: Constants.email,
+    picture: Constants.picture,
   );
 }

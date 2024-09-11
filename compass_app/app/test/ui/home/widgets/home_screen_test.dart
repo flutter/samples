@@ -12,6 +12,7 @@ import '../../../../testing/app.dart';
 import '../../../../testing/fakes/repositories/fake_auth_repository.dart';
 import '../../../../testing/fakes/repositories/fake_booking_repository.dart';
 import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
+import '../../../../testing/fakes/repositories/fake_user_repository.dart';
 import '../../../../testing/mocks.dart';
 import '../../../../testing/models/booking.dart';
 
@@ -23,6 +24,7 @@ void main() {
     setUp(() {
       viewModel = HomeViewModel(
         bookingRepository: FakeBookingRepository()..createBooking(kBooking),
+        userRepository: FakeUserRepository(),
       );
       goRouter = MockGoRouter();
       when(() => goRouter.push(any())).thenAnswer((_) => Future.value(null));

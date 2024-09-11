@@ -23,10 +23,10 @@ mixin _$BookingSummary {
   /// Booking id
   int get id => throw _privateConstructorUsedError;
 
-  /// Destination name to be displayed.
+  /// Name to be displayed
   String get name => throw _privateConstructorUsedError;
 
-  /// Start date of the booking.
+  /// Start date of the booking
   DateTime get startDate => throw _privateConstructorUsedError;
 
   /// End date of the booking
@@ -158,11 +158,11 @@ class _$BookingSummaryImpl implements _BookingSummary {
   @override
   final int id;
 
-  /// Destination name to be displayed.
+  /// Name to be displayed
   @override
   final String name;
 
-  /// Start date of the booking.
+  /// Start date of the booking
   @override
   final DateTime startDate;
 
@@ -222,11 +222,11 @@ abstract class _BookingSummary implements BookingSummary {
   @override
   int get id;
 
-  /// Destination name to be displayed.
+  /// Name to be displayed
   @override
   String get name;
 
-  /// Start date of the booking.
+  /// Start date of the booking
   @override
   DateTime get startDate;
 

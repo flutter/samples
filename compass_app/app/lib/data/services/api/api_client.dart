@@ -6,6 +6,7 @@ import '../../../domain/models/continent/continent.dart';
 import '../../../domain/models/destination/destination.dart';
 import '../../../utils/result.dart';
 import 'model/booking/booking_api_model.dart';
+import 'model/user/user_api_model.dart';
 
 /// Adds the `Authentication` header to a header configuration.
 typedef AuthHeaderProvider = String? Function();
@@ -145,6 +146,26 @@ class ApiClient {
         final stringData = await response.transform(utf8.decoder).join();
         final booking = BookingApiModel.fromJson(jsonDecode(stringData));
         return Result.ok(booking);
+      } else {
+        return Result.error(const HttpException("Invalid response"));
+      }
+    } on Exception catch (error) {
+      return Result.error(error);
+    } finally {
+      client.close();
+    }
+  }
+
+  Future<Result<UserApiModel>> getUser() async {
+    final client = HttpClient();
+    try {
+      final request = await client.get('localhost', 8080, '/user');
+      await _authHeader(request.headers);
+      final response = await request.close();
+      if (response.statusCode == 200) {
+        final stringData = await response.transform(utf8.decoder).join();
+        final user = UserApiModel.fromJson(jsonDecode(stringData));
+        return Result.ok(user);
       } else {
         return Result.error(const HttpException("Invalid response"));
       }

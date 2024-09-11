@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'user.freezed.dart';
-part 'user.g.dart';
+part 'user_api_model.freezed.dart';
+part 'user_api_model.g.dart';
 
 @freezed
-abstract class User with _$User {
-  const factory User({
+abstract class UserApiModel with _$UserApiModel {
+  const factory UserApiModel({
     /// The user's ID.
     required String id,
 
@@ -17,7 +17,8 @@ abstract class User with _$User {
 
     /// The user's picture URL.
     required String picture,
-  }) = _User;
+  }) = _UserApiModel;
 
-  factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
+  factory UserApiModel.fromJson(Map<String, Object?> json) =>
+      _$UserApiModelFromJson(json);
 }

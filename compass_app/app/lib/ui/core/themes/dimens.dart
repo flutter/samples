@@ -32,6 +32,8 @@ sealed class Dimens {
         > 600 => dimensDesktop,
         _ => dimensMobile,
       };
+
+  abstract final double profilePictureSize;
 }
 
 /// Mobile dimensions
@@ -41,6 +43,9 @@ class DimensMobile extends Dimens {
 
   @override
   double paddingScreenVertical = Dimens.paddingVertical;
+
+  @override
+  double get profilePictureSize => 64.0;
 }
 
 /// Desktop/Web dimensions
@@ -50,4 +55,7 @@ class DimensDesktop extends Dimens {
 
   @override
   double paddingScreenVertical = 64.0;
+
+  @override
+  double get profilePictureSize => 128.0;
 }
