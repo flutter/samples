@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../auth/logout/view_models/logout_viewmodel.dart';
@@ -75,7 +76,9 @@ class _Title extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.headlineLarge,
+        style: GoogleFonts.rubik(
+          textStyle: Theme.of(context).textTheme.headlineLarge,
+        ),
       ),
     );
   }
