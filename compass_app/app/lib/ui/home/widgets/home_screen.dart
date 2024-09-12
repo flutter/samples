@@ -84,7 +84,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
 class _Booking extends StatelessWidget {
   const _Booking({
     super.key,
