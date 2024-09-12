@@ -21,7 +21,6 @@ void main() {
 
     // perform a simple test
     // verifies that the list of items is properly loaded
-    // TODO: Verify loading state and calls to search method
     test('should load items', () async {
       expect(viewModel.destinations.length, 2);
     });

@@ -16,7 +16,7 @@ void main() {
     });
 
     test('should post login', () async {
-      const loginResponse = const LoginResponse(
+      const loginResponse = LoginResponse(
         token: 'TOKEN',
         userId: '123',
       );
