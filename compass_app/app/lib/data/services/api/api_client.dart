@@ -15,11 +15,14 @@ class ApiClient {
   ApiClient({
     String? host,
     int? port,
+    HttpClient Function()? clientFactory,
   })  : _host = host ?? 'localhost',
-        _port = port ?? 8080;
+        _port = port ?? 8080,
+        _clientFactory = clientFactory ?? (() => HttpClient());
 
   final String _host;
   final int _port;
+  final HttpClient Function() _clientFactory;
 
   AuthHeaderProvider? _authHeaderProvider;
 
@@ -35,7 +38,7 @@ class ApiClient {
   }
 
   Future<Result<List<Continent>>> getContinents() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request = await client.get(_host, _port, '/continent');
       await _authHeader(request.headers);
@@ -56,7 +59,7 @@ class ApiClient {
   }
 
   Future<Result<List<Destination>>> getDestinations() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request = await client.get(_host, _port, '/destination');
       await _authHeader(request.headers);
@@ -77,7 +80,7 @@ class ApiClient {
   }
 
   Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request =
           await client.get(_host, _port, '/destination/$ref/activity');
@@ -100,7 +103,7 @@ class ApiClient {
   }
 
   Future<Result<List<BookingApiModel>>> getBookings() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request = await client.get(_host, _port, '/booking');
       await _authHeader(request.headers);
@@ -122,7 +125,7 @@ class ApiClient {
   }
 
   Future<Result<BookingApiModel>> getBooking(int id) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request = await client.get(_host, _port, '/booking/$id');
       await _authHeader(request.headers);
@@ -142,7 +145,7 @@ class ApiClient {
   }
 
   Future<Result<BookingApiModel>> postBooking(BookingApiModel booking) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request = await client.post(_host, _port, '/booking');
       await _authHeader(request.headers);
@@ -163,7 +166,7 @@ class ApiClient {
   }
 
   Future<Result<UserApiModel>> getUser() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request = await client.get(_host, _port, '/user');
       await _authHeader(request.headers);
