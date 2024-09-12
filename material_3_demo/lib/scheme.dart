@@ -317,7 +317,7 @@ class _SchemePreviewState extends State<SchemePreview> {
                             label: 'On Surface Var.',
                             tone: dark ? 'NV-90' : 'NV-30',
                             color: scheme.onSurfaceVariant,
-                            onColor: scheme.surfaceVariant,
+                            onColor: scheme.surfaceContainerHighest,
                             height: 40,
                             width: 158.59,
                           ),
