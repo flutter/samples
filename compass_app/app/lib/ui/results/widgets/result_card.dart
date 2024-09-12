@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../domain/models/destination/destination.dart';
 import '../../../utils/image_error_listener.dart';
-import '../../core/themes/text_styles.dart';
 import '../../core/ui/tag_chip.dart';
 
 class ResultCard extends StatelessWidget {
@@ -38,7 +38,7 @@ class ResultCard extends StatelessWidget {
               children: [
                 Text(
                   destination.name.toUpperCase(),
-                  style: TextStyles.cardTitleStyle,
+                  style: _cardTitleStyle,
                 ),
                 const SizedBox(
                   height: 6,
@@ -67,3 +67,19 @@ class ResultCard extends StatelessWidget {
     );
   }
 }
+
+final _cardTitleStyle = GoogleFonts.rubik(
+  textStyle: const TextStyle(
+    fontWeight: FontWeight.w800,
+    fontSize: 15.0,
+    color: Colors.white,
+    letterSpacing: 1,
+    shadows: [
+      // Helps to read the text a bit better
+      Shadow(
+        blurRadius: 3.0,
+        color: Colors.black,
+      )
+    ],
+  ),
+);
