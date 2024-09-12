@@ -42,3 +42,4 @@ flutter:
     - assets/activities.json
     - assets/destinations.json
     - assets/logo.svg
+    - assets/user.jpg

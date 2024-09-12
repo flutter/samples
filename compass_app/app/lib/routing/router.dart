@@ -45,6 +45,7 @@ GoRouter router(
           builder: (context, state) {
             final viewModel = HomeViewModel(
               bookingRepository: context.read(),
+              userRepository: context.read(),
             );
             return HomeScreen(viewModel: viewModel);
           },

@@ -9,6 +9,7 @@ import 'package:compass_server/model/continent/continent.dart';
 import 'package:compass_server/model/destination/destination.dart';
 import 'package:compass_server/model/login_request/login_request.dart';
 import 'package:compass_server/model/login_response/login_response.dart';
+import 'package:compass_server/model/user/user.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 
@@ -126,6 +127,19 @@ void main() {
 
     // New ID should be 1
     expect(booking.id, 1);
+  });
+
+  test('Get user', () async {
+    final response = await get(
+      Uri.parse('$host/user'),
+      headers: headers,
+    );
+
+    expect(response.statusCode, 200);
+    final user = User.fromJson(jsonDecode(response.body));
+
+    // Should get the hardcoded user
+    expect(user, Constants.user);
   });
 
   test('404', () async {

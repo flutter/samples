@@ -1,5 +1,6 @@
 import 'package:compass_app/data/services/api/api_client.dart';
 import 'package:compass_app/data/services/api/model/booking/booking_api_model.dart';
+import 'package:compass_app/data/services/api/model/user/user_api_model.dart';
 import 'package:compass_app/domain/models/activity/activity.dart';
 import 'package:compass_app/domain/models/continent/continent.dart';
 import 'package:compass_app/domain/models/destination/destination.dart';
@@ -7,6 +8,7 @@ import 'package:compass_app/utils/result.dart';
 
 import '../../models/activity.dart';
 import '../../models/booking.dart';
+import '../../models/user.dart';
 
 class FakeApiClient implements ApiClient {
   // Should not increase when using cached data
@@ -99,5 +101,10 @@ class FakeApiClient implements ApiClient {
     final bookingWithId = booking.copyWith(id: bookings.length);
     bookings.add(bookingWithId);
     return Result.ok(bookingWithId);
+  }
+
+  @override
+  Future<Result<UserApiModel>> getUser() async {
+    return Result.ok(userApiModel);
   }
 }

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../routing/routes.dart';
-import '../../auth/logout/view_models/logout_viewmodel.dart';
-import '../../auth/logout/widgets/logout_button.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
+import '../../core/ui/error_indicator.dart';
 import '../view_models/home_viewmodel.dart';
+import 'home_title.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -34,50 +33,57 @@ class HomeScreen extends StatelessWidget {
         top: true,
         bottom: true,
         child: ListenableBuilder(
-          listenable: viewModel,
-          builder: (context, _) {
-            return CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: Dimens.of(context).paddingScreenVertical,
-                      horizontal: Dimens.of(context).paddingScreenHorizontal,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          AppLocalization.of(context).yourBookings,
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                        LogoutButton(
-                          viewModel: LogoutViewModel(
-                            authRepository: context.read(),
-                            itineraryConfigRepository: context.read(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SliverList.builder(
-                  itemCount: viewModel.bookings.length,
-                  itemBuilder: (_, index) => _Booking(
-                    key: ValueKey(index),
-                    booking: viewModel.bookings[index],
-                    onTap: () => context.push(
-                        Routes.bookingWithId(viewModel.bookings[index].id)),
-                  ),
-                )
-              ],
-            );
+          listenable: viewModel.load,
+          builder: (context, child) {
+            if (viewModel.load.running) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            if (viewModel.load.error) {
+              return ErrorIndicator(
+                title: AppLocalization.of(context).errorWhileLoadingHome,
+                label: AppLocalization.of(context).tryAgain,
+                onPressed: viewModel.load.execute,
+              );
+            }
+
+            return child!;
           },
+          child: ListenableBuilder(
+            listenable: viewModel,
+            builder: (context, _) {
+              return CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: Dimens.of(context).paddingScreenVertical,
+                        horizontal: Dimens.of(context).paddingScreenHorizontal,
+                      ),
+                      child: HomeHeader(viewModel: viewModel),
+                    ),
+                  ),
+                  SliverList.builder(
+                    itemCount: viewModel.bookings.length,
+                    itemBuilder: (_, index) => _Booking(
+                      key: ValueKey(index),
+                      booking: viewModel.bookings[index],
+                      onTap: () => context.push(
+                          Routes.bookingWithId(viewModel.bookings[index].id)),
+                    ),
+                  )
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
+
 
 class _Booking extends StatelessWidget {
   const _Booking({
