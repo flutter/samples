@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_3_demo/color_palettes_screen.dart';
 import 'package:material_3_demo/main.dart';
+import 'package:material_3_demo/scheme.dart';
 
 import 'component_screen_test.dart';
 
@@ -69,6 +70,6 @@ void main() {
     ));
     expect(find.text('Light ColorScheme'), findsOneWidget);
     expect(find.text('Dark ColorScheme'), findsOneWidget);
-    expect(find.byType(ColorGroup, skipOffstage: false), findsNWidgets(18));
+    expect(find.byType(SchemePreview, skipOffstage: false), findsNWidgets(2));
   });
 }
