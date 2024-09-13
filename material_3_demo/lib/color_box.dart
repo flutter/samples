@@ -68,9 +68,9 @@ class _ColorBoxState extends State<ColorBox> {
                       // Copy color as hex to clipboard
                       var hex = '#';
                       final c = widget.color;
-                      hex += c.red.toRadixString(16).padLeft(2, '0');
-                      hex += c.green.toRadixString(16).padLeft(2, '0');
-                      hex += c.blue.toRadixString(16).padLeft(2, '0');
+                      hex += (c.r * 255.0).round().toRadixString(16).padLeft(2, '0');
+                      hex += (c.g * 255.0).round().toRadixString(16).padLeft(2, '0');
+                      hex += (c.b * 255.0).round().toRadixString(16).padLeft(2, '0');
                       final data = ClipboardData(text: hex);
                       await Clipboard.setData(data);
                       messenger.hideCurrentSnackBar();
