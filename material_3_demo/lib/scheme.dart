@@ -21,29 +21,10 @@ class SchemePreview extends StatefulWidget {
   final double contrast;
 
   @override
-  State<SchemePreview> createState() => _SchemePreviewState(contrast);
+  State<SchemePreview> createState() => _SchemePreviewState();
 }
 
 class _SchemePreviewState extends State<SchemePreview> {
-  double contrast = 0;
-
-  _SchemePreviewState(this.contrast);
-
-  void setContrast(double value) {
-    if (mounted) {
-      setState(() {
-        contrast = value;
-      });
-    }
-  }
-
-  @override
-  void didUpdateWidget(covariant SchemePreview oldWidget) {
-    if (oldWidget.colorMatch != widget.colorMatch ) {
-      if (mounted) setState(() {});
-    }
-    super.didUpdateWidget(oldWidget);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +35,6 @@ class _SchemePreviewState extends State<SchemePreview> {
     final dark = widget.brightness == Brightness.dark;
 
     final scheme = widget.scheme;
-          // TODO state.scheme(widget.brightness, contrastLevel: state.contrastLevel);
 
     return Theme(
       data: theme.copyWith(colorScheme: scheme),
