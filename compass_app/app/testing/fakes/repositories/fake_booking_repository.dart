@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:compass_app/data/repositories/booking/booking_repository.dart';
 import 'package:compass_app/domain/models/booking/booking.dart';
 import 'package:compass_app/domain/models/booking/booking_summary.dart';
@@ -9,7 +8,9 @@ class FakeBookingRepository implements BookingRepository {
 
   @override
   Future<Result<void>> createBooking(Booking booking) async {
-    bookings.add(booking);
+    final id = bookings.isEmpty ? 0 : bookings.last.id! + 1;
+    final bookingWithId = booking.copyWith(id: id);
+    bookings.add(bookingWithId);
     return Result.ok(null);
   }
 
@@ -25,9 +26,9 @@ class FakeBookingRepository implements BookingRepository {
 
   List<BookingSummary> _createSummaries() {
     return bookings
-        .mapIndexed(
-          (index, booking) => BookingSummary(
-            id: index,
+        .map(
+          (booking) => BookingSummary(
+            id: booking.id!,
             name:
                 '${booking.destination.name}, ${booking.destination.continent}',
             startDate: booking.startDate,
@@ -36,10 +37,10 @@ class FakeBookingRepository implements BookingRepository {
         )
         .toList();
   }
-  
+
   @override
-  Future<Result<void>> delete(int id) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Result<void>> delete(int id) async {
+    bookings.removeWhere((booking) => booking.id == id);
+    return Result.ok(null);
   }
 }
