@@ -11,9 +11,18 @@ import 'model/user/user_api_model.dart';
 /// Adds the `Authentication` header to a header configuration.
 typedef AuthHeaderProvider = String? Function();
 
-// TODO: Configurable baseurl/host/port
 class ApiClient {
-  ApiClient();
+  ApiClient({
+    String? host,
+    int? port,
+    HttpClient Function()? clientFactory,
+  })  : _host = host ?? 'localhost',
+        _port = port ?? 8080,
+        _clientFactory = clientFactory ?? (() => HttpClient());
+
+  final String _host;
+  final int _port;
+  final HttpClient Function() _clientFactory;
 
   AuthHeaderProvider? _authHeaderProvider;
 
@@ -29,9 +38,9 @@ class ApiClient {
   }
 
   Future<Result<List<Continent>>> getContinents() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.get('localhost', 8080, '/continent');
+      final request = await client.get(_host, _port, '/continent');
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {
@@ -50,9 +59,9 @@ class ApiClient {
   }
 
   Future<Result<List<Destination>>> getDestinations() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.get('localhost', 8080, '/destination');
+      final request = await client.get(_host, _port, '/destination');
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {
@@ -71,10 +80,10 @@ class ApiClient {
   }
 
   Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
       final request =
-          await client.get('localhost', 8080, '/destination/$ref/activity');
+          await client.get(_host, _port, '/destination/$ref/activity');
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {
@@ -94,9 +103,9 @@ class ApiClient {
   }
 
   Future<Result<List<BookingApiModel>>> getBookings() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.get('localhost', 8080, '/booking');
+      final request = await client.get(_host, _port, '/booking');
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {
@@ -116,9 +125,9 @@ class ApiClient {
   }
 
   Future<Result<BookingApiModel>> getBooking(int id) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.get('localhost', 8080, '/booking/$id');
+      final request = await client.get(_host, _port, '/booking/$id');
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {
@@ -136,9 +145,9 @@ class ApiClient {
   }
 
   Future<Result<BookingApiModel>> postBooking(BookingApiModel booking) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.post('localhost', 8080, '/booking');
+      final request = await client.post(_host, _port, '/booking');
       await _authHeader(request.headers);
       request.write(jsonEncode(booking));
       final response = await request.close();
@@ -157,9 +166,9 @@ class ApiClient {
   }
 
   Future<Result<UserApiModel>> getUser() async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.get('localhost', 8080, '/user');
+      final request = await client.get(_host, _port, '/user');
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {
