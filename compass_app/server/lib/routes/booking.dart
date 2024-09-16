@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
@@ -22,8 +23,7 @@ class BookingApi {
         .where((activity) => activity.destinationRef == destination.ref)
         .map((activity) => activity.ref)
         .toList();
-    _bookings.insert(
-      0,
+    _bookings.add(
       Booking(
         id: 0,
         name: '${destination.name}, ${destination.continent}',
@@ -52,12 +52,16 @@ class BookingApi {
 
     // Get a booking by id
     router.get('/<id>', (Request request, String id) {
-      final index = int.parse(id);
-      if (index < 0 || index >= _bookings.length) {
+      final bookingId = int.parse(id);
+      final booking =
+          _bookings.firstWhereOrNull((booking) => booking.id == bookingId);
+
+      if (booking == null) {
         return Response.notFound('Invalid id');
       }
+
       return Response.ok(
-        json.encode(_bookings[index]),
+        json.encode(booking),
         headers: {'Content-Type': 'application/json'},
       );
     });
@@ -74,7 +78,7 @@ class BookingApi {
       }
 
       // Add ID to new booking
-      final id = _bookings.length;
+      final id = _bookings.isEmpty ? 0 : _bookings.last.id! + 1;
       final bookingWithId = booking.copyWith(id: id);
 
       // Store booking
@@ -84,6 +88,21 @@ class BookingApi {
       return Response(
         201, // created
         body: json.encode(bookingWithId),
+        headers: {'Content-Type': 'application/json'},
+      );
+    });
+
+    // Delete booking
+    router.delete('/<id>', (Request request, String id) async {
+      final bookingId = int.parse(id);
+      final booking =
+          _bookings.firstWhereOrNull((booking) => booking.id == bookingId);
+      if (booking == null) {
+        return Response.notFound('Invalid id');
+      }
+      _bookings.remove(booking);
+      return Response(
+        204, // no content
         headers: {'Content-Type': 'application/json'},
       );
     });
