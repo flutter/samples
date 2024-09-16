@@ -11,4 +11,7 @@ abstract class BookingRepository {
 
   /// Creates a new [Booking].
   Future<Result<void>> createBooking(Booking booking);
+
+  /// Delete booking
+  Future<Result<void>> delete(int id);
 }

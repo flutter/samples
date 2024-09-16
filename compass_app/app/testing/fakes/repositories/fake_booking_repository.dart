@@ -36,4 +36,10 @@ class FakeBookingRepository implements BookingRepository {
         )
         .toList();
   }
+  
+  @override
+  Future<Result<void>> delete(int id) {
+    // TODO: implement delete
+    throw UnimplementedError();
+  }
 }

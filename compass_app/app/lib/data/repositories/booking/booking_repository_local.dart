@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
+
 import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
@@ -13,37 +14,44 @@ class BookingRepositoryLocal implements BookingRepository {
     required LocalDataService localDataService,
   }) : _localDataService = localDataService;
 
+  bool _isInitialized = false;
   final _bookings = List<Booking>.empty(growable: true);
   final LocalDataService _localDataService;
 
   @override
   Future<Result<void>> createBooking(Booking booking) async {
-    _bookings.add(booking);
+    // Bookings created come with a null id, we need to assign one
+    final id = _bookings.isEmpty ? 0 : _bookings.last.id! + 1;
+    final bookingWithId = booking.copyWith(id: id);
+    _bookings.add(bookingWithId);
     return Result.ok(null);
   }
 
   @override
   Future<Result<Booking>> getBooking(int id) async {
-    await _createDefaultBooking();
-
-    if (id >= _bookings.length || id < 0) {
-      return Result.error(Exception('Invalid id: $id'));
+    final booking = _bookings.firstWhereOrNull((booking) => booking.id == id);
+    if (booking == null) {
+      return Result.error(Exception('Booking not found'));
     }
-
-    return Result.ok(_bookings[id]);
+    return Result.ok(booking);
   }
 
   @override
   Future<Result<List<BookingSummary>>> getBookingsList() async {
-    await _createDefaultBooking();
+    // Initialize the repository with a default booking
+    if (!_isInitialized) {
+      await _createDefaultBooking();
+      _isInitialized = true;
+    }
+
     return Result.ok(_createSummaries());
   }
 
   List<BookingSummary> _createSummaries() {
     return _bookings
-        .mapIndexed(
-          (index, booking) => BookingSummary(
-            id: index,
+        .map(
+          (booking) => BookingSummary(
+            id: booking.id!,
             name:
                 '${booking.destination.name}, ${booking.destination.continent}',
             startDate: booking.startDate,
@@ -64,6 +72,7 @@ class BookingRepositoryLocal implements BookingRepository {
 
       _bookings.add(
         Booking(
+          id: 0,
           startDate: DateTime(2024, 1, 1),
           endDate: DateTime(2024, 2, 1),
           destination: destination,
@@ -71,5 +80,11 @@ class BookingRepositoryLocal implements BookingRepository {
         ),
       );
     }
+  }
+
+  @override
+  Future<Result<void>> delete(int id) async {
+    _bookings.removeWhere((booking) => booking.id == id);
+    return Result.ok(null);
   }
 }

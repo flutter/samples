@@ -17,6 +17,7 @@ class HomeViewModel extends ChangeNotifier {
   })  : _bookingRepository = bookingRepository,
         _userRepository = userRepository {
     load = Command0(_load)..execute();
+    deleteBooking = Command1(_deleteBooking);
   }
 
   final BookingRepository _bookingRepository;
@@ -26,6 +27,7 @@ class HomeViewModel extends ChangeNotifier {
   User? _user;
 
   late Command0 load;
+  late Command1<void, int> deleteBooking;
 
   List<BookingSummary> get bookings => _bookings;
 
@@ -53,6 +55,35 @@ class HomeViewModel extends ChangeNotifier {
       }
 
       return userResult;
+    } finally {
+      notifyListeners();
+    }
+  }
+
+  Future<Result<void>> _deleteBooking(int id) async {
+    try {
+      final resultDelete = await _bookingRepository.delete(id);
+      switch (resultDelete) {
+        case Ok<void>():
+          _log.fine('Deleted booking $id');
+        case Error<void>():
+          _log.warning('Failed to delete booking $id', resultDelete.error);
+          return resultDelete;
+      }
+
+      // After deleting the booking, we need to reload the bookings list.
+      // BookingRepository is the source of truth for bookings.
+      final resultLoadBookings = await _bookingRepository.getBookingsList();
+      switch (resultLoadBookings) {
+        case Ok<List<BookingSummary>>():
+          _bookings = resultLoadBookings.value;
+          _log.fine('Loaded bookings');
+        case Error<List<BookingSummary>>():
+          _log.warning('Failed to load bookings', resultLoadBookings.error);
+          return resultLoadBookings;
+      }
+
+      return resultLoadBookings;
     } finally {
       notifyListeners();
     }

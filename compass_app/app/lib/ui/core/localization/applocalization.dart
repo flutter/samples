@@ -11,10 +11,12 @@ class AppLocalization {
   static const _strings = <String, String>{
     'activities': 'Activities',
     'addDates': 'Add Dates',
+    'bookingDeleted': 'Booking deleted',
     'bookNewTrip': 'Book New Trip',
     'close': 'Close',
     'confirm': 'Confirm',
     'daytime': 'Daytime',
+    'errorWhileDeletingBooking': 'Error while deleting booking',
     'errorWhileLoadingActivities': 'Error while loading activities',
     'errorWhileLoadingBooking': 'Error while loading booking',
     'errorWhileLoadingContinents': 'Error while loading continents',
@@ -89,6 +91,10 @@ class AppLocalization {
   String get bookNewTrip => _get('bookNewTrip');
 
   String get errorWhileLoadingHome => _get('errorWhileLoadingHome');
+
+  String get bookingDeleted => _get('bookingDeleted');
+
+  String get errorWhileDeletingBooking => _get('errorWhileDeletingBooking');
 
   String nameTrips(String name) => _get('nameTrips').replaceAll('{name}', name);
 

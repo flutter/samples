@@ -107,4 +107,10 @@ class FakeApiClient implements ApiClient {
   Future<Result<UserApiModel>> getUser() async {
     return Result.ok(userApiModel);
   }
+  
+  @override
+  Future<Result<void>> deleteBooking(int id) {
+    // TODO: implement deleteBooking
+    throw UnimplementedError();
+  }
 }
