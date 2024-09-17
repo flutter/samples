@@ -103,10 +103,8 @@ class BookingApi {
         return Response.notFound('Invalid id');
       }
       _bookings.remove(booking);
-      return Response(
-        204, // no content
-        headers: {'Content-Type': 'application/json'},
-      );
+      // 240: no content
+      return Response(204);
     });
 
     return router;
