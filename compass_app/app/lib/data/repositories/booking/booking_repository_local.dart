@@ -14,15 +14,18 @@ class BookingRepositoryLocal implements BookingRepository {
     required LocalDataService localDataService,
   }) : _localDataService = localDataService;
 
+  // Only create default booking once
   bool _isInitialized = false;
+  // Used to generate IDs for bookings
+  int _sequencialId = 0;
+
   final _bookings = List<Booking>.empty(growable: true);
   final LocalDataService _localDataService;
 
   @override
   Future<Result<void>> createBooking(Booking booking) async {
-    // Bookings created come with a null id, we need to assign one
-    final id = _bookings.isEmpty ? 0 : _bookings.last.id! + 1;
-    final bookingWithId = booking.copyWith(id: id);
+    // Bookings created come without id, we need to assign one
+    final bookingWithId = booking.copyWith(id: _sequencialId++);
     _bookings.add(bookingWithId);
     return Result.ok(null);
   }
@@ -72,7 +75,7 @@ class BookingRepositoryLocal implements BookingRepository {
 
       _bookings.add(
         Booking(
-          id: 0,
+          id: _sequencialId++,
           startDate: DateTime(2024, 1, 1),
           endDate: DateTime(2024, 2, 1),
           destination: destination,

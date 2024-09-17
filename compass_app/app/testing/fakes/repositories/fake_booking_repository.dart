@@ -5,11 +5,11 @@ import 'package:compass_app/utils/result.dart';
 
 class FakeBookingRepository implements BookingRepository {
   List<Booking> bookings = List.empty(growable: true);
+  int sequencialId = 0;
 
   @override
   Future<Result<void>> createBooking(Booking booking) async {
-    final id = bookings.isEmpty ? 0 : bookings.last.id! + 1;
-    final bookingWithId = booking.copyWith(id: id);
+    final bookingWithId = booking.copyWith(id: sequencialId++);
     bookings.add(bookingWithId);
     return Result.ok(null);
   }

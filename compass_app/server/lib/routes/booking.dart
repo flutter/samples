@@ -25,7 +25,7 @@ class BookingApi {
         .toList();
     _bookings.add(
       Booking(
-        id: 0,
+        id: _sequencialId++,
         name: '${destination.name}, ${destination.continent}',
         startDate: DateTime(2024, 7, 20),
         endDate: DateTime(2024, 8, 15),
@@ -38,6 +38,9 @@ class BookingApi {
   // Bookings are kept in memory for demo purposes.
   // To keep things simple, the id is also the index in the list.
   final List<Booking> _bookings = List.empty(growable: true);
+
+  // Used to generate IDs for bookings
+  int _sequencialId = 0;
 
   Router get router {
     final router = Router();
@@ -78,8 +81,7 @@ class BookingApi {
       }
 
       // Add ID to new booking
-      final id = _bookings.isEmpty ? 0 : _bookings.last.id! + 1;
-      final bookingWithId = booking.copyWith(id: id);
+      final bookingWithId = booking.copyWith(id: _sequencialId++);
 
       // Store booking
       _bookings.add(bookingWithId);
