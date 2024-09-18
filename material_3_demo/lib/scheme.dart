@@ -25,10 +25,8 @@ class SchemePreview extends StatefulWidget {
 }
 
 class _SchemePreviewState extends State<SchemePreview> {
-
   @override
   Widget build(BuildContext context) {
-
     final theme = Theme.of(context);
     final fonts = theme.textTheme;
     final colors = theme.colorScheme;

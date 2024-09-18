@@ -96,17 +96,31 @@ class ColorPalettesScreen extends StatelessWidget {
             );
           } else {
             var seed = Theme.of(context).colorScheme.primary;
-            var lightScheme = ColorScheme.fromSeed(seedColor: seed, brightness: Brightness.light);
-            var darkScheme = ColorScheme.fromSeed(seedColor: seed, brightness: Brightness.dark);
+            var lightScheme = ColorScheme.fromSeed(
+                seedColor: seed, brightness: Brightness.light);
+            var darkScheme = ColorScheme.fromSeed(
+                seedColor: seed, brightness: Brightness.dark);
             return SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
-                    SchemePreview(label:"Light ColorScheme", scheme: lightScheme,  brightness: Brightness.light, contrast: 1.0,  colorMatch: false,),
-                    const SizedBox(height:16),
-                    SchemePreview(label:"Dark ColorScheme", scheme: darkScheme,  brightness: Brightness.dark, contrast: 1.0,  colorMatch: false,),
-                    const SizedBox(height:16),
+                    SchemePreview(
+                      label: "Light ColorScheme",
+                      scheme: lightScheme,
+                      brightness: Brightness.light,
+                      contrast: 1.0,
+                      colorMatch: false,
+                    ),
+                    const SizedBox(height: 16),
+                    SchemePreview(
+                      label: "Dark ColorScheme",
+                      scheme: darkScheme,
+                      brightness: Brightness.dark,
+                      contrast: 1.0,
+                      colorMatch: false,
+                    ),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),

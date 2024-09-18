@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ColorBox extends StatefulWidget {
-  const ColorBox({
-    super.key,
-    required this.label,
-    required this.tone,
-    required this.color,
-    required this.onColor,
-    required this.height,
-    required this.width,
-    this.displayPaletteInfo = false
-  });
+  const ColorBox(
+      {super.key,
+      required this.label,
+      required this.tone,
+      required this.color,
+      required this.onColor,
+      required this.height,
+      required this.width,
+      this.displayPaletteInfo = false});
 
   final String label;
   final String tone;
@@ -62,7 +61,7 @@ class _ColorBoxState extends State<ColorBox> {
                     padding: EdgeInsets.zero,
                     color: widget.onColor,
                     tooltip: 'Copy hex color',
-                    icon: const Icon(Icons.copy, size:24),
+                    icon: const Icon(Icons.copy, size: 24),
                     onPressed: () async {
                       final messenger = ScaffoldMessenger.of(context);
                       // Copy color as hex to clipboard
