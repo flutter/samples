@@ -1,5 +1,6 @@
 import 'package:compass_app/data/services/api/api_client.dart';
 import 'package:compass_app/domain/models/continent/continent.dart';
+import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../testing/mocks.dart';
@@ -67,6 +68,12 @@ void main() {
       mockHttpClient.mockPost('/booking', kBookingApiModel);
       final result = await apiClient.postBooking(kBookingApiModel);
       expect(result.asOk.value, kBookingApiModel);
+    });
+
+    test('should delete booking', () async {
+      mockHttpClient.mockDelete('/booking/0');
+      final result = await apiClient.deleteBooking(0);
+      expect(result, isA<Ok<void>>());
     });
   });
 }

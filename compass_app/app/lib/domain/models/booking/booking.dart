@@ -9,6 +9,10 @@ part 'booking.g.dart';
 @freezed
 class Booking with _$Booking {
   const factory Booking({
+    /// Optional ID of the booking.
+    /// May be null if the booking is not yet stored.
+    int? id,
+
     /// Start date of the trip
     required DateTime startDate,
 

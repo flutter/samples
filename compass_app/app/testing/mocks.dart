@@ -40,4 +40,15 @@ extension HttpMethodMocks on MockHttpClient {
       return Future.value(request);
     });
   }
+
+  void mockDelete(String path) {
+    when(() => delete(any(), any(), path)).thenAnswer((invocation) {
+      final request = MockHttpClientRequest();
+      final response = MockHttpClientResponse();
+      when(() => request.close()).thenAnswer((_) => Future.value(response));
+      when(() => request.headers).thenReturn(MockHttpHeaders());
+      when(() => response.statusCode).thenReturn(204);
+      return Future.value(request);
+    });
+  }
 }

@@ -20,6 +20,10 @@ Booking _$BookingFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Booking {
+  /// Optional ID of the booking.
+  /// May be null if the booking is not yet stored.
+  int? get id => throw _privateConstructorUsedError;
+
   /// Start date of the trip
   DateTime get startDate => throw _privateConstructorUsedError;
 
@@ -47,7 +51,8 @@ abstract class $BookingCopyWith<$Res> {
       _$BookingCopyWithImpl<$Res, Booking>;
   @useResult
   $Res call(
-      {DateTime startDate,
+      {int? id,
+      DateTime startDate,
       DateTime endDate,
       Destination destination,
       List<Activity> activity});
@@ -70,12 +75,17 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? startDate = null,
     Object? endDate = null,
     Object? destination = null,
     Object? activity = null,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -114,7 +124,8 @@ abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {DateTime startDate,
+      {int? id,
+      DateTime startDate,
       DateTime endDate,
       Destination destination,
       List<Activity> activity});
@@ -136,12 +147,17 @@ class __$$BookingImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? startDate = null,
     Object? endDate = null,
     Object? destination = null,
     Object? activity = null,
   }) {
     return _then(_$BookingImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -166,7 +182,8 @@ class __$$BookingImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BookingImpl implements _Booking {
   const _$BookingImpl(
-      {required this.startDate,
+      {this.id,
+      required this.startDate,
       required this.endDate,
       required this.destination,
       required final List<Activity> activity})
@@ -174,6 +191,11 @@ class _$BookingImpl implements _Booking {
 
   factory _$BookingImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookingImplFromJson(json);
+
+  /// Optional ID of the booking.
+  /// May be null if the booking is not yet stored.
+  @override
+  final int? id;
 
   /// Start date of the trip
   @override
@@ -200,7 +222,7 @@ class _$BookingImpl implements _Booking {
 
   @override
   String toString() {
-    return 'Booking(startDate: $startDate, endDate: $endDate, destination: $destination, activity: $activity)';
+    return 'Booking(id: $id, startDate: $startDate, endDate: $endDate, destination: $destination, activity: $activity)';
   }
 
   @override
@@ -208,6 +230,7 @@ class _$BookingImpl implements _Booking {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookingImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
@@ -218,8 +241,8 @@ class _$BookingImpl implements _Booking {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, startDate, endDate, destination,
-      const DeepCollectionEquality().hash(_activity));
+  int get hashCode => Object.hash(runtimeType, id, startDate, endDate,
+      destination, const DeepCollectionEquality().hash(_activity));
 
   /// Create a copy of Booking
   /// with the given fields replaced by the non-null parameter values.
@@ -239,12 +262,18 @@ class _$BookingImpl implements _Booking {
 
 abstract class _Booking implements Booking {
   const factory _Booking(
-      {required final DateTime startDate,
+      {final int? id,
+      required final DateTime startDate,
       required final DateTime endDate,
       required final Destination destination,
       required final List<Activity> activity}) = _$BookingImpl;
 
   factory _Booking.fromJson(Map<String, dynamic> json) = _$BookingImpl.fromJson;
+
+  /// Optional ID of the booking.
+  /// May be null if the booking is not yet stored.
+  @override
+  int? get id;
 
   /// Start date of the trip
   @override

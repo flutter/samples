@@ -21,7 +21,7 @@ void main() {
     test('should get booking', () async {
       final result = await bookingRepository.getBooking(0);
       final booking = result.asOk.value;
-      expect(booking, kBooking);
+      expect(booking, kBooking.copyWith(id: 0));
     });
 
     test('should create booking', () async {
@@ -35,6 +35,22 @@ void main() {
       final result = await bookingRepository.getBookingsList();
       final list = result.asOk.value;
       expect(list, [kBookingSummary]);
+    });
+
+    test('should delete booking', () async {
+      // Ensure no bookings exist
+      expect(fakeApiClient.bookings, isEmpty);
+
+      // Add a booking
+      var result = await bookingRepository.createBooking(kBooking);
+      expect(result, isA<Ok<void>>());
+
+      // Delete the booking
+      result = await bookingRepository.delete(0);
+      expect(result, isA<Ok<void>>());
+
+      // Check if the booking was deleted from the server
+      expect(fakeApiClient.bookings, isEmpty);
     });
   });
 }

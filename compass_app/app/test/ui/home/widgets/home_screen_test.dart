@@ -20,10 +20,12 @@ void main() {
   group('HomeScreen tests', () {
     late HomeViewModel viewModel;
     late MockGoRouter goRouter;
+    late FakeBookingRepository bookingRepository;
 
     setUp(() {
+      bookingRepository = FakeBookingRepository()..createBooking(kBooking);
       viewModel = HomeViewModel(
-        bookingRepository: FakeBookingRepository()..createBooking(kBooking),
+        bookingRepository: bookingRepository,
         userRepository: FakeUserRepository(),
       );
       goRouter = MockGoRouter();
@@ -80,6 +82,21 @@ void main() {
 
       // Should navigate to results screen
       verify(() => goRouter.push(Routes.bookingWithId(0))).called(1);
+    });
+
+    testWidgets('should delete booking', (tester) async {
+      await loadWidget(tester);
+      await tester.pumpAndSettle();
+
+      // Swipe on booking (created from kBooking)
+      await tester.drag(find.text('name1, Europe'), const Offset(-1000, 0));
+      await tester.pumpAndSettle();
+
+      // Existing booking should be gone
+      expect(find.text('name1, Europe'), findsNothing);
+
+      // Booking should be deleted from repository
+      expect(bookingRepository.bookings, isEmpty);
     });
   });
 }

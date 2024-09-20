@@ -68,6 +68,7 @@ class BookingRepositoryRemote implements BookingRepository {
 
       return Result.ok(
         Booking(
+          id: booking.id,
           startDate: booking.startDate,
           endDate: booking.endDate,
           destination: destination,
@@ -97,6 +98,15 @@ class BookingRepositoryRemote implements BookingRepository {
             ),
           )
           .toList());
+    } on Exception catch (e) {
+      return Result.error(e);
+    }
+  }
+
+  @override
+  Future<Result<void>> delete(int id) async {
+    try {
+      return _apiClient.deleteBooking(id);
     } on Exception catch (e) {
       return Result.error(e);
     }
