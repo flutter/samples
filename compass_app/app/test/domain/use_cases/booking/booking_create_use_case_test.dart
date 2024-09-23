@@ -1,4 +1,4 @@
-import 'package:compass_app/domain/components/booking/booking_create_component.dart';
+import 'package:compass_app/domain/use_cases/booking/booking_create_use_case.dart';
 import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,15 +10,15 @@ import '../../../../testing/models/booking.dart';
 import '../../../../testing/models/destination.dart';
 
 void main() {
-  group('BookingCreateComponent tests', () {
+  group('BookingCreateUseCase tests', () {
     test('Create booking', () async {
-      final component = BookingCreateComponent(
+      final useCase = BookingCreateUseCase(
         activityRepository: FakeActivityRepository(),
         destinationRepository: FakeDestinationRepository(),
         bookingRepository: FakeBookingRepository(),
       );
 
-      final booking = await component.createFrom(
+      final booking = await useCase.createFrom(
         ItineraryConfig(
           startDate: DateTime(2024, 01, 01),
           endDate: DateTime(2024, 02, 12),

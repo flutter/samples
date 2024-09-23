@@ -1,4 +1,4 @@
-import 'package:compass_app/domain/components/booking/booking_share_component.dart';
+import 'package:compass_app/domain/use_cases/booking/booking_share_use_case.dart';
 import 'package:compass_app/domain/models/booking/booking.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -6,10 +6,10 @@ import '../../../../testing/models/activity.dart';
 import '../../../../testing/models/destination.dart';
 
 void main() {
-  group('BookingShareComponent tests', () {
+  group('BookingShareUseCase tests', () {
     test('Share booking', () async {
       String? sharedText;
-      final component = BookingShareComponent.custom((text) async {
+      final useCase = BookingShareUseCase.custom((text) async {
         sharedText = text;
       });
       final booking = Booking(
@@ -18,7 +18,7 @@ void main() {
         destination: kDestination1,
         activity: [kActivity],
       );
-      await component.shareBooking(booking);
+      await useCase.shareBooking(booking);
       expect(
         sharedText,
         'Trip to name1\n'

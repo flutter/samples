@@ -1,5 +1,5 @@
-import 'package:compass_app/domain/components/booking/booking_create_component.dart';
-import 'package:compass_app/domain/components/booking/booking_share_component.dart';
+import 'package:compass_app/domain/use_cases/booking/booking_create_use_case.dart';
+import 'package:compass_app/domain/use_cases/booking/booking_share_use_case.dart';
 import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:compass_app/ui/booking/view_models/booking_viewmodel.dart';
 import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
@@ -37,12 +37,12 @@ void main() {
             activities: [kActivity.ref],
           ),
         ),
-        bookingComponent: BookingCreateComponent(
+        createBookingUseCase: BookingCreateUseCase(
           activityRepository: FakeActivityRepository(),
           destinationRepository: FakeDestinationRepository(),
           bookingRepository: bookingRepository,
         ),
-        shareComponent: BookingShareComponent.custom((text) async {
+        shareBookingUseCase: BookingShareUseCase.custom((text) async {
           shared = true;
         }),
         bookingRepository: bookingRepository,

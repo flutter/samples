@@ -8,16 +8,16 @@ class LogoutViewModel {
   LogoutViewModel({
     required AuthRepository authRepository,
     required ItineraryConfigRepository itineraryConfigRepository,
-  })  : _authLogoutComponent = authRepository,
+  })  : _authLogoutRepository = authRepository,
         _itineraryConfigRepository = itineraryConfigRepository {
     logout = Command0(_logout);
   }
-  final AuthRepository _authLogoutComponent;
+  final AuthRepository _authLogoutRepository;
   final ItineraryConfigRepository _itineraryConfigRepository;
   late Command0 logout;
 
   Future<Result> _logout() async {
-    var result = await _authLogoutComponent.logout();
+    var result = await _authLogoutRepository.logout();
     switch (result) {
       case Ok<void>():
         // clear stored itinerary config

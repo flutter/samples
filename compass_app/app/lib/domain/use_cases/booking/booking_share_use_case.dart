@@ -8,20 +8,20 @@ import '../../models/booking/booking.dart';
 
 typedef ShareFunction = Future<void> Function(String text);
 
-/// Component for sharing a booking.
-class BookingShareComponent {
-  BookingShareComponent._(this._share);
+/// UseCase for sharing a booking.
+class BookingShareUseCase {
+  BookingShareUseCase._(this._share);
 
-  /// Create a [BookingShareComponent] that uses `share_plus` package.
-  factory BookingShareComponent.withSharePlus() =>
-      BookingShareComponent._(Share.share);
+  /// Create a [BookingShareUseCase] that uses `share_plus` package.
+  factory BookingShareUseCase.withSharePlus() =>
+      BookingShareUseCase._(Share.share);
 
-  /// Create a [BookingShareComponent] with a custom share function.
-  factory BookingShareComponent.custom(ShareFunction share) =>
-      BookingShareComponent._(share);
+  /// Create a [BookingShareUseCase] with a custom share function.
+  factory BookingShareUseCase.custom(ShareFunction share) =>
+      BookingShareUseCase._(share);
 
   final ShareFunction _share;
-  final _log = Logger('BookingShareComponent');
+  final _log = Logger('BookingShareUseCase');
 
   Future<Result<void>> shareBooking(Booking booking) async {
     final text = 'Trip to ${booking.destination.name}\n'

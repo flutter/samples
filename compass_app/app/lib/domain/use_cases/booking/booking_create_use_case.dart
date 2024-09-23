@@ -9,12 +9,12 @@ import '../../models/booking/booking.dart';
 import '../../models/destination/destination.dart';
 import '../../models/itinerary_config/itinerary_config.dart';
 
-/// Component for creating [Booking] objects from [ItineraryConfig].
+/// UseCase for creating [Booking] objects from [ItineraryConfig].
 ///
 /// Fetches [Destination] and [Activity] objects from repositories,
 /// checks if dates are set and creates a [Booking] object.
-class BookingCreateComponent {
-  BookingCreateComponent({
+class BookingCreateUseCase {
+  BookingCreateUseCase({
     required DestinationRepository destinationRepository,
     required ActivityRepository activityRepository,
     required BookingRepository bookingRepository,
@@ -25,7 +25,7 @@ class BookingCreateComponent {
   final DestinationRepository _destinationRepository;
   final ActivityRepository _activityRepository;
   final BookingRepository _bookingRepository;
-  final _log = Logger('BookingComponent');
+  final _log = Logger('BookingCreateUseCase');
 
   /// Create [Booking] from a stored [ItineraryConfig]
   Future<Result<Booking>> createFrom(ItineraryConfig itineraryConfig) async {
