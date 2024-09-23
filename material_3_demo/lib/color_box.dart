@@ -65,7 +65,7 @@ class _ColorBoxState extends State<ColorBox> {
                     onPressed: () async {
                       final messenger = ScaffoldMessenger.of(context);
                       // Copy color as hex to clipboard
-                      var hex = '#';
+                      String hex = '#';
                       final c = widget.color;
                       // Will change from int 0-255 to double 0.0-1.0 in 3.26+
                       // The properties also change from red/green/blue to r/g/b

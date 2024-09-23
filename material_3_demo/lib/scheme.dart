@@ -8,14 +8,12 @@ class SchemePreview extends StatefulWidget {
     required this.label,
     required this.scheme,
     required this.brightness,
-    //required this.extendedColors,
     required this.colorMatch,
     required this.contrast,
   });
 
   final String label;
   final ColorScheme scheme;
-  //final List<ExtendedColor> extendedColors;
   final Brightness brightness;
   final bool colorMatch;
   final double contrast;

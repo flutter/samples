@@ -95,10 +95,10 @@ class ColorPalettesScreen extends StatelessWidget {
               ),
             );
           } else {
-            var seed = Theme.of(context).colorScheme.primary;
-            var lightScheme = ColorScheme.fromSeed(
+            Color seed = Theme.of(context).colorScheme.primary;
+            ColorScheme lightScheme = ColorScheme.fromSeed(
                 seedColor: seed, brightness: Brightness.light);
-            var darkScheme = ColorScheme.fromSeed(
+            ColorScheme darkScheme = ColorScheme.fromSeed(
                 seedColor: seed, brightness: Brightness.dark);
             return SingleChildScrollView(
               child: Padding(
