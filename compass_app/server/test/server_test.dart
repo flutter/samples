@@ -1,10 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-// TODO: Remove the compass_model and replace by a server-side model
-import 'package:compass_model/model.dart' hide Booking;
 import 'package:compass_server/config/constants.dart';
+import 'package:compass_server/model/activity/activity.dart';
 import 'package:compass_server/model/booking/booking.dart';
+import 'package:compass_server/model/continent/continent.dart';
+import 'package:compass_server/model/destination/destination.dart';
+import 'package:compass_server/model/login_request/login_request.dart';
+import 'package:compass_server/model/login_response/login_response.dart';
+import 'package:compass_server/model/user/user.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 
@@ -122,6 +126,55 @@ void main() {
 
     // New ID should be 1
     expect(booking.id, 1);
+  });
+
+  test('Delete a booking', () async {
+    // First create a booking
+    final response = await post(
+      Uri.parse('$host/booking'),
+      headers: headers,
+      body: jsonEncode(
+        Booking(
+          name: "DESTINATION, CONTINENT",
+          startDate: DateTime(2024, 1, 1),
+          endDate: DateTime(2024, 2, 2),
+          destinationRef: 'REF',
+          activitiesRef: ['ACT1', 'ACT2'],
+        ),
+      ),
+    );
+    expect(response.statusCode, 201);
+    final booking = Booking.fromJson(jsonDecode(response.body));
+
+    // Then delete it
+    final deleteResponse = await delete(
+      Uri.parse('$host/booking/${booking.id}'),
+      headers: headers,
+    );
+
+    expect(deleteResponse.statusCode, 204);
+  });
+
+  test('Delete a booking is not found', () async {
+    final response = await delete(
+      Uri.parse('$host/booking/42'),
+      headers: headers,
+    );
+
+    expect(response.statusCode, 404);
+  });
+
+  test('Get user', () async {
+    final response = await get(
+      Uri.parse('$host/user'),
+      headers: headers,
+    );
+
+    expect(response.statusCode, 200);
+    final user = User.fromJson(jsonDecode(response.body));
+
+    // Should get the hardcoded user
+    expect(user, Constants.user);
   });
 
   test('404', () async {

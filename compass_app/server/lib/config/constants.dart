@@ -1,3 +1,5 @@
+import '../model/user/user.dart';
+
 class Constants {
   /// Email for the hardcoded login.
   static const email = 'email@example.com';
@@ -11,4 +13,18 @@ class Constants {
 
   /// User id to be returned on successful login.
   static const userId = '123';
+
+  /// User name for the hardcoded user.
+  static const name = 'Sofie';
+
+  /// For demo purposes we use a local asset.
+  static const picture = 'assets/user.jpg';
+
+  /// Hardcoded user.
+  static const user = User(
+    id: Constants.userId,
+    name: Constants.name,
+    email: Constants.email,
+    picture: Constants.picture,
+  );
 }

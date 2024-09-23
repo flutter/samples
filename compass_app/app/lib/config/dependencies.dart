@@ -7,6 +7,9 @@ import '../data/repositories/auth/auth_repository_remote.dart';
 import '../data/repositories/booking/booking_repository.dart';
 import '../data/repositories/booking/booking_repository_local.dart';
 import '../data/repositories/booking/booking_repository_remote.dart';
+import '../data/repositories/user/user_repository.dart';
+import '../data/repositories/user/user_repository_local.dart';
+import '../data/repositories/user/user_repository_remote.dart';
 import '../data/services/api/auth_api_client.dart';
 import '../data/services/local/local_data_service.dart';
 import '../data/services/shared_preferences_service.dart';
@@ -84,6 +87,11 @@ List<SingleChildWidget> get providersRemote {
         apiClient: context.read(),
       ) as BookingRepository,
     ),
+    Provider(
+      create: (context) => UserRepositoryRemote(
+        apiClient: context.read(),
+      ) as UserRepository,
+    ),
     ..._sharedProviders,
   ];
 }
@@ -121,6 +129,11 @@ List<SingleChildWidget> get providersLocal {
     ),
     Provider.value(
       value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
+    ),
+    Provider(
+      create: (context) => UserRepositoryLocal(
+        localDataService: context.read(),
+      ) as UserRepository,
     ),
     ..._sharedProviders,
   ];

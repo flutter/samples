@@ -1,5 +1,4 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
 
@@ -12,4 +11,7 @@ abstract class BookingRepository {
 
   /// Creates a new [Booking].
   Future<Result<void>> createBooking(Booking booking);
+
+  /// Delete booking
+  Future<Result<void>> delete(int id);
 }

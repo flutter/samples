@@ -1,10 +1,10 @@
-import 'package:compass_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../utils/result.dart';
 import '../../../ui/core/ui/date_format_start_end.dart';
+import '../../models/booking/booking.dart';
 
 typedef ShareFunction = Future<void> Function(String text);
 

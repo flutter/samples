@@ -8,6 +8,7 @@ part of 'booking.dart';
 
 _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
     _$BookingImpl(
+      id: (json['id'] as num?)?.toInt(),
       startDate: DateTime.parse(json['startDate'] as String),
       endDate: DateTime.parse(json['endDate'] as String),
       destination:
@@ -19,6 +20,7 @@ _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$BookingImplToJson(_$BookingImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'startDate': instance.startDate.toIso8601String(),
       'endDate': instance.endDate.toIso8601String(),
       'destination': instance.destination,

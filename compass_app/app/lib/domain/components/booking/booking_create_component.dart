@@ -1,10 +1,13 @@
-import 'package:compass_model/model.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/activity/activity_repository.dart';
 import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/destination/destination_repository.dart';
 import '../../../utils/result.dart';
+import '../../models/activity/activity.dart';
+import '../../models/booking/booking.dart';
+import '../../models/destination/destination.dart';
+import '../../models/itinerary_config/itinerary_config.dart';
 
 /// Component for creating [Booking] objects from [ItineraryConfig].
 ///

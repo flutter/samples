@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:shelf/shelf.dart';
-import 'package:compass_model/model.dart';
+
+import '../model/continent/continent.dart';
 
 final _continents = [
   Continent(

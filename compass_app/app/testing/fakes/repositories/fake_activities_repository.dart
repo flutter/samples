@@ -1,6 +1,6 @@
 import 'package:compass_app/data/repositories/activity/activity_repository.dart';
+import 'package:compass_app/domain/models/activity/activity.dart';
 import 'package:compass_app/utils/result.dart';
-import 'package:compass_model/src/model/activity/activity.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../models/activity.dart';

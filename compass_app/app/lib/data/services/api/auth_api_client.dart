@@ -1,16 +1,27 @@
-// TODO: Configurable baseurl/host/port
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:compass_model/model.dart';
-
 import '../../../utils/result.dart';
+import 'model/login_request/login_request.dart';
+import 'model/login_response/login_response.dart';
 
 class AuthApiClient {
+  AuthApiClient({
+    String? host,
+    int? port,
+    HttpClient Function()? clientFactory,
+  })  : _host = host ?? 'localhost',
+        _port = port ?? 8080,
+        _clientFactory = clientFactory ?? (() => HttpClient());
+
+  final String _host;
+  final int _port;
+  final HttpClient Function() _clientFactory;
+
   Future<Result<LoginResponse>> login(LoginRequest loginRequest) async {
-    final client = HttpClient();
+    final client = _clientFactory();
     try {
-      final request = await client.post('localhost', 8080, '/login');
+      final request = await client.post(_host, _port, '/login');
       request.write(jsonEncode(loginRequest));
       final response = await request.close();
       if (response.statusCode == 200) {

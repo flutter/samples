@@ -1,5 +1,5 @@
-import 'package:compass_model/model.dart';
 import 'package:compass_app/data/repositories/continent/continent_repository.dart';
+import 'package:compass_app/domain/models/continent/continent.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter/foundation.dart';
 

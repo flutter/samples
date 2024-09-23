@@ -12,8 +12,7 @@ dependencies:
   shelf_router: ^1.1.0
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
-  compass_model:
-    path: ../model
+  collection: ^1.19.0
 
 dev_dependencies:
   http: ^1.1.0

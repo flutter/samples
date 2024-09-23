@@ -1,4 +1,4 @@
-import 'package:compass_model/model.dart';
+import 'package:compass_app/domain/models/destination/destination.dart';
 
 const kDestination1 = Destination(
   ref: 'ref1',

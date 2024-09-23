@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:compass_model/model.dart';
+import '../model/activity/activity.dart';
+import '../model/destination/destination.dart';
 
 class Assets {
   static const _activities = '../app/assets/activities.json';

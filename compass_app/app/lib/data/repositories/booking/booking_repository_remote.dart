@@ -1,6 +1,7 @@
-import 'package:compass_model/model.dart';
-
+import '../../../domain/models/activity/activity.dart';
+import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
+import '../../../domain/models/destination/destination.dart';
 import '../../../utils/result.dart';
 import '../../services/api/api_client.dart';
 import '../../services/api/model/booking/booking_api_model.dart';
@@ -67,6 +68,7 @@ class BookingRepositoryRemote implements BookingRepository {
 
       return Result.ok(
         Booking(
+          id: booking.id,
           startDate: booking.startDate,
           endDate: booking.endDate,
           destination: destination,
@@ -96,6 +98,15 @@ class BookingRepositoryRemote implements BookingRepository {
             ),
           )
           .toList());
+    } on Exception catch (e) {
+      return Result.error(e);
+    }
+  }
+
+  @override
+  Future<Result<void>> delete(int id) async {
+    try {
+      return _apiClient.deleteBooking(id);
     } on Exception catch (e) {
       return Result.error(e);
     }

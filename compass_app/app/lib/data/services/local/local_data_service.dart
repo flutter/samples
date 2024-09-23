@@ -1,9 +1,12 @@
 import 'dart:convert';
 
-import 'package:compass_model/model.dart';
 import 'package:flutter/services.dart';
 
 import '../../../config/assets.dart';
+import '../../../domain/models/activity/activity.dart';
+import '../../../domain/models/continent/continent.dart';
+import '../../../domain/models/destination/destination.dart';
+import '../../../domain/models/user/user.dart';
 
 class LocalDataService {
   List<Continent> getContinents() {
@@ -52,5 +55,13 @@ class LocalDataService {
   Future<List<Map<String, dynamic>>> _loadStringAsset(String asset) async {
     final localData = await rootBundle.loadString(asset);
     return (jsonDecode(localData) as List).cast<Map<String, dynamic>>();
+  }
+
+  User getUser() {
+    return const User(
+      name: 'Sofie',
+      // For demo purposes we use a local asset
+      picture: 'assets/user.jpg',
+    );
   }
 }

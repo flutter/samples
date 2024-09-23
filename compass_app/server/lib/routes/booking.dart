@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
@@ -22,10 +23,9 @@ class BookingApi {
         .where((activity) => activity.destinationRef == destination.ref)
         .map((activity) => activity.ref)
         .toList();
-    _bookings.insert(
-      0,
+    _bookings.add(
       Booking(
-        id: 0,
+        id: _sequentialId++,
         name: '${destination.name}, ${destination.continent}',
         startDate: DateTime(2024, 7, 20),
         endDate: DateTime(2024, 8, 15),
@@ -38,6 +38,9 @@ class BookingApi {
   // Bookings are kept in memory for demo purposes.
   // To keep things simple, the id is also the index in the list.
   final List<Booking> _bookings = List.empty(growable: true);
+
+  // Used to generate IDs for bookings
+  int _sequentialId = 0;
 
   Router get router {
     final router = Router();
@@ -52,12 +55,16 @@ class BookingApi {
 
     // Get a booking by id
     router.get('/<id>', (Request request, String id) {
-      final index = int.parse(id);
-      if (index < 0 || index >= _bookings.length) {
+      final bookingId = int.parse(id);
+      final booking =
+          _bookings.firstWhereOrNull((booking) => booking.id == bookingId);
+
+      if (booking == null) {
         return Response.notFound('Invalid id');
       }
+
       return Response.ok(
-        json.encode(_bookings[index]),
+        json.encode(booking),
         headers: {'Content-Type': 'application/json'},
       );
     });
@@ -74,8 +81,7 @@ class BookingApi {
       }
 
       // Add ID to new booking
-      final id = _bookings.length;
-      final bookingWithId = booking.copyWith(id: id);
+      final bookingWithId = booking.copyWith(id: _sequentialId++);
 
       // Store booking
       _bookings.add(bookingWithId);
@@ -86,6 +92,19 @@ class BookingApi {
         body: json.encode(bookingWithId),
         headers: {'Content-Type': 'application/json'},
       );
+    });
+
+    // Delete booking
+    router.delete('/<id>', (Request request, String id) async {
+      final bookingId = int.parse(id);
+      final booking =
+          _bookings.firstWhereOrNull((booking) => booking.id == bookingId);
+      if (booking == null) {
+        return Response.notFound('Invalid id');
+      }
+      _bookings.remove(booking);
+      // 240: no content
+      return Response(204);
     });
 
     return router;
