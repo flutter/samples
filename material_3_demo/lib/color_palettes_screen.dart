@@ -4,6 +4,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:material_3_demo/scheme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const Widget divider = SizedBox(height: 10);
@@ -11,7 +12,7 @@ const Widget divider = SizedBox(height: 10);
 // If screen content width is greater or equal to this value, the light and dark
 // color schemes will be displayed in a column. Otherwise, they will
 // be displayed in a row.
-const double narrowScreenWidthThreshold = 400;
+const double narrowScreenWidthThreshold = 500;
 
 class ColorPalettesScreen extends StatelessWidget {
   const ColorPalettesScreen({super.key});
@@ -94,32 +95,32 @@ class ColorPalettesScreen extends StatelessWidget {
               ),
             );
           } else {
+            Color seed = Theme.of(context).colorScheme.primary;
+            ColorScheme lightScheme = ColorScheme.fromSeed(
+                seedColor: seed, brightness: Brightness.light);
+            ColorScheme darkScheme = ColorScheme.fromSeed(
+                seedColor: seed, brightness: Brightness.dark);
             return SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
-                    dynamicColorNotice(),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              schemeLabel('Light ColorScheme'),
-                              schemeView(lightTheme),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              schemeLabel('Dark ColorScheme'),
-                              schemeView(darkTheme),
-                            ],
-                          ),
-                        ),
-                      ],
+                    SchemePreview(
+                      label: "Light ColorScheme",
+                      scheme: lightScheme,
+                      brightness: Brightness.light,
+                      contrast: 1.0,
+                      colorMatch: false,
                     ),
+                    const SizedBox(height: 16),
+                    SchemePreview(
+                      label: "Dark ColorScheme",
+                      scheme: darkScheme,
+                      brightness: Brightness.dark,
+                      contrast: 1.0,
+                      colorMatch: false,
+                    ),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),
