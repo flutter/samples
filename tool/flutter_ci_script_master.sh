@@ -47,7 +47,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-    "material_3_demo"
+#   TODO @ewindmill -- Color.red is deprecated and should be Color.r (same for green and blue)
+#    "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
