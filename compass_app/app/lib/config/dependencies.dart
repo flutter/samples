@@ -25,14 +25,14 @@ import '../data/repositories/destination/destination_repository_remote.dart';
 import '../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../data/repositories/itinerary_config/itinerary_config_repository_memory.dart';
 import '../data/services/api/api_client.dart';
-import '../domain/components/booking/booking_create_component.dart';
-import '../domain/components/booking/booking_share_component.dart';
+import '../domain/use_cases/booking/booking_create_use_case.dart';
+import '../domain/use_cases/booking/booking_share_use_case.dart';
 
 /// Shared providers for all configurations.
 List<SingleChildWidget> _sharedProviders = [
   Provider(
     lazy: true,
-    create: (context) => BookingCreateComponent(
+    create: (context) => BookingCreateUseCase(
       destinationRepository: context.read(),
       activityRepository: context.read(),
       bookingRepository: context.read(),
@@ -40,7 +40,7 @@ List<SingleChildWidget> _sharedProviders = [
   ),
   Provider(
     lazy: true,
-    create: (context) => BookingShareComponent.withSharePlus(),
+    create: (context) => BookingShareUseCase.withSharePlus(),
   ),
 ];
 

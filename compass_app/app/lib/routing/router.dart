@@ -89,8 +89,8 @@ GoRouter router(
               builder: (context, state) {
                 final viewModel = BookingViewModel(
                   itineraryConfigRepository: context.read(),
-                  bookingComponent: context.read(),
-                  shareComponent: context.read(),
+                  createBookingUseCase: context.read(),
+                  shareBookingUseCase: context.read(),
                   bookingRepository: context.read(),
                 );
 
@@ -109,8 +109,8 @@ GoRouter router(
                     final id = int.parse(state.pathParameters['id']!);
                     final viewModel = BookingViewModel(
                       itineraryConfigRepository: context.read(),
-                      bookingComponent: context.read(),
-                      shareComponent: context.read(),
+                      createBookingUseCase: context.read(),
+                      shareBookingUseCase: context.read(),
                       bookingRepository: context.read(),
                     );
 

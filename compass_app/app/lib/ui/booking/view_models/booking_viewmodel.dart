@@ -7,26 +7,26 @@ import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
-import '../../../domain/components/booking/booking_create_component.dart';
-import '../../../domain/components/booking/booking_share_component.dart';
+import '../../../domain/use_cases/booking/booking_create_use_case.dart';
+import '../../../domain/use_cases/booking/booking_share_use_case.dart';
 
 class BookingViewModel extends ChangeNotifier {
   BookingViewModel({
-    required BookingCreateComponent bookingComponent,
-    required BookingShareComponent shareComponent,
+    required BookingCreateUseCase createBookingUseCase,
+    required BookingShareUseCase shareBookingUseCase,
     required ItineraryConfigRepository itineraryConfigRepository,
     required BookingRepository bookingRepository,
-  })  : _createComponent = bookingComponent,
-        _shareComponent = shareComponent,
+  })  : _createUseCase = createBookingUseCase,
+        _shareUseCase = shareBookingUseCase,
         _itineraryConfigRepository = itineraryConfigRepository,
         _bookingRepository = bookingRepository {
     createBooking = Command0(_createBooking);
-    shareBooking = Command0(() => _shareComponent.shareBooking(_booking!));
+    shareBooking = Command0(() => _shareUseCase.shareBooking(_booking!));
     loadBooking = Command1(_load);
   }
 
-  final BookingCreateComponent _createComponent;
-  final BookingShareComponent _shareComponent;
+  final BookingCreateUseCase _createUseCase;
+  final BookingShareUseCase _shareUseCase;
   final ItineraryConfigRepository _itineraryConfigRepository;
   final BookingRepository _bookingRepository;
   final _log = Logger('BookingViewModel');
@@ -51,7 +51,7 @@ class BookingViewModel extends ChangeNotifier {
     switch (itineraryConfig) {
       case Ok<ItineraryConfig>():
         _log.fine('Loaded stored ItineraryConfig');
-        final result = await _createComponent.createFrom(itineraryConfig.value);
+        final result = await _createUseCase.createFrom(itineraryConfig.value);
         switch (result) {
           case Ok<Booking>():
             _log.fine('Created Booking');
