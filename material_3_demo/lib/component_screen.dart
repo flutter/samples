@@ -2506,7 +2506,7 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(widget.label,
-                    style: Theme.of(context).textTheme.titleSmall),
+                    style: Theme.of(context).textTheme.titleMedium),
                 Tooltip(
                   message: widget.tooltipMessage,
                   child: const Padding(
