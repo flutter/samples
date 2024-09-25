@@ -100,10 +100,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       booking: widget.viewModel.bookings[index],
                       onTap: () => context.push(Routes.bookingWithId(
                           widget.viewModel.bookings[index].id)),
-                      onDismissed: (_) =>
-                          widget.viewModel.deleteBooking.execute(
-                        widget.viewModel.bookings[index].id,
-                      ),
+                      confirmDismiss: (_) async {
+                        // wait for command to complete
+                        await widget.viewModel.deleteBooking.execute(
+                          widget.viewModel.bookings[index].id,
+                        );
+                        // if command completed successfully, return true
+                        if (widget.viewModel.deleteBooking.completed) {
+                          // removes the dismissable from the list
+                          return true;
+                        } else {
+                          // the dismissable stays in the list
+                          return false;
+                        }
+                      },
                     ),
                   )
                 ],
@@ -141,19 +151,19 @@ class _Booking extends StatelessWidget {
     super.key,
     required this.booking,
     required this.onTap,
-    required this.onDismissed,
+    required this.confirmDismiss,
   });
 
   final BookingSummary booking;
   final GestureTapCallback onTap;
-  final DismissDirectionCallback onDismissed;
+  final ConfirmDismissCallback confirmDismiss;
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: ValueKey(booking.id),
       direction: DismissDirection.endToStart,
-      onDismissed: onDismissed,
+      confirmDismiss: confirmDismiss,
       child: InkWell(
         onTap: onTap,
         child: Padding(
