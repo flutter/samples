@@ -3,6 +3,7 @@ import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_
 import 'package:compass_app/routing/routes.dart';
 import 'package:compass_app/ui/home/view_models/home_viewmodel.dart';
 import 'package:compass_app/ui/home/widgets/home_screen.dart';
+import 'package:compass_app/utils/result.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -98,5 +99,29 @@ void main() {
       // Booking should be deleted from repository
       expect(bookingRepository.bookings, isEmpty);
     });
+
+    testWidgets('fail to delete booking', (tester) async {
+      // Create a ViewModel with a repository that will fail to delete
+      viewModel = HomeViewModel(
+        bookingRepository: _BadFakeBookingRepository()..createBooking(kBooking),
+        userRepository: FakeUserRepository(),
+      );
+      await loadWidget(tester);
+      await tester.pumpAndSettle();
+
+      // Swipe on booking (created from kBooking)
+      await tester.drag(find.text('name1, Europe'), const Offset(-1000, 0));
+      await tester.pumpAndSettle();
+
+      // Existing booking should be there
+      expect(find.text('name1, Europe'), findsOneWidget);
+    });
   });
+}
+
+class _BadFakeBookingRepository extends FakeBookingRepository {
+  @override
+  Future<Result<void>> delete(int id) async {
+    return Result.error(Exception('Failed to delete booking'));
+  }
 }
