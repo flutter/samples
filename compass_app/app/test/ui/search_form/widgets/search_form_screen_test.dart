@@ -5,7 +5,9 @@
 import 'package:compass_app/data/repositories/auth/auth_repository.dart';
 import 'package:compass_app/data/repositories/itinerary_config/itinerary_config_repository.dart';
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
+import 'package:compass_app/ui/search_form/widgets/search_form_guests.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
+import 'package:compass_app/ui/search_form/widgets/search_form_submit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -57,13 +59,13 @@ void main() {
           start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
 
       // Select guests
-      await tester.tap(find.byKey(const ValueKey('add_guests')));
+      await tester.tap(find.byKey(const ValueKey(addGuestsKey)));
 
       // Refresh screen state
       await tester.pumpAndSettle();
 
       // Perform search
-      await tester.tap(find.byKey(const ValueKey('submit_button')));
+      await tester.tap(find.byKey(const ValueKey(searchFormSubmitButtonKey)));
 
       // Should navigate to results screen
       verify(() => goRouter.go('/results')).called(1);

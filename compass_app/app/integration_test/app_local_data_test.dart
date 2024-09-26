@@ -104,7 +104,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Perform search and navigate to next screen
-      await tester.tap(find.byKey(const ValueKey(submitButtonKey)));
+      await tester.tap(find.byKey(const ValueKey(searchFormSubmitButtonKey)));
       await tester.pumpAndSettle();
 
       // Results Screen

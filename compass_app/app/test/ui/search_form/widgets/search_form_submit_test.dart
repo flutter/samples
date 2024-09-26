@@ -39,7 +39,7 @@ void main() {
       expect(find.byType(SearchFormSubmit), findsOneWidget);
 
       // Tap should not navigate
-      await tester.tap(find.byKey(const ValueKey('submit_button')));
+      await tester.tap(find.byKey(const ValueKey(searchFormSubmitButtonKey)));
       verifyNever(() => goRouter.go(any()));
 
       // Fill in data
@@ -53,7 +53,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Perform search
-      await tester.tap(find.byKey(const ValueKey('submit_button')));
+      await tester.tap(find.byKey(const ValueKey(searchFormSubmitButtonKey)));
 
       // Should navigate to results screen
       verify(() => goRouter.go('/results')).called(1);

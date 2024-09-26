@@ -33,7 +33,7 @@ void main() {
       // Initial state
       expect(find.text('0'), findsOneWidget);
 
-      await tester.tap(find.byKey(const ValueKey('add_guests')));
+      await tester.tap(find.byKey(const ValueKey(addGuestsKey)));
       await tester.pumpAndSettle();
 
       expect(find.text('1'), findsOneWidget);
@@ -46,19 +46,19 @@ void main() {
       // Initial state
       expect(find.text('0'), findsOneWidget);
 
-      await tester.tap(find.byKey(const ValueKey('remove_guests')));
+      await tester.tap(find.byKey(const ValueKey(removeGuestsKey)));
       await tester.pumpAndSettle();
 
       // Should remain at 0
       expect(find.text('0'), findsOneWidget);
 
-      await tester.tap(find.byKey(const ValueKey('add_guests')));
+      await tester.tap(find.byKey(const ValueKey(addGuestsKey)));
       await tester.pumpAndSettle();
 
       // Increase to 1
       expect(find.text('1'), findsOneWidget);
 
-      await tester.tap(find.byKey(const ValueKey('remove_guests')));
+      await tester.tap(find.byKey(const ValueKey(removeGuestsKey)));
       await tester.pumpAndSettle();
 
       // Back to 0

@@ -11,7 +11,7 @@ import '../../core/themes/dimens.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
 
-const String submitButtonKey = 'submit-button';
+const String searchFormSubmitButtonKey = 'submit-button';
 
 /// Search form submit button
 ///
@@ -69,7 +69,7 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
         ),
         builder: (context, child) {
           return FilledButton(
-            key: const ValueKey(submitButtonKey),
+            key: const ValueKey(searchFormSubmitButtonKey),
             onPressed: widget.viewModel.valid
                 ? widget.viewModel.updateItineraryConfig.execute
                 : null,
