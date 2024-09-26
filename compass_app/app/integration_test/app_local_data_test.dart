@@ -7,7 +7,9 @@ import 'package:compass_app/ui/core/ui/home_button.dart';
 import 'package:compass_app/ui/home/widgets/home_screen.dart';
 import 'package:compass_app/ui/results/widgets/result_card.dart';
 import 'package:compass_app/ui/results/widgets/results_screen.dart';
+import 'package:compass_app/ui/search_form/widgets/search_form_guests.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
+import 'package:compass_app/ui/search_form/widgets/search_form_submit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -71,7 +73,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Select create new booking
-      await tester.tap(find.byKey(const ValueKey('booking-button')));
+      await tester.tap(find.byKey(const ValueKey(bookingButtonKey)));
       await tester.pumpAndSettle();
 
       // Search destinations screen
@@ -95,14 +97,14 @@ void main() {
       await tester.pumpAndSettle();
 
       // Select guests
-      await tester.tap(find.byKey(const ValueKey('add_guests')),
+      await tester.tap(find.byKey(const ValueKey(addGuestsKey)),
           warnIfMissed: false);
 
       // Refresh screen state
       await tester.pumpAndSettle();
 
       // Perform search and navigate to next screen
-      await tester.tap(find.byKey(const ValueKey('submit_button')));
+      await tester.tap(find.byKey(const ValueKey(submitButtonKey)));
       await tester.pumpAndSettle();
 
       // Results Screen
@@ -122,7 +124,7 @@ void main() {
       expect(find.text('1 selected'), findsOneWidget);
 
       // Submit selection
-      await tester.tap(find.byKey(const ValueKey('confirm-button')));
+      await tester.tap(find.byKey(const ValueKey(confirmButtonKey)));
       await tester.pumpAndSettle();
 
       // Should be at booking screen

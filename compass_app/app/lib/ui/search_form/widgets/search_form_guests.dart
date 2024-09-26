@@ -8,6 +8,9 @@ import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
 import '../view_models/search_form_viewmodel.dart';
 
+const String removeGuestsKey = 'remove-guests';
+const String addGuestsKey = 'add-guests';
+
 /// Number of guests selection form
 ///
 /// Users can tap the Plus and Minus icons to increase or decrease
@@ -67,7 +70,7 @@ class _QuantitySelector extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            key: const ValueKey('remove_guests'),
+            key: const ValueKey(removeGuestsKey),
             onTap: () {
               viewModel.guests--;
             },
@@ -86,7 +89,7 @@ class _QuantitySelector extends StatelessWidget {
             ),
           ),
           InkWell(
-            key: const ValueKey('add_guests'),
+            key: const ValueKey(addGuestsKey),
             onTap: () {
               viewModel.guests++;
             },

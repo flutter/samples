@@ -11,6 +11,8 @@ import '../../core/themes/dimens.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
 
+const String submitButtonKey = 'submit-button';
+
 /// Search form submit button
 ///
 /// The button is disabled when the form is data is incomplete.
@@ -67,7 +69,7 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
         ),
         builder: (context, child) {
           return FilledButton(
-            key: const ValueKey('submit_button'),
+            key: const ValueKey(submitButtonKey),
             onPressed: widget.viewModel.valid
                 ? widget.viewModel.updateItineraryConfig.execute
                 : null,

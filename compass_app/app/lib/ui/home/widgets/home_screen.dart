@@ -14,6 +14,8 @@ import '../../core/ui/error_indicator.dart';
 import '../view_models/home_viewmodel.dart';
 import 'home_title.dart';
 
+const String bookingButtonKey = 'booking-button';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
@@ -52,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton.extended(
         // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
         heroTag: null,
-        key: const ValueKey('booking-button'),
+        key: const ValueKey(bookingButtonKey),
         onPressed: () => context.go(Routes.search),
         label: Text(AppLocalization.of(context).bookNewTrip),
         icon: const Icon(Icons.add_location_outlined),
