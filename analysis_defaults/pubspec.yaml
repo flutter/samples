@@ -8,4 +8,4 @@ environment:
 # NOTE: Code is not allowed in this package. Do not add more dependencies.
 # The `flutter_lints` dependency is required for `lib/flutter.yaml`.
 dependencies:
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
