@@ -88,7 +88,8 @@ void main() {
       // Select first and last widget that matches today number
       //and tomorrow number, sort of ensures a valid range
       await tester.tap(find.text(tomorrow.toString()).first);
-      await tester.tap(find.text(nextDay.toString()).last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(nextDay.toString()).first);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Save'));
       await tester.pumpAndSettle();
@@ -102,7 +103,7 @@ void main() {
 
       // Perform search and navigate to next screen
       await tester.tap(find.byKey(const ValueKey('submit_button')));
-      await tester.pumpAndSettle(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
 
       // Results Screen
       expect(find.byType(ResultsScreen), findsOneWidget);
@@ -110,7 +111,7 @@ void main() {
       // Amalfi Coast should be the first result for Europe
       // Tap and navigate to activities screen
       await tester.tap(find.byType(ResultCard).first);
-      await tester.pumpAndSettle(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
 
       // Activities Screen
       expect(find.byType(ActivitiesScreen), findsOneWidget);
@@ -122,7 +123,7 @@ void main() {
 
       // Submit selection
       await tester.tap(find.byKey(const ValueKey('confirm-button')));
-      await tester.pumpAndSettle(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
 
       // Should be at booking screen
       expect(find.byType(BookingScreen), findsOneWidget);
