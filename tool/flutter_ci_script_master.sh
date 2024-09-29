@@ -34,11 +34,12 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/pedometer"
+    # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
+    # "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
-#    TODO ewindmill -- whereNotNull deprecated in dart:collection
-#    "experimental/web_dashboard"
+    # TODO(ewindmill): whereNotNull deprecated in dart:collection
+    # "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
@@ -47,8 +48,8 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
-#   TODO @ewindmill -- Color.red is deprecated and should be Color.r (same for green and blue)
-#    "material_3_demo"
+    # TODO(ewindmill): Color.red is deprecated and should be Color.r (same for green and blue)
+    # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
