@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
-  jni: ^0.11.0
+  jni: ^0.12.0
   ffi: ^2.1.2
 
 dev_dependencies:
