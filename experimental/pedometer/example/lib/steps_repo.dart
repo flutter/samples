@@ -6,8 +6,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:jni/jni.dart' as jni;
-import 'package:pedometer/pedometer_bindings_generated.dart' as pd;
 import 'package:pedometer/health_connect.dart' as hc;
+import 'package:pedometer/pedometer_bindings_generated.dart' as pd;
 
 /// Class to hold the information needed for the chart
 class Steps {
@@ -124,10 +124,12 @@ class _AndroidStepsRepo implements StepsRepo {
   late final hc.HealthConnectClient client;
 
   _AndroidStepsRepo() {
+    // ignore: invalid_use_of_internal_member
     activity = hc.Activity.fromReference(jni.Jni.getCurrentActivity());
     applicationContext =
+        // ignore: invalid_use_of_internal_member
         hc.Context.fromReference(jni.Jni.getCachedApplicationContext());
-    client = hc.HealthConnectClient.getOrCreate1(applicationContext);
+    client = hc.HealthConnectClient.getOrCreate$1(applicationContext);
   }
 
   @override
@@ -153,7 +155,7 @@ class _AndroidStepsRepo implements StepsRepo {
     }
     final data = await Future.wait(futures);
     return data.asMap().entries.map((entry) {
-      final stepsLong = entry.value.get0(hc.StepsRecord.COUNT_TOTAL);
+      final stepsLong = entry.value.get(hc.StepsRecord.COUNT_TOTAL);
       final steps = stepsLong.isNull ? 0 : stepsLong.intValue();
       return Steps(entry.key.toString().padLeft(2, '0'), steps);
     }).toList();
