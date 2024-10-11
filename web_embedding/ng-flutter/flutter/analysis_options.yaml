@@ -13,7 +13,6 @@ linter:
     - cancel_subscriptions
     - close_sinks
     - directives_ordering
-    - package_api_docs
     - package_prefixed_library_names
     - test_types_in_equals
     - throw_in_finally

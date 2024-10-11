@@ -12,8 +12,6 @@ linter:
     cancel_subscriptions: true
     close_sinks: true
     directives_ordering: true
-    package_api_docs: true
-    package_prefixed_library_names: true
     test_types_in_equals: true
     throw_in_finally: true
     unawaited_futures: true
