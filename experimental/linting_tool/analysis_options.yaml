@@ -1,6 +1,0 @@
-include: package:analysis_defaults/flutter.yaml
-
-analyzer:
-  exclude:
-    - lib/model/rule.g.dart
-    - test/widget_test.mocks.dart

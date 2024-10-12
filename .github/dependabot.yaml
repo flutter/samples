@@ -155,12 +155,6 @@ updates:
     labels:
       - "autosubmit"
   - package-ecosystem: "pub"
-    directory: "experimental/linting_tool/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "autosubmit"
-  - package-ecosystem: "pub"
     directory: "experimental/material_3_demo/"
     schedule:
       interval: "daily"

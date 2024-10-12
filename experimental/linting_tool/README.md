@@ -1,21 +1,34 @@
-# linting_tool
+# Sample retired
 
-A desktop tool that helps you manage [linter rules](https://dart.dev/guides/language/analysis-options#enabling-linter-rules)
-for your Flutter project.
+The `linting_tool` sample has been retired.
+Flutter's desktop support has evolved over the years and
+the underlying data that this tool surfaced is no longer supported.
 
-## Goals for this sample
+`linting_tool` was a successful sample of using Flutter to build desktop apps,
+written by Abdullah Deshmukh ([X][], [GitHub][]) for Google Summer of Code 2021.
+You can learn about Abdullah's experience creating the sample
+by reading [GSoC '21: Creating a desktop sample for Flutter][medium].
 
-* Show how to read and write files on Desktop
-* Show how to create, parse and use yaml files
-* Show how to implement basic navigation in Desktop apps
-* Show how to implement right-click popup menus
+[X]: https://x.com/abdullahzakir99
+[GitHub]: https://github.com/abd99
+[medium]: https://medium.com/flutter/gsoc-21-creating-a-desktop-sample-for-flutter-7d77e74812d6
 
-## Questions/issues
+## Flutter on Desktop
 
-If you have a general question about Flutter, the best places to go are:
+Flutter supports creating desktop apps for Windows, macOS, and Linux.
+To set up platform support or learn more about [Flutter on Desktop][],
+check out the [platform integration docs][] for each desktop platform.
 
-* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
-* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+[Flutter on Desktop]: https://flutter.dev/multi-platform/desktop
+[platform integration docs]: https://docs.flutter.dev/platform-integration/desktop
 
-If you run into an issue with the sample itself, please [file an issue](https://github.com/flutter/samples/issues).
+## Analyzing and linting Dart projects
+
+To learn more about configuring analysis of your Dart and Flutter projects,
+check out [Customizing static analysis][].
+
+For information about the various lints you can configure,
+reference the [Linter rules][] index.
+
+[Customizing static analysis]: https://dart.dev/tools/analysis
+[Linter rules]: https://dart.dev/lints
