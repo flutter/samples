@@ -1,4 +1,4 @@
 /// Common data models required by our client and server.
-library shared;
+library;
 
 export 'src/models.dart';

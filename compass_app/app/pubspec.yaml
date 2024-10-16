@@ -1,0 +1,45 @@
+name: compass_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  cached_network_image: ^3.3.1
+  collection: ^1.18.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  freezed_annotation: ^2.4.4
+  go_router: ^14.2.0
+  google_fonts: ^6.2.1
+  intl: any
+  json_annotation: ^4.9.0
+  logging: ^1.2.0
+  provider: ^6.1.2
+  share_plus: ^7.2.2
+  shared_preferences: ^2.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mocktail_image_network: ^1.2.0
+  mocktail: ^1.0.4
+  integration_test:
+    sdk: flutter
+  build_runner: ^2.4.12
+  freezed: ^2.5.7
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/activities.json
+    - assets/destinations.json
+    - assets/logo.svg
+    - assets/user.jpg

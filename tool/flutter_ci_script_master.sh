@@ -23,6 +23,9 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
+#    @ewindmill: withOpacity is deprecated
+#    "compass_app/app"
+#    "compass_app/server"
     "context_menus"
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
@@ -34,20 +37,23 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/pedometer"
+    # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
+    # "experimental/pedometer"
     "experimental/pedometer/example"
     "experimental/varfont_shader_puzzle"
-#    TODO ewindmill -- whereNotNull deprecated in dart:collection
-#    "experimental/web_dashboard"
+    # TODO(ewindmill): whereNotNull deprecated in dart:collection
+    # "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
     "gemini_tasks"
     "google_maps"
     "infinite_list"
-    "ios_app_clip"
+    #  TODO(domesticmouse): The import of 'package:flutter/material.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/cupertino.dart'.
+    # "ios_app_clip"
     "isolate_example"
-    "material_3_demo"
+    # TODO(ewindmill): Color.red is deprecated and should be Color.r (same for green and blue)
+    # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"

@@ -15,7 +15,6 @@ linter:
     cancel_subscriptions: true
     close_sinks: true
     directives_ordering: true
-    package_api_docs: true
     package_prefixed_library_names: true
     prefer_final_in_for_each: true
     prefer_single_quotes: true

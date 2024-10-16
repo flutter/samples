@@ -10,7 +10,7 @@ Future<void> main() async {
 ///
 /// For example, after building using `build_ci.dart,
 /// `../samples_index/public/web/navigation_and_routing/index.html` should
-/// contain `<base href="/samples/web/navigation_and_routing/">
+/// contain `<base href="/samples/web/navigation_and_routing/">`
 Future<void> fixBaseTags() async {
   print('currentDir = ${Directory.current.path}');
   var builtSamplesDir = Directory(p.joinAll([

@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.4.0-0
+  sdk: ^3.5.0
 
 dependencies:
   async: ^2.11.0
