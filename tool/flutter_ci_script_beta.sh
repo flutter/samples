@@ -49,7 +49,8 @@ declare -ar PROJECT_NAMES=(
     "gemini_tasks"
     "google_maps"
     "infinite_list"
-    "ios_app_clip"
+    #  TODO(domesticmouse): The import of 'package:flutter/material.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/cupertino.dart'.
+    # "ios_app_clip"
     "isolate_example"
     # TODO(ewindmill): Color.red is deprecated and should be Color.r (same for green and blue)
     # "material_3_demo"
