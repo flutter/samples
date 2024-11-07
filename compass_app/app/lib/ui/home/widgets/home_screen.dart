@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../routing/routes.dart';
 import '../../core/localization/applocalization.dart';
+import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
 import '../../core/ui/error_indicator.dart';
@@ -166,6 +167,18 @@ class _Booking extends StatelessWidget {
       key: ValueKey(booking.id),
       direction: DismissDirection.endToStart,
       confirmDismiss: confirmDismiss,
+      background: Container(
+        color: AppColors.grey1,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: Dimens.paddingHorizontal),
+              child: Icon(Icons.delete),
+            ),
+          ],
+        ),
+      ),
       child: InkWell(
         onTap: onTap,
         child: Padding(
