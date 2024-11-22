@@ -1,17 +1,16 @@
-This is a demo app created for the Google I/O talk "Gemini API and Flutter: Practical, AI-driven apps with Google AI tools"
+# Sample retired
 
-Check out the [the prompt we used on Google AI Studio](https://aistudio.google.com/app/prompts/1RsTAt6_N8BPhXbrrd8gSJcdeuYV834kf).
+The `ai_recipe_generation` sample has been retired.
 
-## Running the app 
+The sample was written for an event (Google IO 2024). Per our policies,
+we don't maintain samples that are tied to events.
 
-Before running the app:
-* Get an API key from [ai.google.dev](ai.google.dev).
-* Create a Firebase project, and install the Flutter Firebase CLI, and configure the platforms that you want to run this app on. You can find instructions by following [steps 2-4 of the Get to know Firebase for Flutter](https://firebase.google.com/codelabs/firebase-get-to-know-flutter?hl=en#2) codelab.
+This sample has been copied to [another repository](https://github.com/ericwindmill/gemini_recipe_generation). It will not be updated to reflect changes to Gemini.
 
-Then, pass the API key in with dart define when running the app:
+## Other Gemini resources 
 
-```bash
-flutter run --dart-define=API_KEY=your_api_key
-```
+The following resources can assist you in integrating Gemini with Flutter:
 
-
+* [gemini_tasks sample](https://github.com/flutter/samples/tree/main/gemini_tasks) is a Gemini sample in this repository.
+* [google_generative_ai package](https://pub.dev/packages/google_generative_ai) is the package that Flutter apps use to integrate with gemini, and it has additional samples.
+* The [google-gemini github](https://github.com/google-gemini) has additional Flutter samples. 
