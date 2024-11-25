@@ -32,7 +32,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
+      - uses: subosito/flutter-action@74af56c5ed2697ba4621264652728e8d217e53d3
         with:
           channel: ${{ matrix.flutter_version }}
       - run: ./tool/flutter_ci_script_${{ matrix.flutter_version }}.sh
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
+      - uses: subosito/flutter-action@74af56c5ed2697ba4621264652728e8d217e53d3
       - run: |
           dart pub get
           dart run grinder generate
@@ -57,7 +57,7 @@ jobs:
   #       with:
   #         distribution: 'zulu'
   #         java-version: '17'
-  #     - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
+  #     - uses: subosito/flutter-action@74af56c5ed2697ba4621264652728e8d217e53d3
   #       with:
   #         channel: stable
   #     - run: ./tool/android_ci_script.sh
@@ -71,7 +71,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1
+      - uses: subosito/flutter-action@74af56c5ed2697ba4621264652728e8d217e53d3
         with:
           channel: stable
       - run: ./tool/ios_ci_script.sh
