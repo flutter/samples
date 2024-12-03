@@ -9,17 +9,17 @@ A collection of open source samples that illustrate best practices for
 
 ### Quickstarts
 
-* [`asset_transformation`][]
-* [`background_isolate_channels`][]
-* [`code_sharing`][]
-* [`context_menus`][]
-* [`desktop_photo_search`][]
-* [`dynamic_theme`][]
-* [`form_app`][]
-* [`game_template`][]
-* [`gemini_tasks`][]
-* [`google_maps`][]
-* [`infinite_list`][]
+* [`asset_transformation`][] - Demonstrates how to transform images' color scales and formats. 
+* [`background_isolate_channels`][] - Demonstrates how to use long-lived isolates.
+* [`code_sharing`][] - Demonstrates how to share business logic between Flutter client and Dart server (using `package:shelf`)
+* [`context_menus`][] - This sample shows how to create and customize cross-platform context menus, such as the text selection toolbar on mobile or the right click menu on desktop.
+* [`desktop_photo_search`][] - Demonstrates desktop features in both Material and FluentUI design systems.
+* [`dynamic_theme`][] - A developer sample demonstrating how to call on-device Flutter APIs based on output from the Gemini API.
+* [`form_app`][] - A sample demonstrating different types of forms and best practices.
+* [`game_template`][] - (**note: deprecated!**) A starter game in Flutter with all the bells and whistles of a mobile (iOS & Android) game.
+* [`gemini_tasks`][] - A developer sample written in Flutter demonstrating how to interact with a to-do list in natural language using the Gemini API.
+* [`google_maps`][] - Demonstrates the Google Maps for Flutter plugin.
+* [`infinite_list`][] - A Flutter sample app that shows an implementation of the "infinite list" UX pattern.
 * [`isolate_example`][]
 * [`navigation_and_routing`][]
 * [`platform_design`][]
