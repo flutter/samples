@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/flutter/samples/workflows/Main%20Branch%20CI/badge.svg)](https://github.com/flutter/samples/actions?workflow=Main%20Branch%20CI)
 
 A collection of open source samples that illustrate best practices for
-[Flutter](https://flutter.dev).
+[Flutter].
 
 ## Index
 
@@ -91,27 +91,24 @@ A majority of samples in this repository are quickstarts.
 
 Every sample in this repo is fully runnable. To run an example, 
 use `flutter run` inside that example's directory. 
-See the [getting started guide](https://docs.flutter.dev/get-started/install) 
-to install the `flutter` tool.
+See the [getting started guide] to install the `flutter` tool.
 
 > [!IMPORTANT]  
 > If you want to run an add-to-app sample, there are additional requirements.
-> We suggest reading the [add-to-app documentation](https://docs.flutter.dev/add-to-app).
+> We suggest reading the [add-to-app documentation].
 
 ### Tip: minimize download size
 
 As this repository is quite big, you can use 
-[svn](https://subversion.apache.org/) to download a single example.
+[svn] to download a single example.
 For example:
 
 ```
 svn co https://github.com/flutter/samples/trunk/provider_shopper
 ```
 
-You can also use a
-[partial clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/)
-to skip blob objects that aren't currently checked out,
-while including the full commit history:
+You can also use a [partial clone] to skip blob objects 
+that aren't currently checked out, while including the full commit history:
 
 ```
 git clone --filter=blob:none https://github.com/flutter/samples.git
@@ -119,18 +116,18 @@ git clone --filter=blob:none https://github.com/flutter/samples.git
 
 ## Interested in contributing?
 
-See the [contributor's guide](CONTRIBUTING.md)!
+See the [contributor's guide]!
 
 ## Questions or issues?
 
 If you have a general question about one of these samples or how to adapt its
 techniques for one of your own apps, try one of these resources:
 
-* [The FlutterDev Discord](https://discord.gg/rflutterdev)
-* [The Flutter Community forum](https://forum.itsallwidgets.com/latest)
+* [The FlutterDev Discord]
+* [The Flutter Community forum]
 
 If you run into a bug in one of the samples, please file an issue in the
-[`flutter/samples` issue tracker](https://github.com/flutter/samples/issues).
+[`flutter/samples` issue tracker].
 
 
 [`asset_transformation`]: ./asset_transformation
@@ -174,6 +171,9 @@ If you run into a bug in one of the samples, please file an issue in the
 [`deeplink_store_example`]: ./deeplink_store_example
 [`veggie_seasons`]: ./veggieseasons
 
+[Flutter]: https://flutter.dev
+[getting started guide]: https://docs.flutter.dev/get-started/install
+[add-to-app documentation]: https://docs.flutter.dev/add-to-app
 [isolates]: https://api.dart.dev/dart-isolate/Isolate-class.html
 [Material 3]: https://m3.material.io
 [go_router]: https://pub.dev/packages/go_router
@@ -183,3 +183,9 @@ If you run into a bug in one of the samples, please file an issue in the
 [TextEditingDeltas]: https://api.flutter.dev/flutter/services/TextEditingDelta-class.html
 [Pigeon]: https://pub.dev/packages/pigeon
 [`package:shelf`]: https://pub.dev/packages/shelf
+[svn]: https://subversion.apache.org/
+[partial clone]: https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/
+[contributing guide]: CONTRIBUTING.md
+[The FlutterDev Discord]: https://discord.gg/rflutterdev
+[The Flutter Community forum]: https://forum.itsallwidgets.com/latest
+[`flutter/samples` issue tracker]: https://github.com/flutter/samples/issues
