@@ -99,14 +99,10 @@ class SearchFormViewModel extends ChangeNotifier {
     final result = await _continentRepository.getContinents();
     switch (result) {
       case Ok():
-        {
-          _continents = result.value;
-          _log.fine('Continents (${_continents.length}) loaded');
-        }
+        _continents = result.value;
+        _log.fine('Continents (${_continents.length}) loaded');
       case Error():
-        {
-          _log.warning('Failed to load continents', result.asError.error);
-        }
+        _log.warning('Failed to load continents', result.error);
     }
     notifyListeners();
     return result;
@@ -116,27 +112,23 @@ class SearchFormViewModel extends ChangeNotifier {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     switch (result) {
       case Ok<ItineraryConfig>():
-        {
-          final itineraryConfig = result.value;
-          _selectedContinent = itineraryConfig.continent;
-          if (itineraryConfig.startDate != null &&
-              itineraryConfig.endDate != null) {
-            _dateRange = DateTimeRange(
-              start: itineraryConfig.startDate!,
-              end: itineraryConfig.endDate!,
-            );
-          }
-          _guests = itineraryConfig.guests ?? 0;
-          _log.fine('ItineraryConfig loaded');
-          notifyListeners();
-        }
-      case Error<ItineraryConfig>():
-        {
-          _log.warning(
-            'Failed to load stored ItineraryConfig',
-            result.asError.error,
+        final itineraryConfig = result.value;
+        _selectedContinent = itineraryConfig.continent;
+        if (itineraryConfig.startDate != null &&
+            itineraryConfig.endDate != null) {
+          _dateRange = DateTimeRange(
+            start: itineraryConfig.startDate!,
+            end: itineraryConfig.endDate!,
           );
         }
+        _guests = itineraryConfig.guests ?? 0;
+        _log.fine('ItineraryConfig loaded');
+        notifyListeners();
+      case Error<ItineraryConfig>():
+        _log.warning(
+          'Failed to load stored ItineraryConfig',
+          result.error,
+        );
     }
     return result;
   }

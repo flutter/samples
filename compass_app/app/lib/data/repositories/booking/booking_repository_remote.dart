@@ -42,18 +42,22 @@ class BookingRepositoryRemote implements BookingRepository {
     try {
       // Get booking by ID from server
       final resultBooking = await _apiClient.getBooking(id);
-      if (resultBooking is Error<BookingApiModel>) {
-        return Result.error(resultBooking.error);
+      switch (resultBooking) {
+        case Error<BookingApiModel>():
+          return Result.error(resultBooking.error);
+        case Ok<BookingApiModel>():
       }
-      final booking = resultBooking.asOk.value;
+      final booking = resultBooking.value;
 
       // Load destinations if not loaded yet
       if (_cachedDestinations == null) {
         final resultDestination = await _apiClient.getDestinations();
-        if (resultDestination is Error<List<Destination>>) {
-          return Result.error(resultDestination.error);
+        switch (resultDestination) {
+          case Error<List<Destination>>():
+            return Result.error(resultDestination.error);
+          case Ok<List<Destination>>():
         }
-        _cachedDestinations = resultDestination.asOk.value;
+        _cachedDestinations = resultDestination.value;
       }
 
       // Get destination for booking
@@ -62,11 +66,12 @@ class BookingRepositoryRemote implements BookingRepository {
 
       final resultActivities =
           await _apiClient.getActivityByDestination(destination.ref);
-
-      if (resultActivities is Error<List<Activity>>) {
-        return Result.error(resultActivities.error);
+      switch (resultActivities) {
+        case Error<List<Activity>>():
+          return Result.error(resultActivities.error);
+        case Ok<List<Activity>>():
       }
-      final activities = resultActivities.asOk.value
+      final activities = resultActivities.value
           .where((activity) => booking.activitiesRef.contains(activity.ref))
           .toList();
 
@@ -88,20 +93,22 @@ class BookingRepositoryRemote implements BookingRepository {
   Future<Result<List<BookingSummary>>> getBookingsList() async {
     try {
       final result = await _apiClient.getBookings();
-      if (result is Error<List<BookingApiModel>>) {
-        return Result.error(result.error);
+      switch (result) {
+        case Ok<List<BookingApiModel>>():
+          final bookingsApi = result.value;
+          return Result.ok(bookingsApi
+              .map(
+                (bookingApi) => BookingSummary(
+                  id: bookingApi.id!,
+                  name: bookingApi.name,
+                  startDate: bookingApi.startDate,
+                  endDate: bookingApi.endDate,
+                ),
+              )
+              .toList());
+        case Error<List<BookingApiModel>>():
+          return Result.error(result.error);
       }
-      final bookingsApi = result.asOk.value;
-      return Result.ok(bookingsApi
-          .map(
-            (bookingApi) => BookingSummary(
-              id: bookingApi.id!,
-              name: bookingApi.name,
-              startDate: bookingApi.startDate,
-              endDate: bookingApi.endDate,
-            ),
-          )
-          .toList());
     } on Exception catch (e) {
       return Result.error(e);
     }

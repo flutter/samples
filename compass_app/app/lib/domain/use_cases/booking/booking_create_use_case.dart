@@ -40,11 +40,13 @@ class BookingCreateUseCase {
     }
     final destinationResult =
         await _fetchDestination(itineraryConfig.destination!);
-    if (destinationResult is Error<Destination>) {
-      _log.warning('Error fetching destination: ${destinationResult.error}');
-      return Result.error(destinationResult.error);
+    switch (destinationResult) {
+      case Ok<Destination>():
+        _log.fine('Destination loaded: ${destinationResult.value.ref}');
+      case Error<Destination>():
+        _log.warning('Error fetching destination: ${destinationResult.error}');
+        return Result.error(destinationResult.error);
     }
-    _log.fine('Destination loaded: ${destinationResult.asOk.value.ref}');
 
     // Get Activity objects from repository
     if (itineraryConfig.activities.isEmpty) {
@@ -54,11 +56,13 @@ class BookingCreateUseCase {
     final activitiesResult = await _activityRepository.getByDestination(
       itineraryConfig.destination!,
     );
-    if (activitiesResult is Error<List<Activity>>) {
-      _log.warning('Error fetching activities: ${activitiesResult.error}');
-      return Result.error(activitiesResult.error);
+    switch (activitiesResult) {
+      case Error<List<Activity>>():
+        _log.warning('Error fetching activities: ${activitiesResult.error}');
+        return Result.error(activitiesResult.error);
+      case Ok<List<Activity>>():
     }
-    final activities = activitiesResult.asOk.value
+    final activities = activitiesResult.value
         .where(
           (activity) => itineraryConfig.activities.contains(activity.ref),
         )
@@ -74,7 +78,7 @@ class BookingCreateUseCase {
     final booking = Booking(
       startDate: itineraryConfig.startDate!,
       endDate: itineraryConfig.endDate!,
-      destination: destinationResult.asOk.value,
+      destination: destinationResult.value,
       activity: activities,
     );
 

@@ -23,12 +23,6 @@ sealed class Result<T> {
 
   /// Creates an error [Result], completed with the specified [error].
   const factory Result.error(Exception error) = Error._;
-
-  /// Convenience method to cast to Ok
-  Ok<T> get asOk => this as Ok<T>;
-
-  /// Convenience method to cast to Error
-  Error get asError => this as Error<T>;
 }
 
 /// Subclass of Result for values

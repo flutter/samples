@@ -6,6 +6,8 @@ import 'package:compass_app/utils/command.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../testing/utils/result.dart';
+
 void main() {
   group('Command0 tests', () {
     test('should complete void command', () async {
@@ -89,7 +91,7 @@ void main() {
     test('should complete bool command, bool argument', () async {
       // Action that returns bool argument
       final command =
-          Command1<bool, bool>((a) => Future.value(Result.ok(true)));
+          Command1<bool, bool>((a) => Future.value(const Result.ok(true)));
 
       // Run action with result and argument
       await command.execute(true);
