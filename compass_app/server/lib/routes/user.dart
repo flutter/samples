@@ -4,9 +4,10 @@
 
 import 'dart:convert';
 
-import 'package:compass_server/config/constants.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
+
+import '../config/constants.dart';
 
 /// Implements a simple user API.
 ///
