@@ -65,7 +65,7 @@ class BookingViewModel extends ChangeNotifier {
           case Error<Booking>():
             _log.warning('Booking error: ${result.error}');
             notifyListeners();
-            return Result.error(result.asError.error);
+            return Result.error(result.error);
         }
       case Error<ItineraryConfig>():
         _log.warning('ItineraryConfig error: ${itineraryConfig.error}');

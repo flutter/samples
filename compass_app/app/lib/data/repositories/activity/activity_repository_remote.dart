@@ -24,8 +24,8 @@ class ActivityRepositoryRemote implements ActivityRepository {
     if (!_cachedData.containsKey(ref)) {
       // No cached data, request activities
       final result = await _apiClient.getActivityByDestination(ref);
-      if (result is Ok) {
-        _cachedData[ref] = result.asOk.value;
+      if (result is Ok<List<Activity>>) {
+        _cachedData[ref] = result.value;
       }
       return result;
     } else {
