@@ -32,7 +32,7 @@ class AuthApiClient {
         final stringData = await response.transform(utf8.decoder).join();
         return Result.ok(LoginResponse.fromJson(jsonDecode(stringData)));
       } else {
-        return Result.error(const HttpException("Login error"));
+        return const Result.error(HttpException("Login error"));
       }
     } on Exception catch (error) {
       return Result.error(error);

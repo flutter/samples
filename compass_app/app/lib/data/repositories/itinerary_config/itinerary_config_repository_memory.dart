@@ -22,6 +22,6 @@ class ItineraryConfigRepositoryMemory implements ItineraryConfigRepository {
     ItineraryConfig itineraryConfig,
   ) async {
     _itineraryConfig = itineraryConfig;
-    return Result.ok(true);
+    return const Result.ok(true);
   }
 }

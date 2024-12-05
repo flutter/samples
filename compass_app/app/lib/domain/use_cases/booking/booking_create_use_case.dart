@@ -98,7 +98,7 @@ class BookingCreateUseCase {
       case Ok<List<Destination>>():
         final destination = result.value
             .firstWhere((destination) => destination.ref == destinationRef);
-        return Ok(destination);
+        return Result.ok(destination);
       case Error<List<Destination>>():
         return Result.error(result.error);
     }

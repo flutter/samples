@@ -53,7 +53,7 @@ class ApiClient {
         return Result.ok(
             json.map((element) => Continent.fromJson(element)).toList());
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -74,7 +74,7 @@ class ApiClient {
         return Result.ok(
             json.map((element) => Destination.fromJson(element)).toList());
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -97,7 +97,7 @@ class ApiClient {
             json.map((element) => Activity.fromJson(element)).toList();
         return Result.ok(activities);
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -119,7 +119,7 @@ class ApiClient {
             json.map((element) => BookingApiModel.fromJson(element)).toList();
         return Result.ok(bookings);
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -139,7 +139,7 @@ class ApiClient {
         final booking = BookingApiModel.fromJson(jsonDecode(stringData));
         return Result.ok(booking);
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -160,7 +160,7 @@ class ApiClient {
         final booking = BookingApiModel.fromJson(jsonDecode(stringData));
         return Result.ok(booking);
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -180,7 +180,7 @@ class ApiClient {
         final user = UserApiModel.fromJson(jsonDecode(stringData));
         return Result.ok(user);
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);
@@ -197,9 +197,9 @@ class ApiClient {
       final response = await request.close();
       // Response 204 "No Content", delete was successful
       if (response.statusCode == 204) {
-        return Result.ok(null);
+        return const Result.ok(null);
       } else {
-        return Result.error(const HttpException("Invalid response"));
+        return const Result.error(HttpException("Invalid response"));
       }
     } on Exception catch (error) {
       return Result.error(error);

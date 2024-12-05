@@ -61,7 +61,7 @@ class BookingViewModel extends ChangeNotifier {
             _log.fine('Created Booking');
             _booking = result.value;
             notifyListeners();
-            return Result.ok(null);
+            return const Result.ok(null);
           case Error<Booking>():
             _log.warning('Booking error: ${result.error}');
             notifyListeners();

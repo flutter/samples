@@ -18,11 +18,11 @@
 sealed class Result<T> {
   const Result();
 
-  /// Creates an instance of Result containing a value
-  factory Result.ok(T value) => Ok(value);
+  /// Creates a successful [Result], completed with the specified [value].
+  const factory Result.ok(T value) = Ok._;
 
-  /// Create an instance of Result containing an error
-  factory Result.error(Exception error) => Error(error);
+  /// Creates an error [Result], completed with the specified [error].
+  const factory Result.error(Exception error) = Error._;
 
   /// Convenience method to cast to Ok
   Ok<T> get asOk => this as Ok<T>;
@@ -33,7 +33,7 @@ sealed class Result<T> {
 
 /// Subclass of Result for values
 final class Ok<T> extends Result<T> {
-  const Ok(this.value);
+  const Ok._(this.value);
 
   /// Returned value in result
   final T value;
@@ -44,7 +44,7 @@ final class Ok<T> extends Result<T> {
 
 /// Subclass of Result for errors
 final class Error<T> extends Result<T> {
-  const Error(this.error);
+  const Error._(this.error);
 
   /// Returned error in result
   final Exception error;
