@@ -37,7 +37,7 @@ class BookingShareUseCase {
     try {
       await _share(text);
       _log.fine('Shared booking');
-      return Result.ok(null);
+      return const Result.ok(null);
     } on Exception catch (error) {
       _log.severe('Failed to share booking', error);
       return Result.error(error);

@@ -31,7 +31,7 @@ class BookingRepositoryLocal implements BookingRepository {
     // Bookings created come without id, we need to assign one
     final bookingWithId = booking.copyWith(id: _sequentialId++);
     _bookings.add(bookingWithId);
-    return Result.ok(null);
+    return const Result.ok(null);
   }
 
   @override
@@ -92,6 +92,6 @@ class BookingRepositoryLocal implements BookingRepository {
   @override
   Future<Result<void>> delete(int id) async {
     _bookings.removeWhere((booking) => booking.id == id);
-    return Result.ok(null);
+    return const Result.ok(null);
   }
 }
