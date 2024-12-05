@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-sealed class Dimens {
+abstract final class Dimens {
   const Dimens();
 
   /// General horizontal padding used to separate UI items
@@ -14,10 +14,12 @@ sealed class Dimens {
   static const paddingVertical = 24.0;
 
   /// Horizontal padding for screen edges
-  abstract final double paddingScreenHorizontal;
+  double get paddingScreenHorizontal;
 
   /// Vertical padding for screen edges
-  abstract final double paddingScreenVertical;
+  double get paddingScreenVertical;
+
+  double get profilePictureSize;
 
   /// Horizontal symmetric padding for screen edges
   EdgeInsets get edgeInsetsScreenHorizontal =>
@@ -27,39 +29,37 @@ sealed class Dimens {
   EdgeInsets get edgeInsetsScreenSymmetric => EdgeInsets.symmetric(
       horizontal: paddingScreenHorizontal, vertical: paddingScreenVertical);
 
-  static final dimensDesktop = DimensDesktop();
-  static final dimensMobile = DimensMobile();
+  static final Dimens desktop = _DimensDesktop();
+  static final Dimens mobile = _DimensMobile();
 
   /// Get dimensions definition based on screen size
   factory Dimens.of(BuildContext context) =>
       switch (MediaQuery.sizeOf(context).width) {
-        > 600 => dimensDesktop,
-        _ => dimensMobile,
+        > 600 => desktop,
+        _ => mobile,
       };
-
-  abstract final double profilePictureSize;
 }
 
 /// Mobile dimensions
-class DimensMobile extends Dimens {
+final class _DimensMobile extends Dimens {
   @override
-  double paddingScreenHorizontal = Dimens.paddingHorizontal;
+  final double paddingScreenHorizontal = Dimens.paddingHorizontal;
 
   @override
-  double paddingScreenVertical = Dimens.paddingVertical;
+  final double paddingScreenVertical = Dimens.paddingVertical;
 
   @override
-  double get profilePictureSize => 64.0;
+  final double profilePictureSize = 64.0;
 }
 
 /// Desktop/Web dimensions
-class DimensDesktop extends Dimens {
+final class _DimensDesktop extends Dimens {
   @override
-  double paddingScreenHorizontal = 100.0;
+  final double paddingScreenHorizontal = 100.0;
 
   @override
-  double paddingScreenVertical = 64.0;
+  final double paddingScreenVertical = 64.0;
 
   @override
-  double get profilePictureSize => 128.0;
+  final double profilePictureSize = 128.0;
 }

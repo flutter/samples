@@ -132,7 +132,7 @@ class _AppSearchBar extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(
           top: Dimens.of(context).paddingScreenVertical,
-          bottom: Dimens.dimensMobile.paddingScreenVertical,
+          bottom: Dimens.mobile.paddingScreenVertical,
         ),
         child: AppSearchBar(
           config: widget.viewModel.config,
