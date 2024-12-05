@@ -6,7 +6,7 @@ import 'colors.dart';
 import '../ui/tag_chip.dart';
 import 'package:flutter/material.dart';
 
-class AppTheme {
+abstract final class AppTheme {
   static const _textTheme = TextTheme(
     headlineLarge: TextStyle(
       fontSize: 32,
