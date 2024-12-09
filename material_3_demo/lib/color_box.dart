@@ -74,9 +74,9 @@ class _ColorBoxState extends State<ColorBox> {
                       // Will change from int 0-255 to double 0.0-1.0 in 3.26+
                       // The properties also change from red/green/blue to r/g/b
                       // hex += (c.[r g b] * 255.0).round().toRadixString(16).padLeft(2, '0');
-                      hex += c.red.toRadixString(16).padLeft(2, '0');
-                      hex += c.green.toRadixString(16).padLeft(2, '0');
-                      hex += c.blue.toRadixString(16).padLeft(2, '0');
+                      hex += c.r.round().toRadixString(16).padLeft(2, '0');
+                      hex += c.g.round().toRadixString(16).padLeft(2, '0');
+                      hex += c.b.round().toRadixString(16).padLeft(2, '0');
                       final data = ClipboardData(text: hex);
                       await Clipboard.setData(data);
                       messenger.hideCurrentSnackBar();

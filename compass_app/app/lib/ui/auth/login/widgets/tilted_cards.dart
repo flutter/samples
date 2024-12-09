@@ -83,7 +83,7 @@ class _Card extends StatelessWidget {
               CachedNetworkImage(
                 imageUrl: imageUrl,
                 fit: BoxFit.cover,
-                color: showTitle ? Colors.black.withOpacity(0.5) : null,
+                color: showTitle ? Colors.black.withValues(alpha: 0.5) : null,
                 colorBlendMode: showTitle ? BlendMode.darken : null,
                 errorListener: imageErrorListener,
               ),
