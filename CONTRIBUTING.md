@@ -260,7 +260,7 @@ one above, the [Software Grant and Corporate Contributor License Agreement].
 [Flutter's code of conduct]: https://github.com/flutter/flutter/blob/master/CODE_OF_CONDUCT.md
 [Before you contribute]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md#before-you-contribute
 [Contribute enhancements and fixes]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md#contribute-enhancements-and-fixes
-[Write a new sample]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md#write-a-new-sample
+[Write a new sample]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md#writing-a-new-sample
 [Sample checklist]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md#samples-checklist
 [file headers]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md#file-headers
 [Software Grant and Corporate Contributor License Agreement]: https://developers.google.com/open-source/cla/corporate
