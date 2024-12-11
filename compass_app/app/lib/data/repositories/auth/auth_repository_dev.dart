@@ -16,12 +16,12 @@ class AuthRepositoryDev extends AuthRepository {
     required String email,
     required String password,
   }) async {
-    return Result.ok(null);
+    return const Result.ok(null);
   }
 
   /// Logout is always successful in dev scenarios
   @override
   Future<Result<void>> logout() async {
-    return Result.ok(null);
+    return const Result.ok(null);
   }
 }

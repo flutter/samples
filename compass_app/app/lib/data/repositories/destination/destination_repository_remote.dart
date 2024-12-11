@@ -24,9 +24,9 @@ class DestinationRepositoryRemote implements DestinationRepository {
     if (_cachedData == null) {
       // No cached data, request destinations
       final result = await _apiClient.getDestinations();
-      if (result is Ok) {
+      if (result is Ok<List<Destination>>) {
         // Store value if result Ok
-        _cachedData = result.asOk.value;
+        _cachedData = result.value;
       }
       return result;
     } else {

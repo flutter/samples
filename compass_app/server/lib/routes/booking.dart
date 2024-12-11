@@ -22,7 +22,7 @@ import '../model/booking/booking.dart';
 class BookingApi {
   BookingApi() {
     // Create a default booking
-    var destination = Assets.destinations.first;
+    final destination = Assets.destinations.first;
     final activitiesRef = Assets.activities
         .where((activity) => activity.destinationRef == destination.ref)
         .map((activity) => activity.ref)

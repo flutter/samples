@@ -4,7 +4,7 @@
 
 import '../model/user/user.dart';
 
-class Constants {
+abstract final class Constants {
   /// Email for the hardcoded login.
   static const email = 'email@example.com';
 

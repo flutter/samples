@@ -8,7 +8,7 @@ import 'dart:io';
 import '../model/activity/activity.dart';
 import '../model/destination/destination.dart';
 
-class Assets {
+abstract final class Assets {
   static const _activities = '../app/assets/activities.json';
   static const _destinations = '../app/assets/destinations.json';
 

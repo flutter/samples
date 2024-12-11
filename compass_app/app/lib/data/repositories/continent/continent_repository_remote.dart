@@ -24,9 +24,9 @@ class ContinentRepositoryRemote implements ContinentRepository {
     if (_cachedData == null) {
       // No cached data, request continents
       final result = await _apiClient.getContinents();
-      if (result is Ok) {
+      if (result is Ok<List<Continent>>) {
         // Store value if result Ok
-        _cachedData = result.asOk.value;
+        _cachedData = result.value;
       }
       return result;
     } else {

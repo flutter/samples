@@ -21,7 +21,7 @@ void main() {
   final host = 'http://127.0.0.1:$port';
   late Process p;
 
-  var headers = {
+  final headers = {
     'Authorization': 'Bearer ${Constants.token}',
   };
 
@@ -116,7 +116,7 @@ void main() {
       headers: headers,
       body: jsonEncode(
         Booking(
-          name: "DESTINATION, CONTINENT",
+          name: 'DESTINATION, CONTINENT',
           startDate: DateTime(2024, 1, 1),
           endDate: DateTime(2024, 2, 2),
           destinationRef: 'REF',
@@ -139,7 +139,7 @@ void main() {
       headers: headers,
       body: jsonEncode(
         Booking(
-          name: "DESTINATION, CONTINENT",
+          name: 'DESTINATION, CONTINENT',
           startDate: DateTime(2024, 1, 1),
           endDate: DateTime(2024, 2, 2),
           destinationRef: 'REF',

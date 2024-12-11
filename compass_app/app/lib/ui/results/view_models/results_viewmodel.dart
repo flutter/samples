@@ -50,14 +50,16 @@ class ResultsViewModel extends ChangeNotifier {
   Future<Result<void>> _search() async {
     // Load current itinerary config
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
-    if (resultConfig is Error) {
-      _log.warning(
-        'Failed to load stored ItineraryConfig',
-        resultConfig.asError.error,
-      );
-      return resultConfig;
+    switch (resultConfig) {
+      case Error<ItineraryConfig>():
+        _log.warning(
+          'Failed to load stored ItineraryConfig',
+          resultConfig.error,
+        );
+        return resultConfig;
+      case Ok<ItineraryConfig>():
     }
-    _itineraryConfig = resultConfig.asOk.value;
+    _itineraryConfig = resultConfig.value;
     notifyListeners();
 
     final result = await _destinationRepository.getDestinations();
@@ -86,15 +88,17 @@ class ResultsViewModel extends ChangeNotifier {
     assert(destinationRef.isNotEmpty, "destinationRef should not be empty");
 
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
-    if (resultConfig is Error) {
-      _log.warning(
-        'Failed to load stored ItineraryConfig',
-        resultConfig.asError.error,
-      );
-      return resultConfig;
+    switch (resultConfig) {
+      case Error<ItineraryConfig>():
+        _log.warning(
+          'Failed to load stored ItineraryConfig',
+          resultConfig.error,
+        );
+        return resultConfig;
+      case Ok<ItineraryConfig>():
     }
 
-    final itineraryConfig = resultConfig.asOk.value;
+    final itineraryConfig = resultConfig.value;
     final result = await _itineraryConfigRepository
         .setItineraryConfig(itineraryConfig.copyWith(
       destination: destinationRef,
@@ -103,7 +107,7 @@ class ResultsViewModel extends ChangeNotifier {
     if (result is Error) {
       _log.warning(
         'Failed to store ItineraryConfig',
-        result.asError.error,
+        result.error,
       );
     }
     return result;

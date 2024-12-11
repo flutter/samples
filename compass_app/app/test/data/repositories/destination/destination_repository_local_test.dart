@@ -7,6 +7,8 @@ import 'package:compass_app/utils/result.dart';
 import 'package:compass_app/data/repositories/destination/destination_repository_local.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../../../testing/utils/result.dart';
+
 void main() {
   group('DestinationRepositoryLocal tests', () {
     // To load assets

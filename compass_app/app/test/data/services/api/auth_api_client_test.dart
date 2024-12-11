@@ -8,6 +8,7 @@ import 'package:compass_app/data/services/api/model/login_response/login_respons
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../testing/mocks.dart';
+import '../../../../testing/utils/result.dart';
 
 void main() {
   group('AuthApiClient', () {

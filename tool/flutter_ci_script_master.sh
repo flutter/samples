@@ -14,7 +14,6 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/multiple_flutters/multiple_flutters_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
-    "ai_recipe_generation"
     "analysis_defaults"
     "android_splash_screen"
     "animations"

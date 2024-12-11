@@ -8,6 +8,7 @@ import 'package:logging/logging.dart';
 import '../../../data/repositories/activity/activity_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../../../domain/models/activity/activity.dart';
+import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
 
@@ -45,21 +46,23 @@ class ActivitiesViewModel extends ChangeNotifier {
 
   Future<Result<void>> _loadActivities() async {
     final result = await _itineraryConfigRepository.getItineraryConfig();
-    if (result is Error) {
-      _log.warning(
-        'Failed to load stored ItineraryConfig',
-        result.asError.error,
-      );
-      return result;
+    switch (result) {
+      case Error<ItineraryConfig>():
+        _log.warning(
+          'Failed to load stored ItineraryConfig',
+          result.error,
+        );
+        return result;
+      case Ok<ItineraryConfig>():
     }
 
-    final destinationRef = result.asOk.value.destination;
+    final destinationRef = result.value.destination;
     if (destinationRef == null) {
       _log.severe('Destination missing in ItineraryConfig');
       return Result.error(Exception('Destination not found'));
     }
 
-    _selectedActivities.addAll(result.asOk.value.activities);
+    _selectedActivities.addAll(result.value.activities);
 
     final resultActivities =
         await _activityRepository.getByDestination(destinationRef);
@@ -120,21 +123,23 @@ class ActivitiesViewModel extends ChangeNotifier {
 
   Future<Result<void>> _saveActivities() async {
     final resultConfig = await _itineraryConfigRepository.getItineraryConfig();
-    if (resultConfig is Error) {
-      _log.warning(
-        'Failed to load stored ItineraryConfig',
-        resultConfig.asError.error,
-      );
-      return resultConfig;
+    switch (resultConfig) {
+      case Error<ItineraryConfig>():
+        _log.warning(
+          'Failed to load stored ItineraryConfig',
+          resultConfig.error,
+        );
+        return resultConfig;
+      case Ok<ItineraryConfig>():
     }
 
-    final itineraryConfig = resultConfig.asOk.value;
+    final itineraryConfig = resultConfig.value;
     final result = await _itineraryConfigRepository.setItineraryConfig(
         itineraryConfig.copyWith(activities: _selectedActivities.toList()));
     if (result is Error) {
       _log.warning(
         'Failed to store ItineraryConfig',
-        result.asError.error,
+        result.error,
       );
     }
     return result;

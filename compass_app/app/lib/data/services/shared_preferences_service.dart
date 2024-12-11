@@ -32,7 +32,7 @@ class SharedPreferencesService {
         _log.finer('Replaced token');
         await sharedPreferences.setString(_tokenKey, token);
       }
-      return Result.ok(null);
+      return const Result.ok(null);
     } on Exception catch (e) {
       _log.warning('Failed to set token', e);
       return Result.error(e);
