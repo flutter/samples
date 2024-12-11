@@ -4,7 +4,6 @@
 
 import 'package:device_info/device_info.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(const Demo());
