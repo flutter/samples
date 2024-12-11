@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "dev.flutter" "\0"
-            VALUE "FileDescription", "navigation_and_routing" "\0"
+            VALUE "FileDescription", "bookstore" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "navigation_and_routing" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 dev.flutter. All rights reserved." "\0"
-            VALUE "OriginalFilename", "navigation_and_routing.exe" "\0"
-            VALUE "ProductName", "navigation_and_routing" "\0"
+            VALUE "InternalName", "bookstore" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 dev.flutter. All rights reserved." "\0"
+            VALUE "OriginalFilename", "bookstore.exe" "\0"
+            VALUE "ProductName", "bookstore" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

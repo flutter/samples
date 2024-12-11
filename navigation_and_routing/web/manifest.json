@@ -1,6 +1,6 @@
 {
-    "name": "navigation_and_routing",
-    "short_name": "navigation_and_routing",
+    "name": "bookstore",
+    "short_name": "bookstore",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
