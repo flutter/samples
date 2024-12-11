@@ -1,0 +1,12 @@
+@@ -43,9 +43,8 @@
+     defaultConfig {
+         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+         applicationId "dev.flutter.place_tracker"
+-        // You can update the following values to match your application needs.
+-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+-        minSdkVersion flutter.minSdkVersion
++        // Google Maps requires a minimum SDK version of 20
++        minSdkVersion 20
+         targetSdkVersion flutter.targetSdkVersion
+         versionCode flutterVersionCode.toInteger()
+         versionName flutterVersionName
