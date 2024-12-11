@@ -1,0 +1,8 @@
+@@ -64,4 +64,6 @@
+     source '../..'
+ }
+ 
+-dependencies {}
++dependencies {
++    implementation 'com.google.code.gson:gson:2.8.6'
++}

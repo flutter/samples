@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "dev.flutter" "\0"
-            VALUE "FileDescription", "infinite_list" "\0"
+            VALUE "FileDescription", "infinitelist" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "infinite_list" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 dev.flutter. All rights reserved." "\0"
-            VALUE "OriginalFilename", "infinite_list.exe" "\0"
-            VALUE "ProductName", "infinite_list" "\0"
+            VALUE "InternalName", "infinitelist" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 dev.flutter. All rights reserved." "\0"
+            VALUE "OriginalFilename", "infinitelist.exe" "\0"
+            VALUE "ProductName", "infinitelist" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,4 +1,4 @@
-package dev.flutter.platform_channels
+package dev.flutter.infinitelist
 
 import io.flutter.embedding.android.FlutterActivity
 
