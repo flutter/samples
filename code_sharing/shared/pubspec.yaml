@@ -11,7 +11,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.2.1
-  freezed: ^2.1.1
+  freezed: ">=2.1.1 <4.0.0"
   json_serializable: ^6.4.0
   lints: ^5.0.0
   test: ^1.16.0
