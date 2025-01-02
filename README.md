@@ -116,7 +116,7 @@ git clone --filter=blob:none https://github.com/flutter/samples.git
 
 ## Interested in contributing?
 
-See the [contributor's guide]!
+See the [contributor's guide](https://github.com/flutter/samples/blob/main/CONTRIBUTING.md)!
 
 ## Questions or issues?
 
