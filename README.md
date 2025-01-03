@@ -185,7 +185,7 @@ If you run into a bug in one of the samples, please file an issue in the
 [`package:shelf`]: https://pub.dev/packages/shelf
 [svn]: https://subversion.apache.org/
 [partial clone]: https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/
-[contributing guide]: CONTRIBUTING.md
+[contributor's guide]: CONTRIBUTING.md
 [The FlutterDev Discord]: https://discord.gg/rflutterdev
 [The Flutter Community forum]: https://forum.itsallwidgets.com/latest
 [`flutter/samples` issue tracker]: https://github.com/flutter/samples/issues
