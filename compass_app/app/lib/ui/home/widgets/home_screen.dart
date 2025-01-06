@@ -169,11 +169,11 @@ class _Booking extends StatelessWidget {
       confirmDismiss: confirmDismiss,
       background: Container(
         color: AppColors.grey1,
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: Dimens.paddingHorizontal),
+              padding: EdgeInsets.only(right: Dimens.paddingHorizontal),
               child: Icon(Icons.delete),
             ),
           ],

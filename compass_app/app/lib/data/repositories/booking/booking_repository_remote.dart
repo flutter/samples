@@ -23,7 +23,7 @@ class BookingRepositoryRemote implements BookingRepository {
   @override
   Future<Result<void>> createBooking(Booking booking) async {
     try {
-      final BookingApiModel bookingApiModel = BookingApiModel(
+      final bookingApiModel = BookingApiModel(
         startDate: booking.startDate,
         endDate: booking.endDate,
         name: '${booking.destination.name}, ${booking.destination.continent}',

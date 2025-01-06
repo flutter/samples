@@ -45,7 +45,7 @@ void main() {
       // Fill in data
       viewModel.guests = 2;
       viewModel.selectedContinent = 'CONTINENT';
-      final DateTimeRange newDateRange = DateTimeRange(
+      final newDateRange = DateTimeRange(
         start: DateTime(2024, 1, 1),
         end: DateTime(2024, 1, 31),
       );

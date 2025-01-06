@@ -21,7 +21,7 @@ class LogoutViewModel {
   late Command0 logout;
 
   Future<Result> _logout() async {
-    var result = await _authLogoutRepository.logout();
+    final result = await _authLogoutRepository.logout();
     switch (result) {
       case Ok<void>():
         // clear stored itinerary config

@@ -2,16 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'main_development.dart' as development;
+import 'routing/router.dart';
 import 'ui/core/localization/applocalization.dart';
 import 'ui/core/themes/theme.dart';
-import 'routing/router.dart';
-import 'package:flutter/material.dart';
-
 import 'ui/core/ui/scroll_behavior.dart';
-import 'main_development.dart' as development;
 
 /// Default main method
 void main() {

@@ -2,9 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'colors.dart';
-import '../ui/tag_chip.dart';
 import 'package:flutter/material.dart';
+
+import '../ui/tag_chip.dart';
+import 'colors.dart';
 
 abstract final class AppTheme {
   static const _textTheme = TextTheme(

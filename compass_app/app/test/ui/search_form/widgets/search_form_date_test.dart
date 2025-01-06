@@ -4,8 +4,8 @@
 
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_date.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../testing/app.dart';
 import '../../../../testing/fakes/repositories/fake_continent_repository.dart';

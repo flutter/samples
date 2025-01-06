@@ -29,8 +29,8 @@ abstract final class Dimens {
   EdgeInsets get edgeInsetsScreenSymmetric => EdgeInsets.symmetric(
       horizontal: paddingScreenHorizontal, vertical: paddingScreenVertical);
 
-  static final Dimens desktop = _DimensDesktop();
-  static final Dimens mobile = _DimensMobile();
+  static const Dimens desktop = _DimensDesktop();
+  static const Dimens mobile = _DimensMobile();
 
   /// Get dimensions definition based on screen size
   factory Dimens.of(BuildContext context) =>
@@ -50,6 +50,8 @@ final class _DimensMobile extends Dimens {
 
   @override
   final double profilePictureSize = 64.0;
+
+  const _DimensMobile();
 }
 
 /// Desktop/Web dimensions
@@ -62,4 +64,6 @@ final class _DimensDesktop extends Dimens {
 
   @override
   final double profilePictureSize = 128.0;
+
+  const _DimensDesktop();
 }

@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:compass_app/domain/use_cases/booking/booking_create_use_case.dart';
 import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
+import 'package:compass_app/domain/use_cases/booking/booking_create_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../testing/fakes/repositories/fake_activities_repository.dart';

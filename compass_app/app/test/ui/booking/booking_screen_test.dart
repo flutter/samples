@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:compass_app/domain/use_cases/booking/booking_create_use_case.dart';
 import 'package:compass_app/domain/use_cases/booking/booking_share_use_case.dart';
-import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart';
 import 'package:compass_app/ui/booking/view_models/booking_viewmodel.dart';
 import 'package:compass_app/ui/booking/widgets/booking_screen.dart';
 import 'package:flutter/foundation.dart';

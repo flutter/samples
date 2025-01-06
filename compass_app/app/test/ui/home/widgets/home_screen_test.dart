@@ -37,7 +37,7 @@ void main() {
       when(() => goRouter.push(any())).thenAnswer((_) => Future.value(null));
     });
 
-    loadWidget(WidgetTester tester) async {
+    Future<void> loadWidget(WidgetTester tester) async {
       await testApp(
         tester,
         ChangeNotifierProvider.value(

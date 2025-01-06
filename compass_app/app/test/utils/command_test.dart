@@ -48,7 +48,7 @@ void main() {
     });
 
     test('should only run once', () async {
-      int count = 0;
+      var count = 0;
       final command = Command0<int>(() => Future.value(Result.ok(count++)));
       final future = command.execute();
 

@@ -2,24 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
+import '../data/repositories/activity/activity_repository.dart';
+import '../data/repositories/activity/activity_repository_local.dart';
+import '../data/repositories/activity/activity_repository_remote.dart';
 import '../data/repositories/auth/auth_repository.dart';
 import '../data/repositories/auth/auth_repository_dev.dart';
 import '../data/repositories/auth/auth_repository_remote.dart';
 import '../data/repositories/booking/booking_repository.dart';
 import '../data/repositories/booking/booking_repository_local.dart';
 import '../data/repositories/booking/booking_repository_remote.dart';
-import '../data/repositories/user/user_repository.dart';
-import '../data/repositories/user/user_repository_local.dart';
-import '../data/repositories/user/user_repository_remote.dart';
-import '../data/services/api/auth_api_client.dart';
-import '../data/services/local/local_data_service.dart';
-import '../data/services/shared_preferences_service.dart';
-import '../data/repositories/activity/activity_repository.dart';
-import '../data/repositories/activity/activity_repository_local.dart';
-import '../data/repositories/activity/activity_repository_remote.dart';
 import '../data/repositories/continent/continent_repository.dart';
 import '../data/repositories/continent/continent_repository_local.dart';
 import '../data/repositories/continent/continent_repository_remote.dart';
@@ -28,7 +22,13 @@ import '../data/repositories/destination/destination_repository_local.dart';
 import '../data/repositories/destination/destination_repository_remote.dart';
 import '../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../data/repositories/itinerary_config/itinerary_config_repository_memory.dart';
+import '../data/repositories/user/user_repository.dart';
+import '../data/repositories/user/user_repository_local.dart';
+import '../data/repositories/user/user_repository_remote.dart';
 import '../data/services/api/api_client.dart';
+import '../data/services/api/auth_api_client.dart';
+import '../data/services/local/local_data_service.dart';
+import '../data/services/shared_preferences_service.dart';
 import '../domain/use_cases/booking/booking_create_use_case.dart';
 import '../domain/use_cases/booking/booking_share_use_case.dart';
 
