@@ -4,9 +4,10 @@
 
 import 'dart:ui';
 
-import '../themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../themes/colors.dart';
 
 class TagChip extends StatelessWidget {
   const TagChip({
@@ -96,7 +97,7 @@ class TagChip extends StatelessWidget {
 
   // Note: original Figma file uses Google Sans
   // which is not available on GoogleFonts
-  _textStyle(BuildContext context) => GoogleFonts.openSans(
+  TextStyle _textStyle(BuildContext context) => GoogleFonts.openSans(
         textStyle: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: fontSize,

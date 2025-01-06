@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart';
 
 import '../../../data/repositories/destination/destination_repository.dart';
@@ -10,7 +11,6 @@ import '../../../domain/models/destination/destination.dart';
 import '../../../domain/models/itinerary_config/itinerary_config.dart';
 import '../../../utils/command.dart';
 import '../../../utils/result.dart';
-import 'package:flutter/cupertino.dart';
 
 /// Results screen view model
 /// Based on https://docs.flutter.dev/get-started/fwe/state-management#using-mvvm-for-your-applications-architecture

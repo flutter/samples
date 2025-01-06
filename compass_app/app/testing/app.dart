@@ -12,7 +12,7 @@ import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import 'mocks.dart';
 
-testApp(
+Future<void> testApp(
   WidgetTester tester,
   Widget body, {
   GoRouter? goRouter,

@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 
 import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
 import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';
@@ -28,7 +28,7 @@ void main() {
     });
 
     test('Setting dateRange updates correctly', () {
-      final DateTimeRange newDateRange = DateTimeRange(
+      final newDateRange = DateTimeRange(
         start: DateTime(2024, 1, 1),
         end: DateTime(2024, 1, 31),
       );
@@ -59,7 +59,7 @@ void main() {
 
       viewModel.guests = 2;
       viewModel.selectedContinent = 'CONTINENT';
-      final DateTimeRange newDateRange = DateTimeRange(
+      final newDateRange = DateTimeRange(
         start: DateTime(2024, 1, 1),
         end: DateTime(2024, 1, 31),
       );

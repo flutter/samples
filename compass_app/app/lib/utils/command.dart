@@ -79,7 +79,7 @@ class Command0<T> extends Command<T> {
 
   /// Executes the action.
   Future<void> execute() async {
-    await _execute(() => _action());
+    await _execute(_action);
   }
 }
 

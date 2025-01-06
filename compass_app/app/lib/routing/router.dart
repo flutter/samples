@@ -11,8 +11,8 @@ import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
 import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
-import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
+import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/home/view_models/home_viewmodel.dart';
 import '../ui/home/widgets/home_screen.dart';
 import '../ui/results/view_models/results_viewmodel.dart';
@@ -137,8 +137,8 @@ GoRouter router(
 // From https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/redirection.dart
 Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   // if the user is not logged in, they need to login
-  final bool loggedIn = await context.read<AuthRepository>().isAuthenticated;
-  final bool loggingIn = state.matchedLocation == Routes.login;
+  final loggedIn = await context.read<AuthRepository>().isAuthenticated;
+  final loggingIn = state.matchedLocation == Routes.login;
   if (!loggedIn) {
     return Routes.login;
   }

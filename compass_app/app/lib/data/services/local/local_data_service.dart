@@ -48,12 +48,12 @@ class LocalDataService {
 
   Future<List<Activity>> getActivities() async {
     final json = await _loadStringAsset(Assets.activities);
-    return json.map<Activity>((json) => Activity.fromJson(json)).toList();
+    return json.map<Activity>(Activity.fromJson).toList();
   }
 
   Future<List<Destination>> getDestinations() async {
     final json = await _loadStringAsset(Assets.destinations);
-    return json.map<Destination>((json) => Destination.fromJson(json)).toList();
+    return json.map<Destination>(Destination.fromJson).toList();
   }
 
   Future<List<Map<String, dynamic>>> _loadStringAsset(String asset) async {

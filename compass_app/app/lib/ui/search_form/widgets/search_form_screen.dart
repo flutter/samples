@@ -10,9 +10,9 @@ import '../../core/themes/dimens.dart';
 import '../../core/ui/search_bar.dart';
 import '../../results/widgets/results_screen.dart';
 import '../view_models/search_form_viewmodel.dart';
+import 'search_form_continent.dart';
 import 'search_form_date.dart';
 import 'search_form_guests.dart';
-import 'search_form_continent.dart';
 import 'search_form_submit.dart';
 
 /// Search form screen

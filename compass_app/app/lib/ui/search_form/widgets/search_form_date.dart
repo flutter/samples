@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 
 import '../../core/localization/applocalization.dart';
+import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
-import '../../core/themes/colors.dart';
 import '../view_models/search_form_viewmodel.dart';
 
 /// Date selection form field.

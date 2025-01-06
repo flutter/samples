@@ -9,10 +9,10 @@ import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/itinerary_config/itinerary_config_repository.dart';
 import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/itinerary_config/itinerary_config.dart';
-import '../../../utils/command.dart';
-import '../../../utils/result.dart';
 import '../../../domain/use_cases/booking/booking_create_use_case.dart';
 import '../../../domain/use_cases/booking/booking_share_use_case.dart';
+import '../../../utils/command.dart';
+import '../../../utils/result.dart';
 
 class BookingViewModel extends ChangeNotifier {
   BookingViewModel({
