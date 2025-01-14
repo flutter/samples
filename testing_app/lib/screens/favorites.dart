@@ -16,7 +16,7 @@ class FavoritesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorites'),
+        title: const Text('Favorites W'),
       ),
       body: Consumer<Favorites>(
         builder: (context, value, child) => value.items.isNotEmpty
