@@ -146,8 +146,8 @@ class _AndroidStepsRepo implements StepsRepo {
         {hc.StepsRecord.COUNT_TOTAL}
             .toJSet(hc.AggregateMetric.type(jni.JLong.type)),
         hc.TimeRangeFilter.between(
-          hc.Instant.ofEpochMilli(start),
-          hc.Instant.ofEpochMilli(end),
+          hc.Instant.ofEpochMilli(start)!,
+          hc.Instant.ofEpochMilli(end)!,
         ),
         jni.JSet.hash(jni.JObject.type),
       );
@@ -156,7 +156,7 @@ class _AndroidStepsRepo implements StepsRepo {
     final data = await Future.wait(futures);
     return data.asMap().entries.map((entry) {
       final stepsLong = entry.value.get(hc.StepsRecord.COUNT_TOTAL);
-      final steps = stepsLong.isNull ? 0 : stepsLong.intValue();
+      final steps = stepsLong?.intValue() ?? 0;
       return Steps(entry.key.toString().padLeft(2, '0'), steps);
     }).toList();
   }

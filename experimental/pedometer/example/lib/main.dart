@@ -1,6 +1,6 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 import 'steps_repo.dart';
 
@@ -198,8 +198,8 @@ Widget getBottomTitles(double value, TitleMeta meta) {
     _ => ''
   };
   return SideTitleWidget(
-    axisSide: meta.axisSide,
     space: 4,
+    meta: meta,
     child: Text(
       timeText,
       style: TextStyle(fontSize: 14, color: Colors.blue[900]),

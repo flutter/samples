@@ -41,7 +41,7 @@ dependencies:
 
   ffi: ^2.1.2
   intl: ^0.20.0
-  jni: ^0.12.0
+  jni: ^0.13.0
   fl_chart: ^0.70.0
 
 dev_dependencies:
