@@ -1,16 +1,6 @@
-# rolodex
+# Rolodex
 
-A new Flutter project.
+**NOTE:** This app is still under development by the Flutter team and should not be used as a complete example in its current state.
 
-## Getting Started
+A recreation of the stock iOS Contacts app recreated in Flutter using the Cupertino design library.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
