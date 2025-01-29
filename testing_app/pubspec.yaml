@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  golden_toolkit: ^0.15.0
+
 
   cupertino_icons: ^1.0.3
   provider: ^6.0.2
@@ -24,4 +26,10 @@ dev_dependencies:
   test: ^1.16.8
 
 flutter:
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: fonts/Raleway-Regular.ttf
+        - asset: fonts/Raleway-Italic.ttf
+          style: italic
   uses-material-design: true
