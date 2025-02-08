@@ -80,7 +80,7 @@ void main() {
   testWidgets(
       'ColorBox displays correct info and copies hex color on button tap',
       (tester) async {
-    TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMessageHandler('flutter/platform', (_) async {
       // To intercept method calls to 'Clipboard.setData'
       return const JSONMethodCodec().encodeSuccessEnvelope(null);
