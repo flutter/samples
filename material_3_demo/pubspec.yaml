@@ -8,7 +8,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0-323.2.beta
+  sdk: ^3.6.0
 
 dependencies:
   flutter:
@@ -22,8 +22,8 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-#  integration_test:
-#    sdk: flutter
+  integration_test:
+    sdk: flutter
 
 flutter:
   uses-material-design: true

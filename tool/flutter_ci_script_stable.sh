@@ -22,7 +22,7 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
-    "compass_app/app"
+#    "compass_app/app"
     "compass_app/server"
     "context_menus"
     "deeplink_store_example"
