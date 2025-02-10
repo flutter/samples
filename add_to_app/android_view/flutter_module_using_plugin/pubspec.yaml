@@ -4,7 +4,7 @@ description: An example Flutter module that uses a plugin.
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0
 
 dependencies:
   flutter:
