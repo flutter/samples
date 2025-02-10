@@ -35,7 +35,7 @@ abstract final class Dimens {
   /// Get dimensions definition based on screen size
   factory Dimens.of(BuildContext context) =>
       switch (MediaQuery.sizeOf(context).width) {
-        > 600 => desktop,
+        > 600 && < 840 => desktop,
         _ => mobile,
       };
 }

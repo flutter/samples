@@ -2,11 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:html' as html;
-
 import 'package:federated_plugin_platform_interface/federated_plugin_platform_interface.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:web/web.dart' as html;
 
 /// Web Implementation of [FederatedPluginInterface] to retrieve current battery
 /// level of device.
@@ -30,9 +29,9 @@ class FederatedPlugin extends FederatedPluginInterface {
   @override
   Future<int> getBatteryLevel() async {
     try {
-      final battery = await _navigator.getBattery() as html.BatteryManager;
+      final battery = _navigator.getBattery() as html.BatteryManager;
       // The battery level retrieved is in range of 0.0 to 1.0.
-      return battery.level! * 100 as int;
+      return battery.level * 100 as int;
     } catch (error) {
       throw PlatformException(
         code: 'STATUS_UNAVAILABLE',

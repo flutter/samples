@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   federated_plugin_platform_interface:
     path: ../federated_plugin_platform_interface
+  web: ^1.1.0
 
 dev_dependencies:
   analysis_defaults:
