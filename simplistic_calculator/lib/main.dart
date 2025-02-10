@@ -88,7 +88,7 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
 
   void evaluate() {
     try {
-      final parser = Parser();
+      final parser = GrammarParser();
       final cm = ContextModel();
       final exp = parser.parse(state.buffer);
       final result = exp.evaluate(EvaluationType.REAL, cm) as double;

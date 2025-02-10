@@ -4,7 +4,7 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: ^3.7.0-323.2.beta
+  sdk: ^3.7.0
 
 dependencies:
   flutter:

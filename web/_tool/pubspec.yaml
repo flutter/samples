@@ -2,7 +2,7 @@ name: tool
 publish_to: none
 
 environment:
-  sdk: ^3.7.0-323.2.beta
+  sdk: ^3.7.0
 
 dependencies:
   markdown: ^7.0.0
