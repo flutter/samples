@@ -35,18 +35,29 @@ class WonkyCharState extends State<WonkyChar>
   final List<String> _fvAxes = [];
   // default curve and animations in case user sets nothing for them
   late final defaultCurve = CurvedAnimation(
-      parent: _animController,
-      curve: const Interval(0, 1, curve: Curves.linear));
-  late Animation _scaleAnimation =
-      Tween<double>(begin: 1, end: 1).animate(defaultCurve);
-  late Animation _offsetXAnimation =
-      Tween<double>(begin: 0, end: 0).animate(defaultCurve);
-  late Animation _offsetYAnimation =
-      Tween<double>(begin: 0, end: 0).animate(defaultCurve);
-  late Animation _rotationAnimation =
-      Tween<double>(begin: 0, end: 0).animate(defaultCurve);
-  late Animation _colorAnimation =
-      ColorTween(begin: Colors.black, end: Colors.black).animate(defaultCurve);
+    parent: _animController,
+    curve: const Interval(0, 1, curve: Curves.linear),
+  );
+  late Animation _scaleAnimation = Tween<double>(
+    begin: 1,
+    end: 1,
+  ).animate(defaultCurve);
+  late Animation _offsetXAnimation = Tween<double>(
+    begin: 0,
+    end: 0,
+  ).animate(defaultCurve);
+  late Animation _offsetYAnimation = Tween<double>(
+    begin: 0,
+    end: 0,
+  ).animate(defaultCurve);
+  late Animation _rotationAnimation = Tween<double>(
+    begin: 0,
+    end: 0,
+  ).animate(defaultCurve);
+  late Animation _colorAnimation = ColorTween(
+    begin: Colors.black,
+    end: Colors.black,
+  ).animate(defaultCurve);
 
   @override
   void initState() {
@@ -80,15 +91,22 @@ class WonkyCharState extends State<WonkyChar>
   Widget build(BuildContext context) {
     List<ui.FontVariation> fontVariations = [];
     for (int i = 0; i < _fvAxes.length; i++) {
-      fontVariations
-          .add(ui.FontVariation(_fvAxes[i], _fvAnimations[i].value as double));
+      fontVariations.add(
+        ui.FontVariation(_fvAxes[i], _fvAnimations[i].value as double),
+      );
     }
     return Transform(
       alignment: Alignment.center,
-      transform: Matrix4.translationValues(_offsetXAnimation.value as double,
-          _offsetYAnimation.value as double, 0)
-        ..scale(_scaleAnimation.value)
-        ..rotateZ(widget.baseRotation + (_rotationAnimation.value as double)),
+      transform:
+          Matrix4.translationValues(
+              _offsetXAnimation.value as double,
+              _offsetYAnimation.value as double,
+              0,
+            )
+            ..scale(_scaleAnimation.value)
+            ..rotateZ(
+              widget.baseRotation + (_rotationAnimation.value as double),
+            ),
       child: IgnorePointer(
         child: Text(
           widget.text,
@@ -117,14 +135,14 @@ class WonkyCharState extends State<WonkyChar>
       late Animation animation;
       if (s.property == 'color') {
         animation = ColorTween(
-                begin: s.fromTo.fromValue() as Color?,
-                end: s.fromTo.toValue() as Color?)
-            .animate(curve);
+          begin: s.fromTo.fromValue() as Color?,
+          end: s.fromTo.toValue() as Color?,
+        ).animate(curve);
       } else {
         animation = Tween<double>(
-                begin: s.fromTo.fromValue() as double,
-                end: s.fromTo.toValue() as double)
-            .animate(curve);
+          begin: s.fromTo.fromValue() as double,
+          end: s.fromTo.toValue() as double,
+        ).animate(curve);
       }
       if (s.type == 'fv') {
         _fvAxes.add(s.property);
@@ -155,7 +173,8 @@ class WonkyCharState extends State<WonkyChar>
             {
               if (kDebugMode) {
                 print(
-                    '**ERROR** unrecognized property to animate: ${s.property}');
+                  '**ERROR** unrecognized property to animate: ${s.property}',
+                );
               }
             }
         }

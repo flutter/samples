@@ -18,18 +18,18 @@ class _WallpapersFlowState extends State<WallpapersFlow> {
 
   @override
   void initState() {
-    LicenseRegistry.addLicense(() => Stream<LicenseEntry>.value(
-          LicenseEntryWithLineBreaks(
-            <String>['roboto_font'],
-            robotoLicense,
-          ),
-        ));
-    LicenseRegistry.addLicense(() => Stream<LicenseEntry>.value(
-          LicenseEntryWithLineBreaks(
-            <String>['amstelvar_font'],
-            amstelvarLicense,
-          ),
-        ));
+    LicenseRegistry.addLicense(
+      () => Stream<LicenseEntry>.value(
+        LicenseEntryWithLineBreaks(<String>['roboto_font'], robotoLicense),
+      ),
+    );
+    LicenseRegistry.addLicense(
+      () => Stream<LicenseEntry>.value(
+        LicenseEntryWithLineBreaks(<String>[
+          'amstelvar_font',
+        ], amstelvarLicense),
+      ),
+    );
     super.initState();
   }
 
@@ -45,9 +45,7 @@ class _WallpapersFlowState extends State<WallpapersFlow> {
           },
           children: const [
             DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
+              decoration: BoxDecoration(color: Colors.black),
               child: Center(
                 child: Image(
                   image: AssetImage('assets/images/wallpaper3.png'),
@@ -56,9 +54,7 @@ class _WallpapersFlowState extends State<WallpapersFlow> {
               ),
             ),
             DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
+              decoration: BoxDecoration(color: Colors.black),
               child: Center(
                 child: Image(
                   image: AssetImage('assets/images/wallpaper1.png'),
@@ -67,9 +63,7 @@ class _WallpapersFlowState extends State<WallpapersFlow> {
               ),
             ),
             DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
+              decoration: BoxDecoration(color: Colors.black),
               child: Center(
                 child: Image(
                   image: AssetImage('assets/images/wallpaper2.png'),
@@ -107,9 +101,10 @@ class _WallpapersFlowState extends State<WallpapersFlow> {
   List<Widget> _buildScrollDots() {
     List<Widget> dots = [];
     for (int i = 0; i < numPages; i++) {
-      Color dotColor = i == pageNum
-          ? const Color.fromARGB(255, 255, 255, 255)
-          : const Color.fromARGB(255, 105, 105, 105);
+      Color dotColor =
+          i == pageNum
+              ? const Color.fromARGB(255, 255, 255, 255)
+              : const Color.fromARGB(255, 105, 105, 105);
       Widget d = Container(
         width: 16,
         height: 16,

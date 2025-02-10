@@ -11,10 +11,7 @@ import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageAscenderDescender extends SinglePage {
-  const PageAscenderDescender({
-    super.key,
-    required super.pageConfig,
-  });
+  const PageAscenderDescender({super.key, required super.pageConfig});
   @override
   State<SinglePage> createState() => _PageAscenderDescenderState();
 }
@@ -82,10 +79,7 @@ class _PageAscenderDescenderState extends SinglePageState {
               to: PageConfig.baseWeight,
               curve: Curves.easeInOut,
             ),
-            WonkyAnimPalette.descenderDepth(
-              from: -500,
-              to: -138,
-            )
+            WonkyAnimPalette.descenderDepth(from: -500, to: -138),
           ],
         ),
       ),
@@ -126,10 +120,7 @@ class _PageAscenderDescenderState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.ascenderHt(
-              from: 600,
-              to: 980,
-            ),
+            WonkyAnimPalette.ascenderHt(from: 600, to: 980),
           ],
         ),
       ),
@@ -184,10 +175,7 @@ class _PageAscenderDescenderState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.descenderDepth(
-              from: -200,
-              to: -500,
-            )
+            WonkyAnimPalette.descenderDepth(from: -200, to: -500),
           ],
         ),
       ),
@@ -204,10 +192,11 @@ class _PageAscenderDescenderState extends SinglePageState {
       shaderDuration: 2000,
       tileShadedString: 'fyd',
       tileShadedStringPadding: EdgeInsets.only(
-          top: 0.233 * widget.pageConfig.puzzleSize,
-          bottom: 0,
-          left: 0.465 * widget.pageConfig.puzzleSize,
-          right: 0.465 * widget.pageConfig.puzzleSize),
+        top: 0.233 * widget.pageConfig.puzzleSize,
+        bottom: 0,
+        left: 0.465 * widget.pageConfig.puzzleSize,
+        right: 0.465 * widget.pageConfig.puzzleSize,
+      ),
       tileShadedStringSize: 1.86 * widget.pageConfig.puzzleSize,
       tileScaleModifier: 2.7,
       tileShadedStringAnimDuration: 2000,
