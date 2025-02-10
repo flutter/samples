@@ -12,10 +12,7 @@ const gameLevels = [
     // You get this string when you configure an achievement in Play Console.
     achievementIdAndroid: 'NhkIwB69ejkMAOOLDb',
   ),
-  GameLevel(
-    number: 2,
-    difficulty: 42,
-  ),
+  GameLevel(number: 2, difficulty: 42),
   GameLevel(
     number: 3,
     difficulty: 100,
@@ -42,8 +39,9 @@ class GameLevel {
     this.achievementIdIOS,
     this.achievementIdAndroid,
   }) : assert(
-            (achievementIdAndroid != null && achievementIdIOS != null) ||
-                (achievementIdAndroid == null && achievementIdIOS == null),
-            'Either both iOS and Android achievement ID must be provided, '
-            'or none');
+         (achievementIdAndroid != null && achievementIdIOS != null) ||
+             (achievementIdAndroid == null && achievementIdIOS == null),
+         'Either both iOS and Android achievement ID must be provided, '
+         'or none',
+       );
 }

@@ -30,12 +30,7 @@ void main() {
   ]);
   setupWindow();
 
-  runApp(
-    const RootRestorationScope(
-      restorationId: 'root',
-      child: VeggieApp(),
-    ),
-  );
+  runApp(const RootRestorationScope(restorationId: 'root', child: VeggieApp()));
 }
 
 const double windowWidth = 480;
@@ -47,11 +42,13 @@ void setupWindow() {
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
-      setWindowFrame(Rect.fromCenter(
-        center: screen!.frame.center,
-        width: windowWidth,
-        height: windowHeight,
-      ));
+      setWindowFrame(
+        Rect.fromCenter(
+          center: screen!.frame.center,
+          width: windowWidth,
+          height: windowHeight,
+        ),
+      );
     });
   }
 }
@@ -87,12 +84,8 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(
-          value: _appState.value,
-        ),
-        ChangeNotifierProvider(
-          create: (_) => Preferences()..load(),
-        ),
+        ChangeNotifierProvider.value(value: _appState.value),
+        ChangeNotifierProvider(create: (_) => Preferences()..load()),
       ],
       child: CupertinoApp.router(
         theme: Styles.veggieThemeData,
@@ -142,9 +135,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       child: const ListScreen(restorationId: 'list'),
                     );
                   },
-                  routes: [
-                    _buildDetailsRoute(),
-                  ],
+                  routes: [_buildDetailsRoute()],
                 ),
                 GoRoute(
                   path: '/favorites',
@@ -155,9 +146,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       child: const FavoritesScreen(restorationId: 'favorites'),
                     );
                   },
-                  routes: [
-                    _buildDetailsRoute(),
-                  ],
+                  routes: [_buildDetailsRoute()],
                 ),
                 GoRoute(
                   path: '/search',
@@ -168,9 +157,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       child: const SearchScreen(restorationId: 'search'),
                     );
                   },
-                  routes: [
-                    _buildDetailsRoute(),
-                  ],
+                  routes: [_buildDetailsRoute()],
                 ),
                 GoRoute(
                   path: '/settings',
@@ -187,7 +174,8 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       path: 'categories',
                       pageBuilder: (context, state) {
                         return VeggieCategorySettingsScreen.pageBuilder(
-                            context);
+                          context,
+                        );
                       },
                     ),
                     GoRoute(
@@ -217,10 +205,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         final veggieId = int.parse(state.pathParameters['id']!);
         return CupertinoPage(
           restorationId: 'route.details',
-          child: DetailsScreen(
-            id: veggieId,
-            restorationId: 'details',
-          ),
+          child: DetailsScreen(id: veggieId, restorationId: 'details'),
         );
       },
     );

@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: const Color(0xff6200ee),
-      ),
+      theme: ThemeData(primaryColor: const Color(0xff6200ee)),
       home: const BookDetail(),
     );
   }
@@ -70,30 +68,33 @@ class _BookDetailState extends State<BookDetail> {
     // calls from the platform.
     // TODO(gaaclarke): make the setup method an instance method so it's
     // injectable https://github.com/flutter/flutter/issues/59119.
-    FlutterBookApi.setup(FlutterBookApiHandler(
+    FlutterBookApi.setup(
+      FlutterBookApiHandler(
         // The `FlutterBookApi` just has one method. Just give a closure for that
         // method to the handler class.
         (book) {
-      setState(() {
-        // This book model is what we're going to return to Kotlin eventually.
-        // Keep it bound to the UI.
-        this.book = book;
-        titleTextController.text = book.title ?? '';
-        titleTextController.addListener(() {
-          this.book!.title = titleTextController.text;
-        });
-        // Subtitle could be null.
-        // TODO(gaaclarke): https://github.com/flutter/flutter/issues/59118.
-        subtitleTextController.text = book.subtitle ?? '';
-        subtitleTextController.addListener(() {
-          this.book!.subtitle = subtitleTextController.text;
-        });
-        authorTextController.text = book.author ?? '';
-        authorTextController.addListener(() {
-          this.book!.author = authorTextController.text;
-        });
-      });
-    }));
+          setState(() {
+            // This book model is what we're going to return to Kotlin eventually.
+            // Keep it bound to the UI.
+            this.book = book;
+            titleTextController.text = book.title ?? '';
+            titleTextController.addListener(() {
+              this.book!.title = titleTextController.text;
+            });
+            // Subtitle could be null.
+            // TODO(gaaclarke): https://github.com/flutter/flutter/issues/59118.
+            subtitleTextController.text = book.subtitle ?? '';
+            subtitleTextController.addListener(() {
+              this.book!.subtitle = subtitleTextController.text;
+            });
+            authorTextController.text = book.author ?? '';
+            authorTextController.addListener(() {
+              this.book!.author = authorTextController.text;
+            });
+          });
+        },
+      ),
+    );
   }
 
   // Not overriding didUpdateWidget because the Android program can't change
@@ -124,26 +125,28 @@ class _BookDetailState extends State<BookDetail> {
           IconButton(
             icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
-            onPressed: book != null
-                ? () {
-                    hostApi.finishEditingBook(book!);
-                    clear();
-                  }
-                : null,
+            onPressed:
+                book != null
+                    ? () {
+                      hostApi.finishEditingBook(book!);
+                      clear();
+                    }
+                    : null,
           ),
         ],
       ),
-      body: book == null
-          // Draw a spinner until the platform gives us the book to show details
-          // for.
-          ? const Center(child: CircularProgressIndicator())
-          : BookForm(
-              book: book!,
-              focusNode: textFocusNode,
-              authorTextController: authorTextController,
-              subtitleTextController: subtitleTextController,
-              titleTextController: titleTextController,
-            ),
+      body:
+          book == null
+              // Draw a spinner until the platform gives us the book to show details
+              // for.
+              ? const Center(child: CircularProgressIndicator())
+              : BookForm(
+                book: book!,
+                focusNode: textFocusNode,
+                authorTextController: authorTextController,
+                subtitleTextController: subtitleTextController,
+                titleTextController: titleTextController,
+              ),
     );
   }
 }
@@ -207,15 +210,14 @@ class BookForm extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                  '${book.pageCount} pages  ~  published ${book.publishDate}'),
+                '${book.pageCount} pages  ~  published ${book.publishDate}',
+              ),
             ),
           ),
           const Divider(),
           const SizedBox(height: 32),
           if (book.thumbnail?.url != null) ...[
-            Center(
-              child: Image.network(book.thumbnail!.url!),
-            ),
+            Center(child: Image.network(book.thumbnail!.url!)),
             const SizedBox(height: 32),
           ],
           if (book.summary != null) ...[
@@ -234,7 +236,7 @@ class BookForm extends StatelessWidget {
               book.summary ?? '',
               style: TextStyle(color: Colors.grey.shade600, height: 1.24),
             ),
-          ]
+          ],
         ],
       ),
     );

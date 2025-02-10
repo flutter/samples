@@ -20,10 +20,7 @@ import '../view_models/search_form_viewmodel.dart';
 /// Users can tap one item to select it.
 /// Tapping again the same item will deselect it.
 class SearchFormContinent extends StatelessWidget {
-  const SearchFormContinent({
-    super.key,
-    required this.viewModel,
-  });
+  const SearchFormContinent({super.key, required this.viewModel});
 
   final SearchFormViewModel viewModel;
 
@@ -35,9 +32,7 @@ class SearchFormContinent extends StatelessWidget {
         listenable: viewModel.load,
         builder: (context, child) {
           if (viewModel.load.running) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
           if (viewModel.load.error) {
             return Center(
@@ -110,9 +105,7 @@ class _CarouselItem extends StatelessWidget {
                 // NOTE: Getting "invalid image data" error for some of the images
                 // e.g. https://rstr.in/google/tripedia/jlbgFDrSUVE
                 return const DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: AppColors.grey3,
-                  ),
+                  decoration: BoxDecoration(color: AppColors.grey3),
                   child: SizedBox(width: 140, height: 140),
                 );
               },

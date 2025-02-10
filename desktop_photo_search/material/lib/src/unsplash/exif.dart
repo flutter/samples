@@ -40,7 +40,9 @@ abstract class Exif implements Built<Exif, ExifBuilder> {
 
   static Exif? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Exif.serializer, json.decode(jsonString));
+      Exif.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Exif> get serializer => _$exifSerializer;

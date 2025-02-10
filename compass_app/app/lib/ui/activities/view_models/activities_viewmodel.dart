@@ -16,8 +16,8 @@ class ActivitiesViewModel extends ChangeNotifier {
   ActivitiesViewModel({
     required ActivityRepository activityRepository,
     required ItineraryConfigRepository itineraryConfigRepository,
-  })  : _activityRepository = activityRepository,
-        _itineraryConfigRepository = itineraryConfigRepository {
+  }) : _activityRepository = activityRepository,
+       _itineraryConfigRepository = itineraryConfigRepository {
     loadActivities = Command0(_loadActivities)..execute();
     saveActivities = Command0(_saveActivities);
   }
@@ -48,10 +48,7 @@ class ActivitiesViewModel extends ChangeNotifier {
     final result = await _itineraryConfigRepository.getItineraryConfig();
     switch (result) {
       case Error<ItineraryConfig>():
-        _log.warning(
-          'Failed to load stored ItineraryConfig',
-          result.error,
-        );
+        _log.warning('Failed to load stored ItineraryConfig', result.error);
         return result;
       case Ok<ItineraryConfig>():
     }
@@ -64,28 +61,37 @@ class ActivitiesViewModel extends ChangeNotifier {
 
     _selectedActivities.addAll(result.value.activities);
 
-    final resultActivities =
-        await _activityRepository.getByDestination(destinationRef);
+    final resultActivities = await _activityRepository.getByDestination(
+      destinationRef,
+    );
     switch (resultActivities) {
       case Ok():
         {
-          _daytimeActivities = resultActivities.value
-              .where((activity) => [
-                    TimeOfDay.any,
-                    TimeOfDay.morning,
-                    TimeOfDay.afternoon,
-                  ].contains(activity.timeOfDay))
-              .toList();
+          _daytimeActivities =
+              resultActivities.value
+                  .where(
+                    (activity) => [
+                      TimeOfDay.any,
+                      TimeOfDay.morning,
+                      TimeOfDay.afternoon,
+                    ].contains(activity.timeOfDay),
+                  )
+                  .toList();
 
-          _eveningActivities = resultActivities.value
-              .where((activity) => [
-                    TimeOfDay.evening,
-                    TimeOfDay.night,
-                  ].contains(activity.timeOfDay))
-              .toList();
+          _eveningActivities =
+              resultActivities.value
+                  .where(
+                    (activity) => [
+                      TimeOfDay.evening,
+                      TimeOfDay.night,
+                    ].contains(activity.timeOfDay),
+                  )
+                  .toList();
 
-          _log.fine('Activities (daytime: ${_daytimeActivities.length}, '
-              'evening: ${_eveningActivities.length}) loaded');
+          _log.fine(
+            'Activities (daytime: ${_daytimeActivities.length}, '
+            'evening: ${_eveningActivities.length}) loaded',
+          );
         }
       case Error():
         {
@@ -100,8 +106,9 @@ class ActivitiesViewModel extends ChangeNotifier {
   /// Add [Activity] to selected list.
   void addActivity(String activityRef) {
     assert(
-      (_daytimeActivities + _eveningActivities)
-          .any((activity) => activity.ref == activityRef),
+      (_daytimeActivities + _eveningActivities).any(
+        (activity) => activity.ref == activityRef,
+      ),
       "Activity $activityRef not found",
     );
     _selectedActivities.add(activityRef);
@@ -112,8 +119,9 @@ class ActivitiesViewModel extends ChangeNotifier {
   /// Remove [Activity] from selected list.
   void removeActivity(String activityRef) {
     assert(
-      (_daytimeActivities + _eveningActivities)
-          .any((activity) => activity.ref == activityRef),
+      (_daytimeActivities + _eveningActivities).any(
+        (activity) => activity.ref == activityRef,
+      ),
       "Activity $activityRef not found",
     );
     _selectedActivities.remove(activityRef);
@@ -135,12 +143,10 @@ class ActivitiesViewModel extends ChangeNotifier {
 
     final itineraryConfig = resultConfig.value;
     final result = await _itineraryConfigRepository.setItineraryConfig(
-        itineraryConfig.copyWith(activities: _selectedActivities.toList()));
+      itineraryConfig.copyWith(activities: _selectedActivities.toList()),
+    );
     if (result is Error) {
-      _log.warning(
-        'Failed to store ItineraryConfig',
-        result.error,
-      );
+      _log.warning('Failed to store ItineraryConfig', result.error);
     }
     return result;
   }

@@ -21,9 +21,7 @@ class CarouselDemo extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Carousel Demo'),
-      ),
+      appBar: AppBar(title: const Text('Carousel Demo')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -79,30 +77,29 @@ class _CarouselState extends State<Carousel> {
       },
       controller: _controller,
       scrollBehavior: ScrollConfiguration.of(context).copyWith(
-        dragDevices: {
-          ui.PointerDeviceKind.touch,
-          ui.PointerDeviceKind.mouse,
-        },
+        dragDevices: {ui.PointerDeviceKind.touch, ui.PointerDeviceKind.mouse},
       ),
-      itemBuilder: (context, index) => AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          var result = _pageHasChanged ? _controller.page! : _currentPage * 1.0;
+      itemBuilder:
+          (context, index) => AnimatedBuilder(
+            animation: _controller,
+            builder: (context, child) {
+              var result =
+                  _pageHasChanged ? _controller.page! : _currentPage * 1.0;
 
-          // The horizontal position of the page between a 1 and 0
-          var value = result - index;
-          value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
+              // The horizontal position of the page between a 1 and 0
+              var value = result - index;
+              value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
 
-          return Center(
-            child: SizedBox(
-              height: Curves.easeOut.transform(value) * size.height,
-              width: Curves.easeOut.transform(value) * size.width,
-              child: child,
-            ),
-          );
-        },
-        child: widget.itemBuilder(context, index),
-      ),
+              return Center(
+                child: SizedBox(
+                  height: Curves.easeOut.transform(value) * size.height,
+                  width: Curves.easeOut.transform(value) * size.width,
+                  child: child,
+                ),
+              );
+            },
+            child: widget.itemBuilder(context, index),
+          ),
     );
   }
 

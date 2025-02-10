@@ -46,8 +46,9 @@ class _IOSStepsRepo implements StepsRepo {
 
     // Initialize the Dart API
     final initializeApi = dylib.lookupFunction<
-        ffi.IntPtr Function(ffi.Pointer<ffi.Void>),
-        int Function(ffi.Pointer<ffi.Void>)>('Dart_InitializeApiDL');
+      ffi.IntPtr Function(ffi.Pointer<ffi.Void>),
+      int Function(ffi.Pointer<ffi.Void>)
+    >('Dart_InitializeApiDL');
 
     final initializeResult = initializeApi(ffi.NativeApi.initializeApiDLData);
     if (initializeResult != 0) {
@@ -58,11 +59,13 @@ class _IOSStepsRepo implements StepsRepo {
     client = pd.CMPedometer.new1(lib);
 
     // Setting the formatter for date strings.
-    formatter =
-        pd.NSDateFormatter.castFrom(pd.NSDateFormatter.alloc(lib).init());
+    formatter = pd.NSDateFormatter.castFrom(
+      pd.NSDateFormatter.alloc(lib).init(),
+    );
     formatter.dateFormat = pd.NSString(lib, "${StepsRepo._formatString} zzz");
-    hourFormatter =
-        pd.NSDateFormatter.castFrom(pd.NSDateFormatter.alloc(lib).init());
+    hourFormatter = pd.NSDateFormatter.castFrom(
+      pd.NSDateFormatter.alloc(lib).init(),
+    );
     hourFormatter.dateFormat = pd.NSString(lib, "HH");
   }
 
@@ -97,21 +100,27 @@ class _IOSStepsRepo implements StepsRepo {
       futures.add(completer.future);
 
       final handler = helpLib.wrapCallback(
-          pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.listener(lib,
-              (pd.CMPedometerData? result, pd.NSError? error) {
-        if (result != null) {
-          final stepCount = result.numberOfSteps.intValue;
-          final startHour =
-              hourFormatter.stringFromDate_(result.startDate).toString();
-          completer.complete(Steps(startHour, stepCount));
-        } else {
-          debugPrint("Query error: ${error?.localizedDescription}");
-          completer.complete(null);
-        }
-      }));
+        pd.ObjCBlock_ffiVoid_CMPedometerData_NSError.listener(lib, (
+          pd.CMPedometerData? result,
+          pd.NSError? error,
+        ) {
+          if (result != null) {
+            final stepCount = result.numberOfSteps.intValue;
+            final startHour =
+                hourFormatter.stringFromDate_(result.startDate).toString();
+            completer.complete(Steps(startHour, stepCount));
+          } else {
+            debugPrint("Query error: ${error?.localizedDescription}");
+            completer.complete(null);
+          }
+        }),
+      );
       handlers.add(handler);
       client.queryPedometerDataFromDate_toDate_withHandler_(
-          start, end, handler);
+        start,
+        end,
+        handler,
+      );
     }
 
     return (await futures.wait).nonNulls.toList();
@@ -127,8 +136,8 @@ class _AndroidStepsRepo implements StepsRepo {
     // ignore: invalid_use_of_internal_member
     activity = hc.Activity.fromReference(jni.Jni.getCurrentActivity());
     applicationContext =
-        // ignore: invalid_use_of_internal_member
-        hc.Context.fromReference(jni.Jni.getCachedApplicationContext());
+    // ignore: invalid_use_of_internal_member
+    hc.Context.fromReference(jni.Jni.getCachedApplicationContext());
     client = hc.HealthConnectClient.getOrCreate$1(applicationContext);
   }
 
@@ -143,8 +152,9 @@ class _AndroidStepsRepo implements StepsRepo {
       final end =
           DateTime(now.year, now.month, now.day, h + 1).millisecondsSinceEpoch;
       final request = hc.AggregateRequest(
-        {hc.StepsRecord.COUNT_TOTAL}
-            .toJSet(hc.AggregateMetric.type(jni.JLong.type)),
+        {
+          hc.StepsRecord.COUNT_TOTAL,
+        }.toJSet(hc.AggregateMetric.type(jni.JLong.type)),
         hc.TimeRangeFilter.between(
           hc.Instant.ofEpochMilli(start)!,
           hc.Instant.ofEpochMilli(end)!,

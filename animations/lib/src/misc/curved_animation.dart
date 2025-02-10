@@ -46,10 +46,7 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-      duration: _duration,
-      vsync: this,
-    );
+    controller = AnimationController(duration: _duration, vsync: this);
     selectedForwardCurve = curves[0];
     selectedReverseCurve = curves[0];
     curvedAnimation = CurvedAnimation(
@@ -57,38 +54,35 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
       curve: selectedForwardCurve.curve,
       reverseCurve: selectedReverseCurve.curve,
     );
-    animationRotation = Tween<double>(
-      begin: 0,
-      end: 2 * math.pi,
-    ).animate(curvedAnimation)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          controller.reverse();
-        }
-      });
-    animationTranslation = Tween<Offset>(
-      begin: const Offset(-1, 0),
-      end: const Offset(1, 0),
-    ).animate(curvedAnimation)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          controller.reverse();
-        }
-      });
+    animationRotation =
+        Tween<double>(begin: 0, end: 2 * math.pi).animate(curvedAnimation)
+          ..addListener(() {
+            setState(() {});
+          })
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              controller.reverse();
+            }
+          });
+    animationTranslation =
+        Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: const Offset(1, 0),
+          ).animate(curvedAnimation)
+          ..addListener(() {
+            setState(() {});
+          })
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              controller.reverse();
+            }
+          });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Curved Animation'),
-      ),
+      appBar: AppBar(title: const Text('Curved Animation')),
       body: Column(
         children: [
           const SizedBox(height: 20.0),
@@ -97,10 +91,13 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
             style: Theme.of(context).textTheme.titleLarge,
           ),
           DropdownButton<CurveChoice>(
-            items: curves.map((curve) {
-              return DropdownMenuItem<CurveChoice>(
-                  value: curve, child: Text(curve.name));
-            }).toList(),
+            items:
+                curves.map((curve) {
+                  return DropdownMenuItem<CurveChoice>(
+                    value: curve,
+                    child: Text(curve.name),
+                  );
+                }).toList(),
             onChanged: (newCurve) {
               if (newCurve != null) {
                 setState(() {
@@ -117,10 +114,13 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
             style: Theme.of(context).textTheme.titleLarge,
           ),
           DropdownButton<CurveChoice>(
-            items: curves.map((curve) {
-              return DropdownMenuItem<CurveChoice>(
-                  value: curve, child: Text(curve.name));
-            }).toList(),
+            items:
+                curves.map((curve) {
+                  return DropdownMenuItem<CurveChoice>(
+                    value: curve,
+                    child: Text(curve.name),
+                  );
+                }).toList(),
             onChanged: (newCurve) {
               if (newCurve != null) {
                 setState(() {
@@ -134,18 +134,12 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
           const SizedBox(height: 35.0),
           Transform.rotate(
             angle: animationRotation.value,
-            child: const Center(
-              child: FlutterLogo(
-                size: 100,
-              ),
-            ),
+            child: const Center(child: FlutterLogo(size: 100)),
           ),
           const SizedBox(height: 35.0),
           FractionalTranslation(
             translation: animationTranslation.value,
-            child: const FlutterLogo(
-              size: 100,
-            ),
+            child: const FlutterLogo(size: 100),
           ),
           const SizedBox(height: 25.0),
           ElevatedButton(

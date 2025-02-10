@@ -6,9 +6,8 @@ import 'package:animations/src/misc/hero_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createHeroAnimationDemoScreen() => const MaterialApp(
-      home: HeroAnimationDemo(),
-    );
+Widget createHeroAnimationDemoScreen() =>
+    const MaterialApp(home: HeroAnimationDemo());
 
 void main() {
   group('Hero Animation Tests', () {
@@ -32,10 +31,7 @@ void main() {
       var finalSize = tester.getSize(find.byWidget(finalContainer));
 
       // initialSize should be less than finalSize.
-      expect(
-        initialSize,
-        lessThan(finalSize),
-      );
+      expect(initialSize, lessThan(finalSize));
     });
 
     testWidgets('Color of Container changes on Tap', (tester) async {
@@ -62,9 +58,7 @@ void main() {
       // Final color should not be same as initial color.
       expect(
         (finalContainer.decoration as BoxDecoration).color,
-        isNot(
-          equals((initialContainer.decoration as BoxDecoration).color),
-        ),
+        isNot(equals((initialContainer.decoration as BoxDecoration).color)),
       );
     });
 
@@ -82,10 +76,7 @@ void main() {
       final finalScreen = tester.firstWidget(find.byType(HeroPage));
 
       // initialScreen should not be same as finalScreen.
-      expect(
-        initialScreen,
-        isNot(equals(finalScreen)),
-      );
+      expect(initialScreen, isNot(equals(finalScreen)));
     });
   });
 }

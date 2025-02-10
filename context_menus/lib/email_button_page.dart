@@ -6,10 +6,7 @@ import 'is_valid_email.dart';
 import 'platform_selector.dart';
 
 class EmailButtonPage extends StatelessWidget {
-  EmailButtonPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  EmailButtonPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'email-button';
   static const String title = 'Email Button';
@@ -25,8 +22,9 @@ class EmailButtonPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder: (context) =>
-          const AlertDialog(title: Text('You clicked send email!')),
+      builder:
+          (context) =>
+              const AlertDialog(title: Text('You clicked send email!')),
     );
   }
 
@@ -36,9 +34,7 @@ class EmailButtonPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(EmailButtonPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -70,14 +66,15 @@ class EmailButtonPage extends StatelessWidget {
                       editableTextState.contextMenuButtonItems;
                   if (isValidEmail(value.selection.textInside(value.text))) {
                     buttonItems.insert(
-                        0,
-                        ContextMenuButtonItem(
-                          label: 'Send email',
-                          onPressed: () {
-                            ContextMenuController.removeAny();
-                            Navigator.of(context).push(_showDialog(context));
-                          },
-                        ));
+                      0,
+                      ContextMenuButtonItem(
+                        label: 'Send email',
+                        onPressed: () {
+                          ContextMenuController.removeAny();
+                          Navigator.of(context).push(_showDialog(context));
+                        },
+                      ),
+                    );
                   }
                   return AdaptiveTextSelectionToolbar.buttonItems(
                     anchors: editableTextState.contextMenuAnchors,

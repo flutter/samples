@@ -48,10 +48,9 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => LevelState(
-            goal: widget.level.difficulty,
-            onWin: _playerWon,
-          ),
+          create:
+              (context) =>
+                  LevelState(goal: widget.level.difficulty, onWin: _playerWon),
         ),
       ],
       child: IgnorePointer(
@@ -76,17 +75,22 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                       ),
                     ),
                     const Spacer(),
-                    Text('Drag the slider to ${widget.level.difficulty}%'
-                        ' or above!'),
+                    Text(
+                      'Drag the slider to ${widget.level.difficulty}%'
+                      ' or above!',
+                    ),
                     Consumer<LevelState>(
-                      builder: (context, levelState, child) => Slider(
-                        label: 'Level Progress',
-                        autofocus: true,
-                        value: levelState.progress / 100,
-                        onChanged: (value) =>
-                            levelState.setProgress((value * 100).round()),
-                        onChangeEnd: (value) => levelState.evaluate(),
-                      ),
+                      builder:
+                          (context, levelState, child) => Slider(
+                            label: 'Level Progress',
+                            autofocus: true,
+                            value: levelState.progress / 100,
+                            onChanged:
+                                (value) => levelState.setProgress(
+                                  (value * 100).round(),
+                                ),
+                            onChangeEnd: (value) => levelState.evaluate(),
+                          ),
                     ),
                     const Spacer(),
                     Padding(
@@ -106,9 +110,7 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                 child: Visibility(
                   visible: _duringCelebration,
                   child: IgnorePointer(
-                    child: Confetti(
-                      isStopped: !_duringCelebration,
-                    ),
+                    child: Confetti(isStopped: !_duringCelebration),
                   ),
                 ),
               ),

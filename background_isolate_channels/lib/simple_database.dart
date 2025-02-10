@@ -45,14 +45,7 @@ const int _entrySize = 256;
 
 /// All the command codes that can be sent and received between [SimpleDatabase] and
 /// [_SimpleDatabaseServer].
-enum _Codes {
-  init,
-  add,
-  query,
-  ack,
-  result,
-  done,
-}
+enum _Codes { init, add, query, ack, result, done }
 
 /// A command sent between [SimpleDatabase] and [_SimpleDatabaseServer].
 class _Command {
@@ -85,8 +78,10 @@ class SimpleDatabase {
   /// Open the database at [path] and launch the server on a background isolate..
   static Future<SimpleDatabase> open(String path) async {
     final ReceivePort receivePort = ReceivePort();
-    final Isolate isolate =
-        await Isolate.spawn(_SimpleDatabaseServer._run, receivePort.sendPort);
+    final Isolate isolate = await Isolate.spawn(
+      _SimpleDatabaseServer._run,
+      receivePort.sendPort,
+    );
     final SimpleDatabase result = SimpleDatabase._(isolate, path);
     Completer<void> completer = Completer<void>();
     result._completers.addFirst(completer);
@@ -130,8 +125,9 @@ class SimpleDatabase {
         // invoke [BackgroundIsolateBinaryMessenger.ensureInitialized].
         // ----------------------------------------------------------------------
         RootIsolateToken rootIsolateToken = RootIsolateToken.instance!;
-        _sendPort
-            .send(_Command(_Codes.init, arg0: _path, arg1: rootIsolateToken));
+        _sendPort.send(
+          _Command(_Codes.init, arg0: _path, arg1: rootIsolateToken),
+        );
       case _Codes.ack:
         _completers.removeLast().complete();
       case _Codes.result:
@@ -200,7 +196,8 @@ class _SimpleDatabaseServer {
         _doFind(command.arg0 as String);
       default:
         debugPrint(
-            '_SimpleDatabaseServer unrecognized command ${command.code}');
+          '_SimpleDatabaseServer unrecognized command ${command.code}',
+        );
     }
   }
 

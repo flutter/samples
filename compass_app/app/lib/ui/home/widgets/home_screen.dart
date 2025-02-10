@@ -18,10 +18,7 @@ import 'home_title.dart';
 const String bookingButtonKey = 'booking-button';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    super.key,
-    required this.viewModel,
-  });
+  const HomeScreen({super.key, required this.viewModel});
 
   final HomeViewModel viewModel;
 
@@ -67,9 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
           listenable: widget.viewModel.load,
           builder: (context, child) {
             if (widget.viewModel.load.running) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
 
             if (widget.viewModel.load.error) {
@@ -98,27 +93,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SliverList.builder(
                     itemCount: widget.viewModel.bookings.length,
-                    itemBuilder: (_, index) => _Booking(
-                      key: ValueKey(widget.viewModel.bookings[index].id),
-                      booking: widget.viewModel.bookings[index],
-                      onTap: () => context.push(Routes.bookingWithId(
-                          widget.viewModel.bookings[index].id)),
-                      confirmDismiss: (_) async {
-                        // wait for command to complete
-                        await widget.viewModel.deleteBooking.execute(
-                          widget.viewModel.bookings[index].id,
-                        );
-                        // if command completed successfully, return true
-                        if (widget.viewModel.deleteBooking.completed) {
-                          // removes the dismissable from the list
-                          return true;
-                        } else {
-                          // the dismissable stays in the list
-                          return false;
-                        }
-                      },
-                    ),
-                  )
+                    itemBuilder:
+                        (_, index) => _Booking(
+                          key: ValueKey(widget.viewModel.bookings[index].id),
+                          booking: widget.viewModel.bookings[index],
+                          onTap:
+                              () => context.push(
+                                Routes.bookingWithId(
+                                  widget.viewModel.bookings[index].id,
+                                ),
+                              ),
+                          confirmDismiss: (_) async {
+                            // wait for command to complete
+                            await widget.viewModel.deleteBooking.execute(
+                              widget.viewModel.bookings[index].id,
+                            );
+                            // if command completed successfully, return true
+                            if (widget.viewModel.deleteBooking.completed) {
+                              // removes the dismissable from the list
+                              return true;
+                            } else {
+                              // the dismissable stays in the list
+                              return false;
+                            }
+                          },
+                        ),
+                  ),
                 ],
               );
             },
@@ -132,9 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (widget.viewModel.deleteBooking.completed) {
       widget.viewModel.deleteBooking.clearResult();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalization.of(context).bookingDeleted),
-        ),
+        SnackBar(content: Text(AppLocalization.of(context).bookingDeleted)),
       );
     }
 
@@ -189,16 +187,10 @@ class _Booking extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                booking.name,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+              Text(booking.name, style: Theme.of(context).textTheme.titleLarge),
               Text(
                 dateFormatStartEnd(
-                  DateTimeRange(
-                    start: booking.startDate,
-                    end: booking.endDate,
-                  ),
+                  DateTimeRange(start: booking.startDate, end: booking.endDate),
                 ),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),

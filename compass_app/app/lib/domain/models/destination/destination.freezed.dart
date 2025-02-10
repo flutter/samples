@@ -12,7 +12,8 @@ part of 'destination.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Destination _$DestinationFromJson(Map<String, dynamic> json) {
   return _Destination.fromJson(json);
@@ -54,17 +55,19 @@ mixin _$Destination {
 /// @nodoc
 abstract class $DestinationCopyWith<$Res> {
   factory $DestinationCopyWith(
-          Destination value, $Res Function(Destination) then) =
-      _$DestinationCopyWithImpl<$Res, Destination>;
+    Destination value,
+    $Res Function(Destination) then,
+  ) = _$DestinationCopyWithImpl<$Res, Destination>;
   @useResult
-  $Res call(
-      {String ref,
-      String name,
-      String country,
-      String continent,
-      String knownFor,
-      List<String> tags,
-      String imageUrl});
+  $Res call({
+    String ref,
+    String name,
+    String country,
+    String continent,
+    String knownFor,
+    List<String> tags,
+    String imageUrl,
+  });
 }
 
 /// @nodoc
@@ -90,36 +93,46 @@ class _$DestinationCopyWithImpl<$Res, $Val extends Destination>
     Object? tags = null,
     Object? imageUrl = null,
   }) {
-    return _then(_value.copyWith(
-      ref: null == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      continent: null == continent
-          ? _value.continent
-          : continent // ignore: cast_nullable_to_non_nullable
-              as String,
-      knownFor: null == knownFor
-          ? _value.knownFor
-          : knownFor // ignore: cast_nullable_to_non_nullable
-              as String,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            ref:
+                null == ref
+                    ? _value.ref
+                    : ref // ignore: cast_nullable_to_non_nullable
+                        as String,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            country:
+                null == country
+                    ? _value.country
+                    : country // ignore: cast_nullable_to_non_nullable
+                        as String,
+            continent:
+                null == continent
+                    ? _value.continent
+                    : continent // ignore: cast_nullable_to_non_nullable
+                        as String,
+            knownFor:
+                null == knownFor
+                    ? _value.knownFor
+                    : knownFor // ignore: cast_nullable_to_non_nullable
+                        as String,
+            tags:
+                null == tags
+                    ? _value.tags
+                    : tags // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+            imageUrl:
+                null == imageUrl
+                    ? _value.imageUrl
+                    : imageUrl // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -127,18 +140,20 @@ class _$DestinationCopyWithImpl<$Res, $Val extends Destination>
 abstract class _$$DestinationImplCopyWith<$Res>
     implements $DestinationCopyWith<$Res> {
   factory _$$DestinationImplCopyWith(
-          _$DestinationImpl value, $Res Function(_$DestinationImpl) then) =
-      __$$DestinationImplCopyWithImpl<$Res>;
+    _$DestinationImpl value,
+    $Res Function(_$DestinationImpl) then,
+  ) = __$$DestinationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String ref,
-      String name,
-      String country,
-      String continent,
-      String knownFor,
-      List<String> tags,
-      String imageUrl});
+  $Res call({
+    String ref,
+    String name,
+    String country,
+    String continent,
+    String knownFor,
+    List<String> tags,
+    String imageUrl,
+  });
 }
 
 /// @nodoc
@@ -146,8 +161,9 @@ class __$$DestinationImplCopyWithImpl<$Res>
     extends _$DestinationCopyWithImpl<$Res, _$DestinationImpl>
     implements _$$DestinationImplCopyWith<$Res> {
   __$$DestinationImplCopyWithImpl(
-      _$DestinationImpl _value, $Res Function(_$DestinationImpl) _then)
-      : super(_value, _then);
+    _$DestinationImpl _value,
+    $Res Function(_$DestinationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Destination
   /// with the given fields replaced by the non-null parameter values.
@@ -162,51 +178,60 @@ class __$$DestinationImplCopyWithImpl<$Res>
     Object? tags = null,
     Object? imageUrl = null,
   }) {
-    return _then(_$DestinationImpl(
-      ref: null == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      continent: null == continent
-          ? _value.continent
-          : continent // ignore: cast_nullable_to_non_nullable
-              as String,
-      knownFor: null == knownFor
-          ? _value.knownFor
-          : knownFor // ignore: cast_nullable_to_non_nullable
-              as String,
-      tags: null == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$DestinationImpl(
+        ref:
+            null == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                    as String,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        country:
+            null == country
+                ? _value.country
+                : country // ignore: cast_nullable_to_non_nullable
+                    as String,
+        continent:
+            null == continent
+                ? _value.continent
+                : continent // ignore: cast_nullable_to_non_nullable
+                    as String,
+        knownFor:
+            null == knownFor
+                ? _value.knownFor
+                : knownFor // ignore: cast_nullable_to_non_nullable
+                    as String,
+        tags:
+            null == tags
+                ? _value._tags
+                : tags // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+        imageUrl:
+            null == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$DestinationImpl implements _Destination {
-  const _$DestinationImpl(
-      {required this.ref,
-      required this.name,
-      required this.country,
-      required this.continent,
-      required this.knownFor,
-      required final List<String> tags,
-      required this.imageUrl})
-      : _tags = tags;
+  const _$DestinationImpl({
+    required this.ref,
+    required this.name,
+    required this.country,
+    required this.continent,
+    required this.knownFor,
+    required final List<String> tags,
+    required this.imageUrl,
+  }) : _tags = tags;
 
   factory _$DestinationImpl.fromJson(Map<String, dynamic> json) =>
       _$$DestinationImplFromJson(json);
@@ -270,8 +295,16 @@ class _$DestinationImpl implements _Destination {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, ref, name, country, continent,
-      knownFor, const DeepCollectionEquality().hash(_tags), imageUrl);
+  int get hashCode => Object.hash(
+    runtimeType,
+    ref,
+    name,
+    country,
+    continent,
+    knownFor,
+    const DeepCollectionEquality().hash(_tags),
+    imageUrl,
+  );
 
   /// Create a copy of Destination
   /// with the given fields replaced by the non-null parameter values.
@@ -283,21 +316,20 @@ class _$DestinationImpl implements _Destination {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DestinationImplToJson(
-      this,
-    );
+    return _$$DestinationImplToJson(this);
   }
 }
 
 abstract class _Destination implements Destination {
-  const factory _Destination(
-      {required final String ref,
-      required final String name,
-      required final String country,
-      required final String continent,
-      required final String knownFor,
-      required final List<String> tags,
-      required final String imageUrl}) = _$DestinationImpl;
+  const factory _Destination({
+    required final String ref,
+    required final String name,
+    required final String country,
+    required final String continent,
+    required final String knownFor,
+    required final List<String> tags,
+    required final String imageUrl,
+  }) = _$DestinationImpl;
 
   factory _Destination.fromJson(Map<String, dynamic> json) =
       _$DestinationImpl.fromJson;

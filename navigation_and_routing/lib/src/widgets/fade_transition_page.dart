@@ -37,8 +37,11 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
   bool get maintainState => true;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     var curveTween = CurveTween(curve: Curves.easeIn);
     return FadeTransition(
       opacity: animation.drive(curveTween),
@@ -47,7 +50,10 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-          Animation<double> secondaryAnimation, Widget child) =>
-      child;
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) => child;
 }

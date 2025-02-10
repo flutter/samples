@@ -20,8 +20,8 @@ class SearchFormViewModel extends ChangeNotifier {
   SearchFormViewModel({
     required ContinentRepository continentRepository,
     required ItineraryConfigRepository itineraryConfigRepository,
-  })  : _continentRepository = continentRepository,
-        _itineraryConfigRepository = itineraryConfigRepository {
+  }) : _continentRepository = continentRepository,
+       _itineraryConfigRepository = itineraryConfigRepository {
     updateItineraryConfig = Command0(_updateItineraryConfig);
     load = Command0(_load)..execute();
   }
@@ -125,10 +125,7 @@ class SearchFormViewModel extends ChangeNotifier {
         _log.fine('ItineraryConfig loaded');
         notifyListeners();
       case Error<ItineraryConfig>():
-        _log.warning(
-          'Failed to load stored ItineraryConfig',
-          result.error,
-        );
+        _log.warning('Failed to load stored ItineraryConfig', result.error);
     }
     return result;
   }

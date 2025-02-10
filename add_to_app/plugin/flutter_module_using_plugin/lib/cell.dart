@@ -62,8 +62,12 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
   Color randomLightColor() {
     _random ??= Random(cellNumber);
 
-    return Color.fromARGB(255, _random!.nextInt(50) + 205,
-        _random!.nextInt(50) + 205, _random!.nextInt(50) + 205);
+    return Color.fromARGB(
+      255,
+      _random!.nextInt(50) + 205,
+      _random!.nextInt(50) + 205,
+      _random!.nextInt(50) + 205,
+    );
   }
 
   @override
@@ -108,9 +112,10 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                       child: StreamBuilder<AccelerometerEvent>(
                         // Don't continuously rebuild for nothing when the
                         // cell isn't visible.
-                        stream: appLifecycleState == AppLifecycleState.resumed
-                            ? accelerometerEventStream()
-                            : Stream.value(defaultPosition),
+                        stream:
+                            appLifecycleState == AppLifecycleState.resumed
+                                ? accelerometerEventStream()
+                                : Stream.value(defaultPosition),
                         initialData: defaultPosition,
                         builder: (context, snapshot) {
                           final data = snapshot.data;
@@ -123,7 +128,8 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                             transform: Matrix4.rotationX(
                               data.y / gravity * pi / 2,
                             )..multiply(
-                                Matrix4.rotationY(data.x / gravity * pi / 2)),
+                              Matrix4.rotationY(data.x / gravity * pi / 2),
+                            ),
                             alignment: Alignment.center,
                             child: const FlutterLogo(size: 72),
                           );

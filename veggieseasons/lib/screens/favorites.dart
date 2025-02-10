@@ -25,25 +25,26 @@ class FavoritesScreen extends StatelessWidget {
             middle: Text('My Garden'),
           ),
           child: Center(
-            child: model.favoriteVeggies.isEmpty
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Text(
-                      'You haven\'t added any favorite veggies to your garden yet.',
-                      style: CupertinoTheme.of(context).textTheme.textStyle,
+            child:
+                model.favoriteVeggies.isEmpty
+                    ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        'You haven\'t added any favorite veggies to your garden yet.',
+                        style: CupertinoTheme.of(context).textTheme.textStyle,
+                      ),
+                    )
+                    : ListView(
+                      restorationId: 'list',
+                      children: [
+                        const SizedBox(height: 24),
+                        for (Veggie veggie in model.favoriteVeggies)
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                            child: VeggieHeadline(veggie),
+                          ),
+                      ],
                     ),
-                  )
-                : ListView(
-                    restorationId: 'list',
-                    children: [
-                      const SizedBox(height: 24),
-                      for (Veggie veggie in model.favoriteVeggies)
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                          child: VeggieHeadline(veggie),
-                        ),
-                    ],
-                  ),
           ),
         );
       },

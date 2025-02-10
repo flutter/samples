@@ -313,8 +313,10 @@ void main() {
         await unsplashClient.searchPhotos(query: 'red');
         fail('UnsplashException should have been thrown');
       } on UnsplashException catch (e) {
-        expect(e.toString(),
-            'UnsplashException: OAuth error: The access token is invalid');
+        expect(
+          e.toString(),
+          'UnsplashException: OAuth error: The access token is invalid',
+        );
       }
     });
 

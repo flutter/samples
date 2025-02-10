@@ -47,12 +47,15 @@ class InAppPurchaseController extends ChangeNotifier {
     notifyListeners();
 
     _log.info('Querying the store with queryProductDetails()');
-    final response = await inAppPurchaseInstance
-        .queryProductDetails({AdRemovalPurchase.productId});
+    final response = await inAppPurchaseInstance.queryProductDetails({
+      AdRemovalPurchase.productId,
+    });
 
     if (response.error != null) {
-      _reportError('There was an error when making the purchase: '
-          '${response.error}');
+      _reportError(
+        'There was an error when making the purchase: '
+        '${response.error}',
+      );
       return;
     }
 
@@ -61,8 +64,10 @@ class InAppPurchaseController extends ChangeNotifier {
         'Products in response: '
         '${response.productDetails.map((e) => '${e.id}: ${e.title}, ').join()}',
       );
-      _reportError('There was an error when making the purchase: '
-          'product ${AdRemovalPurchase.productId} does not exist?');
+      _reportError(
+        'There was an error when making the purchase: '
+        'product ${AdRemovalPurchase.productId} does not exist?',
+      );
       return;
     }
     final productDetails = response.productDetails.single;
@@ -71,14 +76,16 @@ class InAppPurchaseController extends ChangeNotifier {
     final purchaseParam = PurchaseParam(productDetails: productDetails);
     try {
       final success = await inAppPurchaseInstance.buyNonConsumable(
-          purchaseParam: purchaseParam);
+        purchaseParam: purchaseParam,
+      );
       _log.info('buyNonConsumable() request was sent with success: $success');
       // The result of the purchase will be reported in the purchaseStream,
       // which is handled in [_listenToPurchaseUpdated].
     } catch (e) {
       _log.severe(
-          'Problem with calling inAppPurchaseInstance.buyNonConsumable(): '
-          '$e');
+        'Problem with calling inAppPurchaseInstance.buyNonConsumable(): '
+        '$e',
+      );
     }
   }
 
@@ -107,29 +114,38 @@ class InAppPurchaseController extends ChangeNotifier {
   /// Subscribes to the [inAppPurchaseInstance.purchaseStream].
   void subscribe() {
     _subscription?.cancel();
-    _subscription =
-        inAppPurchaseInstance.purchaseStream.listen((purchaseDetailsList) {
-      _listenToPurchaseUpdated(purchaseDetailsList);
-    }, onDone: () {
-      _subscription?.cancel();
-    }, onError: (dynamic error) {
-      _log.severe('Error occurred on the purchaseStream: $error');
-    });
+    _subscription = inAppPurchaseInstance.purchaseStream.listen(
+      (purchaseDetailsList) {
+        _listenToPurchaseUpdated(purchaseDetailsList);
+      },
+      onDone: () {
+        _subscription?.cancel();
+      },
+      onError: (dynamic error) {
+        _log.severe('Error occurred on the purchaseStream: $error');
+      },
+    );
   }
 
   Future<void> _listenToPurchaseUpdated(
-      List<PurchaseDetails> purchaseDetailsList) async {
+    List<PurchaseDetails> purchaseDetailsList,
+  ) async {
     for (final purchaseDetails in purchaseDetailsList) {
-      _log.info(() => 'New PurchaseDetails instance received: '
-          'productID=${purchaseDetails.productID}, '
-          'status=${purchaseDetails.status}, '
-          'purchaseID=${purchaseDetails.purchaseID}, '
-          'error=${purchaseDetails.error}, '
-          'pendingCompletePurchase=${purchaseDetails.pendingCompletePurchase}');
+      _log.info(
+        () =>
+            'New PurchaseDetails instance received: '
+            'productID=${purchaseDetails.productID}, '
+            'status=${purchaseDetails.status}, '
+            'purchaseID=${purchaseDetails.purchaseID}, '
+            'error=${purchaseDetails.error}, '
+            'pendingCompletePurchase=${purchaseDetails.pendingCompletePurchase}',
+      );
 
       if (purchaseDetails.productID != AdRemovalPurchase.productId) {
-        _log.severe("The handling of the product with id "
-            "'${purchaseDetails.productID}' is not implemented.");
+        _log.severe(
+          "The handling of the product with id "
+          "'${purchaseDetails.productID}' is not implemented.",
+        );
         _adRemoval = const AdRemovalPurchase.notStarted();
         notifyListeners();
         continue;
@@ -151,7 +167,8 @@ class InAppPurchaseController extends ChangeNotifier {
           } else {
             _log.severe('Purchase verification failed: $purchaseDetails');
             _adRemoval = AdRemovalPurchase.error(
-                StateError('Purchase could not be verified'));
+              StateError('Purchase could not be verified'),
+            );
             notifyListeners();
           }
         case PurchaseStatus.error:

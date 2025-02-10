@@ -30,11 +30,13 @@ void setupWindow() {
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
-      setWindowFrame(Rect.fromCenter(
-        center: screen!.frame.center,
-        width: windowWidth,
-        height: windowHeight,
-      ));
+      setWindowFrame(
+        Rect.fromCenter(
+          center: screen!.frame.center,
+          width: windowWidth,
+          height: windowHeight,
+        ),
+      );
     });
   }
 }
@@ -43,10 +45,11 @@ final demos = [
   Demo(
     name: 'Sign in with HTTP',
     route: 'signin_http',
-    builder: (context) => SignInHttpDemo(
-      // This sample uses a mock HTTP client.
-      httpClient: mockClient,
-    ),
+    builder:
+        (context) => SignInHttpDemo(
+          // This sample uses a mock HTTP client.
+          httpClient: mockClient,
+        ),
   ),
   Demo(
     name: 'Autofill',
@@ -88,9 +91,7 @@ class FormApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Form Samples',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.teal,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.teal),
       routerConfig: router,
     );
   }
@@ -102,12 +103,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Form Samples'),
-      ),
-      body: ListView(
-        children: [...demos.map((d) => DemoTile(demo: d))],
-      ),
+      appBar: AppBar(title: const Text('Form Samples')),
+      body: ListView(children: [...demos.map((d) => DemoTile(demo: d))]),
     );
   }
 }

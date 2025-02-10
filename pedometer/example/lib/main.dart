@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const Home(),
     );
   }
@@ -67,124 +65,125 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    final barGroups = hourlySteps
-        .map(
-          (e) => BarChartGroupData(
-            x: int.parse(e.startHour),
-            barRods: [
-              BarChartRodData(
-                color: Colors.blue[900],
-                toY: e.steps.toDouble() / 100,
-              )
-            ],
-          ),
-        )
-        .toList();
+    final barGroups =
+        hourlySteps
+            .map(
+              (e) => BarChartGroupData(
+                x: int.parse(e.startHour),
+                barRods: [
+                  BarChartRodData(
+                    color: Colors.blue[900],
+                    toY: e.steps.toDouble() / 100,
+                  ),
+                ],
+              ),
+            )
+            .toList();
 
     return Scaffold(
-        body: Stack(
-      children: [
-        ClipPath(
-          clipper: RoundClipper(),
-          child: FractionallySizedBox(
-            heightFactor: 0.55,
-            widthFactor: 1,
-            child: Container(color: Colors.blue[300]),
+      body: Stack(
+        children: [
+          ClipPath(
+            clipper: RoundClipper(),
+            child: FractionallySizedBox(
+              heightFactor: 0.55,
+              widthFactor: 1,
+              child: Container(color: Colors.blue[300]),
+            ),
           ),
-        ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Padding(
-            padding: const EdgeInsets.all(80.0),
-            child: Column(
-              children: [
-                lastUpdated != null
-                    ? Padding(
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(80.0),
+              child: Column(
+                children: [
+                  lastUpdated != null
+                      ? Padding(
                         padding: const EdgeInsets.symmetric(vertical: 50.0),
                         child: Text(
                           DateFormat.yMMMMd('en_US').format(lastUpdated!),
-                          style: textTheme.titleLarge!
-                              .copyWith(color: Colors.blue[900]),
+                          style: textTheme.titleLarge!.copyWith(
+                            color: Colors.blue[900],
+                          ),
                         ),
                       )
-                    : const SizedBox(height: 0),
-                Text(
-                  hourlySteps.fold(0, (t, e) => t + e.steps).toString(),
-                  style: textTheme.displayMedium!.copyWith(color: Colors.white),
-                ),
-                Text(
-                  'steps',
-                  style: textTheme.titleLarge!.copyWith(color: Colors.white),
-                )
-              ],
+                      : const SizedBox(height: 0),
+                  Text(
+                    hourlySteps.fold(0, (t, e) => t + e.steps).toString(),
+                    style: textTheme.displayMedium!.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    'steps',
+                    style: textTheme.titleLarge!.copyWith(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: GestureDetector(
-            onTap: runPedometer,
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: runPedometer,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue[900],
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.refresh, color: Colors.white, size: 50),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue[900],
-                  shape: BoxShape.circle,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.refresh,
-                    color: Colors.white,
-                    size: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 30.0,
+                vertical: 50.0,
+              ),
+              child: AspectRatio(
+                aspectRatio: 1.2,
+                child: BarChart(
+                  BarChartData(
+                    titlesData: const FlTitlesData(
+                      show: true,
+                      // Top titles are null
+                      topTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      rightTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      leftTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      bottomTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          reservedSize: 30,
+                          getTitlesWidget: getBottomTitles,
+                        ),
+                      ),
+                    ),
+                    borderData: FlBorderData(show: false),
+                    barGroups: barGroups,
+                    gridData: const FlGridData(show: false),
+                    alignment: BarChartAlignment.spaceAround,
                   ),
                 ),
               ),
             ),
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50.0),
-            child: AspectRatio(
-              aspectRatio: 1.2,
-              child: BarChart(
-                BarChartData(
-                  titlesData: const FlTitlesData(
-                    show: true,
-                    // Top titles are null
-                    topTitles:
-                        AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    rightTitles:
-                        AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    leftTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: false,
-                      ),
-                    ),
-                    bottomTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        reservedSize: 30,
-                        getTitlesWidget: getBottomTitles,
-                      ),
-                    ),
-                  ),
-                  borderData: FlBorderData(
-                    show: false,
-                  ),
-                  barGroups: barGroups,
-                  gridData: const FlGridData(show: false),
-                  alignment: BarChartAlignment.spaceAround,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    ));
+        ],
+      ),
+    );
   }
 }
 
@@ -195,7 +194,7 @@ Widget getBottomTitles(double value, TitleMeta meta) {
     6 => '6AM',
     12 => '12PM',
     18 => '6PM',
-    _ => ''
+    _ => '',
   };
   return SideTitleWidget(
     space: 4,

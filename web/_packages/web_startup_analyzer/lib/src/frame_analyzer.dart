@@ -16,7 +16,7 @@ class FrameAnalyzer {
   List<int> additionalFrameTimes = [];
 
   FrameAnalyzer(this._binding, {this.additionalFrames = 10})
-      : _remainingFrames = additionalFrames;
+    : _remainingFrames = additionalFrames;
 
   Future<void> captureAdditionalFrames() {
     _binding.addTimingsCallback(_timingsCallback);

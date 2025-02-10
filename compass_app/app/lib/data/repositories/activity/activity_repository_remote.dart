@@ -11,9 +11,8 @@ import 'activity_repository.dart';
 /// Implements basic local caching.
 /// See: https://docs.flutter.dev/get-started/fwe/local-caching
 class ActivityRepositoryRemote implements ActivityRepository {
-  ActivityRepositoryRemote({
-    required ApiClient apiClient,
-  }) : _apiClient = apiClient;
+  ActivityRepositoryRemote({required ApiClient apiClient})
+    : _apiClient = apiClient;
 
   final ApiClient _apiClient;
 

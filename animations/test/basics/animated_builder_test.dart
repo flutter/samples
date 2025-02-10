@@ -6,9 +6,8 @@ import 'package:animations/src/basics/basics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createAnimatedBuilderDemoScreen() => const MaterialApp(
-      home: AnimatedBuilderDemo(),
-    );
+Widget createAnimatedBuilderDemoScreen() =>
+    const MaterialApp(home: AnimatedBuilderDemo());
 
 void main() {
   group('AnimatedBuilder Tests', () {

@@ -19,23 +19,33 @@ class _$PositionSerializer implements StructuredSerializer<Position> {
   final String wireName = 'Position';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Position object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Position object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'latitude',
-      serializers.serialize(object.latitude,
-          specifiedType: const FullType(double)),
+      serializers.serialize(
+        object.latitude,
+        specifiedType: const FullType(double),
+      ),
       'longitude',
-      serializers.serialize(object.longitude,
-          specifiedType: const FullType(double)),
+      serializers.serialize(
+        object.longitude,
+        specifiedType: const FullType(double),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Position deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Position deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new PositionBuilder();
 
     final iterator = serialized.iterator;
@@ -45,12 +55,20 @@ class _$PositionSerializer implements StructuredSerializer<Position> {
       final Object? value = iterator.current;
       switch (key) {
         case 'latitude':
-          result.latitude = serializers.deserialize(value,
-              specifiedType: const FullType(double))! as double;
+          result.latitude =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(double),
+                  )!
+                  as double;
           break;
         case 'longitude':
-          result.longitude = serializers.deserialize(value,
-              specifiedType: const FullType(double))! as double;
+          result.longitude =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(double),
+                  )!
+                  as double;
           break;
       }
     }
@@ -144,12 +162,20 @@ class PositionBuilder implements Builder<Position, PositionBuilder> {
   Position build() => _build();
 
   _$Position _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$Position._(
-            latitude: BuiltValueNullFieldError.checkNotNull(
-                latitude, r'Position', 'latitude'),
-            longitude: BuiltValueNullFieldError.checkNotNull(
-                longitude, r'Position', 'longitude'));
+          latitude: BuiltValueNullFieldError.checkNotNull(
+            latitude,
+            r'Position',
+            'latitude',
+          ),
+          longitude: BuiltValueNullFieldError.checkNotNull(
+            longitude,
+            r'Position',
+            'longitude',
+          ),
+        );
     replace(_$result);
     return _$result;
   }

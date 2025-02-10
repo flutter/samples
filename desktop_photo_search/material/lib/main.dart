@@ -28,8 +28,10 @@ void main() {
   });
 
   if (unsplashAccessKey.isEmpty) {
-    Logger('main').severe('Unsplash Access Key is required. '
-        'Please add to `lib/unsplash_access_key.dart`.');
+    Logger('main').severe(
+      'Unsplash Access Key is required. '
+      'Please add to `lib/unsplash_access_key.dart`.',
+    );
     exit(1);
   }
 
@@ -37,9 +39,8 @@ void main() {
 
   runApp(
     ChangeNotifierProvider<PhotoSearchModel>(
-      create: (context) => PhotoSearchModel(
-        Unsplash(accessKey: unsplashAccessKey),
-      ),
+      create:
+          (context) => PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
       child: const UnsplashSearchApp(),
     ),
   );
@@ -62,9 +63,7 @@ class UnsplashSearchApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Photo Search',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.orange,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.orange),
       home: const UnsplashHomePage(title: 'Photo Search'),
     );
   }
@@ -78,54 +77,62 @@ class UnsplashHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final photoSearchModel = Provider.of<PhotoSearchModel>(context);
     menubar.setApplicationMenu([
-      menubar.NativeSubmenu(label: 'Search', children: [
-        menubar.NativeMenuItem(
-          label: 'Search…',
-          onSelected: () {
-            showDialog<void>(
-              context: context,
-              builder: (context) =>
-                  PhotoSearchDialog(callback: photoSearchModel.addSearch),
-            );
-          },
-        ),
-        if (!Platform.isMacOS)
+      menubar.NativeSubmenu(
+        label: 'Search',
+        children: [
           menubar.NativeMenuItem(
-            label: 'Quit',
+            label: 'Search…',
             onSelected: () {
-              SystemNavigator.pop();
+              showDialog<void>(
+                context: context,
+                builder:
+                    (context) =>
+                        PhotoSearchDialog(callback: photoSearchModel.addSearch),
+              );
             },
           ),
-      ]),
-      menubar.NativeSubmenu(label: 'About', children: [
-        menubar.NativeMenuItem(
-          label: 'About',
-          onSelected: () {
-            showDialog<void>(
-              context: context,
-              builder: (context) => const PolicyDialog(),
-            );
-          },
-        ),
-      ])
+          if (!Platform.isMacOS)
+            menubar.NativeMenuItem(
+              label: 'Quit',
+              onSelected: () {
+                SystemNavigator.pop();
+              },
+            ),
+        ],
+      ),
+      menubar.NativeSubmenu(
+        label: 'About',
+        children: [
+          menubar.NativeMenuItem(
+            label: 'About',
+            onSelected: () {
+              showDialog<void>(
+                context: context,
+                builder: (context) => const PolicyDialog(),
+              );
+            },
+          ),
+        ],
+      ),
     ]);
 
     return UnsplashNotice(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: photoSearchModel.entries.isNotEmpty
-            ? const UnsplashSearchContent()
-            : const Center(
-                child: Text('Search for Photos using the Fab button'),
-              ),
+        appBar: AppBar(title: Text(title)),
+        body:
+            photoSearchModel.entries.isNotEmpty
+                ? const UnsplashSearchContent()
+                : const Center(
+                  child: Text('Search for Photos using the Fab button'),
+                ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => showDialog<void>(
-            context: context,
-            builder: (context) =>
-                PhotoSearchDialog(callback: photoSearchModel.addSearch),
-          ),
+          onPressed:
+              () => showDialog<void>(
+                context: context,
+                builder:
+                    (context) =>
+                        PhotoSearchDialog(callback: photoSearchModel.addSearch),
+              ),
           tooltip: 'Search for a photo',
           child: const Icon(Icons.search),
         ),

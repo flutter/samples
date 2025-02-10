@@ -4,7 +4,7 @@ description: A sample that shows testing in Flutter.
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.7.0-323.2.beta
 
 dependencies:
   flutter:
@@ -17,8 +17,8 @@ dependencies:
 dev_dependencies:
   analysis_defaults:
     path: ../analysis_defaults
-  integration_test:
-    sdk: flutter
+#  integration_test:
+#    sdk: flutter
   flutter_test:
     sdk: flutter
   test: ^1.16.8

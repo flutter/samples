@@ -19,10 +19,7 @@ import 'model/products_repository.dart';
 import 'styles.dart';
 
 class RowItem extends StatelessWidget {
-  const RowItem({
-    required this.product,
-    super.key,
-  });
+  const RowItem({required this.product, super.key});
 
   final Product product;
 
@@ -42,14 +39,8 @@ class RowItem extends StatelessWidget {
           height: 68,
         ),
       ),
-      title: Text(
-        product.name,
-        style: Styles.productRowItemName,
-      ),
-      subtitle: Text(
-        '\$${product.price}',
-        style: Styles.productRowItemPrice,
-      ),
+      title: Text(product.name, style: Styles.productRowItemName),
+      subtitle: Text('\$${product.price}', style: Styles.productRowItemPrice),
       onTap: () => context.push('/${product.id}'),
     );
   }

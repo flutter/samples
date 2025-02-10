@@ -16,13 +16,10 @@ import 'model/user/user_api_model.dart';
 typedef AuthHeaderProvider = String? Function();
 
 class ApiClient {
-  ApiClient({
-    String? host,
-    int? port,
-    HttpClient Function()? clientFactory,
-  })  : _host = host ?? 'localhost',
-        _port = port ?? 8080,
-        _clientFactory = clientFactory ?? HttpClient.new;
+  ApiClient({String? host, int? port, HttpClient Function()? clientFactory})
+    : _host = host ?? 'localhost',
+      _port = port ?? 8080,
+      _clientFactory = clientFactory ?? HttpClient.new;
 
   final String _host;
   final int _port;
@@ -51,7 +48,8 @@ class ApiClient {
         final stringData = await response.transform(utf8.decoder).join();
         final json = jsonDecode(stringData) as List<dynamic>;
         return Result.ok(
-            json.map((element) => Continent.fromJson(element)).toList());
+          json.map((element) => Continent.fromJson(element)).toList(),
+        );
       } else {
         return const Result.error(HttpException("Invalid response"));
       }
@@ -72,7 +70,8 @@ class ApiClient {
         final stringData = await response.transform(utf8.decoder).join();
         final json = jsonDecode(stringData) as List<dynamic>;
         return Result.ok(
-            json.map((element) => Destination.fromJson(element)).toList());
+          json.map((element) => Destination.fromJson(element)).toList(),
+        );
       } else {
         return const Result.error(HttpException("Invalid response"));
       }
@@ -86,8 +85,11 @@ class ApiClient {
   Future<Result<List<Activity>>> getActivityByDestination(String ref) async {
     final client = _clientFactory();
     try {
-      final request =
-          await client.get(_host, _port, '/destination/$ref/activity');
+      final request = await client.get(
+        _host,
+        _port,
+        '/destination/$ref/activity',
+      );
       await _authHeader(request.headers);
       final response = await request.close();
       if (response.statusCode == 200) {

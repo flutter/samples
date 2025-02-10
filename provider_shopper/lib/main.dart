@@ -31,11 +31,13 @@ void setupWindow() {
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
-      setWindowFrame(Rect.fromCenter(
-        center: screen!.frame.center,
-        width: windowWidth,
-        height: windowHeight,
-      ));
+      setWindowFrame(
+        Rect.fromCenter(
+          center: screen!.frame.center,
+          width: windowWidth,
+          height: windowHeight,
+        ),
+      );
     });
   }
 }
@@ -44,18 +46,12 @@ GoRouter router() {
   return GoRouter(
     initialLocation: '/login',
     routes: [
-      GoRoute(
-        path: '/login',
-        builder: (context, state) => const MyLogin(),
-      ),
+      GoRoute(path: '/login', builder: (context, state) => const MyLogin()),
       GoRoute(
         path: '/catalog',
         builder: (context, state) => const MyCatalog(),
         routes: [
-          GoRoute(
-            path: 'cart',
-            builder: (context, state) => const MyCart(),
-          ),
+          GoRoute(path: 'cart', builder: (context, state) => const MyCart()),
         ],
       ),
     ],

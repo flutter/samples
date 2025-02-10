@@ -14,6 +14,6 @@ FormData _$FormDataFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$FormDataToJson(FormData instance) => <String, dynamic>{
-      'email': instance.email,
-      'password': instance.password,
-    };
+  'email': instance.email,
+  'password': instance.password,
+};

@@ -27,7 +27,8 @@ void main() {
       fakeAuthRepository.token = 'TOKEN';
       // Setup an ItineraryConfig with some data, should be cleared after logout
       fakeItineraryConfigRepository = FakeItineraryConfigRepository(
-          itineraryConfig: const ItineraryConfig(continent: 'CONTINENT'));
+        itineraryConfig: const ItineraryConfig(continent: 'CONTINENT'),
+      );
       viewModel = LogoutViewModel(
         authRepository: fakeAuthRepository,
         itineraryConfigRepository: fakeItineraryConfigRepository,

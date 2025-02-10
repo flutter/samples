@@ -12,14 +12,12 @@ import 'package:testing_app/screens/favorites.dart';
 late Favorites favoritesList;
 
 Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
-      create: (context) {
-        favoritesList = Favorites();
-        return favoritesList;
-      },
-      child: const MaterialApp(
-        home: FavoritesPage(),
-      ),
-    );
+  create: (context) {
+    favoritesList = Favorites();
+    return favoritesList;
+  },
+  child: const MaterialApp(home: FavoritesPage()),
+);
 
 void main() {
   group('Testing App State Management Tests', () {

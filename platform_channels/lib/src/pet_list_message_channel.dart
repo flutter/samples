@@ -9,11 +9,15 @@ import 'package:flutter/services.dart';
 /// This class includes two methods [addPetDetails] and [removePet] which are used
 /// to add a new pet and remove a pet from the the list respectively.
 class PetListMessageChannel {
-  static const _jsonMessageCodecChannel =
-      BasicMessageChannel<dynamic>('jsonMessageCodecDemo', JSONMessageCodec());
+  static const _jsonMessageCodecChannel = BasicMessageChannel<dynamic>(
+    'jsonMessageCodecDemo',
+    JSONMessageCodec(),
+  );
 
-  static const _binaryCodecChannel =
-      BasicMessageChannel('binaryCodecDemo', BinaryCodec());
+  static const _binaryCodecChannel = BasicMessageChannel(
+    'binaryCodecDemo',
+    BinaryCodec(),
+  );
 
   /// Method to add a new pet to the list.
   ///
@@ -43,9 +47,7 @@ class PetListMessageChannel {
 
 /// A model class that provides [petList] which is received from platform.
 class PetListModel {
-  PetListModel({
-    required this.petList,
-  });
+  PetListModel({required this.petList});
 
   final List<PetDetails> petList;
 
@@ -53,32 +55,30 @@ class PetListModel {
   factory PetListModel.fromJson(String jsonString) {
     final jsonData = json.decode(jsonString) as Map<String, dynamic>;
     return PetListModel(
-      petList: List.from((jsonData['petList'] as List).map<PetDetails>(
-        (dynamic petDetailsMap) => PetDetails.fromMap(
-          petDetailsMap as Map<String, dynamic>,
+      petList: List.from(
+        (jsonData['petList'] as List).map<PetDetails>(
+          (dynamic petDetailsMap) =>
+              PetDetails.fromMap(petDetailsMap as Map<String, dynamic>),
         ),
-      )),
+      ),
     );
   }
 }
 
 /// A simple model that provides pet details like [petType] and [breed] of pet.
 class PetDetails {
-  PetDetails({
-    required this.petType,
-    required this.breed,
-  });
+  PetDetails({required this.petType, required this.breed});
 
   final String petType;
   final String breed;
 
   factory PetDetails.fromMap(Map<String, dynamic> map) => PetDetails(
-        petType: map['petType'] as String,
-        breed: map['breed'] as String,
-      );
+    petType: map['petType'] as String,
+    breed: map['breed'] as String,
+  );
 
   Map<String, String> toJson() => <String, String>{
-        'petType': petType,
-        'breed': breed,
-      };
+    'petType': petType,
+    'breed': breed,
+  };
 }

@@ -60,7 +60,7 @@ class ActivityEntry extends StatelessWidget {
             key: ValueKey('${activity.ref}-checkbox'),
             value: selected,
             onChanged: onChanged,
-          )
+          ),
         ],
       ),
     );

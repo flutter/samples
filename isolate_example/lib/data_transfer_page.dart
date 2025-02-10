@@ -53,9 +53,7 @@ class DataTransferPage extends StatelessWidget {
             value: controller.progressPercent,
             backgroundColor: Colors.grey[200],
           ),
-          const Expanded(
-            child: RunningList(),
-          ),
+          const Expanded(child: RunningList()),
           Column(
             children: [
               ElevatedButton(
@@ -116,7 +114,9 @@ class DataTransferIsolateController extends ChangeNotifier {
   Future<void> createIsolate() async {
     _incomingReceivePort = ReceivePort();
     _isolate = await Isolate.spawn(
-        _secondIsolateEntryPoint, _incomingReceivePort.sendPort);
+      _secondIsolateEntryPoint,
+      _incomingReceivePort.sendPort,
+    );
   }
 
   void listen() {
@@ -126,7 +126,9 @@ class DataTransferIsolateController extends ChangeNotifier {
           _outgoingSendPort = message;
         case int():
           currentProgress.insert(
-              0, '$message% - ${_timer.elapsedMilliseconds / 1000} seconds');
+            0,
+            '$message% - ${_timer.elapsedMilliseconds / 1000} seconds',
+          );
           progressPercent = message / 100;
         case 'done':
           runningTest = 0;
@@ -176,8 +178,9 @@ class DataTransferIsolateController extends ChangeNotifier {
       }
 
       if (transferableTyped) {
-        final transferable =
-            TransferableTypedData.fromList([Int32List.fromList(randNums)]);
+        final transferable = TransferableTypedData.fromList([
+          Int32List.fromList(randNums),
+        ]);
         await sendNumbers(transferable);
       } else {
         await sendNumbers(randNums);
@@ -208,9 +211,7 @@ class RunningList extends StatelessWidget {
         Provider.of<DataTransferIsolateController>(context).currentProgress;
 
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-      ),
+      decoration: BoxDecoration(color: Colors.grey[200]),
       child: ListView.builder(
         itemCount: progress.length,
         itemBuilder: (context, index) {
@@ -218,14 +219,9 @@ class RunningList extends StatelessWidget {
             children: [
               Card(
                 color: Colors.lightGreenAccent,
-                child: ListTile(
-                  title: Text(progress[index]),
-                ),
+                child: ListTile(title: Text(progress[index])),
               ),
-              const Divider(
-                color: Colors.blue,
-                height: 3,
-              ),
+              const Divider(color: Colors.blue, height: 3),
             ],
           );
         },
@@ -239,27 +235,28 @@ Future<void> _secondIsolateEntryPoint(SendPort sendPort) async {
   sendPort.send(receivePort.sendPort);
   var length = 1;
 
-  receivePort.listen(
-    (dynamic message) async {
-      if (message is String && message == 'start') {
-        await generateAndSum(sendPort, createNums(), length);
+  receivePort.listen((dynamic message) async {
+    if (message is String && message == 'start') {
+      await generateAndSum(sendPort, createNums(), length);
 
-        sendPort.send('done');
-      } else if (message is TransferableTypedData) {
-        await generateAndSum(
-            sendPort, message.materialize().asInt32List(), length);
-        length++;
-      } else if (message is List<int>) {
-        await generateAndSum(sendPort, message, length);
-        length++;
-      }
+      sendPort.send('done');
+    } else if (message is TransferableTypedData) {
+      await generateAndSum(
+        sendPort,
+        message.materialize().asInt32List(),
+        length,
+      );
+      length++;
+    } else if (message is List<int>) {
+      await generateAndSum(sendPort, message, length);
+      length++;
+    }
 
-      if (length == 101) {
-        sendPort.send('done');
-        length = 1;
-      }
-    },
-  );
+    if (length == 101) {
+      sendPort.send('done');
+      length = 1;
+    }
+  });
 }
 
 Iterable<int> createNums() sync* {

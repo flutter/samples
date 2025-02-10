@@ -34,7 +34,9 @@ abstract class Links implements Built<Links, LinksBuilder> {
 
   static Links? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Links.serializer, json.decode(jsonString));
+      Links.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Links> get serializer => _$linksSerializer;

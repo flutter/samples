@@ -17,14 +17,14 @@ import '../config/constants.dart';
 ///
 /// This token does not expire and is not secure.
 Middleware authRequests() => (innerHandler) {
-      return (Request request) async {
-        if (request.url.path != 'login' &&
-            request.headers['Authorization'] != 'Bearer ${Constants.token}') {
-          // If the request is not a login request and the token is not present,
-          // return a 401 Unauthorized response.
-          return Response.unauthorized('Unauthorized');
-        }
+  return (Request request) async {
+    if (request.url.path != 'login' &&
+        request.headers['Authorization'] != 'Bearer ${Constants.token}') {
+      // If the request is not a login request and the token is not present,
+      // return a 401 Unauthorized response.
+      return Response.unauthorized('Unauthorized');
+    }
 
-        return innerHandler(request);
-      };
-    };
+    return innerHandler(request);
+  };
+};

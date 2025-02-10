@@ -28,9 +28,10 @@ class AppState extends ChangeNotifier {
 
   Veggie getVeggie(int? id) => _veggies.singleWhere((v) => v.id == id);
 
-  List<Veggie> searchVeggies(String? terms) => _veggies
-      .where((v) => v.name.toLowerCase().contains(terms!.toLowerCase()))
-      .toList();
+  List<Veggie> searchVeggies(String? terms) =>
+      _veggies
+          .where((v) => v.name.toLowerCase().contains(terms!.toLowerCase()))
+          .toList();
 
   void setFavorite(int? id, bool isFavorite) {
     var veggie = getVeggie(id);

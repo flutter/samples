@@ -23,9 +23,7 @@ void main() {
           return MissingPluginException();
         },
       );
-      await tester.pumpWidget(const MaterialApp(
-        home: MethodChannelDemo(),
-      ));
+      await tester.pumpWidget(const MaterialApp(home: MethodChannelDemo()));
 
       // Initially the value of count should be 0.
       expect(find.text('Value of count is 0'), findsOneWidget);

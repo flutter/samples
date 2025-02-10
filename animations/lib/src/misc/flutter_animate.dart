@@ -14,19 +14,15 @@ class FlutterAnimateDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Animate Demo'),
-      ),
+      appBar: AppBar(title: const Text('Flutter Animate Demo')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Text(
-            "Hello Flutter Animate",
-            style: Theme.of(context).textTheme.headlineLarge,
-          )
-              .animate(
-                onPlay: (controller) => controller.repeat(),
+                "Hello Flutter Animate",
+                style: Theme.of(context).textTheme.headlineLarge,
               )
+              .animate(onPlay: (controller) => controller.repeat())
               .then(delay: 250.ms)
               .fadeIn(duration: 500.ms)
               .then(delay: 250.ms)

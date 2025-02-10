@@ -12,8 +12,8 @@ class LogoutViewModel {
   LogoutViewModel({
     required AuthRepository authRepository,
     required ItineraryConfigRepository itineraryConfigRepository,
-  })  : _authLogoutRepository = authRepository,
-        _itineraryConfigRepository = itineraryConfigRepository {
+  }) : _authLogoutRepository = authRepository,
+       _itineraryConfigRepository = itineraryConfigRepository {
     logout = Command0(_logout);
   }
   final AuthRepository _authLogoutRepository;
@@ -25,8 +25,9 @@ class LogoutViewModel {
     switch (result) {
       case Ok<void>():
         // clear stored itinerary config
-        return _itineraryConfigRepository
-            .setItineraryConfig(const ItineraryConfig());
+        return _itineraryConfigRepository.setItineraryConfig(
+          const ItineraryConfig(),
+        );
       case Error<void>():
         return result;
     }

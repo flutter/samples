@@ -11,19 +11,16 @@ class HeroAnimationDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hero Animation'),
-      ),
+      appBar: AppBar(title: const Text('Hero Animation')),
       body: GestureDetector(
         child: Hero(
           tag: 'hero-page-child',
-          child: _createHeroContainer(
-            size: 50.0,
-            color: Colors.grey.shade300,
-          ),
+          child: _createHeroContainer(size: 50.0, color: Colors.grey.shade300),
         ),
-        onTap: () => Navigator.of(context).push<void>(
-            MaterialPageRoute(builder: (context) => const HeroPage())),
+        onTap:
+            () => Navigator.of(context).push<void>(
+              MaterialPageRoute(builder: (context) => const HeroPage()),
+            ),
       ),
     );
   }
@@ -40,10 +37,7 @@ class HeroPage extends StatelessWidget {
       body: Center(
         child: Hero(
           tag: 'hero-page-child',
-          child: _createHeroContainer(
-            size: 100.0,
-            color: Colors.white,
-          ),
+          child: _createHeroContainer(size: 100.0, color: Colors.white),
         ),
       ),
     );
@@ -59,10 +53,7 @@ StatelessWidget _createHeroContainer({
     width: size,
     padding: const EdgeInsets.all(10.0),
     margin: size < 100.0 ? const EdgeInsets.all(10.0) : const EdgeInsets.all(0),
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      color: color,
-    ),
+    decoration: BoxDecoration(shape: BoxShape.circle, color: color),
     child: const FlutterLogo(),
   );
 }

@@ -12,10 +12,7 @@ import '../view_models/login_viewmodel.dart';
 import 'tilted_cards.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({
-    super.key,
-    required this.viewModel,
-  });
+  const LoginScreen({super.key, required this.viewModel});
 
   final LoginViewModel viewModel;
 
@@ -24,10 +21,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _email =
-      TextEditingController(text: 'email@example.com');
-  final TextEditingController _password =
-      TextEditingController(text: 'password');
+  final TextEditingController _email = TextEditingController(
+    text: 'email@example.com',
+  );
+  final TextEditingController _password = TextEditingController(
+    text: 'password',
+  );
 
   @override
   void initState() {
@@ -61,22 +60,19 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                TextField(
-                  controller: _email,
-                ),
+                TextField(controller: _email),
                 const SizedBox(height: Dimens.paddingVertical),
-                TextField(
-                  controller: _password,
-                  obscureText: true,
-                ),
+                TextField(controller: _password, obscureText: true),
                 const SizedBox(height: Dimens.paddingVertical),
                 ListenableBuilder(
                   listenable: widget.viewModel.login,
                   builder: (context, _) {
                     return FilledButton(
                       onPressed: () {
-                        widget.viewModel.login
-                            .execute((_email.value.text, _password.value.text));
+                        widget.viewModel.login.execute((
+                          _email.value.text,
+                          _password.value.text,
+                        ));
                       },
                       child: Text(AppLocalization.of(context).login),
                     );
@@ -103,8 +99,11 @@ class _LoginScreenState extends State<LoginScreen> {
           content: Text(AppLocalization.of(context).errorWhileLogin),
           action: SnackBarAction(
             label: AppLocalization.of(context).tryAgain,
-            onPressed: () => widget.viewModel.login
-                .execute((_email.value.text, _password.value.text)),
+            onPressed:
+                () => widget.viewModel.login.execute((
+                  _email.value.text,
+                  _password.value.text,
+                )),
           ),
         ),
       );

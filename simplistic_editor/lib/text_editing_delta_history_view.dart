@@ -7,7 +7,8 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
   const TextEditingDeltaHistoryView({super.key});
 
   List<Widget> _buildTextEditingDeltaHistoryViews(
-      List<TextEditingDelta> textEditingDeltas) {
+    List<TextEditingDelta> textEditingDeltas,
+  ) {
     List<Widget> textEditingDeltaViews = [];
 
     for (final TextEditingDelta delta in textEditingDeltas) {
@@ -68,7 +69,8 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
         children: [
           Expanded(
             child: Tooltip(
-              message: 'The type of text input that is occurring.'
+              message:
+                  'The type of text input that is occurring.'
                   ' Check out the documentation for TextEditingDelta for more information.',
               child: _buildTextEditingDeltaViewHeading('Delta Type'),
             ),
@@ -127,7 +129,8 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 35.0),
             itemBuilder: (context, index) {
               return _buildTextEditingDeltaHistoryViews(
-                  manager.appState.textEditingDeltaHistory)[index];
+                manager.appState.textEditingDeltaHistory,
+              )[index];
             },
             itemCount: manager.appState.textEditingDeltaHistory.length,
             separatorBuilder: (context, index) {

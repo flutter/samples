@@ -80,9 +80,7 @@ Future<void> main() async {
   // }
 
   _log.info('Going full screen');
-  SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.edgeToEdge,
-  );
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   // TODO: When ready, uncomment the following lines to enable integrations.
   //       Read the README for more info on each integration.
@@ -130,70 +128,73 @@ class MyApp extends StatelessWidget {
   static final _router = GoRouter(
     routes: [
       GoRoute(
-          path: '/',
-          builder: (context, state) =>
-              const MainMenuScreen(key: Key('main menu')),
-          routes: [
-            GoRoute(
-                path: 'play',
-                pageBuilder: (context, state) => buildMyTransition<void>(
-                      key: ValueKey('play'),
-                      child: const LevelSelectionScreen(
-                        key: Key('level selection'),
-                      ),
-                      color: context.watch<Palette>().backgroundLevelSelection,
-                    ),
-                routes: [
-                  GoRoute(
-                    path: 'session/:level',
-                    pageBuilder: (context, state) {
-                      final levelNumber =
-                          int.parse(state.pathParameters['level']!);
-                      final level = gameLevels
-                          .singleWhere((e) => e.number == levelNumber);
-                      return buildMyTransition<void>(
-                        key: ValueKey('level'),
-                        child: PlaySessionScreen(
-                          level,
-                          key: const Key('play session'),
-                        ),
-                        color: context.watch<Palette>().backgroundPlaySession,
-                      );
-                    },
+        path: '/',
+        builder:
+            (context, state) => const MainMenuScreen(key: Key('main menu')),
+        routes: [
+          GoRoute(
+            path: 'play',
+            pageBuilder:
+                (context, state) => buildMyTransition<void>(
+                  key: ValueKey('play'),
+                  child: const LevelSelectionScreen(
+                    key: Key('level selection'),
                   ),
-                  GoRoute(
-                    path: 'won',
-                    redirect: (context, state) {
-                      if (state.extra == null) {
-                        // Trying to navigate to a win screen without any data.
-                        // Possibly by using the browser's back button.
-                        return '/';
-                      }
+                  color: context.watch<Palette>().backgroundLevelSelection,
+                ),
+            routes: [
+              GoRoute(
+                path: 'session/:level',
+                pageBuilder: (context, state) {
+                  final levelNumber = int.parse(state.pathParameters['level']!);
+                  final level = gameLevels.singleWhere(
+                    (e) => e.number == levelNumber,
+                  );
+                  return buildMyTransition<void>(
+                    key: ValueKey('level'),
+                    child: PlaySessionScreen(
+                      level,
+                      key: const Key('play session'),
+                    ),
+                    color: context.watch<Palette>().backgroundPlaySession,
+                  );
+                },
+              ),
+              GoRoute(
+                path: 'won',
+                redirect: (context, state) {
+                  if (state.extra == null) {
+                    // Trying to navigate to a win screen without any data.
+                    // Possibly by using the browser's back button.
+                    return '/';
+                  }
 
-                      // Otherwise, do not redirect.
-                      return null;
-                    },
-                    pageBuilder: (context, state) {
-                      final map = state.extra! as Map<String, dynamic>;
-                      final score = map['score'] as Score;
+                  // Otherwise, do not redirect.
+                  return null;
+                },
+                pageBuilder: (context, state) {
+                  final map = state.extra! as Map<String, dynamic>;
+                  final score = map['score'] as Score;
 
-                      return buildMyTransition<void>(
-                        key: ValueKey('won'),
-                        child: WinGameScreen(
-                          score: score,
-                          key: const Key('win game'),
-                        ),
-                        color: context.watch<Palette>().backgroundPlaySession,
-                      );
-                    },
-                  )
-                ]),
-            GoRoute(
-              path: 'settings',
-              builder: (context, state) =>
-                  const SettingsScreen(key: Key('settings')),
-            ),
-          ]),
+                  return buildMyTransition<void>(
+                    key: ValueKey('won'),
+                    child: WinGameScreen(
+                      score: score,
+                      key: const Key('win game'),
+                    ),
+                    color: context.watch<Palette>().backgroundPlaySession,
+                  );
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: 'settings',
+            builder:
+                (context, state) => const SettingsScreen(key: Key('settings')),
+          ),
+        ],
+      ),
     ],
   );
 
@@ -229,18 +230,24 @@ class MyApp extends StatelessWidget {
             },
           ),
           Provider<GamesServicesController?>.value(
-              value: gamesServicesController),
+            value: gamesServicesController,
+          ),
           Provider<AdsController?>.value(value: adsController),
           ChangeNotifierProvider<InAppPurchaseController?>.value(
-              value: inAppPurchaseController),
+            value: inAppPurchaseController,
+          ),
           Provider<SettingsController>(
             lazy: false,
-            create: (context) => SettingsController(
-              persistence: settingsPersistence,
-            )..loadStateFromPersistence(),
+            create:
+                (context) =>
+                    SettingsController(persistence: settingsPersistence)
+                      ..loadStateFromPersistence(),
           ),
-          ProxyProvider2<SettingsController, ValueNotifier<AppLifecycleState>,
-              AudioController>(
+          ProxyProvider2<
+            SettingsController,
+            ValueNotifier<AppLifecycleState>,
+            AudioController
+          >(
             // Ensures that the AudioController is created on startup,
             // and not "only when it's needed", as is default behavior.
             // This way, music starts immediately.
@@ -254,32 +261,28 @@ class MyApp extends StatelessWidget {
             },
             dispose: (context, audio) => audio.dispose(),
           ),
-          Provider(
-            create: (context) => Palette(),
-          ),
+          Provider(create: (context) => Palette()),
         ],
-        child: Builder(builder: (context) {
-          final palette = context.watch<Palette>();
+        child: Builder(
+          builder: (context) {
+            final palette = context.watch<Palette>();
 
-          return MaterialApp.router(
-            title: 'Flutter Demo',
-            theme: ThemeData.from(
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: palette.darkPen,
-                surface: palette.backgroundMain,
-              ),
-              textTheme: TextTheme(
-                bodyMedium: TextStyle(
-                  color: palette.ink,
+            return MaterialApp.router(
+              title: 'Flutter Demo',
+              theme: ThemeData.from(
+                colorScheme: ColorScheme.fromSeed(
+                  seedColor: palette.darkPen,
+                  surface: palette.backgroundMain,
                 ),
+                textTheme: TextTheme(bodyMedium: TextStyle(color: palette.ink)),
               ),
-            ),
-            routeInformationProvider: _router.routeInformationProvider,
-            routeInformationParser: _router.routeInformationParser,
-            routerDelegate: _router.routerDelegate,
-            scaffoldMessengerKey: scaffoldMessengerKey,
-          );
-        }),
+              routeInformationProvider: _router.routeInformationProvider,
+              routeInformationParser: _router.routeInformationParser,
+              routerDelegate: _router.routerDelegate,
+              scaffoldMessengerKey: scaffoldMessengerKey,
+            );
+          },
+        ),
       ),
     );
   }

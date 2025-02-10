@@ -13,9 +13,9 @@ part 'current_user_collections.g.dart';
 
 abstract class CurrentUserCollections
     implements Built<CurrentUserCollections, CurrentUserCollectionsBuilder> {
-  factory CurrentUserCollections(
-          [void Function(CurrentUserCollectionsBuilder)? updates]) =
-      _$CurrentUserCollections;
+  factory CurrentUserCollections([
+    void Function(CurrentUserCollectionsBuilder)? updates,
+  ]) = _$CurrentUserCollections;
 
   CurrentUserCollections._();
 
@@ -33,12 +33,15 @@ abstract class CurrentUserCollections
 
   String toJson() {
     return json.encode(
-        serializers.serializeWith(CurrentUserCollections.serializer, this));
+      serializers.serializeWith(CurrentUserCollections.serializer, this),
+    );
   }
 
   static CurrentUserCollections? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        CurrentUserCollections.serializer, json.decode(jsonString));
+      CurrentUserCollections.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<CurrentUserCollections> get serializer =>

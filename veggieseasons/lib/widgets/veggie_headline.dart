@@ -32,10 +32,7 @@ class ZoomClipAssetImage extends StatelessWidget {
         child: OverflowBox(
           maxHeight: height! * zoom,
           maxWidth: width! * zoom,
-          child: Image.asset(
-            imageAsset,
-            fit: BoxFit.fill,
-          ),
+          child: Image.asset(imageAsset, fit: BoxFit.fill),
         ),
       ),
     );
@@ -96,10 +93,7 @@ class VeggieHeadline extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(
-                      veggie.name,
-                      style: Styles.headlineName(themeData),
-                    ),
+                    Text(veggie.name, style: Styles.headlineName(themeData)),
                     ..._buildSeasonDots(veggie.seasons),
                   ],
                 ),
@@ -109,7 +103,7 @@ class VeggieHeadline extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

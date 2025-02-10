@@ -36,12 +36,15 @@ class AdsController {
   void preloadAd() {
     // TODO: When ready, change this to the Ad Unit IDs provided by AdMob.
     //       The current values are AdMob's sample IDs.
-    final adUnitId = defaultTargetPlatform == TargetPlatform.android
-        ? 'ca-app-pub-3940256099942544/6300978111'
-        // iOS
-        : 'ca-app-pub-3940256099942544/2934735716';
-    _preloadedAd =
-        PreloadedBannerAd(size: AdSize.mediumRectangle, adUnitId: adUnitId);
+    final adUnitId =
+        defaultTargetPlatform == TargetPlatform.android
+            ? 'ca-app-pub-3940256099942544/6300978111'
+            // iOS
+            : 'ca-app-pub-3940256099942544/2934735716';
+    _preloadedAd = PreloadedBannerAd(
+      size: AdSize.mediumRectangle,
+      adUnitId: adUnitId,
+    );
 
     // Wait a bit so that calling at start of a new screen doesn't have
     // adverse effects on performance.

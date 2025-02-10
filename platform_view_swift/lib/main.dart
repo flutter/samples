@@ -18,9 +18,7 @@ class PlatformView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Platform View',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-      ),
+      theme: ThemeData(primarySwatch: Colors.grey),
       home: const HomePage(),
     );
   }
@@ -34,23 +32,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const MethodChannel _methodChannel =
-      MethodChannel('dev.flutter.sample/platform_view_swift');
+  static const MethodChannel _methodChannel = MethodChannel(
+    'dev.flutter.sample/platform_view_swift',
+  );
 
   int _counter = 0;
 
   Future<void> _launchPlatformCount() async {
-    final platformCounter =
-        await _methodChannel.invokeMethod<int>('switchView', _counter);
+    final platformCounter = await _methodChannel.invokeMethod<int>(
+      'switchView',
+      _counter,
+    );
     setState(() => _counter = platformCounter ?? 0);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home page'),
-      ),
+      appBar: AppBar(title: const Text('Home page')),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

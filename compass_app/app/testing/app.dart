@@ -30,9 +30,7 @@ Future<void> testApp(
         theme: AppTheme.lightTheme,
         home: InheritedGoRouter(
           goRouter: goRouter ?? MockGoRouter(),
-          child: Scaffold(
-            body: body,
-          ),
+          child: Scaffold(body: body),
         ),
       ),
     );

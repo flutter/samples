@@ -12,7 +12,8 @@ part of 'booking_api_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 BookingApiModel _$BookingApiModelFromJson(Map<String, dynamic> json) {
   return _BookingApiModel.fromJson(json);
@@ -52,16 +53,18 @@ mixin _$BookingApiModel {
 /// @nodoc
 abstract class $BookingApiModelCopyWith<$Res> {
   factory $BookingApiModelCopyWith(
-          BookingApiModel value, $Res Function(BookingApiModel) then) =
-      _$BookingApiModelCopyWithImpl<$Res, BookingApiModel>;
+    BookingApiModel value,
+    $Res Function(BookingApiModel) then,
+  ) = _$BookingApiModelCopyWithImpl<$Res, BookingApiModel>;
   @useResult
-  $Res call(
-      {int? id,
-      DateTime startDate,
-      DateTime endDate,
-      String name,
-      String destinationRef,
-      List<String> activitiesRef});
+  $Res call({
+    int? id,
+    DateTime startDate,
+    DateTime endDate,
+    String name,
+    String destinationRef,
+    List<String> activitiesRef,
+  });
 }
 
 /// @nodoc
@@ -86,50 +89,61 @@ class _$BookingApiModelCopyWithImpl<$Res, $Val extends BookingApiModel>
     Object? destinationRef = null,
     Object? activitiesRef = null,
   }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      destinationRef: null == destinationRef
-          ? _value.destinationRef
-          : destinationRef // ignore: cast_nullable_to_non_nullable
-              as String,
-      activitiesRef: null == activitiesRef
-          ? _value.activitiesRef
-          : activitiesRef // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            startDate:
+                null == startDate
+                    ? _value.startDate
+                    : startDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            endDate:
+                null == endDate
+                    ? _value.endDate
+                    : endDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            destinationRef:
+                null == destinationRef
+                    ? _value.destinationRef
+                    : destinationRef // ignore: cast_nullable_to_non_nullable
+                        as String,
+            activitiesRef:
+                null == activitiesRef
+                    ? _value.activitiesRef
+                    : activitiesRef // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$BookingApiModelImplCopyWith<$Res>
     implements $BookingApiModelCopyWith<$Res> {
-  factory _$$BookingApiModelImplCopyWith(_$BookingApiModelImpl value,
-          $Res Function(_$BookingApiModelImpl) then) =
-      __$$BookingApiModelImplCopyWithImpl<$Res>;
+  factory _$$BookingApiModelImplCopyWith(
+    _$BookingApiModelImpl value,
+    $Res Function(_$BookingApiModelImpl) then,
+  ) = __$$BookingApiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int? id,
-      DateTime startDate,
-      DateTime endDate,
-      String name,
-      String destinationRef,
-      List<String> activitiesRef});
+  $Res call({
+    int? id,
+    DateTime startDate,
+    DateTime endDate,
+    String name,
+    String destinationRef,
+    List<String> activitiesRef,
+  });
 }
 
 /// @nodoc
@@ -137,8 +151,9 @@ class __$$BookingApiModelImplCopyWithImpl<$Res>
     extends _$BookingApiModelCopyWithImpl<$Res, _$BookingApiModelImpl>
     implements _$$BookingApiModelImplCopyWith<$Res> {
   __$$BookingApiModelImplCopyWithImpl(
-      _$BookingApiModelImpl _value, $Res Function(_$BookingApiModelImpl) _then)
-      : super(_value, _then);
+    _$BookingApiModelImpl _value,
+    $Res Function(_$BookingApiModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of BookingApiModel
   /// with the given fields replaced by the non-null parameter values.
@@ -152,46 +167,54 @@ class __$$BookingApiModelImplCopyWithImpl<$Res>
     Object? destinationRef = null,
     Object? activitiesRef = null,
   }) {
-    return _then(_$BookingApiModelImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      destinationRef: null == destinationRef
-          ? _value.destinationRef
-          : destinationRef // ignore: cast_nullable_to_non_nullable
-              as String,
-      activitiesRef: null == activitiesRef
-          ? _value._activitiesRef
-          : activitiesRef // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
+    return _then(
+      _$BookingApiModelImpl(
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        startDate:
+            null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        endDate:
+            null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        destinationRef:
+            null == destinationRef
+                ? _value.destinationRef
+                : destinationRef // ignore: cast_nullable_to_non_nullable
+                    as String,
+        activitiesRef:
+            null == activitiesRef
+                ? _value._activitiesRef
+                : activitiesRef // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BookingApiModelImpl implements _BookingApiModel {
-  const _$BookingApiModelImpl(
-      {this.id,
-      required this.startDate,
-      required this.endDate,
-      required this.name,
-      required this.destinationRef,
-      required final List<String> activitiesRef})
-      : _activitiesRef = activitiesRef;
+  const _$BookingApiModelImpl({
+    this.id,
+    required this.startDate,
+    required this.endDate,
+    required this.name,
+    required this.destinationRef,
+    required final List<String> activitiesRef,
+  }) : _activitiesRef = activitiesRef;
 
   factory _$BookingApiModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookingApiModelImplFromJson(json);
@@ -245,14 +268,23 @@ class _$BookingApiModelImpl implements _BookingApiModel {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.destinationRef, destinationRef) ||
                 other.destinationRef == destinationRef) &&
-            const DeepCollectionEquality()
-                .equals(other._activitiesRef, _activitiesRef));
+            const DeepCollectionEquality().equals(
+              other._activitiesRef,
+              _activitiesRef,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, startDate, endDate, name,
-      destinationRef, const DeepCollectionEquality().hash(_activitiesRef));
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    startDate,
+    endDate,
+    name,
+    destinationRef,
+    const DeepCollectionEquality().hash(_activitiesRef),
+  );
 
   /// Create a copy of BookingApiModel
   /// with the given fields replaced by the non-null parameter values.
@@ -261,24 +293,25 @@ class _$BookingApiModelImpl implements _BookingApiModel {
   @pragma('vm:prefer-inline')
   _$$BookingApiModelImplCopyWith<_$BookingApiModelImpl> get copyWith =>
       __$$BookingApiModelImplCopyWithImpl<_$BookingApiModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BookingApiModelImplToJson(
-      this,
-    );
+    return _$$BookingApiModelImplToJson(this);
   }
 }
 
 abstract class _BookingApiModel implements BookingApiModel {
-  const factory _BookingApiModel(
-      {final int? id,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final String name,
-      required final String destinationRef,
-      required final List<String> activitiesRef}) = _$BookingApiModelImpl;
+  const factory _BookingApiModel({
+    final int? id,
+    required final DateTime startDate,
+    required final DateTime endDate,
+    required final String name,
+    required final String destinationRef,
+    required final List<String> activitiesRef,
+  }) = _$BookingApiModelImpl;
 
   factory _BookingApiModel.fromJson(Map<String, dynamic> json) =
       _$BookingApiModelImpl.fromJson;

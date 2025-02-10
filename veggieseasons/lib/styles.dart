@@ -21,22 +21,20 @@ abstract class Styles {
     ),
   );
 
-  static TextStyle headlineText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-      );
+  static TextStyle headlineText(CupertinoThemeData themeData) => themeData
+      .textTheme
+      .textStyle
+      .copyWith(fontSize: 32, fontWeight: FontWeight.bold);
 
-  static TextStyle minorText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        color: const Color.fromRGBO(128, 128, 128, 1),
-      );
+  static TextStyle minorText(CupertinoThemeData themeData) => themeData
+      .textTheme
+      .textStyle
+      .copyWith(color: const Color.fromRGBO(128, 128, 128, 1));
 
-  static TextStyle headlineName(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-      );
+  static TextStyle headlineName(CupertinoThemeData themeData) => themeData
+      .textTheme
+      .textStyle
+      .copyWith(fontSize: 24, fontWeight: FontWeight.bold);
 
   static TextStyle cardTitleText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
@@ -45,26 +43,23 @@ abstract class Styles {
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle cardCategoryText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        color: const Color.fromRGBO(255, 255, 255, 0.9),
-      );
+  static TextStyle cardCategoryText(CupertinoThemeData themeData) => themeData
+      .textTheme
+      .textStyle
+      .copyWith(color: const Color.fromRGBO(255, 255, 255, 0.9));
 
   static TextStyle cardDescriptionText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
         color: const Color.fromRGBO(0, 0, 0, 0.9),
       );
 
-  static TextStyle detailsTitleText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      );
+  static TextStyle detailsTitleText(CupertinoThemeData themeData) => themeData
+      .textTheme
+      .textStyle
+      .copyWith(fontSize: 30, fontWeight: FontWeight.bold);
 
   static TextStyle detailsPreferredCategoryText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontWeight: FontWeight.bold,
-      );
+      themeData.textTheme.textStyle.copyWith(fontWeight: FontWeight.bold);
 
   static TextStyle detailsBoldDescriptionText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
@@ -79,24 +74,16 @@ abstract class Styles {
       );
 
   static TextStyle detailsServingLabelText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontWeight: FontWeight.bold,
-      );
+      themeData.textTheme.textStyle.copyWith(fontWeight: FontWeight.bold);
 
   static TextStyle detailsServingNoteText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontStyle: FontStyle.italic,
-      );
+      themeData.textTheme.textStyle.copyWith(fontStyle: FontStyle.italic);
 
   static TextStyle triviaFinishedTitleText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 32,
-      );
+      themeData.textTheme.textStyle.copyWith(fontSize: 32);
 
   static TextStyle triviaFinishedBigText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 48,
-      );
+      themeData.textTheme.textStyle.copyWith(fontSize: 48);
 
   static TextStyle settingsGroupHeaderText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
@@ -126,10 +113,7 @@ abstract class Styles {
   static const closeButtonPressed = Color(0xff808080);
 
   static TextStyle settingsItemSubtitleText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 12,
-        letterSpacing: -0.2,
-      );
+      themeData.textTheme.textStyle.copyWith(fontSize: 12, letterSpacing: -0.2);
 
   static const Color searchCursorColor = Color.fromRGBO(0, 122, 255, 1);
 
@@ -224,6 +208,6 @@ abstract class Styles {
   static const servingInfoBorderColor = Color(0xffb0b0b0);
 
   static const ColorFilter desaturatedColorFilter =
-      // 222222 is a random color that has low color saturation.
-      ColorFilter.mode(Color(0xff222222), BlendMode.saturation);
+  // 222222 is a random color that has low color saturation.
+  ColorFilter.mode(Color(0xff222222), BlendMode.saturation);
 }

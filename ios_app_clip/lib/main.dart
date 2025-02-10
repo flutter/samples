@@ -25,7 +25,8 @@ class _DemoState extends State<Demo> {
   void initState() {
     DeviceInfoPlugin().iosInfo.then((info) {
       setState(() {
-        deviceInfo = '${info.name} on ${info.systemName} version '
+        deviceInfo =
+            '${info.name} on ${info.systemName} version '
             '${info.systemVersion}';
       });
     });
@@ -36,9 +37,7 @@ class _DemoState extends State<Demo> {
   Widget build(BuildContext context) {
     return CupertinoApp(
       home: CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text('App Clip'),
-        ),
+        navigationBar: const CupertinoNavigationBar(middle: Text('App Clip')),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -14,17 +14,15 @@ void main() {
     testWidgets('Enter pet details', (tester) async {
       tester.binding.defaultBinaryMessenger.setMockDecodedMessageHandler(
         const BasicMessageChannel<dynamic>(
-            'jsonMessageCodecDemo', JSONMessageCodec()),
+          'jsonMessageCodecDemo',
+          JSONMessageCodec(),
+        ),
         (dynamic message) async {
           petList.add(message as Map);
         },
       );
       var router = app.router('/petListScreen/addPetDetails');
-      await tester.pumpWidget(
-        MaterialApp.router(
-          routerConfig: router,
-        ),
-      );
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
 
       // Enter the breed of cat.
       await tester.enterText(find.byType(TextField), 'Persian');

@@ -12,12 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-enum Category {
-  all,
-  accessories,
-  clothing,
-  home,
-}
+enum Category { all, accessories, clothing, home }
 
 class ProductsRepository {
   static const _allProducts = <Product>[
@@ -75,12 +70,7 @@ class ProductsRepository {
       name: 'Shrug bag',
       price: 198,
     ),
-    Product(
-      category: Category.home,
-      id: 9,
-      name: 'Gilt desk trio',
-      price: 58,
-    ),
+    Product(category: Category.home, id: 9, name: 'Gilt desk trio', price: 58),
     Product(
       category: Category.home,
       id: 10,
@@ -99,18 +89,8 @@ class ProductsRepository {
       name: 'Hurrahs tea set',
       price: 34,
     ),
-    Product(
-      category: Category.home,
-      id: 13,
-      name: 'Blue stone mug',
-      price: 18,
-    ),
-    Product(
-      category: Category.home,
-      id: 14,
-      name: 'Rainwater tray',
-      price: 27,
-    ),
+    Product(category: Category.home, id: 13, name: 'Blue stone mug', price: 18),
+    Product(category: Category.home, id: 14, name: 'Rainwater tray', price: 27),
     Product(
       category: Category.home,
       id: 15,
@@ -123,12 +103,7 @@ class ProductsRepository {
       name: 'Succulent planters',
       price: 16,
     ),
-    Product(
-      category: Category.home,
-      id: 17,
-      name: 'Quartet table',
-      price: 175,
-    ),
+    Product(category: Category.home, id: 17, name: 'Quartet table', price: 175),
     Product(
       category: Category.home,
       id: 18,
@@ -141,12 +116,7 @@ class ProductsRepository {
       name: 'Clay sweater',
       price: 48,
     ),
-    Product(
-      category: Category.clothing,
-      id: 20,
-      name: 'Sea tunic',
-      price: 45,
-    ),
+    Product(category: Category.clothing, id: 20, name: 'Sea tunic', price: 45),
     Product(
       category: Category.clothing,
       id: 21,
@@ -265,11 +235,11 @@ class ProductsRepository {
 }
 
 String getCategoryTitle(Category category) => switch (category) {
-      Category.all => 'All',
-      Category.accessories => 'Accessories',
-      Category.clothing => 'Clothing',
-      Category.home => 'Home Decorations'
-    };
+  Category.all => 'All',
+  Category.accessories => 'Accessories',
+  Category.clothing => 'Clothing',
+  Category.home => 'Home Decorations',
+};
 
 class Product {
   const Product({

@@ -47,36 +47,40 @@ class AppStateWidget extends StatefulWidget {
 class AppStateWidgetState extends State<AppStateWidget> {
   AppState _data = AppState(
     replacementsController: ReplacementTextEditingController(
-        text: 'The quick brown fox jumps over the lazy dog.'),
+      text: 'The quick brown fox jumps over the lazy dog.',
+    ),
     textEditingDeltaHistory: <TextEditingDelta>[],
     toggleButtonsState: <ToggleButtonsState>{},
   );
 
   void updateTextEditingDeltaHistory(List<TextEditingDelta> textEditingDeltas) {
-    _data = _data.copyWith(textEditingDeltaHistory: <TextEditingDelta>[
-      ..._data.textEditingDeltaHistory,
-      ...textEditingDeltas
-    ]);
+    _data = _data.copyWith(
+      textEditingDeltaHistory: <TextEditingDelta>[
+        ..._data.textEditingDeltaHistory,
+        ...textEditingDeltas,
+      ],
+    );
     setState(() {});
   }
 
   void updateToggleButtonsStateOnSelectionChanged(
-      TextSelection selection, ReplacementTextEditingController controller) {
+    TextSelection selection,
+    ReplacementTextEditingController controller,
+  ) {
     // When the selection changes we want to check the replacements at the new
     // selection. Enable/disable toggle buttons based on the replacements found
     // at the new selection.
-    final List<TextStyle> replacementStyles =
-        controller.getReplacementsAtSelection(selection);
+    final List<TextStyle> replacementStyles = controller
+        .getReplacementsAtSelection(selection);
     final Set<ToggleButtonsState> hasChanged = {};
 
     if (replacementStyles.isEmpty) {
       _data = _data.copyWith(
-        toggleButtonsState: Set.from(_data.toggleButtonsState)
-          ..removeAll({
-            ToggleButtonsState.bold,
-            ToggleButtonsState.italic,
-            ToggleButtonsState.underline,
-          }),
+        toggleButtonsState: Set.from(_data.toggleButtonsState)..removeAll({
+          ToggleButtonsState.bold,
+          ToggleButtonsState.italic,
+          ToggleButtonsState.underline,
+        }),
       );
     }
 
@@ -185,7 +189,9 @@ class AppStateWidgetState extends State<AppStateWidget> {
     } else {
       controller.disableExpand(attributeMap[index]!);
       controller.removeReplacementsAtRange(
-          replacementRange, attributeMap[index]);
+        replacementRange,
+        attributeMap[index],
+      );
       _data = _data.copyWith(replacementsController: controller);
       setState(() {});
     }
@@ -193,9 +199,6 @@ class AppStateWidgetState extends State<AppStateWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return AppStateManager(
-      state: _data,
-      child: widget.child,
-    );
+    return AppStateManager(state: _data, child: widget.child);
   }
 }

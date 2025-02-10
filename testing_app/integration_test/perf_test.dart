@@ -55,11 +55,7 @@ void main() {
       await binding.watchPerformance(
         () async {
           // Create a list of icon keys.
-          final iconKeys = [
-            'icon_0',
-            'icon_1',
-            'icon_2',
-          ];
+          final iconKeys = ['icon_0', 'icon_1', 'icon_2'];
 
           // Add first three items to favorites.
           for (var icon in iconKeys) {

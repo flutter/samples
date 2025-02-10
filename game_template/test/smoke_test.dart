@@ -10,13 +10,15 @@ import 'package:game_template/src/settings/persistence/memory_settings_persisten
 void main() {
   testWidgets('smoke test', (tester) async {
     // Build our game and trigger a frame.
-    await tester.pumpWidget(MyApp(
-      settingsPersistence: MemoryOnlySettingsPersistence(),
-      playerProgressPersistence: MemoryOnlyPlayerProgressPersistence(),
-      adsController: null,
-      gamesServicesController: null,
-      inAppPurchaseController: null,
-    ));
+    await tester.pumpWidget(
+      MyApp(
+        settingsPersistence: MemoryOnlySettingsPersistence(),
+        playerProgressPersistence: MemoryOnlyPlayerProgressPersistence(),
+        adsController: null,
+        gamesServicesController: null,
+        inAppPurchaseController: null,
+      ),
+    );
 
     // Verify that the 'Play' button is shown.
     expect(find.text('Play'), findsOneWidget);

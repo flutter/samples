@@ -21,9 +21,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({
-    super.key,
-  });
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -66,40 +64,43 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
         '/': (context) => MyHomePage(onChangedPlatform: onChangedPlatform),
-        AnywherePage.route: (context) =>
-            AnywherePage(onChangedPlatform: onChangedPlatform),
-        CustomButtonsPage.route: (context) =>
-            CustomButtonsPage(onChangedPlatform: onChangedPlatform),
-        CustomMenuPage.route: (context) =>
-            CustomMenuPage(onChangedPlatform: onChangedPlatform),
-        ReorderedButtonsPage.route: (context) =>
-            ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
-        EmailButtonPage.route: (context) =>
-            EmailButtonPage(onChangedPlatform: onChangedPlatform),
-        ImagePage.route: (context) =>
-            ImagePage(onChangedPlatform: onChangedPlatform),
-        FieldTypesPage.route: (context) =>
-            FieldTypesPage(onChangedPlatform: onChangedPlatform),
-        FullPage.route: (context) =>
-            FullPage(onChangedPlatform: onChangedPlatform),
-        ModifiedActionPage.route: (context) =>
-            ModifiedActionPage(onChangedPlatform: onChangedPlatform),
-        GlobalSelectionPage.route: (context) =>
-            GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
-        DefaultValuesPage.route: (context) =>
-            DefaultValuesPage(onChangedPlatform: onChangedPlatform),
-        CascadingMenuPage.route: (context) =>
-            CascadingMenuPage(onChangedPlatform: onChangedPlatform),
+        AnywherePage.route:
+            (context) => AnywherePage(onChangedPlatform: onChangedPlatform),
+        CustomButtonsPage.route:
+            (context) =>
+                CustomButtonsPage(onChangedPlatform: onChangedPlatform),
+        CustomMenuPage.route:
+            (context) => CustomMenuPage(onChangedPlatform: onChangedPlatform),
+        ReorderedButtonsPage.route:
+            (context) =>
+                ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
+        EmailButtonPage.route:
+            (context) => EmailButtonPage(onChangedPlatform: onChangedPlatform),
+        ImagePage.route:
+            (context) => ImagePage(onChangedPlatform: onChangedPlatform),
+        FieldTypesPage.route:
+            (context) => FieldTypesPage(onChangedPlatform: onChangedPlatform),
+        FullPage.route:
+            (context) => FullPage(onChangedPlatform: onChangedPlatform),
+        ModifiedActionPage.route:
+            (context) =>
+                ModifiedActionPage(onChangedPlatform: onChangedPlatform),
+        GlobalSelectionPage.route:
+            (context) =>
+                GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
+        DefaultValuesPage.route:
+            (context) =>
+                DefaultValuesPage(onChangedPlatform: onChangedPlatform),
+        CascadingMenuPage.route:
+            (context) =>
+                CascadingMenuPage(onChangedPlatform: onChangedPlatform),
       },
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  const MyHomePage({super.key, required this.onChangedPlatform});
 
   final PlatformCallback onChangedPlatform;
 
@@ -109,9 +110,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Context Menu Demos'),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
         ],
       ),
       body: ListView(
@@ -203,10 +202,7 @@ class _MyListItem extends StatelessWidget {
         margin: const EdgeInsets.all(12.0),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
-          child: ListTile(
-            title: Text(title),
-            subtitle: Text(subtitle),
-          ),
+          child: ListTile(title: Text(title), subtitle: Text(subtitle)),
         ),
       ),
     );

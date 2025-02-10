@@ -66,8 +66,9 @@ void main() {
     });
 
     test('should handle errors', () async {
-      final command =
-          Command0<int>(() => Future.value(Result.error(Exception('ERROR!'))));
+      final command = Command0<int>(
+        () => Future.value(Result.error(Exception('ERROR!'))),
+      );
       await command.execute();
       expect(command.error, true);
       expect(command.result, isA<Error>());
@@ -90,8 +91,9 @@ void main() {
 
     test('should complete bool command, bool argument', () async {
       // Action that returns bool argument
-      final command =
-          Command1<bool, bool>((a) => Future.value(const Result.ok(true)));
+      final command = Command1<bool, bool>(
+        (a) => Future.value(const Result.ok(true)),
+      );
 
       // Run action with result and argument
       await command.execute(true);

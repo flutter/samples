@@ -18,8 +18,8 @@ class HomeViewModel extends ChangeNotifier {
   HomeViewModel({
     required BookingRepository bookingRepository,
     required UserRepository userRepository,
-  })  : _bookingRepository = bookingRepository,
-        _userRepository = userRepository {
+  }) : _bookingRepository = bookingRepository,
+       _userRepository = userRepository {
     load = Command0(_load)..execute();
     deleteBooking = Command1(_deleteBooking);
   }

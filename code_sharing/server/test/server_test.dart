@@ -42,9 +42,7 @@ void main() {
       });
     },
     onPlatform: <String, dynamic>{
-      'windows': [
-        Skip('Failing on Windows CI'),
-      ]
+      'windows': [Skip('Failing on Windows CI')],
     },
   );
 }
