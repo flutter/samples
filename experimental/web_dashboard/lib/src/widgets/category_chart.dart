@@ -18,11 +18,7 @@ class CategoryChart extends StatelessWidget {
   final Category category;
   final DashboardApi? api;
 
-  const CategoryChart({
-    required this.category,
-    required this.api,
-    super.key,
-  });
+  const CategoryChart({required this.category, required this.api, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +71,7 @@ class CategoryChart extends StatelessWidget {
   }
 
   Widget _buildLoadingIndicator() {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
+    return const Center(child: CircularProgressIndicator());
   }
 }
 
@@ -88,10 +82,7 @@ class _BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return charts.BarChart(
-      [_seriesData()],
-      animate: false,
-    );
+    return charts.BarChart([_seriesData()], animate: false);
   }
 
   charts.Series<utils.EntryTotal, String> _seriesData() {

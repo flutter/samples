@@ -17,10 +17,7 @@ class AdaptiveScaffoldDestination {
   final String title;
   final IconData icon;
 
-  const AdaptiveScaffoldDestination({
-    required this.title,
-    required this.icon,
-  });
+  const AdaptiveScaffoldDestination({required this.title, required this.icon});
 }
 
 /// A widget that adapts to the current display size, displaying a [Drawer],
@@ -60,11 +57,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
           Drawer(
             child: Column(
               children: [
-                DrawerHeader(
-                  child: Center(
-                    child: widget.title,
-                  ),
-                ),
+                DrawerHeader(child: Center(child: widget.title)),
                 for (var d in widget.destinations)
                   ListTile(
                     leading: Icon(d.icon),
@@ -76,16 +69,10 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
               ],
             ),
           ),
-          VerticalDivider(
-            width: 1,
-            thickness: 1,
-            color: Colors.grey[300],
-          ),
+          VerticalDivider(width: 1, thickness: 1, color: Colors.grey[300]),
           Expanded(
             child: Scaffold(
-              appBar: AppBar(
-                actions: widget.actions,
-              ),
+              appBar: AppBar(actions: widget.actions),
               body: widget.body,
               floatingActionButton: widget.floatingActionButton,
             ),
@@ -97,10 +84,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
     // Show a navigation rail
     if (_isMediumScreen(context)) {
       return Scaffold(
-        appBar: AppBar(
-          title: widget.title,
-          actions: widget.actions,
-        ),
+        appBar: AppBar(title: widget.title, actions: widget.actions),
         body: Row(
           children: [
             NavigationRail(
@@ -116,14 +100,8 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
               selectedIndex: widget.currentIndex,
               onDestinationSelected: widget.onNavigationIndexChange ?? (_) {},
             ),
-            VerticalDivider(
-              width: 1,
-              thickness: 1,
-              color: Colors.grey[300],
-            ),
-            Expanded(
-              child: widget.body!,
-            ),
+            VerticalDivider(width: 1, thickness: 1, color: Colors.grey[300]),
+            Expanded(child: widget.body!),
           ],
         ),
       );
@@ -132,17 +110,11 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
     // Show a bottom app bar
     return Scaffold(
       body: widget.body,
-      appBar: AppBar(
-        title: widget.title,
-        actions: widget.actions,
-      ),
+      appBar: AppBar(title: widget.title, actions: widget.actions),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           ...widget.destinations.map(
-            (d) => BottomNavigationBarItem(
-              icon: Icon(d.icon),
-              label: d.title,
-            ),
+            (d) => BottomNavigationBarItem(icon: Icon(d.icon), label: d.title),
           ),
         ],
         currentIndex: widget.currentIndex,

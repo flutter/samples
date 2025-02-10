@@ -105,6 +105,8 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
 
   DropdownMenuItem<Category> _buildDropdownItem(Category category) {
     return DropdownMenuItem<Category>(
-        value: category, child: Text(category.name));
+      value: category,
+      child: Text(category.name),
+    );
   }
 }

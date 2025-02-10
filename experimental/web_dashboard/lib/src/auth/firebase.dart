@@ -35,7 +35,9 @@ class FirebaseAuthService implements Auth {
     var googleAuth = await googleUser!.authentication;
 
     var credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
 
     var authResult = await _auth.signInWithCredential(credential);
 
@@ -44,10 +46,7 @@ class FirebaseAuthService implements Auth {
 
   @override
   Future<void> signOut() async {
-    await Future.wait([
-      _auth.signOut(),
-      _googleSignIn.signOut(),
-    ]);
+    await Future.wait([_auth.signOut(), _googleSignIn.signOut()]);
   }
 }
 

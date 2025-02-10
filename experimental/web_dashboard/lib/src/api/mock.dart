@@ -104,11 +104,12 @@ class MockEntryApi implements EntryApi {
 
   @override
   Future<List<Entry>> list(String categoryId) async {
-    var list = _storage.keys
-        .where((k) => k.startsWith(categoryId))
-        .map((k) => _storage[k])
-        .nonNulls
-        .toList();
+    var list =
+        _storage.keys
+            .where((k) => k.startsWith(categoryId))
+            .map((k) => _storage[k])
+            .nonNulls
+            .toList();
     return list;
   }
 
@@ -127,10 +128,11 @@ class MockEntryApi implements EntryApi {
   }
 
   void _emit(String categoryId) {
-    var entries = _storage.keys
-        .where((k) => k.startsWith(categoryId))
-        .map((k) => _storage[k]!)
-        .toList();
+    var entries =
+        _storage.keys
+            .where((k) => k.startsWith(categoryId))
+            .map((k) => _storage[k]!)
+            .toList();
 
     _streamController.add(_EntriesEvent(categoryId, entries));
   }
