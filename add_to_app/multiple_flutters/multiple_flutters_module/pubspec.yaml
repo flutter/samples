@@ -4,7 +4,7 @@ description: A module that is embedded in the multiple_flutters_ios and multiple
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.7.0-0
 
 dependencies:
   flutter:
