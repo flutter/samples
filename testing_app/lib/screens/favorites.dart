@@ -17,17 +17,14 @@ class FavoritesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Favorites')),
       body: Consumer<Favorites>(
-        builder:
-            (context, value, child) =>
-                value.items.isNotEmpty
-                    ? ListView.builder(
-                      itemCount: value.items.length,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      itemBuilder:
-                          (context, index) =>
-                              FavoriteItemTile(value.items[index]),
-                    )
-                    : const Center(child: Text('No favorites added.')),
+        builder: (context, value, child) => value.items.isNotEmpty
+            ? ListView.builder(
+                itemCount: value.items.length,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                itemBuilder: (context, index) =>
+                    FavoriteItemTile(value.items[index]),
+              )
+            : const Center(child: Text('No favorites added.')),
       ),
     );
   }
