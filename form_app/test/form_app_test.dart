@@ -23,11 +23,9 @@ void main() {
 }
 
 Future<void> _signIn(WidgetTester tester, String email, String password) async {
-  await tester.pumpWidget(MaterialApp(
-    home: SignInHttpDemo(
-      httpClient: mockClient,
-    ),
-  ));
+  await tester.pumpWidget(
+    MaterialApp(home: SignInHttpDemo(httpClient: mockClient)),
+  );
 
   var textFormField = find.byType(TextFormField);
   expect(textFormField, findsNWidgets(2));

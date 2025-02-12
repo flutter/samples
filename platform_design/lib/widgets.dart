@@ -20,13 +20,14 @@ class PlatformWidget extends StatelessWidget {
   @override
   Widget build(context) {
     assert(
-        defaultTargetPlatform == TargetPlatform.android ||
-            defaultTargetPlatform == TargetPlatform.iOS,
-        'Unexpected platform $defaultTargetPlatform');
+      defaultTargetPlatform == TargetPlatform.android ||
+          defaultTargetPlatform == TargetPlatform.iOS,
+      'Unexpected platform $defaultTargetPlatform',
+    );
     return switch (defaultTargetPlatform) {
       TargetPlatform.android => androidBuilder(context),
       TargetPlatform.iOS => iosBuilder(context),
-      _ => const SizedBox.shrink()
+      _ => const SizedBox.shrink(),
     };
   }
 }
@@ -65,8 +66,9 @@ class _PressableCardState extends State<PressableCard>
       vsync: this,
       duration: const Duration(milliseconds: 40),
     );
-    elevationAnimation =
-        controller.drive(CurveTween(curve: Curves.easeInOutCubic));
+    elevationAnimation = controller.drive(
+      CurveTween(curve: Curves.easeInOutCubic),
+    );
     super.initState();
   }
 
@@ -99,8 +101,10 @@ class _PressableCardState extends State<PressableCard>
         // hero animation. You likely want to modularize them more in your own
         // app.
         child: AnimatedBuilder(
-          animation:
-              Listenable.merge([elevationAnimation, widget.flattenAnimation]),
+          animation: Listenable.merge([
+            elevationAnimation,
+            widget.flattenAnimation,
+          ]),
           child: widget.child,
           builder: (context, child) {
             return Transform.scale(
@@ -110,7 +114,7 @@ class _PressableCardState extends State<PressableCard>
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 16) *
-                        flatten,
+                    flatten,
                 child: PhysicalModel(
                   elevation:
                       ((1 - elevationAnimation.value) * 10 + 10) * flatten,
@@ -192,7 +196,8 @@ class HeroAnimatingSongCard extends StatelessWidget {
                 ),
                 // The play button grows in the hero animation.
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 45) *
+                  padding:
+                      const EdgeInsets.only(bottom: 45) *
                       (1 - heroAnimation.value),
                   child: Container(
                     height: playButtonSize,
@@ -202,8 +207,11 @@ class HeroAnimatingSongCard extends StatelessWidget {
                       color: Colors.black12,
                     ),
                     alignment: Alignment.center,
-                    child: Icon(Icons.play_arrow,
-                        size: playButtonSize, color: Colors.black38),
+                    child: Icon(
+                      Icons.play_arrow,
+                      size: playButtonSize,
+                      color: Colors.black38,
+                    ),
                   ),
                 ),
               ],
@@ -234,9 +242,7 @@ class SongPlaceholderTile extends StatelessWidget {
               color: Theme.of(context).textTheme.bodyMedium!.color,
               width: 130,
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 12),
-            ),
+            const Padding(padding: EdgeInsets.only(left: 12)),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -342,9 +348,7 @@ void showChoices(BuildContext context, List<String> choices) {
                 return Center(
                   child: Text(
                     choices[index],
-                    style: const TextStyle(
-                      fontSize: 21,
-                    ),
+                    style: const TextStyle(fontSize: 21),
                   ),
                 );
               }),

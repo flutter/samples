@@ -21,12 +21,7 @@ import 'widgets/api_key_widget.dart';
 import 'widgets/message_widget.dart';
 import 'widgets/text_field_decoration.dart';
 
-typedef Task = (
-  int id, {
-  String name,
-  String? description,
-  bool completed,
-});
+typedef Task = (int id, {String name, String? description, bool completed});
 
 extension on Task {
   Map<String, Object?> toJson() {
@@ -83,15 +78,15 @@ class _GenerativeAISampleState extends State<GenerativeAISample> {
           themeMode: ThemeMode.system,
           home: switch (apiKey) {
             final providedKey? => Example(
-                title: widget.title,
-                apiKey: providedKey,
-              ),
+              title: widget.title,
+              apiKey: providedKey,
+            ),
             _ => ApiKeyWidget(
-                title: widget.title,
-                onSubmitted: (key) {
-                  setState(() => apiKey = key);
-                },
-              ),
+              title: widget.title,
+              onSubmitted: (key) {
+                setState(() => apiKey = key);
+              },
+            ),
           },
         );
       },
@@ -100,11 +95,7 @@ class _GenerativeAISampleState extends State<GenerativeAISample> {
 }
 
 class Example extends StatefulWidget {
-  const Example({
-    super.key,
-    required this.apiKey,
-    required this.title,
-  });
+  const Example({super.key, required this.apiKey, required this.title});
 
   final String apiKey, title;
 
@@ -132,13 +123,8 @@ class _ExampleState extends State<Example> {
             Schema(
               SchemaType.object,
               properties: {
-                'name': Schema(
-                  SchemaType.string,
-                ),
-                'description': Schema(
-                  SchemaType.string,
-                  nullable: true,
-                ),
+                'name': Schema(SchemaType.string),
+                'description': Schema(SchemaType.string, nullable: true),
               },
             ),
           ),
@@ -186,10 +172,7 @@ class _ExampleState extends State<Example> {
             Schema(
               SchemaType.object,
               properties: {
-                'name': Schema(
-                  SchemaType.string,
-                  description: 'Task name',
-                ),
+                'name': Schema(SchemaType.string, description: 'Task name'),
                 'description': Schema(
                   SchemaType.string,
                   nullable: true,
@@ -237,9 +220,7 @@ class _ExampleState extends State<Example> {
   Future<GenerateContentResponse> callWithActions(
     Iterable<Content> prompt,
   ) async {
-    final response = await model.generateContent(
-      _history.followedBy(prompt),
-    );
+    final response = await model.generateContent(_history.followedBy(prompt));
     if (response.candidates.isNotEmpty) {
       _history.addAll(prompt);
       _history.add(response.candidates.first.content);
@@ -260,10 +241,7 @@ class _ExampleState extends State<Example> {
           );
           current.add(task);
           tasks.value = current;
-          actions.add(FunctionResponse(
-            fn.name,
-            task.toJson(),
-          ));
+          actions.add(FunctionResponse(fn.name, task.toJson()));
           break;
         case 'get_completed_tasks':
           var filter =
@@ -274,14 +252,16 @@ class _ExampleState extends State<Example> {
             filter = filter.where((e) => e.name.contains(name)).toList();
           }
           if (description != null) {
-            filter = filter
-                .where((e) => e.description?.contains(description) ?? false)
-                .toList();
+            filter =
+                filter
+                    .where((e) => e.description?.contains(description) ?? false)
+                    .toList();
           }
-          actions.add(FunctionResponse(
-            fn.name,
-            {'tasks': filter.map((e) => e.toJson()).toList()},
-          ));
+          actions.add(
+            FunctionResponse(fn.name, {
+              'tasks': filter.map((e) => e.toJson()).toList(),
+            }),
+          );
           break;
         case 'get_active_tasks':
           var filter =
@@ -292,23 +272,27 @@ class _ExampleState extends State<Example> {
             filter = filter.where((e) => e.name.contains(name)).toList();
           }
           if (description != null) {
-            filter = filter
-                .where((e) => e.description?.contains(description) ?? false)
-                .toList();
+            filter =
+                filter
+                    .where((e) => e.description?.contains(description) ?? false)
+                    .toList();
           }
-          actions.add(FunctionResponse(
-            fn.name,
-            {'tasks': filter.map((e) => e.toJson()).toList()},
-          ));
+          actions.add(
+            FunctionResponse(fn.name, {
+              'tasks': filter.map((e) => e.toJson()).toList(),
+            }),
+          );
           break;
         case 'update_task':
           final name = args['name'] as String?;
           final idx = current.indexWhere((e) => e.name == name);
           if (idx == -1) {
-            actions.add(FunctionResponse(
-              fn.name,
-              {"type": "error", 'message': 'Task with "$name" id not found'},
-            ));
+            actions.add(
+              FunctionResponse(fn.name, {
+                "type": "error",
+                'message': 'Task with "$name" id not found',
+              }),
+            );
             continue;
           }
           final task = current[idx];
@@ -319,10 +303,7 @@ class _ExampleState extends State<Example> {
             completed: args['completed'] as bool? ?? task.completed,
           );
           tasks.value = current;
-          actions.add(FunctionResponse(
-            fn.name,
-            current[idx].toJson(),
-          ));
+          actions.add(FunctionResponse(fn.name, current[idx].toJson()));
           break;
         default:
       }
@@ -354,23 +335,22 @@ class _ExampleState extends State<Example> {
       builder: (context, child) {
         final reversed = messages.value.reversed;
         return Scaffold(
-          appBar: AppBar(
-            title: Text(widget.title),
-          ),
-          body: messages.value.isEmpty
-              ? const Center(child: Text('No tasks found'))
-              : ListView.builder(
-                  padding: const EdgeInsets.all(8),
-                  reverse: true,
-                  itemCount: reversed.length,
-                  itemBuilder: (context, index) {
-                    final (sender, message) = reversed.elementAt(index);
-                    return MessageWidget(
-                      isFromUser: sender == Sender.user,
-                      text: message,
-                    );
-                  },
-                ),
+          appBar: AppBar(title: Text(widget.title)),
+          body:
+              messages.value.isEmpty
+                  ? const Center(child: Text('No tasks found'))
+                  : ListView.builder(
+                    padding: const EdgeInsets.all(8),
+                    reverse: true,
+                    itemCount: reversed.length,
+                    itemBuilder: (context, index) {
+                      final (sender, message) = reversed.elementAt(index);
+                      return MessageWidget(
+                        isFromUser: sender == Sender.user,
+                        text: message,
+                      );
+                    },
+                  ),
           bottomNavigationBar: BottomAppBar(
             padding: const EdgeInsets.all(8),
             child: Row(
@@ -410,7 +390,4 @@ class _ExampleState extends State<Example> {
   }
 }
 
-enum Sender {
-  user,
-  system,
-}
+enum Sender { user, system }

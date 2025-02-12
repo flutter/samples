@@ -13,6 +13,7 @@ dependencies:
   mdc_web: ^0.6.0
   path: ^1.8.3
   sass_builder: ^2.2.1
+  web: ^1.1.0
   yaml: ^3.1.2
 
 dev_dependencies:

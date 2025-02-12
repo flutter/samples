@@ -13,9 +13,10 @@ _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
       endDate: DateTime.parse(json['endDate'] as String),
       name: json['name'] as String,
       destinationRef: json['destinationRef'] as String,
-      activitiesRef: (json['activitiesRef'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      activitiesRef:
+          (json['activitiesRef'] as List<dynamic>)
+              .map((e) => e as String)
+              .toList(),
     );
 
 Map<String, dynamic> _$$BookingImplToJson(_$BookingImpl instance) =>

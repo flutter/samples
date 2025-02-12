@@ -23,10 +23,11 @@ class BookingApi {
   BookingApi() {
     // Create a default booking
     final destination = Assets.destinations.first;
-    final activitiesRef = Assets.activities
-        .where((activity) => activity.destinationRef == destination.ref)
-        .map((activity) => activity.ref)
-        .toList();
+    final activitiesRef =
+        Assets.activities
+            .where((activity) => activity.destinationRef == destination.ref)
+            .map((activity) => activity.ref)
+            .toList();
     _bookings.add(
       Booking(
         id: _sequentialId++,
@@ -60,8 +61,9 @@ class BookingApi {
     // Get a booking by id
     router.get('/<id>', (Request request, String id) {
       final bookingId = int.parse(id);
-      final booking =
-          _bookings.firstWhereOrNull((booking) => booking.id == bookingId);
+      final booking = _bookings.firstWhereOrNull(
+        (booking) => booking.id == bookingId,
+      );
 
       if (booking == null) {
         return Response.notFound('Invalid id');
@@ -81,7 +83,8 @@ class BookingApi {
       if (booking.id != null) {
         // POST endpoint only allows newly created bookings
         return Response.badRequest(
-            body: 'Booking already has id, use PUT instead.');
+          body: 'Booking already has id, use PUT instead.',
+        );
       }
 
       // Add ID to new booking
@@ -101,8 +104,9 @@ class BookingApi {
     // Delete booking
     router.delete('/<id>', (Request request, String id) async {
       final bookingId = int.parse(id);
-      final booking =
-          _bookings.firstWhereOrNull((booking) => booking.id == bookingId);
+      final booking = _bookings.firstWhereOrNull(
+        (booking) => booking.id == bookingId,
+      );
       if (booking == null) {
         return Response.notFound('Invalid id');
       }

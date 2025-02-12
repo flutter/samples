@@ -34,7 +34,8 @@ class TagChip extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: chipColor ??
+            color:
+                chipColor ??
                 Theme.of(context).extension<TagChipTheme>()?.chipColor ??
                 AppColors.whiteTransparent,
           ),
@@ -48,10 +49,11 @@ class TagChip extends StatelessWidget {
                 children: [
                   Icon(
                     _iconFrom(tag),
-                    color: onChipColor ??
-                        Theme.of(context)
-                            .extension<TagChipTheme>()
-                            ?.onChipColor ??
+                    color:
+                        onChipColor ??
+                        Theme.of(
+                          context,
+                        ).extension<TagChipTheme>()?.onChipColor ??
                         Colors.white,
                     size: fontSize,
                   ),
@@ -98,25 +100,23 @@ class TagChip extends StatelessWidget {
   // Note: original Figma file uses Google Sans
   // which is not available on GoogleFonts
   TextStyle _textStyle(BuildContext context) => GoogleFonts.openSans(
-        textStyle: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: fontSize,
-          color: onChipColor ??
-              Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
-              Colors.white,
-          textBaseline: TextBaseline.alphabetic,
-        ),
-      );
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: fontSize,
+      color:
+          onChipColor ??
+          Theme.of(context).extension<TagChipTheme>()?.onChipColor ??
+          Colors.white,
+      textBaseline: TextBaseline.alphabetic,
+    ),
+  );
 }
 
 class TagChipTheme extends ThemeExtension<TagChipTheme> {
   final Color chipColor;
   final Color onChipColor;
 
-  TagChipTheme({
-    required this.chipColor,
-    required this.onChipColor,
-  });
+  TagChipTheme({required this.chipColor, required this.onChipColor});
 
   @override
   ThemeExtension<TagChipTheme> copyWith({

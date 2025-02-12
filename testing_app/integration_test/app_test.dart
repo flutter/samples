@@ -18,10 +18,7 @@ void main() {
       final itemFinder = find.byKey(const ValueKey('text_25'));
 
       // Scroll until the item to be found appears.
-      await tester.scrollUntilVisible(
-        itemFinder,
-        500.0,
-      );
+      await tester.scrollUntilVisible(itemFinder, 500.0);
 
       // Check if the item contains the correct text.
       expect(tester.widget<Text>(itemFinder).data, 'Item 25');
@@ -52,8 +49,9 @@ void main() {
       expect(find.text('Removed from favorites.'), findsOneWidget);
     });
 
-    testWidgets('Verifying whether item gets added to favorites',
-        (tester) async {
+    testWidgets('Verifying whether item gets added to favorites', (
+      tester,
+    ) async {
       await tester.pumpWidget(const TestingApp());
 
       // Add item to favorites.

@@ -12,14 +12,13 @@ import 'package:platform_channels/src/pet_list_screen.dart';
 
 void main() {
   group('PetListScreen tests', () {
-    const basicMessageChannel =
-        BasicMessageChannel<String?>('stringCodecDemo', StringCodec());
+    const basicMessageChannel = BasicMessageChannel<String?>(
+      'stringCodecDemo',
+      StringCodec(),
+    );
 
     var petList = [
-      {
-        'petType': 'Dog',
-        'breed': 'Pug',
-      }
+      {'petType': 'Dog', 'breed': 'Pug'},
     ];
 
     PetListModel? petListModel;
@@ -28,29 +27,37 @@ void main() {
       // Mock for the pet list received from the platform.
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockDecodedMessageHandler(basicMessageChannel, (message) async {
-        petListModel = PetListModel.fromJson(message!);
-        return null;
-      });
+            petListModel = PetListModel.fromJson(message!);
+            return null;
+          });
 
       // Mock for the index received from the Dart to delete the pet details,
       // and send the updated pet list back to Dart.
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockDecodedMessageHandler(
-              const BasicMessageChannel<ByteData?>(
-                  'binaryCodecDemo', BinaryCodec()), (message) async {
-        // Convert the ByteData to String.
-        final index = utf8.decoder.convert(message!.buffer
-            .asUint8List(message.offsetInBytes, message.lengthInBytes));
+            const BasicMessageChannel<ByteData?>(
+              'binaryCodecDemo',
+              BinaryCodec(),
+            ),
+            (message) async {
+              // Convert the ByteData to String.
+              final index = utf8.decoder.convert(
+                message!.buffer.asUint8List(
+                  message.offsetInBytes,
+                  message.lengthInBytes,
+                ),
+              );
 
-        // Remove the pet details at the given index.
-        petList.removeAt(int.parse(index));
+              // Remove the pet details at the given index.
+              petList.removeAt(int.parse(index));
 
-        // Send the updated petList back.
-        final map = {'petList': petList};
-        await basicMessageChannel.send(json.encode(map));
+              // Send the updated petList back.
+              final map = {'petList': petList};
+              await basicMessageChannel.send(json.encode(map));
 
-        return null;
-      });
+              return null;
+            },
+          );
     });
 
     test('convert json message to PetListModel', () {
@@ -70,11 +77,9 @@ void main() {
     });
 
     testWidgets('BuildPetList test', (tester) async {
-      await tester.pumpWidget(MaterialApp(
-        home: Scaffold(
-          body: BuildPetList(petListModel!.petList),
-        ),
-      ));
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: BuildPetList(petListModel!.petList))),
+      );
 
       expect(find.text('Pet type: Dog'), findsOneWidget);
       expect(find.text('Pet breed: Pug'), findsOneWidget);

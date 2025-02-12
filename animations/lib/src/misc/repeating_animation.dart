@@ -21,9 +21,10 @@ class _RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(duration: const Duration(seconds: 2), vsync: this)
-          ..repeat(reverse: true);
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    )..repeat(reverse: true);
 
     _borderRadius = BorderRadiusTween(
       begin: BorderRadius.circular(100.0),

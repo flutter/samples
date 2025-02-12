@@ -12,7 +12,8 @@ part of 'user_api_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UserApiModel _$UserApiModelFromJson(Map<String, dynamic> json) {
   return _UserApiModel.fromJson(json);
@@ -45,8 +46,9 @@ mixin _$UserApiModel {
 /// @nodoc
 abstract class $UserApiModelCopyWith<$Res> {
   factory $UserApiModelCopyWith(
-          UserApiModel value, $Res Function(UserApiModel) then) =
-      _$UserApiModelCopyWithImpl<$Res, UserApiModel>;
+    UserApiModel value,
+    $Res Function(UserApiModel) then,
+  ) = _$UserApiModelCopyWithImpl<$Res, UserApiModel>;
   @useResult
   $Res call({String id, String name, String email, String picture});
 }
@@ -71,24 +73,31 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
     Object? email = null,
     Object? picture = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      picture: null == picture
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            email:
+                null == email
+                    ? _value.email
+                    : email // ignore: cast_nullable_to_non_nullable
+                        as String,
+            picture:
+                null == picture
+                    ? _value.picture
+                    : picture // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -96,8 +105,9 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
 abstract class _$$UserApiModelImplCopyWith<$Res>
     implements $UserApiModelCopyWith<$Res> {
   factory _$$UserApiModelImplCopyWith(
-          _$UserApiModelImpl value, $Res Function(_$UserApiModelImpl) then) =
-      __$$UserApiModelImplCopyWithImpl<$Res>;
+    _$UserApiModelImpl value,
+    $Res Function(_$UserApiModelImpl) then,
+  ) = __$$UserApiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, String email, String picture});
@@ -108,8 +118,9 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
     extends _$UserApiModelCopyWithImpl<$Res, _$UserApiModelImpl>
     implements _$$UserApiModelImplCopyWith<$Res> {
   __$$UserApiModelImplCopyWithImpl(
-      _$UserApiModelImpl _value, $Res Function(_$UserApiModelImpl) _then)
-      : super(_value, _then);
+    _$UserApiModelImpl _value,
+    $Res Function(_$UserApiModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of UserApiModel
   /// with the given fields replaced by the non-null parameter values.
@@ -121,35 +132,42 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
     Object? email = null,
     Object? picture = null,
   }) {
-    return _then(_$UserApiModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      picture: null == picture
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$UserApiModelImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        picture:
+            null == picture
+                ? _value.picture
+                : picture // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UserApiModelImpl implements _UserApiModel {
-  const _$UserApiModelImpl(
-      {required this.id,
-      required this.name,
-      required this.email,
-      required this.picture});
+  const _$UserApiModelImpl({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.picture,
+  });
 
   factory _$UserApiModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserApiModelImplFromJson(json);
@@ -200,18 +218,17 @@ class _$UserApiModelImpl implements _UserApiModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserApiModelImplToJson(
-      this,
-    );
+    return _$$UserApiModelImplToJson(this);
   }
 }
 
 abstract class _UserApiModel implements UserApiModel {
-  const factory _UserApiModel(
-      {required final String id,
-      required final String name,
-      required final String email,
-      required final String picture}) = _$UserApiModelImpl;
+  const factory _UserApiModel({
+    required final String id,
+    required final String name,
+    required final String email,
+    required final String picture,
+  }) = _$UserApiModelImpl;
 
   factory _UserApiModel.fromJson(Map<String, dynamic> json) =
       _$UserApiModelImpl.fromJson;

@@ -62,10 +62,7 @@ class ServingInfoChart extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text(
-              'Calories',
-              style: Styles.detailsServingLabelText(themeData),
-            ),
+            Text('Calories', style: Styles.detailsServingLabelText(themeData)),
             const Spacer(),
             Text(
               '${veggie.caloriesPerServing} kCal',
@@ -78,30 +75,18 @@ class ServingInfoChart extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text(
-              'Vitamin A',
-              style: Styles.detailsServingLabelText(themeData),
-            ),
+            Text('Vitamin A', style: Styles.detailsServingLabelText(themeData)),
             const Spacer(),
-            _buildVitaminText(
-              veggie.vitaminAPercentage,
-              prefs.desiredCalories,
-            ),
+            _buildVitaminText(veggie.vitaminAPercentage, prefs.desiredCalories),
           ],
         ),
         const SizedBox(height: 24),
         Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text(
-              'Vitamin C',
-              style: Styles.detailsServingLabelText(themeData),
-            ),
+            Text('Vitamin C', style: Styles.detailsServingLabelText(themeData)),
             const Spacer(),
-            _buildVitaminText(
-              veggie.vitaminCPercentage,
-              prefs.desiredCalories,
-            ),
+            _buildVitaminText(veggie.vitaminCPercentage, prefs.desiredCalories),
           ],
         ),
         Padding(
@@ -139,20 +124,14 @@ class InfoView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            veggie.name,
-            style: Styles.detailsTitleText(themeData),
-          ),
+          Text(veggie.name, style: Styles.detailsTitleText(themeData)),
           const SizedBox(height: 8),
           Text(
             veggie.shortDescription,
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
           const SizedBox(height: 16),
-          Text(
-            'Seasons',
-            style: Styles.detailsServingLabelText(themeData),
-          ),
+          Text('Seasons', style: Styles.detailsServingLabelText(themeData)),
           const SizedBox(height: 12),
           Row(
             mainAxisSize: MainAxisSize.max,
@@ -164,17 +143,19 @@ class InfoView extends StatelessWidget {
                   children: [
                     Icon(
                       Styles.seasonIconData[season],
-                      color: veggie.seasons.contains(season)
-                          ? Styles.seasonColors[season]
-                          : const Color.fromRGBO(128, 128, 128, 1),
+                      color:
+                          veggie.seasons.contains(season)
+                              ? Styles.seasonColors[season]
+                              : const Color.fromRGBO(128, 128, 128, 1),
                       size: 24,
                     ),
                     const SizedBox(height: 4),
                     Text(
                       season.name.characters.first.toUpperCase() +
                           season.name.characters.skip(1).string,
-                      style: Styles.minorText(CupertinoTheme.of(context))
-                          .copyWith(fontSize: 11),
+                      style: Styles.minorText(
+                        CupertinoTheme.of(context),
+                      ).copyWith(fontSize: 11),
                     ),
                   ],
                 ),
@@ -227,37 +208,37 @@ class DetailsScreen extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  ShareButton(
-                    () {
-                      showCupertinoModalPopup<void>(
-                        context: context,
-                        builder: (context) {
-                          return CupertinoActionSheet(
-                            title: Text('Share ${veggie.name}'),
-                            message: Text(veggie.shortDescription),
-                            actions: [
-                              CupertinoActionSheetAction(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
+                  ShareButton(() {
+                    showCupertinoModalPopup<void>(
+                      context: context,
+                      builder: (context) {
+                        return CupertinoActionSheet(
+                          title: Text('Share ${veggie.name}'),
+                          message: Text(veggie.shortDescription),
+                          actions: [
+                            CupertinoActionSheetAction(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }),
+                  const SizedBox(width: 8),
+                  Builder(
+                    builder: (context) {
+                      final appState = Provider.of<AppState>(context);
+                      final veggie = appState.getVeggie(id);
+
+                      return FavoriteButton(
+                        () => appState.setFavorite(id, !veggie.isFavorite),
+                        veggie.isFavorite,
                       );
                     },
                   ),
-                  const SizedBox(width: 8),
-                  Builder(builder: (context) {
-                    final appState = Provider.of<AppState>(context);
-                    final veggie = appState.getVeggie(id);
-
-                    return FavoriteButton(
-                      () => appState.setFavorite(id, !veggie.isFavorite),
-                      veggie.isFavorite,
-                    );
-                  }),
                 ],
               ),
             ),

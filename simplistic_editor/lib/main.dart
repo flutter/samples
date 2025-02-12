@@ -20,9 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Simplistic Editor',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: ThemeData(primarySwatch: Colors.blue),
         home: const MyHomePage(title: 'Simplistic Editor'),
       ),
     );
@@ -56,7 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static Route<Object?> _aboutDialogBuilder(
-      BuildContext context, Object? arguments) {
+    BuildContext context,
+    Object? arguments,
+  ) {
     const String aboutContent =
         'TextEditingDeltas are a new feature in the latest Flutter stable release that give the user'
         ' finer grain control over the changes that occur during text input. There are four types of'
@@ -67,10 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ' more powerful rich text editing applications such as this small example. This feature is supported on all platforms.';
     return DialogRoute<void>(
       context: context,
-      builder: (context) => const AlertDialog(
-        title: Center(child: Text('About')),
-        content: Text(aboutContent),
-      ),
+      builder:
+          (context) => const AlertDialog(
+            title: Center(child: Text('About')),
+            content: Text(aboutContent),
+          ),
     );
   }
 
@@ -99,17 +100,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: BasicTextField(
                     controller: _replacementTextEditingController,
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.black,
-                    ),
+                    style: const TextStyle(fontSize: 18.0, color: Colors.black),
                     focusNode: _focusNode,
                   ),
                 ),
               ),
-              const Expanded(
-                child: TextEditingDeltaHistoryView(),
-              ),
+              const Expanded(child: TextEditingDeltaHistoryView()),
             ],
           ),
         ),

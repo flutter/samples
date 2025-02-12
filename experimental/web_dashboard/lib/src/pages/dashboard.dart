@@ -19,18 +19,14 @@ class DashboardPage extends StatelessWidget {
       future: appState.api!.categories.list(),
       builder: (context, futureSnapshot) {
         if (!futureSnapshot.hasData) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
         return StreamBuilder<List<Category>>(
           initialData: futureSnapshot.data,
           stream: appState.api!.categories.subscribe(),
           builder: (context, snapshot) {
             if (snapshot.data == null) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
             return Dashboard(snapshot.data);
           },
@@ -56,13 +52,9 @@ class Dashboard extends StatelessWidget {
         ),
         children: [
           ...categories!.map(
-            (category) => Card(
-              child: CategoryChart(
-                category: category,
-                api: api,
-              ),
-            ),
-          )
+            (category) =>
+                Card(child: CategoryChart(category: category, api: api)),
+          ),
         ],
       ),
     );

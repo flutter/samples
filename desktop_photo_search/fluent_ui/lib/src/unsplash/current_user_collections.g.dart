@@ -18,15 +18,17 @@ class _$CurrentUserCollectionsSerializer
   @override
   final Iterable<Type> types = const [
     CurrentUserCollections,
-    _$CurrentUserCollections
+    _$CurrentUserCollections,
   ];
   @override
   final String wireName = 'CurrentUserCollections';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CurrentUserCollections object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    CurrentUserCollections object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -36,30 +38,35 @@ class _$CurrentUserCollectionsSerializer
     if (value != null) {
       result
         ..add('title')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.publishedAt;
     if (value != null) {
       result
         ..add('published_at')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.updatedAt;
     if (value != null) {
       result
         ..add('updated_at')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
   CurrentUserCollections deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new CurrentUserCollectionsBuilder();
 
     final iterator = serialized.iterator;
@@ -69,20 +76,36 @@ class _$CurrentUserCollectionsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )!
+                  as int;
           break;
         case 'title':
-          result.title = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.title =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'published_at':
-          result.publishedAt = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.publishedAt =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'updated_at':
-          result.updatedAt = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.updatedAt =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -101,20 +124,23 @@ class _$CurrentUserCollections extends CurrentUserCollections {
   @override
   final String? updatedAt;
 
-  factory _$CurrentUserCollections(
-          [void Function(CurrentUserCollectionsBuilder)? updates]) =>
-      (new CurrentUserCollectionsBuilder()..update(updates))._build();
+  factory _$CurrentUserCollections([
+    void Function(CurrentUserCollectionsBuilder)? updates,
+  ]) => (new CurrentUserCollectionsBuilder()..update(updates))._build();
 
-  _$CurrentUserCollections._(
-      {required this.id, this.title, this.publishedAt, this.updatedAt})
-      : super._() {
+  _$CurrentUserCollections._({
+    required this.id,
+    this.title,
+    this.publishedAt,
+    this.updatedAt,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'CurrentUserCollections', 'id');
   }
 
   @override
   CurrentUserCollections rebuild(
-          void Function(CurrentUserCollectionsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(CurrentUserCollectionsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   CurrentUserCollectionsBuilder toBuilder() =>
@@ -201,13 +227,18 @@ class CurrentUserCollectionsBuilder
   CurrentUserCollections build() => _build();
 
   _$CurrentUserCollections _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$CurrentUserCollections._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'CurrentUserCollections', 'id'),
-            title: title,
-            publishedAt: publishedAt,
-            updatedAt: updatedAt);
+          id: BuiltValueNullFieldError.checkNotNull(
+            id,
+            r'CurrentUserCollections',
+            'id',
+          ),
+          title: title,
+          publishedAt: publishedAt,
+          updatedAt: updatedAt,
+        );
     replace(_$result);
     return _$result;
   }

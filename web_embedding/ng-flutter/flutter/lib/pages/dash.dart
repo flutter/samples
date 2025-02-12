@@ -21,9 +21,12 @@ class _DashDemoState extends State<DashDemo> {
     super.initState();
     // Initial value of the text box.
     _totalCharCount = widget.text.value.length;
-    textController = TextEditingController.fromValue(TextEditingValue(
+    textController = TextEditingController.fromValue(
+      TextEditingValue(
         text: widget.text.value,
-        selection: TextSelection.collapsed(offset: widget.text.value.length)));
+        selection: TextSelection.collapsed(offset: widget.text.value.length),
+      ),
+    );
     // Report changes.
     textController.addListener(_onTextControllerChange);
     // Listen to changes from the outside.
@@ -73,10 +76,9 @@ class _DashDemoState extends State<DashDemo> {
                 children: [
                   Text(
                     'COUNT WITH DASH!',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge!
-                        .copyWith(color: Colors.white),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleLarge!.copyWith(color: Colors.white),
                   ),
                   // Bordered dash avatar
                   Padding(
@@ -101,10 +103,9 @@ class _DashDemoState extends State<DashDemo> {
                   ),
                   Text(
                     '$_totalCharCount',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displayLarge!
-                        .copyWith(color: Colors.white),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.displayLarge!.copyWith(color: Colors.white),
                   ),
                 ],
               ),

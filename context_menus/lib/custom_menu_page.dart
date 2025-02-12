@@ -5,10 +5,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class CustomMenuPage extends StatelessWidget {
-  CustomMenuPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  CustomMenuPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'custom-menu';
   static const String title = 'Custom Menu';
@@ -29,9 +26,7 @@ class CustomMenuPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(CustomMenuPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -52,10 +47,11 @@ class CustomMenuPage extends StatelessWidget {
             contextMenuBuilder: (context, editableTextState) {
               return _MyContextMenu(
                 anchor: editableTextState.contextMenuAnchors.primaryAnchor,
-                children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
-                  context,
-                  editableTextState.contextMenuButtonItems,
-                ).toList(),
+                children:
+                    AdaptiveTextSelectionToolbar.getAdaptiveButtons(
+                      context,
+                      editableTextState.contextMenuButtonItems,
+                    ).toList(),
               );
             },
           ),
@@ -66,10 +62,7 @@ class CustomMenuPage extends StatelessWidget {
 }
 
 class _MyContextMenu extends StatelessWidget {
-  const _MyContextMenu({
-    required this.anchor,
-    required this.children,
-  });
+  const _MyContextMenu({required this.anchor, required this.children});
 
   final Offset anchor;
   final List<Widget> children;
@@ -85,9 +78,7 @@ class _MyContextMenu extends StatelessWidget {
             width: 200.0,
             height: 200.0,
             color: Colors.amberAccent,
-            child: Column(
-              children: children,
-            ),
+            child: Column(children: children),
           ),
         ),
       ],

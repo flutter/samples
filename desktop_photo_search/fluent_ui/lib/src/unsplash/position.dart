@@ -28,7 +28,9 @@ abstract class Position implements Built<Position, PositionBuilder> {
 
   static Position? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Position.serializer, json.decode(jsonString));
+      Position.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Position> get serializer => _$positionSerializer;

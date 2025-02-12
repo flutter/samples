@@ -5,10 +5,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class GlobalSelectionPage extends StatelessWidget {
-  GlobalSelectionPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  GlobalSelectionPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'global-selection';
   static const String title = 'Global Selection Example';
@@ -43,9 +40,7 @@ class GlobalSelectionPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(GlobalSelectionPage.title),
           actions: <Widget>[
-            PlatformSelector(
-              onChangedPlatform: onChangedPlatform,
-            ),
+            PlatformSelector(onChangedPlatform: onChangedPlatform),
             IconButton(
               icon: const Icon(Icons.code),
               onPressed: () async {
@@ -69,7 +64,8 @@ class GlobalSelectionPage extends StatelessWidget {
                 TextField(controller: _controller),
                 const SizedBox(height: 40.0),
                 const SelectableText(
-                    'SelectableText also shows its own separate context menu.'),
+                  'SelectableText also shows its own separate context menu.',
+                ),
               ],
             ),
           ),

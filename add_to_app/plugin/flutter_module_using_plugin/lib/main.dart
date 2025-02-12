@@ -17,12 +17,7 @@ void main() {
 
   final model = CounterModel();
 
-  runApp(
-    ChangeNotifierProvider.value(
-      value: model,
-      child: const MyApp(),
-    ),
-  );
+  runApp(ChangeNotifierProvider.value(value: model, child: const MyApp()));
 }
 
 /// This is on alternate entrypoint for this module to display Flutter UI in
@@ -92,9 +87,7 @@ class FullScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Full-screen Flutter with plugin'),
-      ),
+      appBar: AppBar(title: const Text('Full-screen Flutter with plugin')),
       body: const Contents(showExit: true),
     );
   }
@@ -128,10 +121,7 @@ class Contents extends StatelessWidget {
           const Positioned.fill(
             child: Opacity(
               opacity: .25,
-              child: FittedBox(
-                fit: BoxFit.cover,
-                child: FlutterLogo(),
-              ),
+              child: FittedBox(fit: BoxFit.cover, child: FlutterLogo()),
             ),
           ),
           Center(

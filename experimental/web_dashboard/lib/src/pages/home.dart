@@ -14,10 +14,7 @@ import 'entries.dart';
 class HomePage extends StatefulWidget {
   final VoidCallback onSignOut;
 
-  const HomePage({
-    required this.onSignOut,
-    super.key,
-  });
+  const HomePage({required this.onSignOut, super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -38,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () => _handleSignOut(),
             child: const Text('Sign Out'),
           ),
-        )
+        ),
       ],
       currentIndex: _pageIndex,
       destinations: const [
@@ -90,23 +87,24 @@ class _HomePageState extends State<HomePage> {
   Future<void> _handleSignOut() async {
     var shouldSignOut = await (showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Are you sure you want to sign out?'),
-        actions: [
-          TextButton(
-            child: const Text('No'),
-            onPressed: () {
-              Navigator.of(context).pop(false);
-            },
+      builder:
+          (context) => AlertDialog(
+            title: const Text('Are you sure you want to sign out?'),
+            actions: [
+              TextButton(
+                child: const Text('No'),
+                onPressed: () {
+                  Navigator.of(context).pop(false);
+                },
+              ),
+              TextButton(
+                child: const Text('Yes'),
+                onPressed: () {
+                  Navigator.of(context).pop(true);
+                },
+              ),
+            ],
           ),
-          TextButton(
-            child: const Text('Yes'),
-            onPressed: () {
-              Navigator.of(context).pop(true);
-            },
-          ),
-        ],
-      ),
     ));
 
     if (shouldSignOut == null || !shouldSignOut) {

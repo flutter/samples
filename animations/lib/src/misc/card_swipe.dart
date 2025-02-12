@@ -33,9 +33,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Card Swipe'),
-      ),
+      appBar: AppBar(title: const Text('Card Swipe')),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Center(
@@ -100,8 +98,11 @@ class SwipeableCard extends StatefulWidget {
   final String imageAssetName;
   final VoidCallback onSwiped;
 
-  const SwipeableCard(
-      {required this.onSwiped, required this.imageAssetName, super.key});
+  const SwipeableCard({
+    required this.onSwiped,
+    required this.imageAssetName,
+    super.key,
+  });
 
   @override
   State<SwipeableCard> createState() => _SwipeableCardState();
@@ -118,10 +119,9 @@ class _SwipeableCardState extends State<SwipeableCard>
   void initState() {
     super.initState();
     _controller = AnimationController.unbounded(vsync: this);
-    _animation = _controller.drive(Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(1, 0),
-    ));
+    _animation = _controller.drive(
+      Tween<Offset>(begin: Offset.zero, end: const Offset(1, 0)),
+    );
   }
 
   @override
@@ -179,17 +179,26 @@ class _SwipeableCardState extends State<SwipeableCard>
   }
 
   void _updateAnimation(double dragPosition) {
-    _animation = _controller.drive(Tween<Offset>(
-      begin: Offset.zero,
-      end: _isSwipingLeft ? const Offset(-1, 0) : const Offset(1, 0),
-    ));
+    _animation = _controller.drive(
+      Tween<Offset>(
+        begin: Offset.zero,
+        end: _isSwipingLeft ? const Offset(-1, 0) : const Offset(1, 0),
+      ),
+    );
   }
 
   void _animate({double velocity = 0}) {
-    var description =
-        const SpringDescription(mass: 50, stiffness: 1, damping: 1);
-    var simulation =
-        SpringSimulation(description, _controller.value, 1, velocity);
+    var description = const SpringDescription(
+      mass: 50,
+      stiffness: 1,
+      damping: 1,
+    );
+    var simulation = SpringSimulation(
+      description,
+      _controller.value,
+      1,
+      velocity,
+    );
     _controller.animateWith(simulation).then<void>((_) {
       widget.onSwiped();
     });

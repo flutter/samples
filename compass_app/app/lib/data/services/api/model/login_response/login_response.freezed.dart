@@ -12,7 +12,8 @@ part of 'login_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) {
   return _LoginResponse.fromJson(json);
@@ -39,8 +40,9 @@ mixin _$LoginResponse {
 /// @nodoc
 abstract class $LoginResponseCopyWith<$Res> {
   factory $LoginResponseCopyWith(
-          LoginResponse value, $Res Function(LoginResponse) then) =
-      _$LoginResponseCopyWithImpl<$Res, LoginResponse>;
+    LoginResponse value,
+    $Res Function(LoginResponse) then,
+  ) = _$LoginResponseCopyWithImpl<$Res, LoginResponse>;
   @useResult
   $Res call({String token, String userId});
 }
@@ -59,20 +61,22 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? token = null,
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? token = null, Object? userId = null}) {
+    return _then(
+      _value.copyWith(
+            token:
+                null == token
+                    ? _value.token
+                    : token // ignore: cast_nullable_to_non_nullable
+                        as String,
+            userId:
+                null == userId
+                    ? _value.userId
+                    : userId // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -80,8 +84,9 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
 abstract class _$$LoginResponseImplCopyWith<$Res>
     implements $LoginResponseCopyWith<$Res> {
   factory _$$LoginResponseImplCopyWith(
-          _$LoginResponseImpl value, $Res Function(_$LoginResponseImpl) then) =
-      __$$LoginResponseImplCopyWithImpl<$Res>;
+    _$LoginResponseImpl value,
+    $Res Function(_$LoginResponseImpl) then,
+  ) = __$$LoginResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String token, String userId});
@@ -92,27 +97,29 @@ class __$$LoginResponseImplCopyWithImpl<$Res>
     extends _$LoginResponseCopyWithImpl<$Res, _$LoginResponseImpl>
     implements _$$LoginResponseImplCopyWith<$Res> {
   __$$LoginResponseImplCopyWithImpl(
-      _$LoginResponseImpl _value, $Res Function(_$LoginResponseImpl) _then)
-      : super(_value, _then);
+    _$LoginResponseImpl _value,
+    $Res Function(_$LoginResponseImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LoginResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? token = null,
-    Object? userId = null,
-  }) {
-    return _then(_$LoginResponseImpl(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? token = null, Object? userId = null}) {
+    return _then(
+      _$LoginResponseImpl(
+        token:
+            null == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                    as String,
+        userId:
+            null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
@@ -160,16 +167,15 @@ class _$LoginResponseImpl implements _LoginResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LoginResponseImplToJson(
-      this,
-    );
+    return _$$LoginResponseImplToJson(this);
   }
 }
 
 abstract class _LoginResponse implements LoginResponse {
-  const factory _LoginResponse(
-      {required final String token,
-      required final String userId}) = _$LoginResponseImpl;
+  const factory _LoginResponse({
+    required final String token,
+    required final String userId,
+  }) = _$LoginResponseImpl;
 
   factory _LoginResponse.fromJson(Map<String, dynamic> json) =
       _$LoginResponseImpl.fromJson;

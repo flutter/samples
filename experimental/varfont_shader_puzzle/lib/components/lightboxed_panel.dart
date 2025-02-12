@@ -73,16 +73,16 @@ class _LightboxedPanelState extends State<LightboxedPanel> {
     return [
       Column(
         children: [
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           TextButton(
             onPressed: handleDismiss,
             style: ButtonStyles.style(),
             child: Text(
               'OK',
-              style: TextStyles.bodyStyle()
-                  .copyWith(color: Colors.white, height: 1.2),
+              style: TextStyles.bodyStyle().copyWith(
+                color: Colors.white,
+                height: 1.2,
+              ),
             ),
           ),
         ],
@@ -111,10 +111,11 @@ class _LightboxedPanelState extends State<LightboxedPanel> {
                   ),
                   boxShadow: const [
                     BoxShadow(
-                        color: Color.fromARGB(30, 0, 0, 0),
-                        offset: Offset.zero,
-                        blurRadius: 4.0,
-                        spreadRadius: 2.0),
+                      color: Color.fromARGB(30, 0, 0, 0),
+                      offset: Offset.zero,
+                      blurRadius: 4.0,
+                      spreadRadius: 2.0,
+                    ),
                   ],
                   borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 ),
@@ -123,7 +124,8 @@ class _LightboxedPanelState extends State<LightboxedPanel> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: widget.content +
+                    children:
+                        widget.content +
                         (widget.buildButton ? buttonComponents() : []),
                   ),
                 ),
@@ -133,9 +135,6 @@ class _LightboxedPanelState extends State<LightboxedPanel> {
         ),
       );
     }
-    return const SizedBox(
-      width: 0,
-      height: 0,
-    );
+    return const SizedBox(width: 0, height: 0);
   }
 }

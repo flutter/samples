@@ -72,24 +72,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            TextButton(
-              onPressed: _incrementCounter,
-              child: const Text('Add'),
-            ),
+            TextButton(onPressed: _incrementCounter, child: const Text('Add')),
             TextButton(
               onPressed: () {
                 _channel.invokeMethod<void>("next", _counter);

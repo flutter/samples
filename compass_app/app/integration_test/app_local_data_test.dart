@@ -24,20 +24,14 @@ void main() {
     testWidgets('should load app', (tester) async {
       // Load app widget.
       await tester.pumpWidget(
-        MultiProvider(
-          providers: providersLocal,
-          child: const MainApp(),
-        ),
+        MultiProvider(providers: providersLocal, child: const MainApp()),
       );
     });
 
     testWidgets('Open a booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(
-        MultiProvider(
-          providers: providersLocal,
-          child: const MainApp(),
-        ),
+        MultiProvider(providers: providersLocal, child: const MainApp()),
       );
 
       await tester.pumpAndSettle();
@@ -61,10 +55,7 @@ void main() {
     testWidgets('Create booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(
-        MultiProvider(
-          providers: providersLocal,
-          child: const MainApp(),
-        ),
+        MultiProvider(providers: providersLocal, child: const MainApp()),
       );
       await tester.pumpAndSettle();
 
@@ -97,8 +88,10 @@ void main() {
       await tester.pumpAndSettle();
 
       // Select guests
-      await tester.tap(find.byKey(const ValueKey(addGuestsKey)),
-          warnIfMissed: false);
+      await tester.tap(
+        find.byKey(const ValueKey(addGuestsKey)),
+        warnIfMissed: false,
+      );
 
       // Refresh screen state
       await tester.pumpAndSettle();

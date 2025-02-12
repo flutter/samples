@@ -32,7 +32,9 @@ abstract class Location implements Built<Location, LocationBuilder> {
 
   static Location? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Location.serializer, json.decode(jsonString));
+      Location.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Location> get serializer => _$locationSerializer;

@@ -12,7 +12,8 @@ part of 'continent.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Continent _$ContinentFromJson(Map<String, dynamic> json) {
   return _Continent.fromJson(json);
@@ -58,20 +59,22 @@ class _$ContinentCopyWithImpl<$Res, $Val extends Continent>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? imageUrl = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? name = null, Object? imageUrl = null}) {
+    return _then(
+      _value.copyWith(
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            imageUrl:
+                null == imageUrl
+                    ? _value.imageUrl
+                    : imageUrl // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -79,8 +82,9 @@ class _$ContinentCopyWithImpl<$Res, $Val extends Continent>
 abstract class _$$ContinentImplCopyWith<$Res>
     implements $ContinentCopyWith<$Res> {
   factory _$$ContinentImplCopyWith(
-          _$ContinentImpl value, $Res Function(_$ContinentImpl) then) =
-      __$$ContinentImplCopyWithImpl<$Res>;
+    _$ContinentImpl value,
+    $Res Function(_$ContinentImpl) then,
+  ) = __$$ContinentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String imageUrl});
@@ -91,27 +95,29 @@ class __$$ContinentImplCopyWithImpl<$Res>
     extends _$ContinentCopyWithImpl<$Res, _$ContinentImpl>
     implements _$$ContinentImplCopyWith<$Res> {
   __$$ContinentImplCopyWithImpl(
-      _$ContinentImpl _value, $Res Function(_$ContinentImpl) _then)
-      : super(_value, _then);
+    _$ContinentImpl _value,
+    $Res Function(_$ContinentImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Continent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? imageUrl = null,
-  }) {
-    return _then(_$ContinentImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null, Object? imageUrl = null}) {
+    return _then(
+      _$ContinentImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        imageUrl:
+            null == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
@@ -160,16 +166,15 @@ class _$ContinentImpl implements _Continent {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ContinentImplToJson(
-      this,
-    );
+    return _$$ContinentImplToJson(this);
   }
 }
 
 abstract class _Continent implements Continent {
-  const factory _Continent(
-      {required final String name,
-      required final String imageUrl}) = _$ContinentImpl;
+  const factory _Continent({
+    required final String name,
+    required final String imageUrl,
+  }) = _$ContinentImpl;
 
   factory _Continent.fromJson(Map<String, dynamic> json) =
       _$ContinentImpl.fromJson;

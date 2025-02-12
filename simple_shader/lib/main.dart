@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Simple Shader Demo',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.blue),
       home: const MyHomePage(),
     );
   }
@@ -28,20 +26,14 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Simple Shader Demo'),
-      ),
+      appBar: AppBar(title: const Text('Simple Shader Demo')),
       body: ShaderBuilder(
         assetKey: 'shaders/simple.frag',
         (context, shader, child) => CustomPaint(
           size: MediaQuery.of(context).size,
-          painter: ShaderPainter(
-            shader: shader,
-          ),
+          painter: ShaderPainter(shader: shader),
         ),
-        child: const Center(
-          child: CircularProgressIndicator(),
-        ),
+        child: const Center(child: CircularProgressIndicator()),
       ),
     );
   }
@@ -57,10 +49,7 @@ class ShaderPainter extends CustomPainter {
     shader.setFloat(1, size.height);
 
     final paint = Paint()..shader = shader;
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      paint,
-    );
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
   }
 
   @override

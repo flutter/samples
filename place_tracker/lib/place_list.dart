@@ -33,10 +33,11 @@ class _PlaceListState extends State<PlaceList> {
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children: state.places
-                .where((place) => place.category == state.selectedCategory)
-                .map((place) => _PlaceListTile(place: place))
-                .toList(),
+            children:
+                state.places
+                    .where((place) => place.category == state.selectedCategory)
+                    .map((place) => _PlaceListTile(place: place))
+                    .toList(),
           ),
         ),
       ],
@@ -45,8 +46,10 @@ class _PlaceListState extends State<PlaceList> {
 
   void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
-    Provider.of<AppState>(context, listen: false)
-        .setSelectedCategory(newCategory);
+    Provider.of<AppState>(
+      context,
+      listen: false,
+    ).setSelectedCategory(newCategory);
   }
 }
 
@@ -67,7 +70,7 @@ class _CategoryButton extends StatelessWidget {
     final buttonText = switch (category) {
       PlaceCategory.favorite => 'Favorites',
       PlaceCategory.visited => 'Visited',
-      PlaceCategory.wantToGo => 'Want To Go'
+      PlaceCategory.wantToGo => 'Want To Go',
     };
 
     return Container(
@@ -134,9 +137,7 @@ class _ListCategoryButtonBar extends StatelessWidget {
 class _PlaceListTile extends StatelessWidget {
   final Place place;
 
-  const _PlaceListTile({
-    required this.place,
-  });
+  const _PlaceListTile({required this.place});
 
   @override
   Widget build(BuildContext context) {
@@ -157,15 +158,17 @@ class _PlaceListTile extends StatelessWidget {
               maxLines: 3,
             ),
             Row(
-              children: List.generate(5, (index) {
-                return Icon(
-                  Icons.star,
-                  size: 28.0,
-                  color: place.starRating > index
-                      ? Colors.amber
-                      : Colors.grey[400],
-                );
-              }).toList(),
+              children:
+                  List.generate(5, (index) {
+                    return Icon(
+                      Icons.star,
+                      size: 28.0,
+                      color:
+                          place.starRating > index
+                              ? Colors.amber
+                              : Colors.grey[400],
+                    );
+                  }).toList(),
             ),
             Text(
               place.description ?? '',
@@ -174,10 +177,7 @@ class _PlaceListTile extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 16.0),
-            Divider(
-              height: 2.0,
-              color: Colors.grey[700],
-            ),
+            Divider(height: 2.0, color: Colors.grey[700]),
           ],
         ),
       ),

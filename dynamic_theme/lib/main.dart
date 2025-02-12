@@ -55,11 +55,7 @@ class _GenerativeAISampleState extends State<GenerativeAISample> {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: Listenable.merge([
-        themeColor,
-        themeMode,
-        textScaleFactor,
-      ]),
+      animation: Listenable.merge([themeColor, themeMode, textScaleFactor]),
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -69,22 +65,23 @@ class _GenerativeAISampleState extends State<GenerativeAISample> {
           themeMode: themeMode.value,
           builder: (context, child) {
             return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                  textScaler: TextScaler.linear(textScaleFactor.value)),
+              data: MediaQuery.of(
+                context,
+              ).copyWith(textScaler: TextScaler.linear(textScaleFactor.value)),
               child: child!,
             );
           },
           home: switch (apiKey) {
             final providedKey? => Example(
-                title: widget.title,
-                apiKey: providedKey,
-              ),
+              title: widget.title,
+              apiKey: providedKey,
+            ),
             _ => ApiKeyWidget(
-                title: widget.title,
-                onSubmitted: (key) {
-                  setState(() => apiKey = key);
-                },
-              ),
+              title: widget.title,
+              onSubmitted: (key) {
+                setState(() => apiKey = key);
+              },
+            ),
           },
         );
       },
@@ -93,11 +90,7 @@ class _GenerativeAISampleState extends State<GenerativeAISample> {
 }
 
 class Example extends StatefulWidget {
-  const Example({
-    super.key,
-    required this.apiKey,
-    required this.title,
-  });
+  const Example({super.key, required this.apiKey, required this.title});
 
   final String apiKey, title;
 
@@ -189,9 +182,7 @@ class _ExampleState extends State<Example> {
   Future<GenerateContentResponse> callWithActions(
     Iterable<Content> prompt,
   ) async {
-    final response = await model.generateContent(
-      _history.followedBy(prompt),
-    );
+    final response = await model.generateContent(_history.followedBy(prompt));
     if (response.candidates.isNotEmpty) {
       _history.addAll(prompt);
       _history.add(response.candidates.first.content);
@@ -203,16 +194,20 @@ class _ExampleState extends State<Example> {
         case 'change_theme_color':
           final hex = args['hex'] as String;
           if (hex.length != 6) {
-            actions.add(FunctionResponse(fn.name, {
-              'type': 'Error',
-              'message': 'hex must be exactly 6 characters',
-            }));
+            actions.add(
+              FunctionResponse(fn.name, {
+                'type': 'Error',
+                'message': 'hex must be exactly 6 characters',
+              }),
+            );
           } else {
             themeColor.value = Color(int.parse('0xFF$hex'));
-            actions.add(FunctionResponse(fn.name, {
-              'type': 'Success',
-              'message': 'theme color updated',
-            }));
+            actions.add(
+              FunctionResponse(fn.name, {
+                'type': 'Success',
+                'message': 'theme color updated',
+              }),
+            );
           }
           break;
         case 'change_theme_mode':
@@ -223,18 +218,22 @@ class _ExampleState extends State<Example> {
             'dark' => ThemeMode.dark,
             (_) => ThemeMode.system,
           };
-          actions.add(FunctionResponse(fn.name, {
-            'type': 'Success',
-            'message': 'theme mode updated',
-          }));
+          actions.add(
+            FunctionResponse(fn.name, {
+              'type': 'Success',
+              'message': 'theme mode updated',
+            }),
+          );
           break;
         case 'change_text_scale_factor':
           final value = args['scale'] as num;
           textScaleFactor.value = value.toDouble();
-          actions.add(FunctionResponse(fn.name, {
-            'type': 'Success',
-            'message': 'font scale updated',
-          }));
+          actions.add(
+            FunctionResponse(fn.name, {
+              'type': 'Success',
+              'message': 'font scale updated',
+            }),
+          );
           break;
         default:
       }
@@ -266,30 +265,31 @@ class _ExampleState extends State<Example> {
       builder: (context, child) {
         final reversed = messages.value.reversed;
         return Scaffold(
-          appBar: AppBar(
-            title: Text(widget.title),
-          ),
-          body: messages.value.isEmpty
-              ? const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(32.0),
-                    child: Text('Start changing the theme! Try typing '
+          appBar: AppBar(title: Text(widget.title)),
+          body:
+              messages.value.isEmpty
+                  ? const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(32.0),
+                      child: Text(
+                        'Start changing the theme! Try typing '
                         'in requests like "Make the colors darker" or "Make the '
-                        'font larger" and see what happens.'),
+                        'font larger" and see what happens.',
+                      ),
+                    ),
+                  )
+                  : ListView.builder(
+                    padding: const EdgeInsets.all(8),
+                    reverse: true,
+                    itemCount: reversed.length,
+                    itemBuilder: (context, index) {
+                      final (sender, message) = reversed.elementAt(index);
+                      return MessageWidget(
+                        isFromUser: sender == Sender.user,
+                        text: message,
+                      );
+                    },
                   ),
-                )
-              : ListView.builder(
-                  padding: const EdgeInsets.all(8),
-                  reverse: true,
-                  itemCount: reversed.length,
-                  itemBuilder: (context, index) {
-                    final (sender, message) = reversed.elementAt(index);
-                    return MessageWidget(
-                      isFromUser: sender == Sender.user,
-                      text: message,
-                    );
-                  },
-                ),
           bottomNavigationBar: BottomAppBar(
             padding: const EdgeInsets.all(8),
             child: Row(
@@ -328,7 +328,4 @@ class _ExampleState extends State<Example> {
   }
 }
 
-enum Sender {
-  user,
-  system,
-}
+enum Sender { user, system }

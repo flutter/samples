@@ -44,10 +44,12 @@ void main() {
       test('subscribe', () async {
         var stream = api.categories.subscribe();
 
-        stream.listen(expectAsync1((x) {
-          expect(x, hasLength(1));
-          expect(x.first.name, equals('Coffees Drank'));
-        }, count: 1));
+        stream.listen(
+          expectAsync1((x) {
+            expect(x, hasLength(1));
+            expect(x.first.name, equals('Coffees Drank'));
+          }, count: 1),
+        );
         await api.categories.insert(Category('Coffees Drank'));
       });
     });
@@ -57,8 +59,9 @@ void main() {
       DateTime dateTime = DateTime(2020, 1, 1, 30, 45);
 
       setUp(() async {
-        category =
-            await api.categories.insert(Category('Lines of code committed'));
+        category = await api.categories.insert(
+          Category('Lines of code committed'),
+        );
       });
 
       test('insert', () async {
@@ -80,18 +83,23 @@ void main() {
 
       test('update', () async {
         var entry = await api.entries.insert(category.id!, Entry(1, dateTime));
-        var updated = await api.entries
-            .update(category.id!, entry.id!, Entry(2, dateTime));
+        var updated = await api.entries.update(
+          category.id!,
+          entry.id!,
+          Entry(2, dateTime),
+        );
         expect(updated.value, 2);
       });
 
       test('subscribe', () async {
         var stream = api.entries.subscribe(category.id!);
 
-        stream.listen(expectAsync1((x) {
-          expect(x, hasLength(1));
-          expect(x.first.value, equals(1));
-        }, count: 1));
+        stream.listen(
+          expectAsync1((x) {
+            expect(x, hasLength(1));
+            expect(x.first.value, equals(1));
+          }, count: 1),
+        );
 
         await api.entries.insert(category.id!, Entry(1, dateTime));
       });

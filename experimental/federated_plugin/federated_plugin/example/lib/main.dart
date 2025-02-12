@@ -14,10 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light(),
-      home: const HomePage(),
-    );
+    return MaterialApp(theme: ThemeData.light(), home: const HomePage());
   }
 }
 
@@ -36,9 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Federated Plugin Demo'),
-      ),
+      appBar: AppBar(title: const Text('Federated Plugin Demo')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -46,9 +41,9 @@ class _HomePageState extends State<HomePage> {
             batteryLevel == null
                 ? const SizedBox.shrink()
                 : Text(
-                    'Battery Level: $batteryLevel',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
+                  'Battery Level: $batteryLevel',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
             const SizedBox(height: 16),
             FilledButton(
               onPressed: () async {
@@ -62,9 +57,7 @@ class _HomePageState extends State<HomePage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: Theme.of(context).primaryColor,
-                      content: Text(
-                        (error as dynamic).message as String,
-                      ),
+                      content: Text((error as dynamic).message as String),
                     ),
                   );
                 }

@@ -42,26 +42,26 @@ class ColorPalettesScreen extends StatelessWidget {
     Widget schemeView(ThemeData theme) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: ColorSchemeView(
-          colorScheme: theme.colorScheme,
-        ),
+        child: ColorSchemeView(colorScheme: theme.colorScheme),
       );
     }
 
     Widget dynamicColorNotice() => RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            style: Theme.of(context).textTheme.bodySmall,
-            children: [
-              const TextSpan(
-                text: 'To create color schemes based on a '
-                    'platform\'s implementation of dynamic color, '
-                    'use the ',
-              ),
-              TextSpan(
-                text: 'dynamic_color',
-                style: const TextStyle(decoration: TextDecoration.underline),
-                recognizer: TapGestureRecognizer()
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        style: Theme.of(context).textTheme.bodySmall,
+        children: [
+          const TextSpan(
+            text:
+                'To create color schemes based on a '
+                'platform\'s implementation of dynamic color, '
+                'use the ',
+          ),
+          TextSpan(
+            text: 'dynamic_color',
+            style: const TextStyle(decoration: TextDecoration.underline),
+            recognizer:
+                TapGestureRecognizer()
                   ..onTap = () async {
                     final url = Uri.parse(
                       'https://pub.dev/packages/dynamic_color',
@@ -70,11 +70,11 @@ class ColorPalettesScreen extends StatelessWidget {
                       throw Exception('Could not launch $url');
                     }
                   },
-              ),
-              const TextSpan(text: ' package.'),
-            ],
           ),
-        );
+          const TextSpan(text: ' package.'),
+        ],
+      ),
+    );
 
     return Expanded(
       child: LayoutBuilder(
@@ -97,9 +97,13 @@ class ColorPalettesScreen extends StatelessWidget {
           } else {
             Color seed = Theme.of(context).colorScheme.primary;
             ColorScheme lightScheme = ColorScheme.fromSeed(
-                seedColor: seed, brightness: Brightness.light);
+              seedColor: seed,
+              brightness: Brightness.light,
+            );
             ColorScheme darkScheme = ColorScheme.fromSeed(
-                seedColor: seed, brightness: Brightness.dark);
+              seedColor: seed,
+              brightness: Brightness.dark,
+            );
             return SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8),
@@ -415,9 +419,7 @@ class ColorGroup extends StatelessWidget {
     return RepaintBoundary(
       child: Card(
         clipBehavior: Clip.antiAlias,
-        child: Column(
-          children: children,
-        ),
+        child: Column(children: children),
       ),
     );
   }
@@ -438,7 +440,7 @@ class ColorChip extends StatelessWidget {
   static Color contrastColor(Color color) =>
       switch (ThemeData.estimateBrightnessForColor(color)) {
         Brightness.dark => Colors.white,
-        Brightness.light => Colors.black
+        Brightness.light => Colors.black,
       };
 
   @override

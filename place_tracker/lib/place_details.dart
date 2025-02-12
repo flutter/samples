@@ -13,10 +13,7 @@ import 'stub_data.dart';
 class PlaceDetails extends StatefulWidget {
   final Place place;
 
-  const PlaceDetails({
-    required this.place,
-    super.key,
-  });
+  const PlaceDetails({required this.place, super.key});
 
   @override
   State<PlaceDetails> createState() => _PlaceDetailsState();
@@ -107,10 +104,12 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     setState(() {
-      _markers.add(Marker(
-        markerId: MarkerId(_place.latLng.toString()),
-        position: _place.latLng,
-      ));
+      _markers.add(
+        Marker(
+          markerId: MarkerId(_place.latLng.toString()),
+          position: _place.latLng,
+        ),
+      );
     });
   }
 
@@ -179,10 +178,7 @@ class _Map extends StatelessWidget {
         height: 240,
         child: GoogleMap(
           onMapCreated: onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: center,
-            zoom: 16,
-          ),
+          initialCameraPosition: CameraPosition(target: center, zoom: 16),
           markers: markers,
           zoomGesturesEnabled: false,
           rotateGesturesEnabled: false,
@@ -199,10 +195,7 @@ class _NameTextField extends StatelessWidget {
 
   final ValueChanged<String> onChanged;
 
-  const _NameTextField({
-    required this.controller,
-    required this.onChanged,
-  });
+  const _NameTextField({required this.controller, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -247,9 +240,10 @@ class _Reviews extends StatelessWidget {
           ),
         ),
         Column(
-          children: StubData.reviewStrings
-              .map((reviewText) => _buildSingleReview(reviewText))
-              .toList(),
+          children:
+              StubData.reviewStrings
+                  .map((reviewText) => _buildSingleReview(reviewText))
+                  .toList(),
         ),
       ],
     );
@@ -267,10 +261,7 @@ class _Reviews extends StatelessWidget {
                 height: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
-                  border: Border.all(
-                    width: 3,
-                    color: Colors.grey,
-                  ),
+                  border: Border.all(width: 3, color: Colors.grey),
                 ),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -283,11 +274,7 @@ class _Reviews extends StatelessWidget {
                         color: Colors.black87,
                       ),
                     ),
-                    Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 36,
-                    ),
+                    Icon(Icons.star, color: Colors.amber, size: 36),
                   ],
                 ),
               ),
@@ -302,10 +289,7 @@ class _Reviews extends StatelessWidget {
             ],
           ),
         ),
-        Divider(
-          height: 8,
-          color: Colors.grey[700],
-        ),
+        Divider(height: 8, color: Colors.grey[700]),
       ],
     );
   }
@@ -317,25 +301,24 @@ class _StarBar extends StatelessWidget {
   final int rating;
   final ValueChanged<int> onChanged;
 
-  const _StarBar({
-    required this.rating,
-    required this.onChanged,
-  }) : assert(rating >= 0 && rating <= maxStars);
+  const _StarBar({required this.rating, required this.onChanged})
+    : assert(rating >= 0 && rating <= maxStars);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(maxStars, (index) {
-        return IconButton(
-          icon: const Icon(Icons.star),
-          iconSize: 40,
-          color: rating > index ? Colors.amber : Colors.grey[400],
-          onPressed: () {
-            onChanged(index + 1);
-          },
-        );
-      }).toList(),
+      children:
+          List.generate(maxStars, (index) {
+            return IconButton(
+              icon: const Icon(Icons.star),
+              iconSize: 40,
+              color: rating > index ? Colors.amber : Colors.grey[400],
+              onPressed: () {
+                onChanged(index + 1);
+              },
+            );
+          }).toList(),
     );
   }
 }

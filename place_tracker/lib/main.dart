@@ -8,8 +8,10 @@ import 'package:provider/provider.dart';
 import 'place_tracker_app.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => AppState(),
-    child: const PlaceTrackerApp(),
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AppState(),
+      child: const PlaceTrackerApp(),
+    ),
+  );
 }

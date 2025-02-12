@@ -148,6 +148,6 @@ class StubData {
   static const reviewStrings = [
     'My favorite place in Portland. The employees are wonderful and so is the food. I go here at least once a month!',
     'Staff was very friendly. Great atmosphere and good music. Would recommend.',
-    'Best. Place. In. Town. Period.'
+    'Best. Place. In. Town. Period.',
   ];
 }

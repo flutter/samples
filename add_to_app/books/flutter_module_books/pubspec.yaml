@@ -6,7 +6,7 @@ description: A Flutter module using the Pigeon package to demonstrate
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0-0
 
 dependencies:
   flutter:

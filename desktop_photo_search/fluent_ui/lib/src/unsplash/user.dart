@@ -56,7 +56,9 @@ abstract class User implements Built<User, UserBuilder> {
 
   static User? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        User.serializer, json.decode(jsonString));
+      User.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<User> get serializer => _$userSerializer;

@@ -52,9 +52,11 @@ class WebStartupAnalyzer extends WebStartupAnalyzerBase {
   List<int>? get additionalFrames => _additionalFrames;
 
   WebStartupAnalyzer({int additionalFrameCount = 5})
-      : _widgetsBinding = WidgetsFlutterBinding.ensureInitialized() {
-    _frameAnalyzer =
-        FrameAnalyzer(_widgetsBinding, additionalFrames: additionalFrameCount);
+    : _widgetsBinding = WidgetsFlutterBinding.ensureInitialized() {
+    _frameAnalyzer = FrameAnalyzer(
+      _widgetsBinding,
+      additionalFrames: additionalFrameCount,
+    );
     _captureStartupMetrics();
     startupTiming = {
       'domContentLoaded': domContentLoaded,
@@ -76,8 +78,11 @@ class WebStartupAnalyzer extends WebStartupAnalyzerBase {
       _additionalFrames = value;
       onAdditionalFrames.value = value;
     });
-    onChange =
-        Listenable.merge([onFirstFrame, onFirstPaint, onAdditionalFrames]);
+    onChange = Listenable.merge([
+      onFirstFrame,
+      onFirstPaint,
+      onAdditionalFrames,
+    ]);
   }
 
   _captureStartupMetrics() {

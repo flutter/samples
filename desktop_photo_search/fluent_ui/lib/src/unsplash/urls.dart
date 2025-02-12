@@ -37,7 +37,9 @@ abstract class Urls implements Built<Urls, UrlsBuilder> {
 
   static Urls? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Urls.serializer, json.decode(jsonString));
+      Urls.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Urls> get serializer => _$urlsSerializer;

@@ -81,7 +81,9 @@ abstract class Photo implements Built<Photo, PhotoBuilder> {
 
   static Photo? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Photo.serializer, json.decode(jsonString));
+      Photo.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Photo> get serializer => _$photoSerializer;

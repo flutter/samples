@@ -8,7 +8,8 @@ final http.Client mockClient = MockClient(_mockHandler);
 
 Future<http.Response> _mockHandler(http.Request request) async {
   var decodedJson = Map<String, dynamic>.from(
-      json.decode(request.body) as Map<String, dynamic>);
+    json.decode(request.body) as Map<String, dynamic>,
+  );
 
   if (decodedJson['email'] == 'root' && decodedJson['password'] == 'password') {
     return http.Response('', 200);

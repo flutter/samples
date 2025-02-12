@@ -46,18 +46,9 @@ class _BooksScreenState extends State<BooksScreen>
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
-            Tab(
-              text: 'Popular',
-              icon: Icon(Icons.people),
-            ),
-            Tab(
-              text: 'New',
-              icon: Icon(Icons.new_releases),
-            ),
-            Tab(
-              text: 'All',
-              icon: Icon(Icons.list),
-            ),
+            Tab(text: 'Popular', icon: Icon(Icons.people)),
+            Tab(text: 'New', icon: Icon(Icons.new_releases)),
+            Tab(text: 'All', icon: Icon(Icons.list)),
           ],
         ),
       ),

@@ -24,8 +24,9 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String currentId = GoRouterState.of(context).pathParameters['id']!;
-    final Product product =
-        ProductsRepository.loadProduct(id: int.parse(currentId));
+    final Product product = ProductsRepository.loadProduct(
+      id: int.parse(currentId),
+    );
     return Scaffold(
       body: ListView(
         children: <Widget>[

@@ -12,20 +12,11 @@ class AuthorsScreen extends StatelessWidget {
   final String title;
   final ValueChanged<Author> onTap;
 
-  const AuthorsScreen({
-    required this.onTap,
-    this.title = 'Authors',
-    super.key,
-  });
+  const AuthorsScreen({required this.onTap, this.title = 'Authors', super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: AuthorList(
-          authors: libraryInstance.allAuthors,
-          onTap: onTap,
-        ),
-      );
+    appBar: AppBar(title: Text(title)),
+    body: AuthorList(authors: libraryInstance.allAuthors, onTap: onTap),
+  );
 }

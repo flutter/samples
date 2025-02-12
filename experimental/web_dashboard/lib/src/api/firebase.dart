@@ -14,8 +14,8 @@ class FirebaseDashboardApi implements DashboardApi {
   final CategoryApi categories;
 
   FirebaseDashboardApi(FirebaseFirestore firestore, String userId)
-      : entries = FirebaseEntryApi(firestore, userId),
-        categories = FirebaseCategoryApi(firestore, userId);
+    : entries = FirebaseEntryApi(firestore, userId),
+      categories = FirebaseCategoryApi(firestore, userId);
 }
 
 class FirebaseEntryApi implements EntryApi {
@@ -24,7 +24,7 @@ class FirebaseEntryApi implements EntryApi {
   final CollectionReference<Map<String, dynamic>> _categoriesRef;
 
   FirebaseEntryApi(this.firestore, this.userId)
-      : _categoriesRef = firestore.collection('users/$userId/categories');
+    : _categoriesRef = firestore.collection('users/$userId/categories');
 
   @override
   Stream<List<Entry>> subscribe(String categoryId) {
@@ -62,9 +62,10 @@ class FirebaseEntryApi implements EntryApi {
   Future<List<Entry>> list(String categoryId) async {
     var entriesRef = _categoriesRef.doc(categoryId).collection('entries');
     var querySnapshot = await entriesRef.get();
-    var entries = querySnapshot.docs
-        .map((doc) => Entry.fromJson(doc.data())..id = doc.id)
-        .toList();
+    var entries =
+        querySnapshot.docs
+            .map((doc) => Entry.fromJson(doc.data())..id = doc.id)
+            .toList();
 
     return entries;
   }
@@ -91,7 +92,7 @@ class FirebaseCategoryApi implements CategoryApi {
   final CollectionReference<Map<String, dynamic>> _categoriesRef;
 
   FirebaseCategoryApi(this.firestore, this.userId)
-      : _categoriesRef = firestore.collection('users/$userId/categories');
+    : _categoriesRef = firestore.collection('users/$userId/categories');
 
   @override
   Stream<List<Category>> subscribe() {
@@ -131,9 +132,10 @@ class FirebaseCategoryApi implements CategoryApi {
   @override
   Future<List<Category>> list() async {
     var querySnapshot = await _categoriesRef.get();
-    var categories = querySnapshot.docs
-        .map((doc) => Category.fromJson(doc.data())..id = doc.id)
-        .toList();
+    var categories =
+        querySnapshot.docs
+            .map((doc) => Category.fromJson(doc.data())..id = doc.id)
+            .toList();
 
     return categories;
   }

@@ -39,8 +39,9 @@ class MyApp extends StatelessWidget {
             ],
           ),
           GoRoute(
-              path: '/category/:category',
-              builder: (_, __) => const ProductCategoryList()),
+            path: '/category/:category',
+            builder: (_, __) => const ProductCategoryList(),
+          ),
         ],
       ),
     );

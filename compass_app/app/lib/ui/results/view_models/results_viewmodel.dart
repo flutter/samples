@@ -18,8 +18,8 @@ class ResultsViewModel extends ChangeNotifier {
   ResultsViewModel({
     required DestinationRepository destinationRepository,
     required ItineraryConfigRepository itineraryConfigRepository,
-  })  : _destinationRepository = destinationRepository,
-        _itineraryConfigRepository = itineraryConfigRepository {
+  }) : _destinationRepository = destinationRepository,
+       _itineraryConfigRepository = itineraryConfigRepository {
     updateItineraryConfig = Command1<void, String>(_updateItineraryConfig);
     search = Command0(_search)..execute();
   }
@@ -67,10 +67,13 @@ class ResultsViewModel extends ChangeNotifier {
       case Ok():
         {
           // If the result is Ok, update the list of destinations
-          _destinations = result.value
-              .where((destination) =>
-                  destination.continent == _itineraryConfig!.continent)
-              .toList();
+          _destinations =
+              result.value
+                  .where(
+                    (destination) =>
+                        destination.continent == _itineraryConfig!.continent,
+                  )
+                  .toList();
           _log.fine('Destinations (${_destinations.length}) loaded');
         }
       case Error():
@@ -99,16 +102,11 @@ class ResultsViewModel extends ChangeNotifier {
     }
 
     final itineraryConfig = resultConfig.value;
-    final result = await _itineraryConfigRepository
-        .setItineraryConfig(itineraryConfig.copyWith(
-      destination: destinationRef,
-      activities: [],
-    ));
+    final result = await _itineraryConfigRepository.setItineraryConfig(
+      itineraryConfig.copyWith(destination: destinationRef, activities: []),
+    );
     if (result is Error) {
-      _log.warning(
-        'Failed to store ItineraryConfig',
-        result.error,
-      );
+      _log.warning('Failed to store ItineraryConfig', result.error);
     }
     return result;
   }

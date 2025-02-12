@@ -50,10 +50,7 @@ void main() {
     testWidgets('should load app', (tester) async {
       // Load app widget.
       await tester.pumpWidget(
-        MultiProvider(
-          providers: providersRemote,
-          child: const MainApp(),
-        ),
+        MultiProvider(providers: providersRemote, child: const MainApp()),
       );
 
       await tester.pumpAndSettle();
@@ -65,10 +62,7 @@ void main() {
     testWidgets('Open a booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(
-        MultiProvider(
-          providers: providersRemote,
-          child: const MainApp(),
-        ),
+        MultiProvider(providers: providersRemote, child: const MainApp()),
       );
 
       await tester.pumpAndSettle();
@@ -111,10 +105,7 @@ void main() {
     testWidgets('Create booking', (tester) async {
       // Load app widget with local configuration
       await tester.pumpWidget(
-        MultiProvider(
-          providers: providersRemote,
-          child: const MainApp(),
-        ),
+        MultiProvider(providers: providersRemote, child: const MainApp()),
       );
 
       await tester.pumpAndSettle();
@@ -155,8 +146,10 @@ void main() {
       await tester.pumpAndSettle();
 
       // Select guests
-      await tester.tap(find.byKey(const ValueKey('add_guests')),
-          warnIfMissed: false);
+      await tester.tap(
+        find.byKey(const ValueKey('add_guests')),
+        warnIfMissed: false,
+      );
 
       // Refresh screen state
       await tester.pumpAndSettle();

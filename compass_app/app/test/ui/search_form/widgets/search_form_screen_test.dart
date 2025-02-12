@@ -46,8 +46,9 @@ void main() {
       );
     }
 
-    testWidgets('Should fill form and perform search',
-        (WidgetTester tester) async {
+    testWidgets('Should fill form and perform search', (
+      WidgetTester tester,
+    ) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormScreen), findsOneWidget);
 
@@ -56,7 +57,9 @@ void main() {
 
       // Select date
       viewModel.dateRange = DateTimeRange(
-          start: DateTime(2024, 6, 12), end: DateTime(2024, 7, 23));
+        start: DateTime(2024, 6, 12),
+        end: DateTime(2024, 7, 23),
+      );
 
       // Select guests
       await tester.tap(find.byKey(const ValueKey(addGuestsKey)));

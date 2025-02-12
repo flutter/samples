@@ -40,27 +40,25 @@ class _TweenDemoState extends State<TweenDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tweens'),
-      ),
+      appBar: AppBar(title: const Text('Tweens')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 200),
-              child: Text('\$${animation.value.toStringAsFixed(2)}',
-                  style: const TextStyle(fontSize: 24)),
+              child: Text(
+                '\$${animation.value.toStringAsFixed(2)}',
+                style: const TextStyle(fontSize: 24),
+              ),
             ),
             ElevatedButton(
-              child: Text(
-                switch (controller.status) {
-                  AnimationStatus.completed => 'Buy a Mansion',
-                  AnimationStatus.forward => 'Accruing...',
-                  AnimationStatus.reverse => 'Spending...',
-                  _ => 'Win the lottery',
-                },
-              ),
+              child: Text(switch (controller.status) {
+                AnimationStatus.completed => 'Buy a Mansion',
+                AnimationStatus.forward => 'Accruing...',
+                AnimationStatus.reverse => 'Spending...',
+                _ => 'Win the lottery',
+              }),
               onPressed: () {
                 switch (controller.status) {
                   case AnimationStatus.completed:
@@ -69,7 +67,7 @@ class _TweenDemoState extends State<TweenDemo>
                     controller.forward();
                 }
               },
-            )
+            ),
           ],
         ),
       ),

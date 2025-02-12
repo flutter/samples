@@ -20,8 +20,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final ValueNotifier<DemoScreen> _screen =
-      ValueNotifier<DemoScreen>(DemoScreen.counter);
+  final ValueNotifier<DemoScreen> _screen = ValueNotifier<DemoScreen>(
+    DemoScreen.counter,
+  );
   final ValueNotifier<int> _counter = ValueNotifier<int>(0);
   final ValueNotifier<String> _text = ValueNotifier<String>('');
 
@@ -60,8 +61,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget demoScreenRouter(DemoScreen which) => switch (which) {
-        DemoScreen.counter => CounterDemo(counter: _counter),
-        DemoScreen.text => TextFieldDemo(text: _text),
-        DemoScreen.dash => DashDemo(text: _text)
-      };
+    DemoScreen.counter => CounterDemo(counter: _counter),
+    DemoScreen.text => TextFieldDemo(text: _text),
+    DemoScreen.dash => DashDemo(text: _text),
+  };
 }

@@ -4,11 +4,7 @@ import 'app_state.dart';
 import 'app_state_manager.dart';
 
 /// The toggle buttons that can be selected.
-enum ToggleButtonsState {
-  bold,
-  italic,
-  underline,
-}
+enum ToggleButtonsState { bold, italic, underline }
 
 class FormattingToolbar extends StatelessWidget {
   const FormattingToolbar({super.key});
@@ -25,15 +21,20 @@ class FormattingToolbar extends StatelessWidget {
           ToggleButtons(
             borderRadius: const BorderRadius.all(Radius.circular(4.0)),
             isSelected: [
-              manager.appState.toggleButtonsState
-                  .contains(ToggleButtonsState.bold),
-              manager.appState.toggleButtonsState
-                  .contains(ToggleButtonsState.italic),
-              manager.appState.toggleButtonsState
-                  .contains(ToggleButtonsState.underline),
+              manager.appState.toggleButtonsState.contains(
+                ToggleButtonsState.bold,
+              ),
+              manager.appState.toggleButtonsState.contains(
+                ToggleButtonsState.italic,
+              ),
+              manager.appState.toggleButtonsState.contains(
+                ToggleButtonsState.underline,
+              ),
             ],
-            onPressed: (index) => AppStateWidget.of(context)
-                .updateToggleButtonsStateOnButtonPressed(index),
+            onPressed:
+                (index) => AppStateWidget.of(
+                  context,
+                ).updateToggleButtonsStateOnButtonPressed(index),
             children: const [
               Icon(Icons.format_bold),
               Icon(Icons.format_italic),

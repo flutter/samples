@@ -43,12 +43,13 @@ class AudioController {
   /// Background music does not count into the [polyphony] limit. Music will
   /// never be overridden by sound effects because that would be silly.
   AudioController({int polyphony = 2})
-      : assert(polyphony >= 1),
-        _musicPlayer = AudioPlayer(playerId: 'musicPlayer'),
-        _sfxPlayers = Iterable.generate(
-                polyphony, (i) => AudioPlayer(playerId: 'sfxPlayer#$i'))
-            .toList(growable: false),
-        _playlist = Queue.of(List<Song>.of(songs)..shuffle()) {
+    : assert(polyphony >= 1),
+      _musicPlayer = AudioPlayer(playerId: 'musicPlayer'),
+      _sfxPlayers = Iterable.generate(
+        polyphony,
+        (i) => AudioPlayer(playerId: 'sfxPlayer#$i'),
+      ).toList(growable: false),
+      _playlist = Queue.of(List<Song>.of(songs)..shuffle()) {
     _musicPlayer.onPlayerComplete.listen(_changeSong);
   }
 
@@ -56,7 +57,8 @@ class AudioController {
   /// and therefore do things like stopping playback when the game
   /// goes into the background.
   void attachLifecycleNotifier(
-      ValueNotifier<AppLifecycleState> lifecycleNotifier) {
+    ValueNotifier<AppLifecycleState> lifecycleNotifier,
+  ) {
     _lifecycleNotifier?.removeListener(_handleAppLifecycle);
 
     lifecycleNotifier.addListener(_handleAppLifecycle);
@@ -108,10 +110,12 @@ class AudioController {
     // This assumes there is only a limited number of sound effects in the game.
     // If there are hundreds of long sound effect files, it's better
     // to be more selective when preloading.
-    await AudioCache.instance.loadAll(SfxType.values
-        .expand(soundTypeToFilename)
-        .map((path) => 'sfx/$path')
-        .toList());
+    await AudioCache.instance.loadAll(
+      SfxType.values
+          .expand(soundTypeToFilename)
+          .map((path) => 'sfx/$path')
+          .toList(),
+    );
   }
 
   /// Plays a single sound effect, defined by [type].
@@ -127,8 +131,9 @@ class AudioController {
     }
     final soundsOn = _settings?.soundsOn.value ?? false;
     if (!soundsOn) {
-      _log.info(() =>
-          'Ignoring playing sound ($type) because sounds are turned off.');
+      _log.info(
+        () => 'Ignoring playing sound ($type) because sounds are turned off.',
+      );
       return;
     }
 
@@ -138,8 +143,10 @@ class AudioController {
     _log.info(() => '- Chosen filename: $filename');
 
     final currentPlayer = _sfxPlayers[_currentSfxPlayer];
-    currentPlayer.play(AssetSource('sfx/$filename'),
-        volume: soundTypeToVolume(type));
+    currentPlayer.play(
+      AssetSource('sfx/$filename'),
+      volume: soundTypeToVolume(type),
+    );
     _currentSfxPlayer = (_currentSfxPlayer + 1) % _sfxPlayers.length;
   }
 
@@ -209,17 +216,23 @@ class AudioController {
           await _playFirstSongInPlaylist();
         }
       case PlayerState.stopped:
-        _log.info("resumeMusic() called when music is stopped. "
-            "This probably means we haven't yet started the music. "
-            "For example, the game was started with sound off.");
+        _log.info(
+          "resumeMusic() called when music is stopped. "
+          "This probably means we haven't yet started the music. "
+          "For example, the game was started with sound off.",
+        );
         await _playFirstSongInPlaylist();
       case PlayerState.playing:
-        _log.warning('resumeMusic() called when music is playing. '
-            'Nothing to do.');
+        _log.warning(
+          'resumeMusic() called when music is playing. '
+          'Nothing to do.',
+        );
       case PlayerState.completed:
-        _log.warning('resumeMusic() called when music is completed. '
-            "Music should never be 'completed' as it's either not playing "
-            "or looping forever.");
+        _log.warning(
+          'resumeMusic() called when music is completed. '
+          "Music should never be 'completed' as it's either not playing "
+          "or looping forever.",
+        );
         await _playFirstSongInPlaylist();
       default:
         _log.warning('Unhandled PlayerState: ${_musicPlayer.state}');

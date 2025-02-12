@@ -11,10 +11,7 @@ import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageWeight extends SinglePage {
-  const PageWeight({
-    super.key,
-    required super.pageConfig,
-  });
+  const PageWeight({super.key, required super.pageConfig});
 
   @override
   State<SinglePage> createState() => _PageWeightState();
@@ -88,12 +85,7 @@ class _PageWeightState extends SinglePageState {
           size: widget.pageConfig.wonkyCharLargeSize,
           baseRotation: -0.15 * pi,
           animDurationMillis: 5000,
-          animationSettings: [
-            WonkyAnimPalette.weight(
-              from: 200,
-              to: 500,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.weight(from: 200, to: 500)],
         ),
       ),
       Positioned(
@@ -103,12 +95,7 @@ class _PageWeightState extends SinglePageState {
           text: '*',
           size: widget.pageConfig.wonkyCharSmallSize,
           baseRotation: -0.15 * pi,
-          animationSettings: [
-            WonkyAnimPalette.weight(
-              from: 100,
-              to: 400,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.weight(from: 100, to: 400)],
         ),
       ),
       // lower half --------------------------------------
@@ -120,12 +107,7 @@ class _PageWeightState extends SinglePageState {
           size: widget.pageConfig.wonkyCharLargeSize,
           baseRotation: -0.15 * pi,
           animDurationMillis: 7000,
-          animationSettings: [
-            WonkyAnimPalette.weight(
-              from: 1000,
-              to: 700,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.weight(from: 1000, to: 700)],
         ),
       ),
       Positioned(
@@ -136,12 +118,7 @@ class _PageWeightState extends SinglePageState {
           size: widget.pageConfig.wonkyCharSmallSize,
           baseRotation: -0.15 * pi,
           animDurationMillis: 4000,
-          animationSettings: [
-            WonkyAnimPalette.weight(
-              from: 100,
-              to: 200,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.weight(from: 100, to: 200)],
         ),
       ),
       Positioned(
@@ -152,12 +129,7 @@ class _PageWeightState extends SinglePageState {
           size: widget.pageConfig.wonkyCharLargeSize,
           baseRotation: -1.15 * pi,
           animDurationMillis: 2000,
-          animationSettings: [
-            WonkyAnimPalette.weight(
-              from: 700,
-              to: 900,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.weight(from: 700, to: 900)],
         ),
       ),
     ];
@@ -173,8 +145,9 @@ class _PageWeightState extends SinglePageState {
       shaderDuration: 3000,
       tileShadedString: 'W',
       tileShadedStringPadding: EdgeInsets.only(
-          left: 0.698 * widget.pageConfig.puzzleSize,
-          right: 0.698 * widget.pageConfig.puzzleSize),
+        left: 0.698 * widget.pageConfig.puzzleSize,
+        right: 0.698 * widget.pageConfig.puzzleSize,
+      ),
       tileShadedStringSize: 2.79 * widget.pageConfig.puzzleSize,
       tileScaleModifier: 2.4,
       tileShadedStringAnimDuration: 1000,

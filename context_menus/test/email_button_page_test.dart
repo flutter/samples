@@ -10,8 +10,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
 
 void main() {
-  testWidgets('Selecting the email address shows a custom button',
-      (tester) async {
+  testWidgets('Selecting the email address shows a custom button', (
+    tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the EmailButtonPage example.
@@ -50,17 +51,23 @@ void main() {
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
         expect(
-            find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
+          find.byType(CupertinoTextSelectionToolbarButton),
+          findsNWidgets(2),
+        );
       case TargetPlatform.macOS:
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
-            findsNWidgets(2));
+        expect(
+          find.byType(CupertinoDesktopTextSelectionToolbarButton),
+          findsNWidgets(2),
+        );
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(3));
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(
-            find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(3));
+          find.byType(DesktopTextSelectionToolbarButton),
+          findsNWidgets(3),
+        );
     }
 
     // Click on "Copy" to hide the context menu.
@@ -94,17 +101,23 @@ void main() {
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
         expect(
-            find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(3));
+          find.byType(CupertinoTextSelectionToolbarButton),
+          findsNWidgets(3),
+        );
       case TargetPlatform.macOS:
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
-            findsNWidgets(3));
+        expect(
+          find.byType(CupertinoDesktopTextSelectionToolbarButton),
+          findsNWidgets(3),
+        );
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(4));
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(
-            find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(4));
+          find.byType(DesktopTextSelectionToolbarButton),
+          findsNWidgets(4),
+        );
     }
     // TODO: Test failing on Flutter 3.18.0-7.0.pre.57 https://github.com/flutter/samples/issues/2110
   }, skip: true);

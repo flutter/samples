@@ -9,9 +9,7 @@ import '../../services/api/model/user/user_api_model.dart';
 import 'user_repository.dart';
 
 class UserRepositoryRemote implements UserRepository {
-  UserRepositoryRemote({
-    required ApiClient apiClient,
-  }) : _apiClient = apiClient;
+  UserRepositoryRemote({required ApiClient apiClient}) : _apiClient = apiClient;
 
   final ApiClient _apiClient;
 

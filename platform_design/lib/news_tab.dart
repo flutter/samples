@@ -32,8 +32,10 @@ class _NewsTabState extends State<NewsTab> {
   void initState() {
     colors = getRandomColors(_itemsLength);
     titles = List.generate(_itemsLength, (index) => generateRandomHeadline());
-    contents =
-        List.generate(_itemsLength, (index) => lorem(paragraphs: 1, words: 24));
+    contents = List.generate(
+      _itemsLength,
+      (index) => lorem(paragraphs: 1, words: 24),
+    );
     super.initState();
   }
 
@@ -44,9 +46,7 @@ class _NewsTabState extends State<NewsTab> {
       child: Card(
         elevation: 1.5,
         margin: const EdgeInsets.fromLTRB(6, 12, 6, 0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         child: InkWell(
           // Make it splash on Android. It would happen automatically if this
           // was a real card but this is just a demo. Skip the splash on iOS.
@@ -76,9 +76,7 @@ class _NewsTabState extends State<NewsTab> {
                         ),
                       ),
                       const Padding(padding: EdgeInsets.only(top: 8)),
-                      Text(
-                        contents[index],
-                      ),
+                      Text(contents[index]),
                     ],
                   ),
                 ),
@@ -96,9 +94,7 @@ class _NewsTabState extends State<NewsTab> {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(NewsTab.title),
-      ),
+      appBar: AppBar(title: const Text(NewsTab.title)),
       body: ListView.builder(
         itemCount: _itemsLength,
         itemBuilder: _listBuilder,
@@ -118,9 +114,6 @@ class _NewsTabState extends State<NewsTab> {
 
   @override
   Widget build(context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
+    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
   }
 }

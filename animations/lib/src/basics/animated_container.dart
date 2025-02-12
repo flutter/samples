@@ -49,9 +49,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
     // the properties of a container. For example, you could use this to design expanding
     // and shrinking cards.
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('AnimatedContainer'),
-      ),
+      appBar: AppBar(title: const Text('AnimatedContainer')),
       body: Center(
         child: Column(
           children: [
@@ -71,9 +69,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
               ),
             ),
             ElevatedButton(
-              child: const Text(
-                'change',
-              ),
+              child: const Text('change'),
               onPressed: () => change(),
             ),
           ],

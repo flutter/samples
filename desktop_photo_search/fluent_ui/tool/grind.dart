@@ -16,52 +16,35 @@ void main(List<String> args) => grind(args);
 void build() {}
 
 @Task()
-Future<void> pubGet() async => _logProcessOutput(
-      Process.start(
-        'flutter',
-        ['pub', 'get'],
-      ),
-    );
+Future<void> pubGet() async =>
+    _logProcessOutput(Process.start('flutter', ['pub', 'get']));
 
 @Task()
 Future<void> generateJsonBindings() async => _logProcessOutput(
-      Process.start(
-        'flutter',
-        ['pub', 'run', 'build_runner', 'build', '--delete-conflicting-outputs'],
-      ),
-    );
+  Process.start('flutter', [
+    'pub',
+    'run',
+    'build_runner',
+    'build',
+    '--delete-conflicting-outputs',
+  ]),
+);
 
 @Task()
 Future<void> watch() async => _logProcessOutput(
-      Process.start(
-        'flutter',
-        ['pub', 'run', 'build_runner', 'watch'],
-      ),
-    );
+  Process.start('flutter', ['pub', 'run', 'build_runner', 'watch']),
+);
 
 @Task()
-Future<void> analyzeSource() async => _logProcessOutput(
-      Process.start(
-        'flutter',
-        ['analyze'],
-      ),
-    );
+Future<void> analyzeSource() async =>
+    _logProcessOutput(Process.start('flutter', ['analyze']));
 
 @Task()
-Future<void> test() async => _logProcessOutput(
-      Process.start(
-        'flutter',
-        ['test'],
-      ),
-    );
+Future<void> test() async =>
+    _logProcessOutput(Process.start('flutter', ['test']));
 
 @Task()
-Future<void> clean() => _logProcessOutput(
-      Process.start(
-        'flutter',
-        ['clean'],
-      ),
-    );
+Future<void> clean() => _logProcessOutput(Process.start('flutter', ['clean']));
 
 Future<void> _logProcessOutput(Future<Process> proc) async {
   final process = await proc;

@@ -36,11 +36,10 @@ Offset textOffsetToPosition(WidgetTester tester, int offset) {
 }
 
 List<TextSelectionPoint> globalize(
-    Iterable<TextSelectionPoint> points, RenderBox box) {
+  Iterable<TextSelectionPoint> points,
+  RenderBox box,
+) {
   return points.map<TextSelectionPoint>((point) {
-    return TextSelectionPoint(
-      box.localToGlobal(point.point),
-      point.direction,
-    );
+    return TextSelectionPoint(box.localToGlobal(point.point), point.direction);
   }).toList();
 }
