@@ -59,7 +59,8 @@ declare -ar PROJECT_NAMES=(
     "rolodex"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(ewindmill): 'scribble' is deprecated and shouldn't be used. Use stylusHandwriting instead.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
