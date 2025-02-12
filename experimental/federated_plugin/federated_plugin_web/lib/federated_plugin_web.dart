@@ -14,7 +14,7 @@ class FederatedPlugin extends FederatedPluginInterface {
 
   /// Constructor to override the navigator object for testing purpose.
   FederatedPlugin({html.Navigator? navigator})
-      : _navigator = navigator ?? html.window.navigator;
+    : _navigator = navigator ?? html.window.navigator;
 
   /// Method to register the plugin which sets [FederatedPlugin] to be the default
   /// instance of [FederatedPluginInterface].
