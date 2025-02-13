@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         applicationId "dev.flutter.example.androidusingplugin"
         minSdkVersion 21
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -18,27 +18,27 @@ android {
         }
     }
     // Remove when #flutter/flutter/issues/150955 is merged to stable.
-    lintOptions {
-        checkReleaseBuilds false
-    }
     // Keep java and kotlin versions in sync.
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility 17
+        targetCompatibility 17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     namespace 'dev.flutter.example.androidusingplugin'
+    lint {
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {
     implementation project(':flutter')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
