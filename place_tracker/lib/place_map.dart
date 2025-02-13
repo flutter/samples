@@ -278,9 +278,8 @@ class _PlaceMapState extends State<PlaceMap> {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
         for (final place in newConfiguration.places) {
-          final oldPlace = _configuration!.places.where(
-            (p) => p.id == place.id,
-          ).firstOrNull;
+          final oldPlace =
+              _configuration!.places.where((p) => p.id == place.id).firstOrNull;
           if (oldPlace == null || oldPlace != place) {
             // New place or updated place.
             _updateExistingPlaceMarker(place: place);
