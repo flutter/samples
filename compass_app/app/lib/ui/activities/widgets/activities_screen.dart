@@ -18,10 +18,7 @@ import 'activity_time_of_day.dart';
 const String confirmButtonKey = 'confirm-button';
 
 class ActivitiesScreen extends StatefulWidget {
-  const ActivitiesScreen({
-    super.key,
-    required this.viewModel,
-  });
+  const ActivitiesScreen({super.key, required this.viewModel});
 
   final ActivitiesViewModel viewModel;
 
@@ -68,13 +65,16 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                 const ActivitiesHeader(),
                 if (widget.viewModel.loadActivities.running)
                   const Expanded(
-                      child: Center(child: CircularProgressIndicator())),
+                    child: Center(child: CircularProgressIndicator()),
+                  ),
                 if (widget.viewModel.loadActivities.error)
                   Expanded(
                     child: Center(
                       child: ErrorIndicator(
-                        title: AppLocalization.of(context)
-                            .errorWhileLoadingActivities,
+                        title:
+                            AppLocalization.of(
+                              context,
+                            ).errorWhileLoadingActivities,
                         label: AppLocalization.of(context).tryAgain,
                         onPressed: widget.viewModel.loadActivities.execute,
                       ),
@@ -91,9 +91,7 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                   Expanded(
                     child: CustomScrollView(
                       slivers: [
-                        const SliverToBoxAdapter(
-                          child: ActivitiesHeader(),
-                        ),
+                        const SliverToBoxAdapter(child: ActivitiesHeader()),
                         ActivitiesTitle(
                           viewModel: widget.viewModel,
                           activityTimeOfDay: ActivityTimeOfDay.daytime,
@@ -145,9 +143,7 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
 }
 
 class _BottomArea extends StatelessWidget {
-  const _BottomArea({
-    required this.viewModel,
-  });
+  const _BottomArea({required this.viewModel});
 
   final ActivitiesViewModel viewModel;
 
@@ -168,15 +164,17 @@ class _BottomArea extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppLocalization.of(context)
-                    .selected(viewModel.selectedActivities.length),
+                AppLocalization.of(
+                  context,
+                ).selected(viewModel.selectedActivities.length),
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               FilledButton(
                 key: const Key(confirmButtonKey),
-                onPressed: viewModel.selectedActivities.isNotEmpty
-                    ? viewModel.saveActivities.execute
-                    : null,
+                onPressed:
+                    viewModel.selectedActivities.isNotEmpty
+                        ? viewModel.saveActivities.execute
+                        : null,
                 child: Text(AppLocalization.of(context).confirm),
               ),
             ],

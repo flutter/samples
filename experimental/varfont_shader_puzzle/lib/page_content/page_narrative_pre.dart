@@ -8,10 +8,7 @@ import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageNarrativePre extends NarrativePage {
-  const PageNarrativePre({
-    super.key,
-    required super.pageConfig,
-  });
+  const PageNarrativePre({super.key, required super.pageConfig});
 
   @override
   State<NarrativePage> createState() => _PageNarrativePreState();
@@ -32,12 +29,8 @@ class _PageNarrativePreState extends NarrativePageState {
             style: TextStyles.bodyStyle(),
             textAlign: TextAlign.left,
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          const Image(
-            image: AssetImage('assets/images/specimen-1.png'),
-          ),
+          const SizedBox(height: 8),
+          const Image(image: AssetImage('assets/images/specimen-1.png')),
         ],
       ),
       LightboxedPanel(
@@ -58,18 +51,14 @@ class _PageNarrativePreState extends NarrativePageState {
               textAlign: TextAlign.left,
             ),
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Transform.scale(
             scaleX: -1,
             child: const Image(
               image: AssetImage('assets/images/specimen-1-glitch.png'),
             ),
           ),
-          const SizedBox(
-            height: 56,
-          ),
+          const SizedBox(height: 56),
         ],
       ),
       LightboxedPanel(
@@ -93,9 +82,7 @@ class _PageNarrativePreState extends NarrativePageState {
               ),
             ),
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Transform.scale(
             scaleX: -1,
             child: Transform.translate(
@@ -105,9 +92,7 @@ class _PageNarrativePreState extends NarrativePageState {
               ),
             ),
           ),
-          const SizedBox(
-            height: 56,
-          ),
+          const SizedBox(height: 56),
         ],
       ),
       LightboxedPanel(
@@ -128,18 +113,14 @@ class _PageNarrativePreState extends NarrativePageState {
               textAlign: TextAlign.left,
             ),
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Transform.scale(
             scaleX: -1,
             child: const Image(
               image: AssetImage('assets/images/specimen-1-glitch.png'),
             ),
           ),
-          const SizedBox(
-            height: 56,
-          ),
+          const SizedBox(height: 56),
         ],
       ),
       LightboxedPanel(
@@ -153,12 +134,8 @@ class _PageNarrativePreState extends NarrativePageState {
             style: TextStyles.bodyStyle(),
             textAlign: TextAlign.left,
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          const Image(
-            image: AssetImage('assets/images/specimen-2.png'),
-          ),
+          const SizedBox(height: 8),
+          const Image(image: AssetImage('assets/images/specimen-2.png')),
         ],
       ),
     ];

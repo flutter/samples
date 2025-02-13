@@ -5,10 +5,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class DefaultValuesPage extends StatelessWidget {
-  DefaultValuesPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  DefaultValuesPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'default-values';
   static const String title = 'Default API Values Example';
@@ -44,9 +41,7 @@ class DefaultValuesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(DefaultValuesPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -66,14 +61,8 @@ class DefaultValuesPage extends StatelessWidget {
               const Text(
                 'This example simply shows what happens when contextMenuBuilder is given null, a custom value, or omitted altogether.',
               ),
-              const SizedBox(
-                height: 40.0,
-              ),
-              TextField(
-                maxLines: 2,
-                minLines: 2,
-                controller: _controllerNone,
-              ),
+              const SizedBox(height: 40.0),
+              TextField(maxLines: 2, minLines: 2, controller: _controllerNone),
               TextField(
                 maxLines: 2,
                 minLines: 2,
@@ -92,8 +81,12 @@ class DefaultValuesPage extends StatelessWidget {
                         label: 'Custom button',
                         onPressed: () {
                           ContextMenuController.removeAny();
-                          Navigator.of(context).push(_showDialog(
-                              context, 'You clicked the custom button.'));
+                          Navigator.of(context).push(
+                            _showDialog(
+                              context,
+                              'You clicked the custom button.',
+                            ),
+                          );
                         },
                       ),
                       ...editableTextState.contextMenuButtonItems,

@@ -15,10 +15,7 @@ class FormData {
   String? email;
   String? password;
 
-  FormData({
-    this.email,
-    this.password,
-  });
+  FormData({this.email, this.password});
 
   factory FormData.fromJson(Map<String, dynamic> json) =>
       _$FormDataFromJson(json);
@@ -29,10 +26,7 @@ class FormData {
 class SignInHttpDemo extends StatefulWidget {
   final http.Client? httpClient;
 
-  const SignInHttpDemo({
-    this.httpClient,
-    super.key,
-  });
+  const SignInHttpDemo({this.httpClient, super.key});
 
   @override
   State<SignInHttpDemo> createState() => _SignInHttpDemoState();
@@ -44,9 +38,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign in Form'),
-      ),
+      appBar: AppBar(title: const Text('Sign in Form')),
       body: Form(
         child: Scrollbar(
           child: SingleChildScrollView(
@@ -81,25 +73,19 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     onPressed: () async {
                       // Use a JSON encoded string to send
                       var result = await widget.httpClient!.post(
-                          Uri.parse('https://example.com/signin'),
-                          body: json.encode(formData.toJson()),
-                          headers: {'content-type': 'application/json'});
+                        Uri.parse('https://example.com/signin'),
+                        body: json.encode(formData.toJson()),
+                        headers: {'content-type': 'application/json'},
+                      );
 
                       _showDialog(switch (result.statusCode) {
                         200 => 'Successfully signed in.',
                         401 => 'Unable to sign in.',
-                        _ => 'Something went wrong. Please try again.'
+                        _ => 'Something went wrong. Please try again.',
                       });
                     },
                   ),
-                ].expand(
-                  (widget) => [
-                    widget,
-                    const SizedBox(
-                      height: 24,
-                    )
-                  ],
-                )
+                ].expand((widget) => [widget, const SizedBox(height: 24)]),
               ],
             ),
           ),
@@ -111,15 +97,16 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   void _showDialog(String message) {
     showDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(message),
-        actions: [
-          TextButton(
-            child: const Text('OK'),
-            onPressed: () => Navigator.of(context).pop(),
+      builder:
+          (context) => AlertDialog(
+            title: Text(message),
+            actions: [
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }

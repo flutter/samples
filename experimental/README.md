@@ -1,3 +1,12 @@
+# Deprecation warning
+
+The `experimental` directory will be retired with the release of Flutter 3.32, 
+tentatively scheduled for May 2025. At that time, remaining samples will be deleted.
+
+
+---
+
+
 # Master channel samples
 
 In this directory, you'll find samples that target Flutter's master channel.

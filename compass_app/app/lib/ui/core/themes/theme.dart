@@ -9,26 +9,11 @@ import 'colors.dart';
 
 abstract final class AppTheme {
   static const _textTheme = TextTheme(
-    headlineLarge: TextStyle(
-      fontSize: 32,
-      fontWeight: FontWeight.w500,
-    ),
-    headlineSmall: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w400,
-    ),
-    titleMedium: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w500,
-    ),
-    bodyLarge: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w400,
-    ),
-    bodyMedium: TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w400,
-    ),
+    headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
+    headlineSmall: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+    titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+    bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+    bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
     bodySmall: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w400,
@@ -56,7 +41,6 @@ abstract final class AppTheme {
   );
 
   static ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
@@ -70,7 +54,6 @@ abstract final class AppTheme {
   );
 
   static ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: AppColors.darkColorScheme,
     textTheme: _textTheme,

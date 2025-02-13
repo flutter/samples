@@ -21,11 +21,7 @@ void main() {
       // after decoding the message with codec used by the EventChannel.
       void emitValues(ByteData? event) {
         TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-            .handlePlatformMessage(
-          'eventChannelDemo',
-          event,
-          (reply) {},
-        );
+            .handlePlatformMessage('eventChannelDemo', event, (reply) {});
       }
 
       // Register a mock for EventChannel. EventChannel under the hood uses
@@ -33,27 +29,26 @@ void main() {
 
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMessageHandler('eventChannelDemo', (message) async {
-        // Decode the message into MethodCallHandler.
-        final methodCall = standardMethod.decodeMethodCall(message);
+            // Decode the message into MethodCallHandler.
+            final methodCall = standardMethod.decodeMethodCall(message);
 
-        if (methodCall.method == 'listen') {
-          // Emit new sensor values.
-          emitValues(standardMethod.encodeSuccessEnvelope(sensorValues));
-          emitValues(null);
-          return standardMethod.encodeSuccessEnvelope(null);
-        } else if (methodCall.method == 'cancel') {
-          return standardMethod.encodeSuccessEnvelope(null);
-        } else {
-          fail('Expected listen or cancel');
-        }
-      });
+            if (methodCall.method == 'listen') {
+              // Emit new sensor values.
+              emitValues(standardMethod.encodeSuccessEnvelope(sensorValues));
+              emitValues(null);
+              return standardMethod.encodeSuccessEnvelope(null);
+            } else if (methodCall.method == 'cancel') {
+              return standardMethod.encodeSuccessEnvelope(null);
+            } else {
+              fail('Expected listen or cancel');
+            }
+          });
     });
 
-    testWidgets('EventChannel AccelerometerReadings Stream test',
-        (tester) async {
-      await tester.pumpWidget(const MaterialApp(
-        home: EventChannelDemo(),
-      ));
+    testWidgets('EventChannel AccelerometerReadings Stream test', (
+      tester,
+    ) async {
+      await tester.pumpWidget(const MaterialApp(home: EventChannelDemo()));
 
       await tester.pumpAndSettle();
 

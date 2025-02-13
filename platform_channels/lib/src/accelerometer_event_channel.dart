@@ -14,12 +14,12 @@ class Accelerometer {
   /// to value changes from the Accelerometer sensor.
   static Stream<AccelerometerReadings> get readings {
     return _eventChannel.receiveBroadcastStream().map(
-          (dynamic event) => AccelerometerReadings(
-            event[0] as double,
-            event[1] as double,
-            event[2] as double,
-          ),
-        );
+      (dynamic event) => AccelerometerReadings(
+        event[0] as double,
+        event[1] as double,
+        event[2] as double,
+      ),
+    );
   }
 }
 

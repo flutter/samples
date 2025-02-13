@@ -10,13 +10,10 @@ import 'model/login_request/login_request.dart';
 import 'model/login_response/login_response.dart';
 
 class AuthApiClient {
-  AuthApiClient({
-    String? host,
-    int? port,
-    HttpClient Function()? clientFactory,
-  })  : _host = host ?? 'localhost',
-        _port = port ?? 8080,
-        _clientFactory = clientFactory ?? HttpClient.new;
+  AuthApiClient({String? host, int? port, HttpClient Function()? clientFactory})
+    : _host = host ?? 'localhost',
+      _port = port ?? 8080,
+      _clientFactory = clientFactory ?? HttpClient.new;
 
   final String _host;
   final int _port;

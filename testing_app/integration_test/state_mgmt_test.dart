@@ -16,9 +16,7 @@ Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
         favoritesList = Favorites();
         return favoritesList;
       },
-      child: const MaterialApp(
-        home: FavoritesPage(),
-      ),
+      child: const MaterialApp(home: FavoritesPage()),
     );
 
 void main() {

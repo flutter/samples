@@ -22,8 +22,9 @@ void main() {
     });
     test('days', () async {
       expect(
-          DateTime.utc(2020, 1, 3).difference(DateTime.utc(2020, 1, 2)).inDays,
-          1);
+        DateTime.utc(2020, 1, 3).difference(DateTime.utc(2020, 1, 2)).inDays,
+        1,
+      );
     });
   });
 }

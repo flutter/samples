@@ -46,16 +46,13 @@ class _SchemePreviewState extends State<SchemePreview> {
             color: scheme.surface,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: theme.brightness == widget.brightness
-                  ? colors.outlineVariant
-                  : Colors.transparent,
+              color:
+                  theme.brightness == widget.brightness
+                      ? colors.outlineVariant
+                      : Colors.transparent,
             ),
           ),
-          padding: const EdgeInsets.only(
-            top: 16,
-            left: 16,
-            right: 16,
-          ),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,

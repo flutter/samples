@@ -86,12 +86,14 @@ class Entry {
 
   static DateTime _timestampToDateTime(Timestamp timestamp) {
     return DateTime.fromMillisecondsSinceEpoch(
-        timestamp.millisecondsSinceEpoch);
+      timestamp.millisecondsSinceEpoch,
+    );
   }
 
   static Timestamp _dateTimeToTimestamp(DateTime dateTime) {
     return Timestamp.fromMillisecondsSinceEpoch(
-        dateTime.millisecondsSinceEpoch);
+      dateTime.millisecondsSinceEpoch,
+    );
   }
 
   @override

@@ -29,9 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Background Isolate Channels',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const MyHomePage(title: 'Background Isolate Channels'),
     );
   }
@@ -69,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // just for demonstration purposes.
     final Future<void> sharedPreferencesSet = SharedPreferences.getInstance()
         .then(
-            (sharedPreferences) => sharedPreferences.setBool('isDebug', true));
+          (sharedPreferences) => sharedPreferences.setBool('isDebug', true),
+        );
     final Future<Directory> tempDirFuture =
         path_provider.getTemporaryDirectory();
 
@@ -113,8 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Adds a UUID and a timestamp to the [SimpleDatabase].
   void _addDate() {
     final DateTime now = DateTime.now();
-    final DateFormat formatter =
-        DateFormat('EEEE MMMM d, HH:mm:ss\n${const uuid.Uuid().v4()}');
+    final DateFormat formatter = DateFormat(
+      'EEEE MMMM d, HH:mm:ss\n${const uuid.Uuid().v4()}',
+    );
     final String formatted = formatter.format(now);
     _database!.addEntry(formatted).then((_) => _refresh());
   }

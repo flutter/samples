@@ -37,8 +37,8 @@ declare -ar PROJECT_NAMES=(
 #    "experimental/federated_plugin/federated_plugin_web"
 #    "experimental/federated_plugin/federated_plugin_windows"
     # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
-    # "experimental/pedometer"
-    "experimental/pedometer/example"
+    # "pedometer"
+    "pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
@@ -57,14 +57,17 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
+    "rolodex"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(ewindmill): 'scribble' is deprecated and shouldn't be used. Use stylusHandwriting instead.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
     "web/_tool"
-    "web/samples_index"
+    # TODO(ewindmill): dart:html is deprecated. Delete samples_index
+    # "web/samples_index"
 )
 
 ci_projects "master" "${PROJECT_NAMES[@]}"

@@ -63,8 +63,10 @@ class FragmentShadedState extends State<FragmentShaded>
       parent: _dampenController,
       curve: Curves.easeInOut,
     );
-    _dampenAnimation =
-        Tween<double>(begin: 1.0, end: 0.0).animate(_dampenCurve);
+    _dampenAnimation = Tween<double>(
+      begin: 1.0,
+      end: 0.0,
+    ).animate(_dampenCurve);
     initializeFragmentProgramsAndBuilder();
   }
 
@@ -76,8 +78,11 @@ class FragmentShadedState extends State<FragmentShaded>
     }
 
     setState(() {
-      builder = AnimatingSamplerBuilder(_controller, _dampenAnimation,
-          FragmentShaded._programCache[widget.shader]!.fragmentShader());
+      builder = AnimatingSamplerBuilder(
+        _controller,
+        _dampenAnimation,
+        FragmentShaded._programCache[widget.shader]!.fragmentShader(),
+      );
     });
   }
 
@@ -92,17 +97,11 @@ class FragmentShadedState extends State<FragmentShaded>
   Widget build(BuildContext context) {
     if (null == FragmentShaded._programCache[widget.shader]) {
       setState(() {});
-      return const SizedBox(
-        width: 0,
-        height: 0,
-      );
+      return const SizedBox(width: 0, height: 0);
     }
     return Transform.scale(
       scale: 0.5,
-      child: ShaderSamplerBuilder(
-        builder,
-        child: widget.child,
-      ),
+      child: ShaderSamplerBuilder(builder, child: widget.child),
     );
   }
 
@@ -113,7 +112,10 @@ class FragmentShadedState extends State<FragmentShaded>
 
 class AnimatingSamplerBuilder extends SamplerBuilder {
   AnimatingSamplerBuilder(
-      this.animation, this.dampenAnimation, this.fragmentShader) {
+    this.animation,
+    this.dampenAnimation,
+    this.fragmentShader,
+  ) {
     animation.addListener(notifyListeners);
     dampenAnimation.addListener(notifyListeners);
   }
@@ -152,11 +154,7 @@ class ShaderSamplerBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepaintBoundary(
-        child: _ShaderSamplerImpl(
-      builder,
-      child: child,
-    ));
+    return RepaintBoundary(child: _ShaderSamplerImpl(builder, child: child));
   }
 }
 
@@ -175,7 +173,9 @@ class _ShaderSamplerImpl extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(
-      BuildContext context, covariant RenderObject renderObject) {
+    BuildContext context,
+    covariant RenderObject renderObject,
+  ) {
     (renderObject as _RenderShaderSamplerBuilderWidget)
       ..devicePixelRatio = MediaQuery.of(context).devicePixelRatio
       ..builder = builder;
@@ -189,8 +189,8 @@ class _RenderShaderSamplerBuilderWidget extends RenderProxyBox {
   _RenderShaderSamplerBuilderWidget({
     required double devicePixelRatio,
     required SamplerBuilder builder,
-  })  : _devicePixelRatio = devicePixelRatio,
-        _builder = builder;
+  }) : _devicePixelRatio = devicePixelRatio,
+       _builder = builder;
 
   /// The device pixel ratio used to create the child image.
   double get devicePixelRatio => _devicePixelRatio;
@@ -250,16 +250,20 @@ class _RenderShaderSamplerBuilderWidget extends RenderProxyBox {
   // children from this layer.
   ui.Image? _paintAndDetachToImage() {
     final OffsetLayer offsetLayer = OffsetLayer();
-    final PaintingContext context =
-        PaintingContext(offsetLayer, Offset.zero & size);
+    final PaintingContext context = PaintingContext(
+      offsetLayer,
+      Offset.zero & size,
+    );
     super.paint(context, Offset.zero);
     // This ignore is here because this method is protected by the `PaintingContext`. Adding a new
     // method that performs the work of `_paintAndDetachToImage` would avoid the need for this, but
     // that would conflict with our goals of minimizing painting context.
     // ignore: invalid_use_of_protected_member
     context.stopRecordingIfNeeded();
-    final ui.Image image = offsetLayer.toImageSync(Offset.zero & size,
-        pixelRatio: devicePixelRatio);
+    final ui.Image image = offsetLayer.toImageSync(
+      Offset.zero & size,
+      pixelRatio: devicePixelRatio,
+    );
     offsetLayer.dispose();
     return image;
   }

@@ -12,24 +12,15 @@ import 'author_details.dart';
 class BookDetailsScreen extends StatelessWidget {
   final Book? book;
 
-  const BookDetailsScreen({
-    super.key,
-    this.book,
-  });
+  const BookDetailsScreen({super.key, this.book});
 
   @override
   Widget build(BuildContext context) {
     if (book == null) {
-      return const Scaffold(
-        body: Center(
-          child: Text('No book found.'),
-        ),
-      );
+      return const Scaffold(body: Center(child: Text('No book found.')));
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text(book!.title),
-      ),
+      appBar: AppBar(title: Text(book!.title)),
       body: Center(
         child: Column(
           children: [
@@ -46,22 +37,26 @@ class BookDetailsScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push<void>(
                   MaterialPageRoute<void>(
-                    builder: (context) => AuthorDetailsScreen(
-                      author: book!.author,
-                      onBookTapped: (book) {
-                        GoRouter.of(context).go('/books/all/book/${book.id}');
-                      },
-                    ),
+                    builder:
+                        (context) => AuthorDetailsScreen(
+                          author: book!.author,
+                          onBookTapped: (book) {
+                            GoRouter.of(
+                              context,
+                            ).go('/books/all/book/${book.id}');
+                          },
+                        ),
                   ),
                 );
               },
             ),
             Link(
               uri: Uri.parse('/authors/author/${book!.author.id}'),
-              builder: (context, followLink) => TextButton(
-                onPressed: followLink,
-                child: const Text('View author (Link)'),
-              ),
+              builder:
+                  (context, followLink) => TextButton(
+                    onPressed: followLink,
+                    child: const Text('View author (Link)'),
+                  ),
             ),
           ],
         ),

@@ -5,11 +5,7 @@ import 'package:simplistic_calculator/main.dart';
 void main() {
   testWidgets('Calculator smoke test', (tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(
-      const ProviderScope(
-        child: CalculatorApp(),
-      ),
-    );
+    await tester.pumpWidget(const ProviderScope(child: CalculatorApp()));
 
     // Verify that our counter starts at 1 through 9, + and =.
     expect(find.text('1'), findsOneWidget);

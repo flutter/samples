@@ -17,9 +17,9 @@ class AuthRepositoryRemote extends AuthRepository {
     required ApiClient apiClient,
     required AuthApiClient authApiClient,
     required SharedPreferencesService sharedPreferencesService,
-  })  : _apiClient = apiClient,
-        _authApiClient = authApiClient,
-        _sharedPreferencesService = sharedPreferencesService {
+  }) : _apiClient = apiClient,
+       _authApiClient = authApiClient,
+       _sharedPreferencesService = sharedPreferencesService {
     _apiClient.authHeaderProvider = _authHeaderProvider;
   }
 
@@ -64,10 +64,7 @@ class AuthRepositoryRemote extends AuthRepository {
   }) async {
     try {
       final result = await _authApiClient.login(
-        LoginRequest(
-          email: email,
-          password: password,
-        ),
+        LoginRequest(email: email, password: password),
       );
       switch (result) {
         case Ok<LoginResponse>():

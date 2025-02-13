@@ -8,10 +8,7 @@ import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageNarrativePost extends NarrativePage {
-  const PageNarrativePost({
-    super.key,
-    required super.pageConfig,
-  });
+  const PageNarrativePost({super.key, required super.pageConfig});
 
   @override
   State<NarrativePage> createState() => _PageNarrativePostState();
@@ -32,12 +29,8 @@ class _PageNarrativePostState extends NarrativePageState {
             style: TextStyles.bodyStyle(),
             textAlign: TextAlign.left,
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          const Image(
-            image: AssetImage('assets/images/specimen-1.png'),
-          ),
+          const SizedBox(height: 8),
+          const Image(image: AssetImage('assets/images/specimen-1.png')),
           Text(
             'As a reward, please enjoy the FontCo wallpapers on the next screen. Congratulations!',
             style: TextStyles.bodyStyle(),

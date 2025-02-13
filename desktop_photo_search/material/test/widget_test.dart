@@ -67,12 +67,13 @@ class FakeUnsplash implements Unsplash {
       ''';
 
   @override
-  Future<SearchPhotosResponse?> searchPhotos(
-      {String? query,
-      num page = 1,
-      num perPage = 10,
-      List<num> collections = const [],
-      SearchPhotosOrientation? orientation}) async {
+  Future<SearchPhotosResponse?> searchPhotos({
+    String? query,
+    num page = 1,
+    num perPage = 10,
+    List<num> collections = const [],
+    SearchPhotosOrientation? orientation,
+  }) async {
     return SearchPhotosResponse.fromJson(searchPhotosResponse);
   }
 

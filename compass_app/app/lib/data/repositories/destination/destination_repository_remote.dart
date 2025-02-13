@@ -11,9 +11,8 @@ import 'destination_repository.dart';
 /// Implements basic local caching.
 /// See: https://docs.flutter.dev/get-started/fwe/local-caching
 class DestinationRepositoryRemote implements DestinationRepository {
-  DestinationRepositoryRemote({
-    required ApiClient apiClient,
-  }) : _apiClient = apiClient;
+  DestinationRepositoryRemote({required ApiClient apiClient})
+    : _apiClient = apiClient;
 
   final ApiClient _apiClient;
 

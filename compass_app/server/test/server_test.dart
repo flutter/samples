@@ -21,9 +21,7 @@ void main() {
   final host = 'http://127.0.0.1:$port';
   late Process p;
 
-  final headers = {
-    'Authorization': 'Bearer ${Constants.token}',
-  };
+  final headers = {'Authorization': 'Bearer ${Constants.token}'};
 
   setUp(() async {
     p = await Process.start(
@@ -39,10 +37,7 @@ void main() {
 
   test('Get Continent end-point', () async {
     // Query /continent end-point
-    final response = await get(
-      Uri.parse('$host/continent'),
-      headers: headers,
-    );
+    final response = await get(Uri.parse('$host/continent'), headers: headers);
 
     expect(response.statusCode, 200);
     // Parse json response list
@@ -84,10 +79,7 @@ void main() {
   });
 
   test('Get bookings end-point', () async {
-    final response = await get(
-      Uri.parse('$host/booking'),
-      headers: headers,
-    );
+    final response = await get(Uri.parse('$host/booking'), headers: headers);
     expect(response.statusCode, 200);
     // Parse json response list
     final list = jsonDecode(response.body) as List<dynamic>;
@@ -98,10 +90,7 @@ void main() {
   });
 
   test('Get booking with id 0', () async {
-    final response = await get(
-      Uri.parse('$host/booking/0'),
-      headers: headers,
-    );
+    final response = await get(Uri.parse('$host/booking/0'), headers: headers);
 
     expect(response.statusCode, 200);
     final booking = Booking.fromJson(jsonDecode(response.body));
@@ -169,10 +158,7 @@ void main() {
   });
 
   test('Get user', () async {
-    final response = await get(
-      Uri.parse('$host/user'),
-      headers: headers,
-    );
+    final response = await get(Uri.parse('$host/user'), headers: headers);
 
     expect(response.statusCode, 200);
     final user = User.fromJson(jsonDecode(response.body));
@@ -182,10 +168,7 @@ void main() {
   });
 
   test('404', () async {
-    final response = await get(
-      Uri.parse('$host/foobar'),
-      headers: headers,
-    );
+    final response = await get(Uri.parse('$host/foobar'), headers: headers);
     expect(response.statusCode, 404);
   });
 
@@ -193,10 +176,7 @@ void main() {
     final response = await post(
       Uri.parse('$host/login'),
       body: jsonEncode(
-        LoginRequest(
-          email: Constants.email,
-          password: Constants.password,
-        ),
+        LoginRequest(email: Constants.email, password: Constants.password),
       ),
     );
     expect(response.statusCode, 200);
@@ -208,12 +188,7 @@ void main() {
   test('Login with wrong credentials', () async {
     final response = await post(
       Uri.parse('$host/login'),
-      body: jsonEncode(
-        LoginRequest(
-          email: 'INVALID',
-          password: 'INVALID',
-        ),
-      ),
+      body: jsonEncode(LoginRequest(email: 'INVALID', password: 'INVALID')),
     );
     expect(response.statusCode, 401);
   });
@@ -221,9 +196,7 @@ void main() {
   test('Unauthorized request', () async {
     // Query /continent end-point
     // No auth headers
-    final response = await get(
-      Uri.parse('$host/continent'),
-    );
+    final response = await get(Uri.parse('$host/continent'));
 
     expect(response.statusCode, 401);
   });

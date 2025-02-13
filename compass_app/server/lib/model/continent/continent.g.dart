@@ -13,7 +13,4 @@ _$ContinentImpl _$$ContinentImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$ContinentImplToJson(_$ContinentImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'imageUrl': instance.imageUrl,
-    };
+    <String, dynamic>{'name': instance.name, 'imageUrl': instance.imageUrl};

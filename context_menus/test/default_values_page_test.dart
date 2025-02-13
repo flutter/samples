@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Gives correct behavior for all values of contextMenuBuilder',
-      (tester) async {
+  testWidgets('Gives correct behavior for all values of contextMenuBuilder', (
+    tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the DefaultValuesPage example.
@@ -44,17 +45,23 @@ void main() {
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
         expect(
-            find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
+          find.byType(CupertinoTextSelectionToolbarButton),
+          findsNWidgets(2),
+        );
       case TargetPlatform.macOS:
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
-            findsNWidgets(2));
+        expect(
+          find.byType(CupertinoDesktopTextSelectionToolbarButton),
+          findsNWidgets(2),
+        );
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(1));
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(
-            find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(1));
+          find.byType(DesktopTextSelectionToolbarButton),
+          findsNWidgets(1),
+        );
     }
 
     // Tap the next field to hide the context menu.

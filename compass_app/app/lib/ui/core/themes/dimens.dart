@@ -27,17 +27,20 @@ abstract final class Dimens {
 
   /// Symmetric padding for screen edges
   EdgeInsets get edgeInsetsScreenSymmetric => EdgeInsets.symmetric(
-      horizontal: paddingScreenHorizontal, vertical: paddingScreenVertical);
+    horizontal: paddingScreenHorizontal,
+    vertical: paddingScreenVertical,
+  );
 
   static const Dimens desktop = _DimensDesktop();
   static const Dimens mobile = _DimensMobile();
 
   /// Get dimensions definition based on screen size
-  factory Dimens.of(BuildContext context) =>
-      switch (MediaQuery.sizeOf(context).width) {
-        > 600 => desktop,
-        _ => mobile,
-      };
+  factory Dimens.of(BuildContext context) => switch (MediaQuery.sizeOf(
+    context,
+  ).width) {
+    > 600 && < 840 => desktop,
+    _ => mobile,
+  };
 }
 
 /// Mobile dimensions

@@ -25,10 +25,7 @@ part 'locations.g.dart';
 
 @JsonSerializable()
 class LatLng {
-  LatLng({
-    required this.lat,
-    required this.lng,
-  });
+  LatLng({required this.lat, required this.lng});
 
   factory LatLng.fromJson(Map<String, dynamic> json) => _$LatLngFromJson(json);
   Map<String, dynamic> toJson() => _$LatLngToJson(this);
@@ -83,10 +80,7 @@ class Office {
 
 @JsonSerializable()
 class Locations {
-  Locations({
-    required this.offices,
-    required this.regions,
-  });
+  Locations({required this.offices, required this.regions});
 
   factory Locations.fromJson(Map<String, dynamic> json) =>
       _$LocationsFromJson(json);
@@ -104,7 +98,8 @@ Future<Locations> getGoogleOffices() async {
     final response = await http.get(Uri.parse(googleLocationsURL));
     if (response.statusCode == 200) {
       return Locations.fromJson(
-          json.decode(response.body) as Map<String, dynamic>);
+        json.decode(response.body) as Map<String, dynamic>,
+      );
     }
   } catch (e) {
     if (kDebugMode) {
@@ -114,8 +109,7 @@ Future<Locations> getGoogleOffices() async {
 
   // Fallback for when the above HTTP request fails.
   return Locations.fromJson(
-    json.decode(
-      await rootBundle.loadString('assets/locations.json'),
-    ) as Map<String, dynamic>,
+    json.decode(await rootBundle.loadString('assets/locations.json'))
+        as Map<String, dynamic>,
   );
 }

@@ -14,10 +14,7 @@ import '../view_models/search_form_viewmodel.dart';
 ///
 /// Opens a date range picker dialog when tapped.
 class SearchFormDate extends StatelessWidget {
-  const SearchFormDate({
-    super.key,
-    required this.viewModel,
-  });
+  const SearchFormDate({super.key, required this.viewModel});
 
   final SearchFormViewModel viewModel;
 
@@ -71,7 +68,7 @@ class SearchFormDate extends StatelessWidget {
                       );
                     }
                   },
-                )
+                ),
               ],
             ),
           ),

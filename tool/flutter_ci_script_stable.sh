@@ -29,15 +29,14 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "dynamic_theme"
-    # TODO(ewindmill): package:html needs to be replaced by package:web
-#    "experimental/federated_plugin/federated_plugin"
-#    "experimental/federated_plugin/federated_plugin/example"
-#    "experimental/federated_plugin/federated_plugin_macos"
-#    "experimental/federated_plugin/federated_plugin_platform_interface"
-#    "experimental/federated_plugin/federated_plugin_web"
-#    "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/pedometer"
-    "experimental/pedometer/example"
+    "experimental/federated_plugin/federated_plugin"
+    "experimental/federated_plugin/federated_plugin/example"
+    "experimental/federated_plugin/federated_plugin_macos"
+    "experimental/federated_plugin/federated_plugin_platform_interface"
+    "experimental/federated_plugin/federated_plugin_web"
+    "experimental/federated_plugin/federated_plugin_windows"
+    "pedometer"
+    "pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
@@ -63,7 +62,8 @@ declare -ar PROJECT_NAMES=(
     "veggieseasons"
     "web_embedding/element_embedding_demo"
     "web/_tool"
-    "web/samples_index"
+    # TODO(ewindmill): dart:html is deprecated. Delete samples_index
+    # "web/samples_index"
 )
 
 ci_projects "stable" "${PROJECT_NAMES[@]}"

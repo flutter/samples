@@ -8,10 +8,7 @@ import 'is_valid_email.dart';
 import 'platform_selector.dart';
 
 class FullPage extends StatelessWidget {
-  FullPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  FullPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'full';
   static const String title = 'Combined Example';
@@ -38,9 +35,7 @@ class FullPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(FullPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -54,9 +49,7 @@ class FullPage extends StatelessWidget {
       body: ContextMenuRegion(
         contextMenuBuilder: (context, offset) {
           return AdaptiveTextSelectionToolbar.buttonItems(
-            anchors: TextSelectionToolbarAnchors(
-              primaryAnchor: offset,
-            ),
+            anchors: TextSelectionToolbarAnchors(primaryAnchor: offset),
             buttonItems: <ContextMenuButtonItem>[
               ContextMenuButtonItem(
                 onPressed: () {
@@ -77,9 +70,7 @@ class FullPage extends StatelessWidget {
                 const Text(
                   'This example simply shows how many of the previous examples can be combined in a single app.',
                 ),
-                const SizedBox(
-                  height: 60.0,
-                ),
+                const SizedBox(height: 60.0),
                 ContextMenuRegion(
                   contextMenuBuilder: (context, offset) {
                     return AdaptiveTextSelectionToolbar.buttonItems(
@@ -90,8 +81,12 @@ class FullPage extends StatelessWidget {
                         ContextMenuButtonItem(
                           onPressed: () {
                             ContextMenuController.removeAny();
-                            Navigator.of(context).push(_showDialog(
-                                context, 'Image saved! (not really though)'));
+                            Navigator.of(context).push(
+                              _showDialog(
+                                context,
+                                'Image saved! (not really though)',
+                              ),
+                            );
                           },
                           label: 'Save',
                         ),
@@ -114,38 +109,43 @@ class FullPage extends StatelessWidget {
                         editableTextState.contextMenuButtonItems;
                     if (isValidEmail(value.selection.textInside(value.text))) {
                       buttonItems.insert(
-                          0,
-                          ContextMenuButtonItem(
-                            label: 'Send email',
-                            onPressed: () {
-                              ContextMenuController.removeAny();
-                              Navigator.of(context).push(_showDialog(
-                                  context, 'You clicked send email'));
-                            },
-                          ));
+                        0,
+                        ContextMenuButtonItem(
+                          label: 'Send email',
+                          onPressed: () {
+                            ContextMenuController.removeAny();
+                            Navigator.of(context).push(
+                              _showDialog(context, 'You clicked send email'),
+                            );
+                          },
+                        ),
+                      );
                     }
                     return AdaptiveTextSelectionToolbar(
                       anchors: editableTextState.contextMenuAnchors,
                       // Build the default buttons, but make them look crazy.
                       // Note that in a real project you may want to build
                       // different buttons depending on the platform.
-                      children: buttonItems.map((buttonItem) {
-                        return CupertinoButton(
-                          borderRadius: null,
-                          color: const Color(0xffaaaa00),
-                          disabledColor: const Color(0xffaaaaff),
-                          onPressed: buttonItem.onPressed,
-                          padding: const EdgeInsets.all(10.0),
-                          pressedOpacity: 0.7,
-                          child: SizedBox(
-                            width: 200.0,
-                            child: Text(
-                              CupertinoTextSelectionToolbarButton
-                                  .getButtonLabel(context, buttonItem),
-                            ),
-                          ),
-                        );
-                      }).toList(),
+                      children:
+                          buttonItems.map((buttonItem) {
+                            return CupertinoButton(
+                              borderRadius: null,
+                              color: const Color(0xffaaaa00),
+                              disabledColor: const Color(0xffaaaaff),
+                              onPressed: buttonItem.onPressed,
+                              padding: const EdgeInsets.all(10.0),
+                              pressedOpacity: 0.7,
+                              child: SizedBox(
+                                width: 200.0,
+                                child: Text(
+                                  CupertinoTextSelectionToolbarButton.getButtonLabel(
+                                    context,
+                                    buttonItem,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }).toList(),
                     );
                   },
                 ),

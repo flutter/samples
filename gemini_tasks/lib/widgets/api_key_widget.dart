@@ -18,11 +18,7 @@ import 'package:url_launcher/link.dart';
 import 'text_field_decoration.dart';
 
 class ApiKeyWidget extends StatelessWidget {
-  ApiKeyWidget({
-    super.key,
-    required this.onSubmitted,
-    required this.title,
-  });
+  ApiKeyWidget({super.key, required this.onSubmitted, required this.title});
 
   final String title;
   final ValueChanged onSubmitted;
@@ -31,9 +27,7 @@ class ApiKeyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
+      appBar: AppBar(title: Text(title)),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -50,10 +44,11 @@ class ApiKeyWidget extends StatelessWidget {
               Link(
                 uri: Uri.https('aistudio.google.com', '/app/apikey'),
                 target: LinkTarget.blank,
-                builder: (context, followLink) => TextButton(
-                  onPressed: followLink,
-                  child: const Text('Get an API Key'),
-                ),
+                builder:
+                    (context, followLink) => TextButton(
+                      onPressed: followLink,
+                      child: const Text('Get an API Key'),
+                    ),
               ),
             ],
           ),

@@ -71,7 +71,9 @@ class ElevationGrid extends StatelessWidget {
   final Color? surfaceTintColor;
 
   List<ElevationCard> elevationCards(
-      Color? shadowColor, Color? surfaceTintColor) {
+    Color? shadowColor,
+    Color? surfaceTintColor,
+  ) {
     return elevations
         .map(
           (elevationInfo) => ElevationCard(
@@ -87,26 +89,32 @@ class ElevationGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverPadding(
       padding: const EdgeInsets.all(8),
-      sliver: SliverLayoutBuilder(builder: (context, constraints) {
-        if (constraints.crossAxisExtent < narrowScreenWidthThreshold) {
-          return SliverGrid.count(
-            crossAxisCount: 3,
-            children: elevationCards(shadowColor, surfaceTintColor),
-          );
-        } else {
-          return SliverGrid.count(
-            crossAxisCount: 6,
-            children: elevationCards(shadowColor, surfaceTintColor),
-          );
-        }
-      }),
+      sliver: SliverLayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.crossAxisExtent < narrowScreenWidthThreshold) {
+            return SliverGrid.count(
+              crossAxisCount: 3,
+              children: elevationCards(shadowColor, surfaceTintColor),
+            );
+          } else {
+            return SliverGrid.count(
+              crossAxisCount: 6,
+              children: elevationCards(shadowColor, surfaceTintColor),
+            );
+          }
+        },
+      ),
     );
   }
 }
 
 class ElevationCard extends StatefulWidget {
-  const ElevationCard(
-      {super.key, required this.info, this.shadowColor, this.surfaceTint});
+  const ElevationCard({
+    super.key,
+    required this.info,
+    this.shadowColor,
+    this.surfaceTint,
+  });
 
   final ElevationInfo info;
   final Color? shadowColor;

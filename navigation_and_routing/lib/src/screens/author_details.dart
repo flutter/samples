@@ -19,22 +19,20 @@ class AuthorDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(author.name),
-        ),
-        body: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: BookList(
-                  books: author.books,
-                  onTap: (book) {
-                    onBookTapped(book);
-                  },
-                ),
-              ),
-            ],
+    appBar: AppBar(title: Text(author.name)),
+    body: Center(
+      child: Column(
+        children: [
+          Expanded(
+            child: BookList(
+              books: author.books,
+              onTap: (book) {
+                onBookTapped(book);
+              },
+            ),
           ),
-        ),
-      );
+        ],
+      ),
+    ),
+  );
 }

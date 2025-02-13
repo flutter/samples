@@ -33,10 +33,7 @@ class LoginApi {
           loginRequest.password == Constants.password) {
         return Response.ok(
           json.encode(
-            LoginResponse(
-              token: Constants.token,
-              userId: Constants.userId,
-            ),
+            LoginResponse(token: Constants.token, userId: Constants.userId),
           ),
           headers: {'Content-Type': 'application/json'},
         );

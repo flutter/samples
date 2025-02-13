@@ -28,9 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -61,12 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             const Padding(
-                padding: EdgeInsets.only(top: 42, bottom: 250),
-                child: Align(
-                    alignment: Alignment.topCenter, child: CustomAppBar())),
-            const Text(
-              'You have pushed the button this many times:',
+              padding: EdgeInsets.only(top: 42, bottom: 250),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: CustomAppBar(),
+              ),
             ),
+            const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -105,8 +104,10 @@ class CustomAppBar extends StatelessWidget {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 3),
-          child: Text("Super Splash Screen Demo",
-              style: TextStyle(color: Colors.black54, fontSize: 24)),
+          child: Text(
+            "Super Splash Screen Demo",
+            style: TextStyle(color: Colors.black54, fontSize: 24),
+          ),
         ),
       ],
     );

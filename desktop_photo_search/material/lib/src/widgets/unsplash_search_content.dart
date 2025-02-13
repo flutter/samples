@@ -46,30 +46,34 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
         ),
       ),
       secondChild: Center(
-        child: photoSearchModel.selectedPhoto != null
-            ? PhotoDetails(
-                photo: photoSearchModel.selectedPhoto!,
-                onPhotoSave: (photo) async {
-                  final saveLocation = await getSaveLocation(
-                    suggestedName: '${photo.id}.jpg',
-                    acceptedTypeGroups: [
-                      const XTypeGroup(
-                        label: 'JPG',
-                        extensions: ['jpg'],
-                        mimeTypes: ['image/jpeg'],
-                      ),
-                    ],
-                  );
-                  if (saveLocation != null) {
-                    final fileData =
-                        await photoSearchModel.download(photo: photo);
-                    final photoFile =
-                        XFile.fromData(fileData, mimeType: 'image/jpeg');
-                    await photoFile.saveTo(saveLocation.path);
-                  }
-                },
-              )
-            : Container(),
+        child:
+            photoSearchModel.selectedPhoto != null
+                ? PhotoDetails(
+                  photo: photoSearchModel.selectedPhoto!,
+                  onPhotoSave: (photo) async {
+                    final saveLocation = await getSaveLocation(
+                      suggestedName: '${photo.id}.jpg',
+                      acceptedTypeGroups: [
+                        const XTypeGroup(
+                          label: 'JPG',
+                          extensions: ['jpg'],
+                          mimeTypes: ['image/jpeg'],
+                        ),
+                      ],
+                    );
+                    if (saveLocation != null) {
+                      final fileData = await photoSearchModel.download(
+                        photo: photo,
+                      );
+                      final photoFile = XFile.fromData(
+                        fileData,
+                        mimeType: 'image/jpeg',
+                      );
+                      await photoFile.saveTo(saveLocation.path);
+                    }
+                  },
+                )
+                : Container(),
       ),
     );
   }
@@ -82,30 +86,29 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
     String labelForPhoto(Photo photo) => 'Photo by ${photo.user!.name}';
 
     return TreeNode(
-      content: Expanded(
-        child: Text(searchEntry.query),
-      ),
-      children: searchEntry.photos
-          .map<TreeNode>(
-            (photo) => TreeNode(
-              content: Expanded(
-                child: Semantics(
-                  button: true,
-                  onTap: () => selectPhoto(photo),
-                  label: labelForPhoto(photo),
-                  excludeSemantics: true,
-                  child: InkWell(
-                    onTap: () => selectPhoto(photo),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Text(labelForPhoto(photo)),
+      content: Expanded(child: Text(searchEntry.query)),
+      children:
+          searchEntry.photos
+              .map<TreeNode>(
+                (photo) => TreeNode(
+                  content: Expanded(
+                    child: Semantics(
+                      button: true,
+                      onTap: () => selectPhoto(photo),
+                      label: labelForPhoto(photo),
+                      excludeSemantics: true,
+                      child: InkWell(
+                        onTap: () => selectPhoto(photo),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(labelForPhoto(photo)),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-          )
-          .toList(),
+              )
+              .toList(),
     );
   }
 }

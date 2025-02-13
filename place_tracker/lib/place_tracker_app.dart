@@ -13,10 +13,7 @@ import 'place_list.dart';
 import 'place_map.dart';
 import 'stub_data.dart';
 
-enum PlaceTrackerViewType {
-  map,
-  list,
-}
+enum PlaceTrackerViewType { map, list }
 
 class PlaceTrackerApp extends StatelessWidget {
   const PlaceTrackerApp({super.key});
@@ -35,25 +32,26 @@ class PlaceTrackerApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      routerConfig: GoRouter(routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) => const _PlaceTrackerHomePage(),
-          routes: [
-            GoRoute(
-              path: 'place/:id',
-              builder: (context, state) {
-                final id = state.pathParameters['id']!;
-                final place = context
-                    .read<AppState>()
-                    .places
-                    .singleWhere((place) => place.id == id);
-                return PlaceDetails(place: place);
-              },
-            ),
-          ],
-        ),
-      ]),
+      routerConfig: GoRouter(
+        routes: [
+          GoRoute(
+            path: '/',
+            builder: (context, state) => const _PlaceTrackerHomePage(),
+            routes: [
+              GoRoute(
+                path: 'place/:id',
+                builder: (context, state) {
+                  final id = state.pathParameters['id']!;
+                  final place = context.read<AppState>().places.singleWhere(
+                    (place) => place.id == id,
+                  );
+                  return PlaceDetails(place: place);
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -101,7 +99,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
         index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: const [
           PlaceMap(center: LatLng(45.521563, -122.677433)),
-          PlaceList()
+          PlaceList(),
         ],
       ),
     );

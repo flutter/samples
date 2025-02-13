@@ -23,9 +23,7 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Platform Image Demo'),
-      ),
+      appBar: AppBar(title: const Text('Platform Image Demo')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,29 +45,25 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
-                      return Image.memory(
-                        snapshot.data!,
-                        fit: BoxFit.fill,
-                      );
+                      return Image.memory(snapshot.data!, fit: BoxFit.fill);
                     }
                     return const CircularProgressIndicator();
                   },
                 ),
               ),
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             FilledButton(
-              onPressed: imageData != null
-                  ? null
-                  : () {
-                      setState(() {
-                        imageData = PlatformImageFetcher.getImage();
-                      });
-                    },
+              onPressed:
+                  imageData != null
+                      ? null
+                      : () {
+                        setState(() {
+                          imageData = PlatformImageFetcher.getImage();
+                        });
+                      },
               child: const Text('Get Image'),
-            )
+            ),
           ],
         ),
       ),

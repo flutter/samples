@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ColorBox extends StatefulWidget {
-  const ColorBox(
-      {super.key,
-      required this.label,
-      required this.tone,
-      required this.color,
-      required this.onColor,
-      required this.height,
-      required this.width,
-      this.displayPaletteInfo = false});
+  const ColorBox({
+    super.key,
+    required this.label,
+    required this.tone,
+    required this.color,
+    required this.onColor,
+    required this.height,
+    required this.width,
+    this.displayPaletteInfo = false,
+  });
 
   final String label;
   final String tone;
@@ -47,11 +48,7 @@ class _ColorBoxState extends State<ColorBox> {
           style: fonts.labelSmall!.copyWith(color: widget.onColor),
           child: Stack(
             children: [
-              Positioned(
-                top: 10,
-                left: 10,
-                child: Text(widget.label),
-              ),
+              Positioned(top: 10, left: 10, child: Text(widget.label)),
               Positioned(
                 bottom: 10,
                 right: 10,
@@ -69,21 +66,18 @@ class _ColorBoxState extends State<ColorBox> {
                     onPressed: () async {
                       final messenger = ScaffoldMessenger.of(context);
                       // Copy color as hex to clipboard
-                      String hex = '#';
                       final c = widget.color;
-                      // Will change from int 0-255 to double 0.0-1.0 in 3.26+
-                      // The properties also change from red/green/blue to r/g/b
-                      // hex += (c.[r g b] * 255.0).round().toRadixString(16).padLeft(2, '0');
-                      hex += c.r.round().toRadixString(16).padLeft(2, '0');
-                      hex += c.g.round().toRadixString(16).padLeft(2, '0');
-                      hex += c.b.round().toRadixString(16).padLeft(2, '0');
+
+                      final hex =
+                          '#${_colorChannelToHex(c.r)}'
+                          '${_colorChannelToHex(c.g)}'
+                          '${_colorChannelToHex(c.b)}';
+
                       final data = ClipboardData(text: hex);
                       await Clipboard.setData(data);
                       messenger.hideCurrentSnackBar();
                       messenger.showSnackBar(
-                        SnackBar(
-                          content: Text('Copied $hex to clipboard'),
-                        ),
+                        SnackBar(content: Text('Copied $hex to clipboard')),
                       );
                     },
                   ),
@@ -94,4 +88,9 @@ class _ColorBoxState extends State<ColorBox> {
       ),
     );
   }
+}
+
+String _colorChannelToHex(double value) {
+  final intVal = (value * 255).round();
+  return intVal.toRadixString(16).padLeft(2, '0');
 }

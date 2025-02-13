@@ -15,9 +15,9 @@ part 'search_photos_response.g.dart';
 
 abstract class SearchPhotosResponse
     implements Built<SearchPhotosResponse, SearchPhotosResponseBuilder> {
-  factory SearchPhotosResponse(
-          [void Function(SearchPhotosResponseBuilder)? updates]) =
-      _$SearchPhotosResponse;
+  factory SearchPhotosResponse([
+    void Function(SearchPhotosResponseBuilder)? updates,
+  ]) = _$SearchPhotosResponse;
 
   SearchPhotosResponse._();
 
@@ -32,12 +32,15 @@ abstract class SearchPhotosResponse
 
   String toJson() {
     return json.encode(
-        serializers.serializeWith(SearchPhotosResponse.serializer, this));
+      serializers.serializeWith(SearchPhotosResponse.serializer, this),
+    );
   }
 
   static SearchPhotosResponse? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        SearchPhotosResponse.serializer, json.decode(jsonString));
+      SearchPhotosResponse.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<SearchPhotosResponse> get serializer =>

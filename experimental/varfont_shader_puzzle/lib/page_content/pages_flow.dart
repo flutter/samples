@@ -47,24 +47,12 @@ class _PagesFlowState extends State<PagesFlow> {
       physics: const NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       children: [
-        PageNarrativePre(
-          pageConfig: pageConfig,
-        ),
-        PageWeight(
-          pageConfig: pageConfig,
-        ),
-        PageAscenderDescender(
-          pageConfig: pageConfig,
-        ),
-        PageOpticalSize(
-          pageConfig: pageConfig,
-        ),
-        PageWidth(
-          pageConfig: pageConfig,
-        ),
-        PageNarrativePost(
-          pageConfig: pageConfig,
-        ),
+        PageNarrativePre(pageConfig: pageConfig),
+        PageWeight(pageConfig: pageConfig),
+        PageAscenderDescender(pageConfig: pageConfig),
+        PageOpticalSize(pageConfig: pageConfig),
+        PageWidth(pageConfig: pageConfig),
+        PageNarrativePost(pageConfig: pageConfig),
         const WallpapersFlow(),
       ],
     );
@@ -94,10 +82,7 @@ class PageConfig {
 
 class SinglePage extends StatefulWidget {
   final PageConfig pageConfig;
-  const SinglePage({
-    super.key,
-    required this.pageConfig,
-  });
+  const SinglePage({super.key, required this.pageConfig});
 
   @override
   State<SinglePage> createState() => SinglePageState();
@@ -113,10 +98,7 @@ class SinglePageState extends State<SinglePage> with TickerProviderStateMixin {
   }
 
   Widget createTopicIntro() {
-    return LightboxedPanel(
-      pageConfig: widget.pageConfig,
-      content: const [],
-    );
+    return LightboxedPanel(pageConfig: widget.pageConfig, content: const []);
   }
 
   @override
@@ -125,9 +107,7 @@ class SinglePageState extends State<SinglePage> with TickerProviderStateMixin {
     c.add(createPuzzle());
     c += buildWonkyChars();
     c.add(createTopicIntro());
-    return Stack(
-      children: c,
-    );
+    return Stack(children: c);
   }
 
   void puzzleDone() {}
@@ -135,10 +115,7 @@ class SinglePageState extends State<SinglePage> with TickerProviderStateMixin {
 
 class NarrativePage extends StatefulWidget {
   final PageConfig pageConfig;
-  const NarrativePage({
-    super.key,
-    required this.pageConfig,
-  });
+  const NarrativePage({super.key, required this.pageConfig});
 
   @override
   State<NarrativePage> createState() => NarrativePageState();
@@ -154,8 +131,9 @@ class NarrativePageState extends State<NarrativePage>
       setState(() {
         if (panelIndex == panels.length - 1) {
           widget.pageConfig.pageController.nextPage(
-            duration:
-                const Duration(milliseconds: PagesFlow.pageScrollDuration),
+            duration: const Duration(
+              milliseconds: PagesFlow.pageScrollDuration,
+            ),
             curve: Curves.easeOut,
           );
         } else {

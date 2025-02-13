@@ -12,7 +12,8 @@ part of 'itinerary_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ItineraryConfig _$ItineraryConfigFromJson(Map<String, dynamic> json) {
   return _ItineraryConfig.fromJson(json);
@@ -51,16 +52,18 @@ mixin _$ItineraryConfig {
 /// @nodoc
 abstract class $ItineraryConfigCopyWith<$Res> {
   factory $ItineraryConfigCopyWith(
-          ItineraryConfig value, $Res Function(ItineraryConfig) then) =
-      _$ItineraryConfigCopyWithImpl<$Res, ItineraryConfig>;
+    ItineraryConfig value,
+    $Res Function(ItineraryConfig) then,
+  ) = _$ItineraryConfigCopyWithImpl<$Res, ItineraryConfig>;
   @useResult
-  $Res call(
-      {String? continent,
-      DateTime? startDate,
-      DateTime? endDate,
-      int? guests,
-      String? destination,
-      List<String> activities});
+  $Res call({
+    String? continent,
+    DateTime? startDate,
+    DateTime? endDate,
+    int? guests,
+    String? destination,
+    List<String> activities,
+  });
 }
 
 /// @nodoc
@@ -85,50 +88,61 @@ class _$ItineraryConfigCopyWithImpl<$Res, $Val extends ItineraryConfig>
     Object? destination = freezed,
     Object? activities = null,
   }) {
-    return _then(_value.copyWith(
-      continent: freezed == continent
-          ? _value.continent
-          : continent // ignore: cast_nullable_to_non_nullable
-              as String?,
-      startDate: freezed == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      endDate: freezed == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      guests: freezed == guests
-          ? _value.guests
-          : guests // ignore: cast_nullable_to_non_nullable
-              as int?,
-      destination: freezed == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as String?,
-      activities: null == activities
-          ? _value.activities
-          : activities // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            continent:
+                freezed == continent
+                    ? _value.continent
+                    : continent // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            startDate:
+                freezed == startDate
+                    ? _value.startDate
+                    : startDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            endDate:
+                freezed == endDate
+                    ? _value.endDate
+                    : endDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            guests:
+                freezed == guests
+                    ? _value.guests
+                    : guests // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            destination:
+                freezed == destination
+                    ? _value.destination
+                    : destination // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            activities:
+                null == activities
+                    ? _value.activities
+                    : activities // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ItineraryConfigImplCopyWith<$Res>
     implements $ItineraryConfigCopyWith<$Res> {
-  factory _$$ItineraryConfigImplCopyWith(_$ItineraryConfigImpl value,
-          $Res Function(_$ItineraryConfigImpl) then) =
-      __$$ItineraryConfigImplCopyWithImpl<$Res>;
+  factory _$$ItineraryConfigImplCopyWith(
+    _$ItineraryConfigImpl value,
+    $Res Function(_$ItineraryConfigImpl) then,
+  ) = __$$ItineraryConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? continent,
-      DateTime? startDate,
-      DateTime? endDate,
-      int? guests,
-      String? destination,
-      List<String> activities});
+  $Res call({
+    String? continent,
+    DateTime? startDate,
+    DateTime? endDate,
+    int? guests,
+    String? destination,
+    List<String> activities,
+  });
 }
 
 /// @nodoc
@@ -136,8 +150,9 @@ class __$$ItineraryConfigImplCopyWithImpl<$Res>
     extends _$ItineraryConfigCopyWithImpl<$Res, _$ItineraryConfigImpl>
     implements _$$ItineraryConfigImplCopyWith<$Res> {
   __$$ItineraryConfigImplCopyWithImpl(
-      _$ItineraryConfigImpl _value, $Res Function(_$ItineraryConfigImpl) _then)
-      : super(_value, _then);
+    _$ItineraryConfigImpl _value,
+    $Res Function(_$ItineraryConfigImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ItineraryConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -151,46 +166,54 @@ class __$$ItineraryConfigImplCopyWithImpl<$Res>
     Object? destination = freezed,
     Object? activities = null,
   }) {
-    return _then(_$ItineraryConfigImpl(
-      continent: freezed == continent
-          ? _value.continent
-          : continent // ignore: cast_nullable_to_non_nullable
-              as String?,
-      startDate: freezed == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      endDate: freezed == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      guests: freezed == guests
-          ? _value.guests
-          : guests // ignore: cast_nullable_to_non_nullable
-              as int?,
-      destination: freezed == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as String?,
-      activities: null == activities
-          ? _value._activities
-          : activities // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
+    return _then(
+      _$ItineraryConfigImpl(
+        continent:
+            freezed == continent
+                ? _value.continent
+                : continent // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        startDate:
+            freezed == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        endDate:
+            freezed == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        guests:
+            freezed == guests
+                ? _value.guests
+                : guests // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        destination:
+            freezed == destination
+                ? _value.destination
+                : destination // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        activities:
+            null == activities
+                ? _value._activities
+                : activities // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ItineraryConfigImpl implements _ItineraryConfig {
-  const _$ItineraryConfigImpl(
-      {this.continent,
-      this.startDate,
-      this.endDate,
-      this.guests,
-      this.destination,
-      final List<String> activities = const []})
-      : _activities = activities;
+  const _$ItineraryConfigImpl({
+    this.continent,
+    this.startDate,
+    this.endDate,
+    this.guests,
+    this.destination,
+    final List<String> activities = const [],
+  }) : _activities = activities;
 
   factory _$ItineraryConfigImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItineraryConfigImplFromJson(json);
@@ -245,14 +268,23 @@ class _$ItineraryConfigImpl implements _ItineraryConfig {
             (identical(other.guests, guests) || other.guests == guests) &&
             (identical(other.destination, destination) ||
                 other.destination == destination) &&
-            const DeepCollectionEquality()
-                .equals(other._activities, _activities));
+            const DeepCollectionEquality().equals(
+              other._activities,
+              _activities,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, continent, startDate, endDate,
-      guests, destination, const DeepCollectionEquality().hash(_activities));
+  int get hashCode => Object.hash(
+    runtimeType,
+    continent,
+    startDate,
+    endDate,
+    guests,
+    destination,
+    const DeepCollectionEquality().hash(_activities),
+  );
 
   /// Create a copy of ItineraryConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -261,24 +293,25 @@ class _$ItineraryConfigImpl implements _ItineraryConfig {
   @pragma('vm:prefer-inline')
   _$$ItineraryConfigImplCopyWith<_$ItineraryConfigImpl> get copyWith =>
       __$$ItineraryConfigImplCopyWithImpl<_$ItineraryConfigImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ItineraryConfigImplToJson(
-      this,
-    );
+    return _$$ItineraryConfigImplToJson(this);
   }
 }
 
 abstract class _ItineraryConfig implements ItineraryConfig {
-  const factory _ItineraryConfig(
-      {final String? continent,
-      final DateTime? startDate,
-      final DateTime? endDate,
-      final int? guests,
-      final String? destination,
-      final List<String> activities}) = _$ItineraryConfigImpl;
+  const factory _ItineraryConfig({
+    final String? continent,
+    final DateTime? startDate,
+    final DateTime? endDate,
+    final int? guests,
+    final String? destination,
+    final List<String> activities,
+  }) = _$ItineraryConfigImpl;
 
   factory _ItineraryConfig.fromJson(Map<String, dynamic> json) =
       _$ItineraryConfigImpl.fromJson;

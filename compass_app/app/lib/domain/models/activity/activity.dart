@@ -8,13 +8,7 @@ part 'activity.freezed.dart';
 
 part 'activity.g.dart';
 
-enum TimeOfDay {
-  any,
-  morning,
-  afternoon,
-  evening,
-  night,
-}
+enum TimeOfDay { any, morning, afternoon, evening, night }
 
 @freezed
 class Activity with _$Activity {

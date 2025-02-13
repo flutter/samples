@@ -19,24 +19,35 @@ class _$ApiErrorSerializer implements StructuredSerializer<ApiError> {
   final String wireName = 'ApiError';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiError object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiError object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.errors;
     if (value != null) {
       result
         ..add('errors')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(String),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  ApiError deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiError deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new ApiErrorBuilder();
 
     final iterator = serialized.iterator;
@@ -46,10 +57,15 @@ class _$ApiErrorSerializer implements StructuredSerializer<ApiError> {
       final Object? value = iterator.current;
       switch (key) {
         case 'errors':
-          result.errors.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
+          result.errors.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(String),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -90,8 +106,8 @@ class _$ApiError extends ApiError {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiError')..add('errors', errors))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiError')
+      ..add('errors', errors)).toString();
   }
 }
 
@@ -139,7 +155,10 @@ class ApiErrorBuilder implements Builder<ApiError, ApiErrorBuilder> {
         _errors?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'ApiError', _$failedField, e.toString());
+          r'ApiError',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

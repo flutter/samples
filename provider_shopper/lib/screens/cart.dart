@@ -27,7 +27,7 @@ class MyCart extends StatelessWidget {
               ),
             ),
             const Divider(height: 4, color: Colors.black),
-            _CartTotal()
+            _CartTotal(),
           ],
         ),
       ),
@@ -46,19 +46,17 @@ class _CartList extends StatelessWidget {
 
     return ListView.builder(
       itemCount: cart.items.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: const Icon(Icons.done),
-        trailing: IconButton(
-          icon: const Icon(Icons.remove_circle_outline),
-          onPressed: () {
-            cart.remove(cart.items[index]);
-          },
-        ),
-        title: Text(
-          cart.items[index].name,
-          style: itemNameStyle,
-        ),
-      ),
+      itemBuilder:
+          (context, index) => ListTile(
+            leading: const Icon(Icons.done),
+            trailing: IconButton(
+              icon: const Icon(Icons.remove_circle_outline),
+              onPressed: () {
+                cart.remove(cart.items[index]);
+              },
+            ),
+            title: Text(cart.items[index].name, style: itemNameStyle),
+          ),
     );
   }
 }
@@ -66,8 +64,9 @@ class _CartList extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var hugeStyle =
-        Theme.of(context).textTheme.displayLarge!.copyWith(fontSize: 48);
+    var hugeStyle = Theme.of(
+      context,
+    ).textTheme.displayLarge!.copyWith(fontSize: 48);
 
     return SizedBox(
       height: 200,
@@ -82,13 +81,16 @@ class _CartTotal extends StatelessWidget {
             // The important thing is that it will not rebuild
             // the rest of the widgets in this build method.
             Consumer<CartModel>(
-                builder: (context, cart, child) =>
-                    Text('\$${cart.totalPrice}', style: hugeStyle)),
+              builder:
+                  (context, cart, child) =>
+                      Text('\$${cart.totalPrice}', style: hugeStyle),
+            ),
             const SizedBox(width: 24),
             FilledButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Buying not supported yet.')));
+                  const SnackBar(content: Text('Buying not supported yet.')),
+                );
               },
               style: TextButton.styleFrom(foregroundColor: Colors.white),
               child: const Text('BUY'),

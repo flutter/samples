@@ -38,11 +38,13 @@ void setupWindow() {
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
-      setWindowFrame(Rect.fromCenter(
-        center: screen!.frame.center,
-        width: windowWidth,
-        height: windowHeight,
-      ));
+      setWindowFrame(
+        Rect.fromCenter(
+          center: screen!.frame.center,
+          width: windowWidth,
+          height: windowHeight,
+        ),
+      );
     });
   }
 }
@@ -67,9 +69,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const MyHomePage(),
     );
   }
@@ -81,9 +81,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Demo Home Page'),
-      ),
+      appBar: AppBar(title: const Text('Flutter Demo Home Page')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -94,10 +92,11 @@ class MyHomePage extends StatelessWidget {
             // Then it uses that model to build widgets, and will trigger
             // rebuilds if the model is updated.
             Consumer<Counter>(
-              builder: (context, counter, child) => Text(
-                '${counter.value}',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+              builder:
+                  (context, counter, child) => Text(
+                    '${counter.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
             ),
           ],
         ),

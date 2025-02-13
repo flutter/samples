@@ -19,11 +19,9 @@ final _unsplashBaseUrl = Uri.parse('https://api.unsplash.com/');
 /// [Unsplash API](https://unsplash.com/developers) `accessKey` to make
 /// requests to the Unsplash API.
 class Unsplash {
-  Unsplash({
-    required String accessKey,
-    http.BaseClient? httpClient,
-  })  : _accessKey = accessKey,
-        _client = httpClient ?? http.Client();
+  Unsplash({required String accessKey, http.BaseClient? httpClient})
+    : _accessKey = accessKey,
+      _client = httpClient ?? http.Client();
 
   final String _accessKey;
   final http.Client _client;
@@ -36,19 +34,21 @@ class Unsplash {
     List<num> collections = const [],
     SearchPhotosOrientation? orientation,
   }) async {
-    final searchPhotosUrl = _unsplashBaseUrl
-        .replace(path: '/search/photos', queryParameters: <String, String>{
-      'query': query,
-      if (page != 1) 'page': '$page',
-      if (perPage != 10) 'per_page': '$perPage',
-      if (collections.isNotEmpty) 'collections': collections.join(','),
-      if (orientation == SearchPhotosOrientation.landscape)
-        'orientation': 'landscape',
-      if (orientation == SearchPhotosOrientation.portrait)
-        'orientation': 'portrait',
-      if (orientation == SearchPhotosOrientation.squarish)
-        'orientation': 'squarish',
-    });
+    final searchPhotosUrl = _unsplashBaseUrl.replace(
+      path: '/search/photos',
+      queryParameters: <String, String>{
+        'query': query,
+        if (page != 1) 'page': '$page',
+        if (perPage != 10) 'per_page': '$perPage',
+        if (collections.isNotEmpty) 'collections': collections.join(','),
+        if (orientation == SearchPhotosOrientation.landscape)
+          'orientation': 'landscape',
+        if (orientation == SearchPhotosOrientation.portrait)
+          'orientation': 'portrait',
+        if (orientation == SearchPhotosOrientation.squarish)
+          'orientation': 'squarish',
+      },
+    );
     _log.info('GET $searchPhotosUrl');
 
     final response = await _client.get(
@@ -81,26 +81,30 @@ class Unsplash {
     // https://help.unsplash.com/en/articles/2511258-guideline-triggering-a-download
 
     _log.info('GET ${photo.urls!.full}');
-    final futureBytes = http.readBytes(Uri.parse(photo.urls!.full!), headers: {
-      'Accept-Version': 'v1',
-      'Authorization': 'Client-ID $_accessKey',
-    });
+    final futureBytes = http.readBytes(
+      Uri.parse(photo.urls!.full!),
+      headers: {
+        'Accept-Version': 'v1',
+        'Authorization': 'Client-ID $_accessKey',
+      },
+    );
 
     _log.info('GET ${photo.links!.downloadLocation}');
-    unawaited(http.get(Uri.parse(photo.links!.downloadLocation!), headers: {
-      'Accept-Version': 'v1',
-      'Authorization': 'Client-ID $_accessKey',
-    }));
+    unawaited(
+      http.get(
+        Uri.parse(photo.links!.downloadLocation!),
+        headers: {
+          'Accept-Version': 'v1',
+          'Authorization': 'Client-ID $_accessKey',
+        },
+      ),
+    );
 
     return futureBytes;
   }
 }
 
-enum SearchPhotosOrientation {
-  landscape,
-  portrait,
-  squarish,
-}
+enum SearchPhotosOrientation { landscape, portrait, squarish }
 
 class UnsplashException implements Exception {
   UnsplashException([this.message]);

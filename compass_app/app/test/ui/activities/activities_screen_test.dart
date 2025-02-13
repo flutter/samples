@@ -60,8 +60,9 @@ void main() {
       });
     });
 
-    testWidgets('should select activity and confirm',
-        (WidgetTester tester) async {
+    testWidgets('should select activity and confirm', (
+      WidgetTester tester,
+    ) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         // Select one activity

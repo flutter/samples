@@ -26,11 +26,11 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
   void addUser() {
     setState(() {
       var index = listData.length;
-      listData.add(
-        UserModel(++_maxIdValue, 'New', 'Person'),
+      listData.add(UserModel(++_maxIdValue, 'New', 'Person'));
+      _listKey.currentState!.insertItem(
+        index,
+        duration: const Duration(milliseconds: 300),
       );
-      _listKey.currentState!
-          .insertItem(index, duration: const Duration(milliseconds: 300));
     });
   }
 
@@ -38,22 +38,22 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
     setState(() {
       final index = listData.indexWhere((u) => u.id == id);
       var user = listData.removeAt(index);
-      _listKey.currentState!.removeItem(
-        index,
-        (context, animation) {
-          return FadeTransition(
-            opacity: CurvedAnimation(
-                parent: animation, curve: const Interval(0.5, 1.0)),
-            child: SizeTransition(
-              sizeFactor: CurvedAnimation(
-                  parent: animation, curve: const Interval(0.0, 1.0)),
-              axisAlignment: 0.0,
-              child: _buildItem(user),
+      _listKey.currentState!.removeItem(index, (context, animation) {
+        return FadeTransition(
+          opacity: CurvedAnimation(
+            parent: animation,
+            curve: const Interval(0.5, 1.0),
+          ),
+          child: SizeTransition(
+            sizeFactor: CurvedAnimation(
+              parent: animation,
+              curve: const Interval(0.0, 1.0),
             ),
-          );
-        },
-        duration: const Duration(milliseconds: 600),
-      );
+            axisAlignment: 0.0,
+            child: _buildItem(user),
+          ),
+        );
+      }, duration: const Duration(milliseconds: 600));
     });
   }
 
@@ -62,9 +62,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       key: ValueKey<UserModel>(user),
       title: Text(user.firstName),
       subtitle: Text(user.lastName),
-      leading: const CircleAvatar(
-        child: Icon(Icons.person),
-      ),
+      leading: const CircleAvatar(child: Icon(Icons.person)),
       trailing: IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () => deleteUser(user.id),
@@ -77,12 +75,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('AnimatedList'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: addUser,
-          ),
-        ],
+        actions: [IconButton(icon: const Icon(Icons.add), onPressed: addUser)],
       ),
       body: SafeArea(
         child: AnimatedList(
@@ -101,11 +94,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
 }
 
 class UserModel {
-  UserModel(
-    this.id,
-    this.firstName,
-    this.lastName,
-  );
+  UserModel(this.id, this.firstName, this.lastName);
 
   final int id;
   final String firstName;

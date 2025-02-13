@@ -20,27 +20,32 @@ class EventChannelDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.headlineSmall;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('EventChannel Demo'),
-      ),
+      appBar: AppBar(title: const Text('EventChannel Demo')),
       body: Center(
         child: StreamBuilder<AccelerometerReadings>(
           stream: Accelerometer.readings,
           builder: (context, snapshot) {
             return switch (snapshot) {
-              AsyncSnapshot(hasError: true) =>
-                Text((snapshot.error as PlatformException).message!),
+              AsyncSnapshot(hasError: true) => Text(
+                (snapshot.error as PlatformException).message!,
+              ),
               AsyncSnapshot(hasData: true) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('x axis: ${snapshot.data!.x.toStringAsFixed(3)}',
-                        style: textStyle),
-                    Text('y axis: ${snapshot.data!.y.toStringAsFixed(3)}',
-                        style: textStyle),
-                    Text('z axis: ${snapshot.data!.z.toStringAsFixed(3)}',
-                        style: textStyle)
-                  ],
-                ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'x axis: ${snapshot.data!.x.toStringAsFixed(3)}',
+                    style: textStyle,
+                  ),
+                  Text(
+                    'y axis: ${snapshot.data!.y.toStringAsFixed(3)}',
+                    style: textStyle,
+                  ),
+                  Text(
+                    'z axis: ${snapshot.data!.z.toStringAsFixed(3)}',
+                    style: textStyle,
+                  ),
+                ],
+              ),
               _ => Text('No Data Available', style: textStyle),
             };
           },

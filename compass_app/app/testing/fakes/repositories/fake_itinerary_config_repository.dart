@@ -15,7 +15,8 @@ class FakeItineraryConfigRepository implements ItineraryConfigRepository {
   @override
   Future<Result<ItineraryConfig>> getItineraryConfig() {
     return SynchronousFuture(
-        Result.ok(itineraryConfig ?? const ItineraryConfig()));
+      Result.ok(itineraryConfig ?? const ItineraryConfig()),
+    );
   }
 
   @override

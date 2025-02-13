@@ -25,12 +25,7 @@ enum VeggieCategory {
   vegetable,
 }
 
-enum Season {
-  winter,
-  spring,
-  summer,
-  autumn,
-}
+enum Season { winter, spring, summer, autumn }
 
 class Trivia {
   final String question;

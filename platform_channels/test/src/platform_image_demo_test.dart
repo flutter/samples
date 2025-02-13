@@ -12,15 +12,15 @@ void main() {
     testWidgets('Platform Image test', (tester) async {
       tester.binding.defaultBinaryMessenger.setMockDecodedMessageHandler(
         const BasicMessageChannel<dynamic>(
-            'platformImageDemo', StandardMessageCodec()),
+          'platformImageDemo',
+          StandardMessageCodec(),
+        ),
         (dynamic message) async {
           var byteData = await rootBundle.load('assets/eat_new_orleans.jpg');
           return byteData.buffer.asUint8List();
         },
       );
-      await tester.pumpWidget(const MaterialApp(
-        home: PlatformImageDemo(),
-      ));
+      await tester.pumpWidget(const MaterialApp(home: PlatformImageDemo()));
 
       // Initially a PlaceHolder is displayed when imageData is null.
       expect(find.byType(Placeholder), findsOneWidget);

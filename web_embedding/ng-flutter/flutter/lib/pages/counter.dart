@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CounterDemo extends StatefulWidget {
-  const CounterDemo({
-    super.key,
-    required this.counter,
-  });
+  const CounterDemo({super.key, required this.counter});
 
   final ValueNotifier<int> counter;
 
@@ -24,15 +21,14 @@ class _CounterDemoState extends State<CounterDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            const Text('You have pushed the button this many times:'),
             ValueListenableBuilder(
               valueListenable: widget.counter,
-              builder: (context, value, child) => Text(
-                '$value',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+              builder:
+                  (context, value, child) => Text(
+                    '$value',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
             ),
           ],
         ),

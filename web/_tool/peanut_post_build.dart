@@ -66,8 +66,10 @@ void _updateHtml(File htmlFile, String buildDir, String exampleDir) {
 
   final newContent = content
       .replaceFirst('<head>', '<head>\n$_analytics')
-      .replaceFirst(_emptyTitle,
-          '<title>${_prettyName(exampleDir)} - Flutter web sample</title>');
+      .replaceFirst(
+        _emptyTitle,
+        '<title>${_prettyName(exampleDir)} - Flutter web sample</title>',
+      );
 
   if (newContent == content) {
     print('!!! Did not replace contents in $filePath');
@@ -79,10 +81,13 @@ void _updateHtml(File htmlFile, String buildDir, String exampleDir) {
 
 final _underscoreOrSlash = RegExp('_|/');
 
-String _prettyName(String input) =>
-    input.split(_underscoreOrSlash).where((e) => e.isNotEmpty).map((e) {
+String _prettyName(String input) => input
+    .split(_underscoreOrSlash)
+    .where((e) => e.isNotEmpty)
+    .map((e) {
       return e.substring(0, 1).toUpperCase() + e.substring(1);
-    }).join(' ');
+    })
+    .join(' ');
 
 // flutter.github.io
 const _analyticsId = 'UA-67589403-8';

@@ -12,7 +12,8 @@ part of 'models.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
+);
 
 Increment _$IncrementFromJson(Map<String, dynamic> json) {
   return _Increment.fromJson(json);
@@ -48,15 +49,17 @@ class _$IncrementCopyWithImpl<$Res, $Val extends Increment>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? by = null,
-  }) {
-    return _then(_value.copyWith(
-      by: null == by
-          ? _value.by
-          : by // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  $Res call({Object? by = null}) {
+    return _then(
+      _value.copyWith(
+            by:
+                null == by
+                    ? _value.by
+                    : by // ignore: cast_nullable_to_non_nullable
+                        as int,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -64,8 +67,9 @@ class _$IncrementCopyWithImpl<$Res, $Val extends Increment>
 abstract class _$$IncrementImplCopyWith<$Res>
     implements $IncrementCopyWith<$Res> {
   factory _$$IncrementImplCopyWith(
-          _$IncrementImpl value, $Res Function(_$IncrementImpl) then) =
-      __$$IncrementImplCopyWithImpl<$Res>;
+    _$IncrementImpl value,
+    $Res Function(_$IncrementImpl) then,
+  ) = __$$IncrementImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int by});
@@ -76,20 +80,22 @@ class __$$IncrementImplCopyWithImpl<$Res>
     extends _$IncrementCopyWithImpl<$Res, _$IncrementImpl>
     implements _$$IncrementImplCopyWith<$Res> {
   __$$IncrementImplCopyWithImpl(
-      _$IncrementImpl _value, $Res Function(_$IncrementImpl) _then)
-      : super(_value, _then);
+    _$IncrementImpl _value,
+    $Res Function(_$IncrementImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? by = null,
-  }) {
-    return _then(_$IncrementImpl(
-      by: null == by
-          ? _value.by
-          : by // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? by = null}) {
+    return _then(
+      _$IncrementImpl(
+        by:
+            null == by
+                ? _value.by
+                : by // ignore: cast_nullable_to_non_nullable
+                    as int,
+      ),
+    );
   }
 }
 
@@ -129,9 +135,7 @@ class _$IncrementImpl implements _Increment {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$IncrementImplToJson(
-      this,
-    );
+    return _$$IncrementImplToJson(this);
   }
 }
 
@@ -182,23 +186,26 @@ class _$CountCopyWithImpl<$Res, $Val extends Count>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  $Res call({Object? value = null}) {
+    return _then(
+      _value.copyWith(
+            value:
+                null == value
+                    ? _value.value
+                    : value // ignore: cast_nullable_to_non_nullable
+                        as int,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CountImplCopyWith<$Res> implements $CountCopyWith<$Res> {
   factory _$$CountImplCopyWith(
-          _$CountImpl value, $Res Function(_$CountImpl) then) =
-      __$$CountImplCopyWithImpl<$Res>;
+    _$CountImpl value,
+    $Res Function(_$CountImpl) then,
+  ) = __$$CountImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int value});
@@ -209,20 +216,21 @@ class __$$CountImplCopyWithImpl<$Res>
     extends _$CountCopyWithImpl<$Res, _$CountImpl>
     implements _$$CountImplCopyWith<$Res> {
   __$$CountImplCopyWithImpl(
-      _$CountImpl _value, $Res Function(_$CountImpl) _then)
-      : super(_value, _then);
+    _$CountImpl _value,
+    $Res Function(_$CountImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$CountImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? value = null}) {
+    return _then(
+      _$CountImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -262,9 +270,7 @@ class _$CountImpl implements _Count {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CountImplToJson(
-      this,
-    );
+    return _$$CountImplToJson(this);
   }
 }
 

@@ -39,52 +39,49 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             _gap,
-            const _NameChangeLine(
-              'Name',
-            ),
+            const _NameChangeLine('Name'),
             ValueListenableBuilder<bool>(
               valueListenable: settings.soundsOn,
-              builder: (context, soundsOn, child) => _SettingsLine(
-                'Sound FX',
-                Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
-                onSelected: () => settings.toggleSoundsOn(),
-              ),
+              builder:
+                  (context, soundsOn, child) => _SettingsLine(
+                    'Sound FX',
+                    Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
+                    onSelected: () => settings.toggleSoundsOn(),
+                  ),
             ),
             ValueListenableBuilder<bool>(
               valueListenable: settings.musicOn,
-              builder: (context, musicOn, child) => _SettingsLine(
-                'Music',
-                Icon(musicOn ? Icons.music_note : Icons.music_off),
-                onSelected: () => settings.toggleMusicOn(),
-              ),
+              builder:
+                  (context, musicOn, child) => _SettingsLine(
+                    'Music',
+                    Icon(musicOn ? Icons.music_note : Icons.music_off),
+                    onSelected: () => settings.toggleMusicOn(),
+                  ),
             ),
             Consumer<InAppPurchaseController?>(
-                builder: (context, inAppPurchase, child) {
-              if (inAppPurchase == null) {
-                // In-app purchases are not supported yet.
-                // Go to lib/main.dart and uncomment the lines that create
-                // the InAppPurchaseController.
-                return const SizedBox.shrink();
-              }
+              builder: (context, inAppPurchase, child) {
+                if (inAppPurchase == null) {
+                  // In-app purchases are not supported yet.
+                  // Go to lib/main.dart and uncomment the lines that create
+                  // the InAppPurchaseController.
+                  return const SizedBox.shrink();
+                }
 
-              Widget icon;
-              VoidCallback? callback;
-              if (inAppPurchase.adRemoval.active) {
-                icon = const Icon(Icons.check);
-              } else if (inAppPurchase.adRemoval.pending) {
-                icon = const CircularProgressIndicator();
-              } else {
-                icon = const Icon(Icons.ad_units);
-                callback = () {
-                  inAppPurchase.buy();
-                };
-              }
-              return _SettingsLine(
-                'Remove ads',
-                icon,
-                onSelected: callback,
-              );
-            }),
+                Widget icon;
+                VoidCallback? callback;
+                if (inAppPurchase.adRemoval.active) {
+                  icon = const Icon(Icons.check);
+                } else if (inAppPurchase.adRemoval.pending) {
+                  icon = const CircularProgressIndicator();
+                } else {
+                  icon = const Icon(Icons.ad_units);
+                  callback = () {
+                    inAppPurchase.buy();
+                  };
+                }
+                return _SettingsLine('Remove ads', icon, onSelected: callback);
+              },
+            ),
             _SettingsLine(
               'Reset progress',
               const Icon(Icons.delete),
@@ -94,7 +91,8 @@ class SettingsScreen extends StatelessWidget {
                 final messenger = ScaffoldMessenger.of(context);
                 messenger.showSnackBar(
                   const SnackBar(
-                      content: Text('Player progress has been reset.')),
+                    content: Text('Player progress has been reset.'),
+                  ),
                 );
               },
             ),
@@ -129,21 +127,24 @@ class _NameChangeLine extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title,
-                style: const TextStyle(
-                  fontFamily: 'Permanent Marker',
-                  fontSize: 30,
-                )),
+            Text(
+              title,
+              style: const TextStyle(
+                fontFamily: 'Permanent Marker',
+                fontSize: 30,
+              ),
+            ),
             const Spacer(),
             ValueListenableBuilder(
               valueListenable: settings.playerName,
-              builder: (context, name, child) => Text(
-                '‘$name’',
-                style: const TextStyle(
-                  fontFamily: 'Permanent Marker',
-                  fontSize: 30,
-                ),
-              ),
+              builder:
+                  (context, name, child) => Text(
+                    '‘$name’',
+                    style: const TextStyle(
+                      fontFamily: 'Permanent Marker',
+                      fontSize: 30,
+                    ),
+                  ),
             ),
           ],
         ),

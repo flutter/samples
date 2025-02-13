@@ -1,3 +1,5 @@
+// TODO(kevmoo): https://github.com/flutter/samples/issues/2582
+// ignore: deprecated_member_use
 import 'dart:html';
 
 import 'package:mdc_web/mdc_web.dart';

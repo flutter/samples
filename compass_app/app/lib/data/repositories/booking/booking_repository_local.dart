@@ -4,19 +4,15 @@
 
 import 'dart:async';
 
-import 'package:collection/collection.dart';
-
 import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
-
 import '../../services/local/local_data_service.dart';
 import 'booking_repository.dart';
 
 class BookingRepositoryLocal implements BookingRepository {
-  BookingRepositoryLocal({
-    required LocalDataService localDataService,
-  }) : _localDataService = localDataService;
+  BookingRepositoryLocal({required LocalDataService localDataService})
+    : _localDataService = localDataService;
 
   // Only create default booking once
   bool _isInitialized = false;
@@ -36,7 +32,7 @@ class BookingRepositoryLocal implements BookingRepository {
 
   @override
   Future<Result<Booking>> getBooking(int id) async {
-    final booking = _bookings.firstWhereOrNull((booking) => booking.id == id);
+    final booking = _bookings.where((booking) => booking.id == id).firstOrNull;
     if (booking == null) {
       return Result.error(Exception('Booking not found'));
     }
@@ -72,10 +68,11 @@ class BookingRepositoryLocal implements BookingRepository {
     // create a default booking the first time
     if (_bookings.isEmpty) {
       final destination = (await _localDataService.getDestinations()).first;
-      final activities = (await _localDataService.getActivities())
-          .where((activity) => activity.destinationRef == destination.ref)
-          .take(4)
-          .toList();
+      final activities =
+          (await _localDataService.getActivities())
+              .where((activity) => activity.destinationRef == destination.ref)
+              .take(4)
+              .toList();
 
       _bookings.add(
         Booking(

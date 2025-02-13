@@ -60,9 +60,7 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tween Sequences'),
-      ),
+      appBar: AppBar(title: const Text('Tween Sequences')),
       body: Center(
         child: AnimatedBuilder(
           animation: animation,

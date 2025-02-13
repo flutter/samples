@@ -20,9 +20,7 @@ void main() {
 
     setUp(() {
       fakeAuthRepository = FakeAuthRepository();
-      viewModel = LoginViewModel(
-        authRepository: fakeAuthRepository,
-      );
+      viewModel = LoginViewModel(authRepository: fakeAuthRepository);
       goRouter = MockGoRouter();
     });
 

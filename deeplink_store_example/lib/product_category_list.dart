@@ -31,22 +31,22 @@ class ProductCategoryList extends StatelessWidget {
       orElse: () => Category.all,
     );
     final List<Widget> children =
-        ProductsRepository.loadProducts(category: category)
-            .map<Widget>((Product p) => RowItem(product: p))
-            .toList();
+        ProductsRepository.loadProducts(
+          category: category,
+        ).map<Widget>((Product p) => RowItem(product: p)).toList();
     return Scaffold(
       backgroundColor: Styles.scaffoldBackground,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text(getCategoryTitle(category),
-                style: Styles.productListTitle),
+            title: Text(
+              getCategoryTitle(category),
+              style: Styles.productListTitle,
+            ),
             backgroundColor: Styles.scaffoldAppBarBackground,
             pinned: true,
           ),
-          SliverList(
-            delegate: SliverChildListDelegate(children),
-          ),
+          SliverList(delegate: SliverChildListDelegate(children)),
         ],
       ),
     );

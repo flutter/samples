@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:path/path.dart' as p;
 
 Future<void> main() async {
@@ -13,12 +14,14 @@ Future<void> main() async {
 /// contain `<base href="/samples/web/navigation_and_routing/">`
 Future<void> fixBaseTags() async {
   print('currentDir = ${Directory.current.path}');
-  var builtSamplesDir = Directory(p.joinAll([
-    // Parent directory
-    ...p.split(Directory.current.path),
-    // path to built samples
-    ...p.split('samples_index/public/web')
-  ]));
+  var builtSamplesDir = Directory(
+    p.joinAll([
+      // Parent directory
+      ...p.split(Directory.current.path),
+      // path to built samples
+      ...p.split('samples_index/public/web'),
+    ]),
+  );
   if (!await builtSamplesDir.exists()) {
     print('${builtSamplesDir.path} does not exist.');
     exit(1);
@@ -40,8 +43,19 @@ Future<void> fixBaseTags() async {
           continue;
         }
         var newContents = contents.replaceFirst(
-            regex, '<base href="/samples/web/$sampleDirName/">');
+          regex,
+          '<base href="/samples/web/$sampleDirName/">',
+        );
         await index.writeAsString(newContents);
+      }
+
+      // Since all of the web examples use the hosted canvaskit bits
+      // There is no need to deploy these
+      final canvasKitDirectory = Directory(
+        p.join(builtSample.path, 'canvaskit'),
+      );
+      if (canvasKitDirectory.existsSync()) {
+        canvasKitDirectory.deleteSync(recursive: true);
       }
     }
   }

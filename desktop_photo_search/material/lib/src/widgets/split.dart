@@ -173,9 +173,7 @@ class _SplitState extends State<Split> {
         child: SizedBox(
           width: isHorizontal ? Split.dividerMainAxisSize : width,
           height: isHorizontal ? height : Split.dividerMainAxisSize,
-          child: Center(
-            child: dragIndicator,
-          ),
+          child: Center(child: dragIndicator),
         ),
       ),
       SizedBox(

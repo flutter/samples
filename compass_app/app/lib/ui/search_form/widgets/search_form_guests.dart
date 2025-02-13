@@ -16,10 +16,7 @@ const String addGuestsKey = 'add-guests';
 /// Users can tap the Plus and Minus icons to increase or decrease
 /// the number of guests.
 class SearchFormGuests extends StatelessWidget {
-  const SearchFormGuests({
-    super.key,
-    required this.viewModel,
-  });
+  const SearchFormGuests({super.key, required this.viewModel});
 
   final SearchFormViewModel viewModel;
 
@@ -44,10 +41,7 @@ class SearchFormGuests extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Who',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+              Text('Who', style: Theme.of(context).textTheme.titleMedium),
               _QuantitySelector(viewModel),
             ],
           ),
@@ -81,22 +75,21 @@ class _QuantitySelector extends StatelessWidget {
           ),
           ListenableBuilder(
             listenable: viewModel,
-            builder: (context, _) => Text(
-              viewModel.guests.toString(),
-              style: viewModel.guests == 0
-                  ? Theme.of(context).inputDecorationTheme.hintStyle
-                  : Theme.of(context).textTheme.bodyMedium,
-            ),
+            builder:
+                (context, _) => Text(
+                  viewModel.guests.toString(),
+                  style:
+                      viewModel.guests == 0
+                          ? Theme.of(context).inputDecorationTheme.hintStyle
+                          : Theme.of(context).textTheme.bodyMedium,
+                ),
           ),
           InkWell(
             key: const ValueKey(addGuestsKey),
             onTap: () {
               viewModel.guests++;
             },
-            child: const Icon(
-              Icons.add_circle_outline,
-              color: AppColors.grey3,
-            ),
+            child: const Icon(Icons.add_circle_outline, color: AppColors.grey3),
           ),
         ],
       ),

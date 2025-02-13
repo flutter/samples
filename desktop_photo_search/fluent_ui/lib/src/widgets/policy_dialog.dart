@@ -26,16 +26,20 @@ class PolicyDialog extends StatelessWidget {
                 TextSpan(
                   text: 'https://policies.google.com/terms',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.blue.normal),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () async {
-                      final url =
-                          Uri.parse('https://policies.google.com/terms');
-                      if (await url_launcher.canLaunchUrl(url)) {
-                        await url_launcher.launchUrl(url);
-                      }
-                    },
-                )
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue.normal,
+                  ),
+                  recognizer:
+                      TapGestureRecognizer()
+                        ..onTap = () async {
+                          final url = Uri.parse(
+                            'https://policies.google.com/terms',
+                          );
+                          if (await url_launcher.canLaunchUrl(url)) {
+                            await url_launcher.launchUrl(url);
+                          }
+                        },
+                ),
               ],
             ),
           ),
@@ -48,15 +52,18 @@ class PolicyDialog extends StatelessWidget {
                 TextSpan(
                   text: 'https://unsplash.com/terms',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.blue.normal),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () async {
-                      final url = Uri.parse('https://unsplash.com/terms');
-                      if (await url_launcher.canLaunchUrl(url)) {
-                        await url_launcher.launchUrl(url);
-                      }
-                    },
-                )
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue.normal,
+                  ),
+                  recognizer:
+                      TapGestureRecognizer()
+                        ..onTap = () async {
+                          final url = Uri.parse('https://unsplash.com/terms');
+                          if (await url_launcher.canLaunchUrl(url)) {
+                            await url_launcher.launchUrl(url);
+                          }
+                        },
+                ),
               ],
             ),
           ),

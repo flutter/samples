@@ -9,9 +9,8 @@ import 'continent_repository.dart';
 
 /// Local data source with all possible continents.
 class ContinentRepositoryLocal implements ContinentRepository {
-  ContinentRepositoryLocal({
-    required LocalDataService localDataService,
-  }) : _localDataService = localDataService;
+  ContinentRepositoryLocal({required LocalDataService localDataService})
+    : _localDataService = localDataService;
 
   final LocalDataService _localDataService;
 

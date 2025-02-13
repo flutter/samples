@@ -27,11 +27,13 @@ void setupWindow() {
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
-      setWindowFrame(Rect.fromCenter(
-        center: screen!.frame.center,
-        width: windowWidth,
-        height: windowHeight,
-      ));
+      setWindowFrame(
+        Rect.fromCenter(
+          center: screen!.frame.center,
+          width: windowWidth,
+          height: windowHeight,
+        ),
+      );
     });
   }
 }
@@ -41,11 +43,7 @@ class Demo {
   final String route;
   final WidgetBuilder builder;
 
-  const Demo({
-    required this.name,
-    required this.route,
-    required this.builder,
-  });
+  const Demo({required this.name, required this.route, required this.builder});
 }
 
 final basicDemos = [
@@ -182,9 +180,7 @@ class AnimationSamples extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Animation Samples',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.deepPurple,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.deepPurple),
       routerConfig: router,
     );
   }
@@ -197,9 +193,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final headerStyle = Theme.of(context).textTheme.titleLarge;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animation Samples'),
-      ),
+      appBar: AppBar(title: const Text('Animation Samples')),
       body: ListView(
         children: [
           ListTile(title: Text('Basics', style: headerStyle)),
