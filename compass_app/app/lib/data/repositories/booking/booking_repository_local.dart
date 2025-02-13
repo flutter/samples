@@ -4,12 +4,9 @@
 
 import 'dart:async';
 
-import 'package:collection/collection.dart';
-
 import '../../../domain/models/booking/booking.dart';
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../utils/result.dart';
-
 import '../../services/local/local_data_service.dart';
 import 'booking_repository.dart';
 
@@ -35,7 +32,7 @@ class BookingRepositoryLocal implements BookingRepository {
 
   @override
   Future<Result<Booking>> getBooking(int id) async {
-    final booking = _bookings.firstWhereOrNull((booking) => booking.id == id);
+    final booking = _bookings.where((booking) => booking.id == id).firstOrNull;
     if (booking == null) {
       return Result.error(Exception('Booking not found'));
     }

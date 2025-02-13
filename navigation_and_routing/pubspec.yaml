@@ -8,15 +8,11 @@ environment:
 
 dependencies:
   adaptive_navigation: ^0.0.3
-  collection: ^1.17.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   go_router: ^14.0.0
-  path_to_regexp: ^0.4.0
-  quiver: ^3.1.0
   url_launcher: ^6.1.1
-  url_strategy: ^0.3.0
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
