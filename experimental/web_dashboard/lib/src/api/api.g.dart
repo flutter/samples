@@ -11,14 +11,12 @@ part of 'api.dart';
 // **************************************************************************
 
 Category _$CategoryFromJson(Map<String, dynamic> json) {
-  return Category(
-    json['name'] as String,
-  );
+  return Category(json['name'] as String);
 }
 
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
-      'name': instance.name,
-    };
+  'name': instance.name,
+};
 
 Entry _$EntryFromJson(Map<String, dynamic> json) {
   return Entry(
@@ -28,6 +26,6 @@ Entry _$EntryFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$EntryToJson(Entry instance) => <String, dynamic>{
-      'value': instance.value,
-      'time': Entry._dateTimeToTimestamp(instance.time),
-    };
+  'value': instance.value,
+  'time': Entry._dateTimeToTimestamp(instance.time),
+};

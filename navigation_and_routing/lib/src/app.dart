@@ -37,10 +37,7 @@ class _BookstoreState extends State<Bookstore> {
         if (child == null) {
           throw ('No child in .router constructor builder');
         }
-        return BookstoreAuthScope(
-          notifier: auth,
-          child: child,
-        );
+        return BookstoreAuthScope(notifier: auth, child: child);
       },
       routerConfig: GoRouter(
         refreshListenable: auth,
@@ -74,25 +71,27 @@ class _BookstoreState extends State<Bookstore> {
                     key: state.pageKey,
                     // Use a builder to get the correct BuildContext
                     // TODO (johnpryan): remove when https://github.com/flutter/flutter/issues/108177 lands
-                    child: Builder(builder: (context) {
-                      return BooksScreen(
-                        onTap: (idx) {
-                          GoRouter.of(context).go(switch (idx) {
-                            0 => '/books/popular',
-                            1 => '/books/new',
-                            2 => '/books/all',
-                            _ => '/books/popular',
-                          });
-                        },
-                        selectedIndex: switch (state.uri.path) {
-                          var p when p.startsWith('/books/popular') => 0,
-                          var p when p.startsWith('/books/new') => 1,
-                          var p when p.startsWith('/books/all') => 2,
-                          _ => 0,
-                        },
-                        child: child,
-                      );
-                    }),
+                    child: Builder(
+                      builder: (context) {
+                        return BooksScreen(
+                          onTap: (idx) {
+                            GoRouter.of(context).go(switch (idx) {
+                              0 => '/books/popular',
+                              1 => '/books/new',
+                              2 => '/books/all',
+                              _ => '/books/popular',
+                            });
+                          },
+                          selectedIndex: switch (state.uri.path) {
+                            var p when p.startsWith('/books/popular') => 0,
+                            var p when p.startsWith('/books/new') => 1,
+                            var p when p.startsWith('/books/all') => 2,
+                            _ => 0,
+                          },
+                          child: child,
+                        );
+                      },
+                    ),
                   );
                 },
                 routes: [
@@ -108,8 +107,9 @@ class _BookstoreState extends State<Bookstore> {
                             return BookList(
                               books: libraryInstance.popularBooks,
                               onTap: (book) {
-                                GoRouter.of(context)
-                                    .go('/books/popular/book/${book.id}');
+                                GoRouter.of(
+                                  context,
+                                ).go('/books/popular/book/${book.id}');
                               },
                             );
                           },
@@ -122,8 +122,9 @@ class _BookstoreState extends State<Bookstore> {
                         parentNavigatorKey: appShellNavigatorKey,
                         builder: (context, state) {
                           return BookDetailsScreen(
-                            book: libraryInstance
-                                .getBook(state.pathParameters['bookId'] ?? ''),
+                            book: libraryInstance.getBook(
+                              state.pathParameters['bookId'] ?? '',
+                            ),
                           );
                         },
                       ),
@@ -141,8 +142,9 @@ class _BookstoreState extends State<Bookstore> {
                             return BookList(
                               books: libraryInstance.newBooks,
                               onTap: (book) {
-                                GoRouter.of(context)
-                                    .go('/books/new/book/${book.id}');
+                                GoRouter.of(
+                                  context,
+                                ).go('/books/new/book/${book.id}');
                               },
                             );
                           },
@@ -155,8 +157,9 @@ class _BookstoreState extends State<Bookstore> {
                         parentNavigatorKey: appShellNavigatorKey,
                         builder: (context, state) {
                           return BookDetailsScreen(
-                            book: libraryInstance
-                                .getBook(state.pathParameters['bookId'] ?? ''),
+                            book: libraryInstance.getBook(
+                              state.pathParameters['bookId'] ?? '',
+                            ),
                           );
                         },
                       ),
@@ -174,8 +177,9 @@ class _BookstoreState extends State<Bookstore> {
                             return BookList(
                               books: libraryInstance.allBooks,
                               onTap: (book) {
-                                GoRouter.of(context)
-                                    .go('/books/all/book/${book.id}');
+                                GoRouter.of(
+                                  context,
+                                ).go('/books/all/book/${book.id}');
                               },
                             );
                           },
@@ -188,8 +192,9 @@ class _BookstoreState extends State<Bookstore> {
                         parentNavigatorKey: appShellNavigatorKey,
                         builder: (context, state) {
                           return BookDetailsScreen(
-                            book: libraryInstance
-                                .getBook(state.pathParameters['bookId'] ?? ''),
+                            book: libraryInstance.getBook(
+                              state.pathParameters['bookId'] ?? '',
+                            ),
                           );
                         },
                       ),
@@ -202,14 +207,17 @@ class _BookstoreState extends State<Bookstore> {
                 pageBuilder: (context, state) {
                   return FadeTransitionPage<dynamic>(
                     key: state.pageKey,
-                    child: Builder(builder: (context) {
-                      return AuthorsScreen(
-                        onTap: (author) {
-                          GoRouter.of(context)
-                              .go('/authors/author/${author.id}');
-                        },
-                      );
-                    }),
+                    child: Builder(
+                      builder: (context) {
+                        return AuthorsScreen(
+                          onTap: (author) {
+                            GoRouter.of(
+                              context,
+                            ).go('/authors/author/${author.id}');
+                          },
+                        );
+                      },
+                    ),
                   );
                 },
                 routes: [
@@ -217,22 +225,26 @@ class _BookstoreState extends State<Bookstore> {
                     path: 'author/:authorId',
                     builder: (context, state) {
                       final author = libraryInstance.allAuthors.firstWhere(
-                          (author) =>
-                              author.id ==
-                              int.parse(state.pathParameters['authorId']!));
+                        (author) =>
+                            author.id ==
+                            int.parse(state.pathParameters['authorId']!),
+                      );
                       // Use a builder to get the correct BuildContext
                       // TODO (johnpryan): remove when https://github.com/flutter/flutter/issues/108177 lands
-                      return Builder(builder: (context) {
-                        return AuthorDetailsScreen(
-                          author: author,
-                          onBookTapped: (book) {
-                            GoRouter.of(context)
-                                .go('/books/all/book/${book.id}');
-                          },
-                        );
-                      });
+                      return Builder(
+                        builder: (context) {
+                          return AuthorDetailsScreen(
+                            author: author,
+                            onBookTapped: (book) {
+                              GoRouter.of(
+                                context,
+                              ).go('/books/all/book/${book.id}');
+                            },
+                          );
+                        },
+                      );
                     },
-                  )
+                  ),
                 ],
               ),
               GoRoute(
@@ -256,8 +268,9 @@ class _BookstoreState extends State<Bookstore> {
                   return SignInScreen(
                     onSignIn: (value) async {
                       final router = GoRouter.of(context);
-                      await BookstoreAuth.of(context)
-                          .signIn(value.username, value.password);
+                      await BookstoreAuth.of(
+                        context,
+                      ).signIn(value.username, value.password);
                       router.go('/books/popular');
                     },
                   );

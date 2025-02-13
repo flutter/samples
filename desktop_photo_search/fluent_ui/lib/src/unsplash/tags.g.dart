@@ -19,20 +19,28 @@ class _$TagsSerializer implements StructuredSerializer<Tags> {
   final String wireName = 'Tags';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Tags object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Tags object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.title,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Tags deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Tags deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new TagsBuilder();
 
     final iterator = serialized.iterator;
@@ -42,8 +50,12 @@ class _$TagsSerializer implements StructuredSerializer<Tags> {
       final Object? value = iterator.current;
       switch (key) {
         case 'title':
-          result.title = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.title =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -86,8 +98,8 @@ class _$Tags extends Tags {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Tags')..add('title', title))
-        .toString();
+    return (newBuiltValueToStringHelper(r'Tags')
+      ..add('title', title)).toString();
   }
 }
 
@@ -124,10 +136,11 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
   Tags build() => _build();
 
   _$Tags _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$Tags._(
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, r'Tags', 'title'));
+          title: BuiltValueNullFieldError.checkNotNull(title, r'Tags', 'title'),
+        );
     replace(_$result);
     return _$result;
   }

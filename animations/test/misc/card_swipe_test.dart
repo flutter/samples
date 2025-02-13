@@ -6,9 +6,7 @@ import 'package:animations/src/misc/card_swipe.dart';
 import 'package:flutter/material.dart' hide Card;
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createCardSwipeScreen() => const MaterialApp(
-      home: CardSwipeDemo(),
-    );
+Widget createCardSwipeScreen() => const MaterialApp(home: CardSwipeDemo());
 
 void main() {
   group('Card Swipe Tests', () {

@@ -17,11 +17,7 @@ CustomTransitionPage<T> buildMyTransition<T>({
   return CustomTransitionPage<T>(
     child: child,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return _MyReveal(
-        animation: animation,
-        color: color,
-        child: child,
-      );
+      return _MyReveal(animation: animation, color: color, child: child);
     },
     key: key,
     name: name,
@@ -90,9 +86,7 @@ class _MyRevealState extends State<_MyReveal> {
               reverseCurve: Curves.easeOutCubic,
             ),
           ),
-          child: Container(
-            color: widget.color,
-          ),
+          child: Container(color: widget.color),
         ),
         AnimatedOpacity(
           opacity: _finished ? 1 : 0,

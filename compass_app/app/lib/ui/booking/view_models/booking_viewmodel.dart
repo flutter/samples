@@ -20,10 +20,10 @@ class BookingViewModel extends ChangeNotifier {
     required BookingShareUseCase shareBookingUseCase,
     required ItineraryConfigRepository itineraryConfigRepository,
     required BookingRepository bookingRepository,
-  })  : _createUseCase = createBookingUseCase,
-        _shareUseCase = shareBookingUseCase,
-        _itineraryConfigRepository = itineraryConfigRepository,
-        _bookingRepository = bookingRepository {
+  }) : _createUseCase = createBookingUseCase,
+       _shareUseCase = shareBookingUseCase,
+       _itineraryConfigRepository = itineraryConfigRepository,
+       _bookingRepository = bookingRepository {
     createBooking = Command0(_createBooking);
     shareBooking = Command0(() => _shareUseCase.shareBooking(_booking!));
     loadBooking = Command1(_load);

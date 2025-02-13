@@ -9,9 +9,7 @@ import 'package:platform_channels/main.dart';
 void main() {
   group('HomePage tests', () {
     testWidgets('HomePage has multiple Text widgets', (tester) async {
-      await tester.pumpWidget(const MaterialApp(
-        home: HomePage(),
-      ));
+      await tester.pumpWidget(const MaterialApp(home: HomePage()));
 
       expect(find.byType(Text), findsWidgets);
     });

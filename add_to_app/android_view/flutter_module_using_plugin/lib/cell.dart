@@ -62,8 +62,12 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
   Color randomLightColor() {
     _random ??= Random(cellNumber);
 
-    return Color.fromARGB(255, _random!.nextInt(50) + 205,
-        _random!.nextInt(50) + 205, _random!.nextInt(50) + 205);
+    return Color.fromARGB(
+      255,
+      _random!.nextInt(50) + 205,
+      _random!.nextInt(50) + 205,
+      _random!.nextInt(50) + 205,
+    );
   }
 
   @override
@@ -108,20 +112,25 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                       child: StreamBuilder<AccelerometerEvent>(
                         // Don't continuously rebuild for nothing when the
                         // cell isn't visible.
-                        stream: appLifecycleState == AppLifecycleState.resumed
-                            ? accelerometerEventStream()
-                            : Stream.value(defaultPosition),
+                        stream:
+                            appLifecycleState == AppLifecycleState.resumed
+                                ? accelerometerEventStream()
+                                : Stream.value(defaultPosition),
                         initialData: defaultPosition,
                         builder: (context, snapshot) {
                           return Transform(
-                              // Figure out the phone's orientation relative
-                              // to gravity's direction. Ignore the z vector.
-                              transform: Matrix4.rotationX(
-                                  snapshot.data!.y / gravity * pi / 2)
-                                ..multiply(Matrix4.rotationY(
-                                    snapshot.data!.x / gravity * pi / 2)),
-                              alignment: Alignment.center,
-                              child: const FlutterLogo(size: 72));
+                            // Figure out the phone's orientation relative
+                            // to gravity's direction. Ignore the z vector.
+                            transform: Matrix4.rotationX(
+                              snapshot.data!.y / gravity * pi / 2,
+                            )..multiply(
+                              Matrix4.rotationY(
+                                snapshot.data!.x / gravity * pi / 2,
+                              ),
+                            ),
+                            alignment: Alignment.center,
+                            child: const FlutterLogo(size: 72),
+                          );
                         },
                       ),
                     ),

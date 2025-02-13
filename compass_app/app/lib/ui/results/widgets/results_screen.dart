@@ -14,10 +14,7 @@ import '../view_models/results_viewmodel.dart';
 import 'result_card.dart';
 
 class ResultsScreen extends StatefulWidget {
-  const ResultsScreen({
-    super.key,
-    required this.viewModel,
-  });
+  const ResultsScreen({super.key, required this.viewModel});
 
   final ResultsViewModel viewModel;
 
@@ -64,13 +61,16 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 _AppSearchBar(widget: widget),
                 if (widget.viewModel.search.running)
                   const Expanded(
-                      child: Center(child: CircularProgressIndicator())),
+                    child: Center(child: CircularProgressIndicator()),
+                  ),
                 if (widget.viewModel.search.error)
                   Expanded(
                     child: Center(
                       child: ErrorIndicator(
-                        title: AppLocalization.of(context)
-                            .errorWhileLoadingDestinations,
+                        title:
+                            AppLocalization.of(
+                              context,
+                            ).errorWhileLoadingDestinations,
                         label: AppLocalization.of(context).tryAgain,
                         onPressed: widget.viewModel.search.execute,
                       ),
@@ -86,9 +86,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 padding: Dimens.of(context).edgeInsetsScreenHorizontal,
                 child: CustomScrollView(
                   slivers: [
-                    SliverToBoxAdapter(
-                      child: _AppSearchBar(widget: widget),
-                    ),
+                    SliverToBoxAdapter(child: _AppSearchBar(widget: widget)),
                     _Grid(viewModel: widget.viewModel),
                   ],
                 ),
@@ -118,9 +116,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
 }
 
 class _AppSearchBar extends StatelessWidget {
-  const _AppSearchBar({
-    required this.widget,
-  });
+  const _AppSearchBar({required this.widget});
 
   final ResultsScreen widget;
 
@@ -147,9 +143,7 @@ class _AppSearchBar extends StatelessWidget {
 }
 
 class _Grid extends StatelessWidget {
-  const _Grid({
-    required this.viewModel,
-  });
+  const _Grid({required this.viewModel});
 
   final ResultsViewModel viewModel;
 
@@ -162,19 +156,16 @@ class _Grid extends StatelessWidget {
         mainAxisSpacing: 8.0,
         childAspectRatio: 182 / 222,
       ),
-      delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          final destination = viewModel.destinations[index];
-          return ResultCard(
-            key: ValueKey(destination.ref),
-            destination: destination,
-            onTap: () {
-              viewModel.updateItineraryConfig.execute(destination.ref);
-            },
-          );
-        },
-        childCount: viewModel.destinations.length,
-      ),
+      delegate: SliverChildBuilderDelegate((context, index) {
+        final destination = viewModel.destinations[index];
+        return ResultCard(
+          key: ValueKey(destination.ref),
+          destination: destination,
+          onTap: () {
+            viewModel.updateItineraryConfig.execute(destination.ref);
+          },
+        );
+      }, childCount: viewModel.destinations.length),
     );
   }
 }

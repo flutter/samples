@@ -39,18 +39,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+      theme: ThemeData(primarySwatch: Colors.green),
       home: Scaffold(
         appBar: AppBar(
-            title: const Text('Sydney'), backgroundColor: Colors.green[700]),
+          title: const Text('Sydney'),
+          backgroundColor: Colors.green[700],
+        ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
-          ),
+          initialCameraPosition: CameraPosition(target: _center, zoom: 11.0),
           markers: {
             const Marker(
               markerId: MarkerId('Sydney'),
@@ -59,7 +56,7 @@ class _MyAppState extends State<MyApp> {
                 title: "Sydney",
                 snippet: "Capital of New South Wales",
               ),
-            )
+            ),
           },
         ),
       ),

@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Gives correct behavior for all values of contextMenuBuilder',
-      (tester) async {
+  testWidgets('Gives correct behavior for all values of contextMenuBuilder', (
+    tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the GlobalSelectionPage example.
@@ -28,10 +29,9 @@ void main() {
 
     // Right click on the plain Text widget.
     TestGesture gesture = await tester.startGesture(
-      tester.getCenter(find.descendant(
-        of: find.byType(ListView),
-        matching: find.byType(Text),
-      )),
+      tester.getCenter(
+        find.descendant(of: find.byType(ListView), matching: find.byType(Text)),
+      ),
       kind: PointerDeviceKind.mouse,
       buttons: kSecondaryMouseButton,
     );

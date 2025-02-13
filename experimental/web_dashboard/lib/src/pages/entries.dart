@@ -27,15 +27,17 @@ class _EntriesPageState extends State<EntriesPage> {
     return Column(
       children: [
         CategoryDropdown(
-            api: appState.api!.categories,
-            onSelected: (category) => setState(() => _selected = category)),
+          api: appState.api!.categories,
+          onSelected: (category) => setState(() => _selected = category),
+        ),
         Expanded(
-          child: _selected == null
-              ? const Center(child: CircularProgressIndicator())
-              : EntriesList(
-                  category: _selected,
-                  api: appState.api!.entries,
-                ),
+          child:
+              _selected == null
+                  ? const Center(child: CircularProgressIndicator())
+                  : EntriesList(
+                    category: _selected,
+                    api: appState.api!.entries,
+                  ),
         ),
       ],
     );
@@ -46,10 +48,8 @@ class EntriesList extends StatefulWidget {
   final Category? category;
   final EntryApi api;
 
-  EntriesList({
-    this.category,
-    required this.api,
-  }) : super(key: ValueKey(category?.id));
+  EntriesList({this.category, required this.api})
+    : super(key: ValueKey(category?.id));
 
   @override
   State<EntriesList> createState() => _EntriesListState();
@@ -99,11 +99,7 @@ class EntryTile extends StatelessWidget {
   final Category? category;
   final Entry? entry;
 
-  const EntryTile({
-    this.category,
-    this.entry,
-    super.key,
-  });
+  const EntryTile({this.category, this.entry, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -131,26 +127,25 @@ class EntryTile extends StatelessWidget {
               final scaffoldMessenger = ScaffoldMessenger.of(context);
               final bool? shouldDelete = await showDialog<bool>(
                 context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('Delete entry?'),
-                  actions: [
-                    TextButton(
-                      child: const Text('Cancel'),
-                      onPressed: () => Navigator.of(context).pop(false),
+                builder:
+                    (context) => AlertDialog(
+                      title: const Text('Delete entry?'),
+                      actions: [
+                        TextButton(
+                          child: const Text('Cancel'),
+                          onPressed: () => Navigator.of(context).pop(false),
+                        ),
+                        TextButton(
+                          child: const Text('Delete'),
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ],
                     ),
-                    TextButton(
-                      child: const Text('Delete'),
-                      onPressed: () => Navigator.of(context).pop(true),
-                    ),
-                  ],
-                ),
               );
               if (shouldDelete != null && shouldDelete) {
                 await appState.api!.entries.delete(category!.id!, entry!.id!);
                 scaffoldMessenger.showSnackBar(
-                  const SnackBar(
-                    content: Text('Entry deleted'),
-                  ),
+                  const SnackBar(content: Text('Entry deleted')),
                 );
               }
             },

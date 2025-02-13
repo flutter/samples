@@ -58,39 +58,40 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _iceCreamStores = FirebaseFirestore.instance
-        .collection('ice_cream_stores')
-        .orderBy('name')
-        .snapshots();
+    _iceCreamStores =
+        FirebaseFirestore.instance
+            .collection('ice_cream_stores')
+            .orderBy('name')
+            .snapshots();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: StreamBuilder<QuerySnapshot>(
         stream: _iceCreamStores,
         builder: (context, snapshot) {
           return switch (snapshot) {
-            AsyncSnapshot(hasError: true) =>
-              Center(child: Text('Error: ${snapshot.error}')),
-            AsyncSnapshot(hasData: false) =>
-              const Center(child: Text('Loading...')),
+            AsyncSnapshot(hasError: true) => Center(
+              child: Text('Error: ${snapshot.error}'),
+            ),
+            AsyncSnapshot(hasData: false) => const Center(
+              child: Text('Loading...'),
+            ),
             _ => Stack(
-                children: [
-                  StoreMap(
-                    documents: snapshot.data!.docs,
-                    initialPosition: initialPosition,
-                    mapController: _mapController,
-                  ),
-                  StoreCarousel(
-                    mapController: _mapController,
-                    documents: snapshot.data!.docs,
-                  ),
-                ],
-              )
+              children: [
+                StoreMap(
+                  documents: snapshot.data!.docs,
+                  initialPosition: initialPosition,
+                  mapController: _mapController,
+                ),
+                StoreCarousel(
+                  mapController: _mapController,
+                  documents: snapshot.data!.docs,
+                ),
+              ],
+            ),
           };
         },
       ),
@@ -194,8 +195,9 @@ class _StoreListTileState extends State<StoreListTile> {
   }
 
   Future<void> _retrievePlacesDetails() async {
-    final details = await _placesApiClient
-        .getDetailsByPlaceId(widget.document['placeId'] as String);
+    final details = await _placesApiClient.getDetailsByPlaceId(
+      widget.document['placeId'] as String,
+    );
     if (!_disposed) {
       setState(() {
         _placePhotoUrl = _placesApiClient.buildPhotoUrl(
@@ -214,12 +216,13 @@ class _StoreListTileState extends State<StoreListTile> {
       leading: SizedBox(
         width: 100,
         height: 100,
-        child: _placePhotoUrl.isNotEmpty
-            ? ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(2)),
-                child: Image.network(_placePhotoUrl, fit: BoxFit.cover),
-              )
-            : Container(),
+        child:
+            _placePhotoUrl.isNotEmpty
+                ? ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(2)),
+                  child: Image.network(_placePhotoUrl, fit: BoxFit.cover),
+                )
+                : Container(),
       ),
       onTap: () async {
         final controller = await widget.mapController.future;
@@ -254,24 +257,24 @@ class StoreMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
-      initialCameraPosition: CameraPosition(
-        target: initialPosition,
-        zoom: 12,
-      ),
-      markers: documents
-          .map((document) => Marker(
-                markerId: MarkerId(document['placeId'] as String),
-                icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
-                position: LatLng(
-                  document['location'].latitude as double,
-                  document['location'].longitude as double,
+      initialCameraPosition: CameraPosition(target: initialPosition, zoom: 12),
+      markers:
+          documents
+              .map(
+                (document) => Marker(
+                  markerId: MarkerId(document['placeId'] as String),
+                  icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
+                  position: LatLng(
+                    document['location'].latitude as double,
+                    document['location'].longitude as double,
+                  ),
+                  infoWindow: InfoWindow(
+                    title: document['name'] as String?,
+                    snippet: document['address'] as String?,
+                  ),
                 ),
-                infoWindow: InfoWindow(
-                  title: document['name'] as String?,
-                  snippet: document['address'] as String?,
-                ),
-              ))
-          .toSet(),
+              )
+              .toSet(),
       onMapCreated: (mapController) {
         this.mapController.complete(mapController);
       },

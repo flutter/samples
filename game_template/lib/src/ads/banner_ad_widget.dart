@@ -53,8 +53,11 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
         if (_currentOrientation == orientation &&
             _bannerAd != null &&
             _adLoadingState == _LoadingState.loaded) {
-          _log.info(() => 'We have everything we need. Showing the ad '
-              '${_bannerAd.hashCode} now.');
+          _log.info(
+            () =>
+                'We have everything we need. Showing the ad '
+                '${_bannerAd.hashCode} now.',
+          );
           return SizedBox(
             width: _bannerAd!.size.width.toDouble(),
             height: _bannerAd!.size.height.toDouble(),
@@ -123,7 +126,8 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     if (useAnchoredAdaptiveSize) {
       final AnchoredAdaptiveBannerAdSize? adaptiveSize =
           await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-              MediaQuery.of(context).size.width.truncate());
+            MediaQuery.of(context).size.width.truncate(),
+          );
 
       if (adaptiveSize == null) {
         _log.warning('Unable to get height of anchored banner.');
@@ -137,16 +141,19 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
     if (!mounted) return;
 
-    assert(Platform.isAndroid || Platform.isIOS,
-        'AdMob currently does not support ${Platform.operatingSystem}');
+    assert(
+      Platform.isAndroid || Platform.isIOS,
+      'AdMob currently does not support ${Platform.operatingSystem}',
+    );
     _bannerAd = BannerAd(
       // This is a test ad unit ID from
       // https://developers.google.com/admob/android/test-ads. When ready,
       // you replace this with your own, production ad unit ID,
       // created in https://apps.admob.com/.
-      adUnitId: Theme.of(context).platform == TargetPlatform.android
-          ? 'ca-app-pub-3940256099942544/6300978111'
-          : 'ca-app-pub-3940256099942544/2934735716',
+      adUnitId:
+          Theme.of(context).platform == TargetPlatform.android
+              ? 'ca-app-pub-3940256099942544/6300978111'
+              : 'ca-app-pub-3940256099942544/2934735716',
       size: size,
       request: const AdRequest(),
       listener: BannerAdListener(

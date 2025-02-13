@@ -10,9 +10,8 @@ import 'destination_repository.dart';
 /// Local implementation of DestinationRepository
 /// Uses data from assets folder
 class DestinationRepositoryLocal implements DestinationRepository {
-  DestinationRepositoryLocal({
-    required LocalDataService localDataService,
-  }) : _localDataService = localDataService;
+  DestinationRepositoryLocal({required LocalDataService localDataService})
+    : _localDataService = localDataService;
 
   final LocalDataService _localDataService;
 

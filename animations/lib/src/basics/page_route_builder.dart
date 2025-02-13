@@ -11,9 +11,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Page 1'),
-      ),
+      appBar: AppBar(title: const Text('Page 1')),
       body: Center(
         child: ElevatedButton(
           child: const Text('Go!'),
@@ -30,8 +28,10 @@ Route _createRoute() {
   return PageRouteBuilder<SlideTransition>(
     pageBuilder: (context, animation, secondaryAnimation) => _Page2(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var tween =
-          Tween<Offset>(begin: const Offset(0.0, 1.0), end: Offset.zero);
+      var tween = Tween<Offset>(
+        begin: const Offset(0.0, 1.0),
+        end: Offset.zero,
+      );
       var curveTween = CurveTween(curve: Curves.ease);
 
       return SlideTransition(
@@ -46,12 +46,12 @@ class _Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Page 2'),
-      ),
+      appBar: AppBar(title: const Text('Page 2')),
       body: Center(
-        child:
-            Text('Page 2!', style: Theme.of(context).textTheme.headlineMedium),
+        child: Text(
+          'Page 2!',
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
       ),
     );
   }

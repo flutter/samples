@@ -44,30 +44,34 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
         ),
       ),
       secondChild: Center(
-        child: photoSearchModel.selectedPhoto != null
-            ? PhotoDetails(
-                photo: photoSearchModel.selectedPhoto!,
-                onPhotoSave: (photo) async {
-                  final saveLocation = await getSaveLocation(
-                    suggestedName: '${photo.id}.jpg',
-                    acceptedTypeGroups: [
-                      const XTypeGroup(
-                        label: 'JPG',
-                        extensions: ['jpg'],
-                        mimeTypes: ['image/jpeg'],
-                      ),
-                    ],
-                  );
-                  if (saveLocation != null) {
-                    final fileData =
-                        await photoSearchModel.download(photo: photo);
-                    final photoFile =
-                        XFile.fromData(fileData, mimeType: 'image/jpeg');
-                    await photoFile.saveTo(saveLocation.path);
-                  }
-                },
-              )
-            : Container(),
+        child:
+            photoSearchModel.selectedPhoto != null
+                ? PhotoDetails(
+                  photo: photoSearchModel.selectedPhoto!,
+                  onPhotoSave: (photo) async {
+                    final saveLocation = await getSaveLocation(
+                      suggestedName: '${photo.id}.jpg',
+                      acceptedTypeGroups: [
+                        const XTypeGroup(
+                          label: 'JPG',
+                          extensions: ['jpg'],
+                          mimeTypes: ['image/jpeg'],
+                        ),
+                      ],
+                    );
+                    if (saveLocation != null) {
+                      final fileData = await photoSearchModel.download(
+                        photo: photo,
+                      );
+                      final photoFile = XFile.fromData(
+                        fileData,
+                        mimeType: 'image/jpeg',
+                      );
+                      await photoFile.saveTo(saveLocation.path);
+                    }
+                  },
+                )
+                : Container(),
       ),
     );
   }
@@ -81,25 +85,26 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
 
     return TreeViewItem(
       content: Text(searchEntry.query),
-      children: searchEntry.photos
-          .map<TreeViewItem>(
-            (photo) => TreeViewItem(
-              content: Semantics(
-                button: true,
-                onTap: () => selectPhoto(photo),
-                label: labelForPhoto(photo),
-                excludeSemantics: true,
-                child: GestureDetector(
-                  onTap: () => selectPhoto(photo),
-                  child: Text(
-                    labelForPhoto(photo),
-                    style: const TextStyle(color: Colors.black),
+      children:
+          searchEntry.photos
+              .map<TreeViewItem>(
+                (photo) => TreeViewItem(
+                  content: Semantics(
+                    button: true,
+                    onTap: () => selectPhoto(photo),
+                    label: labelForPhoto(photo),
+                    excludeSemantics: true,
+                    child: GestureDetector(
+                      onTap: () => selectPhoto(photo),
+                      child: Text(
+                        labelForPhoto(photo),
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          )
-          .toList(),
+              )
+              .toList(),
     );
   }
 }

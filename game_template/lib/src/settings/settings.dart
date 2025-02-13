@@ -23,7 +23,7 @@ class SettingsController {
 
   /// Creates a new instance of [SettingsController] backed by [persistence].
   SettingsController({required SettingsPersistence persistence})
-      : _persistence = persistence;
+    : _persistence = persistence;
 
   /// Asynchronously loads values from the injected persistence store.
   Future<void> loadStateFromPersistence() async {

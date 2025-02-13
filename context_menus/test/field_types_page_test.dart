@@ -52,8 +52,10 @@ void main() {
         case TargetPlatform.windows:
           expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
         case TargetPlatform.macOS:
-          expect(find.byType(CupertinoDesktopTextSelectionToolbar),
-              findsOneWidget);
+          expect(
+            find.byType(CupertinoDesktopTextSelectionToolbar),
+            findsOneWidget,
+          );
       }
 
       // Tap the next field to hide the context menu.
@@ -74,7 +76,9 @@ void main() {
 
       // The default Cupertino context menu is shown.
       expect(
-          find.byType(CupertinoAdaptiveTextSelectionToolbar), findsOneWidget);
+        find.byType(CupertinoAdaptiveTextSelectionToolbar),
+        findsOneWidget,
+      );
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
         case TargetPlatform.android:
@@ -83,8 +87,10 @@ void main() {
         case TargetPlatform.macOS:
         case TargetPlatform.linux:
         case TargetPlatform.windows:
-          expect(find.byType(CupertinoDesktopTextSelectionToolbar),
-              findsOneWidget);
+          expect(
+            find.byType(CupertinoDesktopTextSelectionToolbar),
+            findsOneWidget,
+          );
       }
 
       // Tap the next field to hide the context menu.
@@ -115,8 +121,10 @@ void main() {
         case TargetPlatform.windows:
           expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
         case TargetPlatform.macOS:
-          expect(find.byType(CupertinoDesktopTextSelectionToolbar),
-              findsOneWidget);
+          expect(
+            find.byType(CupertinoDesktopTextSelectionToolbar),
+            findsOneWidget,
+          );
       }
 
       // Tap the next field to hide the context menu.
@@ -168,8 +176,10 @@ void main() {
         case TargetPlatform.windows:
           expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
         case TargetPlatform.macOS:
-          expect(find.byType(CupertinoDesktopTextSelectionToolbar),
-              findsOneWidget);
+          expect(
+            find.byType(CupertinoDesktopTextSelectionToolbar),
+            findsOneWidget,
+          );
       }
     },
     variant: TargetPlatformVariant.all(),

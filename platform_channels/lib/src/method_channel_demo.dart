@@ -22,9 +22,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MethodChannel Demo'),
-      ),
+      appBar: AppBar(title: const Text('MethodChannel Demo')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -32,9 +30,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
             'Value of count is $count',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          const SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -74,19 +70,17 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                 },
                 icon: const Icon(Icons.remove),
                 label: const Text('Decrement'),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 
   void showErrorMessage(BuildContext context, String errorMessage) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(errorMessage),
-      ),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(errorMessage)));
   }
 }

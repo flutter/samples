@@ -25,7 +25,9 @@ abstract class Tags implements Built<Tags, TagsBuilder> {
 
   static Tags? fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Tags.serializer, json.decode(jsonString));
+      Tags.serializer,
+      json.decode(jsonString),
+    );
   }
 
   static Serializer<Tags> get serializer => _$tagsSerializer;

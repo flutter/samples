@@ -9,10 +9,11 @@ import 'package:path/path.dart' as p;
 import 'common.dart';
 
 void main() async {
-  final packageDirs = listPackageDirs(Directory.current)
-      .map((path) => p.relative(path, from: Directory.current.path))
-      .where((path) => !p.dirname(path).startsWith('_'))
-      .toList();
+  final packageDirs =
+      listPackageDirs(Directory.current)
+          .map((path) => p.relative(path, from: Directory.current.path))
+          .where((path) => !p.dirname(path).startsWith('_'))
+          .toList();
 
   print('Package dirs:\n${packageDirs.map((path) => '  $path').join('\n')}');
 
@@ -34,11 +35,14 @@ void main() async {
       results.add(false);
       continue;
     }
-    results.add(await run(
-      dir,
-      'dart',
-      ['analyze', '--fatal-infos', '--fatal-warnings', '.'],
-    ));
+    results.add(
+      await run(dir, 'dart', [
+        'analyze',
+        '--fatal-infos',
+        '--fatal-warnings',
+        '.',
+      ]),
+    );
     _printStatus(results);
   }
 
@@ -52,6 +56,8 @@ void _printStatus(List<bool> results) {
   var success = (successCount == results.length);
   var pct = 100 * successCount / results.length;
 
-  logWrapped(success ? ansiGreen : ansiRed,
-      '$successCount of ${results.length} (${pct.toStringAsFixed(2)}%)');
+  logWrapped(
+    success ? ansiGreen : ansiRed,
+    '$successCount of ${results.length} (${pct.toStringAsFixed(2)}%)',
+  );
 }

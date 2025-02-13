@@ -24,9 +24,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Form widgets'),
-      ),
+      appBar: AppBar(title: const Text('Form widgets')),
       body: Form(
         key: _formKey,
         child: Scrollbar(
@@ -89,8 +87,9 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             ),
                             Text(
                               intl.NumberFormat.currency(
-                                      symbol: "\$", decimalDigits: 0)
-                                  .format(maxValue),
+                                symbol: "\$",
+                                decimalDigits: 0,
+                              ).format(maxValue),
                               style: Theme.of(context).textTheme.titleMedium,
                             ),
                             Slider(
@@ -118,16 +117,20 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                                 });
                               },
                             ),
-                            Text('Brushed Teeth',
-                                style: Theme.of(context).textTheme.titleMedium),
+                            Text(
+                              'Brushed Teeth',
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text('Enable feature',
-                                style: Theme.of(context).textTheme.bodyLarge),
+                            Text(
+                              'Enable feature',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
                             Switch(
                               value: enableFeature,
                               onChanged: (enabled) {
@@ -139,13 +142,8 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           ],
                         ),
                       ].expand(
-                        (widget) => [
-                          widget,
-                          const SizedBox(
-                            height: 24,
-                          )
-                        ],
-                      )
+                        (widget) => [widget, const SizedBox(height: 24)],
+                      ),
                     ],
                   ),
                 ),
@@ -162,10 +160,7 @@ class _FormDatePicker extends StatefulWidget {
   final DateTime date;
   final ValueChanged<DateTime> onChanged;
 
-  const _FormDatePicker({
-    required this.date,
-    required this.onChanged,
-  });
+  const _FormDatePicker({required this.date, required this.onChanged});
 
   @override
   State<_FormDatePicker> createState() => _FormDatePickerState();
@@ -182,10 +177,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(
-              'Date',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
+            Text('Date', style: Theme.of(context).textTheme.bodyLarge),
             Text(
               intl.DateFormat.yMd().format(widget.date),
               style: Theme.of(context).textTheme.titleMedium,
@@ -209,7 +201,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
 
             widget.onChanged(newDate);
           },
-        )
+        ),
       ],
     );
   }

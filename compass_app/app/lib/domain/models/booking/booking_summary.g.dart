@@ -15,10 +15,10 @@ _$BookingSummaryImpl _$$BookingSummaryImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$BookingSummaryImplToJson(
-        _$BookingSummaryImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'startDate': instance.startDate.toIso8601String(),
-      'endDate': instance.endDate.toIso8601String(),
-    };
+  _$BookingSummaryImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'startDate': instance.startDate.toIso8601String(),
+  'endDate': instance.endDate.toIso8601String(),
+};

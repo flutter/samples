@@ -31,8 +31,10 @@ class PreloadedBannerAd {
   Future<BannerAd> get ready => _adCompleter.future;
 
   Future<void> load() {
-    assert(Platform.isAndroid || Platform.isIOS,
-        'AdMob currently does not support ${Platform.operatingSystem}');
+    assert(
+      Platform.isAndroid || Platform.isIOS,
+      'AdMob currently does not support ${Platform.operatingSystem}',
+    );
 
     _bannerAd = BannerAd(
       // This is a test ad unit ID from

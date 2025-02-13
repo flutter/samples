@@ -69,10 +69,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // all 4 possible tabs. This drawer is injected into the songs tab which is
   // actually building the scaffold around the drawer.
   Widget _buildAndroidHomePage(BuildContext context) {
-    return SongsTab(
-      key: songsTabKey,
-      androidDrawer: _AndroidDrawer(),
-    );
+    return SongsTab(key: songsTabKey, androidDrawer: _AndroidDrawer());
   }
 
   // On iOS, the app uses a bottom tab paradigm. Here, each tab view sits inside
@@ -91,10 +88,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             label: SongsTab.title,
             icon: SongsTab.iosIcon,
           ),
-          BottomNavigationBarItem(
-            label: NewsTab.title,
-            icon: NewsTab.iosIcon,
-          ),
+          BottomNavigationBarItem(label: NewsTab.title, icon: NewsTab.iosIcon),
           BottomNavigationBarItem(
             label: ProfileTab.title,
             icon: ProfileTab.iosIcon,
@@ -105,17 +99,17 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
         assert(index <= 2 && index >= 0, 'Unexpected tab index: $index');
         return switch (index) {
           0 => CupertinoTabView(
-              defaultTitle: SongsTab.title,
-              builder: (context) => SongsTab(key: songsTabKey),
-            ),
+            defaultTitle: SongsTab.title,
+            builder: (context) => SongsTab(key: songsTabKey),
+          ),
           1 => CupertinoTabView(
-              defaultTitle: NewsTab.title,
-              builder: (context) => const NewsTab(),
-            ),
+            defaultTitle: NewsTab.title,
+            builder: (context) => const NewsTab(),
+          ),
           2 => CupertinoTabView(
-              defaultTitle: ProfileTab.title,
-              builder: (context) => const ProfileTab(),
-            ),
+            defaultTitle: ProfileTab.title,
+            builder: (context) => const ProfileTab(),
+          ),
           _ => const SizedBox.shrink(),
         };
       },
@@ -161,8 +155,10 @@ class _AndroidDrawer extends StatelessWidget {
             title: const Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const NewsTab()));
+              Navigator.push<void>(
+                context,
+                MaterialPageRoute(builder: (context) => const NewsTab()),
+              );
             },
           ),
           ListTile(
@@ -170,8 +166,10 @@ class _AndroidDrawer extends StatelessWidget {
             title: const Text(ProfileTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const ProfileTab()));
+              Navigator.push<void>(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileTab()),
+              );
             },
           ),
           // Long drawer contents are often segmented.
@@ -184,8 +182,10 @@ class _AndroidDrawer extends StatelessWidget {
             title: const Text(SettingsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const SettingsTab()));
+              Navigator.push<void>(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsTab()),
+              );
             },
           ),
         ],

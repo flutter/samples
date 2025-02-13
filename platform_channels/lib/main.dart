@@ -22,9 +22,7 @@ class PlatformChannelSample extends StatelessWidget {
     return MaterialApp.router(
       title: 'Platform Channel Sample',
       theme: ThemeData(
-        snackBarTheme: SnackBarThemeData(
-          backgroundColor: Colors.blue[500],
-        ),
+        snackBarTheme: SnackBarThemeData(backgroundColor: Colors.blue[500]),
       ),
       routerConfig: router(),
     );
@@ -75,22 +73,10 @@ class DemoInfo {
 }
 
 List<DemoInfo> demoList = [
-  DemoInfo(
-    'MethodChannel Demo',
-    '/methodChannelDemo',
-  ),
-  DemoInfo(
-    'EventChannel Demo',
-    '/eventChannelDemo',
-  ),
-  DemoInfo(
-    'Platform Image Demo',
-    '/platformImageDemo',
-  ),
-  DemoInfo(
-    'BasicMessageChannel Demo',
-    '/petListScreen',
-  )
+  DemoInfo('MethodChannel Demo', '/methodChannelDemo'),
+  DemoInfo('EventChannel Demo', '/eventChannelDemo'),
+  DemoInfo('Platform Image Demo', '/platformImageDemo'),
+  DemoInfo('BasicMessageChannel Demo', '/petListScreen'),
 ];
 
 class HomePage extends StatelessWidget {
@@ -99,9 +85,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Platform Channel Sample'),
-      ),
+      appBar: AppBar(title: const Text('Platform Channel Sample')),
       body: ListView(
         children: demoList.map((demoInfo) => DemoTile(demoInfo)).toList(),
       ),

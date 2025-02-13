@@ -24,11 +24,7 @@ import 'performance_page.dart';
 
 void main() {
   setupWindow();
-  runApp(
-    const MaterialApp(
-      home: HomePage(),
-    ),
-  );
+  runApp(const MaterialApp(home: HomePage()));
 }
 
 const double windowWidth = 1024;
@@ -55,18 +51,9 @@ class HomePage extends StatelessWidget {
           appBar: AppBar(
             bottom: const TabBar(
               tabs: [
-                Tab(
-                  icon: Icon(Icons.flash_on),
-                  text: 'Performance',
-                ),
-                Tab(
-                  icon: Icon(Icons.sync),
-                  text: 'Infinite Process',
-                ),
-                Tab(
-                  icon: Icon(Icons.storage),
-                  text: 'Data Transfer',
-                ),
+                Tab(icon: Icon(Icons.flash_on), text: 'Performance'),
+                Tab(icon: Icon(Icons.sync), text: 'Infinite Process'),
+                Tab(icon: Icon(Icons.storage), text: 'Data Transfer'),
               ],
             ),
             title: const Text('Isolate Example'),

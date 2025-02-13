@@ -6,10 +6,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class CustomButtonsPage extends StatelessWidget {
-  CustomButtonsPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  CustomButtonsPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'custom-buttons';
   static const String title = 'Custom Buttons';
@@ -31,9 +28,7 @@ class CustomButtonsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(CustomButtonsPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -59,22 +54,24 @@ class CustomButtonsPage extends StatelessWidget {
                 // different buttons depending on the platform.
                 children:
                     editableTextState.contextMenuButtonItems.map((buttonItem) {
-                  return CupertinoButton(
-                    borderRadius: null,
-                    color: const Color(0xffaaaa00),
-                    disabledColor: const Color(0xffaaaaff),
-                    onPressed: buttonItem.onPressed,
-                    padding: const EdgeInsets.all(10.0),
-                    pressedOpacity: 0.7,
-                    child: SizedBox(
-                      width: 200.0,
-                      child: Text(
-                        CupertinoTextSelectionToolbarButton.getButtonLabel(
-                            context, buttonItem),
-                      ),
-                    ),
-                  );
-                }).toList(),
+                      return CupertinoButton(
+                        borderRadius: null,
+                        color: const Color(0xffaaaa00),
+                        disabledColor: const Color(0xffaaaaff),
+                        onPressed: buttonItem.onPressed,
+                        padding: const EdgeInsets.all(10.0),
+                        pressedOpacity: 0.7,
+                        child: SizedBox(
+                          width: 200.0,
+                          child: Text(
+                            CupertinoTextSelectionToolbarButton.getButtonLabel(
+                              context,
+                              buttonItem,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
               );
             },
           ),

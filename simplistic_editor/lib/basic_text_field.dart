@@ -86,7 +86,9 @@ class _BasicTextFieldState extends State<BasicTextField> {
   }
 
   void _handleSelectionChanged(
-      TextSelection selection, SelectionChangedCause? cause) {
+    TextSelection selection,
+    SelectionChangedCause? cause,
+  ) {
     final bool willShowSelectionHandles = _shouldShowSelectionHandles(cause);
     if (willShowSelectionHandles != _showSelectionHandles) {
       setState(() {
@@ -96,9 +98,16 @@ class _BasicTextFieldState extends State<BasicTextField> {
   }
 
   void _onDragUpdate(DragUpdateDetails details) {
-    final Offset startOffset = _renderEditable.maxLines == 1
-        ? Offset(_renderEditable.offset.pixels - _dragStartViewportOffset, 0.0)
-        : Offset(0.0, _renderEditable.offset.pixels - _dragStartViewportOffset);
+    final Offset startOffset =
+        _renderEditable.maxLines == 1
+            ? Offset(
+              _renderEditable.offset.pixels - _dragStartViewportOffset,
+              0.0,
+            )
+            : Offset(
+              0.0,
+              _renderEditable.offset.pixels - _dragStartViewportOffset,
+            );
 
     _renderEditable.selectPositionAt(
       from: _startDetails.globalPosition - startOffset,
@@ -145,8 +154,9 @@ class _BasicTextFieldState extends State<BasicTextField> {
         onPanUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
         onSecondaryTapDown: (secondaryTapDownDetails) {
           _renderEditable.selectWordsInRange(
-              from: secondaryTapDownDetails.globalPosition,
-              cause: SelectionChangedCause.tap);
+            from: secondaryTapDownDetails.globalPosition,
+            cause: SelectionChangedCause.tap,
+          );
           _renderEditable.handleSecondaryTapDown(secondaryTapDownDetails);
           _textInputClient!.hideToolbar();
           _textInputClient!.showToolbar();
@@ -172,19 +182,20 @@ class _BasicTextFieldState extends State<BasicTextField> {
             case TargetPlatform.linux:
             case TargetPlatform.windows:
               _renderEditable.selectWordsInRange(
-                from: longPressMoveUpdateDetails.globalPosition -
+                from:
+                    longPressMoveUpdateDetails.globalPosition -
                     longPressMoveUpdateDetails.offsetFromOrigin,
                 to: longPressMoveUpdateDetails.globalPosition,
                 cause: SelectionChangedCause.longPress,
               );
           }
         },
-        onLongPressEnd: (longPressEndDetails) =>
-            _textInputClient!.showToolbar(),
-        onHorizontalDragStart: (dragStartDetails) =>
-            _onDragStart(dragStartDetails),
-        onHorizontalDragUpdate: (dragUpdateDetails) =>
-            _onDragUpdate(dragUpdateDetails),
+        onLongPressEnd:
+            (longPressEndDetails) => _textInputClient!.showToolbar(),
+        onHorizontalDragStart:
+            (dragStartDetails) => _onDragStart(dragStartDetails),
+        onHorizontalDragUpdate:
+            (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
         child: SizedBox(
           height: double.infinity,
           width: MediaQuery.of(context).size.width,

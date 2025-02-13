@@ -19,9 +19,7 @@ import '../components/components.dart';
 // an enumeration of variable font axes at https://fonts.google.com/variablefonts
 
 class WonkyAnimPalette {
-  const WonkyAnimPalette({
-    Key? key,
-  });
+  const WonkyAnimPalette({Key? key});
   static const Curve defaultCurve = Curves.easeInOut;
 
   // basic (settings unrelated to variable font)

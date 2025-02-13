@@ -37,20 +37,20 @@ class MessageWidget extends StatelessWidget {
           child: Container(
             constraints: const BoxConstraints(maxWidth: 520),
             decoration: BoxDecoration(
-              color: isFromUser
-                  ? Theme.of(context).colorScheme.primaryContainer
-                  : Theme.of(context).colorScheme.surfaceContainerHighest,
+              color:
+                  isFromUser
+                      ? Theme.of(context).colorScheme.primaryContainer
+                      : Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(18),
             ),
-            padding: const EdgeInsets.symmetric(
-              vertical: 15,
-              horizontal: 20,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             margin: const EdgeInsets.only(bottom: 8),
-            child: Column(children: [
-              if (text case final text?) MarkdownBody(data: text),
-              if (image case final image?) image,
-            ]),
+            child: Column(
+              children: [
+                if (text case final text?) MarkdownBody(data: text),
+                if (image case final image?) image,
+              ],
+            ),
           ),
         ),
       ],

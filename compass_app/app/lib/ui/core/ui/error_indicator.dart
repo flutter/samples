@@ -46,9 +46,7 @@ class ErrorIndicator extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         FilledButton(
           onPressed: onPressed,
           style: const ButtonStyle(

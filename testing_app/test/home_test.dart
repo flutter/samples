@@ -10,9 +10,7 @@ import 'package:testing_app/models/favorites.dart';
 
 Widget createHomeScreen() => ChangeNotifierProvider<Favorites>(
       create: (context) => Favorites(),
-      child: MaterialApp.router(
-        routerConfig: router(),
-      ),
+      child: MaterialApp.router(routerConfig: router()),
     );
 
 void main() {

@@ -11,10 +11,7 @@ import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageOpticalSize extends SinglePage {
-  const PageOpticalSize({
-    super.key,
-    required super.pageConfig,
-  });
+  const PageOpticalSize({super.key, required super.pageConfig});
 
   @override
   State<SinglePage> createState() => _PageOpticalSizeState();
@@ -60,10 +57,7 @@ class _PageOpticalSizeState extends SinglePageState {
               to: PageConfig.baseWeight,
               curve: Curves.easeInOut,
             ),
-            WonkyAnimPalette.opticalSize(
-              from: 70,
-              to: 144,
-            )
+            WonkyAnimPalette.opticalSize(from: 70, to: 144),
           ],
         ),
       ),
@@ -81,10 +75,7 @@ class _PageOpticalSizeState extends SinglePageState {
               to: PageConfig.baseWeight,
               curve: Curves.easeInOut,
             ),
-            WonkyAnimPalette.opticalSize(
-              from: 78,
-              to: 8,
-            ),
+            WonkyAnimPalette.opticalSize(from: 78, to: 8),
           ],
         ),
       ),
@@ -95,12 +86,7 @@ class _PageOpticalSizeState extends SinglePageState {
           text: 'r',
           size: widget.pageConfig.wonkyCharSmallSize,
           baseRotation: -0.15 * pi,
-          animationSettings: [
-            WonkyAnimPalette.opticalSize(
-              from: 32,
-              to: 106,
-            )
-          ],
+          animationSettings: [WonkyAnimPalette.opticalSize(from: 32, to: 106)],
         ),
       ),
       Positioned(
@@ -111,12 +97,7 @@ class _PageOpticalSizeState extends SinglePageState {
           size: widget.pageConfig.wonkyCharLargeSize,
           baseRotation: -0.15 * pi,
           animDurationMillis: 5000,
-          animationSettings: [
-            WonkyAnimPalette.opticalSize(
-              from: 70,
-              to: 144,
-            )
-          ],
+          animationSettings: [WonkyAnimPalette.opticalSize(from: 70, to: 144)],
         ),
       ),
       // lower half --------------------------------------
@@ -127,12 +108,7 @@ class _PageOpticalSizeState extends SinglePageState {
           text: 'i',
           size: widget.pageConfig.wonkyCharLargeSize,
           baseRotation: -0.04 * pi,
-          animationSettings: [
-            WonkyAnimPalette.opticalSize(
-              from: 40,
-              to: 8,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.opticalSize(from: 40, to: 8)],
         ),
       ),
       Positioned(
@@ -142,12 +118,7 @@ class _PageOpticalSizeState extends SinglePageState {
           text: 'Z',
           size: widget.pageConfig.wonkyCharSmallSize,
           baseRotation: -0.15 * pi,
-          animationSettings: [
-            WonkyAnimPalette.opticalSize(
-              from: 8,
-              to: 60,
-            ),
-          ],
+          animationSettings: [WonkyAnimPalette.opticalSize(from: 8, to: 60)],
         ),
       ),
       Positioned(
@@ -159,14 +130,8 @@ class _PageOpticalSizeState extends SinglePageState {
           baseRotation: 0.15 * pi,
           animDurationMillis: 12000,
           animationSettings: [
-            WonkyAnimPalette.opticalSize(
-              from: 80,
-              to: 20,
-            ),
-            WonkyAnimPalette.rotation(
-              from: -0.01 * pi,
-              to: 0.01 * pi,
-            ),
+            WonkyAnimPalette.opticalSize(from: 80, to: 20),
+            WonkyAnimPalette.rotation(from: -0.01 * pi, to: 0.01 * pi),
           ],
         ),
       ),
@@ -182,15 +147,16 @@ class _PageOpticalSizeState extends SinglePageState {
       shader: Shader.wavy,
       shaderDuration: 5000,
       tileShadedString: 'Z',
-      tileShadedStringPadding:
-          EdgeInsets.only(bottom: 0.349 * widget.pageConfig.puzzleSize),
+      tileShadedStringPadding: EdgeInsets.only(
+        bottom: 0.349 * widget.pageConfig.puzzleSize,
+      ),
       tileScaleModifier: 2.6,
       tileShadedStringSize: 2.79 * widget.pageConfig.puzzleSize,
       tileShadedStringAnimDuration: 3000,
       tileShadedStringAnimSettings: [
         WonkyAnimPalette.weight(from: 1000, to: 1000),
         WonkyAnimPalette.width(from: 125, to: 125),
-        WonkyAnimPalette.opticalSize(from: 8, to: 144)
+        WonkyAnimPalette.opticalSize(from: 8, to: 144),
       ],
     );
   }

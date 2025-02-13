@@ -9,7 +9,10 @@ const ansiRed = 31;
 const ansiMagenta = 35;
 
 Future<bool> run(
-    String workingDir, String commandName, List<String> args) async {
+  String workingDir,
+  String commandName,
+  List<String> args,
+) async {
   var commandDescription = '`${([commandName, ...args]).join(' ')}`';
 
   logWrapped(ansiMagenta, '  Running $commandDescription');
@@ -25,7 +28,9 @@ Future<bool> run(
 
   if (exitCode != 0) {
     logWrapped(
-        ansiRed, '  Failed! ($exitCode) – $workingDir – $commandDescription');
+      ansiRed,
+      '  Failed! ($exitCode) – $workingDir – $commandDescription',
+    );
     return false;
   } else {
     logWrapped(ansiGreen, '  Success! – $workingDir – $commandDescription');

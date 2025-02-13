@@ -55,9 +55,10 @@ class _SongsTabState extends State<SongsTab> {
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
-    final color = defaultTargetPlatform == TargetPlatform.iOS
-        ? colors[index]
-        : colors[index].shade400;
+    final color =
+        defaultTargetPlatform == TargetPlatform.iOS
+            ? colors[index]
+            : colors[index].shade400;
 
     return SafeArea(
       top: false,
@@ -68,15 +69,17 @@ class _SongsTabState extends State<SongsTab> {
           song: songNames[index],
           color: color,
           heroAnimation: const AlwaysStoppedAnimation(0),
-          onPressed: () => Navigator.of(context).push<void>(
-            MaterialPageRoute(
-              builder: (context) => SongDetailTab(
-                id: index,
-                song: songNames[index],
-                color: color,
+          onPressed:
+              () => Navigator.of(context).push<void>(
+                MaterialPageRoute(
+                  builder:
+                      (context) => SongDetailTab(
+                        id: index,
+                        song: songNames[index],
+                        color: color,
+                      ),
+                ),
               ),
-            ),
-          ),
         ),
       ),
     );
@@ -114,8 +117,8 @@ class _SongsTabState extends State<SongsTab> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: () async =>
-                await _androidRefreshKey.currentState!.show(),
+            onPressed:
+                () async => await _androidRefreshKey.currentState!.show(),
           ),
           IconButton(
             icon: const Icon(Icons.shuffle),
@@ -146,9 +149,7 @@ class _SongsTabState extends State<SongsTab> {
             child: const Icon(CupertinoIcons.shuffle),
           ),
         ),
-        CupertinoSliverRefreshControl(
-          onRefresh: _refreshData,
-        ),
+        CupertinoSliverRefreshControl(onRefresh: _refreshData),
         SliverSafeArea(
           top: false,
           sliver: SliverPadding(
@@ -167,9 +168,6 @@ class _SongsTabState extends State<SongsTab> {
 
   @override
   Widget build(context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
+    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
   }
 }

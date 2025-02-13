@@ -16,21 +16,17 @@ main() async {
     print(json.encode({'firstFrame': analyzer.onFirstFrame.value}));
   });
   analyzer.onFirstPaint.addListener(() {
-    print(json.encode({
-      'firstPaint': analyzer.onFirstPaint.value?.$1,
-      'firstContentfulPaint': analyzer.onFirstPaint.value?.$2,
-    }));
+    print(
+      json.encode({
+        'firstPaint': analyzer.onFirstPaint.value?.$1,
+        'firstContentfulPaint': analyzer.onFirstPaint.value?.$2,
+      }),
+    );
   });
   analyzer.onAdditionalFrames.addListener(() {
-    print(json.encode({
-      'additionalFrames': analyzer.onAdditionalFrames.value,
-    }));
+    print(json.encode({'additionalFrames': analyzer.onAdditionalFrames.value}));
   });
-  runApp(
-    WebStartupAnalyzerSample(
-      analyzer: analyzer,
-    ),
-  );
+  runApp(WebStartupAnalyzerSample(analyzer: analyzer));
 }
 
 class WebStartupAnalyzerSample extends StatelessWidget {
@@ -102,12 +98,14 @@ class _WebStartupAnalyzerScreenState extends State<WebStartupAnalyzerScreen> {
                     ),
                   if (widget.analyzer.firstPaint != null)
                     TimingWidget(
-                        name: 'First paint',
-                        timingMs: widget.analyzer.firstPaint!),
+                      name: 'First paint',
+                      timingMs: widget.analyzer.firstPaint!,
+                    ),
                   if (widget.analyzer.firstContentfulPaint != null)
                     TimingWidget(
-                        name: 'First contentful paint',
-                        timingMs: widget.analyzer.firstContentfulPaint!),
+                      name: 'First contentful paint',
+                      timingMs: widget.analyzer.firstContentfulPaint!,
+                    ),
                   if (widget.analyzer.additionalFrames != null) ...[
                     for (var i in widget.analyzer.additionalFrames!)
                       TimingWidget(name: 'Frame', timingMs: i.toDouble()),
@@ -130,11 +128,7 @@ class TimingWidget extends StatelessWidget {
   final String name;
   final double timingMs;
 
-  const TimingWidget({
-    super.key,
-    required this.name,
-    required this.timingMs,
-  });
+  const TimingWidget({super.key, required this.name, required this.timingMs});
 
   @override
   Widget build(BuildContext context) {

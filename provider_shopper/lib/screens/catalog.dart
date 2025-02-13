@@ -20,7 +20,8 @@ class MyCatalog extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-                (context, index) => _MyListItem(index)),
+              (context, index) => _MyListItem(index),
+            ),
           ),
         ],
       ),
@@ -47,16 +48,17 @@ class _AddButton extends StatelessWidget {
     );
 
     return TextButton(
-      onPressed: isInCart
-          ? null
-          : () {
-              // If the item is not in cart, we let the user add it.
-              // We are using context.read() here because the callback
-              // is executed whenever the user taps the button. In other
-              // words, it is executed outside the build method.
-              var cart = context.read<CartModel>();
-              cart.add(item);
-            },
+      onPressed:
+          isInCart
+              ? null
+              : () {
+                // If the item is not in cart, we let the user add it.
+                // We are using context.read() here because the callback
+                // is executed whenever the user taps the button. In other
+                // words, it is executed outside the build method.
+                var cart = context.read<CartModel>();
+                cart.add(item);
+              },
       style: ButtonStyle(
         overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
           if (states.contains(WidgetState.pressed)) {
@@ -65,9 +67,10 @@ class _AddButton extends StatelessWidget {
           return null; // Defer to the widget's default.
         }),
       ),
-      child: isInCart
-          ? const Icon(Icons.check, semanticLabel: 'ADDED')
-          : const Text('ADD'),
+      child:
+          isInCart
+              ? const Icon(Icons.check, semanticLabel: 'ADDED')
+              : const Text('ADD'),
     );
   }
 }
@@ -108,16 +111,9 @@ class _MyListItem extends StatelessWidget {
         maxHeight: 48,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 1,
-              child: Container(
-                color: item.color,
-              ),
-            ),
+            AspectRatio(aspectRatio: 1, child: Container(color: item.color)),
             const SizedBox(width: 24),
-            Expanded(
-              child: Text(item.name, style: textTheme),
-            ),
+            Expanded(child: Text(item.name, style: textTheme)),
             const SizedBox(width: 24),
             _AddButton(item: item),
           ],

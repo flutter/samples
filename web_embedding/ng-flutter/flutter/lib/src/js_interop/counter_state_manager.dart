@@ -25,9 +25,9 @@ class DemoAppStateManager {
     required ValueNotifier<DemoScreen> screen,
     required ValueNotifier<int> counter,
     required ValueNotifier<String> text,
-  })  : _counter = counter,
-        _text = text,
-        _screen = screen;
+  }) : _counter = counter,
+       _text = text,
+       _screen = screen;
 
   final ValueNotifier<DemoScreen> _screen;
   final ValueNotifier<int> _counter;

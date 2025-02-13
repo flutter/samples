@@ -5,11 +5,10 @@ publish_to: none
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0-0
 
 dependencies:
   cached_network_image: ^3.4.1
-  collection: ^1.18.0
   flutter:
     sdk: flutter
   flutter_localizations:

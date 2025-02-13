@@ -19,11 +19,7 @@ void main() {
     setWindowMinSize(const Size(600, 500));
   }
 
-  runApp(
-    const ProviderScope(
-      child: CalculatorApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: CalculatorApp()));
 }
 
 @immutable
@@ -45,27 +41,26 @@ class CalculatorState {
     List<String>? calcHistory,
     CalculatorEngineMode? mode,
     String? error,
-  }) =>
-      CalculatorState(
-        buffer: buffer ?? this.buffer,
-        calcHistory: calcHistory ?? this.calcHistory,
-        mode: mode ?? this.mode,
-        error: error ?? this.error,
-      );
+  }) => CalculatorState(
+    buffer: buffer ?? this.buffer,
+    calcHistory: calcHistory ?? this.calcHistory,
+    mode: mode ?? this.mode,
+    error: error ?? this.error,
+  );
 }
 
 enum CalculatorEngineMode { input, result }
 
 class CalculatorEngine extends StateNotifier<CalculatorState> {
   CalculatorEngine()
-      : super(
-          const CalculatorState(
-            buffer: '0',
-            calcHistory: [],
-            mode: CalculatorEngineMode.result,
-            error: '',
-          ),
-        );
+    : super(
+        const CalculatorState(
+          buffer: '0',
+          calcHistory: [],
+          mode: CalculatorEngineMode.result,
+          error: '',
+        ),
+      );
 
   void addToBuffer(String str, {bool continueWithResult = false}) {
     if (state.mode == CalculatorEngineMode.result) {
@@ -75,10 +70,7 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
         error: '',
       );
     } else {
-      state = state.copyWith(
-        buffer: state.buffer + str,
-        error: '',
-      );
+      state = state.copyWith(buffer: state.buffer + str, error: '');
     }
   }
 
@@ -96,7 +88,7 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
 
   void evaluate() {
     try {
-      final parser = Parser();
+      final parser = GrammarParser();
       final cm = ContextModel();
       final exp = parser.parse(state.buffer);
       final result = exp.evaluate(EvaluationType.REAL, cm) as double;
@@ -115,16 +107,15 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
             mode: CalculatorEngineMode.result,
           );
         default:
-          final resultStr = result.ceil() == result
-              ? result.toInt().toString()
-              : result.toString();
+          final resultStr =
+              result.ceil() == result
+                  ? result.toInt().toString()
+                  : result.toString();
           state = state.copyWith(
-              buffer: resultStr,
-              mode: CalculatorEngineMode.result,
-              calcHistory: [
-                '${state.buffer} = $resultStr',
-                ...state.calcHistory,
-              ]);
+            buffer: resultStr,
+            mode: CalculatorEngineMode.result,
+            calcHistory: ['${state.buffer} = $resultStr', ...state.calcHistory],
+          );
       }
     } catch (err) {
       state = state.copyWith(
@@ -138,7 +129,8 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
 
 final calculatorStateProvider =
     StateNotifierProvider<CalculatorEngine, CalculatorState>(
-        (_) => CalculatorEngine());
+      (_) => CalculatorEngine(),
+    );
 
 class ButtonDefinition {
   const ButtonDefinition({
@@ -376,7 +368,7 @@ class CalculatorApp extends ConsumerWidget {
                 2.fr,
                 2.fr,
                 2.fr,
-                2.fr
+                2.fr,
               ],
               children: [
                 NamedAreaGridPlacement(
@@ -384,26 +376,29 @@ class CalculatorApp extends ConsumerWidget {
                   child: SizedBox.expand(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 8),
-                      child: state.error.isEmpty
-                          ? AutoSizeText(
-                              state.buffer,
-                              textAlign: TextAlign.end,
-                              style: const TextStyle(
-                                fontSize: 80,
-                                color: Colors.black,
+                        horizontal: 8,
+                        vertical: 8,
+                      ),
+                      child:
+                          state.error.isEmpty
+                              ? AutoSizeText(
+                                state.buffer,
+                                textAlign: TextAlign.end,
+                                style: const TextStyle(
+                                  fontSize: 80,
+                                  color: Colors.black,
+                                ),
+                                maxLines: 2,
+                              )
+                              : AutoSizeText(
+                                state.error,
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                  fontSize: 80,
+                                  color: Colors.red,
+                                ),
+                                maxLines: 2,
                               ),
-                              maxLines: 2,
-                            )
-                          : AutoSizeText(
-                              state.error,
-                              textAlign: TextAlign.start,
-                              style: const TextStyle(
-                                fontSize: 80,
-                                color: Colors.red,
-                              ),
-                              maxLines: 2,
-                            ),
                     ),
                   ),
                 ),
@@ -426,16 +421,12 @@ class CalculatorApp extends ConsumerWidget {
                         const ListTile(
                           title: Text(
                             'History',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                         ...state.calcHistory.map(
-                          (result) => ListTile(
-                            title: Text(result),
-                          ),
-                        )
+                          (result) => ListTile(title: Text(result)),
+                        ),
                       ],
                     ),
                   ),

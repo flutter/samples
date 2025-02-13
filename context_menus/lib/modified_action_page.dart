@@ -5,10 +5,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class ModifiedActionPage extends StatelessWidget {
-  ModifiedActionPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  ModifiedActionPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'modified-action';
   static const String title = 'Modified Action';
@@ -25,8 +22,10 @@ class ModifiedActionPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder: (context) => const AlertDialog(
-          title: Text('Copied, but also showed this dialog.')),
+      builder:
+          (context) => const AlertDialog(
+            title: Text('Copied, but also showed this dialog.'),
+          ),
     );
   }
 
@@ -36,9 +35,7 @@ class ModifiedActionPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(ModifiedActionPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -58,20 +55,18 @@ class ModifiedActionPage extends StatelessWidget {
               const Text(
                 'This example shows adding to the behavior of a default button.',
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              const SizedBox(height: 30.0),
               TextField(
                 controller: _controller,
                 contextMenuBuilder: (context, editableTextState) {
                   final List<ContextMenuButtonItem> buttonItems =
                       editableTextState.contextMenuButtonItems;
                   // Modify the copy buttonItem to show a dialog after copying.
-                  final int copyButtonIndex = buttonItems.indexWhere(
-                    (buttonItem) {
-                      return buttonItem.type == ContextMenuButtonType.copy;
-                    },
-                  );
+                  final int copyButtonIndex = buttonItems.indexWhere((
+                    buttonItem,
+                  ) {
+                    return buttonItem.type == ContextMenuButtonType.copy;
+                  });
                   if (copyButtonIndex >= 0) {
                     final ContextMenuButtonItem copyButtonItem =
                         buttonItems[copyButtonIndex];

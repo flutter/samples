@@ -19,14 +19,19 @@ class _$UserSerializer implements StructuredSerializer<User> {
   final String wireName = 'User';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, User object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    User object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'username',
-      serializers.serialize(object.username,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.username,
+        specifiedType: const FullType(String),
+      ),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
@@ -35,29 +40,33 @@ class _$UserSerializer implements StructuredSerializer<User> {
     if (value != null) {
       result
         ..add('updated_at')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.portfolioUrl;
     if (value != null) {
       result
         ..add('portfolio_url')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.bio;
     if (value != null) {
       result
         ..add('bio')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.location;
     if (value != null) {
       result
         ..add('location')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.totalLikes;
     if (value != null) {
@@ -82,14 +91,18 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('links')
         ..add(
-            serializers.serialize(value, specifiedType: const FullType(Links)));
+          serializers.serialize(value, specifiedType: const FullType(Links)),
+        );
     }
     return result;
   }
 
   @override
-  User deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  User deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new UserBuilder();
 
     final iterator = serialized.iterator;
@@ -99,48 +112,84 @@ class _$UserSerializer implements StructuredSerializer<User> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'updated_at':
-          result.updatedAt = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.updatedAt =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'username':
-          result.username = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.username =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'name':
-          result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.name =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'portfolio_url':
-          result.portfolioUrl = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.portfolioUrl =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'bio':
-          result.bio = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.bio =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'location':
-          result.location = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.location =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'total_likes':
-          result.totalLikes = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.totalLikes =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'total_photos':
-          result.totalPhotos = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.totalPhotos =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'total_collections':
-          result.totalCollections = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.totalCollections =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'links':
-          result.links.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Links))! as Links);
+          result.links.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Links),
+                )!
+                as Links,
+          );
           break;
       }
     }
@@ -176,19 +225,19 @@ class _$User extends User {
   factory _$User([void Function(UserBuilder)? updates]) =>
       (new UserBuilder()..update(updates))._build();
 
-  _$User._(
-      {required this.id,
-      this.updatedAt,
-      required this.username,
-      required this.name,
-      this.portfolioUrl,
-      this.bio,
-      this.location,
-      this.totalLikes,
-      this.totalPhotos,
-      this.totalCollections,
-      this.links})
-      : super._() {
+  _$User._({
+    required this.id,
+    this.updatedAt,
+    required this.username,
+    required this.name,
+    this.portfolioUrl,
+    this.bio,
+    this.location,
+    this.totalLikes,
+    this.totalPhotos,
+    this.totalCollections,
+    this.links,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
     BuiltValueNullFieldError.checkNotNull(username, r'User', 'username');
     BuiltValueNullFieldError.checkNotNull(name, r'User', 'name');
@@ -340,21 +389,25 @@ class UserBuilder implements Builder<User, UserBuilder> {
   _$User _build() {
     _$User _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$User._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
-              updatedAt: updatedAt,
-              username: BuiltValueNullFieldError.checkNotNull(
-                  username, r'User', 'username'),
-              name:
-                  BuiltValueNullFieldError.checkNotNull(name, r'User', 'name'),
-              portfolioUrl: portfolioUrl,
-              bio: bio,
-              location: location,
-              totalLikes: totalLikes,
-              totalPhotos: totalPhotos,
-              totalCollections: totalCollections,
-              links: _links?.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
+            updatedAt: updatedAt,
+            username: BuiltValueNullFieldError.checkNotNull(
+              username,
+              r'User',
+              'username',
+            ),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'User', 'name'),
+            portfolioUrl: portfolioUrl,
+            bio: bio,
+            location: location,
+            totalLikes: totalLikes,
+            totalPhotos: totalPhotos,
+            totalCollections: totalCollections,
+            links: _links?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -362,7 +415,10 @@ class UserBuilder implements Builder<User, UserBuilder> {
         _links?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'User', _$failedField, e.toString());
+          r'User',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

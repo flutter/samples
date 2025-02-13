@@ -14,12 +14,7 @@ void main() {
 
   final model = CounterModel();
 
-  runApp(
-    ChangeNotifierProvider.value(
-      value: model,
-      child: const MyApp(),
-    ),
-  );
+  runApp(ChangeNotifierProvider.value(value: model, child: const MyApp()));
 }
 
 /// A simple model that uses a [MethodChannel] as the source of truth for the
@@ -81,9 +76,7 @@ class FullScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Full-screen Flutter'),
-      ),
+      appBar: AppBar(title: const Text('Full-screen Flutter')),
       body: const Contents(showExit: true),
     );
   }
@@ -116,10 +109,7 @@ class Contents extends StatelessWidget {
           const Positioned.fill(
             child: Opacity(
               opacity: .25,
-              child: FittedBox(
-                fit: BoxFit.cover,
-                child: FlutterLogo(),
-              ),
+              child: FittedBox(fit: BoxFit.cover, child: FlutterLogo()),
             ),
           ),
           Center(

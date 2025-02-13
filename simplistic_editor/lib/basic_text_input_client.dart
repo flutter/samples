@@ -12,24 +12,25 @@ import 'replacements.dart';
 
 /// Signature for the callback that reports when the user changes the selection
 /// (including the cursor location).
-typedef SelectionChangedCallback = void Function(
-    TextSelection selection, SelectionChangedCause? cause);
+typedef SelectionChangedCallback =
+    void Function(TextSelection selection, SelectionChangedCause? cause);
 
 /// Signature for a widget builder that builds a context menu for the given
 /// editable field.
-typedef BasicTextFieldContextMenuBuilder = Widget Function(
-  BuildContext context,
-  ClipboardStatus clipboardStatus,
-  VoidCallback? onCopy,
-  VoidCallback? onCut,
-  VoidCallback? onPaste,
-  VoidCallback? onSelectAll,
-  VoidCallback? onLookUp,
-  VoidCallback? onLiveTextInput,
-  VoidCallback? onSearchWeb,
-  VoidCallback? onShare,
-  TextSelectionToolbarAnchors anchors,
-);
+typedef BasicTextFieldContextMenuBuilder =
+    Widget Function(
+      BuildContext context,
+      ClipboardStatus clipboardStatus,
+      VoidCallback? onCopy,
+      VoidCallback? onCut,
+      VoidCallback? onPaste,
+      VoidCallback? onSelectAll,
+      VoidCallback? onLookUp,
+      VoidCallback? onLiveTextInput,
+      VoidCallback? onSearchWeb,
+      VoidCallback? onShare,
+      TextSelectionToolbarAnchors anchors,
+    );
 
 /// A basic text input client. An implementation of [DeltaTextInputClient] meant to
 /// send/receive information from the framework to the platform's text input plugin
@@ -112,7 +113,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void didChangeInputControl(
-      TextInputControl? oldControl, TextInputControl? newControl) {
+    TextInputControl? oldControl,
+    TextInputControl? newControl,
+  ) {
     if (_hasFocus && _hasInputConnection) {
       oldControl?.hide();
       newControl?.show();
@@ -172,7 +175,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   @override
-  void updateEditingValue(TextEditingValue value) {/* Not using */}
+  void updateEditingValue(TextEditingValue value) {
+    /* Not using */
+  }
 
   @override
   void updateEditingValueWithDeltas(List<TextEditingDelta> textEditingDeltas) {
@@ -193,7 +198,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     final bool selectionChanged =
         _value.selection.start != value.selection.start ||
-            _value.selection.end != value.selection.end;
+        _value.selection.end != value.selection.end;
     manager.updateTextEditingDeltaHistory(textEditingDeltas);
 
     _value = value;
@@ -206,8 +211,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     if (selectionChanged) {
-      manager.updateToggleButtonsStateOnSelectionChanged(value.selection,
-          widget.controller as ReplacementTextEditingController);
+      manager.updateToggleButtonsStateOnSelectionChanged(
+        value.selection,
+        widget.controller as ReplacementTextEditingController,
+      );
     }
   }
 
@@ -302,11 +309,14 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     if (_hasFocus) {
       if (!_value.selection.isValid) {
         // Place cursor at the end if the selection is invalid when we receive focus.
-        final TextSelection validSelection =
-            TextSelection.collapsed(offset: _value.text.length);
+        final TextSelection validSelection = TextSelection.collapsed(
+          offset: _value.text.length,
+        );
         _handleSelectionChanged(validSelection, null);
-        manager.updateToggleButtonsStateOnSelectionChanged(validSelection,
-            widget.controller as ReplacementTextEditingController);
+        manager.updateToggleButtonsStateOnSelectionChanged(
+          validSelection,
+          widget.controller as ReplacementTextEditingController,
+        );
       }
     }
   }
@@ -331,32 +341,38 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   // These actions have yet to be implemented for this sample.
   static final Map<Type, Action<Intent>> _unsupportedActions =
       <Type, Action<Intent>>{
-    DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
-    DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
-    ExtendSelectionToNextWordBoundaryIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
-    ExtendSelectionVerticallyToAdjacentLineIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionVerticallyToAdjacentPageIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionToNextParagraphBoundaryIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionToDocumentBoundaryIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
-    ExpandSelectionToDocumentBoundaryIntent:
-        DoNothingAction(consumesKey: false),
-    ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
-    ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
-    RedoTextIntent: DoNothingAction(consumesKey: false),
-    ReplaceTextIntent: DoNothingAction(consumesKey: false),
-    UndoTextIntent: DoNothingAction(consumesKey: false),
-    UpdateSelectionIntent: DoNothingAction(consumesKey: false),
-    TransposeCharactersIntent: DoNothingAction(consumesKey: false),
-  };
+        DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
+        DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
+        ExtendSelectionToNextWordBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
+            DoNothingAction(consumesKey: false),
+        ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+        ExtendSelectionVerticallyToAdjacentLineIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionVerticallyToAdjacentPageIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionToNextParagraphBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionToDocumentBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
+        ExpandSelectionToDocumentBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+        ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
+        RedoTextIntent: DoNothingAction(consumesKey: false),
+        ReplaceTextIntent: DoNothingAction(consumesKey: false),
+        UndoTextIntent: DoNothingAction(consumesKey: false),
+        UpdateSelectionIntent: DoNothingAction(consumesKey: false),
+        TransposeCharactersIntent: DoNothingAction(consumesKey: false),
+      };
 
   /// Keyboard text editing actions.
   // The Handling of the default text editing shortcuts with deltas
@@ -372,9 +388,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     ),
     ExtendSelectionByCharacterIntent:
         CallbackAction<ExtendSelectionByCharacterIntent>(
-      onInvoke: (intent) =>
-          _extendSelection(intent.forward, intent.collapseSelection),
-    ),
+          onInvoke:
+              (intent) =>
+                  _extendSelection(intent.forward, intent.collapseSelection),
+        ),
     SelectAllTextIntent: CallbackAction<SelectAllTextIntent>(
       onInvoke: (intent) => selectAll(intent.cause),
     ),
@@ -384,9 +401,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     PasteTextIntent: CallbackAction<PasteTextIntent>(
       onInvoke: (intent) => pasteText(intent.cause),
     ),
-    DoNothingAndStopPropagationTextIntent: DoNothingAction(
-      consumesKey: false,
-    ),
+    DoNothingAndStopPropagationTextIntent: DoNothingAction(consumesKey: false),
     ..._unsupportedActions,
   };
 
@@ -447,22 +462,24 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
             _selection.isNormalized ? _selection.start : _selection.end;
         final int lastOffset =
             _selection.isNormalized ? _selection.end : _selection.start;
-        selection =
-            TextSelection.collapsed(offset: forward ? lastOffset : firstOffset);
+        selection = TextSelection.collapsed(
+          offset: forward ? lastOffset : firstOffset,
+        );
       } else {
         if (forward && _selection.baseOffset == _value.text.length) return;
         if (!forward && _selection.baseOffset == 0) return;
-        final int adjustment = forward
-            ? _value.text
-                .substring(_selection.baseOffset)
-                .characters
-                .first
-                .length
-            : -_value.text
-                .substring(0, _selection.baseOffset)
-                .characters
-                .last
-                .length;
+        final int adjustment =
+            forward
+                ? _value.text
+                    .substring(_selection.baseOffset)
+                    .characters
+                    .first
+                    .length
+                : -_value.text
+                    .substring(0, _selection.baseOffset)
+                    .characters
+                    .last
+                    .length;
         selection = TextSelection.collapsed(
           offset: _selection.baseOffset + adjustment,
         );
@@ -470,13 +487,18 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     } else {
       if (forward && _selection.extentOffset == _value.text.length) return;
       if (!forward && _selection.extentOffset == 0) return;
-      final int adjustment = forward
-          ? _value.text.substring(_selection.baseOffset).characters.first.length
-          : -_value.text
-              .substring(0, _selection.baseOffset)
-              .characters
-              .last
-              .length;
+      final int adjustment =
+          forward
+              ? _value.text
+                  .substring(_selection.baseOffset)
+                  .characters
+                  .first
+                  .length
+              : -_value.text
+                  .substring(0, _selection.baseOffset)
+                  .characters
+                  .last
+                  .length;
       selection = TextSelection(
         baseOffset: _selection.baseOffset,
         extentOffset: _selection.extentOffset + adjustment,
@@ -494,7 +516,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   void _userUpdateTextEditingValueWithDelta(
-      TextEditingDelta textEditingDelta, SelectionChangedCause cause) {
+    TextEditingDelta textEditingDelta,
+    SelectionChangedCause cause,
+  ) {
     TextEditingValue value = _value;
 
     value = textEditingDelta.apply(value);
@@ -538,14 +562,16 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   void _updateComposingRectIfNeeded() {
     final TextRange composingRange = _value.composing;
     assert(mounted);
-    Rect? composingRect =
-        renderEditable.getRectForComposingRange(composingRange);
+    Rect? composingRect = renderEditable.getRectForComposingRange(
+      composingRange,
+    );
     // Send the caret location instead if there's no marked text yet.
     if (composingRect == null) {
       assert(!composingRange.isValid || composingRange.isCollapsed);
       final int offset = composingRange.isValid ? composingRange.start : 0;
-      composingRect =
-          renderEditable.getLocalRectForCaret(TextPosition(offset: offset));
+      composingRect = renderEditable.getLocalRectForCaret(
+        TextPosition(offset: offset),
+      );
     }
     _textInputConnection!.setComposingRect(composingRect);
   }
@@ -555,10 +581,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     if (selection == null || !selection.isValid || !selection.isCollapsed) {
       return;
     }
-    final TextPosition currentTextPosition =
-        TextPosition(offset: selection.baseOffset);
-    final Rect caretRect =
-        renderEditable.getLocalRectForCaret(currentTextPosition);
+    final TextPosition currentTextPosition = TextPosition(
+      offset: selection.baseOffset,
+    );
+    final Rect caretRect = renderEditable.getLocalRectForCaret(
+      currentTextPosition,
+    );
     _textInputConnection!.setCaretRect(caretRect);
   }
 
@@ -574,8 +602,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
     _updateComposingRectIfNeeded();
     _updateCaretRectIfNeeded();
-    SchedulerBinding.instance
-        .addPostFrameCallback(_schedulePeriodicPostFrameCallbacks);
+    SchedulerBinding.instance.addPostFrameCallback(
+      _schedulePeriodicPostFrameCallbacks,
+    );
   }
 
   /// [TextSelectionDelegate] method implementations.
@@ -620,7 +649,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
             TextEditingDeltaNonTextUpdate(
               oldText: textEditingValue.text,
               selection: TextSelection.collapsed(
-                  offset: textEditingValue.selection.end),
+                offset: textEditingValue.selection.end,
+              ),
               composing: TextRange.empty,
             ),
             cause,
@@ -638,8 +668,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     if (cutRange.isCollapsed) return;
     Clipboard.setData(ClipboardData(text: cutRange.textInside(text)));
-    final int lastSelectionIndex =
-        math.min(cutRange.baseOffset, cutRange.extentOffset);
+    final int lastSelectionIndex = math.min(
+      cutRange.baseOffset,
+      cutRange.extentOffset,
+    );
     _userUpdateTextEditingValueWithDelta(
       TextEditingDeltaReplacement(
         oldText: textEditingValue.text,
@@ -665,7 +697,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     // After the paste, the cursor should be collapsed and located after the
     // pasted content.
     final int lastSelectionIndex = math.max(
-        pasteRange.baseOffset, pasteRange.baseOffset + data.text!.length);
+      pasteRange.baseOffset,
+      pasteRange.baseOffset + data.text!.length,
+    );
 
     _userUpdateTextEditingValueWithDelta(
       TextEditingDeltaReplacement(
@@ -683,8 +717,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void selectAll(SelectionChangedCause cause) {
-    final TextSelection newSelection = _value.selection
-        .copyWith(baseOffset: 0, extentOffset: _value.text.length);
+    final TextSelection newSelection = _value.selection.copyWith(
+      baseOffset: 0,
+      extentOffset: _value.text.length,
+    );
     _userUpdateTextEditingValueWithDelta(
       TextEditingDeltaNonTextUpdate(
         oldText: textEditingValue.text,
@@ -712,7 +748,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void userUpdateTextEditingValue(
-      TextEditingValue value, SelectionChangedCause cause) {
+    TextEditingValue value,
+    SelectionChangedCause cause,
+  ) {
     if (value == _value) return;
 
     final bool selectionChanged = _value.selection != value.selection;
@@ -727,10 +765,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       if (selectionChanged && !textChanged) {
         final TextEditingDeltaNonTextUpdate selectionUpdate =
             TextEditingDeltaNonTextUpdate(
-          oldText: value.text,
-          selection: value.selection,
-          composing: value.composing,
-        );
+              oldText: value.text,
+              selection: value.selection,
+              composing: value.composing,
+            );
         if (widget.controller is ReplacementTextEditingController) {
           (widget.controller as ReplacementTextEditingController)
               .syncReplacementRanges(selectionUpdate);
@@ -741,7 +779,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     final bool selectionRangeChanged =
         _value.selection.start != value.selection.start ||
-            _value.selection.end != value.selection.end;
+        _value.selection.end != value.selection.end;
 
     _value = value;
 
@@ -749,8 +787,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       _handleSelectionChanged(_value.selection, cause);
 
       if (selectionRangeChanged) {
-        manager.updateToggleButtonsStateOnSelectionChanged(_value.selection,
-            widget.controller as ReplacementTextEditingController);
+        manager.updateToggleButtonsStateOnSelectionChanged(
+          _value.selection,
+          widget.controller as ReplacementTextEditingController,
+        );
       }
     }
   }
@@ -776,7 +816,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       _textKey.currentContext!.findRenderObject()! as RenderEditable;
 
   void _handleSelectionChanged(
-      TextSelection selection, SelectionChangedCause? cause) {
+    TextSelection selection,
+    SelectionChangedCause? cause,
+  ) {
     // We return early if the selection is not valid. This can happen when the
     // text of the editable is updated at the same time as the selection is
     // changed by a gesture event.
@@ -820,13 +862,16 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     try {
       widget.onSelectionChanged.call(selection, cause);
     } catch (exception, stack) {
-      FlutterError.reportError(FlutterErrorDetails(
-        exception: exception,
-        stack: stack,
-        library: 'widgets',
-        context:
-            ErrorDescription('while calling onSelectionChanged for $cause'),
-      ));
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: exception,
+          stack: stack,
+          library: 'widgets',
+          context: ErrorDescription(
+            'while calling onSelectionChanged for $cause',
+          ),
+        ),
+      );
     }
   }
 
@@ -846,40 +891,41 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       onSelectionHandleTapped: () {
         _toggleToolbar();
       },
-      contextMenuBuilder: widget.contextMenuBuilder == null || kIsWeb
-          ? null
-          : (context) {
-              return widget.contextMenuBuilder!(
-                context,
-                _clipboardStatus!.value,
-                copyEnabled
-                    ? () => copySelection(SelectionChangedCause.toolbar)
-                    : null,
-                cutEnabled
-                    ? () => cutSelection(SelectionChangedCause.toolbar)
-                    : null,
-                pasteEnabled
-                    ? () => pasteText(SelectionChangedCause.toolbar)
-                    : null,
-                selectAllEnabled
-                    ? () => selectAll(SelectionChangedCause.toolbar)
-                    : null,
-                lookUpEnabled
-                    ? () => _lookUpSelection(SelectionChangedCause.toolbar)
-                    : null,
-                liveTextInputEnabled
-                    ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
-                    : null,
-                searchWebEnabled
-                    ? () =>
-                        _searchWebForSelection(SelectionChangedCause.toolbar)
-                    : null,
-                shareEnabled
-                    ? () => _shareSelection(SelectionChangedCause.toolbar)
-                    : null,
-                _contextMenuAnchors,
-              );
-            },
+      contextMenuBuilder:
+          widget.contextMenuBuilder == null || kIsWeb
+              ? null
+              : (context) {
+                return widget.contextMenuBuilder!(
+                  context,
+                  _clipboardStatus!.value,
+                  copyEnabled
+                      ? () => copySelection(SelectionChangedCause.toolbar)
+                      : null,
+                  cutEnabled
+                      ? () => cutSelection(SelectionChangedCause.toolbar)
+                      : null,
+                  pasteEnabled
+                      ? () => pasteText(SelectionChangedCause.toolbar)
+                      : null,
+                  selectAllEnabled
+                      ? () => selectAll(SelectionChangedCause.toolbar)
+                      : null,
+                  lookUpEnabled
+                      ? () => _lookUpSelection(SelectionChangedCause.toolbar)
+                      : null,
+                  liveTextInputEnabled
+                      ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
+                      : null,
+                  searchWebEnabled
+                      ? () =>
+                          _searchWebForSelection(SelectionChangedCause.toolbar)
+                      : null,
+                  shareEnabled
+                      ? () => _shareSelection(SelectionChangedCause.toolbar)
+                      : null,
+                  _contextMenuAnchors,
+                );
+              },
       magnifierConfiguration: TextMagnifierConfiguration.disabled,
     );
 
@@ -935,18 +981,20 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final String selectedGraphemes = selection.textInside(currText);
     final int firstSelectedGraphemeExtent =
         selectedGraphemes.characters.first.length;
-    final Rect? startCharacterRect =
-        renderEditable.getRectForComposingRange(TextRange(
-      start: selection.start,
-      end: selection.start + firstSelectedGraphemeExtent,
-    ));
+    final Rect? startCharacterRect = renderEditable.getRectForComposingRange(
+      TextRange(
+        start: selection.start,
+        end: selection.start + firstSelectedGraphemeExtent,
+      ),
+    );
     final int lastSelectedGraphemeExtent =
         selectedGraphemes.characters.last.length;
-    final Rect? endCharacterRect =
-        renderEditable.getRectForComposingRange(TextRange(
-      start: selection.end - lastSelectedGraphemeExtent,
-      end: selection.end,
-    ));
+    final Rect? endCharacterRect = renderEditable.getRectForComposingRange(
+      TextRange(
+        start: selection.end - lastSelectedGraphemeExtent,
+        end: selection.end,
+      ),
+    );
     return _GlyphHeights(
       start: startCharacterRect?.height ?? renderEditable.preferredLineHeight,
       end: endCharacterRect?.height ?? renderEditable.preferredLineHeight,
@@ -963,8 +1011,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     final _GlyphHeights glyphHeights = _getGlyphHeights();
     final TextSelection selection = textEditingValue.selection;
-    final List<TextSelectionPoint> points =
-        renderEditable.getEndpointsForSelection(selection);
+    final List<TextSelectionPoint> points = renderEditable
+        .getEndpointsForSelection(selection);
     return TextSelectionToolbarAnchors.fromSelection(
       renderBox: renderEditable,
       startGlyphHeight: glyphHeights.start,
@@ -1015,15 +1063,13 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   /// Currently this is only implemented for iOS.
   /// Throws an error if the selection is empty or collapsed.
   Future<void> _lookUpSelection(SelectionChangedCause cause) async {
-    final String text =
-        textEditingValue.selection.textInside(textEditingValue.text);
+    final String text = textEditingValue.selection.textInside(
+      textEditingValue.text,
+    );
     if (text.isEmpty) {
       return;
     }
-    await SystemChannels.platform.invokeMethod(
-      'LookUp.invoke',
-      text,
-    );
+    await SystemChannels.platform.invokeMethod('LookUp.invoke', text);
   }
 
   @override
@@ -1042,13 +1088,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   ///
   /// Currently this is only implemented for iOS.
   Future<void> _searchWebForSelection(SelectionChangedCause cause) async {
-    final String text =
-        textEditingValue.selection.textInside(textEditingValue.text);
+    final String text = textEditingValue.selection.textInside(
+      textEditingValue.text,
+    );
     if (text.isNotEmpty) {
-      await SystemChannels.platform.invokeMethod(
-        'SearchWeb.invoke',
-        text,
-      );
+      await SystemChannels.platform.invokeMethod('SearchWeb.invoke', text);
     }
   }
 
@@ -1075,13 +1119,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   ///
   /// Currently this is only implemented for iOS and Android.
   Future<void> _shareSelection(SelectionChangedCause cause) async {
-    final String text =
-        textEditingValue.selection.textInside(textEditingValue.text);
+    final String text = textEditingValue.selection.textInside(
+      textEditingValue.text,
+    );
     if (text.isNotEmpty) {
-      await SystemChannels.platform.invokeMethod(
-        'Share.invoke',
-        text,
-      );
+      await SystemChannels.platform.invokeMethod('Share.invoke', text);
     }
   }
 
@@ -1322,10 +1364,7 @@ class _Editable extends MultiChildRenderObjectWidget {
 /// The start and end glyph heights of some range of text.
 @immutable
 class _GlyphHeights {
-  const _GlyphHeights({
-    required this.start,
-    required this.end,
-  });
+  const _GlyphHeights({required this.start, required this.end});
 
   /// The glyph height of the first line.
   final double start;

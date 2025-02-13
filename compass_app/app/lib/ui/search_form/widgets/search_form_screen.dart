@@ -21,10 +21,7 @@ import 'search_form_submit.dart';
 /// Tapping on the submit button opens the [ResultsScreen] screen
 /// passing the search options as query parameters.
 class SearchFormScreen extends StatelessWidget {
-  const SearchFormScreen({
-    super.key,
-    required this.viewModel,
-  });
+  const SearchFormScreen({super.key, required this.viewModel});
 
   final SearchFormViewModel viewModel;
 

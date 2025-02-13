@@ -21,20 +21,10 @@ void main() {
     });
 
     test('should post login', () async {
-      const loginResponse = LoginResponse(
-        token: 'TOKEN',
-        userId: '123',
-      );
-      mockHttpClient.mockPost(
-        '/login',
-        loginResponse,
-        200,
-      );
+      const loginResponse = LoginResponse(token: 'TOKEN', userId: '123');
+      mockHttpClient.mockPost('/login', loginResponse, 200);
       final result = await apiClient.login(
-        const LoginRequest(
-          email: 'EMAIL',
-          password: 'PASSWORD',
-        ),
+        const LoginRequest(email: 'EMAIL', password: 'PASSWORD'),
       );
       expect(result.asOk.value, loginResponse);
     });
