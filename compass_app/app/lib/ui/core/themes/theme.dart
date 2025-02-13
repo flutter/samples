@@ -41,7 +41,6 @@ abstract final class AppTheme {
   );
 
   static ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
@@ -55,7 +54,6 @@ abstract final class AppTheme {
   );
 
   static ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: AppColors.darkColorScheme,
     textTheme: _textTheme,
