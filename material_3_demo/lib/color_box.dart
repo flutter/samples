@@ -68,10 +68,10 @@ class _ColorBoxState extends State<ColorBox> {
                       // Copy color as hex to clipboard
                       final c = widget.color;
 
-                      String hex = '#';
-                      hex += colorChannelToHex(c.r);
-                      hex += colorChannelToHex(c.g);
-                      hex += colorChannelToHex(c.b);
+                      final hex =
+                          '#${_colorChannelToHex(c.r)}'
+                          '${_colorChannelToHex(c.g)}'
+                          '${_colorChannelToHex(c.b)}';
 
                       final data = ClipboardData(text: hex);
                       await Clipboard.setData(data);
@@ -88,9 +88,9 @@ class _ColorBoxState extends State<ColorBox> {
       ),
     );
   }
+}
 
-  String colorChannelToHex(double value) {
-    final intVal = (value * 255).round();
-    return intVal.toRadixString(16).padLeft(2, '0');
-  }
+String _colorChannelToHex(double value) {
+  final intVal = (value * 255).round();
+  return intVal.toRadixString(16).padLeft(2, '0');
 }
