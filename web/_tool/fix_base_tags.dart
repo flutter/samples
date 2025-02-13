@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:path/path.dart' as p;
 
 Future<void> main() async {
@@ -46,6 +47,15 @@ Future<void> fixBaseTags() async {
           '<base href="/samples/web/$sampleDirName/">',
         );
         await index.writeAsString(newContents);
+      }
+
+      // Since all of the web examples use the hosted canvaskit bits
+      // There is no need to deploy these
+      final canvasKitDirectory = Directory(
+        p.join(builtSample.path, 'canvaskit'),
+      );
+      if (canvasKitDirectory.existsSync()) {
+        canvasKitDirectory.deleteSync(recursive: true);
       }
     }
   }
