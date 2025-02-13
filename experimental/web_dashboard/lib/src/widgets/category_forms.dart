@@ -60,9 +60,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               initialValue: widget.category.name,
-              decoration: const InputDecoration(
-                labelText: 'Name',
-              ),
+              decoration: const InputDecoration(labelText: 'Name'),
               onChanged: (newValue) {
                 widget.category.name = newValue;
               },

@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-typedef ContextMenuBuilder = Widget Function(
-    BuildContext context, Offset offset);
+typedef ContextMenuBuilder =
+    Widget Function(BuildContext context, Offset offset);
 
 /// Shows and hides the context menu based on user gestures.
 ///

@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ColorBox extends StatefulWidget {
-  const ColorBox(
-      {super.key,
-      required this.label,
-      required this.tone,
-      required this.color,
-      required this.onColor,
-      required this.height,
-      required this.width,
-      this.displayPaletteInfo = false});
+  const ColorBox({
+    super.key,
+    required this.label,
+    required this.tone,
+    required this.color,
+    required this.onColor,
+    required this.height,
+    required this.width,
+    this.displayPaletteInfo = false,
+  });
 
   final String label;
   final String tone;
@@ -47,11 +48,7 @@ class _ColorBoxState extends State<ColorBox> {
           style: fonts.labelSmall!.copyWith(color: widget.onColor),
           child: Stack(
             children: [
-              Positioned(
-                top: 10,
-                left: 10,
-                child: Text(widget.label),
-              ),
+              Positioned(top: 10, left: 10, child: Text(widget.label)),
               Positioned(
                 bottom: 10,
                 right: 10,
@@ -81,9 +78,7 @@ class _ColorBoxState extends State<ColorBox> {
                       await Clipboard.setData(data);
                       messenger.hideCurrentSnackBar();
                       messenger.showSnackBar(
-                        SnackBar(
-                          content: Text('Copied $hex to clipboard'),
-                        ),
+                        SnackBar(content: Text('Copied $hex to clipboard')),
                       );
                     },
                   ),

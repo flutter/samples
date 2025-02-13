@@ -35,33 +35,34 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
 
   @override
   Widget build(BuildContext context) => ContentDialog(
-        title: const Text('Photo Search'),
-        content: TextBox(
-          autofocus: true,
-          controller: _controller,
-          onSubmitted: (content) {
-            if (content.isNotEmpty) {
-              widget.callback(content);
-              Navigator.of(context).pop();
-            }
-          },
-        ),
-        actions: [
-          FilledButton(
-            onPressed: _searchEnabled
+    title: const Text('Photo Search'),
+    content: TextBox(
+      autofocus: true,
+      controller: _controller,
+      onSubmitted: (content) {
+        if (content.isNotEmpty) {
+          widget.callback(content);
+          Navigator.of(context).pop();
+        }
+      },
+    ),
+    actions: [
+      FilledButton(
+        onPressed:
+            _searchEnabled
                 ? () {
-                    widget.callback(_controller.text);
-                    Navigator.of(context).pop();
-                  }
+                  widget.callback(_controller.text);
+                  Navigator.of(context).pop();
+                }
                 : null,
-            child: const Text('Search'),
-          ),
-          Button(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Cancel'),
-          ),
-        ],
-      );
+        child: const Text('Search'),
+      ),
+      Button(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: const Text('Cancel'),
+      ),
+    ],
+  );
 }

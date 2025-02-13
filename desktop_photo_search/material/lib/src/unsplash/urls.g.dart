@@ -19,51 +19,62 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
   final String wireName = 'Urls';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Urls object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Urls object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.raw;
     if (value != null) {
       result
         ..add('raw')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.full;
     if (value != null) {
       result
         ..add('full')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.regular;
     if (value != null) {
       result
         ..add('regular')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.small;
     if (value != null) {
       result
         ..add('small')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.thumb;
     if (value != null) {
       result
         ..add('thumb')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  Urls deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Urls deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new UrlsBuilder();
 
     final iterator = serialized.iterator;
@@ -73,24 +84,44 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
       final Object? value = iterator.current;
       switch (key) {
         case 'raw':
-          result.raw = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.raw =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'full':
-          result.full = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.full =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'regular':
-          result.regular = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.regular =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'small':
-          result.small = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.small =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'thumb':
-          result.thumb = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.thumb =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -115,7 +146,7 @@ class _$Urls extends Urls {
       (new UrlsBuilder()..update(updates))._build();
 
   _$Urls._({this.raw, this.full, this.regular, this.small, this.thumb})
-      : super._();
+    : super._();
 
   @override
   Urls rebuild(void Function(UrlsBuilder) updates) =>
@@ -212,9 +243,15 @@ class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
   Urls build() => _build();
 
   _$Urls _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$Urls._(
-            raw: raw, full: full, regular: regular, small: small, thumb: thumb);
+          raw: raw,
+          full: full,
+          regular: regular,
+          small: small,
+          thumb: thumb,
+        );
     replace(_$result);
     return _$result;
   }

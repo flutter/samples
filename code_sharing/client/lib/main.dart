@@ -10,20 +10,11 @@ final scheme = Platform.environment['SERVER_SCHEME'] ?? 'http';
 final serverUrl = Uri.parse('$scheme://$host:$port/');
 
 void main() {
-  runApp(
-    const MyApp(
-      getCount: getCount,
-      increment: increment,
-    ),
-  );
+  runApp(const MyApp(getCount: getCount, increment: increment));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    super.key,
-    required this.getCount,
-    required this.increment,
-  });
+  const MyApp({super.key, required this.getCount, required this.increment});
 
   final Future<int> Function() getCount;
   final Future<int> Function(int) increment;
@@ -32,9 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.blue),
       home: MyHomePage(
         title: 'Flutter Demo Home Page',
         getCount: getCount,
@@ -74,26 +63,24 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     localClicks += 1;
     setState(() => isWriting = true);
-    widget.increment(localClicks).then(
-          (int val) => setState(
-            () {
-              _counter = val;
-              // Leave this up for at least a split second
-              Future.delayed(
-                const Duration(milliseconds: 200),
-                () => setState(() => isWriting = false),
-              );
-            },
-          ),
+    widget
+        .increment(localClicks)
+        .then(
+          (int val) => setState(() {
+            _counter = val;
+            // Leave this up for at least a split second
+            Future.delayed(
+              const Duration(milliseconds: 200),
+              () => setState(() => isWriting = false),
+            );
+          }),
         );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

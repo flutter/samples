@@ -15,12 +15,13 @@ import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 // Configure routes.
-final _router = Router()
-  ..get('/continent', continentHandler)
-  ..mount('/destination', DestinationApi().router.call)
-  ..mount('/booking', BookingApi().router.call)
-  ..mount('/user', UserApi().router.call)
-  ..mount('/login', LoginApi().router.call);
+final _router =
+    Router()
+      ..get('/continent', continentHandler)
+      ..mount('/destination', DestinationApi().router.call)
+      ..mount('/booking', BookingApi().router.call)
+      ..mount('/user', UserApi().router.call)
+      ..mount('/login', LoginApi().router.call);
 
 void main(List<String> args) async {
   // Use any available host or container IP (usually `0.0.0.0`).

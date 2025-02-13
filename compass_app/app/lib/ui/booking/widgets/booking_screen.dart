@@ -12,10 +12,7 @@ import '../view_models/booking_viewmodel.dart';
 import 'booking_body.dart';
 
 class BookingScreen extends StatefulWidget {
-  const BookingScreen({
-    super.key,
-    required this.viewModel,
-  });
+  const BookingScreen({super.key, required this.viewModel});
 
   final BookingViewModel viewModel;
 
@@ -47,16 +44,18 @@ class _BookingScreenState extends State<BookingScreen> {
       child: Scaffold(
         floatingActionButton: ListenableBuilder(
           listenable: widget.viewModel,
-          builder: (context, _) => FloatingActionButton.extended(
-            // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
-            heroTag: null,
-            key: const ValueKey('share-button'),
-            onPressed: widget.viewModel.booking != null
-                ? widget.viewModel.shareBooking.execute
-                : null,
-            label: Text(AppLocalization.of(context).shareTrip),
-            icon: const Icon(Icons.share_outlined),
-          ),
+          builder:
+              (context, _) => FloatingActionButton.extended(
+                // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
+                heroTag: null,
+                key: const ValueKey('share-button'),
+                onPressed:
+                    widget.viewModel.booking != null
+                        ? widget.viewModel.shareBooking.execute
+                        : null,
+                label: Text(AppLocalization.of(context).shareTrip),
+                icon: const Icon(Icons.share_outlined),
+              ),
         ),
         body: ListenableBuilder(
           // Listen to changes in both commands
@@ -68,9 +67,7 @@ class _BookingScreenState extends State<BookingScreen> {
             // If either command is running, show progress indicator
             if (widget.viewModel.createBooking.running ||
                 widget.viewModel.loadBooking.running) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
             // If fails to create booking, tap to try again
             if (widget.viewModel.createBooking.error) {
@@ -103,13 +100,15 @@ class _BookingScreenState extends State<BookingScreen> {
   void _listener() {
     if (widget.viewModel.shareBooking.error) {
       widget.viewModel.shareBooking.clearResult();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalization.of(context).errorWhileSharing),
-        action: SnackBarAction(
-          label: AppLocalization.of(context).tryAgain,
-          onPressed: widget.viewModel.shareBooking.execute,
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalization.of(context).errorWhileSharing),
+          action: SnackBarAction(
+            label: AppLocalization.of(context).tryAgain,
+            onPressed: widget.viewModel.shareBooking.execute,
+          ),
         ),
-      ));
+      );
     }
   }
 }

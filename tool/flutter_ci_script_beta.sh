@@ -36,8 +36,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
-    # "experimental/pedometer"
-    "experimental/pedometer/example"
+    # "pedometer"
+    "pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
@@ -63,7 +63,8 @@ declare -ar PROJECT_NAMES=(
     "veggieseasons"
     "web_embedding/element_embedding_demo"
     "web/_tool"
-    "web/samples_index"
+    # TODO(ewindmill): dart:html is deprecated. Delete samples_index
+    # "web/samples_index"
 )
 
 ci_projects "beta" "${PROJECT_NAMES[@]}"

@@ -10,18 +10,12 @@ class SignInPage extends StatelessWidget {
   final Auth auth;
   final ValueChanged<User> onSuccess;
 
-  const SignInPage({
-    required this.auth,
-    required this.onSuccess,
-    super.key,
-  });
+  const SignInPage({required this.auth, required this.onSuccess, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SignInButton(auth: auth, onSuccess: onSuccess),
-      ),
+      body: Center(child: SignInButton(auth: auth, onSuccess: onSuccess)),
     );
   }
 }
@@ -30,11 +24,7 @@ class SignInButton extends StatefulWidget {
   final Auth auth;
   final ValueChanged<User> onSuccess;
 
-  const SignInButton({
-    required this.auth,
-    required this.onSuccess,
-    super.key,
-  });
+  const SignInButton({required this.auth, required this.onSuccess, super.key});
 
   @override
   State<SignInButton> createState() => _SignInButtonState();
@@ -97,10 +87,8 @@ class _SignInButtonState extends State<SignInButton> {
   }
 
   void _showError() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Unable to sign in.'),
-      ),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Unable to sign in.')));
   }
 }

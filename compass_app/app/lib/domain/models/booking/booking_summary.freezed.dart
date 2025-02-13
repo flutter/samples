@@ -12,7 +12,8 @@ part of 'booking_summary.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 BookingSummary _$BookingSummaryFromJson(Map<String, dynamic> json) {
   return _BookingSummary.fromJson(json);
@@ -45,8 +46,9 @@ mixin _$BookingSummary {
 /// @nodoc
 abstract class $BookingSummaryCopyWith<$Res> {
   factory $BookingSummaryCopyWith(
-          BookingSummary value, $Res Function(BookingSummary) then) =
-      _$BookingSummaryCopyWithImpl<$Res, BookingSummary>;
+    BookingSummary value,
+    $Res Function(BookingSummary) then,
+  ) = _$BookingSummaryCopyWithImpl<$Res, BookingSummary>;
   @useResult
   $Res call({int id, String name, DateTime startDate, DateTime endDate});
 }
@@ -71,33 +73,41 @@ class _$BookingSummaryCopyWithImpl<$Res, $Val extends BookingSummary>
     Object? startDate = null,
     Object? endDate = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            startDate:
+                null == startDate
+                    ? _value.startDate
+                    : startDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            endDate:
+                null == endDate
+                    ? _value.endDate
+                    : endDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$BookingSummaryImplCopyWith<$Res>
     implements $BookingSummaryCopyWith<$Res> {
-  factory _$$BookingSummaryImplCopyWith(_$BookingSummaryImpl value,
-          $Res Function(_$BookingSummaryImpl) then) =
-      __$$BookingSummaryImplCopyWithImpl<$Res>;
+  factory _$$BookingSummaryImplCopyWith(
+    _$BookingSummaryImpl value,
+    $Res Function(_$BookingSummaryImpl) then,
+  ) = __$$BookingSummaryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String name, DateTime startDate, DateTime endDate});
@@ -108,8 +118,9 @@ class __$$BookingSummaryImplCopyWithImpl<$Res>
     extends _$BookingSummaryCopyWithImpl<$Res, _$BookingSummaryImpl>
     implements _$$BookingSummaryImplCopyWith<$Res> {
   __$$BookingSummaryImplCopyWithImpl(
-      _$BookingSummaryImpl _value, $Res Function(_$BookingSummaryImpl) _then)
-      : super(_value, _then);
+    _$BookingSummaryImpl _value,
+    $Res Function(_$BookingSummaryImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of BookingSummary
   /// with the given fields replaced by the non-null parameter values.
@@ -121,35 +132,42 @@ class __$$BookingSummaryImplCopyWithImpl<$Res>
     Object? startDate = null,
     Object? endDate = null,
   }) {
-    return _then(_$BookingSummaryImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$BookingSummaryImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        startDate:
+            null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        endDate:
+            null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BookingSummaryImpl implements _BookingSummary {
-  const _$BookingSummaryImpl(
-      {required this.id,
-      required this.name,
-      required this.startDate,
-      required this.endDate});
+  const _$BookingSummaryImpl({
+    required this.id,
+    required this.name,
+    required this.startDate,
+    required this.endDate,
+  });
 
   factory _$BookingSummaryImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookingSummaryImplFromJson(json);
@@ -198,22 +216,23 @@ class _$BookingSummaryImpl implements _BookingSummary {
   @pragma('vm:prefer-inline')
   _$$BookingSummaryImplCopyWith<_$BookingSummaryImpl> get copyWith =>
       __$$BookingSummaryImplCopyWithImpl<_$BookingSummaryImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BookingSummaryImplToJson(
-      this,
-    );
+    return _$$BookingSummaryImplToJson(this);
   }
 }
 
 abstract class _BookingSummary implements BookingSummary {
-  const factory _BookingSummary(
-      {required final int id,
-      required final String name,
-      required final DateTime startDate,
-      required final DateTime endDate}) = _$BookingSummaryImpl;
+  const factory _BookingSummary({
+    required final int id,
+    required final String name,
+    required final DateTime startDate,
+    required final DateTime endDate,
+  }) = _$BookingSummaryImpl;
 
   factory _BookingSummary.fromJson(Map<String, dynamic> json) =
       _$BookingSummaryImpl.fromJson;

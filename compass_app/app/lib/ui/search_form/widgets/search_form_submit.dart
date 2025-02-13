@@ -19,10 +19,7 @@ const String searchFormSubmitButtonKey = 'submit-button';
 /// When tapped, it navigates to the [ResultsScreen]
 /// passing the search options as query parameters.
 class SearchFormSubmit extends StatefulWidget {
-  const SearchFormSubmit({
-    super.key,
-    required this.viewModel,
-  });
+  const SearchFormSubmit({super.key, required this.viewModel});
 
   final SearchFormViewModel viewModel;
 
@@ -63,16 +60,15 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
         listenable: widget.viewModel,
         child: SizedBox(
           height: 52,
-          child: Center(
-            child: Text(AppLocalization.of(context).search),
-          ),
+          child: Center(child: Text(AppLocalization.of(context).search)),
         ),
         builder: (context, child) {
           return FilledButton(
             key: const ValueKey(searchFormSubmitButtonKey),
-            onPressed: widget.viewModel.valid
-                ? widget.viewModel.updateItineraryConfig.execute
-                : null,
+            onPressed:
+                widget.viewModel.valid
+                    ? widget.viewModel.updateItineraryConfig.execute
+                    : null,
             child: child,
           );
         },
@@ -88,13 +84,15 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
 
     if (widget.viewModel.updateItineraryConfig.error) {
       widget.viewModel.updateItineraryConfig.clearResult();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalization.of(context).errorWhileSavingItinerary),
-        action: SnackBarAction(
-          label: AppLocalization.of(context).tryAgain,
-          onPressed: widget.viewModel.updateItineraryConfig.execute,
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalization.of(context).errorWhileSavingItinerary),
+          action: SnackBarAction(
+            label: AppLocalization.of(context).tryAgain,
+            onPressed: widget.viewModel.updateItineraryConfig.execute,
+          ),
         ),
-      ));
+      );
     }
   }
 }

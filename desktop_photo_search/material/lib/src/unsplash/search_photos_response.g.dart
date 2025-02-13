@@ -18,20 +18,23 @@ class _$SearchPhotosResponseSerializer
   @override
   final Iterable<Type> types = const [
     SearchPhotosResponse,
-    _$SearchPhotosResponse
+    _$SearchPhotosResponse,
   ];
   @override
   final String wireName = 'SearchPhotosResponse';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, SearchPhotosResponse object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    SearchPhotosResponse object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'results',
-      serializers.serialize(object.results,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(Photo)])),
+      serializers.serialize(
+        object.results,
+        specifiedType: const FullType(BuiltList, const [const FullType(Photo)]),
+      ),
     ];
     Object? value;
     value = object.total;
@@ -51,8 +54,10 @@ class _$SearchPhotosResponseSerializer
 
   @override
   SearchPhotosResponse deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new SearchPhotosResponseBuilder();
 
     final iterator = serialized.iterator;
@@ -62,18 +67,25 @@ class _$SearchPhotosResponseSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'total':
-          result.total = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.total =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'total_pages':
-          result.totalPages = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.totalPages =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'results':
-          result.results.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(Photo)]))!
-              as BuiltList<Object?>);
+          result.results.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(Photo),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -90,20 +102,23 @@ class _$SearchPhotosResponse extends SearchPhotosResponse {
   @override
   final BuiltList<Photo> results;
 
-  factory _$SearchPhotosResponse(
-          [void Function(SearchPhotosResponseBuilder)? updates]) =>
-      (new SearchPhotosResponseBuilder()..update(updates))._build();
+  factory _$SearchPhotosResponse([
+    void Function(SearchPhotosResponseBuilder)? updates,
+  ]) => (new SearchPhotosResponseBuilder()..update(updates))._build();
 
   _$SearchPhotosResponse._({this.total, this.totalPages, required this.results})
-      : super._() {
+    : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        results, r'SearchPhotosResponse', 'results');
+      results,
+      r'SearchPhotosResponse',
+      'results',
+    );
   }
 
   @override
   SearchPhotosResponse rebuild(
-          void Function(SearchPhotosResponseBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SearchPhotosResponseBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SearchPhotosResponseBuilder toBuilder() =>
@@ -185,9 +200,13 @@ class SearchPhotosResponseBuilder
   _$SearchPhotosResponse _build() {
     _$SearchPhotosResponse _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$SearchPhotosResponse._(
-              total: total, totalPages: totalPages, results: results.build());
+            total: total,
+            totalPages: totalPages,
+            results: results.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -195,7 +214,10 @@ class SearchPhotosResponseBuilder
         results.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'SearchPhotosResponse', _$failedField, e.toString());
+          r'SearchPhotosResponse',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

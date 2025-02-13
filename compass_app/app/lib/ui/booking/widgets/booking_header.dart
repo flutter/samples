@@ -15,10 +15,7 @@ import '../../core/ui/home_button.dart';
 import '../../core/ui/tag_chip.dart';
 
 class BookingHeader extends StatelessWidget {
-  const BookingHeader({
-    super.key,
-    required this.booking,
-  });
+  const BookingHeader({super.key, required this.booking});
 
   final Booking booking;
 
@@ -51,9 +48,7 @@ class BookingHeader extends StatelessWidget {
 }
 
 class _Top extends StatelessWidget {
-  const _Top({
-    required this.booking,
-  });
+  const _Top({required this.booking});
 
   final Booking booking;
 
@@ -70,10 +65,7 @@ class _Top extends StatelessWidget {
           Positioned(
             right: Dimens.of(context).paddingScreenHorizontal,
             top: Dimens.of(context).paddingScreenVertical,
-            child: const SafeArea(
-              top: true,
-              child: HomeButton(blur: true),
-            ),
+            child: const SafeArea(top: true, child: HomeButton(blur: true)),
           ),
         ],
       ),
@@ -82,9 +74,7 @@ class _Top extends StatelessWidget {
 }
 
 class _Tags extends StatelessWidget {
-  const _Tags({
-    required this.booking,
-  });
+  const _Tags({required this.booking});
 
   final Booking booking;
 
@@ -100,26 +90,25 @@ class _Tags extends StatelessWidget {
       child: Wrap(
         spacing: 6,
         runSpacing: 6,
-        children: booking.destination.tags
-            .map(
-              (tag) => TagChip(
-                tag: tag,
-                fontSize: 16,
-                height: 32,
-                chipColor: chipColor,
-                onChipColor: Theme.of(context).colorScheme.onSurface,
-              ),
-            )
-            .toList(),
+        children:
+            booking.destination.tags
+                .map(
+                  (tag) => TagChip(
+                    tag: tag,
+                    fontSize: 16,
+                    height: 32,
+                    chipColor: chipColor,
+                    onChipColor: Theme.of(context).colorScheme.onSurface,
+                  ),
+                )
+                .toList(),
       ),
     );
   }
 }
 
 class _Headline extends StatelessWidget {
-  const _Headline({
-    required this.booking,
-  });
+  const _Headline({required this.booking});
 
   final Booking booking;
 
@@ -139,10 +128,7 @@ class _Headline extends StatelessWidget {
             ),
             Text(
               dateFormatStartEnd(
-                DateTimeRange(
-                  start: booking.startDate,
-                  end: booking.endDate,
-                ),
+                DateTimeRange(start: booking.startDate, end: booking.endDate),
               ),
               style: Theme.of(context).textTheme.headlineSmall,
             ),
@@ -154,9 +140,7 @@ class _Headline extends StatelessWidget {
 }
 
 class _HeaderImage extends StatelessWidget {
-  const _HeaderImage({
-    required this.booking,
-  });
+  const _HeaderImage({required this.booking});
 
   final Booking booking;
 
@@ -180,10 +164,7 @@ class _Gradient extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Colors.transparent,
-            Theme.of(context).colorScheme.surface,
-          ],
+          colors: [Colors.transparent, Theme.of(context).colorScheme.surface],
         ),
       ),
     );

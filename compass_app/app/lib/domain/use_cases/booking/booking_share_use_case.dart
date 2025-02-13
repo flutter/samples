@@ -28,7 +28,8 @@ class BookingShareUseCase {
   final _log = Logger('BookingShareUseCase');
 
   Future<Result<void>> shareBooking(Booking booking) async {
-    final text = 'Trip to ${booking.destination.name}\n'
+    final text =
+        'Trip to ${booking.destination.name}\n'
         'on ${dateFormatStartEnd(DateTimeRange(start: booking.startDate, end: booking.endDate))}\n'
         'Activities:\n'
         '${booking.activity.map((a) => ' - ${a.name}').join('\n')}.';

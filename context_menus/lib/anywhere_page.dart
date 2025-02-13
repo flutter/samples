@@ -7,10 +7,7 @@ import 'context_menu_region.dart';
 import 'platform_selector.dart';
 
 class AnywherePage extends StatelessWidget {
-  AnywherePage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  AnywherePage({super.key, required this.onChangedPlatform});
 
   static const String route = 'anywhere';
   static const String title = 'Context Menu Anywhere Example';
@@ -36,9 +33,7 @@ class AnywherePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(AnywherePage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {

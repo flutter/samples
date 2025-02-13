@@ -55,17 +55,14 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
   );
   late final CurvedAnimation animationCurve = CurvedAnimation(
     parent: animationController,
-    curve: const Interval(
-      0.2,
-      0.45,
-      curve: Curves.easeOut,
-    ),
+    curve: const Interval(0.2, 0.45, curve: Curves.easeOut),
   );
-  late Animation<double> opacAnimation =
-      Tween<double>(begin: 0.4, end: 1.0).animate(animationCurve)
-        ..addListener(() {
-          setState(() {});
-        });
+  late Animation<double> opacAnimation = Tween<double>(
+    begin: 0.4,
+    end: 1.0,
+  ).animate(animationCurve)..addListener(() {
+    setState(() {});
+  });
 
   List<GlobalKey<RotatorPuzzleTileState>> tileKeys = [];
   GlobalKey<FragmentShadedState> shadedWidgetStackHackStateKey = GlobalKey();
@@ -129,14 +126,16 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
       }
       if (status == AnimationStatus.completed) {
         Future.delayed(
-            const Duration(milliseconds: FragmentShaded.dampenDuration + 250),
-            () {
-          widget.pageConfig.pageController.nextPage(
-            duration:
-                const Duration(milliseconds: PagesFlow.pageScrollDuration),
-            curve: Curves.easeOut,
-          );
-        });
+          const Duration(milliseconds: FragmentShaded.dampenDuration + 250),
+          () {
+            widget.pageConfig.pageController.nextPage(
+              duration: const Duration(
+                milliseconds: PagesFlow.pageScrollDuration,
+              ),
+              curve: Curves.easeOut,
+            );
+          },
+        );
       }
     });
     animationController.forward();
@@ -201,7 +200,8 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
         child: Opacity(
           opacity: opacAnimation.value,
           child: Stack(
-            children: <Widget>[
+            children:
+                <Widget>[
                   Positioned(
                     left: -9999,
                     top: -9999,
@@ -287,9 +287,7 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
   Duration touchedOpacDur = const Duration(milliseconds: 50);
   late final AnimationController animationController = AnimationController(
     vsync: this,
-    duration: const Duration(
-      milliseconds: 100,
-    ),
+    duration: const Duration(milliseconds: 100),
   );
   late final CurvedAnimation animationCurve = CurvedAnimation(
     parent: animationController,
@@ -317,9 +315,12 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
       }
     });
     // end hack ------------------------------
-    List<double> coords =
-        widget.parentState.tileCoords(row: widget.row, col: widget.col);
-    double zeroPoint = widget.parentState.widget.pageConfig.puzzleSize * .5 -
+    List<double> coords = widget.parentState.tileCoords(
+      row: widget.row,
+      col: widget.col,
+    );
+    double zeroPoint =
+        widget.parentState.widget.pageConfig.puzzleSize * .5 -
         widget.parentState.tileSize() * 0.5;
 
     return Stack(
@@ -386,7 +387,8 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
                   },
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
-                        color: Color.fromARGB(120, 0, 0, 0)),
+                      color: Color.fromARGB(120, 0, 0, 0),
+                    ),
                     child: SizedBox(
                       width: widget.parentState.tileSize(),
                       height: widget.parentState.tileSize(),
@@ -420,10 +422,9 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
     animation = Tween<double>(
       begin: oldStatus * pi * 0.5,
       end: currentStatus() * pi * 0.5,
-    ).animate(animationController)
-      ..addListener(() {
-        setState(() {});
-      });
+    ).animate(animationController)..addListener(() {
+      setState(() {});
+    });
     animationController.reset();
     animationController.forward();
   }

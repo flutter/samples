@@ -6,7 +6,8 @@ class DefaultFirebaseOptions {
   @Deprecated('Run `flutterfire configure` to re-generate this file')
   static FirebaseOptions get currentPlatform {
     throw UnimplementedError(
-        'Generate this file by running `flutterfire configure`. '
-        'See README.md for details.');
+      'Generate this file by running `flutterfire configure`. '
+      'See README.md for details.',
+    );
   }
 }

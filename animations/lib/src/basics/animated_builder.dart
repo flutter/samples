@@ -24,8 +24,10 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   void initState() {
     super.initState();
     controller = AnimationController(vsync: this, duration: duration);
-    animation =
-        ColorTween(begin: beginColor, end: endColor).animate(controller);
+    animation = ColorTween(
+      begin: beginColor,
+      end: endColor,
+    ).animate(controller);
   }
 
   @override
@@ -37,9 +39,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('AnimatedBuilder'),
-      ),
+      appBar: AppBar(title: const Text('AnimatedBuilder')),
       body: Center(
         // AnimatedBuilder handles listening to a given animation and calling the builder
         // whenever the value of the animation change. This can be useful when a Widget
@@ -49,9 +49,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
           animation: animation,
           builder: (context, child) {
             return ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: animation.value,
-              ),
+              style: ElevatedButton.styleFrom(backgroundColor: animation.value),
               child: child,
               onPressed: () {
                 switch (controller.status) {

@@ -11,10 +11,7 @@ import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageWidth extends SinglePage {
-  const PageWidth({
-    super.key,
-    required super.pageConfig,
-  });
+  const PageWidth({super.key, required super.pageConfig});
   @override
   State<SinglePage> createState() => _PageWidthState();
 }
@@ -56,10 +53,7 @@ class _PageWidthState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.width(
-              from: 120,
-              to: 125,
-            )
+            WonkyAnimPalette.width(from: 120, to: 125),
           ],
         ),
       ),
@@ -77,19 +71,9 @@ class _PageWidthState extends SinglePageState {
               to: PageConfig.baseWeight,
               curve: Curves.easeInOut,
             ),
-            WonkyAnimPalette.width(
-              from: 70,
-              to: 50,
-            ),
-            WonkyAnimPalette.offsetY(
-              from: -6,
-              to: 2,
-              curve: Curves.easeInOut,
-            ),
-            WonkyAnimPalette.rotation(
-              from: -0.04 * pi,
-              to: 0.005 * pi,
-            ),
+            WonkyAnimPalette.width(from: 70, to: 50),
+            WonkyAnimPalette.offsetY(from: -6, to: 2, curve: Curves.easeInOut),
+            WonkyAnimPalette.rotation(from: -0.04 * pi, to: 0.005 * pi),
           ],
         ),
       ),
@@ -102,10 +86,7 @@ class _PageWidthState extends SinglePageState {
           baseRotation: 0.15 * pi,
           animDurationMillis: 3200,
           animationSettings: [
-            WonkyAnimPalette.width(
-              from: 120,
-              to: 125,
-            ),
+            WonkyAnimPalette.width(from: 120, to: 125),
             WonkyAnimPalette.weight(
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
@@ -128,10 +109,7 @@ class _PageWidthState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.width(
-              from: 75,
-              to: 50,
-            ),
+            WonkyAnimPalette.width(from: 75, to: 50),
           ],
         ),
       ),
@@ -147,10 +125,7 @@ class _PageWidthState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.width(
-              from: 90,
-              to: 115,
-            )
+            WonkyAnimPalette.width(from: 90, to: 115),
           ],
         ),
       ),
@@ -167,12 +142,7 @@ class _PageWidthState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.width(
-              from: 125,
-              to: 90,
-              startAt: 0.3,
-              endAt: 0.7,
-            ),
+            WonkyAnimPalette.width(from: 125, to: 90, startAt: 0.3, endAt: 0.7),
           ],
         ),
       ),
@@ -188,10 +158,7 @@ class _PageWidthState extends SinglePageState {
               from: PageConfig.baseWeight,
               to: PageConfig.baseWeight,
             ),
-            WonkyAnimPalette.width(
-              from: 110,
-              to: 60,
-            )
+            WonkyAnimPalette.width(from: 110, to: 60),
           ],
         ),
       ),
@@ -208,8 +175,9 @@ class _PageWidthState extends SinglePageState {
       shaderDuration: 2000,
       tileShadedString: 'S',
       tileShadedStringPadding: EdgeInsets.only(
-          left: 0.349 * widget.pageConfig.puzzleSize,
-          right: 0.349 * widget.pageConfig.puzzleSize),
+        left: 0.349 * widget.pageConfig.puzzleSize,
+        right: 0.349 * widget.pageConfig.puzzleSize,
+      ),
       tileShadedStringSize: 3.256 * widget.pageConfig.puzzleSize,
       tileScaleModifier: 2.34,
       tileShadedStringAnimDuration: 2000,

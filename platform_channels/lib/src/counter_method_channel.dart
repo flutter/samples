@@ -15,15 +15,17 @@ class Counter {
 
   /// This method is responsible to increment and return the value of count.
   static Future<int> increment({required int counterValue}) async {
-    final result = await methodChannel
-        .invokeMethod<int>('increment', {'count': counterValue});
+    final result = await methodChannel.invokeMethod<int>('increment', {
+      'count': counterValue,
+    });
     return result!;
   }
 
   /// This method is responsible to decrement and return the value of count.
   static Future<int> decrement({required int counterValue}) async {
-    final result = await methodChannel
-        .invokeMethod<int>('decrement', {'count': counterValue});
+    final result = await methodChannel.invokeMethod<int>('decrement', {
+      'count': counterValue,
+    });
     return result!;
   }
 }

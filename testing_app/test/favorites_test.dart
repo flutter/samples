@@ -15,9 +15,7 @@ Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
         favoritesList = Favorites();
         return favoritesList;
       },
-      child: const MaterialApp(
-        home: FavoritesPage(),
-      ),
+      child: const MaterialApp(home: FavoritesPage()),
     );
 
 void addItems() {
@@ -28,8 +26,9 @@ void addItems() {
 
 void main() {
   group('Favorites Page Widget Tests', () {
-    testWidgets('Test if Placeholder shows in case of empty list',
-        (tester) async {
+    testWidgets('Test if Placeholder shows in case of empty list', (
+      tester,
+    ) async {
       await tester.pumpWidget(createFavoritesScreen());
 
       // Verify if the placeholder text shows up.

@@ -125,16 +125,12 @@ class _CounterDemoState extends State<CounterDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            const Text('You have pushed the button this many times:'),
             Text(
               '${widget.numToDisplay}',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -157,9 +153,7 @@ class TextFieldDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
+      appBar: AppBar(title: Text(title)),
       body: const Center(
         child: Padding(
           padding: EdgeInsets.all(14.0),
@@ -224,9 +218,7 @@ class _CustomDemoState extends State<CustomDemo> {
                 'COUNT WITH DASH!',
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
-              const SizedBox(
-                height: 26,
-              ),
+              const SizedBox(height: 26),
               Container(
                 width: 98,
                 height: 98,
@@ -287,9 +279,7 @@ class _CustomDemoState extends State<CustomDemo> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 12,
-                    ),
+                    const SizedBox(width: 12),
                     Center(
                       child: Container(
                         width: 42,

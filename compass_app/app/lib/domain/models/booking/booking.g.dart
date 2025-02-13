@@ -11,11 +11,13 @@ _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num?)?.toInt(),
       startDate: DateTime.parse(json['startDate'] as String),
       endDate: DateTime.parse(json['endDate'] as String),
-      destination:
-          Destination.fromJson(json['destination'] as Map<String, dynamic>),
-      activity: (json['activity'] as List<dynamic>)
-          .map((e) => Activity.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      destination: Destination.fromJson(
+        json['destination'] as Map<String, dynamic>,
+      ),
+      activity:
+          (json['activity'] as List<dynamic>)
+              .map((e) => Activity.fromJson(e as Map<String, dynamic>))
+              .toList(),
     );
 
 Map<String, dynamic> _$$BookingImplToJson(_$BookingImpl instance) =>

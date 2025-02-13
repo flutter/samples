@@ -12,22 +12,20 @@ import 'package:provider_shopper/screens/cart.dart';
 CartModel? cartModel;
 CatalogModel? catalogModel;
 Widget createCartScreen() => MultiProvider(
-      providers: [
-        Provider(create: (context) => CatalogModel()),
-        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
-          create: (context) => CartModel(),
-          update: (context, catalog, cart) {
-            catalogModel = catalog;
-            cartModel = cart;
-            cart!.catalog = catalogModel!;
-            return cart;
-          },
-        ),
-      ],
-      child: const MaterialApp(
-        home: MyCart(),
-      ),
-    );
+  providers: [
+    Provider(create: (context) => CatalogModel()),
+    ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+      create: (context) => CartModel(),
+      update: (context, catalog, cart) {
+        catalogModel = catalog;
+        cartModel = cart;
+        cart!.catalog = catalogModel!;
+        return cart;
+      },
+    ),
+  ],
+  child: const MaterialApp(home: MyCart()),
+);
 
 void main() {
   group('CartScreen widget tests', () {

@@ -19,37 +19,46 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
   final String wireName = 'Location';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Location object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Location object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.city;
     if (value != null) {
       result
         ..add('city')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.country;
     if (value != null) {
       result
         ..add('country')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.position;
     if (value != null) {
       result
         ..add('position')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(Position)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(Position)),
+        );
     }
     return result;
   }
 
   @override
-  Location deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Location deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new LocationBuilder();
 
     final iterator = serialized.iterator;
@@ -59,16 +68,29 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       final Object? value = iterator.current;
       switch (key) {
         case 'city':
-          result.city = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.city =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'country':
-          result.country = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.country =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'position':
-          result.position.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Position))! as Position);
+          result.position.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Position),
+                )!
+                as Position,
+          );
           break;
       }
     }
@@ -171,9 +193,13 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   _$Location _build() {
     _$Location _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$Location._(
-              city: city, country: country, position: _position?.build());
+            city: city,
+            country: country,
+            position: _position?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -181,7 +207,10 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
         _position?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'Location', _$failedField, e.toString());
+          r'Location',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

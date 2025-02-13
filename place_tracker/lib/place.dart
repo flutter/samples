@@ -65,8 +65,4 @@ class Place {
       starRating.hashCode;
 }
 
-enum PlaceCategory {
-  favorite,
-  visited,
-  wantToGo,
-}
+enum PlaceCategory { favorite, visited, wantToGo }

@@ -12,54 +12,66 @@ import 'component_screen_test.dart';
 
 void main() {
   testWidgets(
-      'Typography screen shows correctly when the corresponding icon is '
-      'selected on NavigationBar', (tester) async {
-    widgetSetup(tester, 449);
-    addTearDown(tester.view.resetPhysicalSize);
-    await tester.pumpWidget(const App());
+    'Typography screen shows correctly when the corresponding icon is '
+    'selected on NavigationBar',
+    (tester) async {
+      widgetSetup(tester, 449);
+      addTearDown(tester.view.resetPhysicalSize);
+      await tester.pumpWidget(const App());
 
-    expect(find.text('Display Large'), findsNothing);
-    expect(find.byType(NavigationBar), findsOneWidget);
-    Finder textIconOnBar = find.descendant(
+      expect(find.text('Display Large'), findsNothing);
+      expect(find.byType(NavigationBar), findsOneWidget);
+      Finder textIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
-        matching: find.byIcon(Icons.text_snippet_outlined));
-    expect(textIconOnBar, findsOneWidget);
-    await tester.tap(textIconOnBar);
-    await tester.pumpAndSettle(const Duration(microseconds: 500));
-    expect(textIconOnBar, findsNothing);
-    Finder selectedTextIconOnBar = find.descendant(
+        matching: find.byIcon(Icons.text_snippet_outlined),
+      );
+      expect(textIconOnBar, findsOneWidget);
+      await tester.tap(textIconOnBar);
+      await tester.pumpAndSettle(const Duration(microseconds: 500));
+      expect(textIconOnBar, findsNothing);
+      Finder selectedTextIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
-        matching: find.byIcon(Icons.text_snippet));
-    expect(selectedTextIconOnBar, findsOneWidget);
-    expect(find.text('Display Large'), findsOneWidget);
-  });
+        matching: find.byIcon(Icons.text_snippet),
+      );
+      expect(selectedTextIconOnBar, findsOneWidget);
+      expect(find.text('Display Large'), findsOneWidget);
+    },
+  );
 
   testWidgets(
-      'Typography screen shows correctly when the corresponding icon is '
-      'selected on NavigationRail', (tester) async {
-    widgetSetup(
-        tester, 1200); // NavigationRail shows only when width is > 1000.
-    addTearDown(tester.view.resetPhysicalSize);
-    await tester.pumpWidget(const App());
-    expect(find.text('Display Large'), findsNothing);
-    Finder textIconOnRail = find.descendant(
+    'Typography screen shows correctly when the corresponding icon is '
+    'selected on NavigationRail',
+    (tester) async {
+      widgetSetup(
+        tester,
+        1200,
+      ); // NavigationRail shows only when width is > 1000.
+      addTearDown(tester.view.resetPhysicalSize);
+      await tester.pumpWidget(const App());
+      expect(find.text('Display Large'), findsNothing);
+      Finder textIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
-        matching: find.byIcon(Icons.text_snippet_outlined));
-    expect(textIconOnRail, findsOneWidget);
-    await tester.tap(textIconOnRail);
-    await tester.pumpAndSettle(const Duration(microseconds: 500));
-    expect(textIconOnRail, findsNothing);
-    Finder selectedTextIconOnRail = find.descendant(
+        matching: find.byIcon(Icons.text_snippet_outlined),
+      );
+      expect(textIconOnRail, findsOneWidget);
+      await tester.tap(textIconOnRail);
+      await tester.pumpAndSettle(const Duration(microseconds: 500));
+      expect(textIconOnRail, findsNothing);
+      Finder selectedTextIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
-        matching: find.byIcon(Icons.text_snippet));
-    expect(selectedTextIconOnRail, findsOneWidget);
-    expect(find.text('Display Large'), findsOneWidget);
-  });
+        matching: find.byIcon(Icons.text_snippet),
+      );
+      expect(selectedTextIconOnRail, findsOneWidget);
+      expect(find.text('Display Large'), findsOneWidget);
+    },
+  );
 
   testWidgets('Typography screen shows correct content', (tester) async {
-    await tester.pumpWidget(const MaterialApp(
-      home: Scaffold(body: Row(children: [TypographyScreen()])),
-    ));
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: Row(children: [TypographyScreen()])),
+      ),
+    );
     expect(find.text('Display Large'), findsOneWidget);
     expect(find.text('Display Medium'), findsOneWidget);
     expect(find.text('Display Small'), findsOneWidget);
@@ -69,10 +81,7 @@ void main() {
     expect(find.text('Title Large'), findsOneWidget);
     expect(find.text('Title Medium'), findsOneWidget);
     expect(find.text('Title Small'), findsOneWidget);
-    await tester.scrollUntilVisible(
-      find.text('Body Small'),
-      500.0,
-    );
+    await tester.scrollUntilVisible(find.text('Body Small'), 500.0);
     expect(find.text('Label Large'), findsOneWidget);
     expect(find.text('Label Medium'), findsOneWidget);
     expect(find.text('Label Small'), findsOneWidget);

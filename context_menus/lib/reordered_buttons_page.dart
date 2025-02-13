@@ -7,10 +7,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class ReorderedButtonsPage extends StatelessWidget {
-  ReorderedButtonsPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  ReorderedButtonsPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'reordered-buttons';
   static const String title = 'Reordered Buttons';
@@ -33,9 +30,7 @@ class ReorderedButtonsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(ReorderedButtonsPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -52,10 +47,7 @@ class ReorderedButtonsPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextField(
-                maxLines: 2,
-                controller: _controllerNormal,
-              ),
+              TextField(maxLines: 2, controller: _controllerNormal),
               const SizedBox(height: 20.0),
               TextField(
                 controller: _controllerReordered,
@@ -63,16 +55,17 @@ class ReorderedButtonsPage extends StatelessWidget {
                 contextMenuBuilder: (context, editableTextState) {
                   // Reorder the button datas by type.
                   final HashMap<ContextMenuButtonType, ContextMenuButtonItem>
-                      buttonItemsMap =
+                  buttonItemsMap =
                       HashMap<ContextMenuButtonType, ContextMenuButtonItem>();
                   for (ContextMenuButtonItem buttonItem
                       in editableTextState.contextMenuButtonItems) {
                     buttonItemsMap[buttonItem.type] = buttonItem;
                   }
-                  final List<ContextMenuButtonItem> reorderedButtonItems =
-                      <ContextMenuButtonItem>[
-                    if (buttonItemsMap
-                        .containsKey(ContextMenuButtonType.selectAll))
+                  final List<ContextMenuButtonItem>
+                  reorderedButtonItems = <ContextMenuButtonItem>[
+                    if (buttonItemsMap.containsKey(
+                      ContextMenuButtonType.selectAll,
+                    ))
                       buttonItemsMap[ContextMenuButtonType.selectAll]!,
                     if (buttonItemsMap.containsKey(ContextMenuButtonType.paste))
                       buttonItemsMap[ContextMenuButtonType.paste]!,

@@ -66,8 +66,10 @@ class Preferences extends ChangeNotifier {
 
     // Store preferred categories as a comma-separated string containing their
     // indices.
-    await prefs.setString(_preferredCategoriesKey,
-        _preferredCategories.map((c) => c.index.toString()).join(','));
+    await prefs.setString(
+      _preferredCategoriesKey,
+      _preferredCategories.map((c) => c.index.toString()).join(','),
+    );
   }
 
   Future<void> _loadFromSharedPrefs() async {

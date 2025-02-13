@@ -37,7 +37,7 @@ class ActivitiesTitle extends StatelessWidget {
   }
 
   String _label(BuildContext context) => switch (activityTimeOfDay) {
-        ActivityTimeOfDay.daytime => AppLocalization.of(context).daytime,
-        ActivityTimeOfDay.evening => AppLocalization.of(context).evening,
-      };
+    ActivityTimeOfDay.daytime => AppLocalization.of(context).daytime,
+    ActivityTimeOfDay.evening => AppLocalization.of(context).evening,
+  };
 }

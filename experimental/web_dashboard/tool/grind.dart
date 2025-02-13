@@ -11,31 +11,38 @@ void main(List<String> args) => grind(args);
 
 @Task()
 void runSkia() {
-  run('flutter',
-      arguments:
-          'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main.dart '
-              .split(' '));
+  run(
+    'flutter',
+    arguments:
+        'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main.dart '
+            .split(' '),
+  );
 }
 
 @Task()
 void runWeb() {
-  run('flutter',
-      arguments: 'run -d web --web-port=5000 lib/main.dart '.split(' '));
+  run(
+    'flutter',
+    arguments: 'run -d web --web-port=5000 lib/main.dart '.split(' '),
+  );
 }
 
 @Task()
 void runFirebase() {
-  run('flutter',
-      arguments:
-          'run -d web --web-port=5000 lib/main_firebase.dart '.split(' '));
+  run(
+    'flutter',
+    arguments: 'run -d web --web-port=5000 lib/main_firebase.dart '.split(' '),
+  );
 }
 
 @Task()
 void runFirebaseSkia() {
-  run('flutter',
-      arguments:
-          'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_firebase.dart'
-              .split(' '));
+  run(
+    'flutter',
+    arguments:
+        'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_firebase.dart'
+            .split(' '),
+  );
 }
 
 @Task()
@@ -88,8 +95,9 @@ Future fixCopyright() async {
 
 Stream<File> _filesWithoutCopyright() async* {
   var set = FileSet.fromDir(Directory('.'), recurse: true);
-  var dartFiles =
-      set.files.where((file) => path.extension(file.path) == '.dart');
+  var dartFiles = set.files.where(
+    (file) => path.extension(file.path) == '.dart',
+  );
 
   for (var file in dartFiles) {
     var firstThreeLines = await file
@@ -98,9 +106,9 @@ Stream<File> _filesWithoutCopyright() async* {
         .transform(const LineSplitter())
         .take(3)
         .fold<String>('', (previous, element) {
-      if (previous == '') return element;
-      return '$previous\n$element';
-    });
+          if (previous == '') return element;
+          return '$previous\n$element';
+        });
 
     if (firstThreeLines != _copyright) {
       yield file;

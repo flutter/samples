@@ -58,11 +58,7 @@ class EditEntryForm extends StatefulWidget {
   final Entry? entry;
   final ValueChanged<bool> onDone;
 
-  const EditEntryForm({
-    required this.entry,
-    required this.onDone,
-    super.key,
-  });
+  const EditEntryForm({required this.entry, required this.onDone, super.key});
 
   @override
   State<EditEntryForm> createState() => _EditEntryFormState();
@@ -107,11 +103,13 @@ class _EditEntryFormState extends State<EditEntryForm> {
                   child: const Text('Edit'),
                   onPressed: () async {
                     var result = await showDatePicker(
-                        context: context,
-                        initialDate: widget.entry!.time,
-                        firstDate:
-                            DateTime.now().subtract(const Duration(days: 365)),
-                        lastDate: DateTime.now());
+                      context: context,
+                      initialDate: widget.entry!.time,
+                      firstDate: DateTime.now().subtract(
+                        const Duration(days: 365),
+                      ),
+                      lastDate: DateTime.now(),
+                    );
                     if (result == null) {
                       return;
                     }
@@ -119,7 +117,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
                       widget.entry!.time = result;
                     });
                   },
-                )
+                ),
               ],
             ),
           ),
@@ -147,7 +145,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -19,24 +19,33 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
   final String wireName = 'Search';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Search object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Search object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'query',
-      serializers.serialize(object.query,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.query,
+        specifiedType: const FullType(String),
+      ),
       'results',
-      serializers.serialize(object.results,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(Photo)])),
+      serializers.serialize(
+        object.results,
+        specifiedType: const FullType(BuiltList, const [const FullType(Photo)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Search deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Search deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new SearchBuilder();
 
     final iterator = serialized.iterator;
@@ -46,14 +55,23 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
       final Object? value = iterator.current;
       switch (key) {
         case 'query':
-          result.query = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.query =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'results':
-          result.results.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(Photo)]))!
-              as BuiltList<Object?>);
+          result.results.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(Photo),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -148,11 +166,16 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
   _$Search _build() {
     _$Search _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$Search._(
-              query: BuiltValueNullFieldError.checkNotNull(
-                  query, r'Search', 'query'),
-              results: results.build());
+            query: BuiltValueNullFieldError.checkNotNull(
+              query,
+              r'Search',
+              'query',
+            ),
+            results: results.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -160,7 +183,10 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
         results.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'Search', _$failedField, e.toString());
+          r'Search',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

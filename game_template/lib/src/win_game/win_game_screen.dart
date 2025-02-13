@@ -16,10 +16,7 @@ import '../style/responsive_screen.dart';
 class WinGameScreen extends StatelessWidget {
   final Score score;
 
-  const WinGameScreen({
-    super.key,
-    required this.score,
-  });
+  const WinGameScreen({super.key, required this.score});
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +34,7 @@ class WinGameScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             if (adsControllerAvailable && !adsRemoved) ...[
-              const Expanded(
-                child: Center(
-                  child: BannerAdWidget(),
-                ),
-              ),
+              const Expanded(child: Center(child: BannerAdWidget())),
             ],
             gap,
             const Center(
@@ -56,7 +49,9 @@ class WinGameScreen extends StatelessWidget {
                 'Score: ${score.score}\n'
                 'Time: ${score.formattedTime}',
                 style: const TextStyle(
-                    fontFamily: 'Permanent Marker', fontSize: 20),
+                  fontFamily: 'Permanent Marker',
+                  fontSize: 20,
+                ),
               ),
             ),
           ],

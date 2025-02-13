@@ -18,9 +18,7 @@ void main() {
 
     setUp(() {
       fakeApiClient = FakeApiClient();
-      bookingRepository = BookingRepositoryRemote(
-        apiClient: fakeApiClient,
-      );
+      bookingRepository = BookingRepositoryRemote(apiClient: fakeApiClient);
     });
 
     test('should get booking', () async {

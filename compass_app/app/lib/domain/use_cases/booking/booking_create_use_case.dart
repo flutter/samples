@@ -22,9 +22,9 @@ class BookingCreateUseCase {
     required DestinationRepository destinationRepository,
     required ActivityRepository activityRepository,
     required BookingRepository bookingRepository,
-  })  : _destinationRepository = destinationRepository,
-        _activityRepository = activityRepository,
-        _bookingRepository = bookingRepository;
+  }) : _destinationRepository = destinationRepository,
+       _activityRepository = activityRepository,
+       _bookingRepository = bookingRepository;
 
   final DestinationRepository _destinationRepository;
   final ActivityRepository _activityRepository;
@@ -38,8 +38,9 @@ class BookingCreateUseCase {
       _log.warning('Destination is not set');
       return Result.error(Exception('Destination is not set'));
     }
-    final destinationResult =
-        await _fetchDestination(itineraryConfig.destination!);
+    final destinationResult = await _fetchDestination(
+      itineraryConfig.destination!,
+    );
     switch (destinationResult) {
       case Ok<Destination>():
         _log.fine('Destination loaded: ${destinationResult.value.ref}');
@@ -62,11 +63,12 @@ class BookingCreateUseCase {
         return Result.error(activitiesResult.error);
       case Ok<List<Activity>>():
     }
-    final activities = activitiesResult.value
-        .where(
-          (activity) => itineraryConfig.activities.contains(activity.ref),
-        )
-        .toList();
+    final activities =
+        activitiesResult.value
+            .where(
+              (activity) => itineraryConfig.activities.contains(activity.ref),
+            )
+            .toList();
     _log.fine('Activities loaded (${activities.length})');
 
     // Check if dates are set
@@ -100,8 +102,9 @@ class BookingCreateUseCase {
     final result = await _destinationRepository.getDestinations();
     switch (result) {
       case Ok<List<Destination>>():
-        final destination = result.value
-            .firstWhere((destination) => destination.ref == destinationRef);
+        final destination = result.value.firstWhere(
+          (destination) => destination.ref == destinationRef,
+        );
         return Result.ok(destination);
       case Error<List<Destination>>():
         return Result.error(result.error);

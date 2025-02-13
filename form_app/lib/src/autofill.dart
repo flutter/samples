@@ -19,9 +19,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Autofill'),
-      ),
+      appBar: AppBar(title: const Text('Autofill')),
       body: Form(
         key: _formKey,
         child: Scrollbar(
@@ -101,14 +99,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                       ),
                       autofillHints: [AutofillHints.countryCode],
                     ),
-                  ].expand(
-                    (widget) => [
-                      widget,
-                      const SizedBox(
-                        height: 24,
-                      )
-                    ],
-                  )
+                  ].expand((widget) => [widget, const SizedBox(height: 24)]),
                 ],
               ),
             ),

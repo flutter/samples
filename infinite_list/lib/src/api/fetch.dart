@@ -21,22 +21,19 @@ Future<ItemPage> fetchPage(int startingIndex) async {
   // If the [startingIndex] is beyond the bounds of the catalog, an
   // empty page will be returned.
   if (startingIndex > catalogLength) {
-    return ItemPage(
-      items: [],
-      startingIndex: startingIndex,
-      hasNext: false,
-    );
+    return ItemPage(items: [], startingIndex: startingIndex, hasNext: false);
   }
 
   // The page of items is generated here.
   return ItemPage(
     items: List.generate(
-        min(itemsPerPage, catalogLength - startingIndex),
-        (index) => Item(
-              color: Colors.primaries[index % Colors.primaries.length],
-              name: 'Color #${startingIndex + index}',
-              price: 50 + (index * 42) % 200,
-            )),
+      min(itemsPerPage, catalogLength - startingIndex),
+      (index) => Item(
+        color: Colors.primaries[index % Colors.primaries.length],
+        name: 'Color #${startingIndex + index}',
+        price: 50 + (index * 42) % 200,
+      ),
+    ),
     startingIndex: startingIndex,
     // Returns `false` if we've reached the [catalogLength].
     hasNext: startingIndex + itemsPerPage < catalogLength,

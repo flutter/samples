@@ -10,25 +10,29 @@ void main() {
     test('addBook', () {
       final library = Library();
       library.addBook(
-          title: 'Left Hand of Darkness',
-          authorName: 'Ursula K. Le Guin',
-          isPopular: true,
-          isNew: true);
+        title: 'Left Hand of Darkness',
+        authorName: 'Ursula K. Le Guin',
+        isPopular: true,
+        isNew: true,
+      );
       library.addBook(
-          title: 'Too Like the Lightning',
-          authorName: 'Ada Palmer',
-          isPopular: false,
-          isNew: true);
+        title: 'Too Like the Lightning',
+        authorName: 'Ada Palmer',
+        isPopular: false,
+        isNew: true,
+      );
       library.addBook(
-          title: 'Kindred',
-          authorName: 'Octavia E. Butler',
-          isPopular: true,
-          isNew: false);
+        title: 'Kindred',
+        authorName: 'Octavia E. Butler',
+        isPopular: true,
+        isNew: false,
+      );
       library.addBook(
-          title: 'The Lathe of Heaven',
-          authorName: 'Ursula K. Le Guin',
-          isPopular: false,
-          isNew: false);
+        title: 'The Lathe of Heaven',
+        authorName: 'Ursula K. Le Guin',
+        isPopular: false,
+        isNew: false,
+      );
       expect(library.allAuthors.length, 3);
       expect(library.allAuthors.first.books.length, 2);
       expect(library.allBooks.length, 4);

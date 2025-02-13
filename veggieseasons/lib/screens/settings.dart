@@ -58,10 +58,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
                   },
                 );
               } else {
-                toggle = const CupertinoSwitch(
-                  value: false,
-                  onChanged: null,
-                );
+                toggle = const CupertinoSwitch(value: false, onChanged: null);
               }
 
               tiles.add(
@@ -136,9 +133,10 @@ class CalorieSettingsScreen extends StatelessWidget {
                                 : Styles.transparentColor,
                         backgroundColor: Styles.transparentColor,
                       ),
-                      onTap: snapshot.hasData
-                          ? () => model.setDesiredCalories(cals)
-                          : null,
+                      onTap:
+                          snapshot.hasData
+                              ? () => model.setDesiredCalories(cals)
+                              : null,
                     ),
                   );
                 }
@@ -147,12 +145,14 @@ class CalorieSettingsScreen extends StatelessWidget {
                   header: Text(
                     'Available calorie levels'.toUpperCase(),
                     style: Styles.settingsGroupHeaderText(
-                        CupertinoTheme.of(context)),
+                      CupertinoTheme.of(context),
+                    ),
                   ),
                   footer: Text(
                     'These are used for serving calculations',
                     style: Styles.settingsGroupFooterText(
-                        CupertinoTheme.of(context)),
+                      CupertinoTheme.of(context),
+                    ),
                   ),
                   children: tiles,
                 );
@@ -176,7 +176,9 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   CupertinoListTile _buildCaloriesTile(
-      BuildContext context, Preferences prefs) {
+    BuildContext context,
+    Preferences prefs,
+  ) {
     return CupertinoListTile.notched(
       leading: const SettingsIcon(
         backgroundColor: CupertinoColors.systemBlue,
@@ -198,7 +200,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   CupertinoListTile _buildCategoriesTile(
-      BuildContext context, Preferences prefs) {
+    BuildContext context,
+    Preferences prefs,
+  ) {
     return CupertinoListTile.notched(
       leading: const SettingsIcon(
         backgroundColor: CupertinoColors.systemOrange,
@@ -211,7 +215,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   CupertinoListTile _buildRestoreDefaultsTile(
-      BuildContext context, Preferences prefs) {
+    BuildContext context,
+    Preferences prefs,
+  ) {
     return CupertinoListTile.notched(
       leading: const SettingsIcon(
         backgroundColor: CupertinoColors.systemRed,
@@ -221,28 +227,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
       onTap: () {
         showCupertinoDialog<void>(
           context: context,
-          builder: (context) => CupertinoAlertDialog(
-            title: const Text('Are you sure?'),
-            content: const Text(
-              'Are you sure you want to reset the current settings?',
-            ),
-            actions: [
-              CupertinoDialogAction(
-                isDestructiveAction: true,
-                child: const Text('Yes'),
-                onPressed: () async {
-                  await prefs.restoreDefaults();
-                  if (!context.mounted) return;
-                  context.pop();
-                },
+          builder:
+              (context) => CupertinoAlertDialog(
+                title: const Text('Are you sure?'),
+                content: const Text(
+                  'Are you sure you want to reset the current settings?',
+                ),
+                actions: [
+                  CupertinoDialogAction(
+                    isDestructiveAction: true,
+                    child: const Text('Yes'),
+                    onPressed: () async {
+                      await prefs.restoreDefaults();
+                      if (!context.mounted) return;
+                      context.pop();
+                    },
+                  ),
+                  CupertinoDialogAction(
+                    isDefaultAction: true,
+                    child: const Text('No'),
+                    onPressed: () => context.pop(),
+                  ),
+                ],
               ),
-              CupertinoDialogAction(
-                isDefaultAction: true,
-                child: const Text('No'),
-                onPressed: () => context.pop(),
-              )
-            ],
-          ),
         );
       },
     );
@@ -253,29 +260,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final prefs = Provider.of<Preferences>(context);
 
     return CupertinoPageScaffold(
-      backgroundColor:
-          Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
+      backgroundColor: Styles.scaffoldBackground(
+        CupertinoTheme.brightnessOf(context),
+      ),
       child: CustomScrollView(
         slivers: <Widget>[
-          const CupertinoSliverNavigationBar(
-            largeTitle: Text('Settings'),
-          ),
+          const CupertinoSliverNavigationBar(largeTitle: Text('Settings')),
           SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                CupertinoListSection.insetGrouped(
-                  children: [
-                    _buildCaloriesTile(context, prefs),
-                    _buildCategoriesTile(context, prefs),
-                  ],
-                ),
-                CupertinoListSection.insetGrouped(
-                  children: [
-                    _buildRestoreDefaultsTile(context, prefs),
-                  ],
-                ),
-              ],
-            ),
+            delegate: SliverChildListDelegate([
+              CupertinoListSection.insetGrouped(
+                children: [
+                  _buildCaloriesTile(context, prefs),
+                  _buildCategoriesTile(context, prefs),
+                ],
+              ),
+              CupertinoListSection.insetGrouped(
+                children: [_buildRestoreDefaultsTile(context, prefs)],
+              ),
+            ]),
           ),
         ],
       ),
@@ -302,13 +304,7 @@ class SettingsIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         color: backgroundColor,
       ),
-      child: Center(
-        child: Icon(
-          icon,
-          color: foregroundColor,
-          size: 20,
-        ),
-      ),
+      child: Center(child: Icon(icon, color: foregroundColor, size: 20)),
     );
   }
 }

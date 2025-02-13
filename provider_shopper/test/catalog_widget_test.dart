@@ -10,20 +10,18 @@ import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/catalog.dart';
 
 Widget createCatalogScreen() => MultiProvider(
-      providers: [
-        Provider(create: (context) => CatalogModel()),
-        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
-          create: (context) => CartModel(),
-          update: (context, catalog, cart) {
-            cart!.catalog = catalog;
-            return cart;
-          },
-        ),
-      ],
-      child: const MaterialApp(
-        home: MyCatalog(),
-      ),
-    );
+  providers: [
+    Provider(create: (context) => CatalogModel()),
+    ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+      create: (context) => CartModel(),
+      update: (context, catalog, cart) {
+        cart!.catalog = catalog;
+        return cart;
+      },
+    ),
+  ],
+  child: const MaterialApp(home: MyCatalog()),
+);
 
 void main() {
   final catalogListItems = CatalogModel.itemNames.sublist(0, 3);
@@ -39,8 +37,9 @@ void main() {
       }
     });
 
-    testWidgets('Testing the ADD buttons and check after clicking',
-        (tester) async {
+    testWidgets('Testing the ADD buttons and check after clicking', (
+      tester,
+    ) async {
       await tester.pumpWidget(createCatalogScreen());
 
       // Should find ADD buttons on the screen.

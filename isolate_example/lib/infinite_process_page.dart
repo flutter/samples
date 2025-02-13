@@ -48,9 +48,7 @@ class InfiniteProcessPage extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          const Expanded(
-            child: RunningList(),
-          ),
+          const Expanded(child: RunningList()),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -96,7 +94,7 @@ class InfiniteProcessPage extends StatelessWidget {
                       groupValue: controller.currentMultiplier,
                       onChanged: (val) => controller.setMultiplier(val!),
                     ),
-                    Text('${i}x')
+                    Text('${i}x'),
                   ],
                 ],
               ),
@@ -129,8 +127,10 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
 
   Future<void> createIsolate() async {
     receivePort = ReceivePort();
-    newIsolate =
-        await Isolate.spawn(_secondIsolateEntryPoint, receivePort.sendPort);
+    newIsolate = await Isolate.spawn(
+      _secondIsolateEntryPoint,
+      receivePort.sendPort,
+    );
   }
 
   void listen() {
@@ -201,27 +201,23 @@ class RunningList extends StatelessWidget {
     var sums = controller.currentResults;
 
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-      ),
+      decoration: BoxDecoration(color: Colors.grey[200]),
       child: ListView.builder(
         itemCount: sums.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
               Card(
-                color: (controller.created && !controller.paused)
-                    ? Colors.lightGreenAccent
-                    : Colors.deepOrangeAccent,
+                color:
+                    (controller.created && !controller.paused)
+                        ? Colors.lightGreenAccent
+                        : Colors.deepOrangeAccent,
                 child: ListTile(
                   leading: Text('${sums.length - index}.'),
                   title: Text('${sums[index]}.'),
                 ),
               ),
-              const Divider(
-                color: Colors.blue,
-                height: 3,
-              ),
+              const Divider(color: Colors.blue, height: 3),
             ],
           );
         },

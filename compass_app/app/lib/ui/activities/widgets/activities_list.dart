@@ -33,28 +33,24 @@ class ActivitiesList extends StatelessWidget {
         bottom: Dimens.paddingVertical,
       ),
       sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            final activity = list[index];
-            return Padding(
-              padding:
-                  EdgeInsets.only(bottom: index < list.length - 1 ? 20 : 0),
-              child: ActivityEntry(
-                key: ValueKey(activity.ref),
-                activity: activity,
-                selected: viewModel.selectedActivities.contains(activity.ref),
-                onChanged: (value) {
-                  if (value!) {
-                    viewModel.addActivity(activity.ref);
-                  } else {
-                    viewModel.removeActivity(activity.ref);
-                  }
-                },
-              ),
-            );
-          },
-          childCount: list.length,
-        ),
+        delegate: SliverChildBuilderDelegate((context, index) {
+          final activity = list[index];
+          return Padding(
+            padding: EdgeInsets.only(bottom: index < list.length - 1 ? 20 : 0),
+            child: ActivityEntry(
+              key: ValueKey(activity.ref),
+              activity: activity,
+              selected: viewModel.selectedActivities.contains(activity.ref),
+              onChanged: (value) {
+                if (value!) {
+                  viewModel.addActivity(activity.ref);
+                } else {
+                  viewModel.removeActivity(activity.ref);
+                }
+              },
+            ),
+          );
+        }, childCount: list.length),
       ),
     );
   }

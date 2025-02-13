@@ -10,11 +10,7 @@ import '../../../utils/image_error_listener.dart';
 import '../../core/ui/tag_chip.dart';
 
 class ResultCard extends StatelessWidget {
-  const ResultCard({
-    super.key,
-    required this.destination,
-    required this.onTap,
-  });
+  const ResultCard({super.key, required this.destination, required this.onTap});
 
   final Destination destination;
   final GestureTapCallback onTap;
@@ -40,13 +36,8 @@ class ResultCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  destination.name.toUpperCase(),
-                  style: _cardTitleStyle,
-                ),
-                const SizedBox(
-                  height: 6,
-                ),
+                Text(destination.name.toUpperCase(), style: _cardTitleStyle),
+                const SizedBox(height: 6),
                 Wrap(
                   spacing: 4.0,
                   runSpacing: 4.0,
@@ -61,9 +52,7 @@ class ResultCard extends StatelessWidget {
           Positioned.fill(
             child: Material(
               color: Colors.transparent,
-              child: InkWell(
-                onTap: onTap,
-              ),
+              child: InkWell(onTap: onTap),
             ),
           ),
         ],
@@ -80,10 +69,7 @@ final _cardTitleStyle = GoogleFonts.rubik(
     letterSpacing: 1,
     shadows: [
       // Helps to read the text a bit better
-      Shadow(
-        blurRadius: 3.0,
-        color: Colors.black,
-      )
+      Shadow(blurRadius: 3.0, color: Colors.black),
     ],
   ),
 );

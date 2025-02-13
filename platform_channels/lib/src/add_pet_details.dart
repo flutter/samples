@@ -31,24 +31,19 @@ class _AddPetDetailsState extends State<AddPetDetails> {
             icon: const Icon(Icons.add),
             onPressed: () {
               PetListMessageChannel.addPetDetails(
-                PetDetails(
-                  petType: petType,
-                  breed: breedTextController.text,
-                ),
+                PetDetails(petType: petType, breed: breedTextController.text),
               );
 
               context.pop();
             },
-          )
+          ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             TextField(
               controller: breedTextController,
               decoration: const InputDecoration(
@@ -58,9 +53,7 @@ class _AddPetDetailsState extends State<AddPetDetails> {
                 labelText: 'Breed',
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             RadioListTile<String>(
               title: const Text('Dog'),
               value: 'Dog',

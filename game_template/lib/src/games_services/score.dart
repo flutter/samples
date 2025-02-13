@@ -37,9 +37,12 @@ class Score {
       buf.write('$minutes');
     }
     buf.write(':');
-    buf.write((duration.inSeconds % Duration.secondsPerMinute)
-        .toString()
-        .padLeft(2, '0'));
+    buf.write(
+      (duration.inSeconds % Duration.secondsPerMinute).toString().padLeft(
+        2,
+        '0',
+      ),
+    );
     return buf.toString();
   }
 

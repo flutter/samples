@@ -9,9 +9,8 @@ import '../../../../utils/command.dart';
 import '../../../../utils/result.dart';
 
 class LoginViewModel {
-  LoginViewModel({
-    required AuthRepository authRepository,
-  }) : _authRepository = authRepository {
+  LoginViewModel({required AuthRepository authRepository})
+    : _authRepository = authRepository {
     login = Command1<void, (String email, String password)>(_login);
   }
 

@@ -40,6 +40,5 @@ class VeggieSeasonsPageRoute<T> extends PageRoute<T> {
     BuildContext context,
     Animation<double> animation,
     Animation<double> secondaryAnimation,
-  ) =>
-      _page.child;
+  ) => _page.child;
 }

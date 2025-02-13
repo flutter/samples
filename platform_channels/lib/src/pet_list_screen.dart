@@ -26,8 +26,10 @@ class _PetListScreenState extends State<PetListScreen> {
     // Receives a string of json object from the platform and converts it
     // to PetModel.
     final scaffoldMessenger = ScaffoldMessenger.of(context);
-    const BasicMessageChannel<String?>('stringCodecDemo', StringCodec())
-        .setMessageHandler((message) async {
+    const BasicMessageChannel<String?>(
+      'stringCodecDemo',
+      StringCodec(),
+    ).setMessageHandler((message) async {
       if (message == null) {
         scaffoldMessenger.showSnackBar(
           const SnackBar(
@@ -47,18 +49,17 @@ class _PetListScreenState extends State<PetListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: const Text('Pet List'),
-      ),
+      appBar: AppBar(title: const Text('Pet List')),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           context.go('/petListScreen/addPetDetails');
         },
       ),
-      body: petListModel.petList.isEmpty
-          ? const Center(child: Text('Enter Pet Details'))
-          : BuildPetList(petListModel.petList),
+      body:
+          petListModel.petList.isEmpty
+              ? const Center(child: Text('Enter Pet Details'))
+              : BuildPetList(petListModel.petList),
     );
   }
 }
@@ -77,9 +78,7 @@ class BuildPetList extends StatelessWidget {
       itemBuilder: (context, index) {
         return ListTile(
           title: Text('Pet breed: ${petList[index].breed}'),
-          subtitle: Text(
-            'Pet type: ${petList[index].petType}',
-          ),
+          subtitle: Text('Pet type: ${petList[index].petType}'),
           trailing: IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () async {
@@ -90,9 +89,11 @@ class BuildPetList extends StatelessWidget {
                   const SnackBar(content: Text('Removed successfully!')),
                 );
               } catch (error) {
-                scaffoldMessenger.showSnackBar(SnackBar(
-                  content: Text((error as PlatformException).message!),
-                ));
+                scaffoldMessenger.showSnackBar(
+                  SnackBar(
+                    content: Text((error as PlatformException).message!),
+                  ),
+                );
               }
             },
           ),

@@ -29,21 +29,20 @@ class PressableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: borderRadius,
-        ),
-        child: ClipRRect(
-          borderRadius: borderRadius,
-          child: child,
-        ),
+        decoration: BoxDecoration(borderRadius: borderRadius),
+        child: ClipRRect(borderRadius: borderRadius, child: child),
       ),
     );
   }
 }
 
 class VeggieCard extends StatelessWidget {
-  const VeggieCard(this.veggie, this.isInSeason, this.isPreferredCategory,
-      {super.key});
+  const VeggieCard(
+    this.veggie,
+    this.isInSeason,
+    this.isPreferredCategory, {
+    super.key,
+  });
 
   /// Veggie to be displayed by the card.
   final Veggie veggie;
@@ -64,10 +63,7 @@ class VeggieCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              veggie.name,
-              style: Styles.cardTitleText(themeData),
-            ),
+            Text(veggie.name, style: Styles.cardTitleText(themeData)),
             const SizedBox(height: 8),
             Text(
               veggie.shortDescription,
@@ -99,9 +95,7 @@ class VeggieCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   colorFilter:
                       isInSeason ? null : Styles.desaturatedColorFilter,
-                  image: AssetImage(
-                    veggie.imageAssetPath,
-                  ),
+                  image: AssetImage(veggie.imageAssetPath),
                 ),
               ),
             ),

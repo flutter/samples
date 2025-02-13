@@ -6,10 +6,7 @@ import 'constants.dart';
 import 'platform_selector.dart';
 
 class FieldTypesPage extends StatelessWidget {
-  FieldTypesPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  FieldTypesPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'field-types';
   static const String title = 'The Context Menu in Different Field Types';
@@ -36,8 +33,9 @@ class FieldTypesPage extends StatelessWidget {
 
   final TextEditingController _cupertinoControllerForced =
       TextEditingController(
-    text: 'Or forced to always show a specific menu (Material desktop menu).',
-  );
+        text:
+            'Or forced to always show a specific menu (Material desktop menu).',
+      );
 
   final TextEditingController _editableController = TextEditingController(
     text:
@@ -50,9 +48,7 @@ class FieldTypesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(FieldTypesPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -69,15 +65,9 @@ class FieldTypesPage extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               const SizedBox(height: 20.0),
-              TextField(
-                maxLines: 3,
-                controller: _controller,
-              ),
+              TextField(maxLines: 3, controller: _controller),
               const SizedBox(height: 60.0),
-              CupertinoTextField(
-                maxLines: 3,
-                controller: _cupertinoController,
-              ),
+              CupertinoTextField(maxLines: 3, controller: _cupertinoController),
               const SizedBox(height: 20.0),
               CupertinoTextField(
                 maxLines: 3,
@@ -95,10 +85,11 @@ class FieldTypesPage extends StatelessWidget {
                 contextMenuBuilder: (context, editableTextState) {
                   return DesktopTextSelectionToolbar(
                     anchor: editableTextState.contextMenuAnchors.primaryAnchor,
-                    children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
-                      context,
-                      editableTextState.contextMenuButtonItems,
-                    ).toList(),
+                    children:
+                        AdaptiveTextSelectionToolbar.getAdaptiveButtons(
+                          context,
+                          editableTextState.contextMenuButtonItems,
+                        ).toList(),
                   );
                 },
               ),

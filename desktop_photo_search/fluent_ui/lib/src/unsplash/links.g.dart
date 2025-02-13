@@ -19,44 +19,54 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
   final String wireName = 'Links';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Links object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Links object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.self;
     if (value != null) {
       result
         ..add('self')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.html;
     if (value != null) {
       result
         ..add('html')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.download;
     if (value != null) {
       result
         ..add('download')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.downloadLocation;
     if (value != null) {
       result
         ..add('download_location')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  Links deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Links deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = new LinksBuilder();
 
     final iterator = serialized.iterator;
@@ -66,20 +76,36 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
       final Object? value = iterator.current;
       switch (key) {
         case 'self':
-          result.self = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.self =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'html':
-          result.html = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.html =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'download':
-          result.download = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.download =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'download_location':
-          result.downloadLocation = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+          result.downloadLocation =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -102,7 +128,7 @@ class _$Links extends Links {
       (new LinksBuilder()..update(updates))._build();
 
   _$Links._({this.self, this.html, this.download, this.downloadLocation})
-      : super._();
+    : super._();
 
   @override
   Links rebuild(void Function(LinksBuilder) updates) =>
@@ -192,12 +218,14 @@ class LinksBuilder implements Builder<Links, LinksBuilder> {
   Links build() => _build();
 
   _$Links _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$Links._(
-            self: self,
-            html: html,
-            download: download,
-            downloadLocation: downloadLocation);
+          self: self,
+          html: html,
+          download: download,
+          downloadLocation: downloadLocation,
+        );
     replace(_$result);
     return _$result;
   }

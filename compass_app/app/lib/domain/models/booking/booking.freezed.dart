@@ -12,7 +12,8 @@ part of 'booking.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Booking _$BookingFromJson(Map<String, dynamic> json) {
   return _Booking.fromJson(json);
@@ -50,12 +51,13 @@ abstract class $BookingCopyWith<$Res> {
   factory $BookingCopyWith(Booking value, $Res Function(Booking) then) =
       _$BookingCopyWithImpl<$Res, Booking>;
   @useResult
-  $Res call(
-      {int? id,
-      DateTime startDate,
-      DateTime endDate,
-      Destination destination,
-      List<Activity> activity});
+  $Res call({
+    int? id,
+    DateTime startDate,
+    DateTime endDate,
+    Destination destination,
+    List<Activity> activity,
+  });
 
   $DestinationCopyWith<$Res> get destination;
 }
@@ -81,28 +83,36 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
     Object? destination = null,
     Object? activity = null,
   }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Destination,
-      activity: null == activity
-          ? _value.activity
-          : activity // ignore: cast_nullable_to_non_nullable
-              as List<Activity>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            startDate:
+                null == startDate
+                    ? _value.startDate
+                    : startDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            endDate:
+                null == endDate
+                    ? _value.endDate
+                    : endDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            destination:
+                null == destination
+                    ? _value.destination
+                    : destination // ignore: cast_nullable_to_non_nullable
+                        as Destination,
+            activity:
+                null == activity
+                    ? _value.activity
+                    : activity // ignore: cast_nullable_to_non_nullable
+                        as List<Activity>,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of Booking
@@ -119,16 +129,18 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
 /// @nodoc
 abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
   factory _$$BookingImplCopyWith(
-          _$BookingImpl value, $Res Function(_$BookingImpl) then) =
-      __$$BookingImplCopyWithImpl<$Res>;
+    _$BookingImpl value,
+    $Res Function(_$BookingImpl) then,
+  ) = __$$BookingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int? id,
-      DateTime startDate,
-      DateTime endDate,
-      Destination destination,
-      List<Activity> activity});
+  $Res call({
+    int? id,
+    DateTime startDate,
+    DateTime endDate,
+    Destination destination,
+    List<Activity> activity,
+  });
 
   @override
   $DestinationCopyWith<$Res> get destination;
@@ -139,8 +151,9 @@ class __$$BookingImplCopyWithImpl<$Res>
     extends _$BookingCopyWithImpl<$Res, _$BookingImpl>
     implements _$$BookingImplCopyWith<$Res> {
   __$$BookingImplCopyWithImpl(
-      _$BookingImpl _value, $Res Function(_$BookingImpl) _then)
-      : super(_value, _then);
+    _$BookingImpl _value,
+    $Res Function(_$BookingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Booking
   /// with the given fields replaced by the non-null parameter values.
@@ -153,41 +166,48 @@ class __$$BookingImplCopyWithImpl<$Res>
     Object? destination = null,
     Object? activity = null,
   }) {
-    return _then(_$BookingImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Destination,
-      activity: null == activity
-          ? _value._activity
-          : activity // ignore: cast_nullable_to_non_nullable
-              as List<Activity>,
-    ));
+    return _then(
+      _$BookingImpl(
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        startDate:
+            null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        endDate:
+            null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        destination:
+            null == destination
+                ? _value.destination
+                : destination // ignore: cast_nullable_to_non_nullable
+                    as Destination,
+        activity:
+            null == activity
+                ? _value._activity
+                : activity // ignore: cast_nullable_to_non_nullable
+                    as List<Activity>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BookingImpl implements _Booking {
-  const _$BookingImpl(
-      {this.id,
-      required this.startDate,
-      required this.endDate,
-      required this.destination,
-      required final List<Activity> activity})
-      : _activity = activity;
+  const _$BookingImpl({
+    this.id,
+    required this.startDate,
+    required this.endDate,
+    required this.destination,
+    required final List<Activity> activity,
+  }) : _activity = activity;
 
   factory _$BookingImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookingImplFromJson(json);
@@ -241,8 +261,14 @@ class _$BookingImpl implements _Booking {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, startDate, endDate,
-      destination, const DeepCollectionEquality().hash(_activity));
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    startDate,
+    endDate,
+    destination,
+    const DeepCollectionEquality().hash(_activity),
+  );
 
   /// Create a copy of Booking
   /// with the given fields replaced by the non-null parameter values.
@@ -254,19 +280,18 @@ class _$BookingImpl implements _Booking {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BookingImplToJson(
-      this,
-    );
+    return _$$BookingImplToJson(this);
   }
 }
 
 abstract class _Booking implements Booking {
-  const factory _Booking(
-      {final int? id,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final Destination destination,
-      required final List<Activity> activity}) = _$BookingImpl;
+  const factory _Booking({
+    final int? id,
+    required final DateTime startDate,
+    required final DateTime endDate,
+    required final Destination destination,
+    required final List<Activity> activity,
+  }) = _$BookingImpl;
 
   factory _Booking.fromJson(Map<String, dynamic> json) = _$BookingImpl.fromJson;
 

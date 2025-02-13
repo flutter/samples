@@ -37,8 +37,9 @@ void main() {
         '/destination/${kDestination1.ref}/activity',
         activites,
       );
-      final result =
-          await apiClient.getActivityByDestination(kDestination1.ref);
+      final result = await apiClient.getActivityByDestination(
+        kDestination1.ref,
+      );
       expect(result.asOk.value, activites);
     });
 

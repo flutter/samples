@@ -6,9 +6,8 @@ import 'package:animations/src/misc/animated_positioned.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createAnimatedPositionedDemoScreen() => const MaterialApp(
-      home: AnimatedPositionedDemo(),
-    );
+Widget createAnimatedPositionedDemoScreen() =>
+    const MaterialApp(home: AnimatedPositionedDemo());
 
 void main() {
   group('AnimatedPositioned Tests', () {

@@ -16,16 +16,20 @@ class ListScreen extends StatelessWidget {
 
   final String? restorationId;
 
-  Widget _generateVeggieCard(Veggie veggie, Preferences prefs,
-      {bool inSeason = true}) {
+  Widget _generateVeggieCard(
+    Veggie veggie,
+    Preferences prefs, {
+    bool inSeason = true,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
       child: FutureBuilder<Set<VeggieCategory>>(
-          future: prefs.preferredCategories,
-          builder: (context, snapshot) {
-            final data = snapshot.data ?? <VeggieCategory>{};
-            return VeggieCard(veggie, inSeason, data.contains(veggie.category));
-          }),
+        future: prefs.preferredCategories,
+        builder: (context, snapshot) {
+          final data = snapshot.data ?? <VeggieCategory>{};
+          return VeggieCard(veggie, inSeason, data.contains(veggie.category));
+        },
+      ),
     );
   }
 
@@ -39,7 +43,8 @@ class ListScreen extends StatelessWidget {
         final themeData = CupertinoTheme.of(context);
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle(
-              statusBarBrightness: MediaQuery.platformBrightnessOf(context)),
+            statusBarBrightness: MediaQuery.platformBrightnessOf(context),
+          ),
           child: SafeArea(
             bottom: false,
             child: ListView.builder(
@@ -49,8 +54,10 @@ class ListScreen extends StatelessWidget {
                 if (index == 0) {
                   return Padding(
                     padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                    child: Text('In season today',
-                        style: Styles.headlineText(themeData)),
+                    child: Text(
+                      'In season today',
+                      style: Styles.headlineText(themeData),
+                    ),
                   );
                 } else if (index <= appState.availableVeggies.length) {
                   return _generateVeggieCard(
@@ -60,15 +67,19 @@ class ListScreen extends StatelessWidget {
                 } else if (index <= appState.availableVeggies.length + 1) {
                   return Padding(
                     padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                    child: Text('Not in season',
-                        style: Styles.headlineText(themeData)),
+                    child: Text(
+                      'Not in season',
+                      style: Styles.headlineText(themeData),
+                    ),
                   );
                 } else {
                   var relativeIndex =
                       index - (appState.availableVeggies.length + 2);
                   return _generateVeggieCard(
-                      appState.unavailableVeggies[relativeIndex], prefs,
-                      inSeason: false);
+                    appState.unavailableVeggies[relativeIndex],
+                    prefs,
+                    inSeason: false,
+                  );
                 }
               },
             ),

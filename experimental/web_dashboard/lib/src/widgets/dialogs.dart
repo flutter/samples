@@ -17,9 +17,7 @@ class NewCategoryDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SimpleDialog(
       title: Text('New Category'),
-      children: [
-        NewCategoryForm(),
-      ],
+      children: [NewCategoryForm()],
     );
   }
 }
@@ -27,10 +25,7 @@ class NewCategoryDialog extends StatelessWidget {
 class EditCategoryDialog extends StatelessWidget {
   final Category category;
 
-  const EditCategoryDialog({
-    required this.category,
-    super.key,
-  });
+  const EditCategoryDialog({required this.category, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +60,7 @@ class _NewEntryDialogState extends State<NewEntryDialog> {
   Widget build(BuildContext context) {
     return const SimpleDialog(
       title: Text('New Entry'),
-      children: [
-        NewEntryForm(),
-      ],
+      children: [NewEntryForm()],
     );
   }
 }
@@ -76,11 +69,7 @@ class EditEntryDialog extends StatelessWidget {
   final Category? category;
   final Entry? entry;
 
-  const EditEntryDialog({
-    this.category,
-    this.entry,
-    super.key,
-  });
+  const EditEntryDialog({this.category, this.entry, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +86,7 @@ class EditEntryDialog extends StatelessWidget {
             }
             Navigator.of(context).pop();
           },
-        )
+        ),
       ],
     );
   }

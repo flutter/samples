@@ -1,3 +1,4 @@
-An in-progress exploration of an iOS-style Date Planner app, 
-similar to the SwiftUI Tutorial app
-[Date Planner](https://developer.apple.com/tutorials/sample-apps/dateplanner).
+# Sample retired
+
+The date-planner app has been retired. For examples of iOS and 
+Cupertino-style applications, see the [rolodex][../rolodex/] app.

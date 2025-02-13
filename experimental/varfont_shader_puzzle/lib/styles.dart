@@ -36,7 +36,8 @@ class ButtonStyles {
       }),
       shape: WidgetStateProperty.resolveWith<OutlinedBorder>((states) {
         return const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(18)));
+          borderRadius: BorderRadius.all(Radius.circular(18)),
+        );
       }),
       overlayColor: null,
       backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {

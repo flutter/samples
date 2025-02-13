@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Shows custom buttons in the built-in context menu',
-      (tester) async {
+  testWidgets('Shows custom buttons in the built-in context menu', (
+    tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CustomButtonsPage example.
@@ -40,8 +41,10 @@ void main() {
         expect(find.byType(CupertinoButton), findsNWidgets(2));
       case TargetPlatform.macOS:
         expect(find.byType(CupertinoButton), findsNWidgets(2));
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
-            findsNothing);
+        expect(
+          find.byType(CupertinoDesktopTextSelectionToolbarButton),
+          findsNothing,
+        );
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         expect(find.byType(CupertinoButton), findsNWidgets(1));

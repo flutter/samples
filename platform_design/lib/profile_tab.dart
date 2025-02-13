@@ -54,9 +54,7 @@ class ProfileTab extends StatelessWidget {
                 'Into the darkness',
               ],
             ),
-            Expanded(
-              child: Container(),
-            ),
+            Expanded(child: Container()),
             const LogOutButton(),
           ],
         ),
@@ -71,9 +69,7 @@ class ProfileTab extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(title),
-      ),
+      appBar: AppBar(title: const Text(title)),
       body: _buildBody(context),
     );
   }
@@ -103,10 +99,7 @@ class ProfileTab extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
+    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
   }
 }
 
@@ -135,10 +128,7 @@ class PreferenceCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 40),
               child: Center(
-                child: Text(
-                  content,
-                  style: const TextStyle(fontSize: 48),
-                ),
+                child: Text(content, style: const TextStyle(fontSize: 48)),
               ),
             ),
           ),
@@ -172,7 +162,8 @@ class PreferenceCard extends StatelessWidget {
 
 class LogOutButton extends StatelessWidget {
   static const _logoutMessage = Text(
-      "You can't actually log out! This is just a demo of how alerts work.");
+    "You can't actually log out! This is just a demo of how alerts work.",
+  );
 
   const LogOutButton({super.key});
 
@@ -252,9 +243,6 @@ class LogOutButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
+    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
   }
 }

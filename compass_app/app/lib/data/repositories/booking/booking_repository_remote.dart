@@ -12,9 +12,8 @@ import '../../services/api/model/booking/booking_api_model.dart';
 import 'booking_repository.dart';
 
 class BookingRepositoryRemote implements BookingRepository {
-  BookingRepositoryRemote({
-    required ApiClient apiClient,
-  }) : _apiClient = apiClient;
+  BookingRepositoryRemote({required ApiClient apiClient})
+    : _apiClient = apiClient;
 
   final ApiClient _apiClient;
 
@@ -62,18 +61,21 @@ class BookingRepositoryRemote implements BookingRepository {
 
       // Get destination for booking
       final destination = _cachedDestinations!.firstWhere(
-          (destination) => destination.ref == booking.destinationRef);
+        (destination) => destination.ref == booking.destinationRef,
+      );
 
-      final resultActivities =
-          await _apiClient.getActivityByDestination(destination.ref);
+      final resultActivities = await _apiClient.getActivityByDestination(
+        destination.ref,
+      );
       switch (resultActivities) {
         case Error<List<Activity>>():
           return Result.error(resultActivities.error);
         case Ok<List<Activity>>():
       }
-      final activities = resultActivities.value
-          .where((activity) => booking.activitiesRef.contains(activity.ref))
-          .toList();
+      final activities =
+          resultActivities.value
+              .where((activity) => booking.activitiesRef.contains(activity.ref))
+              .toList();
 
       return Result.ok(
         Booking(
@@ -96,16 +98,18 @@ class BookingRepositoryRemote implements BookingRepository {
       switch (result) {
         case Ok<List<BookingApiModel>>():
           final bookingsApi = result.value;
-          return Result.ok(bookingsApi
-              .map(
-                (bookingApi) => BookingSummary(
-                  id: bookingApi.id!,
-                  name: bookingApi.name,
-                  startDate: bookingApi.startDate,
-                  endDate: bookingApi.endDate,
-                ),
-              )
-              .toList());
+          return Result.ok(
+            bookingsApi
+                .map(
+                  (bookingApi) => BookingSummary(
+                    id: bookingApi.id!,
+                    name: bookingApi.name,
+                    startDate: bookingApi.startDate,
+                    endDate: bookingApi.endDate,
+                  ),
+                )
+                .toList(),
+          );
         case Error<List<BookingApiModel>>():
           return Result.error(result.error);
       }

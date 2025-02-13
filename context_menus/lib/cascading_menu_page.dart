@@ -10,10 +10,7 @@ import 'platform_selector.dart';
 // https://master-api.flutter.dev/flutter/material/MenuBar-class.html
 
 class CascadingMenuPage extends StatelessWidget {
-  const CascadingMenuPage({
-    super.key,
-    required this.onChangedPlatform,
-  });
+  const CascadingMenuPage({super.key, required this.onChangedPlatform});
 
   static const String route = 'cascading';
   static const String title = 'Cascading Menu Example';
@@ -29,9 +26,7 @@ class CascadingMenuPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(CascadingMenuPage.title),
         actions: <Widget>[
-          PlatformSelector(
-            onChangedPlatform: onChangedPlatform,
-          ),
+          PlatformSelector(onChangedPlatform: onChangedPlatform),
           IconButton(
             icon: const Icon(Icons.code),
             onPressed: () async {
@@ -117,7 +112,8 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
               ),
             ),
             Text(
-                _lastSelection != null ? 'Last Selected: $_lastSelection' : ''),
+              _lastSelection != null ? 'Last Selected: $_lastSelection' : '',
+            ),
           ],
         ),
       ),
@@ -130,10 +126,15 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
 /// This sort of class is not required, but illustrates one way that defining
 /// menus could be done.
 class MenuEntry {
-  const MenuEntry(
-      {required this.label, this.shortcut, this.onPressed, this.menuChildren})
-      : assert(menuChildren == null || onPressed == null,
-            'onPressed is ignored if menuChildren are provided');
+  const MenuEntry({
+    required this.label,
+    this.shortcut,
+    this.onPressed,
+    this.menuChildren,
+  }) : assert(
+         menuChildren == null || onPressed == null,
+         'onPressed is ignored if menuChildren are provided',
+       );
   final String label;
 
   final MenuSerializableShortcut? shortcut;
@@ -159,7 +160,8 @@ class MenuEntry {
   }
 
   static Map<MenuSerializableShortcut, Intent> shortcuts(
-      List<MenuEntry> selections) {
+    List<MenuEntry> selections,
+  ) {
     final Map<MenuSerializableShortcut, Intent> result =
         <MenuSerializableShortcut, Intent>{};
     for (final MenuEntry selection in selections) {
@@ -167,8 +169,9 @@ class MenuEntry {
         result.addAll(MenuEntry.shortcuts(selection.menuChildren!));
       } else {
         if (selection.shortcut != null && selection.onPressed != null) {
-          result[selection.shortcut!] =
-              VoidCallbackIntent(selection.onPressed!);
+          result[selection.shortcut!] = VoidCallbackIntent(
+            selection.onPressed!,
+          );
         }
       }
     }
@@ -221,7 +224,8 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
         onPressed: () {
           ContextMenuController.removeAny();
           widget.onChangeSelection(
-              widget.showingMessage ? 'Hide Message' : 'Show Message');
+            widget.showingMessage ? 'Hide Message' : 'Show Message',
+          );
           widget.onToggleMessageVisibility();
         },
         shortcut: const SingleActivator(LogicalKeyboardKey.keyS, control: true),
@@ -230,13 +234,14 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
       // already hidden.
       MenuEntry(
         label: 'Reset',
-        onPressed: widget.showingMessage
-            ? () {
-                ContextMenuController.removeAny();
-                widget.onChangeSelection('Reset');
-                widget.onToggleMessageVisibility();
-              }
-            : null,
+        onPressed:
+            widget.showingMessage
+                ? () {
+                  ContextMenuController.removeAny();
+                  widget.onChangeSelection('Reset');
+                  widget.onToggleMessageVisibility();
+                }
+                : null,
         shortcut: const SingleActivator(LogicalKeyboardKey.escape),
       ),
       MenuEntry(
@@ -249,8 +254,10 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
               widget.onChangeSelection('Red Background');
               widget.onChangeBackgroundColor(Colors.red);
             },
-            shortcut:
-                const SingleActivator(LogicalKeyboardKey.keyR, control: true),
+            shortcut: const SingleActivator(
+              LogicalKeyboardKey.keyR,
+              control: true,
+            ),
           ),
           MenuEntry(
             label: 'Green',
@@ -259,8 +266,10 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
               widget.onChangeSelection('Green Background');
               widget.onChangeBackgroundColor(Colors.green);
             },
-            shortcut:
-                const SingleActivator(LogicalKeyboardKey.keyG, control: true),
+            shortcut: const SingleActivator(
+              LogicalKeyboardKey.keyG,
+              control: true,
+            ),
           ),
           MenuEntry(
             label: 'Blue',
@@ -269,8 +278,10 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
               widget.onChangeSelection('Blue Background');
               widget.onChangeBackgroundColor(Colors.blue);
             },
-            shortcut:
-                const SingleActivator(LogicalKeyboardKey.keyB, control: true),
+            shortcut: const SingleActivator(
+              LogicalKeyboardKey.keyB,
+              control: true,
+            ),
           ),
         ],
       ),
@@ -278,8 +289,9 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
     // (Re-)register the shortcuts with the ShortcutRegistry so that they are
     // available to the entire application, and update them if they've changed.
     _shortcutsEntry?.dispose();
-    _shortcutsEntry =
-        ShortcutRegistry.of(context).addAll(MenuEntry.shortcuts(result));
+    _shortcutsEntry = ShortcutRegistry.of(
+      context,
+    ).addAll(MenuEntry.shortcuts(result));
     return result;
   }
 

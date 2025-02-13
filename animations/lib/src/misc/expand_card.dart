@@ -11,12 +11,8 @@ class ExpandCardDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Expandable Card'),
-      ),
-      body: const Center(
-        child: ExpandCard(),
-      ),
+      appBar: AppBar(title: const Text('Expandable Card')),
+      body: const Center(child: ExpandCard()),
     );
   }
 }
@@ -56,24 +52,23 @@ class _ExpandCardState extends State<ExpandCard>
               duration: duration,
               firstCurve: Curves.easeInOutCubic,
               secondCurve: Curves.easeInOutCubic,
-              crossFadeState: selected
-                  ? CrossFadeState.showSecond
-                  : CrossFadeState.showFirst,
+              crossFadeState:
+                  selected
+                      ? CrossFadeState.showSecond
+                      : CrossFadeState.showFirst,
               // Use Positioned.fill() to pass the constraints to its children.
               // This allows the Images to use BoxFit.cover to cover the correct
               // size
-              layoutBuilder:
-                  (topChild, topChildKey, bottomChild, bottomChildKey) {
+              layoutBuilder: (
+                topChild,
+                topChildKey,
+                bottomChild,
+                bottomChildKey,
+              ) {
                 return Stack(
                   children: [
-                    Positioned.fill(
-                      key: bottomChildKey,
-                      child: bottomChild,
-                    ),
-                    Positioned.fill(
-                      key: topChildKey,
-                      child: topChild,
-                    ),
+                    Positioned.fill(key: bottomChildKey, child: bottomChild),
+                    Positioned.fill(key: topChildKey, child: topChild),
                   ],
                 );
               },

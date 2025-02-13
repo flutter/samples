@@ -54,9 +54,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
     // when building child widgets. You can also check the status to see if the animation
     // has completed.
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animation Controller'),
-      ),
+      appBar: AppBar(title: const Text('Animation Controller')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -79,7 +77,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
                     controller.forward();
                 }
               },
-            )
+            ),
           ],
         ),
       ),
