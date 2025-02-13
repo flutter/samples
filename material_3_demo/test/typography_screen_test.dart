@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_3_demo/main.dart';
-import 'package:material_3_demo/typography_screen.dart';
+import 'package:material_3_demo/src/typography_screen.dart';
 
 import 'component_screen_test.dart';
 
