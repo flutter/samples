@@ -94,61 +94,64 @@ void main() {
   });
 
   testWidgets(
-      'ColorBox displays correct info and copies hex color on button tap',
-      (tester) async {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMessageHandler('flutter/platform', (_) async {
-      // To intercept method calls to 'Clipboard.setData'
-      return const JSONMethodCodec().encodeSuccessEnvelope(null);
-    });
-    const hexColor = 0xFF3d3d8d;
-    const testColor = Color(hexColor);
-    const onTestColor = Colors.white;
-    const testLabel = 'Test Label';
-    const testTone = '50';
+    'ColorBox displays correct info and copies hex color on button tap',
+    (tester) async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMessageHandler('flutter/platform', (_) async {
+            // To intercept method calls to 'Clipboard.setData'
+            return const JSONMethodCodec().encodeSuccessEnvelope(null);
+          });
+      const hexColor = 0xFF3d3d8d;
+      const testColor = Color(hexColor);
+      const onTestColor = Colors.white;
+      const testLabel = 'Test Label';
+      const testTone = '50';
 
-    final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
 
-    // Wrap in MaterialApp + Scaffold so we can show SnackBars
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: ColorBox(
-            label: testLabel,
-            tone: testTone,
-            color: testColor,
-            onColor: onTestColor,
-            height: 100,
-            width: 100,
-            displayPaletteInfo: true,
+      // Wrap in MaterialApp + Scaffold so we can show SnackBars
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: ColorBox(
+              label: testLabel,
+              tone: testTone,
+              color: testColor,
+              onColor: onTestColor,
+              height: 100,
+              width: 100,
+              displayPaletteInfo: true,
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    expect(find.text(testLabel), findsOneWidget);
-    expect(find.text(testTone), findsOneWidget);
+      expect(find.text(testLabel), findsOneWidget);
+      expect(find.text(testTone), findsOneWidget);
 
-    // The copy icon should NOT be there initially (only appears on hover).
-    expect(find.byIcon(Icons.copy), findsNothing);
+      // The copy icon should NOT be there initially (only appears on hover).
+      expect(find.byIcon(Icons.copy), findsNothing);
 
-    await gesture.addPointer(location: Offset.zero);
-    addTearDown(gesture.removePointer);
-    await tester.pump();
-    await gesture.moveTo(tester.getCenter(find.byType(ColorBox)));
-    await tester.pumpAndSettle();
+      await gesture.addPointer(location: Offset.zero);
+      addTearDown(gesture.removePointer);
+      await tester.pump();
+      await gesture.moveTo(tester.getCenter(find.byType(ColorBox)));
+      await tester.pumpAndSettle();
 
-    expect(find.byIcon(Icons.copy), findsOneWidget);
+      expect(find.byIcon(Icons.copy), findsOneWidget);
 
-    // Tap the copy icon, which copies the hex to clipboard and shows a SnackBar.
-    await tester.tap(find.byIcon(Icons.copy));
-    await tester.pumpAndSettle();
+      // Tap the copy icon, which copies the hex to clipboard and shows a SnackBar.
+      await tester.tap(find.byIcon(Icons.copy));
+      await tester.pumpAndSettle();
 
-    expect(find.byType(SnackBar), findsOneWidget);
+      expect(find.byType(SnackBar), findsOneWidget);
 
-    expect(
+      expect(
         find.text(
-            'Copied #${hexColor.toRadixString(16).substring(2)} to clipboard'),
-        findsOneWidget);
-  });
+          'Copied #${hexColor.toRadixString(16).substring(2)} to clipboard',
+        ),
+        findsOneWidget,
+      );
+    },
+  );
 }
