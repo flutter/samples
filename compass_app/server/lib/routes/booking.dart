@@ -4,7 +4,6 @@
 
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
@@ -61,9 +60,8 @@ class BookingApi {
     // Get a booking by id
     router.get('/<id>', (Request request, String id) {
       final bookingId = int.parse(id);
-      final booking = _bookings.firstWhereOrNull(
-        (booking) => booking.id == bookingId,
-      );
+      final booking =
+          _bookings.where((booking) => booking.id == bookingId).firstOrNull;
 
       if (booking == null) {
         return Response.notFound('Invalid id');
@@ -104,9 +102,8 @@ class BookingApi {
     // Delete booking
     router.delete('/<id>', (Request request, String id) async {
       final bookingId = int.parse(id);
-      final booking = _bookings.firstWhereOrNull(
-        (booking) => booking.id == bookingId,
-      );
+      final booking =
+          _bookings.where((booking) => booking.id == bookingId).firstOrNull;
       if (booking == null) {
         return Response.notFound('Invalid id');
       }
