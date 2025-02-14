@@ -17,7 +17,6 @@ android {
             minifyEnabled false
         }
     }
-    // Remove when #flutter/flutter/issues/150955 is merged to stable.
     // Keep java and kotlin versions in sync.
     compileOptions {
         sourceCompatibility 17
