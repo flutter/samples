@@ -3,7 +3,9 @@
 // found in the LICENSE file
 
 import 'dart:io';
+
 import 'package:path/path.dart' as p;
+
 import 'common.dart';
 import 'fix_base_tags.dart';
 
@@ -53,7 +55,7 @@ void main() async {
 
     // Build the sample and copy the files
     await _run(directory, 'flutter', ['pub', 'get']);
-    await _run(directory, 'flutter', ['build', 'web']);
+    await _run(directory, 'flutter', ['build', 'web', '--wasm']);
     await _run(directory, 'mv', [sourceBuildDir, targetDirectory]);
   }
 
