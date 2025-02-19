@@ -4,11 +4,30 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:rolodex/data/contact_list.dart';
+import 'package:rolodex/data/contact.dart';
+import 'package:rolodex/data/contact_group.dart';
 import 'contacts.dart';
 
-class ListsPage extends StatelessWidget {
-  const ListsPage({super.key});
+class ContactGroupsPage extends StatelessWidget {
+  const ContactGroupsPage({super.key});
+
+  Widget _buildTrailing(List<Contact> contacts, BuildContext context) {
+    final TextStyle style = CupertinoTheme.of(
+      context,
+    ).textTheme.textStyle.copyWith(color: CupertinoColors.systemGrey);
+
+    return Row(
+      spacing: 5,
+      children: [
+        Text(contacts.length.toString(), style: style),
+        Icon(
+          CupertinoIcons.forward,
+          color: CupertinoColors.systemGrey3,
+          size: 18,
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +36,8 @@ class ListsPage extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
+            padding: EdgeInsetsDirectional.only(start: 8, end: 16),
+            stretch: true,
             leading: CupertinoButton(
               padding: EdgeInsets.zero,
               onPressed: () {},
@@ -30,19 +51,31 @@ class ListsPage extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            child: Consumer<ContactListsModel>(
+            child: Consumer<ContactGroupsModel>(
               builder: (context, contactLists, child) {
+                const groupIcon = Icon(
+                  CupertinoIcons.group,
+                  weight: 900,
+                  size: 32,
+                );
+
+                const pairIcon = Icon(
+                  CupertinoIcons.person_2,
+                  weight: 900,
+                  size: 24,
+                );
+
                 return CupertinoListSection.insetGrouped(
                   header: Text('iPhone'),
                   children: [
-                    for (ContactList contactList in contactLists.lists)
+                    for (ContactGroup contactList in contactLists.lists)
                       CupertinoListTile(
-                        leading: Icon(
-                          contactList.id == 0
-                              ? CupertinoIcons.group
-                              : CupertinoIcons.person_2,
-                        ),
+                        leading: contactList.id == 0 ? groupIcon : pairIcon,
+                        leadingSize: 32,
+                        leadingToTitle: 9,
+                        padding: EdgeInsets.symmetric(horizontal: 13.0),
                         title: Text(contactList.label),
+                        trailing: _buildTrailing(contactList.contacts, context),
                         onTap:
                             () => Navigator.of(context).push(
                               CupertinoPageRoute(
