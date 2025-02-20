@@ -5,9 +5,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
-import 'data/contact_list.dart';
+import 'data/contact_group.dart';
 import 'screens/contacts.dart';
-import 'screens/lists.dart';
+import 'screens/contact_groups.dart';
 
 void main() {
   runApp(const RolodexApp());
@@ -19,16 +19,22 @@ class RolodexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => ContactListsModel(),
+      create: (context) => ContactGroupsModel(),
       child: CupertinoApp(
         title: 'Rolodex',
+        theme: CupertinoThemeData(
+          barBackgroundColor: CupertinoDynamicColor.withBrightness(
+            color: Color(0xFFF9F9F9),
+            darkColor: Color(0xFF1D1D1D),
+          ),
+        ),
         initialRoute: '/contacts',
         onGenerateInitialRoutes: (initialRoute) {
           return [
             CupertinoPageRoute(
               title: 'Lists',
               builder: (BuildContext context) {
-                return ListsPage();
+                return ContactGroupsPage();
               },
             ),
             CupertinoPageRoute(
