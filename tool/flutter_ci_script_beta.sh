@@ -37,7 +37,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
-    "pedometer"
+    # "pedometer"
     "pedometer/example"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
