@@ -40,18 +40,16 @@ class ContactListsPage extends StatelessWidget {
                   suffixMode: OverlayVisibilityMode.always,
                 ),
               ),
-              SliverFillRemaining(
-                child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    ...contacts.keys.map(
-                      (String initial) => ContactListSection(
-                        lastInitial: initial,
-                        contacts: contacts[initial]!,
-                      ),
+              SliverList.list(
+                children: [
+                  SizedBox(height: 20),
+                  ...contacts.keys.map(
+                    (String initial) => ContactListSection(
+                      lastInitial: initial,
+                      contacts: contacts[initial]!,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           );
