@@ -7,6 +7,11 @@ updates:
       interval: "daily"
     labels:
       - "autosubmit"
+    # Updating patch versions for "github-actions" is too chatty.
+    # See https://github.com/flutter/flutter/issues/158350.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
   - package-ecosystem: "npm"
     directory: "web_embedding/ng-flutter"
     schedule:
