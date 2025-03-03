@@ -25,6 +25,7 @@ declare -ar PROJECT_NAMES=(
     "compass_app/app"
     "compass_app/server"
     "context_menus"
+    "date_planner"
     "deeplink_store_example"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
