@@ -54,7 +54,7 @@ class _EventDetailState extends State<EventDetail> {
                     if (widget.isEditing)
                       CupertinoButton(
                         padding: EdgeInsets.zero,
-                        minSize: 0,
+                        minimumSize: Size.zero,
                         onPressed: () {
                           Navigator.of(context)
                               .push(

@@ -58,7 +58,7 @@ class _SymbolEditorState extends State<SymbolEditor> {
                     // TODO(mit-mit): Circles should be bigger and have less padding between them.
                     CupertinoButton(
                       padding: EdgeInsets.zero,
-                      minSize: 0,
+                      minimumSize: Size.zero,
                       child: Icon(
                         CupertinoIcons.circle_fill,
                         color: color.color,
