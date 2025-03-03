@@ -30,12 +30,12 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "dynamic_theme"
     # TODO(ewindmill): package:html needs to be replaced by package:web
-#    "experimental/federated_plugin/federated_plugin"
-#    "experimental/federated_plugin/federated_plugin/example"
-#    "experimental/federated_plugin/federated_plugin_macos"
-#    "experimental/federated_plugin/federated_plugin_platform_interface"
-#    "experimental/federated_plugin/federated_plugin_web"
-#    "experimental/federated_plugin/federated_plugin_windows"
+    "experimental/federated_plugin/federated_plugin"
+    "experimental/federated_plugin/federated_plugin/example"
+    "experimental/federated_plugin/federated_plugin_macos"
+    "experimental/federated_plugin/federated_plugin_platform_interface"
+    "experimental/federated_plugin/federated_plugin_web"
+    "experimental/federated_plugin/federated_plugin_windows"
     # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
     # "pedometer"
     "pedometer/example"
@@ -59,7 +59,8 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(ewindmill): 'scribble' is deprecated and shouldn't be used. Use stylusHandwriting instead.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"

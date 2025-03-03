@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../color_box.dart';
+import 'color_box.dart';
 
 class SchemePreview extends StatefulWidget {
   const SchemePreview({
