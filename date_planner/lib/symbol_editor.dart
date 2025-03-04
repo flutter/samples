@@ -39,17 +39,16 @@ class _SymbolEditorState extends State<SymbolEditor> {
                   CupertinoButton(
                     padding: EdgeInsets.zero,
                     child: const Text('Done'),
-                    onPressed: () =>
-                        Navigator.pop(context, (_currentIcon, _currentColor)),
+                    onPressed:
+                        () => Navigator.pop(context, (
+                          _currentIcon,
+                          _currentColor,
+                        )),
                   ),
                 ],
               ),
               const SizedBox(height: 16),
-              Icon(
-                _currentIcon,
-                size: 48,
-                color: _currentColor.color,
-              ),
+              Icon(_currentIcon, size: 48, color: _currentColor.color),
               const SizedBox(height: 32),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -86,16 +85,13 @@ class _SymbolEditorState extends State<SymbolEditor> {
                     for (var icon in eventSymbols)
                       CupertinoButton(
                         padding: EdgeInsets.zero,
-                        child: Icon(
-                          icon,
-                          size: 32,
-                        ),
+                        child: Icon(icon, size: 32),
                         onPressed: () {
                           setState(() {
                             _currentIcon = icon;
                           });
                         },
-                      )
+                      ),
                   ],
                 ),
               ),

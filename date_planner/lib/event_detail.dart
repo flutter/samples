@@ -14,11 +14,7 @@ class EventDetail extends StatefulWidget {
   final Event event;
   final bool isEditing;
 
-  const EventDetail({
-    super.key,
-    required this.event,
-    required this.isEditing,
-  });
+  const EventDetail({super.key, required this.event, required this.isEditing});
 
   @override
   State<EventDetail> createState() => _EventDetailState();
@@ -58,24 +54,21 @@ class _EventDetailState extends State<EventDetail> {
                         onPressed: () {
                           Navigator.of(context)
                               .push(
-                            CupertinoPageRoute<(IconData, ColorOptions)?>(
-                              builder: (_) => SymbolEditor(
-                                event.icon,
-                                event.color,
-                              ),
-                            ),
-                          )
-                              .then(
-                            ((IconData, ColorOptions)? data) {
-                              if (data != null) {
-                                setState(() {
-                                  var (icon, color) = data;
-                                  event.icon = icon;
-                                  event.color = color;
-                                });
-                              }
-                            },
-                          );
+                                CupertinoPageRoute<(IconData, ColorOptions)?>(
+                                  builder:
+                                      (_) =>
+                                          SymbolEditor(event.icon, event.color),
+                                ),
+                              )
+                              .then(((IconData, ColorOptions)? data) {
+                                if (data != null) {
+                                  setState(() {
+                                    var (icon, color) = data;
+                                    event.icon = icon;
+                                    event.color = color;
+                                  });
+                                }
+                              });
                         },
                         child: Icon(
                           event.icon,
@@ -84,11 +77,7 @@ class _EventDetailState extends State<EventDetail> {
                         ),
                       ),
                     if (!widget.isEditing)
-                      Icon(
-                        event.icon,
-                        size: 28,
-                        color: event.color.color,
-                      ),
+                      Icon(event.icon, size: 28, color: event.color.color),
                     const SizedBox(width: 12),
                     if (widget.isEditing)
                       Expanded(
@@ -123,10 +112,7 @@ class _EventDetailState extends State<EventDetail> {
                   ),
                   children: [
                     for (EventTask t in event.tasks)
-                      TaskRow(
-                        task: t,
-                        isEditing: widget.isEditing,
-                      ),
+                      TaskRow(task: t, isEditing: widget.isEditing),
                     if (widget.isEditing)
                       // TODO(mit-mit): CupertinoButton with icon support?
                       // Consider if CupertinoButton could support setting

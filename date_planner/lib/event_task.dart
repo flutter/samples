@@ -8,6 +8,7 @@ class EventTask {
 
   EventTask({required this.text, this.isCompleted = false});
 
-  static List<EventTask> buildList(List<String> taskDescriptions) =>
-      [for (var task in taskDescriptions) EventTask(text: task)];
+  static List<EventTask> buildList(List<String> taskDescriptions) => [
+    for (var task in taskDescriptions) EventTask(text: task),
+  ];
 }

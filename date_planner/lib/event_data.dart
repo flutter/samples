@@ -28,17 +28,18 @@ class EventData with ChangeNotifier {
 
   void exists(Event event) => _events.contains(event);
 
-  List<Event> sorted(Period period) => _events
-      .where(
-        (e) => switch (period) {
-          Period.nextSevenDays => e.isWithinSevenDays,
-          Period.nextThirtyDays => e.isWithinSevenToThirtyDays,
-          Period.past => e.isPast,
-          Period.future => e.isDistant,
-        },
-      )
-      .toList()
-    ..sort((e1, e2) => e1.date.compareTo(e2.date));
+  List<Event> sorted(Period period) =>
+      _events
+          .where(
+            (e) => switch (period) {
+              Period.nextSevenDays => e.isWithinSevenDays,
+              Period.nextThirtyDays => e.isWithinSevenToThirtyDays,
+              Period.past => e.isPast,
+              Period.future => e.isDistant,
+            },
+          )
+          .toList()
+        ..sort((e1, e2) => e1.date.compareTo(e2.date));
 }
 
 enum Period {
@@ -83,8 +84,10 @@ List<Event> buildSampleData() {
       // TODO(mit-mit): Use the icon "facemask.fill".
       icon: CupertinoIcons.lab_flask_solid,
       color: ColorOptions.indigo,
-      tasks:
-          EventTask.buildList(['Bring medical ID', 'Record heart rate data']),
+      tasks: EventTask.buildList([
+        'Bring medical ID',
+        'Record heart rate data',
+      ]),
       date: FromNow.roundedHours(24 * 4),
     ),
     Event(
@@ -136,17 +139,18 @@ List<Event> buildSampleData() {
       date: FromNow.roundedHours(24 * 365 * 2),
     ),
     Event(
-        title: 'WWDC',
-        // TODO(mit-mit): Use the icon "globe.americas.fill"
-        icon: CupertinoIcons.globe,
-        color: ColorOptions.gray,
-        tasks: EventTask.buildList([
-          'Watch Keynote',
-          'Watch What\'s new in SwiftUI',
-          'Go to DT developer labs',
-          'Learn about Create ML',
-        ]),
-        date: DateTime(7, 6, 2021)),
+      title: 'WWDC',
+      // TODO(mit-mit): Use the icon "globe.americas.fill"
+      icon: CupertinoIcons.globe,
+      color: ColorOptions.gray,
+      tasks: EventTask.buildList([
+        'Watch Keynote',
+        'Watch What\'s new in SwiftUI',
+        'Go to DT developer labs',
+        'Learn about Create ML',
+      ]),
+      date: DateTime(7, 6, 2021),
+    ),
     Event(
       title: 'Sayulita Trip',
       icon: CupertinoIcons.briefcase_fill,

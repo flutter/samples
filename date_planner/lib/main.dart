@@ -27,9 +27,6 @@ class DatePlannerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: const EventList(),
-      theme: cupertinoLight,
-    );
+    return CupertinoApp(home: const EventList(), theme: cupertinoLight);
   }
 }

@@ -9,11 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'event.dart';
 
 class EventRow extends StatelessWidget {
-  const EventRow({
-    super.key,
-    required this.event,
-    this.onTap,
-  });
+  const EventRow({super.key, required this.event, this.onTap});
 
   final Event event;
   final FutureOr<void> Function()? onTap;
@@ -29,19 +25,15 @@ class EventRow extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(event.dateFormated),
-        leading: Icon(
-          event.icon,
-          size: 28,
-          color: event.color.color,
-        ),
+        leading: Icon(event.icon, size: 28, color: event.color.color),
         trailing: Row(
           children: [
             event.isComplete
                 ? const Icon(CupertinoIcons.check_mark)
                 : Text(
-                    '${event.remainingTaskCount}',
-                    style: const TextStyle(color: CupertinoColors.systemGrey),
-                  ),
+                  '${event.remainingTaskCount}',
+                  style: const TextStyle(color: CupertinoColors.systemGrey),
+                ),
             const CupertinoListTileChevron(),
           ],
         ),

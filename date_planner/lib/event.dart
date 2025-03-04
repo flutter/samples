@@ -25,9 +25,9 @@ class Event implements Comparable<Event> {
     this.icon = CupertinoIcons.add,
     List<EventTask>? tasks,
     DateTime? date,
-  })  : color = color ?? ColorOptions.random(),
-        tasks = tasks ?? [EventTask(text: '')],
-        date = date ?? DateTime.now();
+  }) : color = color ?? ColorOptions.random(),
+       tasks = tasks ?? [EventTask(text: '')],
+       date = date ?? DateTime.now();
 
   Event copy() {
     return Event(
@@ -60,7 +60,8 @@ class Event implements Comparable<Event> {
 
   bool get isDistant => date.isAfter(FromNow.thirtyDays);
 
-  String get dateFormated => '${DateFormat.yMMMd().format(date)} at '
+  String get dateFormated =>
+      '${DateFormat.yMMMd().format(date)} at '
       '${DateFormat.Hm().format(date)}';
 
   @override

@@ -36,10 +36,11 @@ class EventList extends StatelessWidget {
                     // Blocked on https://github.com/flutter/flutter/issues/42560.
                     Event? newEvent = await Navigator.of(context).push(
                       CupertinoPageRoute<Event>(
-                        builder: (_) => EventEditor(
-                          event: Event(title: 'New event'),
-                          isNew: true,
-                        ),
+                        builder:
+                            (_) => EventEditor(
+                              event: Event(title: 'New event'),
+                              isNew: true,
+                            ),
                       ),
                     );
 
@@ -68,13 +69,15 @@ class EventList extends StatelessWidget {
                           EventRow(
                             event: e,
                             onTap: () async {
-                              Event? updatedEvent =
-                                  await Navigator.of(context).push(
+                              Event? updatedEvent = await Navigator.of(
+                                context,
+                              ).push(
                                 CupertinoPageRoute<Event>(
-                                  builder: (_) => EventEditor(
-                                    event: e.copy(),
-                                    isNew: false,
-                                  ),
+                                  builder:
+                                      (_) => EventEditor(
+                                        event: e.copy(),
+                                        isNew: false,
+                                      ),
                                 ),
                               );
                               if (updatedEvent == null) {
@@ -85,7 +88,7 @@ class EventList extends StatelessWidget {
                                 events.update(e, updatedEvent);
                               }
                             },
-                          )
+                          ),
                       ],
                     ),
                 ],

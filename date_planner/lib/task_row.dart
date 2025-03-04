@@ -29,13 +29,14 @@ class _TaskRowState extends State<TaskRow> {
     return Row(
       children: [
         CupertinoButton(
-          onPressed: widget.isEditing
-              ? () {
-                  setState(() {
-                    widget.task.isCompleted = !widget.task.isCompleted;
-                  });
-                }
-              : null,
+          onPressed:
+              widget.isEditing
+                  ? () {
+                    setState(() {
+                      widget.task.isCompleted = !widget.task.isCompleted;
+                    });
+                  }
+                  : null,
           child: Icon(
             widget.task.isCompleted
                 ? CupertinoIcons.checkmark_circle_fill
@@ -44,14 +45,15 @@ class _TaskRowState extends State<TaskRow> {
           ),
         ),
         Expanded(
-          child: widget.isEditing
-              ? CupertinoTextField(
-                  decoration: null,
-                  padding: EdgeInsets.zero,
-                  controller: _taskText,
-                  onChanged: (value) => widget.task.text = value,
-                )
-              : Text(widget.task.text),
+          child:
+              widget.isEditing
+                  ? CupertinoTextField(
+                    decoration: null,
+                    padding: EdgeInsets.zero,
+                    controller: _taskText,
+                    onChanged: (value) => widget.task.text = value,
+                  )
+                  : Text(widget.task.text),
         ),
       ],
     );
