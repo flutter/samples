@@ -8,12 +8,12 @@ android {
         self {
         }
     }
-    compileSdkPreview = "Baklava"
+    compileSdk 36
 
     defaultConfig {
         applicationId "dev.flutter.multipleflutters"
         minSdkVersion 24
-        targetSdkPreview = "Baklava"
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
