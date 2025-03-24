@@ -147,7 +147,7 @@ void main() {
 
       // Select guests
       await tester.tap(
-        find.byKey(const ValueKey('add_guests')),
+        find.byKey(const ValueKey('add-guests')),
         warnIfMissed: false,
       );
 
@@ -155,7 +155,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Perform search and navigate to next screen
-      await tester.tap(find.byKey(const ValueKey('submit_button')));
+      await tester.tap(find.byKey(const ValueKey('submit-button')));
       await tester.pumpAndSettle();
 
       // Results Screen
