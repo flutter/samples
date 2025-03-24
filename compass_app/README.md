@@ -32,7 +32,7 @@ $ cd server
 $ dart run
 # => Server listening on port 8080
  
-$ cd ../compass_app/app
+$ cd ../app
 $ flutter run --target lib/main_staging.dart 
 ```
 
