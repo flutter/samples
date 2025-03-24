@@ -48,10 +48,10 @@ $ flutter test integration_test/app_local_data_test.dart
 ```
 
 **Integration tests with background server and remote data**
-
+> Simulators have their own `localhost`, separate from the desktop's. Therefore, tests on a simulator that try to connect to a local background server using `localhost` will fail to reach. To resolve this, find a non-loopback IPv4 address (e.g., using `ifconfig | grep inet` and choosing an address other than `127.0.0.1`, such as `192.168.0.106`).
 ```bash
 cd app
-$ flutter test integration_test/app_server_data_test.dart
+$ LOCALHOST='your_non-loopback_ipv4_address' dart run integration_test/test_app_server_data.dart
 ```
 
 Running the tests together with `flutter test integration_test` will fail.
