@@ -25,7 +25,7 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
-      - uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff
+      - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
         with:
           channel: ${{ matrix.flutter_version }}
       - name: Init scripts
