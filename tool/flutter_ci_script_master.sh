@@ -60,7 +60,6 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    "rolodex"
     "simple_shader"
     "simplistic_calculator"
     # TODO(ewindmill): 'scribble' is deprecated and shouldn't be used. Use stylusHandwriting instead.
