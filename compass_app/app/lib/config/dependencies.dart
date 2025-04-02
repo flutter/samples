@@ -1,7 +1,7 @@
 // Copyright 2024 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
+import 'dart:io';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -53,8 +53,8 @@ List<SingleChildWidget> _sharedProviders = [
 /// This dependency list uses repositories that connect to a remote server.
 List<SingleChildWidget> get providersRemote {
   return [
-    Provider(create: (context) => AuthApiClient()),
-    Provider(create: (context) => ApiClient()),
+    Provider(create: (context) => AuthApiClient(host: Platform.environment['LOCALHOST'])),
+    Provider(create: (context) => ApiClient(host: Platform.environment['LOCALHOST'])),
     Provider(create: (context) => SharedPreferencesService()),
     ChangeNotifierProvider(
       create:

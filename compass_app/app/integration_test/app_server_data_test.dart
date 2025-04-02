@@ -25,27 +25,12 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test with remote data', () {
-    const port = '8080';
-    late Process p;
 
     setUpAll(() async {
       // Clear any stored shared preferences
       final sharedPreferences = await SharedPreferences.getInstance();
       await sharedPreferences.clear();
-
-      // Start the dart server
-      p = await Process.start(
-        'dart',
-        ['run', 'bin/compass_server.dart'],
-        environment: {'PORT': port},
-        // Relative to the app/ folder
-        workingDirectory: '../server',
-      );
-      // Wait for server to start and print to stdout.
-      await p.stdout.first;
     });
-
-    tearDownAll(() => p.kill());
 
     testWidgets('should load app', (tester) async {
       // Load app widget.
@@ -147,7 +132,7 @@ void main() {
 
       // Select guests
       await tester.tap(
-        find.byKey(const ValueKey('add_guests')),
+        find.byKey(const ValueKey('add-guests')),
         warnIfMissed: false,
       );
 
@@ -155,7 +140,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Perform search and navigate to next screen
-      await tester.tap(find.byKey(const ValueKey('submit_button')));
+      await tester.tap(find.byKey(const ValueKey('submit-button')));
       await tester.pumpAndSettle();
 
       // Results Screen
