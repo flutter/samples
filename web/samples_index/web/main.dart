@@ -31,12 +31,7 @@ void main() {
     filterCards();
   });
 
-  // Use a ripple effect on all cards
-  querySelectorAll('.mdc-card__primary-action').forEach((el) => MDCRipple(el)
-    // Navigate to the description page when tapped
-    ..listen('click', (e) {
-      window.location.href = el.attributes['href']!;
-    }));
+  querySelectorAll('.mdc-card__primary-action').forEach((el) => MDCRipple(el));
 
   // Filter cards on each keypress
   searchBar.listen('keydown', (e) async {

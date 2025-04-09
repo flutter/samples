@@ -133,14 +133,14 @@ String _backgroundImage(String url) =>
 String _indexCards(List<Sample> samples) => samples.map(_indexCard).join();
 String _indexCard(Sample sample) => '''
 <div class="mdc-card demo-card mdc-elevation--z0" search-attrs="${_escapeAttribute(sample.searchAttributes)}">
-  <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0" href="${sample.filename}.html">
+  <a class="mdc-card__primary-action demo-card__primary-action" href="${sample.filename}.html">
     <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="${_backgroundImage(sample.thumbnail)}"></div>
     <div class="demo-card__label type-label">${_escapeElement(sample.type)}</div>
     <div class="demo-card__primary">
       <h2 class="demo-card__title mdc-typography mdc-typography--headline6">${_escapeElement(sample.name)}</h2>
     </div>
     <div class="demo-card__secondary mdc-typography mdc-typography--body2">${sample.shortDescription}</div>
-  </div>
+  </a>
 </div>
 ''';
 
@@ -186,18 +186,18 @@ String _descriptionButtons(Sample sample) {
   var sampleLink = sample.web;
   if (sampleLink != null && sampleLink.isNotEmpty) {
     buf.write(
-        '''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '$sampleLink';"><span class="mdc-button__ripple"></span> Launch App</button>''');
+        '''<a class="mdc-button mdc-button--outlined" href=$sampleLink><span class="mdc-button__ripple"></span> Launch App</a>''');
   }
 
   if (sample.type == 'app' ||
       sample.type == 'sample' ||
       sample.type == 'demo') {
     buf.write(
-        '''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '${sample.source}';">
+        '''<a class="mdc-button mdc-button--outlined" href="${sample.source}">
 <div class="mdc-button__ripple"></div>
 <i class="material-icons mdc-button__icon" aria-hidden="true">code</i>
 <span class="mdc-button__label">Source Code</span>
-</button>''');
+</a>''');
   }
   return buf.toString();
 }
