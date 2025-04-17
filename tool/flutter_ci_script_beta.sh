@@ -64,7 +64,6 @@ declare -ar PROJECT_NAMES=(
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
-    "web/_tool"
 )
 
 ci_projects "beta" "${PROJECT_NAMES[@]}"
