@@ -57,8 +57,6 @@ declare -ar PROJECT_NAMES=(
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
-    "web/_tool"
-    "web/samples_index"
 )
 
 echo "--- Running flutter clean and flutter pub get for each sample ---"

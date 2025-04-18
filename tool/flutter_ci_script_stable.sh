@@ -61,9 +61,6 @@ declare -ar PROJECT_NAMES=(
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
-    "web/_tool"
-    # TODO(ewindmill): dart:html is deprecated. Delete samples_index
-    # "web/samples_index"
 )
 
 ci_projects "stable" "${PROJECT_NAMES[@]}"
