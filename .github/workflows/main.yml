@@ -37,17 +37,6 @@ jobs:
           channel: ${{ matrix.flutter_version }}
       - run: ./tool/flutter_ci_script_${{ matrix.flutter_version }}.sh
 
-  web-samples-index:
-    name: web/samples_index config check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
-      - run: |
-          dart pub get
-          dart run grinder generate
-        working-directory: web/samples_index
-
   # android-build:
   #   runs-on: ubuntu-latest
   #   if: github.repository == 'flutter/samples'
