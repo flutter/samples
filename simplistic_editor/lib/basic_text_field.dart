@@ -74,7 +74,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
     }
 
     if (cause == SelectionChangedCause.longPress ||
-        cause == SelectionChangedCause.scribble) {
+        cause == SelectionChangedCause.stylusHandwriting) {
       return true;
     }
 

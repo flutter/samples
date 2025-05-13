@@ -57,7 +57,8 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    "simplistic_editor"
+#    TODO(@ewindmill) -
+#    "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
