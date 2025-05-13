@@ -51,7 +51,8 @@ declare -ar PROJECT_NAMES=(
     "google_maps"
     "infinite_list"
     "ios_app_clip"
-    "isolate_example"
+    # TODO(ewindmill): replace deprecated activeColor with activeThumbColor in 3.33
+#    "isolate_example"
      "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
