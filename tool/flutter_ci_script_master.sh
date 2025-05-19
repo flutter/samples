@@ -51,7 +51,8 @@ declare -ar PROJECT_NAMES=(
     "google_maps"
     "infinite_list"
     "ios_app_clip"
-    "isolate_example"
+    # TODO(ewindmill): replace deprecated activeColor with activeThumbColor in 3.33
+#    "isolate_example"
      "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
@@ -62,8 +63,7 @@ declare -ar PROJECT_NAMES=(
     "provider_shopper"
     "simple_shader"
     "simplistic_calculator"
-    # TODO(ewindmill): 'scribble' is deprecated and shouldn't be used. Use stylusHandwriting instead.
-    # "simplistic_editor"
+     "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web_embedding/element_embedding_demo"
