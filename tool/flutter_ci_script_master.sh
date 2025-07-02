@@ -32,18 +32,6 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "dynamic_theme"
-    "experimental/federated_plugin/federated_plugin"
-    "experimental/federated_plugin/federated_plugin/example"
-    "experimental/federated_plugin/federated_plugin_macos"
-    "experimental/federated_plugin/federated_plugin_platform_interface"
-    # TODO(ewindmill): package:html needs to be replaced by package:web
-    # "experimental/federated_plugin/federated_plugin_web"
-    "experimental/federated_plugin/federated_plugin_windows"
-    # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
-    # "pedometer"
-    "pedometer/example"
-    "experimental/varfont_shader_puzzle"
-    "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
@@ -55,6 +43,9 @@ declare -ar PROJECT_NAMES=(
 #    "isolate_example"
      "material_3_demo"
     "navigation_and_routing"
+    # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
+    # "pedometer"
+    "pedometer/example"
     "place_tracker"
     "platform_channels"
     "platform_design"
