@@ -59,9 +59,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
               ElevatedButton(
                 child: const Text('Refill'),
                 onPressed: () {
-                  setState(() {
-                    _resetCards();
-                  });
+                  setState(_resetCards);
                 },
               ),
             ],
@@ -145,7 +143,7 @@ class _SwipeableCardState extends State<SwipeableCard>
   /// Changes the animation to animate to the left or right depending on the
   /// swipe, and sets the AnimationController's value to the swiped amount.
   void _dragUpdate(DragUpdateDetails details) {
-    var isSwipingLeft = (details.localPosition.dx - _dragStartX) < 0;
+    final isSwipingLeft = (details.localPosition.dx - _dragStartX) < 0;
     if (isSwipingLeft != _isSwipingLeft) {
       _isSwipingLeft = isSwipingLeft;
       _updateAnimation(details.localPosition.dx);
@@ -174,7 +172,7 @@ class _SwipeableCardState extends State<SwipeableCard>
       return;
     }
 
-    var velocity = (details.velocity.pixelsPerSecond.dx / size.width).abs();
+    final velocity = (details.velocity.pixelsPerSecond.dx / size.width).abs();
     _animate(velocity: velocity);
   }
 
@@ -188,12 +186,12 @@ class _SwipeableCardState extends State<SwipeableCard>
   }
 
   void _animate({double velocity = 0}) {
-    var description = const SpringDescription(
+    const description = SpringDescription(
       mass: 50,
       stiffness: 1,
       damping: 1,
     );
-    var simulation = SpringSimulation(
+    final simulation = SpringSimulation(
       description,
       _controller.value,
       1,

@@ -28,11 +28,11 @@ Route _createRoute() {
   return PageRouteBuilder<SlideTransition>(
     pageBuilder: (context, animation, secondaryAnimation) => _Page2(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var tween = Tween<Offset>(
+      final tween = Tween<Offset>(
         begin: const Offset(0.0, 1.0),
         end: Offset.zero,
       );
-      var curveTween = CurveTween(curve: Curves.ease);
+      final curveTween = CurveTween(curve: Curves.ease);
 
       return SlideTransition(
         position: animation.drive(curveTween).drive(tween),

@@ -19,7 +19,7 @@ class FlutterAnimateDemo extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Text(
-                "Hello Flutter Animate",
+                'Hello Flutter Animate',
                 style: Theme.of(context).textTheme.headlineLarge,
               )
               .animate(onPlay: (controller) => controller.repeat())

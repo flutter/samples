@@ -39,7 +39,7 @@ class _ExpandCardState extends State<ExpandCard>
   @override
   Widget build(context) {
     return GestureDetector(
-      onTap: () => toggleExpanded(),
+      onTap: toggleExpanded,
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

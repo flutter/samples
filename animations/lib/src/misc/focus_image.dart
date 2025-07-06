@@ -45,7 +45,7 @@ Route _createRoute(BuildContext parentContext, String image) {
       return _SecondPage(image);
     },
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var rectAnimation = _createTween(
+      final rectAnimation = _createTween(
         parentContext,
       ).chain(CurveTween(curve: Curves.ease)).animate(animation);
 
@@ -57,10 +57,10 @@ Route _createRoute(BuildContext parentContext, String image) {
 }
 
 Tween<RelativeRect> _createTween(BuildContext context) {
-  var windowSize = MediaQuery.of(context).size;
-  var box = context.findRenderObject() as RenderBox;
-  var rect = box.localToGlobal(Offset.zero) & box.size;
-  var relativeRect = RelativeRect.fromSize(rect, windowSize);
+  final windowSize = MediaQuery.of(context).size;
+  final box = context.findRenderObject()! as RenderBox;
+  final rect = box.localToGlobal(Offset.zero) & box.size;
+  final relativeRect = RelativeRect.fromSize(rect, windowSize);
 
   return RelativeRectTween(begin: relativeRect, end: RelativeRect.fill);
 }
@@ -75,7 +75,7 @@ class SmallCard extends StatelessWidget {
       child: Material(
         child: InkWell(
           onTap: () {
-            var nav = Navigator.of(context);
+            final nav = Navigator.of(context);
             nav.push<void>(_createRoute(context, imageAssetName));
           },
           child: Image.asset(imageAssetName, fit: BoxFit.cover),

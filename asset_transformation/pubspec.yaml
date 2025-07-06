@@ -4,18 +4,19 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: '>=3.8.0 <4.0.0'  # Latest Dart SDK
+  flutter: '>=3.32.0'    # Latest Flutter SDK
 
 dependencies:
   flutter:
     sdk: flutter
-  vector_graphics: ^1.1.11+1
+  vector_graphics: ^1.1.19
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
-  vector_graphics_compiler: ^1.1.11+1
+  flutter_lints: ^6.0.0
+  vector_graphics_compiler: ^1.1.17
   grayscale_transformer:
     path: ./grayscale_transformer
 

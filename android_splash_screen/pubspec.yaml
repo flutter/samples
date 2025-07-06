@@ -6,7 +6,8 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: '>=3.8.0 <4.0.0'  # Latest Dart SDK
+  flutter: '>=3.32.0'    # Latest Flutter SDK
 
 dependencies:
   flutter:

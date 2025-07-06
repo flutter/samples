@@ -25,7 +25,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
 
   void addUser() {
     setState(() {
-      var index = listData.length;
+      final index = listData.length;
       listData.add(UserModel(++_maxIdValue, 'New', 'Person'));
       _listKey.currentState!.insertItem(
         index,
@@ -37,7 +37,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
   void deleteUser(int id) {
     setState(() {
       final index = listData.indexWhere((u) => u.id == id);
-      var user = listData.removeAt(index);
+      final user = listData.removeAt(index);
       _listKey.currentState!.removeItem(index, (context, animation) {
         return FadeTransition(
           opacity: CurvedAnimation(

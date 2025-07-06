@@ -17,7 +17,7 @@ void main() {
       final initialInkwell = tester.widget(find.byType(InkWell).at(0));
 
       // Get the size of initial inkwell.
-      var initialSize = tester.getSize(find.byWidget(initialInkwell));
+      final initialSize = tester.getSize(find.byWidget(initialInkwell));
 
       // Tap on the ink well at index 0.
       await tester.tap(find.byType(InkWell).at(0));
@@ -27,7 +27,7 @@ void main() {
       final finalInkwell = tester.widget(find.byType(InkWell).at(0));
 
       // Get the size of final inkwell.
-      var finalSize = tester.getSize(find.byWidget(finalInkwell));
+      final finalSize = tester.getSize(find.byWidget(finalInkwell));
 
       // Final size should be greater than initial size.
       expect(finalSize, greaterThan(initialSize));

@@ -67,7 +67,7 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return PageView.builder(
       onPageChanged: (value) {
         setState(() {
@@ -83,7 +83,7 @@ class _CarouselState extends State<Carousel> {
           (context, index) => AnimatedBuilder(
             animation: _controller,
             builder: (context, child) {
-              var result =
+              final result =
                   _pageHasChanged ? _controller.page! : _currentPage * 1.0;
 
               // The horizontal position of the page between a 1 and 0
