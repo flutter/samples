@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+
+void main() { runApp(DividenSyariahApp()); }
+
+class DividenSyariahApp extends StatelessWidget { @override Widget build(BuildContext context) { return MaterialApp( title: 'Dividen Syariah', theme: ThemeData( primarySwatch: Colors.green, scaffoldBackgroundColor: Colors.grey[100], ), home: StockListScreen(), ); } }
+
+class Stock { final String name; final double price; final double yield; final String sector; final bool syariah;
+
+Stock(this.name, this.price, this.yield, this.sector, this.syariah); }
+
+final List<Stock> sampleStocks = [ Stock("BIMB", 2.60, 5.3, "Perbankan", true), Stock("AXIS REIT", 1.85, 5.9, "REIT", true), Stock("PETRONAS GAS", 17.40, 5.2, "Utiliti", true), Stock("TAANN", 3.20, 6.5, "Perladangan", true), Stock("MAYBANK", 9.80, 6.2, "Perbankan", false), ];
+
+class StockListScreen extends StatelessWidget { @override Widget build(BuildContext context) { return Scaffold( appBar: AppBar( title: Text('Dividen Syariah Watchlist'), ), body: ListView.builder( itemCount: sampleStocks.length, itemBuilder: (context, index) { final stock = sampleStocks[index]; return Card( margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6), child: ListTile( leading: Icon( stock.syariah ? Icons.check_circle : Icons.cancel, color: stock.syariah ? Colors.green : Colors.red, ), title: Text(stock.name), subtitle: Text("${stock.sector} | RM${stock.price.toStringAsFixed(2)}"), trailing: Text("${stock.yield.toStringAsFixed(1)}%", style: TextStyle(fontWeight: FontWeight.bold)), ), ); }, ), ); } }
+
