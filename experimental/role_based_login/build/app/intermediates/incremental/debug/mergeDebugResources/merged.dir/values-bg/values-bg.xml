@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Парола"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Код за достъп"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Отговор"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Видеообаждане"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Отхвърляне"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Затваряне"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Входящо обаждане"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Текущо обаждане"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Преглежда се входящо обаждане"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Активиране</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s няма да работи, освен ако не активирате услугите за Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Активиране на услугите за Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Инсталиране</string>
+    <string name="common_google_play_services_install_text">%1$s няма да се изпълнява, тъй като услугите за Google Play не са инсталирани на устройството ви.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Изтегляне на услугите за Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Наличност на услугите за Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Грешка в услугите за Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s има проблеми с услугите за Google Play. Моля, опитайте отново.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s няма да се изпълнява, тъй като услугите за Google Play не се поддържат от устройството ви.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Актуализиране</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s няма да се изпълнява, освен ако не актуализирате услугите за Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Актуализиране на услугите за Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s няма да се изпълнява без услугите за Google Play. Понастоящем те се актуализират.</string>
+    <string name="common_google_play_services_wear_update_text">Необходима е нова версия на услугите за Google Play. Скоро тя ще се актуализира автоматично.</string>
+    <string name="common_open_on_phone">Отваряне на телефона</string>
+    <string name="common_signin_button_text">Вход</string>
+    <string name="common_signin_button_text_long">Вход с Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Връзката е копирана в буферната памет"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Копиране на връзката"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Отваряне в браузър"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Споделяне на връзката"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

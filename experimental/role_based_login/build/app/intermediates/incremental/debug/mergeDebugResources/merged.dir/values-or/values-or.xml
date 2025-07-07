@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"ପାସୱାର୍ଡ"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"ପାସକୀ"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"ଉତ୍ତର ଦିଅନ୍ତୁ"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ଭିଡିଓ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"ଅଗ୍ରାହ୍ୟ କର"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"ସମାପ୍ତ କରନ୍ତୁ"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"ଇନକମିଂ କଲ୍"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"ଚାଲିଥିବା କଲ୍"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"ଏକ ଇନକମିଂ କଲକୁ ସ୍କ୍ରିନ୍ କରୁଛି"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">ଆପଣ Google Play ସେବା ସକ୍ଷମ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ %1$s କାମ କରିବ ନାହିଁ।</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play ସେବାଗୁଡ଼ିକ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ଇନ୍‍ଷ୍ଟଲ୍‍ କରନ୍ତୁ</string>
+    <string name="common_google_play_services_install_text">%1$s ଏହି Google Play ସେବାଗୁଡ଼ିକ ବିନା ଚାଲେ ନାହିଁ, ଏବଂ ସେଗୁଡ଼ିକ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ନାହିଁ।</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play ସେବାଗୁଡ଼ିକ ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play ସେବାଗୁଡ଼ିକର ଉପଲବ୍ଧତା</string>
+    <string name="common_google_play_services_notification_ticker">Google Play ସେବା ସମ୍ପର୍କିତ ସମସ୍ୟା</string>
+    <string name="common_google_play_services_unknown_issue">%1$sର Google Play ସେବା ସହ ଏକ ସମସ୍ୟା ରହିଛି। ଦୟାକରି ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ଏହି Google Play ସେବାଗୁଡ଼ିକ ବିନା ଚାଲେ ନାହିଁ, ଏବଂ ସେଗୁଡ଼ିକ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ କାମ କରେ ନାହିଁ।</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">ଅପଡେଟ୍‍ କରନ୍ତୁ</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">ଆପଣ Google Play ସେବା ଅପଡେଟ୍‌ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ %1$s ଚାଲିବ ନାହିଁ।</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play ସେବାଗୁଡ଼ିକ ଅପଡେଟ୍ କରନ୍ତୁ</string>
+    <string name="common_google_play_services_updating_text">Google Play ସେବାଗୁଡ଼ିକ ବିନା %1$s ଚାଲିବ ନାହିଁ, ଯେଉଁଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ଅପଡେଟ୍‌ ହେଉଛି।</string>
+    <string name="common_google_play_services_wear_update_text">Google Play ସେବାଗୁଡ଼ିକର ନୂତନ ଭର୍ସନ୍‌ ଆବଶ୍ୟକ। ଏହା ନିଜକୁ କିଛି ସମୟ ମଧ୍ୟରେ ଅପଡେଟ୍‌ କରିବ।</string>
+    <string name="common_open_on_phone">ଫୋନ୍‌ରେ ଖୋଲନ୍ତୁ</string>
+    <string name="common_signin_button_text">ସାଇନ୍‌-ଇନ୍ କରନ୍ତୁ</string>
+    <string name="common_signin_button_text_long">Google ସହ ସାଇନ୍‌-ଇନ୍ କରନ୍ତୁ</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"ଲିଙ୍କକୁ କ୍ଲିପ୍‍‍ବୋର୍ଡରେ କପି କରାଯାଇଛି"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"ଲିଙ୍କ୍ କପି କରନ୍ତୁ"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ବ୍ରାଉଜର୍‌ରେ ଖୋଲନ୍ତୁ"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"ଲିଙ୍କ୍ ସେୟାର୍ କରନ୍ତୁ"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_google_signin_btn_text_dark_default">#90000000</color>
+    <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_dark_focused">#90000000</color>
+    <color name="common_google_signin_btn_text_dark_pressed">#DE000000</color>
+    <color name="common_google_signin_btn_text_light_default">@android:color/white</color>
+    <color name="common_google_signin_btn_text_light_disabled">#DEFFFFFF</color>
+    <color name="common_google_signin_btn_text_light_focused">@android:color/black</color>
+    <color name="common_google_signin_btn_text_light_pressed">#DEFFFFFF</color>
+</resources>

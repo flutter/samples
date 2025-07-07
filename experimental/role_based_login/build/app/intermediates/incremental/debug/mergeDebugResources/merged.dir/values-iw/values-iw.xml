@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"סיסמה"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"מפתח גישה"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"מענה"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"וידאו"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"דחייה"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"ניתוק"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"שיחה נכנסת"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"שיחה פעילה"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"סינון שיחה נכנסת"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">הפעל</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏האפליקציה %1$s לא תפעל אם לא תפעיל את שירותי Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏הפעל את שירותי Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">התקן</string>
+    <string name="common_google_play_services_install_text">‏האפליקציה %1$s לא תפעל ללא שירותי Google Play, שאינם מותקנים במכשיר.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏קבל את שירותי Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">‏זמינות של שירותי Google Play</string>
+    <string name="common_google_play_services_notification_ticker">‏שגיאה בשירותי Google Play</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s נתקלה בבעיה בשירותי Google Play. נסה שוב.</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s לא תפעל ללא שירותי Google Play, שאינם נתמכים במכשיר שלך.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">עדכון</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏%1$s לא יפעל אם לא תעדכן את שירותי Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏עדכון שירותי Google Play</string>
+    <string name="common_google_play_services_updating_text">‏האפליקציה %1$s לא תפעל ללא שירותי Google Play, שמתעדכנים כרגע.</string>
+    <string name="common_google_play_services_wear_update_text">‏דרושה גרסה חדשה של שירותי Google Play. הגרסה תתעדכן בעצמה תוך זמן קצר.</string>
+    <string name="common_open_on_phone">פתח בטלפון</string>
+    <string name="common_signin_button_text">כניסה</string>
+    <string name="common_signin_button_text_long">‏היכנס באמצעות Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"הקישור הועתק ללוח"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"העתקת הקישור"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"פתיחה בדפדפן"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"לשיתוף הקישור"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

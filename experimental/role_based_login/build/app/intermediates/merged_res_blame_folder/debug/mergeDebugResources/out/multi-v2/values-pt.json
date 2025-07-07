@@ -1,0 +1,53 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.rolebasedlogin.role_based_login.app-mergeDebugResources-33:/values-pt/values-pt.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\6643c4258ae11fe541bbf5ee341bcb98\\transformed\\browser-1.4.0\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,170,269,381",
+                        "endColumns": "114,98,111,105",
+                        "endOffsets": "165,264,376,482"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "1021,1136,1235,1347",
+                        "endColumns": "114,98,111,105",
+                        "endOffsets": "1131,1230,1342,1448"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\847a26655a62540eb6e1b568482ff8fb\\transformed\\jetified-credentials-1.2.0-rc01\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,164",
+                        "endColumns": "108,121",
+                        "endOffsets": "159,281"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\7f46bbd13206153774356ca6103aa890\\transformed\\core-1.13.1\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,152,254,353,453,560,670,790",
+                        "endColumns": "96,101,98,99,106,109,119,100",
+                        "endOffsets": "147,249,348,448,555,665,785,886"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,8,9,10,15",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "286,383,485,584,684,791,901,1453",
+                        "endColumns": "96,101,98,99,106,109,119,100",
+                        "endOffsets": "378,480,579,679,786,896,1016,1549"
+                    }
+                }
+            ]
+        }
+    ]
+}

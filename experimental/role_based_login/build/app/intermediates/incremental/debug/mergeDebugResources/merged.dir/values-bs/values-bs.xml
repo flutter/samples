@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Lozinka"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Pristupni ključ"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Odgovori"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Odbaci"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Prekini vezu"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Dolazni poziv"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Poziv u toku"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Filtriranje dolaznog poziva"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Omogući</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Aplikacija %1$s neće raditi ako ne omogućite Google Play usluge.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Omogućite Google Play usluge</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instaliraj</string>
+    <string name="common_google_play_services_install_text">Aplikacija %1$s neće raditi bez Google Play usluga, kojih na vašem uređaju nema.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Nabavite Google Play usluge</string>
+    <string name="common_google_play_services_notification_channel_name">Dostupnost Google Play usluga</string>
+    <string name="common_google_play_services_notification_ticker">Greška Google Play usluge</string>
+    <string name="common_google_play_services_unknown_issue">Aplikacija %1$s ima problema s Google Play uslugama. Pokušajte ponovo.</string>
+    <string name="common_google_play_services_unsupported_text">Aplikacija %1$s neće raditi bez Google Play usluga, koje vaš uređaj ne podržava.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Ažuriraj</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Aplikacija %1$s neće raditi ako ne ažurirate Google Play usluge.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Ažuriranje Google Play usluga</string>
+    <string name="common_google_play_services_updating_text">Aplikacija %1$s neće raditi bez Google Play usluga, koje se trenutno ažuriraju.</string>
+    <string name="common_google_play_services_wear_update_text">Potrebna je nova verzija Google Play usluga. Ubrzo će se samo ažurirati.</string>
+    <string name="common_open_on_phone">Otvori na telefonu</string>
+    <string name="common_signin_button_text">Prijava</string>
+    <string name="common_signin_button_text_long">Prijavi se pomoću Googlea</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Link je kopiran u međumemoriju"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopiraj link"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Otvori u pregledniku"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Dijeli link"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

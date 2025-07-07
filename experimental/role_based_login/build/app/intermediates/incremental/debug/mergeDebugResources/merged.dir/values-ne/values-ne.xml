@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"पासवर्ड"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"पासकी"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"जवाफ दिनुहोस्"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"भिडियो"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"काट्नुहोस्"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"फोन राख्नुहोस्"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"आगमन कल"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"भइरहेको कल"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"आगमन कल जाँचिँदै छ"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">अन गर्नुहोस्</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s ले तपाईँले Google Play सेवाहरू सक्षम नगरेसम्म काम गर्दैन।</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play सेवाहरू सक्षम पार्नुहोस्</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">स्थापना गर्नुहोस्</string>
+    <string name="common_google_play_services_install_text">%1$s Google Play services बिना सञ्चालन हुने छैन र तपाईँको यन्त्रमा Google Play services उपलब्ध छैनन्।</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play सेवाहरू प्राप्त गर्नुहोस्</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play सेवाको उपलब्धता</string>
+    <string name="common_google_play_services_notification_ticker">Google Play सेवाहरूका त्रुटि</string>
+    <string name="common_google_play_services_unknown_issue">%1$s लाई Google Play services सँग सहकार्य गर्न समस्या भइरहेको छ। कृपया फेरि प्रयास गर्नुहोस्।</string>
+    <string name="common_google_play_services_unsupported_text">%1$s Google Play services बिना सञ्चालन हुने छैन र तपाईँको यन्त्रले Google Play services लाई समर्थन गर्दैन।</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">अपडेट गर्नुहोस्</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s तपाईंले Google प्ले सेवाहरू अद्यावधिक नगरेसम्म सञ्चालन हुँदैन।</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play सेवाहरू अपडेट गर्नुहोस्</string>
+    <string name="common_google_play_services_updating_text">Google Play सेवाहरू %1$s बिना सञ्‍चालन हुँदैन, जुन हाल अद्यावधिक भइरहेका छन्।</string>
+    <string name="common_google_play_services_wear_update_text">Google Play सेवाहरूको नयाँ संस्करण आवश्यक छ। यो आफै छिट्टै नै अद्यावधिक हुनेछ।</string>
+    <string name="common_open_on_phone">फोनमा खोल्नुहोस्</string>
+    <string name="common_signin_button_text">साइन इन गर्नुहोस्</string>
+    <string name="common_signin_button_text_long">Google मार्फत साइन‍ इन गर्नुहोस्</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"क्लिपबोर्डमा लिंक प्रतिलिपि गरियो"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"लिंक प्रतिलिपि गर्नुहोस्"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ब्राउजरमा खोल्नुहोस्"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"लिंक सेयर गर्नुहोस्"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"९९९+"</string>
+</resources>

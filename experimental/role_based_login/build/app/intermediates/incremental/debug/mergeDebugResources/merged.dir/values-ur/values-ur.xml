@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"پاس ورڈ"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"پاس کی"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"جواب دیں"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ویڈیو"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"مسترد کریں"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"منقطع کر دیں"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"اِن کمنگ کال"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"جاری کال"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"اِن کمنگ کال کی اسکریننگ"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">فعال کریں</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏جب تک آپ Google Play سروسز فعال نہیں کر لیتے، %1$s کام نہیں کرے گی۔</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏Google Play سروسز فعال کریں</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">انسٹال کریں</string>
+    <string name="common_google_play_services_install_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جو آپ کے آلہ سے غائب ہیں۔</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏Google Play سروسز حاصل کریں</string>
+    <string name="common_google_play_services_notification_channel_name">‏Google Play سروسز کی دستیابی</string>
+    <string name="common_google_play_services_notification_ticker">‏Google Play سروسز کی خرابی</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s کو Google Play سروسز کے ساتھ مسئلہ پیش آ رہا ہے۔ براہ کرم دوبارہ کوشش کریں۔</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جن کی آپ کا آلہ معاونت نہیں کرتا۔</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">اپ ڈیٹ کریں</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏جب تک آپ Google Play سروسز اپ ڈیٹ نہیں کر لیتے ہیں %1$s تب تک نہیں چلے گی۔</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏Google Play سروسز اپ ڈیٹ کریں</string>
+    <string name="common_google_play_services_updating_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جو فی الحال اپ ڈیٹ ہو رہی ہیں۔</string>
+    <string name="common_google_play_services_wear_update_text">‏Google Play سروسز کے نئے ورژن کی ضرورت ہے۔ یہ تھوڑی دیر میں خود ہی اپنے آپ کو اپ ڈیٹ کر لے گا۔</string>
+    <string name="common_open_on_phone">فون پر کھولیں</string>
+    <string name="common_signin_button_text">سائن ان کریں</string>
+    <string name="common_signin_button_text_long">‏Google کے ساتھ سائن ان کریں</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"لنک کلپ بورڈ پر کاپی ہو گیا"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"لنک کاپی کریں"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"براؤزر میں کھولیں"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"لنک کا اشتراک کریں"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"+999"</string>
+</resources>

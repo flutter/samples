@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"كلمة المرور"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"مفتاح المرور"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"ردّ"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"فيديو"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"رفض"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"قطع الاتصال"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"مكالمة واردة"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"مكالمة جارية"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"يتم فحص المكالمة الواردة"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">تفعيل</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏لن يعمل %1$s ما لم يتم تفعيل خدمات Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏تفعيل خدمات Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">تثبيت</string>
+    <string name="common_google_play_services_install_text">‏لن يتم تشغيل %1$s بدون خدمات Google Play، والتي لا تتوفر على جهازك.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏الحصول على خدمات Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">‏مدى توفّر خدمات Google Play</string>
+    <string name="common_google_play_services_notification_ticker">‏خطأ في خدمات Google Play</string>
+    <string name="common_google_play_services_unknown_issue">‏لدى %1$s مشكلة في خدمات Google Play. يُرجى إعادة المحاولة.</string>
+    <string name="common_google_play_services_unsupported_text">‏لن يتم تشغيل %1$s بدون خدمات Google Play التي لا يوفرها جهازك.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">تحديث</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏لن يتم تشغيل %1$s ما لم يتم تحديث خدمات Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏تحديث خدمات Google Play</string>
+    <string name="common_google_play_services_updating_text">‏لن يتم تشغيل %1$s بدون خدمات Google Play، والتي يتم تحديثها حاليًا.</string>
+    <string name="common_google_play_services_wear_update_text">‏يجب توفر إصدار جديد من خدمات Google Play. سيتم تحديثها تلقائيًا قريبًا.</string>
+    <string name="common_open_on_phone">فتح على الهاتف</string>
+    <string name="common_signin_button_text">تسجل الدخول</string>
+    <string name="common_signin_button_text_long">‏تسجيل الدخول عبر Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"تم نسخ الرابط إلى الحافظة."</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"نسخ الرابط"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"فتح في المتصفح"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"مشاركة الرابط"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

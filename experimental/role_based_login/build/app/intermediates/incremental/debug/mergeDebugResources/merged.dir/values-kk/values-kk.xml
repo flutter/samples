@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Құпия сөз"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Кіру кілті"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Жауап"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Бейне"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Қабылдамау"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Тұтқаны қою"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Кіріс қоңырау"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Қоңырау"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Келген қоңырауды сүзу"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Қосу</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play қызметтерін қоспасаңыз, %1$s жұмыс істемейді.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play қызметтерін қосу</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Орнату</string>
+    <string name="common_google_play_services_install_text">Google Play қызметтері құрылғыда болмағандықтан, %1$s іске қосылмайды.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play қызметтерін алу</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play қызметтерінің қолжетімділігі</string>
+    <string name="common_google_play_services_notification_ticker">Google Play қызметтерінің қатесі</string>
+    <string name="common_google_play_services_unknown_issue">%1$s қолданбасында Google Play қызметіне байланысты белгісіз қате шықты. Әрекетті қайталаңыз.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s қолданбасы құрылғыңызда қолдау көрсетілмейтін Google Play қызметінсіз жұмыс істемейді.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Жаңарту</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play қызметтерін жаңартпасаңыз, %1$s іске қосылмайды.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play қызметтерін жаңарту</string>
+    <string name="common_google_play_services_updating_text">Қазіргі уақытта жаңартылып жатқан Google Play қызметтерінсіз %1$s іске қосылмайды.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play қызметтерінің жаңа нұсқасы қажет. Ол қысқа уақыттан кейін өзі жаңарады.</string>
+    <string name="common_open_on_phone">Телефонда ашу</string>
+    <string name="common_signin_button_text">Кіру</string>
+    <string name="common_signin_button_text_long">Google арқылы кіру</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Сілтеме буферге көшірілді."</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Сілтемені көшіру"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Браузерден ашу"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Сілтемені бөлісу"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Aðgangsorð"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Aðgangslykill"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Svara"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Myndsímtal"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Hafna"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Leggja á"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Símtal berst"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Símtal í gangi"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Síar símtal sem berst"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Kveikja</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s virkar ekki nema þú gerir þjónustu Google Play virka.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Virkja þjónustu Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Setja upp</string>
+    <string name="common_google_play_services_install_text">%1$s getur ekki keyrt án þjónustu Google Play, sem vantar í tækið þitt.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Sækja þjónustu Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Staða þjónustu Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Villa í þjónustu Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s á í vandræðum með þjónustu Google Play. Reyndu aftur.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s getur ekki keyrt án þjónustu Google Play, sem er ekki studd af tækinu þínu.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Uppfæra</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s getur ekki keyrt nema þú uppfærir þjónustu Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Uppfæra þjónustu Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s getur ekki keyrt án þjónustu Google Play, sem verið er að uppfæra.</string>
+    <string name="common_google_play_services_wear_update_text">Nýja útgáfu af þjónustu Google Play vantar. Hún uppfærir sig sjálf innan skamms.</string>
+    <string name="common_open_on_phone">Opna í símanum</string>
+    <string name="common_signin_button_text">Skrá inn</string>
+    <string name="common_signin_button_text_long">Skrá inn með Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Tengill afritaður á klippiborð"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Afrita tengil"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Opna í vafra"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Deila tengli"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Salasana"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Avainkoodi"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Vastaa"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Hylkää"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Lopeta puhelu"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Saapuva puhelu"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Käynnissä oleva puhelu"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Seulotaan saapuvaa puhelua"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Ota käyttöön</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s ei toimi, ellet ota Google Play Palveluita käyttöön.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Ota Google Play Palvelut käyttöön</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Asenna</string>
+    <string name="common_google_play_services_install_text">%1$s ei toimi ilman Google Play Palveluita, jotka puuttuvat laitteeltasi.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Asenna Google Play Palvelut</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play Palveluiden saatavuus</string>
+    <string name="common_google_play_services_notification_ticker">Virhe Google Play -palveluissa</string>
+    <string name="common_google_play_services_unknown_issue">Sovelluksella %1$s on ongelmia Google Play Palveluiden kanssa. Yritä uudelleen.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ei toimi ilman Google Play Palveluita, joita laitteesi ei tue.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Päivitä</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s ei toimi, ellet päivitä Google Play Palveluita.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Päivitä Google Play Palvelut</string>
+    <string name="common_google_play_services_updating_text">%1$s ei toimi ilman Google Play Palveluita, joita päivitetään tällä hetkellä.</string>
+    <string name="common_google_play_services_wear_update_text">Uusi Google Play Palveluiden versio tarvitaan. Se päivittyy pian.</string>
+    <string name="common_open_on_phone">Avaa puhelimessa</string>
+    <string name="common_signin_button_text">Kirjaudu sisään</string>
+    <string name="common_signin_button_text_long">Kirjaudu Google-tilille</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Linkki kopioitu leikepöydälle"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopioi linkki"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Avaa selaimessa"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Jaa linkki"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,21 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.flutter.plugins.firebase.auth" >
+4
+5    <uses-sdk android:minSdkVersion="21" />
+6
+7    <application>
+7-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.6.0\android\src\main\AndroidManifest.xml:3:5-8:19
+8        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+8-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.6.0\android\src\main\AndroidManifest.xml:4:9-7:19
+8-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.6.0\android\src\main\AndroidManifest.xml:4:18-89
+9            <meta-data
+9-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.6.0\android\src\main\AndroidManifest.xml:5:13-6:92
+10                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+10-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.6.0\android\src\main\AndroidManifest.xml:5:24-131
+11                android:value="com.google.firebase.components.ComponentRegistrar" />
+11-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_auth-5.6.0\android\src\main\AndroidManifest.xml:6:24-89
+12        </service>
+13    </application>
+14
+15</manifest>

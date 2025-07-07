@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Лозинка"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Криптографски клуч"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Одговори"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Видео"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Одбиј"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Спушти"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Дојдовен повик"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Тековен повик"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Проверка на дојдовен повик"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Овозможи</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s нема да се извршува ако не овозможите услуги на Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Овозможи ги услугите на Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Инсталирај</string>
+    <string name="common_google_play_services_install_text">%1$s нема да се извршува без услугите на Google Play што ги нема на уредот.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Преземи ги услугите на Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Достапност на услугите на Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Грешка на услугите на Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s има проблеми со услугите на Google Play. Обидете се повторно.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s нема да се извршува без услугите на Google Play, што не се подржани од уредов.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Ажурирај</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s нема да се извршува ако не ги ажурирате услугите на Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Ажурирај ги услугите на Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s нема да се извршува без услугите на Google Play што се ажурираат во моментов.</string>
+    <string name="common_google_play_services_wear_update_text">Потребна е нова верзија на услугите на Google Play. Таа наскоро самата ќе се ажурира.</string>
+    <string name="common_open_on_phone">Отвори на телефонот</string>
+    <string name="common_signin_button_text">Најави се</string>
+    <string name="common_signin_button_text_long">Најави се со Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Линкот е копиран во привремена меморија"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Копирај го линкот"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Отвори во прелистувач"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Сподели линк"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

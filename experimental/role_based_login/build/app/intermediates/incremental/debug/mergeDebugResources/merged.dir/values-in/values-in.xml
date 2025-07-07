@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Sandi"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Kunci sandi"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Jawab"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Tolak"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Tutup"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Panggilan masuk"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Panggilan sedang berlangsung"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Menyaring panggilan masuk"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktifkan</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s tidak akan berfungsi jika layanan Google Play tidak diaktifkan.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktifkan layanan Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instal</string>
+    <string name="common_google_play_services_install_text">%1$s tidak akan berjalan tanpa layanan Google Play, yang tidak ada di perangkat Anda.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Dapatkan layanan Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Ketersediaan layanan Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Kesalahan layanan Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s mengalami masalah dengan layanan Google Play. Coba lagi.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s tidak akan berjalan tanpa layanan Google Play, yang tidak didukung oleh perangkat Anda.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s tidak akan berjalan jika layanan Google Play tidak diperbarui.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Perbarui layanan Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s tidak akan berjalan tanpa layanan Google Play, yang saat ini sedang diperbarui.</string>
+    <string name="common_google_play_services_wear_update_text">Perlu versi baru layanan Google Play. Akan segera memperbarui sendiri.</string>
+    <string name="common_open_on_phone">Buka di ponsel</string>
+    <string name="common_signin_button_text">Login</string>
+    <string name="common_signin_button_text_long">Login dengan Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Link disalin ke papan klip"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Salin link"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Buka di browser"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Bagikan link"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

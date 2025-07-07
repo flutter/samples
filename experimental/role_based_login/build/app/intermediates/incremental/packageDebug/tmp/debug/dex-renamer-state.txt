@@ -1,0 +1,16 @@
+#Fri Jul 04 20:04:05 PKT 2025
+base.0=C\:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.3=C\:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.4=C\:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=0/classes.dex
+path.3=1/classes.dex
+path.4=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex

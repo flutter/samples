@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"ਪਾਸਵਰਡ"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"ਪਾਸਕੀ"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"ਜਵਾਬ ਦਿਓ"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ਵੀਡੀਓ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"ਅਸਵੀਕਾਰ ਕਰੋ"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"ਸਮਾਪਤ ਕਰੋ"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"ਇਨਕਮਿੰਗ ਕਾਲ"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"ਜਾਰੀ ਕਾਲ"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"ਇਨਕਮਿੰਗ ਕਾਲ ਦੀ ਸਕ੍ਰੀਨਿੰਗ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ਚਾਲੂ ਕਰੋ</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s ਕੰਮ ਨਹੀਂ ਕਰੇਗਾ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ Google Play ਸੇਵਾਵਾਂ ਨੂੰ ਚਾਲੂ ਨਹੀਂ ਕਰਦੇ ਹੋ।</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play ਸੇਵਾਵਾਂ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ਸਥਾਪਤ ਕਰੋ</string>
+    <string name="common_google_play_services_install_text">%1$s Google Play ਸੇਵਾਵਾਂ ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਚੱਲੇਗੀ, ਜੋ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਤੋਂ ਗੁੰਮ ਹਨ।</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play ਸੇਵਾਵਾਂ ਪ੍ਰਾਪਤ ਕਰੋ</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play ਸੇਵਾਵਾਂ ਦੀ ਉਪਲਬਧਤਾ</string>
+    <string name="common_google_play_services_notification_ticker">Google Play ਸੇਵਾਵਾਂ ਅਸ਼ੁੱਧੀ</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ਨੂੰ Google Play ਸੇਵਾਵਾਂ ਨਾਲ ਸਮੱਸਿਆ ਆ ਰਹੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="common_google_play_services_unsupported_text">%1$s Google Play ਸੇਵਾਵਾਂ ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਚੱਲ ਸਕੇਗੀ, ਜੋ ਤੁਹਾਡੇ ਡੀਵਾਈਸ \'ਤੇ ਸਮਰਥਿਤ ਨਹੀਂ ਹਨ।</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">ਅੱਪਡੇਟ ਕਰੋ</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s ਨਹੀਂ ਚੱਲੇਗਾ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ Google Play ਸੇਵਾਵਾਂ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕਰਦੇ ਹੋ।</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play ਸੇਵਾਵਾਂ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ</string>
+    <string name="common_google_play_services_updating_text">%1$s Google Play ਸੇਵਾਵਾਂ ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਚੱਲੇਗਾ, ਜੋ ਵਰਤਮਾਨ ਵਿੱਚ ਅੱਪਡੇਟ ਹੋ ਰਹੀਆਂ ਹਨ।</string>
+    <string name="common_google_play_services_wear_update_text">Google Play ਸੇਵਾਵਾਂ ਦੇ ਨਵਾਂ ਸੰਸਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਇਹ ਛੇਤੀ ਹੀ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਅੱਪਡੇਟ ਕਰੇਗਾ।</string>
+    <string name="common_open_on_phone">ਫ਼ੋਨ \'ਤੇ ਖੋਲ੍ਹੋ</string>
+    <string name="common_signin_button_text">ਸਾਈਨ-ਇਨ ਕਰੋ</string>
+    <string name="common_signin_button_text_long">Google ਨਾਲ ਸਾਈਨ-ਇਨ ਕਰੋ</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"ਲਿੰਕ ਕਲਿੱਪਬੋਰਡ \'ਤੇ ਕਾਪੀ ਹੋ ਗਿਆ"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"ਲਿੰਕ ਕਾਪੀ ਕਰੋ"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਖੋਲ੍ਹੋ"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"ਲਿੰਕ ਸਾਂਝਾ ਕਰੋ"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

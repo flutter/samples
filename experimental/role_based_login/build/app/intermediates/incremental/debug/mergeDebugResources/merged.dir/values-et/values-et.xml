@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Parool"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Pääsuvõti"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Vasta"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Keeldu"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Lõpeta kõne"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Sissetulev kõne"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Käimasolev kõne"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Sissetuleva kõne filtreerimine"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Luba</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Rakendus %1$s töötab ainult siis, kui lubate Google Play teenused.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play teenuste lubamine</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installi</string>
+    <string name="common_google_play_services_install_text">Rakendus %1$s töötab ainult koos Google Play teenustega, mida teie seadmes pole.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play teenuste hankimine</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play teenuste saadavalolek</string>
+    <string name="common_google_play_services_notification_ticker">Viga Google Play teenustes</string>
+    <string name="common_google_play_services_unknown_issue">Rakendusel %1$s on probleeme Google Play teenustega. Proovige uuesti.</string>
+    <string name="common_google_play_services_unsupported_text">Rakendus %1$s töötab ainult koos Google Play teenustega, mida teie seadmes ei toetata.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Värskenda</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Rakenduse %1$s töötamiseks peate värskendama Google Play teenuseid.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play teenuste värskendamine</string>
+    <string name="common_google_play_services_updating_text">Rakendus %1$s töötab ainult koos Google Play teenustega, mida praegu värskendatakse.</string>
+    <string name="common_google_play_services_wear_update_text">Vajalik on Google Play teenuste uus versioon. See värskendab end peagi.</string>
+    <string name="common_open_on_phone">Ava telefonis</string>
+    <string name="common_signin_button_text">Logi sisse</string>
+    <string name="common_signin_button_text_long">Logi sisse Google\'i kontoga</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Link kopeeriti lõikelauale"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopeeri link"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Ava brauseris"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Jaga linki"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

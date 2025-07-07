@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"ಪಾಸ್‌ವರ್ಡ್"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"ಪಾಸ್‌ಕೀ"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"ಉತ್ತರಿಸಿ"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ವೀಡಿಯೊ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"ನಿರಾಕರಿಸಿ"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"ಕರೆ ಕೊನೆಗೊಳಿಸಿ"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"ಒಳಬರುವ ಕರೆ"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"ಚಾಲ್ತಿಯಲ್ಲಿರುವ ಕರೆ"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"ಒಳಬರುವ ಕರೆಯನ್ನು ಸ್ಕ್ರೀನ್ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ಸಕ್ರಿಯಗೊಳಿಸು</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play ಸೇವೆಗಳನ್ನು ನೀವು ಸಕ್ರಿಯಗೊಳಿಸದ ಹೊರತು %1$s ಕಾರ್ಯನಿರ್ವಹಿಸುವುದಿಲ್ಲ.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ</string>
+    <string name="common_google_play_services_install_text">ನಿಮ್ಮ ಸಾಧನದಿಂದ ಕಾಣೆಯಾಗಿರುವ %1$s, Google Play ಸೇವೆಗಳಿಲ್ಲದೆ ರನ್ ಆಗುವುದಿಲ್ಲ.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play ಸೇವೆಗಳನ್ನು ಪಡೆಯಿರಿ</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play ಸೇವೆಗಳ ಲಭ್ಯತೆ</string>
+    <string name="common_google_play_services_notification_ticker">Google Play ಸೇವೆಗಳ ದೋಷ</string>
+    <string name="common_google_play_services_unknown_issue">Google Play ಸೇವೆಗಳಲ್ಲಿ %1$s ಸಮಸ್ಯೆಯನ್ನು ಹೊಂದಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="common_google_play_services_unsupported_text">ನಿಮ್ಮ ಸಾಧನದ ಮೂಲಕ ಬೆಂಬಲಿಸದಿರುವ Google Play ಸೇವೆಗಳಿಲ್ಲದೆ %1$s ರನ್‌ ಆಗುವುದಿಲ್ಲ.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">ನೀವು Google Play ಸೇವೆಗಳನ್ನು ಅಪ್‍ಡೇಟ್ ಮಾಡದ ಹೊರತು %1$s ರನ್ ಆಗುವುದಿಲ್ಲ.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google ಪ್ಲೇ ಸೇವೆಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ</string>
+    <string name="common_google_play_services_updating_text">Google Play ಸೇವೆಗಳಿಲ್ಲದೆ ಪ್ರಸ್ತುತ ಅಪ್‌ಡೇಟ್ ಆಗುತ್ತಿರುವ %1$s ರನ್ ಆಗುವುದಿಲ್ಲ.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play ಸೇವೆಗಳ ಹೊಸ ಆವೃತ್ತಿ ಅಗತ್ಯವಿದೆ. ಸದ್ಯದಲ್ಲೇ ಅದು ತಾನಾಗಿಯೇ ಅಪ್‌ಡೇಟ್ ಆಗುತ್ತದೆ.</string>
+    <string name="common_open_on_phone">ಫೋನ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ</string>
+    <string name="common_signin_button_text">ಸೈನ್ ಇನ್</string>
+    <string name="common_signin_button_text_long">Google ಮೂಲಕ ಸೈನ್ ಇನ್ ಮಾಡಿ</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಲಿಂಕ್ ಅನ್ನು ನಕಲಿಸಲಾಗಿದೆ"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"ಲಿಂಕ್ ನಕಲಿಸಿ"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ಬ್ರೌಸರ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"ಲಿಂಕ್ ಹಂಚಿರಿ"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"கடவுச்சொல்"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"கடவுச்சாவி"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"பதிலளி"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"வீடியோ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"நிராகரி"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"துண்டி"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"உள்வரும் அழைப்பு"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"செயலில் இருக்கும் அழைப்பு"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"உள்வரும் அழைப்பை மதிப்பாய்வு செய்கிறது"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">இயக்கு</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play சேவைகளை இயக்கினால் மட்டுமே, %1$s செயல்படும்.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play சேவைகளை இயக்கவும்</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">நிறுவு</string>
+    <string name="common_google_play_services_install_text">Google Play சேவைகள் இருந்தால் மட்டுமே, %1$s இயங்கும். அவை உங்கள் சாதனத்தில் இல்லை.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play சேவைகளைப் பெறவும்</string>
+    <string name="common_google_play_services_notification_channel_name">கிடைக்கும் Google Play சேவைகள்</string>
+    <string name="common_google_play_services_notification_ticker">Google Play சேவைகள் பிழை</string>
+    <string name="common_google_play_services_unknown_issue">Google Play சேவைகளில் சிக்கல் ஏற்பட்டதால், %1$s ஆப்ஸை அணுக முடியவில்லை. மீண்டும் முயலவும்.</string>
+    <string name="common_google_play_services_unsupported_text">Google Play சேவைகள் இருந்தால் மட்டுமே %1$s ஆப்ஸ் இயங்கும். ஆனால், உங்கள் சாதனத்தில் அவை ஆதரிக்கப்படவில்லை.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">புதுப்பி</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play சேவைகளை இயக்கினால் மட்டுமே, %1$s செயல்படும்.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play சேவைகளைப் புதுப்பிக்கவும்</string>
+    <string name="common_google_play_services_updating_text">தற்போது புதுப்பிக்கப்படும், Google Play சேவைகள் இருந்தால் மட்டுமே, %1$s செயல்படும்.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play சேவைகளின் புதிய பதிப்பு தேவை. அது விரைவில் தானாகவே புதுப்பிக்கப்படும்.</string>
+    <string name="common_open_on_phone">மொபைலில் திற</string>
+    <string name="common_signin_button_text">உள்நுழைக</string>
+    <string name="common_signin_button_text_long">Google மூலம் உள்நுழைக</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"கிளிப்-போர்டுக்கு இணைப்பு நகலெடுக்கப்பட்டது"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"இணைப்பை நகலெடு"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"உலாவியில் திற"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"இணைப்பைப் பகிர்"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

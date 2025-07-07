@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"পাছৱৰ্ড"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"পাছকী"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"উত্তৰ দিয়ক"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ভিডিঅ’"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"প্ৰত্যাখ্যান কৰক"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"কল কাটি দিয়ক"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"অন্তৰ্গামী কল"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"চলি থকা কল"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"এটা অন্তৰ্গামী কলৰ পৰীক্ষা কৰি থকা হৈছে"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">সক্ষম কৰক</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">আপুনি Google Play সেৱাবোৰ সক্ষম নকৰালৈকে %1$sএ কাম নকৰিব।</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google প্লে সেৱাসক্ষম কৰক</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ইনষ্টল কৰক</string>
+    <string name="common_google_play_services_install_text">%1$s Google প্লে সেৱাৰ অবিহনে নচলে, যিটো আপোনাৰ ডিভাইচত নাই।</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google প্লে সেৱালাভ কৰক</string>
+    <string name="common_google_play_services_notification_channel_name">Google প্লে সেৱাসমূহৰ উপলব্ধতা</string>
+    <string name="common_google_play_services_notification_ticker">Google Playৰ সেৱা সম্পৰ্কীয় আসোঁৱাহ</string>
+    <string name="common_google_play_services_unknown_issue">Google প্লে সেৱাত %1$s ত সমস্যা হৈ আছে। আকৌ চেষ্টা কৰক।</string>
+    <string name="common_google_play_services_unsupported_text">%1$s Google প্লে সেৱাৰ অবিহনে নচলে, যিবোৰ আপোনাৰ ডিভাইচত চলিব নোৱাৰে।</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">আপডে’ট কৰক</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">আপুনি Google Play সেৱাবোৰ আপডে’ট নকৰালৈকে %1$s নচলিব।</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play সেৱা আপডে’ট কৰক</string>
+    <string name="common_google_play_services_updating_text">বৰ্তমান আপডে’ট হৈ থকা Google Play সেৱাসমূহৰ অবিহনে %1$s নচলিব৷</string>
+    <string name="common_google_play_services_wear_update_text">Google Play সেৱাসমূহৰ নতুন সংস্কৰণৰ প্ৰয়োজন৷ এইটো শীঘ্ৰেই নিজে-নিজে আপডে’ট হ’ব৷</string>
+    <string name="common_open_on_phone">ফ\'নত খোলক</string>
+    <string name="common_signin_button_text">ছাইন ইন কৰক</string>
+    <string name="common_signin_button_text_long">Googleৰ জৰিয়তে ছাইন ইন কৰক</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"লিংক ক্লিপব’ৰ্ডত প্ৰতিলিপি কৰা হ’ল"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"লিংক প্ৰতিলিপি কৰক"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ব্ৰাউজাৰত খোলক"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"লিংক শ্বেয়াৰ কৰক"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"৯৯৯+"</string>
+</resources>

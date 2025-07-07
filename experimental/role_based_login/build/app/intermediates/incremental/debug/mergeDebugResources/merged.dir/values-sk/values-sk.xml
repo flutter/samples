@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Heslo"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Prístupový kľúč"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Prijať"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Odmietnuť"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Zložiť"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Prichádzajúci hovor"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Prebiehajúci hovor"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Preveruje sa prichádzajúci hovor"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Povoliť</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Aplikácia %1$s bude fungovať až po povolení služieb Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Povoliť služby Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Inštalovať</string>
+    <string name="common_google_play_services_install_text">Na spustenie aplikácie %1$s sa vyžadujú služby Google Play, ktoré na zariadení nemáte.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Inštalovať služby Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Dostupnosť služieb Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Chyba služieb Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Aplikácia %1$s má problémy so službami Google Play. Skúste to znova.</string>
+    <string name="common_google_play_services_unsupported_text">Aplikáciu %1$s nebude možné spustiť bez služieb Google Play, ktoré vaše zariadenie nepodporuje.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualizovať</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Aplikáciu %1$s bude možné spustiť až po aktualizácii služieb Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Aktualizácia služieb Google Play</string>
+    <string name="common_google_play_services_updating_text">Na spustenie aplikácie %1$s sa vyžadujú služby Google Play, ktoré sa momentálne aktualizujú.</string>
+    <string name="common_google_play_services_wear_update_text">Vyžaduje sa nová verzia služieb Google Play. Aktualizujú sa automaticky v najbližšom čase.</string>
+    <string name="common_open_on_phone">Otvoriť v telefóne</string>
+    <string name="common_signin_button_text">Prihlásiť sa</string>
+    <string name="common_signin_button_text_long">Prihlásiť sa do účtu Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Odkaz bol skopírovaný do schránky"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopírovať odkaz"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Otvoriť v prehliadači"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Zdieľať odkaz"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

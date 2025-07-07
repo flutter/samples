@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Passord"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Tilgangsnøkkel"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Svar"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Avvis"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Legg på"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Innkommende anrop"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Pågående samtale"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrerer et innkommende anrop"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivér</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s fungerer ikke med mindre du slår på Google Play-tjenester.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Slå på Google Play-tjenester</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installer</string>
+    <string name="common_google_play_services_install_text">%1$s kan ikke kjøre uten Google Play-tjenester, som ikke er installert på enheten din.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Installer Google Play-tjenester</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play Tjenester-tilgjengelighet</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Tjenester-feil</string>
+    <string name="common_google_play_services_unknown_issue">%1$s har problemer med Google Play-tjenester. Prøv på nytt.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s kan ikke kjøre uten Google Play-tjenester, som ikke støttes av enheten din.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Oppdater</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s kjører ikke med mindre du oppdaterer Google Play Tjenester.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Oppdater Google Play-tjenester</string>
+    <string name="common_google_play_services_updating_text">%1$s kjører ikke uten Google Play-tjenester, som oppdateres akkurat nå.</string>
+    <string name="common_google_play_services_wear_update_text">Du må installere en ny versjon av Google Play-tjenester. Appen oppdateres automatisk om en kort stund.</string>
+    <string name="common_open_on_phone">Åpne på telefonen</string>
+    <string name="common_signin_button_text">Logg på</string>
+    <string name="common_signin_button_text_long">Logg på med Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Linken er kopiert til utklippstavlen"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopiér linken"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Åpne i nettleseren"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Del link"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,200 @@
+{
+  "info": {
+    "name": "armeabi-v7a",
+    "bitness": 32,
+    "isDefault": true,
+    "isDeprecated": false,
+    "architecture": "arm",
+    "triple": "arm-linux-androideabi",
+    "llvmTriple": "armv7-none-linux-androideabi"
+  },
+  "cxxBuildFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android\\app\\.cxx\\Debug\\6v455523\\armeabi-v7a",
+  "soFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\cxx\\Debug\\6v455523\\obj\\armeabi-v7a",
+  "soRepublishFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\cmake\\profile\\obj\\armeabi-v7a",
+  "abiPlatformVersion": 23,
+  "cmake": {
+    "effectiveConfiguration": {
+      "inheritEnvironments": [],
+      "variables": []
+    }
+  },
+  "variant": {
+    "buildSystemArgumentList": [
+      "-Wno-dev",
+      "--no-warn-unused-cli"
+    ],
+    "cFlagsList": [],
+    "cppFlagsList": [],
+    "variantName": "profile",
+    "isDebuggableEnabled": true,
+    "validAbiList": [
+      "armeabi-v7a",
+      "arm64-v8a",
+      "x86",
+      "x86_64"
+    ],
+    "buildTargetSet": [],
+    "implicitBuildTargetSet": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "module": {
+      "cxxFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android\\app\\.cxx",
+      "intermediatesBaseFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates",
+      "intermediatesFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\cxx",
+      "gradleModulePathName": ":app",
+      "moduleRootFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android\\app",
+      "moduleBuildFile": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android\\app\\build.gradle.kts",
+      "makeFile": "C:\\src\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "ndkFolder": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973",
+      "ndkFolderBeforeSymLinking": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973",
+      "ndkVersion": "27.0.12077973",
+      "ndkSupportedAbiList": [
+        "armeabi-v7a",
+        "arm64-v8a",
+        "riscv64",
+        "x86",
+        "x86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "armeabi-v7a",
+        "arm64-v8a",
+        "x86",
+        "x86_64"
+      ],
+      "ndkDefaultStl": "LIBCXX_STATIC",
+      "ndkMetaPlatforms": {
+        "min": 21,
+        "max": 35,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30,
+          "S": 31,
+          "Sv2": 32,
+          "Tiramisu": 33,
+          "UpsideDownCake": 34,
+          "VanillaIceCream": 35
+        }
+      },
+      "ndkMetaAbiList": [
+        {
+          "name": "armeabi-v7a",
+          "bitness": 32,
+          "isDefault": true,
+          "isDeprecated": false,
+          "architecture": "arm",
+          "triple": "arm-linux-androideabi",
+          "llvmTriple": "armv7-none-linux-androideabi"
+        },
+        {
+          "name": "arm64-v8a",
+          "bitness": 64,
+          "isDefault": true,
+          "isDeprecated": false,
+          "architecture": "arm64",
+          "triple": "aarch64-linux-android",
+          "llvmTriple": "aarch64-none-linux-android"
+        },
+        {
+          "name": "riscv64",
+          "bitness": 64,
+          "isDefault": false,
+          "isDeprecated": false,
+          "architecture": "riscv64",
+          "triple": "riscv64-linux-android",
+          "llvmTriple": "riscv64-none-linux-android"
+        },
+        {
+          "name": "x86",
+          "bitness": 32,
+          "isDefault": true,
+          "isDeprecated": false,
+          "architecture": "x86",
+          "triple": "i686-linux-android",
+          "llvmTriple": "i686-none-linux-android"
+        },
+        {
+          "name": "x86_64",
+          "bitness": 64,
+          "isDefault": true,
+          "isDeprecated": false,
+          "architecture": "x86_64",
+          "triple": "x86_64-linux-android",
+          "llvmTriple": "x86_64-none-linux-android"
+        }
+      ],
+      "cmakeToolchainFile": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\build\\cmake\\android.toolchain.cmake",
+      "cmake": {
+        "cmakeExe": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\cmake.exe"
+      },
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "armeabi-v7a": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "arm64-v8a": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "riscv64": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\riscv64-linux-android\\libc++_shared.so",
+          "x86": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "x86_64": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      },
+      "project": {
+        "rootBuildGradleFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android",
+        "sdkFolder": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk",
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isPrefabEnabled": false
+      },
+      "outputOptions": [],
+      "ninjaExe": "C:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "hasBuildTimeInformation": true
+    },
+    "prefabClassPaths": [],
+    "prefabPackages": [],
+    "prefabPackageConfigurations": [],
+    "stlType": "c++_static",
+    "optimizationTag": "Debug"
+  },
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "prefabFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android\\app\\.cxx\\Debug\\6v455523\\prefab\\armeabi-v7a",
+  "isActiveAbi": true,
+  "fullConfigurationHash": "6v45552326401i551u2a275h6g253u184d1x465p2g6z4d6r5m3g4l167575s10",
+  "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\n# Should not depend on the absolute path of the project itself.\n#   - AGP: 8.7.0.\n#   - $NDK is the path to NDK 27.0.12077973.\n#   - $PROJECT is the path to the parent folder of the root Gradle build file.\n#   - $ABI is the ABI to be built with. The specific value doesn\u0027t contribute to the value of the hash.\n#   - $HASH is the hash value computed from this text.\n#   - $CMAKE is the path to CMake 3.22.1.\n#   - $NINJA is the path to Ninja.\n-HC:/src/flutter/packages/flutter_tools/gradle/src/main/groovy\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d23\n-DANDROID_PLATFORM\u003dandroid-23\n-DANDROID_ABI\u003d$ABI\n-DCMAKE_ANDROID_ARCH_ABI\u003d$ABI\n-DANDROID_NDK\u003d$NDK\n-DCMAKE_ANDROID_NDK\u003d$NDK\n-DCMAKE_TOOLCHAIN_FILE\u003d$NDK/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d$NINJA\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:/Users/MULTI LAPTOP/Documents/FlutterProjects/role_based_login/build/app/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:/Users/MULTI LAPTOP/Documents/FlutterProjects/role_based_login/build/app/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_BUILD_TYPE\u003dDebug\n-B$PROJECT/app/.cxx/Debug/$HASH/$ABI\n-GNinja\n-Wno-dev\n--no-warn-unused-cli",
+  "configurationArguments": [
+    "-HC:\\src\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy",
+    "-DCMAKE_SYSTEM_NAME\u003dAndroid",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
+    "-DCMAKE_SYSTEM_VERSION\u003d23",
+    "-DANDROID_PLATFORM\u003dandroid-23",
+    "-DANDROID_ABI\u003darmeabi-v7a",
+    "-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a",
+    "-DANDROID_NDK\u003dC:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973",
+    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973",
+    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\ndk\\27.0.12077973\\build\\cmake\\android.toolchain.cmake",
+    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\MULTI LAPTOP\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\cxx\\Debug\\6v455523\\obj\\armeabi-v7a",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\cxx\\Debug\\6v455523\\obj\\armeabi-v7a",
+    "-DCMAKE_BUILD_TYPE\u003dDebug",
+    "-BC:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\android\\app\\.cxx\\Debug\\6v455523\\armeabi-v7a",
+    "-GNinja",
+    "-Wno-dev",
+    "--no-warn-unused-cli"
+  ],
+  "intermediatesParentFolder": "C:\\Users\\MULTI LAPTOP\\Documents\\FlutterProjects\\role_based_login\\build\\app\\intermediates\\cxx\\Debug\\6v455523"
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"パスワード"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"パスキー"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"応答"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ビデオ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"拒否"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"通話終了"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"着信"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"通話中"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"着信をスクリーニング中"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">有効にする</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$sの実行には、Google Play開発者サービスの有効化が必要です。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play開発者サービスの有効化</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">インストール</string>
+    <string name="common_google_play_services_install_text">「%1$s」の実行には Google Play 開発者サービスが必要ですが、お使いのデバイスにはインストールされていません。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play開発者サービスの入手</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 開発者サービスの利用</string>
+    <string name="common_google_play_services_notification_ticker">Google Play開発者サービスのエラー</string>
+    <string name="common_google_play_services_unknown_issue">「%1$s」で Google Play 開発者サービスに問題が発生しています。もう一度お試しください。</string>
+    <string name="common_google_play_services_unsupported_text">「%1$s」の実行には Google Play 開発者サービスが必要ですが、お使いのデバイスではサポートされていません。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$sの実行にはGoogle Play開発者サービスの更新が必要です。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play開発者サービスの更新</string>
+    <string name="common_google_play_services_updating_text">%1$sの実行にはGoogle Play開発者サービスが必要ですが、このサービスは現在更新中です。</string>
+    <string name="common_google_play_services_wear_update_text">Google Play開発者サービスの新しいバージョンが必要です。まもなく自動更新されます。</string>
+    <string name="common_open_on_phone">スマートフォンで開く</string>
+    <string name="common_signin_button_text">ログイン</string>
+    <string name="common_signin_button_text_long">Googleにログイン</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"リンクをクリップボードにコピーしました"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"リンクをコピー"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ブラウザで開く"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"リンクの共有"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

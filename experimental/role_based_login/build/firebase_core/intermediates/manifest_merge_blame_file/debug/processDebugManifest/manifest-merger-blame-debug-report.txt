@@ -1,0 +1,21 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.flutter.plugins.firebase.core" >
+4
+5    <uses-sdk android:minSdkVersion="21" />
+6
+7    <application>
+7-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:4:5-10:19
+8        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+8-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:5:9-9:19
+8-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:5:18-89
+9            <meta-data
+9-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:6:13-8:85
+10                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+10-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:7:17-124
+11                android:value="com.google.firebase.components.ComponentRegistrar" />
+11-->C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:8:17-82
+12        </service>
+13    </application>
+14
+15</manifest>

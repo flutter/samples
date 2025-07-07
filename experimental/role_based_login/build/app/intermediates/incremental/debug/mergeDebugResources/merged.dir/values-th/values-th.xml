@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"รหัสผ่าน"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"พาสคีย์"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"รับสาย"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"วิดีโอ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"ปฏิเสธ"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"วางสาย"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"สายเรียกเข้า"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"สายที่สนทนาอยู่"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"กำลังสกรีนสายเรียกเข้า"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">เปิดใช้</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s จะไม่ทำงานจนกว่าคุณจะเปิดใช้บริการ Google Play</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">เปิดใช้บริการ Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ติดตั้ง</string>
+    <string name="common_google_play_services_install_text">%1$s จะไม่ทำงานหากไม่มีบริการ Google Play ซี่งไม่มีในอุปกรณ์ของคุณ</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">ติดตั้งบริการ Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">ความพร้อมใช้งานของบริการ Google Play</string>
+    <string name="common_google_play_services_notification_ticker">ข้อผิดพลาดของบริการ Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s มีปัญหาเกี่ยวกับบริการของ Google Play โปรดลองอีกครั้ง</string>
+    <string name="common_google_play_services_unsupported_text">%1$s จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งอุปกรณ์ของคุณไม่สนับสนุน</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">อัปเดต</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s จะไม่ทำงานจนกว่าคุณจะอัปเดตบริการ Google Play</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">อัปเดตบริการ Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งกำลังอัปเดตอยู่ในขณะนี้</string>
+    <string name="common_google_play_services_wear_update_text">จำเป็นต้องใช้บริการ Google Play เวอร์ชันใหม่ ซึ่งจะอัปเดตอัตโนมัติในอีกไม่ช้า</string>
+    <string name="common_open_on_phone">เปิดบนโทรศัพท์</string>
+    <string name="common_signin_button_text">ลงชื่อเข้าใช้</string>
+    <string name="common_signin_button_text_long">ลงชื่อเข้าใช้ด้วย Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"คัดลอกลิงก์"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"เปิดในเบราว์เซอร์"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"แชร์ลิงก์"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

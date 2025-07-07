@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Lösenord"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Nyckel"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Svara"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Avvisa"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Lägg på"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Inkommande samtal"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Pågående samtal"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Ett inkommande samtal filtreras"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivera</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s fungerar inte om du inte aktiverar Google Play-tjänster.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktivera Google Play-tjänster</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installera</string>
+    <string name="common_google_play_services_install_text">%1$s kan inte köras utan Google Play-tjänsterna, som saknas på enheten.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Hämta Google Play-tjänster</string>
+    <string name="common_google_play_services_notification_channel_name">Tillgänglighet för Google Plays tjänster</string>
+    <string name="common_google_play_services_notification_ticker">Fel på Google Play-tjänster</string>
+    <string name="common_google_play_services_unknown_issue">Det har uppstått ett fel mellan %1$s och Google Play-tjänsterna. Försök igen.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s fungerar inte utan Google Play-tjänsterna, som inte stöds på enheten.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Uppdatera</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s kan inte köras om du inte uppdaterar Google Play-tjänsterna.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Uppdatera Google Play-tjänster</string>
+    <string name="common_google_play_services_updating_text">%1$s kan inte köras utan Google Play-tjänster, och dessa uppdateras för närvarande.</string>
+    <string name="common_google_play_services_wear_update_text">En ny version av Google Play-tjänster krävs. Den uppdateras automatiskt inom kort.</string>
+    <string name="common_open_on_phone">Öppna på mobilen</string>
+    <string name="common_signin_button_text">Logga in</string>
+    <string name="common_signin_button_text_long">Logga in med Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Länk kopierad till Urklipp"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopiera länk"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Öppna i webbläsaren"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Dela länk"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

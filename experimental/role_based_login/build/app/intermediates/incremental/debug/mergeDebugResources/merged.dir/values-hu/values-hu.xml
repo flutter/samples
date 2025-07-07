@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Jelszó"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Azonosítókulcs"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Fogadás"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Videó"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Elutasítás"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Befejezés"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Bejövő hívás"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Hívás folyamatban"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Bejövő hívás szűrése"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Engedélyezés</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">A(z) %1$s alkalmazás csak akkor működik, ha  engedélyezi a Google Play-szolgáltatásokat.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play-szolgáltatások engedélyezése</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Telepítés</string>
+    <string name="common_google_play_services_install_text">A(z) %1$s alkalmazás nem fut a Google Play-szolgáltatások nélkül, amelyek hiányoznak az eszközről.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">A Google Play-szolgáltatások beszerzése</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play-szolgáltatások elérhetősége</string>
+    <string name="common_google_play_services_notification_ticker">Google Play-szolgáltatások – hiba</string>
+    <string name="common_google_play_services_unknown_issue">A(z) %1$s alkalmazás problémába ütközött a Google Play-szolgáltatások használata során. Próbálkozzon újra.</string>
+    <string name="common_google_play_services_unsupported_text">A(z) %1$s alkalmazás nem fut a Google Play-szolgáltatások nélkül, amelyeket eszköze nem támogat.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Frissítés</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">A(z) %1$s alkalmazás csak akkor fog működni, ha frissíti a Google Play-szolgáltatásokat.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">A Google Play-szolgáltatások frissítése</string>
+    <string name="common_google_play_services_updating_text">A(z) %1$s alkalmazás nem fut a Google Play-szolgáltatások nélkül, amelyek frissítése folyamatban van.</string>
+    <string name="common_google_play_services_wear_update_text">A Google Play-szolgáltatások új verziójára van szükség. A szolgáltatás hamarosan frissíti önmagát.</string>
+    <string name="common_open_on_phone">Megnyitás a telefonon</string>
+    <string name="common_signin_button_text">Bejelentkezés</string>
+    <string name="common_signin_button_text_long">Bejelentkezés Google-fiókkal</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Link vágólapra másolva"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Link másolása"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Megnyitás böngészőben"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Link megosztása"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

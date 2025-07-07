@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Iphasiwedi"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Ukhiye wokudlula"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Phendula"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Ividiyo"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Yenqaba"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Vala Ucingo"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Ikholi engenayo"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Ikholi eqhubekayo"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Ukuveza ikholi engenayo"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Nika amandla</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">I-%1$s ngeke isebenze ngaphandle kokuthi unike amandla amasevisi we-Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Nika amandla amasevisi we-Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Faka</string>
+    <string name="common_google_play_services_install_text">I-%1$s ngeke ize iqalise ngaphandle kwamasevisi we-Google Play, angekho kusukela kudivayisi yakho.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Thola amasevisi we-Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Ukungatholakali kwamasevisi e-Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Iphutha lamasevisi we-Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s inenkinga ngamasevisi e-Google Play. Sicela uzame futhi.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ngeke isebenze ngaphandle kwamasevisi e-Google Play, angasekelwa idivayisi yakho.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Isibuyekezo</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">I-%1$s ngeke ize iqalise ngaphandle kokuthi ubuyekeze i-Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Buyekeza amasevisi we-Google Play</string>
+    <string name="common_google_play_services_updating_text">I-%1$s ngeke ize iqalise ngaphandle kwamasevisi we-Google Play, okwamanje abuyekezwayo.</string>
+    <string name="common_google_play_services_wear_update_text">Kudingeka inguqulo entsha yamasevisi we-Google Play. Izozibuyekeza ngokwayo maduze.</string>
+    <string name="common_open_on_phone">Vula kufoni</string>
+    <string name="common_signin_button_text">Ngena ngemvume</string>
+    <string name="common_signin_button_text_long">Ngena ngemvume nge-Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Isixhumanisi sikopishelwe ku-clipboard"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopisha isixhumanisi"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Vula kusiphequluli"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Yabelana ngesixhumanisi"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

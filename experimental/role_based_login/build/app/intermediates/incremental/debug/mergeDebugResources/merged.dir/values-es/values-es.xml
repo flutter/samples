@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Contraseña"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Llave de acceso"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Responder"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Vídeo"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Rechazar"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Colgar"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Llamada entrante"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Llamada en curso"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrando una llamada entrante"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Habilitar</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s no funcionará hasta que no habilites Servicios de Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Habilita Servicios de Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalar</string>
+    <string name="common_google_play_services_install_text">%1$s no se ejecutará si los Servicios de Google Play no están instalados en tu dispositivo.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Descargar Servicios de Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilidad Servicios de Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Error de Servicios de Google Play</string>
+    <string name="common_google_play_services_unknown_issue">La aplicación %1$s tiene problemas con los Servicios de Google Play. Vuelve a intentarlo.</string>
+    <string name="common_google_play_services_unsupported_text">No es posible ejecutar la aplicación %1$s sin los Servicios de Google Play, que no son compatibles con tu dispositivo.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Actualizar</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s no funcionará hasta que no actualices Servicios de Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Actualiza Servicios de Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s no se ejecutará hasta que finalice la actualización en curso de Servicios de Google Play.</string>
+    <string name="common_google_play_services_wear_update_text">Se necesita una nueva versión de Servicios de Google Play. Se actualizará en breve.</string>
+    <string name="common_open_on_phone">Abrir en teléfono</string>
+    <string name="common_signin_button_text">Iniciar sesión</string>
+    <string name="common_signin_button_text_long">Iniciar sesión con Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Enlace copiado en el portapapeles"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Copiar enlace"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Abrir en el navegador"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Compartir enlace"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

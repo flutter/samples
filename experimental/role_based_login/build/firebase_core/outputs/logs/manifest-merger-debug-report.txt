@@ -1,0 +1,29 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:1:1-11:12
+INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:1:1-11:12
+	package
+		ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:2:5-47
+		INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:4:5-10:19
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:5:9-9:19
+	android:name
+		ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:5:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:6:13-8:85
+	android:value
+		ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:8:17-82
+	android:name
+		ADDED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml:7:17-124
+uses-sdk
+INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\MULTI LAPTOP\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.14.0\android\src\main\AndroidManifest.xml

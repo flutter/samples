@@ -1,0 +1,87 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.rolebasedlogin.role_based_login.app-mergeDebugResources-33:/values-bg/values-bg.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\cf636ef2f0738047fe8129f320ef339e\\transformed\\jetified-play-services-basement-18.4.0\\res\\values-bg\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "133",
+                        "endOffsets": "328"
+                    },
+                    "to": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "2076",
+                        "endColumns": "137",
+                        "endOffsets": "2209"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\eb80b7c20f86db896fc82173afcd18d6\\transformed\\jetified-play-services-base-18.1.0\\res\\values-bg\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "193,298,459,590,697,860,991,1106,1211,1376,1484,1655,1789,1942,2104,2170,2225",
+                        "endColumns": "104,160,130,106,162,130,114,104,164,107,170,133,152,161,65,54,68",
+                        "endOffsets": "297,458,589,696,859,990,1105,1210,1375,1483,1654,1788,1941,2103,2169,2224,2293"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1026,1135,1300,1435,1546,1713,1848,1967,2214,2383,2495,2670,2808,2965,3131,3201,3260",
+                        "endColumns": "108,164,134,110,166,134,118,108,168,111,174,137,156,165,69,58,72",
+                        "endOffsets": "1130,1295,1430,1541,1708,1843,1962,2071,2378,2490,2665,2803,2960,3126,3196,3255,3328"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\847a26655a62540eb6e1b568482ff8fb\\transformed\\jetified-credentials-1.2.0-rc01\\res\\values-bg\\values-bg.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,165",
+                        "endColumns": "109,119",
+                        "endOffsets": "160,280"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\7f46bbd13206153774356ca6103aa890\\transformed\\core-1.13.1\\res\\values-bg\\values-bg.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,152,262,364,465,572,677,796",
+                        "endColumns": "96,109,101,100,106,104,118,100",
+                        "endOffsets": "147,257,359,460,567,672,791,892"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,8,9,10,33",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "285,382,492,594,695,802,907,3774",
+                        "endColumns": "96,109,101,100,106,104,118,100",
+                        "endOffsets": "377,487,589,690,797,902,1021,3870"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MULTI LAPTOP\\.gradle\\caches\\8.10.2\\transforms\\6643c4258ae11fe541bbf5ee341bcb98\\transformed\\browser-1.4.0\\res\\values-bg\\values-bg.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,166,274,386",
+                        "endColumns": "110,107,111,109",
+                        "endOffsets": "161,269,381,491"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "3333,3444,3552,3664",
+                        "endColumns": "110,107,111,109",
+                        "endOffsets": "3439,3547,3659,3769"
+                    }
+                }
+            ]
+        }
+    ]
+}

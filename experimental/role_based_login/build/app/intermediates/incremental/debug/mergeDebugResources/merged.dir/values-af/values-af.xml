@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Wagwoord"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Wagwoordsleutel"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Antwoord"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Wys af"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Lui af"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Inkomende oproep"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Oproep aan die gang"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Keur tans \'n inkomende oproep"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktiveer</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s sal nie werk nie tensy jy Google Play Dienste aktiveer.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktiveer Google Play Dienste</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installeer</string>
+    <string name="common_google_play_services_install_text">%1$s sal nie sonder Google Play Dienste werk nie, wat nie op jou toestel is nie.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Kry Google Play Dienste</string>
+    <string name="common_google_play_services_notification_channel_name">Beskikbaarheid van Google Play Dienste</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Services-fout</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ondervind probleme met Google Play Dienste. Probeer asseblief weer.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s sal nie werk sonder Google Play Dienste nie, wat nie deur jou toestel gesteun word nie.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Dateer op</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s sal nie werk nie tensy jy Google Play Dienste opdateer.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Dateer Google Play Dienste op</string>
+    <string name="common_google_play_services_updating_text">%1$s sal nie sonder Google Play Dienste werk nie, wat tans opdateer.</string>
+    <string name="common_google_play_services_wear_update_text">Nuwe weergawe van Google Play Dienste is nodig. Dit sal binnekort self opdateer.</string>
+    <string name="common_open_on_phone">Maak oop op foon</string>
+    <string name="common_signin_button_text">Meld aan</string>
+    <string name="common_signin_button_text_long">Meld aan met Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Skakel is na knipbord gekopieer"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopieer skakel"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Maak in blaaier oop"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Deel skakel"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

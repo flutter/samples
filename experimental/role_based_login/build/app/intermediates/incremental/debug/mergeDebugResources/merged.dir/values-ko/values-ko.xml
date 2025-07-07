@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"비밀번호"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"패스키"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"통화"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"동영상"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"거절"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"전화 끊기"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"수신 전화"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"진행 중인 통화"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"수신 전화 검사 중"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">사용 설정</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play 서비스를 사용하도록 설정해야 %1$s이(가) 작동합니다.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play 서비스 사용</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">설치</string>
+    <string name="common_google_play_services_install_text">기기에 Google Play 서비스가 설치되어 있어야 %1$s이(가) 실행됩니다.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play 서비스 설치</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 서비스 사용 가능 여부</string>
+    <string name="common_google_play_services_notification_ticker">Google Play 서비스 오류</string>
+    <string name="common_google_play_services_unknown_issue">%1$s에서 Google Play 서비스를 사용하는 데 문제가 있습니다. 다시 시도하세요.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s은(는) Google Play 서비스 없이는 실행되지 않으나, 기기에서 Google Play 서비스를 지원하지 않습니다.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">업데이트</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play 서비스를 업데이트해야 %1$s이(가) 실행됩니다.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play 서비스 업데이트</string>
+    <string name="common_google_play_services_updating_text">현재 업데이트 중인 Google Play 서비스가 있어야 %1$s이(가) 실행됩니다.</string>
+    <string name="common_google_play_services_wear_update_text">새 버전의 Google Play 서비스가 필요합니다. 곧 자동으로 업데이트됩니다.</string>
+    <string name="common_open_on_phone">스마트폰에서 열기</string>
+    <string name="common_signin_button_text">로그인</string>
+    <string name="common_signin_button_text_long">Google 계정으로 로그인</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"클립보드에 링크 복사됨"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"링크 복사"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"브라우저에서 열기"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"링크 공유"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

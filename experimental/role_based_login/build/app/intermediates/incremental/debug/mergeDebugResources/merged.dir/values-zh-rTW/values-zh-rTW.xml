@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"密碼"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"密碼金鑰"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"接聽"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"視訊"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"拒接"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"掛斷"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"來電"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"通話中"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"正在過濾來電"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">啟用</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">您必須啟用 Google Play 服務，才能執行「%1$s」。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">啟用 Google Play 服務</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">安裝</string>
+    <string name="common_google_play_services_install_text">您的裝置並未安裝 Google Play 服務，因此無法執行「%1$s」。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">取得 Google Play 服務</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 服務可用性</string>
+    <string name="common_google_play_services_notification_ticker">Google Play 服務發生錯誤</string>
+    <string name="common_google_play_services_unknown_issue">「%1$s」無法存取 Google Play 服務，請再試一次。</string>
+    <string name="common_google_play_services_unsupported_text">您的裝置不支援 Google Play 服務，因此無法執行「%1$s」。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">您必須更新 Google Play 服務，才能執行「%1$s」。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">更新 Google Play 服務</string>
+    <string name="common_google_play_services_updating_text">執行「%1$s」所需的 Google Play 服務正在更新。</string>
+    <string name="common_google_play_services_wear_update_text">必須使用新版 Google Play 服務。該服務稍後就會自動更新。</string>
+    <string name="common_open_on_phone">在手機上開啟</string>
+    <string name="common_signin_button_text">登入</string>
+    <string name="common_signin_button_text_long">使用 Google 帳戶登入</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"已將連結複製到剪貼簿"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"複製連結"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"在瀏覽器中開啟"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"分享連結"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

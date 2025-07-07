@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Contrasenya"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Clau d\'accés"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Respon"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Vídeo"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Rebutja"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Penja"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Trucada entrant"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Trucada en curs"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"S\'està filtrant una trucada entrant"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Activa</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s no funcionarà si no actives Serveis de Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Activa Serveis de Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instal·la</string>
+    <string name="common_google_play_services_install_text">%1$s no s\'executarà si Serveis de Google Play no està instal·lat al dispositiu.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Obtén Serveis de Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilitat de serveis de Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Error de Serveis de Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s té problemes amb Serveis de Google Play. Torna-ho a provar.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s no es pot executar sense Serveis de Google Play, que no és compatible amb el teu dispositiu.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Actualitza</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s no s\'executarà si no actualitzes Serveis de Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Actualitza Serveis de Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s no s\'executarà sense Serveis de Google Play, que s\'està actualitzant en aquest moment.</string>
+    <string name="common_google_play_services_wear_update_text">Cal una nova versió de Serveis de Google Play. S\'actualitzarà automàticament aviat.</string>
+    <string name="common_open_on_phone">Obre al telèfon</string>
+    <string name="common_signin_button_text">Inicia sessió</string>
+    <string name="common_signin_button_text_long">Inicia la sessió amb Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"S\'ha copiat l\'enllaç al porta-retalls"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Copia l\'enllaç"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Obre al navegador"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Comparteix l\'enllaç"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

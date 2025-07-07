@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"పాస్‌వర్డ్"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"పాస్-కీ"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"పికప్ చేయండి"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"వీడియో కాల్"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"కట్ చేయండి"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"ముగించండి"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"ఇన్‌కమింగ్ కాల్"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"కాల్ కొనసాగుతోంది"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"ఇన్‌కమింగ్ కాల్‌ను స్క్రీన్ చేయండి"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ప్రారంభించు</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">మీరు Google Play సేవలను ప్రారంభిస్తే మినహా %1$s పని చేయదు.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play సేవలను ప్రారంభించండి</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ఇన్‌స్టాల్ చేయి</string>
+    <string name="common_google_play_services_install_text">%1$s Google Play సేవలు లేకుండా అమలు కాదు, ఆ సేవలు మీ పరికరంలో లేవు.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play సేవలను పొందండి</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play సేవల లభ్యత</string>
+    <string name="common_google_play_services_notification_ticker">Google Play సేవల ఎర్రర్</string>
+    <string name="common_google_play_services_unknown_issue">%1$s Google Play సేవలతో సమస్య కలిగి ఉంది. దయచేసి మళ్లీ ట్రై చేయండి.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s Google Play సేవలు లేకుండా అమలు కాదు, ఈ సేవలకు మీ పరికరంలో మద్దతు లేదు.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">అప్‌డేట్ చేయి</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">మీరు Google Play సేవలను నవీకరిస్తే మినహా %1$s అమలు కాదు.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play సేవలను అప్‌డేట్ చేయండి</string>
+    <string name="common_google_play_services_updating_text">%1$s Google Play సేవలు లేకుండా అమలు కాదు, ఆ సేవలు ప్రస్తుతం నవీకరించబడుతున్నాయి.</string>
+    <string name="common_google_play_services_wear_update_text">కొత్త Google Play సేవల వెర్షన్ అవసరం. అది కొద్ది సేపట్లో దానంతట అదే అప్‌డేట్ చేయబడుతుంది.</string>
+    <string name="common_open_on_phone">ఫోన్‌లో తెరువు</string>
+    <string name="common_signin_button_text">సైన్ ఇన్ చేయండి</string>
+    <string name="common_signin_button_text_long">Googleతో సైన్ ఇన్ చేయండి</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"క్లిప్‌బోర్డ్‌కు లింక్ కాపీ చేయబడింది"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"లింక్‌ను కాపీ చేయి"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"బ్రౌజర్‌లో తెరువు"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"లింక్‌ను షేర్ చేయి"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

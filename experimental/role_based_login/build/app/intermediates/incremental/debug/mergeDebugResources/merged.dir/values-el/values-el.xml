@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Κωδικός πρόσβασης"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Κλειδί πρόσβασης"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Απάντηση"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Βίντεο"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Απόρριψη"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Τερματισμός"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Εισερχόμενη κλήση"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Κλήση σε εξέλιξη"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Διαλογή εισερχόμενης κλήσης"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Ενεργοποίηση</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Η εφαρμογή %1$s δεν θα λειτουργήσει εάν δεν έχετε ενεργοποιήσει τις υπηρεσίες Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Ενεργοποίηση υπηρεσιών Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Εγκατάσταση</string>
+    <string name="common_google_play_services_install_text">Η εφαρμογή %1$s δεν μπορεί να εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες λείπουν από τη συσκευή σας.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Λήψη υπηρεσιών Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Διαθεσιμότητα υπηρεσιών Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Σφάλμα Υπηρεσιών Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Η εφαρμογή %1$s αντιμετωπίζει κάποιο πρόβλημα με τις υπηρεσίες Google Play. Προσπαθήστε ξανά.</string>
+    <string name="common_google_play_services_unsupported_text">Η εφαρμογή %1$s δεν θα εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες δεν υποστηρίζονται από τη συσκευή σας.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Ενημέρωση</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Η εφαρμογή %1$s θα εκτελεστεί αφού ενημερώσετε τις Υπηρεσίες Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Ενημέρωση υπηρεσιών Google Play</string>
+    <string name="common_google_play_services_updating_text">Η εφαρμογή %1$s δεν θα εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες ενημερώνονται αυτήν τη στιγμή.</string>
+    <string name="common_google_play_services_wear_update_text">Απαιτείται νέα έκδοση των υπηρεσιών Google Play. Θα ενημερωθεί σύντομα.</string>
+    <string name="common_open_on_phone">Άνοιγμα σε τηλέφωνο</string>
+    <string name="common_signin_button_text">Σύνδεση</string>
+    <string name="common_signin_button_text_long">Συνδεθείτε με το Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Ο σύνδεσμος αντιγράφηκε στο πρόχειρο"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Αντιγραφή συνδέσμου"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Άνοιγμα σε πρόγραμμα περιήγησης"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Κοινοποίηση συνδέσμου"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

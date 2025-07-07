@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Password"</string>
+    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Passkey"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Sagutin"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Tanggihan"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Ibaba"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Papasok na tawag"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Kasalukuyang tawag"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Nagsi-screen ng papasok na tawag"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">I-enable</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Hindi gagana ang %1$s maliban kung ie-enable mo ang mga serbisyo ng Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">I-enable ang mga serbisyo ng Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">I-install</string>
+    <string name="common_google_play_services_install_text">Hindi gagana ang %1$s nang wala ang mga serbisyo ng Google Play na wala sa iyong device.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Kunin ang mga serbisyo ng Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Availability ng serbisyo ng Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Error sa Mga Serbisyo ng Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Nagkakaproblema ang %1$s sa mga serbisyo ng Google Play. Pakisubukan ulit.</string>
+    <string name="common_google_play_services_unsupported_text">Hindi gagana ang %1$s nang wala ang mga serbisyo ng Google Play, na hindi nasusuportahan ng iyong device.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">I-update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Hindi gagana ang %1$s maliban kung i-a-update mo ang mga serbisyo ng Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">I-update ang mga serbisyo ng Google Play</string>
+    <string name="common_google_play_services_updating_text">Hindi gagana ang %1$s nang wala ang mga serbisyo ng Google Play na kasalukuyang ina-update.</string>
+    <string name="common_google_play_services_wear_update_text">Kailangan ang bagong bersyon ng mga serbisyo ng Google Play. Mag-a-update itong mag-isa sa ilang sandali.</string>
+    <string name="common_open_on_phone">Buksan sa telepono</string>
+    <string name="common_signin_button_text">Mag-sign in</string>
+    <string name="common_signin_button_text_long">Mag-sign in sa Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Nakopya sa clipboard ang link"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopyahin ang link"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Buksan sa browser"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Ibahagi ang link"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>
