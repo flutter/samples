@@ -38,7 +38,8 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     # TODO(ewindmill): replace deprecated activeColor with activeThumbColor in 3.33
 #    "isolate_example"
-    "material_3_demo"
+    # TODO(ewindmill) - RadioGroup api changed.
+    # "material_3_demo"
     "navigation_and_routing"
     # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
     # "pedometer"
