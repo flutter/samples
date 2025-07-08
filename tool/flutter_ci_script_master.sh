@@ -20,11 +20,11 @@ declare -ar PROJECT_NAMES=(
     "asset_transformation"
     "background_isolate_channels"
      "code_sharing/client"
-    #TODO(ewindmill): The integration tests are failing
+    # TODO(ewindmill): The integration tests are failing
     # "code_sharing/server"
      "code_sharing/shared"
     "compass_app/app"
-    #TODO(ewindmill): The integration tests are failing
+    # TODO(ewindmill): The integration tests are failing
     # "compass_app/server"
     "context_menus"
     "date_planner"
@@ -40,7 +40,7 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     # TODO(ewindmill): replace deprecated activeColor with activeThumbColor in 3.33
-#    "isolate_example"
+    # "isolate_example"
     # TODO(ewindmill) - RadioGroup api changed.
     # "material_3_demo"
     "navigation_and_routing"
