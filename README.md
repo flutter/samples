@@ -5,6 +5,14 @@
 A collection of open source samples that illustrate best practices for
 [Flutter].
 
+## Contributing
+
+We're very appreciative of fixes and necessary improvements to the existing samples. **But in most cases, we're not currently adding new samples to this repository** while we rethink sample code in the post-LLM world.
+
+Please read the [contributor's guide] if you have contributions.
+
+Googler's, you can freely add samples to the [flutter/demos] repository.
+
 ## Index
 
 ### Quickstarts
@@ -189,3 +197,4 @@ If you run into a bug in one of the samples, please file an issue in the
 [The FlutterDev Discord]: https://discord.gg/rflutterdev
 [The Flutter Community forum]: https://forum.itsallwidgets.com/latest
 [`flutter/samples` issue tracker]: https://github.com/flutter/samples/issues
+[flutter/demos]: https://github.com/flutter/demos
