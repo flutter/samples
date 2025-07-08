@@ -41,40 +41,30 @@ class _AddPetDetailsState extends State<AddPetDetails> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 8),
-            TextField(
-              controller: breedTextController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                filled: true,
-                hintText: 'Breed of pet',
-                labelText: 'Breed',
+        child: RadioGroup(
+          groupValue: petType,
+          onChanged: (value) {
+            setState(() {
+              petType = value!;
+            });
+          },
+          child: Column(
+            children: [
+              const SizedBox(height: 8),
+              TextField(
+                controller: breedTextController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  hintText: 'Breed of pet',
+                  labelText: 'Breed',
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            RadioListTile<String>(
-              title: const Text('Dog'),
-              value: 'Dog',
-              groupValue: petType,
-              onChanged: (value) {
-                setState(() {
-                  petType = value!;
-                });
-              },
-            ),
-            RadioListTile<String>(
-              title: const Text('Cat'),
-              value: 'Cat',
-              groupValue: petType,
-              onChanged: (value) {
-                setState(() {
-                  petType = value!;
-                });
-              },
-            ),
-          ],
+              const SizedBox(height: 8),
+              RadioListTile<String>(title: const Text('Dog'), value: 'Dog'),
+              RadioListTile<String>(title: const Text('Cat'), value: 'Cat'),
+            ],
+          ),
         ),
       ),
     );
