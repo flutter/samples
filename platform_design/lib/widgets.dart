@@ -303,18 +303,20 @@ void showChoices(BuildContext context, List<String> choices) {
             contentPadding: const EdgeInsets.only(top: 12),
             content: StatefulBuilder(
               builder: (context, setState) {
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: List<Widget>.generate(choices.length, (index) {
-                    return RadioListTile<int?>(
-                      title: Text(choices[index]),
-                      value: index,
-                      groupValue: selectedRadio,
-                      onChanged: (value) {
-                        setState(() => selectedRadio = value);
-                      },
-                    );
-                  }),
+                return RadioGroup(
+                  groupValue: selectedRadio,
+                  onChanged: (value) {
+                    setState(() => selectedRadio = value);
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: List<Widget>.generate(choices.length, (index) {
+                      return RadioListTile<int?>(
+                        title: Text(choices[index]),
+                        value: index,
+                      );
+                    }),
+                  ),
                 );
               },
             ),
