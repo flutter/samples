@@ -43,7 +43,7 @@ declare -ar PROJECT_NAMES=(
     "pedometer/example"
     "place_tracker"
     # "platform_channels"
-    "platform_design"
+    # "platform_design"
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
