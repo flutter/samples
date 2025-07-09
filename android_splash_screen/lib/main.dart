@@ -88,7 +88,7 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = Row(
+    final Widget titleSection = Row(
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 12, right: 4),
@@ -105,7 +105,7 @@ class CustomAppBar extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(top: 3),
           child: Text(
-            "Super Splash Screen Demo",
+            'Super Splash Screen Demo',
             style: TextStyle(color: Colors.black54, fontSize: 24),
           ),
         ),
