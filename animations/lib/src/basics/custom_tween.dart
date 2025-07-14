@@ -10,7 +10,7 @@ class TypewriterTween extends Tween<String> {
 
   @override
   String lerp(double t) {
-    var cutoff = (end!.length * t).round();
+    final cutoff = (end!.length * t).round();
     return end!.substring(0, cutoff);
   }
 }

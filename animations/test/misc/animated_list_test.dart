@@ -15,7 +15,7 @@ void main() {
       await tester.pumpWidget(createAnimatedListDemoScreen());
 
       // Get the initial length of list.
-      var initialLength = tester.widgetList(find.byType(ListTile)).length;
+      final initialLength = tester.widgetList(find.byType(ListTile)).length;
 
       // Initial length of list should be equal to 5.
       expect(initialLength, equals(5));
@@ -27,14 +27,14 @@ void main() {
       await tester.pumpWidget(createAnimatedListDemoScreen());
 
       // Get the initial length of list.
-      var initialLength = tester.widgetList(find.byType(ListTile)).length;
+      final initialLength = tester.widgetList(find.byType(ListTile)).length;
 
       // Tap on the Add Icon Button.
       await tester.tap(find.byIcon(Icons.add));
       await tester.pumpAndSettle();
 
       // Get the new length of list.
-      var newLength = tester.widgetList(find.byType(ListTile)).length;
+      final newLength = tester.widgetList(find.byType(ListTile)).length;
 
       // New length should be greater than initial length by one.
       expect(newLength, equals(initialLength + 1));
@@ -46,14 +46,14 @@ void main() {
         await tester.pumpWidget(createAnimatedListDemoScreen());
 
         // Get the initial length of list.
-        var initialLength = tester.widgetList(find.byType(ListTile)).length;
+        final initialLength = tester.widgetList(find.byType(ListTile)).length;
 
         // Tap on the Delete Icon Button at middle index.
         await tester.tap(find.byIcon(Icons.delete).at(initialLength ~/ 2));
         await tester.pumpAndSettle();
 
         // Get the new length of list.
-        var newLength = tester.widgetList(find.byType(ListTile)).length;
+        final newLength = tester.widgetList(find.byType(ListTile)).length;
 
         // New length should be less than initial length by one.
         expect(newLength, equals(initialLength - 1));
@@ -66,14 +66,14 @@ void main() {
         await tester.pumpWidget(createAnimatedListDemoScreen());
 
         // Get the initial length of list.
-        var initialLength = tester.widgetList(find.byType(ListTile)).length;
+        final initialLength = tester.widgetList(find.byType(ListTile)).length;
 
         // Tap on the Delete Icon Button at start index.
         await tester.tap(find.byIcon(Icons.delete).at(0));
         await tester.pumpAndSettle();
 
         // Get the new length of list.
-        var newLength = tester.widgetList(find.byType(ListTile)).length;
+        final newLength = tester.widgetList(find.byType(ListTile)).length;
 
         // New length should be less than initial length by one.
         expect(newLength, equals(initialLength - 1));
@@ -86,14 +86,14 @@ void main() {
         await tester.pumpWidget(createAnimatedListDemoScreen());
 
         // Get the initial length of list.
-        var initialLength = tester.widgetList(find.byType(ListTile)).length;
+        final initialLength = tester.widgetList(find.byType(ListTile)).length;
 
         // Tap on the Delete Icon Button at end index.
         await tester.tap(find.byIcon(Icons.delete).at(initialLength - 1));
         await tester.pumpAndSettle();
 
         // Get the new length of list.
-        var newLength = tester.widgetList(find.byType(ListTile)).length;
+        final newLength = tester.widgetList(find.byType(ListTile)).length;
 
         // New Length should be less than initial length by one.
         expect(newLength, equals(initialLength - 1));
@@ -104,7 +104,7 @@ void main() {
       await tester.pumpWidget(createAnimatedListDemoScreen());
 
       // Get the initial length of list.
-      var initialLength = tester.widgetList(find.byType(ListTile)).length;
+      final initialLength = tester.widgetList(find.byType(ListTile)).length;
 
       // Iterating over all the Delete Icon Buttons.
       for (var i = 0; i < initialLength; i++) {
@@ -114,7 +114,7 @@ void main() {
       }
 
       // Get the final length of list.
-      var finalLength = tester.widgetList(find.byType(ListTile)).length;
+      final finalLength = tester.widgetList(find.byType(ListTile)).length;
 
       // New length should be zero.
       expect(finalLength, equals(0));

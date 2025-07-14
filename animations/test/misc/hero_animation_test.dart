@@ -15,20 +15,20 @@ void main() {
       await tester.pumpWidget(createHeroAnimationDemoScreen());
 
       // Get the initial Container.
-      var initialContainer = tester.firstWidget(find.byType(Container));
+      final initialContainer = tester.firstWidget(find.byType(Container));
 
       // Get the size of initial Container.
-      var initialSize = tester.getSize(find.byWidget(initialContainer));
+      final initialSize = tester.getSize(find.byWidget(initialContainer));
 
       // Tap on the Gesture Detector.
       await tester.tap(find.byType(GestureDetector));
       await tester.pumpAndSettle();
 
       // Get the final Container.
-      var finalContainer = tester.firstWidget(find.byType(Container));
+      final finalContainer = tester.firstWidget(find.byType(Container));
 
       // Get the size of final Container.
-      var finalSize = tester.getSize(find.byWidget(finalContainer));
+      final finalSize = tester.getSize(find.byWidget(finalContainer));
 
       // initialSize should be less than finalSize.
       expect(initialSize, lessThan(finalSize));
@@ -43,7 +43,7 @@ void main() {
 
       // Initial color should be Color.grey[300].
       expect(
-        (initialContainer.decoration as BoxDecoration).color,
+        (initialContainer.decoration! as BoxDecoration).color,
         Colors.grey[300],
       );
 
@@ -57,8 +57,8 @@ void main() {
 
       // Final color should not be same as initial color.
       expect(
-        (finalContainer.decoration as BoxDecoration).color,
-        isNot(equals((initialContainer.decoration as BoxDecoration).color)),
+        (finalContainer.decoration! as BoxDecoration).color,
+        isNot(equals((initialContainer.decoration! as BoxDecoration).color)),
       );
     });
 

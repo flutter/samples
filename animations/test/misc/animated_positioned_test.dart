@@ -14,10 +14,10 @@ void main() {
     testWidgets('Position of Button Changes on Tap', (tester) async {
       await tester.pumpWidget(createAnimatedPositionedDemoScreen());
 
-      var button = find.byType(InkWell);
+      final button = find.byType(InkWell);
 
       // Get initial position of the widget.
-      var initialPosition = tester.getTopLeft(button);
+      final initialPosition = tester.getTopLeft(button);
       expect(initialPosition, isNotNull);
 
       // Tap on the widget.
@@ -25,7 +25,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // The new position should not be equal to initial position.
-      var newPosition = tester.getTopLeft(button);
+      final newPosition = tester.getTopLeft(button);
       expect(newPosition, isNot(offsetMoreOrLessEquals(initialPosition)));
     });
   });
