@@ -34,7 +34,7 @@ dev_dependencies:
   analysis_defaults:
     path: ../../analysis_defaults
   async: ^2.11.0
-  build: ^2.4.1
+  build: ^3.0.0
   build_runner: ^2.4.6
   built_value_generator: ^8.6.1
   flutter_test:
