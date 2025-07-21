@@ -14,7 +14,7 @@ void main() {
       await tester.pumpWidget(createCardSwipeScreen());
 
       // Get the total number of cards available.
-      var totalCards = tester.widgetList(find.byType(Card)).length;
+      final totalCards = tester.widgetList(find.byType(Card)).length;
 
       // Ensure card is visible.
       await tester.ensureVisible(find.byType(Card).last);
@@ -31,7 +31,7 @@ void main() {
       await tester.pumpWidget(createCardSwipeScreen());
 
       // Get the total number of cards availabe.
-      var totalCards = tester.widgetList(find.byType(Card)).length;
+      final totalCards = tester.widgetList(find.byType(Card)).length;
 
       // Swipe out all cards.
       for (var i = 0; i < totalCards; i++) {
@@ -48,7 +48,7 @@ void main() {
       await tester.pumpWidget(createCardSwipeScreen());
 
       // Get the total number of cards availabe.
-      var totalCards = tester.widgetList(find.byType(Card)).length;
+      final totalCards = tester.widgetList(find.byType(Card)).length;
 
       // Swipe out one card.
       await tester.drag(find.byType(Card).last, const Offset(100.0, 0.0));

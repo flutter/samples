@@ -6,15 +6,567 @@ analyzer:
     strict-inference: true
 
 linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at https://dart.dev/lints.
+  #
+  # Instead of disabling a lint rule for the entire project in the
+  # section below, it can also be suppressed for a single line of code
+  # or a specific dart file by using the `// ignore: name_of_lint` and
+  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
+  # producing the lint.
   rules:
-    avoid_types_on_closure_parameters: true
+    # Disallows the use of print statements.
+    # Encourages the use of proper logging mechanisms.
+    avoid_print: true
+    # This is right:
+    # logger.info('Message');
+    # This is wrong:
+    # print('Message');
+
+    # Prevents renaming method parameters.
+    # Keeps parameter names consistent across overridden methods.
+    avoid_renaming_method_parameters: true
+    # This is right:
+    # void method({int value}) {}
+    # This is wrong:
+    # void method({int v}) {}
+
+    # Prevents using types as parameter names.
+    # Avoids confusion and maintains clarity in code.
+    avoid_types_as_parameter_names: true
+    # This is right:
+    # void method({int count}) {}
+    # This is wrong:
+    # void method({int int}) {}
+
+    # Disallows unused constructor parameters.
+    # Ensures all parameters in constructors are utilized.
+    avoid_unused_constructor_parameters: true
+    # This is right:
+    # class MyClass {
+    #   MyClass(this.value);
+    #   final int value;
+    # }
+    # This is wrong:
+    # class MyClass {
+    #   MyClass(this.value);
+    #   final int unusedValue;
+    # }
+
+    # Avoids using void in async functions.
+    # Functions should return Future instead of void.
     avoid_void_async: true
+    # This is right:
+    # Future<void> asyncMethod() async {}
+    # This is wrong:
+    # void asyncMethod() async {}
+
+    # Ensures that classes with mutable fields do not override equals and hashCode.
+    avoid_equals_and_hash_code_on_mutable_classes: true
+    # This is right:
+    # class MyClass {
+    #   int value;
+    # }
+    # This is wrong:
+    # class MyClass {
+    #   int value;
+    #   @override
+    #   bool operator ==(Object other) => other is MyClass && other.value == value;
+    #   @override
+    #   int get hashCode => value.hashCode;
+    # }
+
+
+    # Prevents the use of private typedef functions, encouraging better code readability.
+    avoid_private_typedef_functions: true
+    # This is right:
+    # typedef MyCallback = void Function();
+    # This is wrong:
+    # typedef _MyCallback = void Function();
+
+
+    # Discourages the use of relative imports for files in lib/, favoring package imports.
+    avoid_relative_lib_imports: true
+    # This is right:
+    # import 'package:my_package/my_file.dart';
+    # This is wrong:
+    # import '../my_file.dart';
+
+    # Encourages the use of efficient asynchronous IO operations.
+    avoid_slow_async_io: true
+    # This is right:
+    # await File('file.txt').readAsString();
+    # This is wrong:
+    # File('file.txt').openRead().listen((data) {});
+
+    # Prevents the use of web-specific libraries in Flutter apps that are not web-based.
+    avoid_web_libraries_in_flutter: true
+    # This is right:
+    # import 'package:flutter/material.dart';
+    # This is wrong:
+    # import 'dart:html';
+
+
+    # Ensures that only future-returning expressions are awaited.
+    await_only_futures: true
+    # This is right:
+    # await myFuture;
+    # This is wrong:
+    # await nonFuture;
+
+    # Ensures that nullable types are not cast to non-nullable types without checks.
+    cast_nullable_to_non_nullable: true
+    # This is right:
+    # String? nullableValue;
+    # String value = nullableValue ?? 'default';
+    # This is wrong:
+    # String? nullableValue;
+    # String value = nullableValue!;
+
+    # Ensures that collection methods are called with the correct type.
+    collection_methods_unrelated_type: true
+    # This is right:
+    # list.remove('item');
+    # This is wrong:
+    # list.remove(123);
+
+    # Ensures comments reference valid identifiers in the code.
+    comment_references: true
+    # This is right:
+    # /// The [value] property stores the value.
+    # class MyClass {
+    #   int value;
+    # }
+    # This is wrong:
+    # /// The [invalid] property stores the value.
+    # class MyClass {
+    #   int value;
+    # }
+
+    # Ensures that extensions are named in camel case.
+    camel_case_extensions: true
+    # This is right:
+    # extension StringExtension on String {}
+    # This is wrong:
+    # extension string_extension on String {}
+
+    # Ensures that types are named in camel case.
+    camel_case_types: true
+    # This is right:
+    # class MyClass {}
+    # This is wrong:
+    # class my_class {}
+
+    # Ensures that subscriptions are properly cancelled.
     cancel_subscriptions: true
-    close_sinks: true
-    directives_ordering: true
+    # This is right:
+    # StreamSubscription subscription = stream.listen((event) {});
+    # subscription.cancel();
+    # This is wrong:
+    # StreamSubscription subscription = stream.listen((event) {});
+
+    # Ensures that constant identifiers are in upper case.
+    constant_identifier_names: true
+    # This is right:
+    # const int MAX_VALUE = 100;
+    # This is wrong:
+    # const int maxValue = 100;
+
+    # Prevents using control flow statements in finally blocks.
+    control_flow_in_finally: true
+    # This is right:
+    # try {} finally {
+    #   cleanup();
+    # }
+    # This is wrong:
+    # try {} finally {
+    #   return;
+    # }
+
+    # Disallows empty constructor bodies.
+    empty_constructor_bodies: true
+    # This is right:
+    # MyClass();
+    # This is wrong:
+    # MyClass() {}
+
+    # Prevents empty statements.
+    empty_statements: true
+    # This is right:
+    # if (condition) {}
+    # This is wrong:
+    # if (condition);
+
+    # Ensures that file names use lowercase_with_underscores.
+    file_names: true
+    # This is right:
+    # my_class.dart
+    # This is wrong:
+    # MyClass.dart
+
+    # Enforces overriding both hashCode and ==.
+    hash_and_equals: true
+    # This is right:
+    # @override
+    # bool operator ==(Object other) {
+    #   return identical(this, other) || other is MyClass && other.value == value;
+    # }
+    # @override
+    # int get hashCode => value.hashCode;
+    # This is wrong:
+    # @override
+    # bool operator ==(Object other) {
+    #   return identical(this, other) || other is MyClass && other.value == value;
+    # }
+
+
+    # Encourages combining return statements with assignments.
+    join_return_with_assignment: true
+    # This is right:
+    # final value = computeValue();
+    # return value;
+    # This is wrong:
+    # return computeValue();
+
+
+    # Prevents non-constant identifier names from using upper case.
+    non_constant_identifier_names: true
+    # This is right:
+    # var value = 1;
+    # This is wrong:
+    # var VALUE = 1;
+
+    # Ensures closures do not use null.
+    null_closures: true
+    # This is right:
+    # list.forEach((element) {});
+    # This is wrong:
+    # list.forEach(null);
+
+    # Ensures only errors are thrown.
+    only_throw_errors: true
+    # This is right:
+    # throw Exception('Error');
+    # This is wrong:
+    # throw 'Error';
+
+    # Prevents overriding fields.
+    overridden_fields: true
+    # This is right:
+    # class Base {
+    #   int value;
+    # }
+    # class Derived extends Base {}
+    # This is wrong:
+    # class Base {
+    #   int value;
+    # }
+    # class Derived extends Base {
+    #   @override
+    #   int value;
+    # }
+
+    # Ensures package names use lower case letters.
+    package_names: true
+    # This is right:
+    # my_package
+    # This is wrong:
+    # MyPackage
+
+    # Prevents assignment to parameters.
+    parameter_assignments: true
+    # This is right:
+    # void method(int value) {
+    #   final newValue = value;
+    # }
+    # This is wrong:
+    # void method(int value) {
+    #   value = 2;
+    # }
+
+    # Prefers using const constructors.
+    prefer_const_constructors: true
+    # This is right:
+    # const MyClass();
+    # This is wrong:
+    # MyClass();
+
+    # Prefers using const constructors in immutables.
+    prefer_const_constructors_in_immutables: true
+    # This is right:
+    # class MyClass {
+    #   const MyClass();
+    # }
+    # This is wrong:
+    # class MyClass {
+    #   MyClass();
+    # }
+
+    # Prefers const declarations.
+    prefer_const_declarations: true
+    # This is right:
+    # const value = 1;
+    # This is wrong:
+    # final value = 1;
+
+    # Prefers final for fields.
+    prefer_final_fields: true
+    # This is right:
+    # final int value;
+    # This is wrong:
+    # int value;
+
+    # Prefers final for local variables.
+    prefer_final_locals: true
+    # This is right:
+    # final value = 1;
+    # This is wrong:
+    # var value = 1;
+
+    # Prefers using isEmpty for iterables.
+    prefer_is_empty: true
+    # This is right:
+    # if (list.isEmpty) {}
+    # This is wrong:
+    # if (list.length == 0) {}
+
+    # Prefers using isNotEmpty for iterables.
+    prefer_is_not_empty: true
+    # This is right:
+    # if (list.isNotEmpty) {}
+    # This is wrong:
+    # if (list.length > 0) {}
+
+    # Prefers using null-aware operators.
+    prefer_null_aware_operators: true
+    # This is right:
+    # value?.method();
+    # This is wrong:
+    # if (value != null) {
+    #   value.method();
+    # }
+
+    # Prefers using single quotes for strings.
+    prefer_single_quotes: true
+    # This is right:
+    # 'string'
+    # This is wrong:
+    # "string"
+
+    # Prefers typing uninitialized variables.
+    prefer_typing_uninitialized_variables: true
+    # This is right:
+    # String? value;
+    # This is wrong:
+    # var value;
+
+    # Encourages the use of mixins to share code between classes.
+    prefer_mixin: true
+    # This is right:
+    # mixin MyMixin {
+    #   void doSomething() {}
+    # }
+    # This is wrong:
+    # abstract class MyMixin {
+    #   void doSomething();
+    # }
+
+    # Ensures that unnamed constructors are sorted before named ones.
+    sort_unnamed_constructors_first: true
+    # This is right:
+    # class MyClass {
+    #   MyClass();
+    #   MyClass.named();
+    # }
+    # This is wrong:
+    # class MyClass {
+    #   MyClass.named();
+    #   MyClass();
+    # }
+
+    # Prefers using /// for doc comments instead of /* */.
+    slash_for_doc_comments: true
+    # This is right:
+    # /// This is a doc comment.
+    # void myMethod() {}
+    # This is wrong:
+    # /* This is a doc comment. */
+    # void myMethod() {}
+
+    # Ensures test types in equals method.
     test_types_in_equals: true
+    # This is right:
+    # @override
+    # bool operator ==(Object other) {
+    #   return other is MyClass && other.value == value;
+    # }
+    # This is wrong:
+    # @override
+    # bool operator ==(Object other) {
+    #   return other.value == value;
+    # }
+
+    # Ensures throw statements are in finally blocks.
     throw_in_finally: true
+    # This is right:
+    # try {} finally {
+    #   if (error) throw Exception();
+    # }
+    # This is wrong:
+    # try {} finally {
+    #   throw Exception();
+    # }
+
+    # Prefers type annotations in initial formal parameters.
+    type_init_formals: true
+    # This is right:
+    # class MyClass {
+    #   MyClass(int this.value);
+    #   final int value;
+    # }
+    # This is wrong:
+    # class MyClass {
+    #   MyClass(this.value);
+    #   final value;
+    # }
+
+    # Ensures futures are awaited.
     unawaited_futures: true
-    unnecessary_breaks: true
-    unnecessary_statements: true
-    use_super_parameters: true
+    # This is right:
+    # await future;
+    # This is wrong:
+    # future;
+
+    # Avoids unnecessary braces in string interpolations.
+    unnecessary_brace_in_string_interps: true
+    # This is right:
+    # 'value: $value'
+    # This is wrong:
+    # 'value: ${value}'
+
+    # Prevents unnecessary getters and setters.
+    unnecessary_getters_setters: true
+    # This is right:
+    # class MyClass {
+    #   int value;
+    # }
+    # This is wrong:
+    # class MyClass {
+    #   int _value;
+    #   int get value => _value;
+    #   set value(int value) => _value = value;
+    # }
+
+    # Avoids unnecessary lambda expressions.
+    unnecessary_lambdas: true
+    # This is right:
+    # list.forEach(print);
+    # This is wrong:
+    # list.forEach((value) => print(value));
+
+    # Avoids unnecessary uses of this keyword.
+    unnecessary_this: true
+    # This is right:
+    # value = 1;
+    # This is wrong:
+    # this.value = 1;
+
+    # Prefers using function type syntax for parameters.
+    use_function_type_syntax_for_parameters: true
+    # This is right:
+    # void Function() callback;
+    # This is wrong:
+    # Function() callback;
+
+    # Prefers rethrowing exceptions when possible.
+    use_rethrow_when_possible: true
+    # This is right:
+    # try {} catch (e) {
+    #   rethrow;
+    # }
+    # This is wrong:
+    # try {} catch (e) {
+    #   throw e;
+    # }
+
+    # Prefers using setters for property changes.
+    use_setters_to_change_properties: true
+    # This is right:
+    # set value(int newValue) {
+    #   _value = newValue;
+    # }
+    # This is wrong:
+    # void changeValue(int newValue) {
+    #   _value = newValue;
+    # }
+
+    # Prevents unnecessary await in return statements.
+    unnecessary_await_in_return: true
+    # This is right:
+    # return await future;
+    # This is wrong:
+    # return future;
+
+
+    # Ensures regex patterns are valid.
+    valid_regexps: true
+    # This is right:
+    # RegExp(r'^[a-z]+$');
+    # This is wrong:
+    # RegExp(r'[');
+
+    # Uncomment below to enable additional lints
+    # Prevents the use of dynamic calls, which can be error-prone and less performant.
+    # avoid_dynamic_calls: true
+    # This is right:
+    # (myObject as MyClass).myMethod();
+    # This is wrong:
+    # myObject.myMethod();
+
+    # Requires all properties of a class to be described in diagnostic methods.
+    # diagnostic_describe_all_properties: true
+    # This is right:
+    # @override
+    # void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    #   super.debugFillProperties(properties);
+    #   properties.add(IntProperty('value', value));
+    # }
+    # This is wrong:
+    # @override
+    # void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    #   super.debugFillProperties(properties);
+    # }
+
+    # Ensures consistent ordering of directives, such as imports.
+    # directives_ordering: true
+    # This is right:
+    # import 'dart:async';
+    # import 'package:flutter/material.dart';
+    # This is wrong:
+    # import 'package:flutter/material.dart';
+    # import 'dart:async';
+
+    # Enforces documentation for public members in the API.
+    # public_member_api_docs: true
+    # This is right:
+    # /// This is a public method.
+    # void publicMethod() {}
+    # This is wrong:
+    # void publicMethod() {}
+
+    # Ensures dependencies in pubspec.yaml are sorted.
+    # sort_pub_dependencies: true
+    # This is right:
+    # dependencies:
+    #   flutter:
+    #   provider:
+    # This is wrong:
+    # dependencies:
+    #   provider:
+    #   flutter:
+
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
