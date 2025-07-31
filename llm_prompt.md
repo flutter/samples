@@ -51,4 +51,6 @@ Please proceed with this task.
 Next: 
 
 - Run the CLI command `flutter channel beta` to ensure the Flutter SDK on my machine is using the latest beta
-- Run the CI running the bash file at /tool/flutter_ci_script_stable.sh
+- Run the CI running the bash file @/tool/flutter_ci_script_stable.sh
+  - When there's a non-0 response, attempt to fix the issue.
+  - 
