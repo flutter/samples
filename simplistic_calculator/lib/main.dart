@@ -107,10 +107,9 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
             mode: CalculatorEngineMode.result,
           );
         default:
-          final resultStr =
-              result.ceil() == result
-                  ? result.toInt().toString()
-                  : result.toString();
+          final resultStr = result.ceil() == result
+              ? result.toInt().toString()
+              : result.toString();
           state = state.copyWith(
             buffer: resultStr,
             mode: CalculatorEngineMode.result,
@@ -379,26 +378,25 @@ class CalculatorApp extends ConsumerWidget {
                         horizontal: 8,
                         vertical: 8,
                       ),
-                      child:
-                          state.error.isEmpty
-                              ? AutoSizeText(
-                                state.buffer,
-                                textAlign: TextAlign.end,
-                                style: const TextStyle(
-                                  fontSize: 80,
-                                  color: Colors.black,
-                                ),
-                                maxLines: 2,
-                              )
-                              : AutoSizeText(
-                                state.error,
-                                textAlign: TextAlign.start,
-                                style: const TextStyle(
-                                  fontSize: 80,
-                                  color: Colors.red,
-                                ),
-                                maxLines: 2,
+                      child: state.error.isEmpty
+                          ? AutoSizeText(
+                              state.buffer,
+                              textAlign: TextAlign.end,
+                              style: const TextStyle(
+                                fontSize: 80,
+                                color: Colors.black,
                               ),
+                              maxLines: 2,
+                            )
+                          : AutoSizeText(
+                              state.error,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(
+                                fontSize: 80,
+                                color: Colors.red,
+                              ),
+                              maxLines: 2,
+                            ),
                     ),
                   ),
                 ),

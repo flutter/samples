@@ -39,8 +39,8 @@ void main() {
 
   runApp(
     ChangeNotifierProvider<PhotoSearchModel>(
-      create:
-          (context) => PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
+      create: (context) =>
+          PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
       child: const UnsplashSearchApp(),
     ),
   );
@@ -84,9 +84,8 @@ class UnsplashHomePage extends StatelessWidget {
             onSelected: () {
               showDialog<void>(
                 context: context,
-                builder:
-                    (context) =>
-                        PhotoSearchDialog(callback: photoSearchModel.addSearch),
+                builder: (context) =>
+                    PhotoSearchDialog(callback: photoSearchModel.addSearch),
               );
             },
           ),
@@ -118,12 +117,11 @@ class UnsplashHomePage extends StatelessWidget {
     return UnsplashNotice(
       child: Container(
         color: Colors.white,
-        child:
-            photoSearchModel.entries.isNotEmpty
-                ? const UnsplashSearchContent()
-                : const Center(
-                  child: Text('Search for Photos using the Search menu'),
-                ),
+        child: photoSearchModel.entries.isNotEmpty
+            ? const UnsplashSearchContent()
+            : const Center(
+                child: Text('Search for Photos using the Search menu'),
+              ),
       ),
     );
   }

@@ -24,7 +24,9 @@ void main() {
     MockHostBookApi mockHostApi = MockHostBookApi();
 
     await tester.pumpWidget(
-      MaterialApp(home: BookDetail(book: Book(), hostApi: mockHostApi)),
+      MaterialApp(
+        home: BookDetail(book: Book(), hostApi: mockHostApi),
+      ),
     );
 
     await tester.tap(find.byIcon(Icons.check));

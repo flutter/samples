@@ -22,9 +22,8 @@ class EmailButtonPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder:
-          (context) =>
-              const AlertDialog(title: Text('You clicked send email!')),
+      builder: (context) =>
+          const AlertDialog(title: Text('You clicked send email!')),
     );
   }
 

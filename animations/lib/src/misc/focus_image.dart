@@ -31,8 +31,8 @@ class Grid extends StatelessWidget {
           return (index >= 20)
               ? const SmallCard(imageAssetName: 'assets/eat_cape_town_sm.jpg')
               : const SmallCard(
-                imageAssetName: 'assets/eat_new_orleans_sm.jpg',
-              );
+                  imageAssetName: 'assets/eat_new_orleans_sm.jpg',
+                );
         },
       ),
     );

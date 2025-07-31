@@ -54,12 +54,10 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
               left: leftPosition,
               duration: const Duration(seconds: 1),
               child: InkWell(
-                onTap:
-                    () => changePosition(
-                      size.height -
-                          (appBar.preferredSize.height + topPadding + 50),
-                      size.width - 150,
-                    ),
+                onTap: () => changePosition(
+                  size.height - (appBar.preferredSize.height + topPadding + 50),
+                  size.width - 150,
+                ),
                 child: Container(
                   alignment: Alignment.center,
                   width: 150,
@@ -68,8 +66,9 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
                   child: Text(
                     'Click Me',
                     style: TextStyle(
-                      color:
-                          Theme.of(context).buttonTheme.colorScheme!.onPrimary,
+                      color: Theme.of(
+                        context,
+                      ).buttonTheme.colorScheme!.onPrimary,
                     ),
                   ),
                 ),

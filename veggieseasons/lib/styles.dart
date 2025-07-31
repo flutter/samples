@@ -103,8 +103,8 @@ abstract class Styles {
 
   static Color? scaffoldBackground(Brightness brightness) =>
       brightness == Brightness.light
-          ? CupertinoColors.extraLightBackgroundGray
-          : null;
+      ? CupertinoColors.extraLightBackgroundGray
+      : null;
 
   static const frostedBackground = Color(0xccf8f8f8);
 
@@ -177,13 +177,13 @@ abstract class Styles {
 
   static Color settingsItemColor(Brightness brightness) =>
       brightness == Brightness.light
-          ? CupertinoColors.tertiarySystemBackground
-          : CupertinoColors.darkBackgroundGray;
+      ? CupertinoColors.tertiarySystemBackground
+      : CupertinoColors.darkBackgroundGray;
 
   static Color settingsLineation(Brightness brightness) =>
       brightness == Brightness.light
-          ? const Color(0xffbcbbc1)
-          : const Color(0xff4c4b4b);
+      ? const Color(0xffbcbbc1)
+      : const Color(0xff4c4b4b);
 
   static const Color settingsBackground = Color(0xffefeff4);
 
@@ -208,6 +208,6 @@ abstract class Styles {
   static const servingInfoBorderColor = Color(0xffb0b0b0);
 
   static const ColorFilter desaturatedColorFilter =
-  // 222222 is a random color that has low color saturation.
-  ColorFilter.mode(Color(0xff222222), BlendMode.saturation);
+      // 222222 is a random color that has low color saturation.
+      ColorFilter.mode(Color(0xff222222), BlendMode.saturation);
 }

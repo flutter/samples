@@ -15,8 +15,9 @@ class CarouselDemo extends StatelessWidget {
     'assets/eat_sydney_sm.jpg',
   ];
 
-  final List<Widget> images =
-      fileNames.map((file) => Image.asset(file, fit: BoxFit.cover)).toList();
+  final List<Widget> images = fileNames
+      .map((file) => Image.asset(file, fit: BoxFit.cover))
+      .toList();
 
   @override
   Widget build(context) {
@@ -79,27 +80,25 @@ class _CarouselState extends State<Carousel> {
       scrollBehavior: ScrollConfiguration.of(context).copyWith(
         dragDevices: {ui.PointerDeviceKind.touch, ui.PointerDeviceKind.mouse},
       ),
-      itemBuilder:
-          (context, index) => AnimatedBuilder(
-            animation: _controller,
-            builder: (context, child) {
-              var result =
-                  _pageHasChanged ? _controller.page! : _currentPage * 1.0;
+      itemBuilder: (context, index) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          var result = _pageHasChanged ? _controller.page! : _currentPage * 1.0;
 
-              // The horizontal position of the page between a 1 and 0
-              var value = result - index;
-              value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
+          // The horizontal position of the page between a 1 and 0
+          var value = result - index;
+          value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
 
-              return Center(
-                child: SizedBox(
-                  height: Curves.easeOut.transform(value) * size.height,
-                  width: Curves.easeOut.transform(value) * size.width,
-                  child: child,
-                ),
-              );
-            },
-            child: widget.itemBuilder(context, index),
-          ),
+          return Center(
+            child: SizedBox(
+              height: Curves.easeOut.transform(value) * size.height,
+              width: Curves.easeOut.transform(value) * size.width,
+              child: child,
+            ),
+          );
+        },
+        child: widget.itemBuilder(context, index),
+      ),
     );
   }
 

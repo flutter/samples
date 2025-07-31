@@ -48,17 +48,16 @@ class _AddButton extends StatelessWidget {
     );
 
     return TextButton(
-      onPressed:
-          isInCart
-              ? null
-              : () {
-                // If the item is not in cart, we let the user add it.
-                // We are using context.read() here because the callback
-                // is executed whenever the user taps the button. In other
-                // words, it is executed outside the build method.
-                var cart = context.read<CartModel>();
-                cart.add(item);
-              },
+      onPressed: isInCart
+          ? null
+          : () {
+              // If the item is not in cart, we let the user add it.
+              // We are using context.read() here because the callback
+              // is executed whenever the user taps the button. In other
+              // words, it is executed outside the build method.
+              var cart = context.read<CartModel>();
+              cart.add(item);
+            },
       style: ButtonStyle(
         overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
           if (states.contains(WidgetState.pressed)) {
@@ -67,10 +66,9 @@ class _AddButton extends StatelessWidget {
           return null; // Defer to the widget's default.
         }),
       ),
-      child:
-          isInCart
-              ? const Icon(Icons.check, semanticLabel: 'ADDED')
-              : const Text('ADD'),
+      child: isInCart
+          ? const Icon(Icons.check, semanticLabel: 'ADDED')
+          : const Text('ADD'),
     );
   }
 }

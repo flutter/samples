@@ -234,14 +234,13 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
       // already hidden.
       MenuEntry(
         label: 'Reset',
-        onPressed:
-            widget.showingMessage
-                ? () {
-                  ContextMenuController.removeAny();
-                  widget.onChangeSelection('Reset');
-                  widget.onToggleMessageVisibility();
-                }
-                : null,
+        onPressed: widget.showingMessage
+            ? () {
+                ContextMenuController.removeAny();
+                widget.onChangeSelection('Reset');
+                widget.onToggleMessageVisibility();
+              }
+            : null,
         shortcut: const SingleActivator(LogicalKeyboardKey.escape),
       ),
       MenuEntry(

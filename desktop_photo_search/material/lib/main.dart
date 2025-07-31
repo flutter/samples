@@ -39,8 +39,8 @@ void main() {
 
   runApp(
     ChangeNotifierProvider<PhotoSearchModel>(
-      create:
-          (context) => PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
+      create: (context) =>
+          PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
       child: const UnsplashSearchApp(),
     ),
   );
@@ -85,9 +85,8 @@ class UnsplashHomePage extends StatelessWidget {
             onSelected: () {
               showDialog<void>(
                 context: context,
-                builder:
-                    (context) =>
-                        PhotoSearchDialog(callback: photoSearchModel.addSearch),
+                builder: (context) =>
+                    PhotoSearchDialog(callback: photoSearchModel.addSearch),
               );
             },
           ),
@@ -119,20 +118,17 @@ class UnsplashHomePage extends StatelessWidget {
     return UnsplashNotice(
       child: Scaffold(
         appBar: AppBar(title: Text(title)),
-        body:
-            photoSearchModel.entries.isNotEmpty
-                ? const UnsplashSearchContent()
-                : const Center(
-                  child: Text('Search for Photos using the Fab button'),
-                ),
-        floatingActionButton: FloatingActionButton(
-          onPressed:
-              () => showDialog<void>(
-                context: context,
-                builder:
-                    (context) =>
-                        PhotoSearchDialog(callback: photoSearchModel.addSearch),
+        body: photoSearchModel.entries.isNotEmpty
+            ? const UnsplashSearchContent()
+            : const Center(
+                child: Text('Search for Photos using the Fab button'),
               ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showDialog<void>(
+            context: context,
+            builder: (context) =>
+                PhotoSearchDialog(callback: photoSearchModel.addSearch),
+          ),
           tooltip: 'Search for a photo',
           child: const Icon(Icons.search),
         ),

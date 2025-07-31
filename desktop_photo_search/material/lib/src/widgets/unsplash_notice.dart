@@ -69,13 +69,12 @@ class _UnsplashDialog extends StatelessWidget {
           children: [
             TextSpan(
               text: 'Unsplash',
-              recognizer:
-                  TapGestureRecognizer()
-                    ..onTap = () async {
-                      if (!await launchUrl(_unsplashHomepage)) {
-                        throw 'Could not launch $_unsplashHomepage';
-                      }
-                    },
+              recognizer: TapGestureRecognizer()
+                ..onTap = () async {
+                  if (!await launchUrl(_unsplashHomepage)) {
+                    throw 'Could not launch $_unsplashHomepage';
+                  }
+                },
               style: const TextStyle(color: Colors.blue),
             ),
             const TextSpan(
@@ -88,16 +87,18 @@ class _UnsplashDialog extends StatelessWidget {
             ),
             TextSpan(
               text: 'how Unsplash collects and uses data',
-              recognizer:
-                  TapGestureRecognizer()
-                    ..onTap = () async {
-                      if (!await launchUrl(_unsplashPrivacyPolicy)) {
-                        throw 'Could not launch $_unsplashPrivacyPolicy';
-                      }
-                    },
+              recognizer: TapGestureRecognizer()
+                ..onTap = () async {
+                  if (!await launchUrl(_unsplashPrivacyPolicy)) {
+                    throw 'Could not launch $_unsplashPrivacyPolicy';
+                  }
+                },
               style: const TextStyle(color: Colors.blue),
             ),
-            const TextSpan(text: '.', style: TextStyle(color: Colors.grey)),
+            const TextSpan(
+              text: '.',
+              style: TextStyle(color: Colors.grey),
+            ),
           ],
         ),
       ),

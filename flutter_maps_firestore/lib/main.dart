@@ -58,11 +58,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _iceCreamStores =
-        FirebaseFirestore.instance
-            .collection('ice_cream_stores')
-            .orderBy('name')
-            .snapshots();
+    _iceCreamStores = FirebaseFirestore.instance
+        .collection('ice_cream_stores')
+        .orderBy('name')
+        .snapshots();
   }
 
   @override
@@ -216,13 +215,12 @@ class _StoreListTileState extends State<StoreListTile> {
       leading: SizedBox(
         width: 100,
         height: 100,
-        child:
-            _placePhotoUrl.isNotEmpty
-                ? ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(2)),
-                  child: Image.network(_placePhotoUrl, fit: BoxFit.cover),
-                )
-                : Container(),
+        child: _placePhotoUrl.isNotEmpty
+            ? ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(2)),
+                child: Image.network(_placePhotoUrl, fit: BoxFit.cover),
+              )
+            : Container(),
       ),
       onTap: () async {
         final controller = await widget.mapController.future;
@@ -258,23 +256,22 @@ class StoreMap extends StatelessWidget {
   Widget build(BuildContext context) {
     return GoogleMap(
       initialCameraPosition: CameraPosition(target: initialPosition, zoom: 12),
-      markers:
-          documents
-              .map(
-                (document) => Marker(
-                  markerId: MarkerId(document['placeId'] as String),
-                  icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
-                  position: LatLng(
-                    document['location'].latitude as double,
-                    document['location'].longitude as double,
-                  ),
-                  infoWindow: InfoWindow(
-                    title: document['name'] as String?,
-                    snippet: document['address'] as String?,
-                  ),
-                ),
-              )
-              .toSet(),
+      markers: documents
+          .map(
+            (document) => Marker(
+              markerId: MarkerId(document['placeId'] as String),
+              icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
+              position: LatLng(
+                document['location'].latitude as double,
+                document['location'].longitude as double,
+              ),
+              infoWindow: InfoWindow(
+                title: document['name'] as String?,
+                snippet: document['address'] as String?,
+              ),
+            ),
+          )
+          .toSet(),
       onMapCreated: (mapController) {
         this.mapController.complete(mapController);
       },

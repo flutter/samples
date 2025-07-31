@@ -129,14 +129,13 @@ class CalorieSettingsScreen extends StatelessWidget {
                         icon: CupertinoIcons.check_mark,
                         foregroundColor:
                             snapshot.hasData && snapshot.data == cals
-                                ? CupertinoColors.activeBlue
-                                : Styles.transparentColor,
+                            ? CupertinoColors.activeBlue
+                            : Styles.transparentColor,
                         backgroundColor: Styles.transparentColor,
                       ),
-                      onTap:
-                          snapshot.hasData
-                              ? () => model.setDesiredCalories(cals)
-                              : null,
+                      onTap: snapshot.hasData
+                          ? () => model.setDesiredCalories(cals)
+                          : null,
                     ),
                   );
                 }
@@ -227,29 +226,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
       onTap: () {
         showCupertinoDialog<void>(
           context: context,
-          builder:
-              (context) => CupertinoAlertDialog(
-                title: const Text('Are you sure?'),
-                content: const Text(
-                  'Are you sure you want to reset the current settings?',
-                ),
-                actions: [
-                  CupertinoDialogAction(
-                    isDestructiveAction: true,
-                    child: const Text('Yes'),
-                    onPressed: () async {
-                      await prefs.restoreDefaults();
-                      if (!context.mounted) return;
-                      context.pop();
-                    },
-                  ),
-                  CupertinoDialogAction(
-                    isDefaultAction: true,
-                    child: const Text('No'),
-                    onPressed: () => context.pop(),
-                  ),
-                ],
+          builder: (context) => CupertinoAlertDialog(
+            title: const Text('Are you sure?'),
+            content: const Text(
+              'Are you sure you want to reset the current settings?',
+            ),
+            actions: [
+              CupertinoDialogAction(
+                isDestructiveAction: true,
+                child: const Text('Yes'),
+                onPressed: () async {
+                  await prefs.restoreDefaults();
+                  if (!context.mounted) return;
+                  context.pop();
+                },
               ),
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                child: const Text('No'),
+                onPressed: () => context.pop(),
+              ),
+            ],
+          ),
         );
       },
     );

@@ -143,10 +143,9 @@ class InfoView extends StatelessWidget {
                   children: [
                     Icon(
                       Styles.seasonIconData[season],
-                      color:
-                          veggie.seasons.contains(season)
-                              ? Styles.seasonColors[season]
-                              : const Color.fromRGBO(128, 128, 128, 1),
+                      color: veggie.seasons.contains(season)
+                          ? Styles.seasonColors[season]
+                          : const Color.fromRGBO(128, 128, 128, 1),
                       size: 24,
                     ),
                     const SizedBox(height: 4),

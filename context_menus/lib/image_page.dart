@@ -19,10 +19,8 @@ class ImagePage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder:
-          (context) => const AlertDialog(
-            title: Text('Image saved! (not really though)'),
-          ),
+      builder: (context) =>
+          const AlertDialog(title: Text('Image saved! (not really though)')),
     );
   }
 

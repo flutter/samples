@@ -129,10 +129,9 @@ class _DetailPageButtonState extends State<_DetailPageButton> {
               child: ColorChangingIcon(
                 widget.icon,
                 duration: const Duration(milliseconds: 300),
-                color:
-                    tapInProgress
-                        ? Styles.closeButtonPressed
-                        : Styles.closeButtonUnpressed,
+                color: tapInProgress
+                    ? Styles.closeButtonPressed
+                    : Styles.closeButtonUnpressed,
                 size: 20,
               ),
             ),

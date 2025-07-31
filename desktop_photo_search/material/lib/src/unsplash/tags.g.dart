@@ -98,8 +98,9 @@ class _$Tags extends Tags {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Tags')
-      ..add('title', title)).toString();
+    return (newBuiltValueToStringHelper(
+      r'Tags',
+    )..add('title', title)).toString();
   }
 }
 

@@ -45,11 +45,10 @@ final demos = [
   Demo(
     name: 'Sign in with HTTP',
     route: 'signin_http',
-    builder:
-        (context) => SignInHttpDemo(
-          // This sample uses a mock HTTP client.
-          httpClient: mockClient,
-        ),
+    builder: (context) => SignInHttpDemo(
+      // This sample uses a mock HTTP client.
+      httpClient: mockClient,
+    ),
   ),
   Demo(
     name: 'Autofill',

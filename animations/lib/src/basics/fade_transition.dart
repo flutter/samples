@@ -53,14 +53,13 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
             ),
             ElevatedButton(
               child: const Text('animate'),
-              onPressed:
-                  () => setState(() {
-                    _controller
-                        .animateTo(1.0)
-                        .then<TickerFuture>(
-                          (value) => _controller.animateBack(0.0),
-                        );
-                  }),
+              onPressed: () => setState(() {
+                _controller
+                    .animateTo(1.0)
+                    .then<TickerFuture>(
+                      (value) => _controller.animateBack(0.0),
+                    );
+              }),
             ),
           ],
         ),

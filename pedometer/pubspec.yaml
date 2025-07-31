@@ -4,7 +4,7 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: '>=3.9.0-0 <4.0.0'
 
 dependencies:
   flutter:
@@ -14,7 +14,7 @@ dependencies:
   ffi: ^2.1.2
 
 dev_dependencies:
-  ffigen: ^16.0.0
+  ffigen: ^19.1.0
   jnigen: ^0.13.1
   flutter_test:
     sdk: flutter

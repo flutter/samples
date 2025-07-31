@@ -22,10 +22,9 @@ class ModifiedActionPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder:
-          (context) => const AlertDialog(
-            title: Text('Copied, but also showed this dialog.'),
-          ),
+      builder: (context) => const AlertDialog(
+        title: Text('Copied, but also showed this dialog.'),
+      ),
     );
   }
 

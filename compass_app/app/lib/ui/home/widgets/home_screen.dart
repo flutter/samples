@@ -93,31 +93,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SliverList.builder(
                     itemCount: widget.viewModel.bookings.length,
-                    itemBuilder:
-                        (_, index) => _Booking(
-                          key: ValueKey(widget.viewModel.bookings[index].id),
-                          booking: widget.viewModel.bookings[index],
-                          onTap:
-                              () => context.push(
-                                Routes.bookingWithId(
-                                  widget.viewModel.bookings[index].id,
-                                ),
-                              ),
-                          confirmDismiss: (_) async {
-                            // wait for command to complete
-                            await widget.viewModel.deleteBooking.execute(
-                              widget.viewModel.bookings[index].id,
-                            );
-                            // if command completed successfully, return true
-                            if (widget.viewModel.deleteBooking.completed) {
-                              // removes the dismissable from the list
-                              return true;
-                            } else {
-                              // the dismissable stays in the list
-                              return false;
-                            }
-                          },
+                    itemBuilder: (_, index) => _Booking(
+                      key: ValueKey(widget.viewModel.bookings[index].id),
+                      booking: widget.viewModel.bookings[index],
+                      onTap: () => context.push(
+                        Routes.bookingWithId(
+                          widget.viewModel.bookings[index].id,
                         ),
+                      ),
+                      confirmDismiss: (_) async {
+                        // wait for command to complete
+                        await widget.viewModel.deleteBooking.execute(
+                          widget.viewModel.bookings[index].id,
+                        );
+                        // if command completed successfully, return true
+                        if (widget.viewModel.deleteBooking.completed) {
+                          // removes the dismissable from the list
+                          return true;
+                        } else {
+                          // the dismissable stays in the list
+                          return false;
+                        }
+                      },
+                    ),
                   ),
                 ],
               );

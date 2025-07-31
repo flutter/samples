@@ -18,10 +18,9 @@ class ActivityRepositoryLocal implements ActivityRepository {
   @override
   Future<Result<List<Activity>>> getByDestination(String ref) async {
     try {
-      final activities =
-          (await _localDataService.getActivities())
-              .where((activity) => activity.destinationRef == ref)
-              .toList();
+      final activities = (await _localDataService.getActivities())
+          .where((activity) => activity.destinationRef == ref)
+          .toList();
 
       return Result.ok(activities);
     } on Exception catch (error) {

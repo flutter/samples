@@ -52,26 +52,24 @@ class _ExpandCardState extends State<ExpandCard>
               duration: duration,
               firstCurve: Curves.easeInOutCubic,
               secondCurve: Curves.easeInOutCubic,
-              crossFadeState:
-                  selected
-                      ? CrossFadeState.showSecond
-                      : CrossFadeState.showFirst,
+              crossFadeState: selected
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
               // Use Positioned.fill() to pass the constraints to its children.
               // This allows the Images to use BoxFit.cover to cover the correct
               // size
-              layoutBuilder: (
-                topChild,
-                topChildKey,
-                bottomChild,
-                bottomChildKey,
-              ) {
-                return Stack(
-                  children: [
-                    Positioned.fill(key: bottomChildKey, child: bottomChild),
-                    Positioned.fill(key: topChildKey, child: topChild),
-                  ],
-                );
-              },
+              layoutBuilder:
+                  (topChild, topChildKey, bottomChild, bottomChildKey) {
+                    return Stack(
+                      children: [
+                        Positioned.fill(
+                          key: bottomChildKey,
+                          child: bottomChild,
+                        ),
+                        Positioned.fill(key: topChildKey, child: topChild),
+                      ],
+                    );
+                  },
               firstChild: Image.asset(
                 'assets/eat_cape_town_sm.jpg',
                 fit: BoxFit.cover,

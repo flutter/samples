@@ -85,11 +85,10 @@ class FieldTypesPage extends StatelessWidget {
                 contextMenuBuilder: (context, editableTextState) {
                   return DesktopTextSelectionToolbar(
                     anchor: editableTextState.contextMenuAnchors.primaryAnchor,
-                    children:
-                        AdaptiveTextSelectionToolbar.getAdaptiveButtons(
-                          context,
-                          editableTextState.contextMenuButtonItems,
-                        ).toList(),
+                    children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
+                      context,
+                      editableTextState.contextMenuButtonItems,
+                    ).toList(),
                   );
                 },
               ),

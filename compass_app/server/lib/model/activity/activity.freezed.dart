@@ -109,56 +109,46 @@ class _$ActivityCopyWithImpl<$Res, $Val extends Activity>
   }) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                null == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String,
-            locationName:
-                null == locationName
-                    ? _value.locationName
-                    : locationName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            duration:
-                null == duration
-                    ? _value.duration
-                    : duration // ignore: cast_nullable_to_non_nullable
-                        as int,
-            timeOfDay:
-                null == timeOfDay
-                    ? _value.timeOfDay
-                    : timeOfDay // ignore: cast_nullable_to_non_nullable
-                        as TimeOfDay,
-            familyFriendly:
-                null == familyFriendly
-                    ? _value.familyFriendly
-                    : familyFriendly // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            price:
-                null == price
-                    ? _value.price
-                    : price // ignore: cast_nullable_to_non_nullable
-                        as int,
-            destinationRef:
-                null == destinationRef
-                    ? _value.destinationRef
-                    : destinationRef // ignore: cast_nullable_to_non_nullable
-                        as String,
-            ref:
-                null == ref
-                    ? _value.ref
-                    : ref // ignore: cast_nullable_to_non_nullable
-                        as String,
-            imageUrl:
-                null == imageUrl
-                    ? _value.imageUrl
-                    : imageUrl // ignore: cast_nullable_to_non_nullable
-                        as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String,
+            locationName: null == locationName
+                ? _value.locationName
+                : locationName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            duration: null == duration
+                ? _value.duration
+                : duration // ignore: cast_nullable_to_non_nullable
+                      as int,
+            timeOfDay: null == timeOfDay
+                ? _value.timeOfDay
+                : timeOfDay // ignore: cast_nullable_to_non_nullable
+                      as TimeOfDay,
+            familyFriendly: null == familyFriendly
+                ? _value.familyFriendly
+                : familyFriendly // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            price: null == price
+                ? _value.price
+                : price // ignore: cast_nullable_to_non_nullable
+                      as int,
+            destinationRef: null == destinationRef
+                ? _value.destinationRef
+                : destinationRef // ignore: cast_nullable_to_non_nullable
+                      as String,
+            ref: null == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                      as String,
+            imageUrl: null == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -215,56 +205,46 @@ class __$$ActivityImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ActivityImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
-        locationName:
-            null == locationName
-                ? _value.locationName
-                : locationName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        duration:
-            null == duration
-                ? _value.duration
-                : duration // ignore: cast_nullable_to_non_nullable
-                    as int,
-        timeOfDay:
-            null == timeOfDay
-                ? _value.timeOfDay
-                : timeOfDay // ignore: cast_nullable_to_non_nullable
-                    as TimeOfDay,
-        familyFriendly:
-            null == familyFriendly
-                ? _value.familyFriendly
-                : familyFriendly // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        price:
-            null == price
-                ? _value.price
-                : price // ignore: cast_nullable_to_non_nullable
-                    as int,
-        destinationRef:
-            null == destinationRef
-                ? _value.destinationRef
-                : destinationRef // ignore: cast_nullable_to_non_nullable
-                    as String,
-        ref:
-            null == ref
-                ? _value.ref
-                : ref // ignore: cast_nullable_to_non_nullable
-                    as String,
-        imageUrl:
-            null == imageUrl
-                ? _value.imageUrl
-                : imageUrl // ignore: cast_nullable_to_non_nullable
-                    as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+        locationName: null == locationName
+            ? _value.locationName
+            : locationName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        duration: null == duration
+            ? _value.duration
+            : duration // ignore: cast_nullable_to_non_nullable
+                  as int,
+        timeOfDay: null == timeOfDay
+            ? _value.timeOfDay
+            : timeOfDay // ignore: cast_nullable_to_non_nullable
+                  as TimeOfDay,
+        familyFriendly: null == familyFriendly
+            ? _value.familyFriendly
+            : familyFriendly // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        price: null == price
+            ? _value.price
+            : price // ignore: cast_nullable_to_non_nullable
+                  as int,
+        destinationRef: null == destinationRef
+            ? _value.destinationRef
+            : destinationRef // ignore: cast_nullable_to_non_nullable
+                  as String,
+        ref: null == ref
+            ? _value.ref
+            : ref // ignore: cast_nullable_to_non_nullable
+                  as String,
+        imageUrl: null == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
