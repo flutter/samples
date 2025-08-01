@@ -8,7 +8,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_webservice/places.dart';
 
 import 'api_key.dart';
 
@@ -17,7 +16,6 @@ const initialPosition = LatLng(37.7786, -122.4375);
 // Hue used by the Google Map Markers to match the theme
 const _pinkHue = 350.0;
 // Places API client used for Place Photos
-final _placesApiClient = GoogleMapsPlaces(apiKey: googleMapsApiKey);
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,24 +71,24 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot) {
           return switch (snapshot) {
             AsyncSnapshot(hasError: true) => Center(
-              child: Text('Error: ${snapshot.error}'),
-            ),
+                child: Text('Error: ${snapshot.error}'),
+              ),
             AsyncSnapshot(hasData: false) => const Center(
-              child: Text('Loading...'),
-            ),
+                child: Text('Loading...'),
+              ),
             _ => Stack(
-              children: [
-                StoreMap(
-                  documents: snapshot.data!.docs,
-                  initialPosition: initialPosition,
-                  mapController: _mapController,
-                ),
-                StoreCarousel(
-                  mapController: _mapController,
-                  documents: snapshot.data!.docs,
-                ),
-              ],
-            ),
+                children: [
+                  StoreMap(
+                    documents: snapshot.data!.docs,
+                    initialPosition: initialPosition,
+                    mapController: _mapController,
+                  ),
+                  StoreCarousel(
+                    mapController: _mapController,
+                    documents: snapshot.data!.docs,
+                  ),
+                ],
+              ),
           };
         },
       ),
@@ -255,7 +253,8 @@ class StoreMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
-      initialCameraPosition: CameraPosition(target: initialPosition, zoom: 12),
+      initialCameraPosition:
+          CameraPosition(target: initialPosition, zoom: 12),
       markers: documents
           .map(
             (document) => Marker(

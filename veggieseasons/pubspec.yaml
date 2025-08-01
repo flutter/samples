@@ -1,11 +1,11 @@
 name: veggieseasons
 description: An iOS app that shows the fruits and veggies currently in season.
 publish_to: none
-
 version: 1.2.0
+resolution: workspace
 
 environment:
-  sdk: '>= <1.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:
@@ -17,11 +17,11 @@ dependencies:
   shared_preferences: ^2.0.14
   window_size:
     git:
-      url: https://github.com/google/flutter-desktop-embedding
+      url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
   # TODO: https://github.com/flutter/samples/issues/1838
   # go_router ^7.1.0 is breaking the state restoration tests
-  go_router: 7.0.2
+  go_router: ^16.0.0
 
 dev_dependencies:
   analysis_defaults:

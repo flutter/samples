@@ -1,5 +1,8 @@
 name: pedometer_example
 description: Demonstrates how to use the pedometer plugin.
+version: 1.0.0+1
+resolution: workspace
+
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -16,10 +19,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+
 
 environment:
-  sdk: '>=3.9.0-0 <4.0.0'
+  sdk: '^3.5.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -41,7 +44,7 @@ dependencies:
 
   ffi: ^2.1.2
   intl: ^0.20.0
-  jni: ^0.13.0
+  jni: ^0.14.2
   fl_chart: ^0.70.0
 
 dev_dependencies:
@@ -53,7 +56,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

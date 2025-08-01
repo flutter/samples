@@ -2,8 +2,6 @@
 
 set -e
 
-DIR="${BASH_SOURCE%/*}"
-
 # Configuration
 LOGS_DIR="logs"
 LOG_FILE="$LOGS_DIR/flutter_update_$(date +%Y-%m-%d_%H-%M-%S).log"

@@ -21,7 +21,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final index = _getSelectedIndex(GoRouter.of(context).location);
+    final String location = GoRouter.of(context)
+        .routerDelegate
+        .currentConfiguration
+        .uri
+        .toString();
+    final index = _getSelectedIndex(location);
     return RestorationScope(
       restorationId: restorationId,
       child: CupertinoPageScaffold(

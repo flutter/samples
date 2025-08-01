@@ -1,20 +1,21 @@
 name: game_template
 description: A mobile game built in Flutter.
+version: 0.0.1+1
+resolution: workspace
 
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
 
-version: 0.0.1+1
 
 environment:
-  sdk: '>= <1.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:
     sdk: flutter
   audioplayers: ^6.0.0
   cupertino_icons: ^1.0.2
-  go_router: ^15.0.0
+  go_router: ^16.0.0
   logging: ^1.1.0
   provider: ^6.0.2
   shared_preferences: ^2.0.13
@@ -29,7 +30,7 @@ dependencies:
   in_app_purchase: ^3.0.1  # In-app purchases
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.14.0

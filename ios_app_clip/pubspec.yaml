@@ -1,12 +1,11 @@
 name: ios_app_clip
 description: An example Flutter project that can build as an App Clip.
-
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: '>=3.35.0-0.1.pre <4.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:

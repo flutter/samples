@@ -1,10 +1,10 @@
 name: platform_view_swift
 description: A new Flutter project.
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: '>=3.35.0-0.1.pre <4.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:

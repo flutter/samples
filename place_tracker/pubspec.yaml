@@ -1,10 +1,10 @@
 name: place_tracker
 description: A new Flutter project.
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: '>=3.35.0-0.1.pre <4.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
   google_maps_flutter: ^2.2.0
   provider: ^6.0.2
   uuid: ^4.0.0
-  go_router: ">=10.0.0 <16.0.0"
+  go_router: ^16.0.0
 
 dev_dependencies:
   analysis_defaults:

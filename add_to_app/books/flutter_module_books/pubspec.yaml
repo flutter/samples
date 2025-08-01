@@ -2,11 +2,11 @@ name: flutter_module_books
 description: A Flutter module using the Pigeon package to demonstrate
   integrating Flutter in a realistic scenario where the existing platform app
   already has business logic and middleware constraints.
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: '>=3.9.0-0 <4.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:

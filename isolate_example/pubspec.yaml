@@ -2,9 +2,10 @@ name: isolate_example
 description: A Flutter sample to demonstrate isolates
 version: 1.0.0+1
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: '>= <1.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:

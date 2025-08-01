@@ -2,9 +2,10 @@ name: date_planner
 description: "An iOS-style date planner."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 0.1.0
+resolution: workspace
 
 environment:
-  sdk: '>= <1.0.0'
+  sdk: '^3.5.0'
 
 dependencies:
   flutter:
@@ -15,4 +16,4 @@ dependencies:
   uuid:
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
