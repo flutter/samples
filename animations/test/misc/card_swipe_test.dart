@@ -24,7 +24,8 @@ void main() {
       await tester.pumpAndSettle();
 
       // Check if removed properly.
-      expect(tester.widgetList(find.byType(Card)).length, lessThan(totalCards));
+      expect(tester.widgetList(find.byType(Card)).length,
+          lessThan(totalCards));
     });
 
     testWidgets('All cards swiped out', (tester) async {
@@ -36,7 +37,8 @@ void main() {
       // Swipe out all cards.
       for (var i = 0; i < totalCards; i++) {
         // Swipe out one by one.
-        await tester.drag(find.byType(Card).last, const Offset(100.0, 0.0));
+        await tester.drag(
+            find.byType(Card).last, const Offset(100.0, 0.0));
         await tester.pumpAndSettle();
       }
 

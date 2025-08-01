@@ -2,7 +2,7 @@ name: samples
 description: A collection of samples for Dart and Flutter.
 
 environment:
-  sdk: '^3.5.0'
+  sdk: ^3.9.0-0
 
 workspace:
   - add_to_app/android_view/flutter_module_using_plugin

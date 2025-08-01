@@ -181,14 +181,16 @@ class _SimpleDatabaseServer {
         // obtained on the root isolate and passed into the background isolate via
         // a [SendPort].
         // ----------------------------------------------------------------------
-        RootIsolateToken rootIsolateToken = command.arg1 as RootIsolateToken;
+        RootIsolateToken rootIsolateToken =
+            command.arg1 as RootIsolateToken;
         // ----------------------------------------------------------------------
         // [BackgroundIsolateBinaryMessenger.ensureInitialized] for each
         // background isolate that will use plugins. This sets up the
         // [BinaryMessenger] that the Platform Channels will communicate with on
         // the background isolate.
         // ----------------------------------------------------------------------
-        BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
+        BackgroundIsolateBinaryMessenger.ensureInitialized(
+            rootIsolateToken);
         _sendPort.send(const _Command(_Codes.ack, arg0: null));
       case _Codes.add:
         _doAddEntry(command.arg0 as String);

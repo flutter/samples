@@ -91,14 +91,14 @@ void setupLogging() {
     logsDir.createSync(recursive: true);
   }
   final timestamp = DateTime.now().toIso8601String().replaceAll(':', '-');
-  _logFile = File(p.join(logDir, 'flutter_update_$timestamp.log'));
+  _logFile = File(p.join(logDir, 'release_logs_$timestamp.log'));
 }
 
 void log(String? message, IOSink sink) {
   if (message == null) return;
   sink.writeln(message);
   _logFile.writeAsStringSync(
-    '${overrideAnsiOutput(false, () => message)}\n',
+    resetAll.wrap('$message\n')!,
     mode: FileMode.append,
   );
 }
@@ -207,9 +207,7 @@ Future<bool> updateSdkConstraints(
   }
 
   try {
-    final version = Version.parse(versionString);
-    final nextMajor = version.major + 1;
-    final newConstraint = "'>=${version} <$nextMajor.0.0'";
+    final newConstraint = '^${versionString}-0';
 
     final content = await pubspecFile.readAsString();
     final editor = YamlEditor(content);

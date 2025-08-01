@@ -49,7 +49,8 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
           animation: animation,
           builder: (context, child) {
             return ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: animation.value),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: animation.value),
               child: child,
               onPressed: () {
                 switch (controller.status) {

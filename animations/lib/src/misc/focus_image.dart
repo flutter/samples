@@ -29,7 +29,8 @@ class Grid extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return (index >= 20)
-              ? const SmallCard(imageAssetName: 'assets/eat_cape_town_sm.jpg')
+              ? const SmallCard(
+                  imageAssetName: 'assets/eat_cape_town_sm.jpg')
               : const SmallCard(
                   imageAssetName: 'assets/eat_new_orleans_sm.jpg',
                 );
@@ -50,7 +51,9 @@ Route _createRoute(BuildContext parentContext, String image) {
       ).chain(CurveTween(curve: Curves.ease)).animate(animation);
 
       return Stack(
-        children: [PositionedTransition(rect: rectAnimation, child: child)],
+        children: [
+          PositionedTransition(rect: rectAnimation, child: child)
+        ],
       );
     },
   );

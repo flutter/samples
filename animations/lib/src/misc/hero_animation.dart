@@ -15,11 +15,13 @@ class HeroAnimationDemo extends StatelessWidget {
       body: GestureDetector(
         child: Hero(
           tag: 'hero-page-child',
-          child: _createHeroContainer(size: 50.0, color: Colors.grey.shade300),
+          child: _createHeroContainer(
+              size: 50.0, color: Colors.grey.shade300),
         ),
         onTap: () => Navigator.of(
           context,
-        ).push<void>(MaterialPageRoute(builder: (context) => const HeroPage())),
+        ).push<void>(
+            MaterialPageRoute(builder: (context) => const HeroPage())),
       ),
     );
   }
@@ -51,7 +53,9 @@ StatelessWidget _createHeroContainer({
     height: size,
     width: size,
     padding: const EdgeInsets.all(10.0),
-    margin: size < 100.0 ? const EdgeInsets.all(10.0) : const EdgeInsets.all(0),
+    margin: size < 100.0
+        ? const EdgeInsets.all(10.0)
+        : const EdgeInsets.all(0),
     decoration: BoxDecoration(shape: BoxShape.circle, color: color),
     child: const FlutterLogo(),
   );

@@ -65,12 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // Write the value to [SharedPreferences] which will get read on the
     // [SimpleDatabase]'s isolate. For this example the value is always true
     // just for demonstration purposes.
-    final Future<void> sharedPreferencesSet = SharedPreferences.getInstance()
-        .then(
-          (sharedPreferences) => sharedPreferences.setBool('isDebug', true),
-        );
-    final Future<Directory> tempDirFuture = path_provider
-        .getTemporaryDirectory();
+    final Future<void> sharedPreferencesSet =
+        SharedPreferences.getInstance().then(
+      (sharedPreferences) => sharedPreferences.setBool('isDebug', true),
+    );
+    final Future<Directory> tempDirFuture =
+        path_provider.getTemporaryDirectory();
 
     // Wait until the [SharedPreferences] value is set and the temporary
     // directory is received before opening the database. If

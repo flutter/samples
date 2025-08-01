@@ -20,7 +20,8 @@ void main() {
     expect(mockHostApi.cancelCalls, 1);
   });
 
-  testWidgets('Pressing done calls the finish editing API', (tester) async {
+  testWidgets('Pressing done calls the finish editing API',
+      (tester) async {
     MockHostBookApi mockHostApi = MockHostBookApi();
 
     await tester.pumpWidget(

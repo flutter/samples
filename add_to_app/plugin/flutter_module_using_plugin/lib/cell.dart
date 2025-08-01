@@ -23,7 +23,8 @@ class Cell extends StatefulWidget {
 
 class _CellState extends State<Cell> with WidgetsBindingObserver {
   static const double gravity = 9.81;
-  static final AccelerometerEvent defaultPosition = AccelerometerEvent(0, 0, 0);
+  static final AccelerometerEvent defaultPosition =
+      AccelerometerEvent(0, 0, 0);
 
   int cellNumber = 0;
   Random? _random;
@@ -82,7 +83,8 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
           builder: (context) {
             return Card(
               // Mimic the platform Material look.
-              margin: const EdgeInsets.symmetric(horizontal: 36, vertical: 24),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 36, vertical: 24),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -112,24 +114,26 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                       child: StreamBuilder<AccelerometerEvent>(
                         // Don't continuously rebuild for nothing when the
                         // cell isn't visible.
-                        stream: appLifecycleState == AppLifecycleState.resumed
-                            ? accelerometerEventStream()
-                            : Stream.value(defaultPosition),
+                        stream:
+                            appLifecycleState == AppLifecycleState.resumed
+                                ? accelerometerEventStream()
+                                : Stream.value(defaultPosition),
                         initialData: defaultPosition,
                         builder: (context, snapshot) {
                           final data = snapshot.data;
                           if (data == null) {
-                            return const CircularProgressIndicator.adaptive();
+                            return const CircularProgressIndicator
+                                .adaptive();
                           }
                           return Transform(
                             // Figure out the phone's orientation relative
                             // to gravity's direction. Ignore the z vector.
-                            transform:
-                                Matrix4.rotationX(
-                                  data.y / gravity * pi / 2,
-                                )..multiply(
-                                  Matrix4.rotationY(data.x / gravity * pi / 2),
-                                ),
+                            transform: Matrix4.rotationX(
+                              data.y / gravity * pi / 2,
+                            )..multiply(
+                                Matrix4.rotationY(
+                                    data.x / gravity * pi / 2),
+                              ),
                             alignment: Alignment.center,
                             child: const FlutterLogo(size: 72),
                           );

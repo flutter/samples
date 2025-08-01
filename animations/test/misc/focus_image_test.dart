@@ -6,7 +6,8 @@ import 'package:animations/src/misc/focus_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createFocusImageScreen() => const MaterialApp(home: FocusImageDemo());
+Widget createFocusImageScreen() =>
+    const MaterialApp(home: FocusImageDemo());
 
 void main() {
   group('FocusImage Tests', () {
@@ -33,7 +34,8 @@ void main() {
       expect(finalSize, greaterThan(initialSize));
     });
 
-    testWidgets('Final inkwell on tap goes back to the grid', (tester) async {
+    testWidgets('Final inkwell on tap goes back to the grid',
+        (tester) async {
       await tester.pumpWidget(createFocusImageScreen());
 
       // Tap on the ink well at index 0.
