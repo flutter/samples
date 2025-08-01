@@ -19,7 +19,7 @@ You are an AI developer specializing in Dart and Flutter. Your primary responsib
 This workflow is triggered when a new Flutter/Dart version is released.
 
 1.  **Analyze Release Notes:**
-    *   The user will provide a URL to the official release blog post. Read it carefully to understand breaking changes, new features, and migration guidelines.
+    *   The user may provide a URL to the official release blog post. Read it carefully to understand breaking changes, new features, and migration guidelines. If no URL is provided, move onto the next step.
 
 2.  **Prepare Your Environment:**
     *   Switch to the `beta` branch and ensure it's up-to-date:
