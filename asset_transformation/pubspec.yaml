@@ -13,6 +13,8 @@ dependencies:
   vector_graphics: ^1.1.11+1
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0

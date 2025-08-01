@@ -80,14 +80,15 @@ class _CarouselState extends State<Carousel> {
       scrollBehavior: ScrollConfiguration.of(context).copyWith(
         dragDevices: {
           ui.PointerDeviceKind.touch,
-          ui.PointerDeviceKind.mouse
+          ui.PointerDeviceKind.mouse,
         },
       ),
       itemBuilder: (context, index) => AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
-          var result =
-              _pageHasChanged ? _controller.page! : _currentPage * 1.0;
+          var result = _pageHasChanged
+              ? _controller.page!
+              : _currentPage * 1.0;
 
           // The horizontal position of the page between a 1 and 0
           var value = result - index;

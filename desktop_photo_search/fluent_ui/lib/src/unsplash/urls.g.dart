@@ -31,7 +31,10 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
       result
         ..add('raw')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.full;
@@ -39,7 +42,10 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
       result
         ..add('full')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.regular;
@@ -47,7 +53,10 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
       result
         ..add('regular')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.small;
@@ -55,7 +64,10 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
       result
         ..add('small')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.thumb;
@@ -63,7 +75,10 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
       result
         ..add('thumb')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     return result;

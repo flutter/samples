@@ -11,6 +11,8 @@ dependencies:
   json_annotation: ^4.7.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   build_runner: ^2.2.1
   freezed: ">=2.1.1 <4.0.0"
   json_serializable: ^6.4.0

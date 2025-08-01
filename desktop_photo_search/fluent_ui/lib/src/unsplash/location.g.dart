@@ -31,7 +31,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       result
         ..add('city')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.country;
@@ -39,7 +42,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       result
         ..add('country')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.position;
@@ -47,7 +53,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       result
         ..add('position')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Position)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Position),
+          ),
         );
     }
     return result;
@@ -160,7 +169,8 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   set country(String? country) => _$this._country = country;
 
   PositionBuilder? _position;
-  PositionBuilder get position => _$this._position ??= new PositionBuilder();
+  PositionBuilder get position =>
+      _$this._position ??= new PositionBuilder();
   set position(PositionBuilder? position) => _$this._position = position;
 
   LocationBuilder();

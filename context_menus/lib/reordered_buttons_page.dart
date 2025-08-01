@@ -11,7 +11,8 @@ class ReorderedButtonsPage extends StatelessWidget {
 
   static const String route = 'reordered-buttons';
   static const String title = 'Reordered Buttons';
-  static const String subtitle = 'The usual buttons, but in a different order.';
+  static const String subtitle =
+      'The usual buttons, but in a different order.';
   static const String url = '$kCodeUrl/reordered_buttons_page.dart';
 
   final PlatformCallback onChangedPlatform;
@@ -54,26 +55,38 @@ class ReorderedButtonsPage extends StatelessWidget {
                 maxLines: 2,
                 contextMenuBuilder: (context, editableTextState) {
                   // Reorder the button datas by type.
-                  final HashMap<ContextMenuButtonType, ContextMenuButtonItem>
+                  final HashMap<
+                    ContextMenuButtonType,
+                    ContextMenuButtonItem
+                  >
                   buttonItemsMap =
-                      HashMap<ContextMenuButtonType, ContextMenuButtonItem>();
+                      HashMap<
+                        ContextMenuButtonType,
+                        ContextMenuButtonItem
+                      >();
                   for (ContextMenuButtonItem buttonItem
                       in editableTextState.contextMenuButtonItems) {
                     buttonItemsMap[buttonItem.type] = buttonItem;
                   }
-                  final List<ContextMenuButtonItem>
-                  reorderedButtonItems = <ContextMenuButtonItem>[
-                    if (buttonItemsMap.containsKey(
-                      ContextMenuButtonType.selectAll,
-                    ))
-                      buttonItemsMap[ContextMenuButtonType.selectAll]!,
-                    if (buttonItemsMap.containsKey(ContextMenuButtonType.paste))
-                      buttonItemsMap[ContextMenuButtonType.paste]!,
-                    if (buttonItemsMap.containsKey(ContextMenuButtonType.copy))
-                      buttonItemsMap[ContextMenuButtonType.copy]!,
-                    if (buttonItemsMap.containsKey(ContextMenuButtonType.cut))
-                      buttonItemsMap[ContextMenuButtonType.cut]!,
-                  ];
+                  final List<ContextMenuButtonItem> reorderedButtonItems =
+                      <ContextMenuButtonItem>[
+                        if (buttonItemsMap.containsKey(
+                          ContextMenuButtonType.selectAll,
+                        ))
+                          buttonItemsMap[ContextMenuButtonType.selectAll]!,
+                        if (buttonItemsMap.containsKey(
+                          ContextMenuButtonType.paste,
+                        ))
+                          buttonItemsMap[ContextMenuButtonType.paste]!,
+                        if (buttonItemsMap.containsKey(
+                          ContextMenuButtonType.copy,
+                        ))
+                          buttonItemsMap[ContextMenuButtonType.copy]!,
+                        if (buttonItemsMap.containsKey(
+                          ContextMenuButtonType.cut,
+                        ))
+                          buttonItemsMap[ContextMenuButtonType.cut]!,
+                      ];
                   return AdaptiveTextSelectionToolbar.buttonItems(
                     anchors: editableTextState.contextMenuAnchors,
                     buttonItems: reorderedButtonItems,

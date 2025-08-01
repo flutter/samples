@@ -174,8 +174,8 @@ class _SwipeableCardState extends State<SwipeableCard>
       return;
     }
 
-    var velocity =
-        (details.velocity.pixelsPerSecond.dx / size.width).abs();
+    var velocity = (details.velocity.pixelsPerSecond.dx / size.width)
+        .abs();
     _animate(velocity: velocity);
   }
 

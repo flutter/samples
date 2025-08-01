@@ -13,6 +13,8 @@ dependencies:
   web: ^1.0.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../../analysis_defaults
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0

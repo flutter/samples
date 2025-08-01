@@ -52,7 +52,9 @@ void main() {
       await tester.pumpAndSettle();
 
       // Get the total number of items available.
-      final totalItems = tester.widgetList(find.byIcon(Icons.close)).length;
+      final totalItems = tester
+          .widgetList(find.byIcon(Icons.close))
+          .length;
 
       // Remove one item.
       await tester.tap(find.byIcon(Icons.close).first);

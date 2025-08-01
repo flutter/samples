@@ -35,7 +35,9 @@ class InfiniteProcessPage extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final controller = Provider.of<InfiniteProcessIsolateController>(context);
+    final controller = Provider.of<InfiniteProcessIsolateController>(
+      context,
+    );
 
     return SafeArea(
       child: Column(
@@ -196,7 +198,9 @@ class RunningList extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final controller = Provider.of<InfiniteProcessIsolateController>(context);
+    final controller = Provider.of<InfiniteProcessIsolateController>(
+      context,
+    );
 
     var sums = controller.currentResults;
 

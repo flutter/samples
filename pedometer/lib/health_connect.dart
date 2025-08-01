@@ -235,8 +235,8 @@ final class $HealthConnectClient$Companion$NullableType
   @core$_.override
   HealthConnectClient$Companion? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : HealthConnectClient$Companion.fromReference(reference);
+      ? null
+      : HealthConnectClient$Companion.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -828,10 +828,9 @@ class HealthConnectClient extends jni$_.JObject {
     final $o = jni$_.JGlobalReference(
       jni$_.JObjectPtr.fromAddress(await $p.first),
     );
-    final $k =
-        const jni$_.JListType<jni$_.JObject>(
-          jni$_.JObjectType(),
-        ).jClass.reference;
+    final $k = const jni$_.JListType<jni$_.JObject>(
+      jni$_.JObjectType(),
+    ).jClass.reference;
     if (!jni$_.Jni.env.IsInstanceOf($o.pointer, $k.pointer)) {
       $k.release();
       throw 'Failed';
@@ -887,10 +886,9 @@ class HealthConnectClient extends jni$_.JObject {
     final $o = jni$_.JGlobalReference(
       jni$_.JObjectPtr.fromAddress(await $p.first),
     );
-    final $k =
-        const jni$_.JListType<jni$_.JObject>(
-          jni$_.JObjectType(),
-        ).jClass.reference;
+    final $k = const jni$_.JListType<jni$_.JObject>(
+      jni$_.JObjectType(),
+    ).jClass.reference;
     if (!jni$_.Jni.env.IsInstanceOf($o.pointer, $k.pointer)) {
       $k.release();
       throw 'Failed';
@@ -2179,8 +2177,8 @@ final class $PermissionController$Companion$NullableType
   @core$_.override
   PermissionController$Companion? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : PermissionController$Companion.fromReference(reference);
+      ? null
+      : PermissionController$Companion.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -2313,10 +2311,9 @@ class PermissionController extends jni$_.JObject {
     final $o = jni$_.JGlobalReference(
       jni$_.JObjectPtr.fromAddress(await $p.first),
     );
-    final $k =
-        const jni$_.JSetType<jni$_.JObject>(
-          jni$_.JObjectType(),
-        ).jClass.reference;
+    final $k = const jni$_.JSetType<jni$_.JObject>(
+      jni$_.JObjectType(),
+    ).jClass.reference;
     if (!jni$_.Jni.env.IsInstanceOf($o.pointer, $k.pointer)) {
       $k.release();
       throw 'Failed';
@@ -3599,8 +3596,8 @@ final class $TimeRangeFilter$Companion$NullableType
   @core$_.override
   TimeRangeFilter$Companion? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : TimeRangeFilter$Companion.fromReference(reference);
+      ? null
+      : TimeRangeFilter$Companion.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -10754,8 +10751,8 @@ final class $Intent$FilterComparison$NullableType
   @core$_.override
   Intent$FilterComparison? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : Intent$FilterComparison.fromReference(reference);
+      ? null
+      : Intent$FilterComparison.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectNullableType();
@@ -11044,8 +11041,8 @@ final class $Intent$ShortcutIconResource$NullableType
   @core$_.override
   Intent$ShortcutIconResource? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : Intent$ShortcutIconResource.fromReference(reference);
+      ? null
+      : Intent$ShortcutIconResource.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectNullableType();
@@ -29213,8 +29210,8 @@ final class $AggregateGroupByDurationRequest$NullableType
   @core$_.override
   AggregateGroupByDurationRequest? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : AggregateGroupByDurationRequest.fromReference(reference);
+      ? null
+      : AggregateGroupByDurationRequest.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -29431,8 +29428,8 @@ final class $AggregateGroupByPeriodRequest$NullableType
   @core$_.override
   AggregateGroupByPeriodRequest? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : AggregateGroupByPeriodRequest.fromReference(reference);
+      ? null
+      : AggregateGroupByPeriodRequest.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -30137,8 +30134,8 @@ final class $ReadRecordsRequest$NullableType<$T extends jni$_.JObject>
   @core$_.override
   ReadRecordsRequest<$T>? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : ReadRecordsRequest<$T>.fromReference(T, reference);
+      ? null
+      : ReadRecordsRequest<$T>.fromReference(T, reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -30722,8 +30719,8 @@ final class $AggregateMetric$AggregationType$NullableType
   @core$_.override
   AggregateMetric$AggregationType? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : AggregateMetric$AggregationType.fromReference(reference);
+      ? null
+      : AggregateMetric$AggregationType.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -30853,8 +30850,8 @@ final class $AggregateMetric$Companion$NullableType
   @core$_.override
   AggregateMetric$Companion? fromReference(jni$_.JReference reference) =>
       reference.isNull
-          ? null
-          : AggregateMetric$Companion.fromReference(reference);
+      ? null
+      : AggregateMetric$Companion.fromReference(reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();
@@ -31054,13 +31051,9 @@ final class $AggregateMetric$Converter$FromDouble$NullableType<
   @core$_.override
   AggregateMetric$Converter$FromDouble<$R>? fromReference(
     jni$_.JReference reference,
-  ) =>
-      reference.isNull
-          ? null
-          : AggregateMetric$Converter$FromDouble<$R>.fromReference(
-            R,
-            reference,
-          );
+  ) => reference.isNull
+      ? null
+      : AggregateMetric$Converter$FromDouble<$R>.fromReference(R, reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectNullableType();
@@ -31270,10 +31263,9 @@ final class $AggregateMetric$Converter$FromLong$NullableType<
   @core$_.override
   AggregateMetric$Converter$FromLong<$R>? fromReference(
     jni$_.JReference reference,
-  ) =>
-      reference.isNull
-          ? null
-          : AggregateMetric$Converter$FromLong<$R>.fromReference(R, reference);
+  ) => reference.isNull
+      ? null
+      : AggregateMetric$Converter$FromLong<$R>.fromReference(R, reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectNullableType();
@@ -31507,10 +31499,9 @@ final class $AggregateMetric$Converter$NullableType<
   @core$_.override
   AggregateMetric$Converter<$T, $R>? fromReference(
     jni$_.JReference reference,
-  ) =>
-      reference.isNull
-          ? null
-          : AggregateMetric$Converter<$T, $R>.fromReference(T, R, reference);
+  ) => reference.isNull
+      ? null
+      : AggregateMetric$Converter<$T, $R>.fromReference(T, R, reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectNullableType();

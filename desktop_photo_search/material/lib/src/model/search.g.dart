@@ -33,7 +33,9 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
       'results',
       serializers.serialize(
         object.results,
-        specifiedType: const FullType(BuiltList, const [const FullType(Photo)]),
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(Photo),
+        ]),
       ),
     ];
 
@@ -104,7 +106,9 @@ class _$Search extends Search {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Search && query == other.query && results == other.results;
+    return other is Search &&
+        query == other.query &&
+        results == other.results;
   }
 
   @override

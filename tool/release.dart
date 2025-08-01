@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:io/ansi.dart';
 import 'package:path/path.dart' as p;
-import 'package:pub_semver/pub_semver.dart';
 import 'package:yaml/yaml.dart';
 import 'package:yaml_edit/yaml_edit.dart';
 
@@ -37,14 +36,35 @@ void main(List<String> arguments) async {
     exit(1);
   }
 
-  log(styleBold.wrap('\n=========================================')!, stdout);
-  log(styleBold.wrap('Upgrading Flutter SDK')!, stdout);
-  log(styleBold.wrap('=========================================')!, stdout);
+  // log(styleBold.wrap('\n=========================================')!, stdout);
+  // log(styleBold.wrap('Upgrading Flutter SDK')!, stdout);
+  // log(styleBold.wrap('=========================================')!, stdout);
 
-  if (!await runCommand('flutter', ['upgrade'], isDryRun: isDryRun)) {
-    log(red.wrap('Failed to upgrade Flutter SDK')!, stderr);
-    exit(1);
-  }
+  // final (didFlutterUpgrade, _) =
+  //     await runCommand('flutter', ['upgrade'], isDryRun: isDryRun);
+
+  // if (!didFlutterUpgrade) {
+  //   log(red.wrap('Failed to upgrade Flutter SDK')!, stderr);
+  //   exit(1);
+  // }
+
+  // log(styleBold.wrap('\n=========================================')!, stdout);
+  // log(styleBold.wrap('Resolving workspace dependencies')!, stdout);
+  // log(styleBold.wrap('=========================================')!, stdout);
+
+  // final (didPubUpgrade, _) =
+  //     await runCommand('flutter', ['pub', 'upgrade'], isDryRun: isDryRun);
+  // if (!didPubUpgrade) {
+  //   log(red.wrap('Failed to upgrade workspace dependencies'), stderr);
+  //   exit(1);
+  // }
+
+  // final (didPubGet, _) =
+  //     await runCommand('flutter', ['pub', 'get'], isDryRun: isDryRun);
+  // if (!didPubGet) {
+  //   log(red.wrap('Failed to get workspace dependencies'), stderr);
+  //   exit(1);
+  // }
 
   final dartVersion = await getDartVersion();
   if (dartVersion == null) {
@@ -97,8 +117,12 @@ void setupLogging() {
 void log(String? message, IOSink sink) {
   if (message == null) return;
   sink.writeln(message);
+}
+
+void logToFile(String? message) {
+  if (message == null) return;
   _logFile.writeAsStringSync(
-    resetAll.wrap('$message\n')!,
+    '\n${stripAnsiCodes(message)}',
     mode: FileMode.append,
   );
 }
@@ -153,12 +177,14 @@ Future<bool> processProject(
     String projectPath, String dartVersion, bool isDryRun) async {
   final projectName = p.basename(projectPath);
   final projectDir = Directory(projectPath);
+  final issues = [];
 
   if (!projectDir.existsSync()) {
     log(red.wrap('Project directory not found: $projectPath'), stderr);
     return false;
   }
 
+  // For stdout
   log(styleBold.wrap('\n========================================='), stdout);
   log(styleBold.wrap('Processing project: $projectName'), stdout);
   log(styleBold.wrap('=========================================')!, stdout);
@@ -173,24 +199,54 @@ Future<bool> processProject(
   }
 
   final commands = [
-    Command('Updating dependencies...', 'flutter', ['pub', 'upgrade']),
-    Command('Running pub get...', 'flutter', ['pub', 'get']),
-    Command('Running dart analyze...', 'dart', ['analyze']),
-    Command('Running dart format...', 'dart', ['format', '.']),
-    Command('Running tests...', 'flutter', ['test']),
+    Command('dart analyze', 'Running dart analyze...', 'dart',
+        ['analyze', '--fatal-infos', '--fatal-warnings']),
+    Command('dart format', 'Running dart format...', 'dart', ['format', '.']),
   ];
+
+  final testDir = Directory(p.join(projectPath, 'test'));
+  if (projectName != 'material_3_demo' && testDir.existsSync()) {
+    commands
+        .add(Command('flutter test', 'Running tests...', 'flutter', ['test']));
+  }
 
   for (final command in commands) {
     log(blue.wrap(command.description), stdout);
-    if (!await runCommand(command.executable, command.arguments,
-        workingDirectory: projectPath, isDryRun: isDryRun)) {
-      log(red.wrap('${command.description} failed for $projectName'), stderr);
-      // For analyze, format, and test, we might not want to hard fail the whole script.
-      // The original script continued on format errors but failed on test errors.
-      if (command.executable == 'flutter' &&
-          command.arguments.first == 'test') {
-        return false;
+
+    final (didPass, output) = await runCommand(
+      command.executable,
+      command.arguments,
+      workingDirectory: projectPath,
+      isDryRun: isDryRun,
+    );
+
+    if (!didPass) {
+      log(red.wrap('${command.displayName} failed for $projectName'), stderr);
+
+      if (command.displayName == 'pub upgrade' ||
+          command.displayName == 'pub get' &&
+              output.contains('Failed to update packages.')) {
+        issues.add(output);
       }
+
+      if (command.displayName == 'dart analyze' &&
+              output.contains('issue found.') ||
+          output.contains('issues found.')) {
+        issues.add(output);
+      }
+
+      if (command.displayName == 'flutter test' &&
+          !output.contains('All tests passed!')) {
+        issues.add(output);
+      }
+    }
+  }
+
+  if (issues.isNotEmpty) {
+    logToFile('- Issues found in $projectName');
+    for (final issue in issues) {
+      if (isOnlyWhitespace(issue)) continue;
+      logToFile('-- $issue');
     }
   }
 
@@ -225,7 +281,7 @@ Future<bool> updateSdkConstraints(
   }
 }
 
-Future<bool> runCommand(String executable, List<String> arguments,
+Future<(bool, String)> runCommand(String executable, List<String> arguments,
     {String? workingDirectory, bool isDryRun = false}) async {
   final commandString = '$executable ${arguments.join(' ')}';
   if (isDryRun) {
@@ -233,24 +289,29 @@ Future<bool> runCommand(String executable, List<String> arguments,
         yellow.wrap(
             '  [DRY RUN] Would execute: `$commandString` in `${workingDirectory ?? '.'}`'),
         stdout);
-    return true;
+    return (true, '');
   }
 
   final process = await Process.start(executable, arguments,
       workingDirectory: workingDirectory, runInShell: true);
 
+  StringBuffer output = StringBuffer('');
+
   final stdoutFuture =
       process.stdout.transform(SystemEncoding().decoder).forEach((line) {
     log(line, stdout);
+    if (!isOnlyWhitespace(line)) output.writeln('${line.trim().padLeft(2)}');
   });
+
   final stderrFuture =
       process.stderr.transform(SystemEncoding().decoder).forEach((line) {
     log(red.wrap(line), stderr);
+    if (!isOnlyWhitespace(line)) output.writeln('${line.trim().padLeft(2)}');
   });
 
   await Future.wait([stdoutFuture, stderrFuture]);
 
-  return await process.exitCode == 0;
+  return (await process.exitCode == 0, output.toString());
 }
 
 void printSummary(int total, List<String> failed) {
@@ -267,9 +328,19 @@ void printSummary(int total, List<String> failed) {
 }
 
 class Command {
+  final String displayName;
   final String description;
   final String executable;
   final List<String> arguments;
 
-  Command(this.description, this.executable, this.arguments);
+  Command(this.displayName, this.description, this.executable, this.arguments);
+}
+
+String stripAnsiCodes(String text) {
+  final ansiRegex = RegExp(r'\x1B\[[0-?]*[ -/]*[@-~]');
+  return text.replaceAll(ansiRegex, '');
+}
+
+bool isOnlyWhitespace(String text) {
+  return text.trim().isEmpty;
 }

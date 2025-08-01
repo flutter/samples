@@ -39,7 +39,10 @@ class _$CurrentUserCollectionsSerializer
       result
         ..add('title')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.publishedAt;
@@ -47,7 +50,10 @@ class _$CurrentUserCollectionsSerializer
       result
         ..add('published_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.updatedAt;
@@ -55,7 +61,10 @@ class _$CurrentUserCollectionsSerializer
       result
         ..add('updated_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     return result;
@@ -134,7 +143,11 @@ class _$CurrentUserCollections extends CurrentUserCollections {
     this.publishedAt,
     this.updatedAt,
   }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'CurrentUserCollections', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+      id,
+      r'CurrentUserCollections',
+      'id',
+    );
   }
 
   @override
@@ -179,7 +192,8 @@ class _$CurrentUserCollections extends CurrentUserCollections {
 }
 
 class CurrentUserCollectionsBuilder
-    implements Builder<CurrentUserCollections, CurrentUserCollectionsBuilder> {
+    implements
+        Builder<CurrentUserCollections, CurrentUserCollectionsBuilder> {
   _$CurrentUserCollections? _$v;
 
   int? _id;
@@ -192,7 +206,8 @@ class CurrentUserCollectionsBuilder
 
   String? _publishedAt;
   String? get publishedAt => _$this._publishedAt;
-  set publishedAt(String? publishedAt) => _$this._publishedAt = publishedAt;
+  set publishedAt(String? publishedAt) =>
+      _$this._publishedAt = publishedAt;
 
   String? _updatedAt;
   String? get updatedAt => _$this._updatedAt;

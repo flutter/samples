@@ -60,3 +60,5 @@ Next:
 - Make sure this is in every pubspec yaml
   analysis_defaults:
     path: ../analysis_defaults 
+
+- shouldn't run flutter-test unless theirs a test dir

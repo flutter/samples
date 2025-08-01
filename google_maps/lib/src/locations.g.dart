@@ -77,7 +77,8 @@ Locations _$LocationsFromJson(Map<String, dynamic> json) => Locations(
       .toList(),
 );
 
-Map<String, dynamic> _$LocationsToJson(Locations instance) => <String, dynamic>{
-  'offices': instance.offices,
-  'regions': instance.regions,
-};
+Map<String, dynamic> _$LocationsToJson(Locations instance) =>
+    <String, dynamic>{
+      'offices': instance.offices,
+      'regions': instance.regions,
+    };

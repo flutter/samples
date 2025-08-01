@@ -60,16 +60,16 @@ class _ExpandCardState extends State<ExpandCard>
               // size
               layoutBuilder:
                   (topChild, topChildKey, bottomChild, bottomChildKey) {
-                return Stack(
-                  children: [
-                    Positioned.fill(
-                      key: bottomChildKey,
-                      child: bottomChild,
-                    ),
-                    Positioned.fill(key: topChildKey, child: topChild),
-                  ],
-                );
-              },
+                    return Stack(
+                      children: [
+                        Positioned.fill(
+                          key: bottomChildKey,
+                          child: bottomChild,
+                        ),
+                        Positioned.fill(key: topChildKey, child: topChild),
+                      ],
+                    );
+                  },
               firstChild: Image.asset(
                 'assets/eat_cape_town_sm.jpg',
                 fit: BoxFit.cover,

@@ -48,6 +48,8 @@ dependencies:
   fl_chart: ^0.70.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   flutter_test:
     sdk: flutter
 

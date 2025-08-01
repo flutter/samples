@@ -140,7 +140,11 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
     final _$result =
         _$v ??
         new _$Tags._(
-          title: BuiltValueNullFieldError.checkNotNull(title, r'Tags', 'title'),
+          title: BuiltValueNullFieldError.checkNotNull(
+            title,
+            r'Tags',
+            'title',
+          ),
         );
     replace(_$result);
     return _$result;

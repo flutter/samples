@@ -59,7 +59,9 @@ class Library {
     return allBooks[int.parse(id)];
   }
 
-  List<Book> get popularBooks => [...allBooks.where((book) => book.isPopular)];
+  List<Book> get popularBooks => [
+    ...allBooks.where((book) => book.isPopular),
+  ];
 
   List<Book> get newBooks => [...allBooks.where((book) => book.isNew)];
 }

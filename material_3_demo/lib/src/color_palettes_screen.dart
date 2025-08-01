@@ -63,7 +63,9 @@ class ColorPalettesScreen extends StatelessWidget {
             style: const TextStyle(decoration: TextDecoration.underline),
             recognizer: TapGestureRecognizer()
               ..onTap = () async {
-                final url = Uri.parse('https://pub.dev/packages/dynamic_color');
+                final url = Uri.parse(
+                  'https://pub.dev/packages/dynamic_color',
+                );
                 if (!await launchUrl(url)) {
                   throw Exception('Could not launch $url');
                 }

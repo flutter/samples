@@ -63,7 +63,9 @@ class EmailButtonPage extends StatelessWidget {
                       editableTextState.textEditingValue;
                   final List<ContextMenuButtonItem> buttonItems =
                       editableTextState.contextMenuButtonItems;
-                  if (isValidEmail(value.selection.textInside(value.text))) {
+                  if (isValidEmail(
+                    value.selection.textInside(value.text),
+                  )) {
                     buttonItems.insert(
                       0,
                       ContextMenuButtonItem(

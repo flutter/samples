@@ -21,11 +21,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String location = GoRouter.of(context)
-        .routerDelegate
-        .currentConfiguration
-        .uri
-        .toString();
+    final String location = GoRouter.of(
+      context,
+    ).routerDelegate.currentConfiguration.uri.toString();
     final index = _getSelectedIndex(location);
     return RestorationScope(
       restorationId: restorationId,

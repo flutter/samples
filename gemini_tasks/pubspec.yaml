@@ -14,6 +14,8 @@ dependencies:
   url_launcher: ^6.2.6
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0

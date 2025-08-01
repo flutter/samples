@@ -83,7 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             TextButton(
-                onPressed: _incrementCounter, child: const Text('Add')),
+              onPressed: _incrementCounter,
+              child: const Text('Add'),
+            ),
             TextButton(
               onPressed: () {
                 _channel.invokeMethod<void>("next", _counter);

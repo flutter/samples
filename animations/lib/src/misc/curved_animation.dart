@@ -64,18 +64,19 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
               controller.reverse();
             }
           });
-    animationTranslation = Tween<Offset>(
-      begin: const Offset(-1, 0),
-      end: const Offset(1, 0),
-    ).animate(curvedAnimation)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          controller.reverse();
-        }
-      });
+    animationTranslation =
+        Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: const Offset(1, 0),
+          ).animate(curvedAnimation)
+          ..addListener(() {
+            setState(() {});
+          })
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              controller.reverse();
+            }
+          });
   }
 
   @override

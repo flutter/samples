@@ -16,12 +16,16 @@ class HeroAnimationDemo extends StatelessWidget {
         child: Hero(
           tag: 'hero-page-child',
           child: _createHeroContainer(
-              size: 50.0, color: Colors.grey.shade300),
+            size: 50.0,
+            color: Colors.grey.shade300,
+          ),
         ),
-        onTap: () => Navigator.of(
-          context,
-        ).push<void>(
-            MaterialPageRoute(builder: (context) => const HeroPage())),
+        onTap: () =>
+            Navigator.of(
+              context,
+            ).push<void>(
+              MaterialPageRoute(builder: (context) => const HeroPage()),
+            ),
       ),
     );
   }

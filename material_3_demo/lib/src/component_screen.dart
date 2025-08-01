@@ -122,7 +122,11 @@ class SecondComponentList extends StatelessWidget {
 // as the contents of the list are exposed for the first time, and
 // then remain fixed.
 class _CacheHeight extends SingleChildRenderObjectWidget {
-  const _CacheHeight({super.child, required this.heights, required this.index});
+  const _CacheHeight({
+    super.child,
+    required this.heights,
+    required this.index,
+  });
 
   final List<double?> heights;
   final int index;
@@ -536,7 +540,9 @@ class Cards extends StatelessWidget {
             child: Card(
               elevation: 0,
               shape: RoundedRectangleBorder(
-                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
               child: Container(
@@ -587,7 +593,8 @@ class TextFields extends StatefulWidget {
 
 class _TextFieldsState extends State<TextFields> {
   final TextEditingController _controllerFilled = TextEditingController();
-  final TextEditingController _controllerOutlined = TextEditingController();
+  final TextEditingController _controllerOutlined =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -625,7 +632,9 @@ class _TextFieldsState extends State<TextFields> {
                       controller: _controllerFilled,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
-                        suffixIcon: _ClearButton(controller: _controllerFilled),
+                        suffixIcon: _ClearButton(
+                          controller: _controllerFilled,
+                        ),
                         labelText: 'Filled',
                         hintText: 'hint text',
                         helperText: 'supporting text',
@@ -644,7 +653,9 @@ class _TextFieldsState extends State<TextFields> {
                       enabled: false,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
-                        suffixIcon: _ClearButton(controller: _controllerFilled),
+                        suffixIcon: _ClearButton(
+                          controller: _controllerFilled,
+                        ),
                         labelText: 'Disabled',
                         hintText: 'hint text',
                         helperText: 'supporting text',
@@ -1127,7 +1138,10 @@ List<Widget> barWithBadgeDestinations = [
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Badge.count(count: 3, child: const Icon(Icons.videocam_outlined)),
+    icon: Badge.count(
+      count: 3,
+      child: const Icon(Icons.videocam_outlined),
+    ),
     label: 'Meet',
     selectedIcon: Badge.count(count: 3, child: const Icon(Icons.videocam)),
   ),
@@ -1363,7 +1377,10 @@ class _ChipsState extends State<Chips> {
                 onPressed: () {},
                 onDeleted: () {},
               ),
-              ActionChip(label: const Text('Suggestion'), onPressed: () {}),
+              ActionChip(
+                label: const Text('Suggestion'),
+                onPressed: () {},
+              ),
             ],
           ),
           colDivider,
@@ -1639,9 +1656,18 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
       IconButton(onPressed: () {}, icon: const Icon(Icons.share_outlined)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.delete_outline)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.archive_outlined)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.settings_outlined)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border)),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.archive_outlined),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.settings_outlined),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.favorite_border),
+      ),
     ];
     List<Text> labelList = const <Text>[
       Text('Share'),
@@ -1684,7 +1710,9 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
                   return SizedBox(
                     height: 150,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32.0,
+                      ),
                       child: ListView(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -1725,7 +1753,9 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
                   return SizedBox(
                     height: 150,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32.0,
+                      ),
                       child: ListView(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -1811,9 +1841,18 @@ class IconButtonAnchorExample extends StatelessWidget {
         MenuItemButton(child: const Text('Menu 2'), onPressed: () {}),
         SubmenuButton(
           menuChildren: <Widget>[
-            MenuItemButton(onPressed: () {}, child: const Text('Menu 3.1')),
-            MenuItemButton(onPressed: () {}, child: const Text('Menu 3.2')),
-            MenuItemButton(onPressed: () {}, child: const Text('Menu 3.3')),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.1'),
+            ),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.2'),
+            ),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.3'),
+            ),
           ],
           child: const Text('Menu 3'),
         ),
@@ -1899,7 +1938,8 @@ class NavigationDrawerSection extends StatefulWidget {
       _NavigationDrawerSectionState();
 }
 
-class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
+class _NavigationDrawerSectionState
+    extends State<NavigationDrawerSection> {
   int navDrawerIndex = 0;
 
   @override
@@ -1914,7 +1954,10 @@ class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
-          child: Text('Mail', style: Theme.of(context).textTheme.titleSmall),
+          child: Text(
+            'Mail',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
         ),
         ...destinations.map((destination) {
           return NavigationDrawerDestination(
@@ -1926,7 +1969,10 @@ class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
         const Divider(indent: 28, endIndent: 28),
         Padding(
           padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
-          child: Text('Labels', style: Theme.of(context).textTheme.titleSmall),
+          child: Text(
+            'Labels',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
         ),
         ...labelDestinations.map((destination) {
           return NavigationDrawerDestination(
@@ -1949,14 +1995,26 @@ class ExampleDestination {
 }
 
 const List<ExampleDestination> destinations = <ExampleDestination>[
-  ExampleDestination('Inbox', Icon(Icons.inbox_outlined), Icon(Icons.inbox)),
-  ExampleDestination('Outbox', Icon(Icons.send_outlined), Icon(Icons.send)),
+  ExampleDestination(
+    'Inbox',
+    Icon(Icons.inbox_outlined),
+    Icon(Icons.inbox),
+  ),
+  ExampleDestination(
+    'Outbox',
+    Icon(Icons.send_outlined),
+    Icon(Icons.send),
+  ),
   ExampleDestination(
     'Favorites',
     Icon(Icons.favorite_outline),
     Icon(Icons.favorite),
   ),
-  ExampleDestination('Trash', Icon(Icons.delete_outline), Icon(Icons.delete)),
+  ExampleDestination(
+    'Trash',
+    Icon(Icons.delete_outline),
+    Icon(Icons.delete),
+  ),
 ];
 
 const List<ExampleDestination> labelDestinations = <ExampleDestination>[
@@ -1970,7 +2028,11 @@ const List<ExampleDestination> labelDestinations = <ExampleDestination>[
     Icon(Icons.bookmark_border),
     Icon(Icons.bookmark),
   ),
-  ExampleDestination('Work', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
+  ExampleDestination(
+    'Work',
+    Icon(Icons.bookmark_border),
+    Icon(Icons.bookmark),
+  ),
 ];
 
 class NavigationRails extends StatelessWidget {
@@ -1992,7 +2054,8 @@ class NavigationRailSection extends StatefulWidget {
   const NavigationRailSection({super.key});
 
   @override
-  State<NavigationRailSection> createState() => _NavigationRailSectionState();
+  State<NavigationRailSection> createState() =>
+      _NavigationRailSectionState();
 }
 
 class _NavigationRailSectionState extends State<NavigationRailSection> {
@@ -2211,7 +2274,9 @@ class _MenusState extends State<Menus> {
                 label: const Text('Color'),
                 enableFilter: true,
                 dropdownMenuEntries: colorEntries,
-                inputDecorationTheme: const InputDecorationTheme(filled: true),
+                inputDecorationTheme: const InputDecorationTheme(
+                  filled: true,
+                ),
                 onSelected: (color) {
                   setState(() {
                     selectedColor = color;
@@ -2435,7 +2500,9 @@ class Carousels extends StatelessWidget {
             child: CarouselView(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
               ),
               shrinkExtent: 100,
               itemExtent: 180,
@@ -2455,7 +2522,9 @@ class Carousels extends StatelessWidget {
               itemSnapping: true,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
               ),
               shrinkExtent: 100,
               itemExtent: 180,
@@ -2530,9 +2599,13 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
-                        color: Theme.of(context).colorScheme.outlineVariant,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.outlineVariant,
                       ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12),
+                      ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(

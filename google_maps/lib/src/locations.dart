@@ -27,7 +27,8 @@ part 'locations.g.dart';
 class LatLng {
   LatLng({required this.lat, required this.lng});
 
-  factory LatLng.fromJson(Map<String, dynamic> json) => _$LatLngFromJson(json);
+  factory LatLng.fromJson(Map<String, dynamic> json) =>
+      _$LatLngFromJson(json);
   Map<String, dynamic> toJson() => _$LatLngToJson(this);
 
   final double lat;
@@ -43,7 +44,8 @@ class Region {
     required this.zoom,
   });
 
-  factory Region.fromJson(Map<String, dynamic> json) => _$RegionFromJson(json);
+  factory Region.fromJson(Map<String, dynamic> json) =>
+      _$RegionFromJson(json);
   Map<String, dynamic> toJson() => _$RegionToJson(this);
 
   final LatLng coords;
@@ -65,7 +67,8 @@ class Office {
     required this.region,
   });
 
-  factory Office.fromJson(Map<String, dynamic> json) => _$OfficeFromJson(json);
+  factory Office.fromJson(Map<String, dynamic> json) =>
+      _$OfficeFromJson(json);
   Map<String, dynamic> toJson() => _$OfficeToJson(this);
 
   final String address;
@@ -91,7 +94,8 @@ class Locations {
 }
 
 Future<Locations> getGoogleOffices() async {
-  const googleLocationsURL = 'https://about.google/static/data/locations.json';
+  const googleLocationsURL =
+      'https://about.google/static/data/locations.json';
 
   // Retrieve the locations of Google offices
   try {

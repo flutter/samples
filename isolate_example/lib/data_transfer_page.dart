@@ -74,7 +74,9 @@ class DataTransferPage extends StatelessWidget {
                   },
                 ),
                 onPressed: () => controller.generateRandomNumbers(true),
-                child: const Text('Transfer Data with TransferableTypedData'),
+                child: const Text(
+                  'Transfer Data with TransferableTypedData',
+                ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

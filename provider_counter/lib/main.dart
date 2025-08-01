@@ -32,7 +32,8 @@ const double windowWidth = 360;
 const double windowHeight = 640;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Provider Counter');
     setWindowMinSize(const Size(windowWidth, windowHeight));

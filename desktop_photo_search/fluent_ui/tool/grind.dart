@@ -44,7 +44,8 @@ Future<void> test() async =>
     _logProcessOutput(Process.start('flutter', ['test']));
 
 @Task()
-Future<void> clean() => _logProcessOutput(Process.start('flutter', ['clean']));
+Future<void> clean() =>
+    _logProcessOutput(Process.start('flutter', ['clean']));
 
 Future<void> _logProcessOutput(Future<Process> proc) async {
   final process = await proc;

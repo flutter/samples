@@ -75,7 +75,9 @@ class ColorSeedButton extends StatelessWidget {
     return PopupMenuButton(
       icon: const Icon(Icons.palette_outlined),
       tooltip: 'Select a seed color',
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       itemBuilder: (context) {
         return List.generate(ColorSeed.values.length, (index) {
           ColorSeed currentColor = ColorSeed.values[index];
@@ -91,7 +93,8 @@ class ColorSeedButton extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10),
                   child: Icon(
                     currentColor == colorSelected &&
-                            colorSelectionMethod != ColorSelectionMethod.image
+                            colorSelectionMethod !=
+                                ColorSelectionMethod.image
                         ? Icons.color_lens
                         : Icons.color_lens_outlined,
                     color: currentColor.color,
@@ -128,7 +131,9 @@ class ColorImageButton extends StatelessWidget {
     return PopupMenuButton(
       icon: const Icon(Icons.image_outlined),
       tooltip: 'Select a color extraction image',
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       itemBuilder: (context) {
         return List.generate(ColorImageProvider.values.length, (index) {
           final currentImageProvider = ColorImageProvider.values[index];

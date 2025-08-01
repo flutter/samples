@@ -79,7 +79,8 @@ class _DraggableCardState extends State<DraggableCard>
     super.initState();
     _controller = AnimationController.unbounded(vsync: this)
       ..addListener(
-          () => setState(() => _dragAlignment = _animation.value));
+        () => setState(() => _dragAlignment = _animation.value),
+      );
   }
 
   @override

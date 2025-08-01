@@ -74,8 +74,10 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
               child: child,
             );
           },
-          child:
-              const Text('Animate', style: TextStyle(color: Colors.white)),
+          child: const Text(
+            'Animate',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );

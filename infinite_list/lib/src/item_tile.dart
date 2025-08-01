@@ -22,7 +22,10 @@ class ItemTile extends StatelessWidget {
           aspectRatio: 1,
           child: Container(color: item.color),
         ),
-        title: Text(item.name, style: Theme.of(context).textTheme.titleLarge),
+        title: Text(
+          item.name,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         trailing: Text('\$ ${(item.price / 100).toStringAsFixed(2)}'),
       ),
     );

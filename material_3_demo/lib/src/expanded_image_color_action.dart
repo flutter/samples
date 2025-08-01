@@ -66,7 +66,9 @@ class _ImageButton extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4.0),
                 child: Image(
-                  image: NetworkImage(ColorImageProvider.values[index].url),
+                  image: NetworkImage(
+                    ColorImageProvider.values[index].url,
+                  ),
                 ),
               ),
             ),

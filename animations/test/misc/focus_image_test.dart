@@ -34,8 +34,9 @@ void main() {
       expect(finalSize, greaterThan(initialSize));
     });
 
-    testWidgets('Final inkwell on tap goes back to the grid',
-        (tester) async {
+    testWidgets('Final inkwell on tap goes back to the grid', (
+      tester,
+    ) async {
       await tester.pumpWidget(createFocusImageScreen());
 
       // Tap on the ink well at index 0.

@@ -18,20 +18,21 @@ class FlutterAnimateDemo extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Text(
-            "Hello Flutter Animate",
-            style: Theme.of(context).textTheme.headlineLarge,
-          )
-              .animate(onPlay: (controller) => controller.repeat())
-              .then(delay: 250.ms)
-              .fadeIn(duration: 500.ms)
-              .then(delay: 250.ms)
-              .shimmer(duration: 400.ms)
-              .then(delay: 250.ms)
-              .slide()
-              .then(delay: 250.ms)
-              .blur(duration: 500.ms)
-              .then(delay: 100.ms),
+          child:
+              Text(
+                    "Hello Flutter Animate",
+                    style: Theme.of(context).textTheme.headlineLarge,
+                  )
+                  .animate(onPlay: (controller) => controller.repeat())
+                  .then(delay: 250.ms)
+                  .fadeIn(duration: 500.ms)
+                  .then(delay: 250.ms)
+                  .shimmer(duration: 400.ms)
+                  .then(delay: 250.ms)
+                  .slide()
+                  .then(delay: 250.ms)
+                  .blur(duration: 500.ms)
+                  .then(delay: 100.ms),
         ),
       ),
     );

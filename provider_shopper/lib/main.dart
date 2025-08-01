@@ -25,7 +25,8 @@ const double windowWidth = 400;
 const double windowHeight = 800;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Provider Demo');
     setWindowMinSize(const Size(windowWidth, windowHeight));
@@ -46,12 +47,18 @@ GoRouter router() {
   return GoRouter(
     initialLocation: '/login',
     routes: [
-      GoRoute(path: '/login', builder: (context, state) => const MyLogin()),
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const MyLogin(),
+      ),
       GoRoute(
         path: '/catalog',
         builder: (context, state) => const MyCatalog(),
         routes: [
-          GoRoute(path: 'cart', builder: (context, state) => const MyCart()),
+          GoRoute(
+            path: 'cart',
+            builder: (context, state) => const MyCart(),
+          ),
         ],
       ),
     ],

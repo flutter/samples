@@ -13,7 +13,8 @@ import 'package:math_expressions/math_expressions.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Simplistic Calculator');
     setWindowMinSize(const Size(600, 500));
@@ -113,7 +114,10 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
           state = state.copyWith(
             buffer: resultStr,
             mode: CalculatorEngineMode.result,
-            calcHistory: ['${state.buffer} = $resultStr', ...state.calcHistory],
+            calcHistory: [
+              '${state.buffer} = $resultStr',
+              ...state.calcHistory,
+            ],
           );
       }
     } catch (err) {

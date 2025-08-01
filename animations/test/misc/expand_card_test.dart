@@ -24,7 +24,9 @@ void main() {
       // The size of ExpandCard must change once tapped.
       // The initialSize should be less than current ExpandCard size.
       expect(
-          initialSize, lessThan(tester.getSize(find.byType(ExpandCard))));
+        initialSize,
+        lessThan(tester.getSize(find.byType(ExpandCard))),
+      );
     });
 
     testWidgets('ExpandCard changes image on tap', (tester) async {

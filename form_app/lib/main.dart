@@ -24,7 +24,8 @@ const double windowWidth = 480;
 const double windowHeight = 854;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Form Samples');
     setWindowMinSize(const Size(windowWidth, windowHeight));
@@ -129,5 +130,9 @@ class Demo {
   final String route;
   final WidgetBuilder builder;
 
-  const Demo({required this.name, required this.route, required this.builder});
+  const Demo({
+    required this.name,
+    required this.route,
+    required this.builder,
+  });
 }

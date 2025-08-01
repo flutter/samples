@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class TypewriterTween extends Tween<String> {
   TypewriterTween({String begin = '', String end = ''})
-      : super(begin: begin, end: end);
+    : super(begin: begin, end: end);
 
   @override
   String lerp(double t) {

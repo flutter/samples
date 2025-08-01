@@ -86,9 +86,18 @@ class _$Position extends Position {
   factory _$Position([void Function(PositionBuilder)? updates]) =>
       (new PositionBuilder()..update(updates))._build();
 
-  _$Position._({required this.latitude, required this.longitude}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(latitude, r'Position', 'latitude');
-    BuiltValueNullFieldError.checkNotNull(longitude, r'Position', 'longitude');
+  _$Position._({required this.latitude, required this.longitude})
+    : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+      latitude,
+      r'Position',
+      'latitude',
+    );
+    BuiltValueNullFieldError.checkNotNull(
+      longitude,
+      r'Position',
+      'longitude',
+    );
   }
 
   @override

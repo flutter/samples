@@ -77,7 +77,9 @@ class _ColorBoxState extends State<ColorBox> {
                       await Clipboard.setData(data);
                       messenger.hideCurrentSnackBar();
                       messenger.showSnackBar(
-                        SnackBar(content: Text('Copied $hex to clipboard')),
+                        SnackBar(
+                          content: Text('Copied $hex to clipboard'),
+                        ),
                       );
                     },
                   ),

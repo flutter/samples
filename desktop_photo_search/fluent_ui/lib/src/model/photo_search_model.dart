@@ -45,5 +45,6 @@ class PhotoSearchModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<Uint8List> download({required Photo photo}) => _client.download(photo);
+  Future<Uint8List> download({required Photo photo}) =>
+      _client.download(photo);
 }

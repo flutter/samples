@@ -29,7 +29,11 @@ void main() {
       expect(find.text('Item 0'), findsOneWidget);
 
       // Fling i.e scroll down.
-      await tester.fling(find.byType(ListView), const Offset(0, -200), 3000);
+      await tester.fling(
+        find.byType(ListView),
+        const Offset(0, -200),
+        3000,
+      );
       await tester.pumpAndSettle();
 
       // Check if "Item 0" disappeared.

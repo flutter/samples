@@ -45,8 +45,10 @@ class _PhotoDetailsState extends State<PhotoDetails> {
         const Text(' on '),
         Link(
           uri: _unsplashHomepage,
-          builder: (context, followLink) =>
-              TextButton(onPressed: followLink, child: const Text('Unsplash')),
+          builder: (context, followLink) => TextButton(
+            onPressed: followLink,
+            child: const Text('Unsplash'),
+          ),
         ),
       ],
     );

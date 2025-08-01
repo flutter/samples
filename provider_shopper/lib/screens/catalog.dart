@@ -77,7 +77,10 @@ class _MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      title: Text('Catalog', style: Theme.of(context).textTheme.displayLarge),
+      title: Text(
+        'Catalog',
+        style: Theme.of(context).textTheme.displayLarge,
+      ),
       floating: true,
       actions: [
         IconButton(
@@ -109,7 +112,10 @@ class _MyListItem extends StatelessWidget {
         maxHeight: 48,
         child: Row(
           children: [
-            AspectRatio(aspectRatio: 1, child: Container(color: item.color)),
+            AspectRatio(
+              aspectRatio: 1,
+              child: Container(color: item.color),
+            ),
             const SizedBox(width: 24),
             Expanded(child: Text(item.name, style: textTheme)),
             const SizedBox(width: 24),

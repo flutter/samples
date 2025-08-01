@@ -11,7 +11,8 @@
 # (the recommended set includes the core lints).
 # The core lints are also what is used by pub.dev for scoring packages.
 
-include: package:lints/recommended.yaml
+include: package:analysis_defaults/flutter.yaml
+
 
 # Uncomment the following section to specify additional rules.
 

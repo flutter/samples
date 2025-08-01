@@ -41,6 +41,8 @@ dependencies:
   go_router: ^16.0.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
   # The "flutter_lints" package below contains a set of recommended lints to

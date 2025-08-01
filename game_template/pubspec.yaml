@@ -30,6 +30,8 @@ dependencies:
   in_app_purchase: ^3.0.1  # In-app purchases
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter

@@ -15,6 +15,8 @@ dependencies:
     path: ../shared
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   http: ^1.0.0
   lints: ^6.0.0
   test: ^1.15.0

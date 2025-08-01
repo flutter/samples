@@ -190,7 +190,8 @@ class _SimpleDatabaseServer {
         // the background isolate.
         // ----------------------------------------------------------------------
         BackgroundIsolateBinaryMessenger.ensureInitialized(
-            rootIsolateToken);
+          rootIsolateToken,
+        );
         _sendPort.send(const _Command(_Codes.ack, arg0: null));
       case _Codes.add:
         _doAddEntry(command.arg0 as String);

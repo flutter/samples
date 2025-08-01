@@ -26,7 +26,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             constraints: const BoxConstraints(maxWidth: 400),
             child: const Card(
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 18, horizontal: 12),
+                padding: EdgeInsets.symmetric(
+                  vertical: 18,
+                  horizontal: 12,
+                ),
                 child: SettingsContent(),
               ),
             ),
@@ -44,7 +47,10 @@ class SettingsContent extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     children: [
       ...[
-        Text('Settings', style: Theme.of(context).textTheme.headlineMedium),
+        Text(
+          'Settings',
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
         FilledButton(
           onPressed: () {
             BookstoreAuth.of(context).signOut();

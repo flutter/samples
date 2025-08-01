@@ -67,11 +67,9 @@ class VeggieHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = CupertinoTheme.of(context);
-    final String location = GoRouter.of(context)
-        .routerDelegate
-        .currentConfiguration
-        .uri
-        .toString();
+    final String location = GoRouter.of(
+      context,
+    ).routerDelegate.currentConfiguration.uri.toString();
 
     return GestureDetector(
       onTap: () {
@@ -98,8 +96,10 @@ class VeggieHeadline extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(veggie.name,
-                        style: Styles.headlineName(themeData)),
+                    Text(
+                      veggie.name,
+                      style: Styles.headlineName(themeData),
+                    ),
                     ..._buildSeasonDots(veggie.seasons),
                   ],
                 ),

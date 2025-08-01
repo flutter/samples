@@ -112,7 +112,9 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
               ),
             ),
             Text(
-              _lastSelection != null ? 'Last Selected: $_lastSelection' : '',
+              _lastSelection != null
+                  ? 'Last Selected: $_lastSelection'
+                  : '',
             ),
           ],
         ),
@@ -228,7 +230,10 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
           );
           widget.onToggleMessageVisibility();
         },
-        shortcut: const SingleActivator(LogicalKeyboardKey.keyS, control: true),
+        shortcut: const SingleActivator(
+          LogicalKeyboardKey.keyS,
+          control: true,
+        ),
       ),
       // Hides the message, but is only enabled if the message isn't
       // already hidden.

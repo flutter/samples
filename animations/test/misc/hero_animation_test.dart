@@ -59,7 +59,8 @@ void main() {
       expect(
         (finalContainer.decoration as BoxDecoration).color,
         isNot(
-            equals((initialContainer.decoration as BoxDecoration).color)),
+          equals((initialContainer.decoration as BoxDecoration).color),
+        ),
       );
     });
 
@@ -67,8 +68,9 @@ void main() {
       await tester.pumpWidget(createHeroAnimationDemoScreen());
 
       // Get the initial Screen.
-      final initialScreen =
-          tester.firstWidget(find.byType(HeroAnimationDemo));
+      final initialScreen = tester.firstWidget(
+        find.byType(HeroAnimationDemo),
+      );
 
       // Tap on the GestureDetector.
       await tester.tap(find.byType(GestureDetector));

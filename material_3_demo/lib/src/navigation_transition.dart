@@ -29,7 +29,8 @@ class NavigationTransition extends StatefulWidget {
   final Widget body;
 
   @override
-  State<NavigationTransition> createState() => _NavigationTransitionState();
+  State<NavigationTransition> createState() =>
+      _NavigationTransitionState();
 }
 
 class _NavigationTransitionState extends State<NavigationTransition> {

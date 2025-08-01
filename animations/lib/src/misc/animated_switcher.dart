@@ -9,18 +9,18 @@ import 'package:flutter/material.dart';
 Color generateColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 
 Widget generateContainer(int keyCount) => Container(
-      key: ValueKey<int>(keyCount),
-      height: Random().nextDouble() * 200,
-      width: Random().nextDouble() * 200,
-      decoration: BoxDecoration(
-        color: generateColor(),
-        borderRadius: BorderRadius.circular(Random().nextDouble() * 100),
-        border: Border.all(
-          color: generateColor(),
-          width: Random().nextDouble() * 5,
-        ),
-      ),
-    );
+  key: ValueKey<int>(keyCount),
+  height: Random().nextDouble() * 200,
+  width: Random().nextDouble() * 200,
+  decoration: BoxDecoration(
+    color: generateColor(),
+    borderRadius: BorderRadius.circular(Random().nextDouble() * 100),
+    border: Border.all(
+      color: generateColor(),
+      width: Random().nextDouble() * 5,
+    ),
+  ),
+);
 
 class AnimatedSwitcherDemo extends StatefulWidget {
   const AnimatedSwitcherDemo({super.key});

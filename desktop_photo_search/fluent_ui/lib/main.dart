@@ -24,7 +24,9 @@ void main() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((rec) {
     // ignore: avoid_print
-    print('${rec.loggerName} ${rec.level.name}: ${rec.time}: ${rec.message}');
+    print(
+      '${rec.loggerName} ${rec.level.name}: ${rec.time}: ${rec.message}',
+    );
   });
 
   if (unsplashAccessKey.isEmpty) {
@@ -50,7 +52,8 @@ const double windowWidth = 1024;
 const double windowHeight = 800;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowMinSize(const Size(windowWidth, windowHeight));
   }
@@ -84,8 +87,9 @@ class UnsplashHomePage extends StatelessWidget {
             onSelected: () {
               showDialog<void>(
                 context: context,
-                builder: (context) =>
-                    PhotoSearchDialog(callback: photoSearchModel.addSearch),
+                builder: (context) => PhotoSearchDialog(
+                  callback: photoSearchModel.addSearch,
+                ),
               );
             },
           ),

@@ -58,7 +58,10 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
                   },
                 );
               } else {
-                toggle = const CupertinoSwitch(value: false, onChanged: null);
+                toggle = const CupertinoSwitch(
+                  value: false,
+                  onChanged: null,
+                );
               }
 
               tiles.add(

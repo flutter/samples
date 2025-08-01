@@ -7,6 +7,5 @@ dependencies:
   args: ^2.4.2
   io: ^1.0.4
   path: ^1.9.0
-  pub_semver: ^2.1.4
   yaml: ^3.1.2
   yaml_edit: ^2.1.1

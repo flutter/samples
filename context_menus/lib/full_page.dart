@@ -107,7 +107,9 @@ class FullPage extends StatelessWidget {
                         editableTextState.textEditingValue;
                     final List<ContextMenuButtonItem> buttonItems =
                         editableTextState.contextMenuButtonItems;
-                    if (isValidEmail(value.selection.textInside(value.text))) {
+                    if (isValidEmail(
+                      value.selection.textInside(value.text),
+                    )) {
                       buttonItems.insert(
                         0,
                         ContextMenuButtonItem(
@@ -115,7 +117,10 @@ class FullPage extends StatelessWidget {
                           onPressed: () {
                             ContextMenuController.removeAny();
                             Navigator.of(context).push(
-                              _showDialog(context, 'You clicked send email'),
+                              _showDialog(
+                                context,
+                                'You clicked send email',
+                              ),
                             );
                           },
                         ),

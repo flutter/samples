@@ -13,7 +13,8 @@ class PlatformSelector extends StatefulWidget {
 }
 
 class _PlatformSelectorState extends State<PlatformSelector> {
-  static const int targetPlatformStringLength = 15; // 'TargetPlatform.'.length
+  static const int targetPlatformStringLength =
+      15; // 'TargetPlatform.'.length
 
   static String _platformToString(TargetPlatform platform) {
     return platform.toString().substring(targetPlatformStringLength);

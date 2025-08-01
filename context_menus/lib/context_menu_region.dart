@@ -28,7 +28,8 @@ class ContextMenuRegion extends StatefulWidget {
 class _ContextMenuRegionState extends State<ContextMenuRegion> {
   Offset? _longPressOffset;
 
-  final ContextMenuController _contextMenuController = ContextMenuController();
+  final ContextMenuController _contextMenuController =
+      ContextMenuController();
 
   static bool get _longPressEnabled {
     switch (defaultTargetPlatform) {

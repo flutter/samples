@@ -24,7 +24,8 @@ class _AppState extends State<App> {
   ColorSeed _colorSelected = ColorSeed.baseColor;
   ColorImageProvider _imageSelected = ColorImageProvider.leaves;
   ColorScheme? _imageColorScheme = const ColorScheme.light();
-  ColorSelectionMethod _colorSelectionMethod = ColorSelectionMethod.colorSeed;
+  ColorSelectionMethod _colorSelectionMethod =
+      ColorSelectionMethod.colorSeed;
 
   bool get _useLightMode => switch (_themeMode) {
     ThemeMode.system =>
@@ -73,7 +74,8 @@ class _AppState extends State<App> {
       title: 'Material 3',
       themeMode: _themeMode,
       theme: ThemeData(
-        colorSchemeSeed: _colorSelectionMethod == ColorSelectionMethod.colorSeed
+        colorSchemeSeed:
+            _colorSelectionMethod == ColorSelectionMethod.colorSeed
             ? _colorSelected.color
             : null,
         colorScheme: _colorSelectionMethod == ColorSelectionMethod.image
@@ -83,7 +85,8 @@ class _AppState extends State<App> {
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: _colorSelectionMethod == ColorSelectionMethod.colorSeed
+        colorSchemeSeed:
+            _colorSelectionMethod == ColorSelectionMethod.colorSeed
             ? _colorSelected.color
             : _imageColorScheme!.primary,
         useMaterial3: _useMaterial3,
