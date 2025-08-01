@@ -8,8 +8,9 @@ Future<void> main() async {
   final pubspecContent = await pubspecFile.readAsString();
   final pubspecYaml = loadYaml(pubspecContent);
 
+  // pub workspace, only run 'get' once
   final workspace = pubspecYaml['workspace'] as YamlList?;
-  await _runCommand('flutter', ['pub', 'get'], workingDirectory: rootDir.path);
+  await _runCommand('flutter', ['pub', 'get']);
   if (workspace == null) {
     print('No workspace found in pubspec.yaml');
     exit(1);
@@ -47,7 +48,7 @@ Future<void> main() async {
 Future<void> _runCommand(
   String executable,
   List<String> arguments, {
-  required String workingDirectory,
+  String? workingDirectory,
 }) async {
   final process = await Process.start(
     executable,
