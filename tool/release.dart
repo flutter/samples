@@ -46,12 +46,12 @@ void main(List<String> arguments) async {
     exit(1);
   }
 
-  final flutterVersion = await getFlutterVersion();
-  if (flutterVersion == null) {
-    log(red.wrap('Failed to get Flutter version.'), stderr);
+  final dartVersion = await getDartVersion();
+  if (dartVersion == null) {
+    log(red.wrap('Failed to get Dart SDK version.'), stderr);
     exit(1);
   }
-  log(blue.wrap('Flutter upgraded to version: $flutterVersion'), stdout);
+  log(blue.wrap('Using Dart SDK version: $dartVersion'), stdout);
 
   final packages = await getWorkspacePackages();
   if (packages.isEmpty) {
@@ -67,7 +67,7 @@ void main(List<String> arguments) async {
 
   final failedProjects = <String>[];
   for (final packagePath in packages) {
-    final success = await processProject(packagePath, flutterVersion, isDryRun);
+    final success = await processProject(packagePath, dartVersion, isDryRun);
     if (!success) {
       failedProjects.add(packagePath);
     }
@@ -112,15 +112,19 @@ Future<bool> isFlutterInstalled() async {
   }
 }
 
-Future<String?> getFlutterVersion() async {
+Future<String?> getDartVersion() async {
   try {
     final result = await Process.run('flutter', ['--version', '--machine']);
     if (result.exitCode == 0) {
       final json = loadYaml(result.stdout as String) as YamlMap;
-      return json['frameworkVersion'] as String?;
+      final fullDartVersion = json['dartSdkVersion'] as String?;
+      if (fullDartVersion != null) {
+        return fullDartVersion.split(' ').first;
+      }
+      return null;
     }
   } catch (e) {
-    log(red.wrap('Error getting Flutter version: $e'), stderr);
+    log(red.wrap('Error getting Dart SDK version: $e'), stderr);
   }
   return null;
 }
@@ -146,7 +150,7 @@ Future<List<String>> getWorkspacePackages() async {
 }
 
 Future<bool> processProject(
-    String projectPath, String flutterVersion, bool isDryRun) async {
+    String projectPath, String dartVersion, bool isDryRun) async {
   final projectName = p.basename(projectPath);
   final projectDir = Directory(projectPath);
 
@@ -157,12 +161,11 @@ Future<bool> processProject(
 
   log(styleBold.wrap('\n========================================='), stdout);
   log(styleBold.wrap('Processing project: $projectName'), stdout);
-  log(styleBold.wrap('========================================='), stdout);
+  log(styleBold.wrap('=========================================')!, stdout);
 
-  log(blue.wrap('Updating SDK constraints to use Flutter $flutterVersion'),
-      stdout);
+  log(blue.wrap('Updating SDK constraints to use Dart $dartVersion'), stdout);
   if (!isDryRun) {
-    if (!await updateSdkConstraints(projectPath, flutterVersion)) {
+    if (!await updateSdkConstraints(projectPath, dartVersion)) {
       log(red.wrap('Failed to update SDK constraints for $projectName'),
           stderr);
       return false;
@@ -253,9 +256,9 @@ Future<bool> runCommand(String executable, List<String> arguments,
 }
 
 void printSummary(int total, List<String> failed) {
-  log(styleBold.wrap('\n========================================='), stdout);
-  log(styleBold.wrap('Update Summary'), stdout);
-  log(styleBold.wrap('========================================='), stdout);
+  log(styleBold.wrap('\n=========================================')!, stdout);
+  log(styleBold.wrap('Update Summary')!, stdout);
+  log(styleBold.wrap('=========================================')!, stdout);
   log(blue.wrap('Total projects processed: $total'), stdout);
   log(green.wrap('Successful: ${total - failed.length}'), stdout);
 

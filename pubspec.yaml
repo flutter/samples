@@ -26,7 +26,6 @@ workspace:
   - desktop_photo_search/material
   - dynamic_theme
   - form_app
-  - flutter_maps_firestore
   - game_template
   - gemini_tasks
   - google_maps
