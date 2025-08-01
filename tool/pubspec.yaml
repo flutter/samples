@@ -1,5 +1,7 @@
 name: repo_tool
 description: A tool to automate release cleanup for the samples monorepo.
+resolution: workspace
+
 environment:
   sdk: ^3.9.0-0
 
