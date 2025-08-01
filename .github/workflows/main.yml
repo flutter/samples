@@ -35,7 +35,7 @@ jobs:
       - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
         with:
           channel: beta
-      - run: dart ./tool/ci_script.dart
+      - run: cd tool && pub get && dart ./tool/ci_script.dart && cd ../
 
   # android-build:
   #   runs-on: ubuntu-latest
