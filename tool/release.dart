@@ -19,19 +19,23 @@ class ReleaseScriptRunner {
 
   Future<void> run(List<String> arguments) async {
     final parser = ArgParser()
-      ..addFlag('dry-run',
-          negatable: false,
-          help:
-              'Prints the commands that would be executed, but does not run them.');
+      ..addFlag(
+        'dry-run',
+        negatable: false,
+        help:
+            'Prints the commands that would be executed, but does not run them.',
+      );
     final argResults = parser.parse(arguments);
     _isDryRun = argResults['dry-run'] as bool;
 
     _setupLogging();
 
     log(
-        styleBold
-            .wrap('Flutter Monorepo Update Script Started: ${DateTime.now()}'),
-        stdout);
+      styleBold.wrap(
+        'Flutter Monorepo Update Script Started: ${DateTime.now()}',
+      ),
+      stdout,
+    );
     log(blue.wrap('Log file: ${_logFile.path}')!, stdout);
 
     if (_isDryRun) {
@@ -52,15 +56,19 @@ class ReleaseScriptRunner {
 
     final packages = await _getWorkspacePackages();
     if (packages.isEmpty) {
-      log(yellow.wrap('No packages found in the root pubspec.yaml workspace.'),
-          stdout);
+      log(
+        yellow.wrap('No packages found in the root pubspec.yaml workspace.'),
+        stdout,
+      );
       exit(0);
     }
 
     log(
-        blue.wrap(
-            'Found ${packages.length} Flutter project(s): ${packages.join(', ')}'),
-        stdout);
+      blue.wrap(
+        'Found ${packages.length} Flutter project(s): ${packages.join(', ')}',
+      ),
+      stdout,
+    );
 
     final failedProjects = <String>[];
     for (final packagePath in packages) {
@@ -73,9 +81,11 @@ class ReleaseScriptRunner {
     _printSummary(packages.length, failedProjects);
 
     log(
-        styleBold.wrap(
-            '\nFlutter Monorepo Update Script Completed: ${DateTime.now()}'),
-        stdout);
+      styleBold.wrap(
+        '\nFlutter Monorepo Update Script Completed: ${DateTime.now()}',
+      ),
+      stdout,
+    );
 
     if (failedProjects.isNotEmpty) {
       exit(1);
@@ -167,22 +177,28 @@ class ReleaseScriptRunner {
     log(blue.wrap('Updating SDK constraints to use Dart $dartVersion'), stdout);
     if (!_isDryRun) {
       if (!await _updateSdkConstraints(projectPath, dartVersion)) {
-        log(red.wrap('Failed to update SDK constraints for $projectName'),
-            stderr);
+        log(
+          red.wrap('Failed to update SDK constraints for $projectName'),
+          stderr,
+        );
         return false;
       }
     }
 
     final commands = [
-      Command('dart analyze', 'Running dart analyze...', 'dart',
-          ['analyze', '--fatal-infos', '--fatal-warnings']),
+      Command('dart analyze', 'Running dart analyze...', 'dart', [
+        'analyze',
+        '--fatal-infos',
+        '--fatal-warnings',
+      ]),
       Command('dart format', 'Running dart format...', 'dart', ['format', '.']),
     ];
 
     final testDir = Directory(p.join(projectPath, 'test'));
     if (projectName != 'material_3_demo' && testDir.existsSync()) {
       commands.add(
-          Command('flutter test', 'Running tests...', 'flutter', ['test']));
+        Command('flutter test', 'Running tests...', 'flutter', ['test']),
+      );
     }
 
     for (final command in commands) {
@@ -229,7 +245,9 @@ class ReleaseScriptRunner {
   }
 
   Future<bool> _updateSdkConstraints(
-      String projectDir, String versionString) async {
+    String projectDir,
+    String versionString,
+  ) async {
     final pubspecFile = File(p.join(projectDir, 'pubspec.yaml'));
     if (!pubspecFile.existsSync()) {
       log(red.wrap('pubspec.yaml not found in $projectDir'), stderr);
@@ -245,44 +263,61 @@ class ReleaseScriptRunner {
 
       await pubspecFile.writeAsString(editor.toString());
       log(
-          blue.wrap(
-              'Updated Dart SDK constraint in $projectDir to: $newConstraint'),
-          stdout);
+        blue.wrap(
+          'Updated Dart SDK constraint in $projectDir to: $newConstraint',
+        ),
+        stdout,
+      );
       return true;
     } catch (e) {
-      log(red.wrap('Failed to update SDK constraint in $projectDir: $e'),
-          stderr);
+      log(
+        red.wrap('Failed to update SDK constraint in $projectDir: $e'),
+        stderr,
+      );
       return false;
     }
   }
 
-  Future<(bool, String)> _runCommand(String executable, List<String> arguments,
-      {String? workingDirectory}) async {
+  Future<(bool, String)> _runCommand(
+    String executable,
+    List<String> arguments, {
+    String? workingDirectory,
+  }) async {
     final commandString = '$executable ${arguments.join(' ')}';
     if (_isDryRun) {
       log(
-          yellow.wrap(
-              '  [DRY RUN] Would execute: `$commandString` in `${workingDirectory ?? '.'}`'),
-          stdout);
+        yellow.wrap(
+          '  [DRY RUN] Would execute: `$commandString` in `${workingDirectory ?? '.'}`',
+        ),
+        stdout,
+      );
       return (true, '');
     }
 
-    final process = await Process.start(executable, arguments,
-        workingDirectory: workingDirectory, runInShell: true);
+    final process = await Process.start(
+      executable,
+      arguments,
+      workingDirectory: workingDirectory,
+      runInShell: true,
+    );
 
     StringBuffer output = StringBuffer('');
 
-    final stdoutFuture =
-        process.stdout.transform(SystemEncoding().decoder).forEach((line) {
-      log(line, stdout);
-      if (!_isOnlyWhitespace(line)) output.writeln('${line.trim().padLeft(2)}');
-    });
+    final stdoutFuture = process.stdout
+        .transform(SystemEncoding().decoder)
+        .forEach((line) {
+          log(line, stdout);
+          if (!_isOnlyWhitespace(line))
+            output.writeln('${line.trim().padLeft(2)}');
+        });
 
-    final stderrFuture =
-        process.stderr.transform(SystemEncoding().decoder).forEach((line) {
-      log(red.wrap(line), stderr);
-      if (!_isOnlyWhitespace(line)) output.writeln('${line.trim().padLeft(2)}');
-    });
+    final stderrFuture = process.stderr
+        .transform(SystemEncoding().decoder)
+        .forEach((line) {
+          log(red.wrap(line), stderr);
+          if (!_isOnlyWhitespace(line))
+            output.writeln('${line.trim().padLeft(2)}');
+        });
 
     await Future.wait([stdoutFuture, stderrFuture]);
 

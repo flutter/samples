@@ -9,6 +9,7 @@ Future<void> main() async {
   final pubspecYaml = loadYaml(pubspecContent);
 
   final workspace = pubspecYaml['workspace'] as YamlList?;
+  await _runCommand('flutter', ['pub', 'get'], workingDirectory: rootDir.path);
   if (workspace == null) {
     print('No workspace found in pubspec.yaml');
     exit(1);
@@ -19,16 +20,20 @@ Future<void> main() async {
   for (final package in packages) {
     final packagePath = path.join(rootDir.path, package);
     print('== Testing \'$package\' ==');
-
-    await _runCommand('flutter', ['pub', 'get'], workingDirectory: packagePath);
-    await _runCommand('dart', ['analyze', '--fatal-infos', '--fatal-warnings'],
-        workingDirectory: packagePath);
-    await _runCommand('dart', ['format', '--output', 'none', '.'],
-        workingDirectory: packagePath);
+    await _runCommand('dart', [
+      'analyze',
+      '--fatal-infos',
+      '--fatal-warnings',
+    ], workingDirectory: packagePath);
+    await _runCommand('dart', [
+      'format',
+      '--output',
+      'none',
+      '.',
+    ], workingDirectory: packagePath);
 
     if (await Directory(path.join(packagePath, 'test')).exists()) {
-      final packagePubspecFile =
-          File(path.join(packagePath, 'pubspec.yaml'));
+      final packagePubspecFile = File(path.join(packagePath, 'pubspec.yaml'));
       final packagePubspecContent = await packagePubspecFile.readAsString();
       if (packagePubspecContent.contains('flutter:')) {
         await _runCommand('flutter', ['test'], workingDirectory: packagePath);
@@ -39,13 +44,22 @@ Future<void> main() async {
   }
 }
 
-Future<void> _runCommand(String executable, List<String> arguments,
-    {required String workingDirectory}) async {
-  final process = await Process.start(executable, arguments,
-      workingDirectory: workingDirectory, mode: ProcessStartMode.inheritStdio);
+Future<void> _runCommand(
+  String executable,
+  List<String> arguments, {
+  required String workingDirectory,
+}) async {
+  final process = await Process.start(
+    executable,
+    arguments,
+    workingDirectory: workingDirectory,
+    mode: ProcessStartMode.inheritStdio,
+  );
   final exitCode = await process.exitCode;
   if (exitCode != 0) {
-    print('Command "$executable ${arguments.join(' ')}" failed with exit code $exitCode in $workingDirectory');
+    print(
+      'Command "$executable ${arguments.join(' ')}" failed with exit code $exitCode in $workingDirectory',
+    );
     exit(exitCode);
   }
 }
