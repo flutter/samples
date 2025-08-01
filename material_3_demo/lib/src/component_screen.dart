@@ -49,10 +49,9 @@ class FirstComponentList extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding:
-                showSecondList
-                    ? const EdgeInsetsDirectional.only(end: smallSpacing)
-                    : EdgeInsets.zero,
+            padding: showSecondList
+                ? const EdgeInsetsDirectional.only(end: smallSpacing)
+                : EdgeInsets.zero,
             sliver: SliverList(
               delegate: BuildSlivers(
                 heights: heights,
@@ -737,51 +736,49 @@ class _DialogsState extends State<Dialogs> {
   void openDialog(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: const Text('What is a dialog?'),
-            content: const Text(
-              'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.',
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('Dismiss'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              FilledButton(
-                child: const Text('Okay'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
+      builder: (context) => AlertDialog(
+        title: const Text('What is a dialog?'),
+        content: const Text(
+          'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.',
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Dismiss'),
+            onPressed: () => Navigator.of(context).pop(),
           ),
+          FilledButton(
+            child: const Text('Okay'),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
+      ),
     );
   }
 
   void openFullscreenDialog(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => Dialog.fullscreen(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Scaffold(
-                appBar: AppBar(
-                  title: const Text('Full-screen dialog'),
-                  centerTitle: false,
-                  leading: IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  actions: [
-                    TextButton(
-                      child: const Text('Close'),
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ],
-                ),
+      builder: (context) => Dialog.fullscreen(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text('Full-screen dialog'),
+              centerTitle: false,
+              leading: IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.of(context).pop(),
               ),
+              actions: [
+                TextButton(
+                  child: const Text('Close'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
             ),
           ),
+        ),
+      ),
     );
   }
 
@@ -874,26 +871,24 @@ class _SwitchRowState extends State<SwitchRow> {
         // TODO: use SwitchListTile when thumbIcon is available https://github.com/flutter/flutter/issues/118616
         Switch(
           value: value0,
-          onChanged:
-              widget.isEnabled
-                  ? (value) {
-                    setState(() {
-                      value0 = value;
-                    });
-                  }
-                  : null,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value0 = value;
+                  });
+                }
+              : null,
         ),
         Switch(
           thumbIcon: thumbIcon,
           value: value1,
-          onChanged:
-              widget.isEnabled
-                  ? (value) {
-                    setState(() {
-                      value1 = value;
-                    });
-                  }
-                  : null,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value1 = value;
+                  });
+                }
+              : null,
         ),
       ],
     );
@@ -1186,12 +1181,11 @@ class _NavigationBarsState extends State<NavigationBars> {
           });
           if (!widget.isExampleBar) widget.onSelectItem!(index);
         },
-        destinations:
-            widget.isExampleBar && widget.isBadgeExample
-                ? barWithBadgeDestinations
-                : widget.isExampleBar
-                ? exampleBarDestinations
-                : appBarDestinations,
+        destinations: widget.isExampleBar && widget.isBadgeExample
+            ? barWithBadgeDestinations
+            : widget.isExampleBar
+            ? exampleBarDestinations
+            : appBarDestinations,
       ),
     );
 

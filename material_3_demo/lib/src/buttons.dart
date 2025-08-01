@@ -23,10 +23,9 @@ class BrightnessButton extends StatelessWidget {
       preferBelow: showTooltipBelow,
       message: 'Toggle brightness',
       child: IconButton(
-        icon:
-            isBright
-                ? const Icon(Icons.dark_mode_outlined)
-                : const Icon(Icons.light_mode_outlined),
+        icon: isBright
+            ? const Icon(Icons.dark_mode_outlined)
+            : const Icon(Icons.light_mode_outlined),
         onPressed: () => handleBrightnessChange(!isBright),
       ),
     );
@@ -50,10 +49,9 @@ class Material3Button extends StatelessWidget {
       preferBelow: showTooltipBelow,
       message: 'Switch to Material ${useMaterial3 ? 2 : 3}',
       child: IconButton(
-        icon:
-            useMaterial3
-                ? const Icon(Icons.filter_2)
-                : const Icon(Icons.filter_3),
+        icon: useMaterial3
+            ? const Icon(Icons.filter_2)
+            : const Icon(Icons.filter_3),
         onPressed: handleMaterialVersionChange,
       ),
     );

@@ -207,8 +207,9 @@ class RunningList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final progress =
-        Provider.of<DataTransferIsolateController>(context).currentProgress;
+    final progress = Provider.of<DataTransferIsolateController>(
+      context,
+    ).currentProgress;
 
     return DecoratedBox(
       decoration: BoxDecoration(color: Colors.grey[200]),

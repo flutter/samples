@@ -4,12 +4,11 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.9.0-0 <4.0.0'
+  sdk: '>=3.35.0-0.1.pre <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.3
   go_router: ">=10.1.0 <16.0.0"
 
@@ -18,7 +17,6 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
 flutter:
   uses-material-design: true
   assets:

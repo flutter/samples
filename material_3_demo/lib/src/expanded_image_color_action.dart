@@ -32,9 +32,9 @@ class ExpandedImageColorAction extends StatelessWidget {
               index: i,
               select:
                   imageSelected == ColorImageProvider.values[i] &&
-                          colorSelectionMethod == ColorSelectionMethod.image
-                      ? null
-                      : () => handleImageSelect(i),
+                      colorSelectionMethod == ColorSelectionMethod.image
+                  ? null
+                  : () => handleImageSelect(i),
             ),
           ),
         ),

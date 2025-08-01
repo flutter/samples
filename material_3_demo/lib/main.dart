@@ -73,22 +73,19 @@ class _AppState extends State<App> {
       title: 'Material 3',
       themeMode: _themeMode,
       theme: ThemeData(
-        colorSchemeSeed:
-            _colorSelectionMethod == ColorSelectionMethod.colorSeed
-                ? _colorSelected.color
-                : null,
-        colorScheme:
-            _colorSelectionMethod == ColorSelectionMethod.image
-                ? _imageColorScheme
-                : null,
+        colorSchemeSeed: _colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? _colorSelected.color
+            : null,
+        colorScheme: _colorSelectionMethod == ColorSelectionMethod.image
+            ? _imageColorScheme
+            : null,
         useMaterial3: _useMaterial3,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed:
-            _colorSelectionMethod == ColorSelectionMethod.colorSeed
-                ? _colorSelected.color
-                : _imageColorScheme!.primary,
+        colorSchemeSeed: _colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? _colorSelected.color
+            : _imageColorScheme!.primary,
         useMaterial3: _useMaterial3,
         brightness: Brightness.dark,
       ),

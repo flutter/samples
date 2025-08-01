@@ -208,10 +208,9 @@ class RunningList extends StatelessWidget {
           return Column(
             children: [
               Card(
-                color:
-                    (controller.created && !controller.paused)
-                        ? Colors.lightGreenAccent
-                        : Colors.deepOrangeAccent,
+                color: (controller.created && !controller.paused)
+                    ? Colors.lightGreenAccent
+                    : Colors.deepOrangeAccent,
                 child: ListTile(
                   leading: Text('${sums.length - index}.'),
                   title: Text('${sums[index]}.'),
