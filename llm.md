@@ -42,6 +42,7 @@ This workflow is triggered when a new Flutter/Dart version is released.
 4.  **Address Issues:**
     *   Read the `release_log.txt` file.
     *   Systematically address each error or warning reported in the log. This will involve navigating to the specified sample project directories and applying code changes.
+    *   When updating for a new release, we don't care about `flutter pub outdated` warnings. As long as `pub get` completes without failing, it's okay.
 
 5.  **Create a Pull Request:**
     *   Once all issues from the log are resolved and the repository is in a clean state, create a pull request.
