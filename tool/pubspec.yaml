@@ -1,4 +1,4 @@
-name: release_cleaner
+name: repo_tool
 description: A tool to automate release cleanup for the samples monorepo.
 environment:
   sdk: ^3.9.0-0

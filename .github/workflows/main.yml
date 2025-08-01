@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flutter_version: [stable]
+        flutter_version: [stable, beta, master]
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -34,8 +34,8 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
         with:
-          channel: ${{ matrix.flutter_version }}
-      - run: ./tool/flutter_ci_script_${{ matrix.flutter_version }}.sh
+          channel: beta
+      - run: ./tool/ci_script.exe
 
   android-build:
     runs-on: ubuntu-latest
