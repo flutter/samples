@@ -6,8 +6,7 @@ import 'package:animations/src/misc/expand_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createExpandCardScreen() =>
-    const MaterialApp(home: ExpandCardDemo());
+Widget createExpandCardScreen() => const MaterialApp(home: ExpandCardDemo());
 
 void main() {
   group('ExpandCard Tests', () {

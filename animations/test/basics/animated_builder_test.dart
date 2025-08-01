@@ -56,8 +56,7 @@ void main() {
 
       // Check that the color has changed to the final color.
       button = tester.widget(find.byType(ElevatedButton));
-      WidgetStateProperty<Color?>? finalColor =
-          button.style!.backgroundColor;
+      WidgetStateProperty<Color?>? finalColor = button.style!.backgroundColor;
       expect(changedColor, isNot(finalColor));
     });
   });

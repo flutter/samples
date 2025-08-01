@@ -192,8 +192,7 @@ class _$CurrentUserCollections extends CurrentUserCollections {
 }
 
 class CurrentUserCollectionsBuilder
-    implements
-        Builder<CurrentUserCollections, CurrentUserCollectionsBuilder> {
+    implements Builder<CurrentUserCollections, CurrentUserCollectionsBuilder> {
   _$CurrentUserCollections? _$v;
 
   int? _id;
@@ -206,8 +205,7 @@ class CurrentUserCollectionsBuilder
 
   String? _publishedAt;
   String? get publishedAt => _$this._publishedAt;
-  set publishedAt(String? publishedAt) =>
-      _$this._publishedAt = publishedAt;
+  set publishedAt(String? publishedAt) => _$this._publishedAt = publishedAt;
 
   String? _updatedAt;
   String? get updatedAt => _$this._updatedAt;

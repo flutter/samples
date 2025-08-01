@@ -8,13 +8,14 @@ Future<void> main() async {
   final pubspecContent = await pubspecFile.readAsString();
   final pubspecYaml = loadYaml(pubspecContent);
 
-  // pub workspace, only run 'get' once
   final workspace = pubspecYaml['workspace'] as YamlList?;
-  await _runCommand('flutter', ['pub', 'get']);
   if (workspace == null) {
     print('No workspace found in pubspec.yaml');
     exit(1);
   }
+
+  // pub workspace, only run 'get' once
+  await _runCommand('flutter', ['pub', 'get'], workingDirectory: './');
 
   final packages = workspace.map((e) => e.toString()).toList();
 
@@ -26,18 +27,17 @@ Future<void> main() async {
       '--fatal-infos',
       '--fatal-warnings',
     ], workingDirectory: packagePath);
-    await _runCommand('dart', [
-      'format',
-      '--output',
-      'none',
-      '.',
-    ], workingDirectory: packagePath);
+
+    await _runCommand('dart', ['format', '.'], workingDirectory: packagePath);
 
     if (await Directory(path.join(packagePath, 'test')).exists()) {
       final packagePubspecFile = File(path.join(packagePath, 'pubspec.yaml'));
       final packagePubspecContent = await packagePubspecFile.readAsString();
       if (packagePubspecContent.contains('flutter:')) {
-        await _runCommand('flutter', ['test'], workingDirectory: packagePath);
+        await _runCommand('flutter', [
+          'test',
+          '--no-pub',
+        ], workingDirectory: packagePath);
       } else {
         await _runCommand('dart', ['test'], workingDirectory: packagePath);
       }

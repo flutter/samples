@@ -131,8 +131,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           ],
                         ),
                         Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(

@@ -72,10 +72,9 @@ class _PerformancePageState extends State<PerformancePage> {
                     return ElevatedButton(
                       style: ElevatedButton.styleFrom(elevation: 8.0),
                       onPressed: switch (snapshot.connectionState) {
-                        ConnectionState.done =>
-                          () => handleComputeOnSecondary(
-                            context,
-                          ),
+                        ConnectionState.done => () => handleComputeOnSecondary(
+                          context,
+                        ),
                         _ => null,
                       },
                       child: const Text('Compute on Secondary'),
@@ -136,8 +135,7 @@ class SmoothAnimationWidget extends StatefulWidget {
   const SmoothAnimationWidget({super.key});
 
   @override
-  State<SmoothAnimationWidget> createState() =>
-      _SmoothAnimationWidgetState();
+  State<SmoothAnimationWidget> createState() => _SmoothAnimationWidgetState();
 }
 
 class _SmoothAnimationWidgetState extends State<SmoothAnimationWidget>

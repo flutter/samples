@@ -222,8 +222,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 child: showLargeSizeLayout
                     ? ExpandedTrailingActions(
                         useLightMode: widget.useLightMode,
-                        handleBrightnessChange:
-                            widget.handleBrightnessChange,
+                        handleBrightnessChange: widget.handleBrightnessChange,
                         useMaterial3: widget.useMaterial3,
                         handleMaterialVersionChange:
                             widget.handleMaterialVersionChange,
@@ -253,19 +252,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 }
 
-final List<NavigationRailDestination> _navRailDestinations =
-    appBarDestinations
-        .map(
-          (destination) => NavigationRailDestination(
-            icon: Tooltip(
-              message: destination.label,
-              child: destination.icon,
-            ),
-            selectedIcon: Tooltip(
-              message: destination.label,
-              child: destination.selectedIcon,
-            ),
-            label: Text(destination.label),
-          ),
-        )
-        .toList(growable: false);
+final List<NavigationRailDestination> _navRailDestinations = appBarDestinations
+    .map(
+      (destination) => NavigationRailDestination(
+        icon: Tooltip(
+          message: destination.label,
+          child: destination.icon,
+        ),
+        selectedIcon: Tooltip(
+          message: destination.label,
+          child: destination.selectedIcon,
+        ),
+        label: Text(destination.label),
+      ),
+    )
+    .toList(growable: false);

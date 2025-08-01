@@ -551,16 +551,14 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
 
   String? _description;
   String? get description => _$this._description;
-  set description(String? description) =>
-      _$this._description = description;
+  set description(String? description) => _$this._description = description;
 
   ExifBuilder? _exif;
   ExifBuilder get exif => _$this._exif ??= new ExifBuilder();
   set exif(ExifBuilder? exif) => _$this._exif = exif;
 
   LocationBuilder? _location;
-  LocationBuilder get location =>
-      _$this._location ??= new LocationBuilder();
+  LocationBuilder get location => _$this._location ??= new LocationBuilder();
   set location(LocationBuilder? location) => _$this._location = location;
 
   ListBuilder<Tags>? _tags;

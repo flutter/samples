@@ -254,8 +254,7 @@ class ExifBuilder implements Builder<Exif, ExifBuilder> {
 
   String? _focalLength;
   String? get focalLength => _$this._focalLength;
-  set focalLength(String? focalLength) =>
-      _$this._focalLength = focalLength;
+  set focalLength(String? focalLength) => _$this._focalLength = focalLength;
 
   int? _iso;
   int? get iso => _$this._iso;

@@ -24,8 +24,7 @@ class _AppState extends State<App> {
   ColorSeed _colorSelected = ColorSeed.baseColor;
   ColorImageProvider _imageSelected = ColorImageProvider.leaves;
   ColorScheme? _imageColorScheme = const ColorScheme.light();
-  ColorSelectionMethod _colorSelectionMethod =
-      ColorSelectionMethod.colorSeed;
+  ColorSelectionMethod _colorSelectionMethod = ColorSelectionMethod.colorSeed;
 
   bool get _useLightMode => switch (_themeMode) {
     ThemeMode.system =>

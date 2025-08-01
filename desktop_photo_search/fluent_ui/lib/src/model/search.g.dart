@@ -106,9 +106,7 @@ class _$Search extends Search {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Search &&
-        query == other.query &&
-        results == other.results;
+    return other is Search && query == other.query && results == other.results;
   }
 
   @override

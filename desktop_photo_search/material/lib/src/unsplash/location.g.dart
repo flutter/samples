@@ -169,8 +169,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   set country(String? country) => _$this._country = country;
 
   PositionBuilder? _position;
-  PositionBuilder get position =>
-      _$this._position ??= new PositionBuilder();
+  PositionBuilder get position => _$this._position ??= new PositionBuilder();
   set position(PositionBuilder? position) => _$this._position = position;
 
   LocationBuilder();

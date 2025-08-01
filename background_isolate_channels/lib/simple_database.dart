@@ -181,8 +181,7 @@ class _SimpleDatabaseServer {
         // obtained on the root isolate and passed into the background isolate via
         // a [SendPort].
         // ----------------------------------------------------------------------
-        RootIsolateToken rootIsolateToken =
-            command.arg1 as RootIsolateToken;
+        RootIsolateToken rootIsolateToken = command.arg1 as RootIsolateToken;
         // ----------------------------------------------------------------------
         // [BackgroundIsolateBinaryMessenger.ensureInitialized] for each
         // background isolate that will use plugins. This sets up the

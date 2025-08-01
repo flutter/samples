@@ -24,8 +24,7 @@ class Book {
     pigeonMap['summary'] = summary;
     pigeonMap['publishDate'] = publishDate;
     pigeonMap['pageCount'] = pageCount;
-    pigeonMap['thumbnail'] =
-        thumbnail == null ? null : thumbnail!.encode();
+    pigeonMap['thumbnail'] = thumbnail == null ? null : thumbnail!.encode();
     return pigeonMap;
   }
 
@@ -168,10 +167,9 @@ class HostBookApi {
   }
 
   Future<void> finishEditingBook(Book arg_book) async {
-    final BasicMessageChannel<Object?> channel =
-        BasicMessageChannel<Object?>(
-            'dev.flutter.pigeon.HostBookApi.finishEditingBook', codec,
-            binaryMessenger: _binaryMessenger);
+    final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
+        'dev.flutter.pigeon.HostBookApi.finishEditingBook', codec,
+        binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(<Object>[arg_book]) as Map<Object?, Object?>?;
     if (replyMap == null) {

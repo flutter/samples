@@ -46,9 +46,7 @@ void main() {
         await tester.pumpWidget(createAnimatedListDemoScreen());
 
         // Get the initial length of list.
-        var initialLength = tester
-            .widgetList(find.byType(ListTile))
-            .length;
+        var initialLength = tester.widgetList(find.byType(ListTile)).length;
 
         // Tap on the Delete Icon Button at middle index.
         await tester.tap(find.byIcon(Icons.delete).at(initialLength ~/ 2));
@@ -68,9 +66,7 @@ void main() {
         await tester.pumpWidget(createAnimatedListDemoScreen());
 
         // Get the initial length of list.
-        var initialLength = tester
-            .widgetList(find.byType(ListTile))
-            .length;
+        var initialLength = tester.widgetList(find.byType(ListTile)).length;
 
         // Tap on the Delete Icon Button at start index.
         await tester.tap(find.byIcon(Icons.delete).at(0));
@@ -90,9 +86,7 @@ void main() {
         await tester.pumpWidget(createAnimatedListDemoScreen());
 
         // Get the initial length of list.
-        var initialLength = tester
-            .widgetList(find.byType(ListTile))
-            .length;
+        var initialLength = tester.widgetList(find.byType(ListTile)).length;
 
         // Tap on the Delete Icon Button at end index.
         await tester.tap(find.byIcon(Icons.delete).at(initialLength - 1));

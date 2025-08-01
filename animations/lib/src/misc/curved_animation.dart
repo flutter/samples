@@ -123,8 +123,7 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
               if (newCurve != null) {
                 setState(() {
                   selectedReverseCurve = newCurve;
-                  curvedAnimation.reverseCurve =
-                      selectedReverseCurve.curve;
+                  curvedAnimation.reverseCurve = selectedReverseCurve.curve;
                 });
               }
             },

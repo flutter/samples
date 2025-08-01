@@ -593,8 +593,7 @@ class TextFields extends StatefulWidget {
 
 class _TextFieldsState extends State<TextFields> {
   final TextEditingController _controllerFilled = TextEditingController();
-  final TextEditingController _controllerOutlined =
-      TextEditingController();
+  final TextEditingController _controllerOutlined = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -1938,8 +1937,7 @@ class NavigationDrawerSection extends StatefulWidget {
       _NavigationDrawerSectionState();
 }
 
-class _NavigationDrawerSectionState
-    extends State<NavigationDrawerSection> {
+class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
   int navDrawerIndex = 0;
 
   @override
@@ -2054,8 +2052,7 @@ class NavigationRailSection extends StatefulWidget {
   const NavigationRailSection({super.key});
 
   @override
-  State<NavigationRailSection> createState() =>
-      _NavigationRailSectionState();
+  State<NavigationRailSection> createState() => _NavigationRailSectionState();
 }
 
 class _NavigationRailSectionState extends State<NavigationRailSection> {

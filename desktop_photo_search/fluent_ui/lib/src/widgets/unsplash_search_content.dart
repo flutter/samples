@@ -15,8 +15,7 @@ class UnsplashSearchContent extends StatefulWidget {
   const UnsplashSearchContent({super.key});
 
   @override
-  State<UnsplashSearchContent> createState() =>
-      _UnsplashSearchContentState();
+  State<UnsplashSearchContent> createState() => _UnsplashSearchContentState();
 }
 
 class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
@@ -40,9 +39,7 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
         child: SingleChildScrollView(
           controller: _treeViewScrollController,
           child: TreeView(
-            items: photoSearchModel.entries
-                .map(_buildSearchEntry)
-                .toList(),
+            items: photoSearchModel.entries.map(_buildSearchEntry).toList(),
           ),
         ),
       ),

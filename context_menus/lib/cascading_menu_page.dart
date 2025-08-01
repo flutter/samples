@@ -112,9 +112,7 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
               ),
             ),
             Text(
-              _lastSelection != null
-                  ? 'Last Selected: $_lastSelection'
-                  : '',
+              _lastSelection != null ? 'Last Selected: $_lastSelection' : '',
             ),
           ],
         ),

@@ -34,8 +34,7 @@ class FieldTypesPage extends StatelessWidget {
 
   final TextEditingController
   _cupertinoControllerForced = TextEditingController(
-    text:
-        'Or forced to always show a specific menu (Material desktop menu).',
+    text: 'Or forced to always show a specific menu (Material desktop menu).',
   );
 
   final TextEditingController _editableController = TextEditingController(
@@ -88,13 +87,11 @@ class FieldTypesPage extends StatelessWidget {
                 controller: _cupertinoControllerForced,
                 contextMenuBuilder: (context, editableTextState) {
                   return DesktopTextSelectionToolbar(
-                    anchor:
-                        editableTextState.contextMenuAnchors.primaryAnchor,
-                    children:
-                        AdaptiveTextSelectionToolbar.getAdaptiveButtons(
-                          context,
-                          editableTextState.contextMenuButtonItems,
-                        ).toList(),
+                    anchor: editableTextState.contextMenuAnchors.primaryAnchor,
+                    children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
+                      context,
+                      editableTextState.contextMenuButtonItems,
+                    ).toList(),
                   );
                 },
               ),

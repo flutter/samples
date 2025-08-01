@@ -115,9 +115,7 @@ class _SplitState extends State<Split> {
     secondSize = secondSize - halfDivider;
 
     void updateSpacing(DragUpdateDetails dragDetails) {
-      final delta = isHorizontal
-          ? dragDetails.delta.dx
-          : dragDetails.delta.dy;
+      final delta = isHorizontal ? dragDetails.delta.dx : dragDetails.delta.dy;
       final fractionalDelta = delta / axisSize;
       setState(() {
         // Update the fraction of space consumed by the children,
@@ -151,12 +149,8 @@ class _SplitState extends State<Split> {
                 ),
               ),
               child: SizedBox(
-                height: isHorizontal
-                    ? 2.0
-                    : Split.dividerMainAxisSize - 2.0,
-                width: isHorizontal
-                    ? Split.dividerMainAxisSize - 2.0
-                    : 2.0,
+                height: isHorizontal ? 2.0 : Split.dividerMainAxisSize - 2.0,
+                width: isHorizontal ? Split.dividerMainAxisSize - 2.0 : 2.0,
               ),
             ),
           ),

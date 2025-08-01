@@ -12,8 +12,7 @@ import '../serializers.dart';
 part 'current_user_collections.g.dart';
 
 abstract class CurrentUserCollections
-    implements
-        Built<CurrentUserCollections, CurrentUserCollectionsBuilder> {
+    implements Built<CurrentUserCollections, CurrentUserCollectionsBuilder> {
   factory CurrentUserCollections([
     void Function(CurrentUserCollectionsBuilder)? updates,
   ]) = _$CurrentUserCollections;
