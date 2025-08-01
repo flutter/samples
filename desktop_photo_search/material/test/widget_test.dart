@@ -4,10 +4,10 @@
 
 import 'dart:typed_data';
 
-import 'package:desktop_photo_search/src/model/photo_search_model.dart';
-import 'package:desktop_photo_search/src/unsplash/photo.dart';
-import 'package:desktop_photo_search/src/unsplash/search_photos_response.dart';
-import 'package:desktop_photo_search/src/unsplash/unsplash.dart';
+import 'package:desktop_photo_search_material/src/model/photo_search_model.dart';
+import 'package:desktop_photo_search_material/src/unsplash/photo.dart';
+import 'package:desktop_photo_search_material/src/unsplash/search_photos_response.dart';
+import 'package:desktop_photo_search_material/src/unsplash/unsplash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
