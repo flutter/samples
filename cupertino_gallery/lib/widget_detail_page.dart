@@ -7,8 +7,6 @@ import 'widgets/button_page.dart';
 import 'widgets/context_menu_page.dart';
 import 'widgets/date_picker_page.dart';
 import 'widgets/list_tile_page.dart';
-import 'widgets/navigation_bar_page.dart';
-import 'widgets/page_scaffold_page.dart';
 import 'widgets/picker_page.dart';
 import 'widgets/popup_surface_page.dart';
 import 'widgets/scrollbar_page.dart';
@@ -17,9 +15,6 @@ import 'widgets/segmented_control_page.dart';
 import 'widgets/slider_page.dart';
 import 'widgets/sliding_segmented_control_page.dart';
 import 'widgets/switch_page.dart';
-import 'widgets/tab_bar_page.dart';
-import 'widgets/tab_scaffold_page.dart';
-import 'widgets/tab_view_page.dart';
 import 'widgets/text_field_page.dart';
 import 'widgets/text_theme_page.dart';
 import 'widgets/time_picker_page.dart';
@@ -62,12 +57,6 @@ class WidgetDetailPage extends StatelessWidget {
         return const SlidingSegmentedControlPage();
       case 'Switch':
         return const SwitchPage();
-      case 'Tab Bar':
-        return const TabBarPage();
-      case 'Tab Scaffold':
-        return const TabScaffoldPage();
-      case 'Tab View':
-        return const TabViewPage();
       case 'Text Field':
         return const TextFieldPage();
       case 'Text Theme':

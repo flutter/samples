@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'gallery_home.dart';
 
@@ -16,9 +15,6 @@ class CupertinoGalleryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-      title: 'Cupertino Gallery',
-      home: GalleryHome(),
-    );
+    return const CupertinoApp(title: 'Cupertino Gallery', home: GalleryHome());
   }
 }

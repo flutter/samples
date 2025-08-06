@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'settings_page.dart';
 import 'widgets_page.dart';
 
 class GalleryHome extends StatelessWidget {
@@ -24,7 +25,7 @@ class GalleryHome extends StatelessWidget {
           builder: (BuildContext context) {
             return switch (index) {
               0 => const WidgetsPage(),
-              1 => const Center(child: Text('Settings')),
+              1 => const SettingsPage(),
               _ => const Center(child: Text('Widgets')),
             };
           },

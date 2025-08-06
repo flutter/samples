@@ -18,7 +18,7 @@ class _SegmentedControlPageState extends State<SegmentedControlPage> {
       ),
       child: Center(
         child: CupertinoSegmentedControl<int>(
-          children: const <int, Widget>{
+          children: <int, Widget>{
             0: Text('One'),
             1: Text('Two'),
             2: Text('Three'),
