@@ -15,9 +15,8 @@ defaults:
     shell: bash
 
 jobs:
-  # Run the stable test script on the beta channel. Since this branch will soon
-  # be merged into main as our stable-targeting code, this is the key thing we
-  # need to test.
+  # Test all samples on the beta channel. Since the beta channel will soon be
+  # promoted to stable, this branch is only concerned with the beta.
   Beta-CI:
     name: Test flutter beta channel
     runs-on: ${{ matrix.os }}

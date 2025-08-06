@@ -15,7 +15,7 @@ Future<void> main() async {
   }
 
   // pub workspace, only run 'get' once
-  await _runCommand('flutter', ['pub', 'get'], workingDirectory: './');
+  await _runCommand('flutter', ['pub', 'get'], workingDirectory: rootDir.path);
 
   final packages = workspace.map((e) => e.toString()).toList();
 
@@ -54,6 +54,7 @@ Future<void> _runCommand(
     executable,
     arguments,
     workingDirectory: workingDirectory,
+    runInShell: true,
     mode: ProcessStartMode.inheritStdio,
   );
   final exitCode = await process.exitCode;
