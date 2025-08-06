@@ -11,7 +11,9 @@ class Counter {
   /// Creates a [MethodChannel] with the specified name to invoke platform method.
   /// In order to communicate across platforms, the name of MethodChannel
   /// should be same on native and dart side.
-  static MethodChannel methodChannel = const MethodChannel('methodChannelDemo');
+  static MethodChannel methodChannel = const MethodChannel(
+    'methodChannelDemo',
+  );
 
   /// This method is responsible to increment and return the value of count.
   static Future<int> increment({required int counterValue}) async {

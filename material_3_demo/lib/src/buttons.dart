@@ -23,10 +23,9 @@ class BrightnessButton extends StatelessWidget {
       preferBelow: showTooltipBelow,
       message: 'Toggle brightness',
       child: IconButton(
-        icon:
-            isBright
-                ? const Icon(Icons.dark_mode_outlined)
-                : const Icon(Icons.light_mode_outlined),
+        icon: isBright
+            ? const Icon(Icons.dark_mode_outlined)
+            : const Icon(Icons.light_mode_outlined),
         onPressed: () => handleBrightnessChange(!isBright),
       ),
     );
@@ -50,10 +49,9 @@ class Material3Button extends StatelessWidget {
       preferBelow: showTooltipBelow,
       message: 'Switch to Material ${useMaterial3 ? 2 : 3}',
       child: IconButton(
-        icon:
-            useMaterial3
-                ? const Icon(Icons.filter_2)
-                : const Icon(Icons.filter_3),
+        icon: useMaterial3
+            ? const Icon(Icons.filter_2)
+            : const Icon(Icons.filter_3),
         onPressed: handleMaterialVersionChange,
       ),
     );
@@ -77,7 +75,9 @@ class ColorSeedButton extends StatelessWidget {
     return PopupMenuButton(
       icon: const Icon(Icons.palette_outlined),
       tooltip: 'Select a seed color',
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       itemBuilder: (context) {
         return List.generate(ColorSeed.values.length, (index) {
           ColorSeed currentColor = ColorSeed.values[index];
@@ -130,7 +130,9 @@ class ColorImageButton extends StatelessWidget {
     return PopupMenuButton(
       icon: const Icon(Icons.image_outlined),
       tooltip: 'Select a color extraction image',
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       itemBuilder: (context) {
         return List.generate(ColorImageProvider.values.length, (index) {
           final currentImageProvider = ColorImageProvider.values[index];

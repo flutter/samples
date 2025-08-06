@@ -17,8 +17,12 @@ import 'screens/sign_in.dart';
 import 'widgets/book_list.dart';
 import 'widgets/fade_transition_page.dart';
 
-final appShellNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'app shell');
-final booksNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'books shell');
+final appShellNavigatorKey = GlobalKey<NavigatorState>(
+  debugLabel: 'app shell',
+);
+final booksNavigatorKey = GlobalKey<NavigatorState>(
+  debugLabel: 'books shell',
+);
 
 class Bookstore extends StatefulWidget {
   const Bookstore({super.key});

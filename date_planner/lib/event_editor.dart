@@ -41,22 +41,21 @@ class _EventEditorState extends State<EventEditor> {
         //
         // Is this maybe the issue here?
         // https://github.com/flutter/flutter/issues/91715
-        leading:
-            isNew
-                ? CupertinoButton(
-                  padding: EdgeInsets.zero,
-                  child: const Text('Cancel'),
-                  onPressed: () => Navigator.pop(context, null),
-                )
-                : CupertinoButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {
-                    Navigator.pop(context, event);
-                  },
-                  child: const Row(
-                    children: [Icon(CupertinoIcons.back), Text('Date Planner')],
-                  ),
+        leading: isNew
+            ? CupertinoButton(
+                padding: EdgeInsets.zero,
+                child: const Text('Cancel'),
+                onPressed: () => Navigator.pop(context, null),
+              )
+            : CupertinoButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  Navigator.pop(context, event);
+                },
+                child: const Row(
+                  children: [Icon(CupertinoIcons.back), Text('Date Planner')],
                 ),
+              ),
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           child: Text(isNew ? 'Add' : (isEditing ? 'Done' : 'Edit')),

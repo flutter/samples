@@ -64,16 +64,14 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
   $Res call({Object? token = null, Object? userId = null}) {
     return _then(
       _value.copyWith(
-            token:
-                null == token
-                    ? _value.token
-                    : token // ignore: cast_nullable_to_non_nullable
-                        as String,
-            userId:
-                null == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as String,
+            token: null == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                      as String,
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -108,16 +106,14 @@ class __$$LoginResponseImplCopyWithImpl<$Res>
   $Res call({Object? token = null, Object? userId = null}) {
     return _then(
       _$LoginResponseImpl(
-        token:
-            null == token
-                ? _value.token
-                : token // ignore: cast_nullable_to_non_nullable
-                    as String,
-        userId:
-            null == userId
-                ? _value.userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as String,
+        token: null == token
+            ? _value.token
+            : token // ignore: cast_nullable_to_non_nullable
+                  as String,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

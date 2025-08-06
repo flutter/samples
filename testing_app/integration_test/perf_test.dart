@@ -9,11 +9,13 @@ import 'package:testing_app/main.dart';
 
 void main() {
   group('Testing App Performance Tests', () {
-    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+    final binding =
+        IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
     // The fullyLive frame policy simulates
     // the way Flutter responds to animations.
-    binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
+    binding.framePolicy =
+        LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
     testWidgets('Scrolling test', (tester) async {
       await tester.pumpWidget(const TestingApp());

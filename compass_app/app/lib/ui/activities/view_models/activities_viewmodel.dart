@@ -67,26 +67,24 @@ class ActivitiesViewModel extends ChangeNotifier {
     switch (resultActivities) {
       case Ok():
         {
-          _daytimeActivities =
-              resultActivities.value
-                  .where(
-                    (activity) => [
-                      TimeOfDay.any,
-                      TimeOfDay.morning,
-                      TimeOfDay.afternoon,
-                    ].contains(activity.timeOfDay),
-                  )
-                  .toList();
+          _daytimeActivities = resultActivities.value
+              .where(
+                (activity) => [
+                  TimeOfDay.any,
+                  TimeOfDay.morning,
+                  TimeOfDay.afternoon,
+                ].contains(activity.timeOfDay),
+              )
+              .toList();
 
-          _eveningActivities =
-              resultActivities.value
-                  .where(
-                    (activity) => [
-                      TimeOfDay.evening,
-                      TimeOfDay.night,
-                    ].contains(activity.timeOfDay),
-                  )
-                  .toList();
+          _eveningActivities = resultActivities.value
+              .where(
+                (activity) => [
+                  TimeOfDay.evening,
+                  TimeOfDay.night,
+                ].contains(activity.timeOfDay),
+              )
+              .toList();
 
           _log.fine(
             'Activities (daytime: ${_daytimeActivities.length}, '

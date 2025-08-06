@@ -75,26 +75,22 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
-            picture:
-                null == picture
-                    ? _value.picture
-                    : picture // ignore: cast_nullable_to_non_nullable
-                        as String,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+            picture: null == picture
+                ? _value.picture
+                : picture // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -134,26 +130,22 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$UserApiModelImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        picture:
-            null == picture
-                ? _value.picture
-                : picture // ignore: cast_nullable_to_non_nullable
-                    as String,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        picture: null == picture
+            ? _value.picture
+            : picture // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

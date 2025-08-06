@@ -10,8 +10,8 @@ class AppStateManager extends InheritedWidget {
   }) : _appState = state;
 
   static AppStateManager of(BuildContext context) {
-    final AppStateManager? result =
-        context.dependOnInheritedWidgetOfExactType<AppStateManager>();
+    final AppStateManager? result = context
+        .dependOnInheritedWidgetOfExactType<AppStateManager>();
     assert(result != null, 'No AppStateManager found in context');
     return result!;
   }

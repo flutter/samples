@@ -39,7 +39,7 @@ class Event implements Comparable<Event> {
     );
   }
 
-  updateWith(Event e) {
+  void updateWith(Event e) {
     title = e.title;
     color = e.color;
     icon = e.icon;

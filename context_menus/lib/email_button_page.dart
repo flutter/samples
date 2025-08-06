@@ -22,9 +22,8 @@ class EmailButtonPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder:
-          (context) =>
-              const AlertDialog(title: Text('You clicked send email!')),
+      builder: (context) =>
+          const AlertDialog(title: Text('You clicked send email!')),
     );
   }
 
@@ -64,7 +63,9 @@ class EmailButtonPage extends StatelessWidget {
                       editableTextState.textEditingValue;
                   final List<ContextMenuButtonItem> buttonItems =
                       editableTextState.contextMenuButtonItems;
-                  if (isValidEmail(value.selection.textInside(value.text))) {
+                  if (isValidEmail(
+                    value.selection.textInside(value.text),
+                  )) {
                     buttonItems.insert(
                       0,
                       ContextMenuButtonItem(

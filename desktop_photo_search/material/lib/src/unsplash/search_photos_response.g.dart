@@ -33,7 +33,9 @@ class _$SearchPhotosResponseSerializer
       'results',
       serializers.serialize(
         object.results,
-        specifiedType: const FullType(BuiltList, const [const FullType(Photo)]),
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(Photo),
+        ]),
       ),
     ];
     Object? value;
@@ -41,13 +43,17 @@ class _$SearchPhotosResponseSerializer
     if (value != null) {
       result
         ..add('total')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.totalPages;
     if (value != null) {
       result
         ..add('total_pages')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     return result;
   }
@@ -68,12 +74,18 @@ class _$SearchPhotosResponseSerializer
       switch (key) {
         case 'total':
           result.total =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'total_pages':
           result.totalPages =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'results':
@@ -106,8 +118,11 @@ class _$SearchPhotosResponse extends SearchPhotosResponse {
     void Function(SearchPhotosResponseBuilder)? updates,
   ]) => (new SearchPhotosResponseBuilder()..update(updates))._build();
 
-  _$SearchPhotosResponse._({this.total, this.totalPages, required this.results})
-    : super._() {
+  _$SearchPhotosResponse._({
+    this.total,
+    this.totalPages,
+    required this.results,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(
       results,
       r'SearchPhotosResponse',

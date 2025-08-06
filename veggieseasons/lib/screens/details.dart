@@ -21,7 +21,10 @@ class ServingInfoChart extends StatelessWidget {
   // Creates a [Text] widget to display a veggie's "percentage of your daily
   // value of this vitamin" data adjusted for the user's preferred calorie
   // target.
-  Widget _buildVitaminText(int standardPercentage, Future<int> targetCalories) {
+  Widget _buildVitaminText(
+    int standardPercentage,
+    Future<int> targetCalories,
+  ) {
     return FutureBuilder<int>(
       future: targetCalories,
       builder: (context, snapshot) {
@@ -62,7 +65,10 @@ class ServingInfoChart extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text('Calories', style: Styles.detailsServingLabelText(themeData)),
+            Text(
+              'Calories',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
             const Spacer(),
             Text(
               '${veggie.caloriesPerServing} kCal',
@@ -75,18 +81,30 @@ class ServingInfoChart extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text('Vitamin A', style: Styles.detailsServingLabelText(themeData)),
+            Text(
+              'Vitamin A',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
             const Spacer(),
-            _buildVitaminText(veggie.vitaminAPercentage, prefs.desiredCalories),
+            _buildVitaminText(
+              veggie.vitaminAPercentage,
+              prefs.desiredCalories,
+            ),
           ],
         ),
         const SizedBox(height: 24),
         Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text('Vitamin C', style: Styles.detailsServingLabelText(themeData)),
+            Text(
+              'Vitamin C',
+              style: Styles.detailsServingLabelText(themeData),
+            ),
             const Spacer(),
-            _buildVitaminText(veggie.vitaminCPercentage, prefs.desiredCalories),
+            _buildVitaminText(
+              veggie.vitaminCPercentage,
+              prefs.desiredCalories,
+            ),
           ],
         ),
         Padding(
@@ -131,7 +149,10 @@ class InfoView extends StatelessWidget {
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
           const SizedBox(height: 16),
-          Text('Seasons', style: Styles.detailsServingLabelText(themeData)),
+          Text(
+            'Seasons',
+            style: Styles.detailsServingLabelText(themeData),
+          ),
           const SizedBox(height: 12),
           Row(
             mainAxisSize: MainAxisSize.max,
@@ -143,10 +164,9 @@ class InfoView extends StatelessWidget {
                   children: [
                     Icon(
                       Styles.seasonIconData[season],
-                      color:
-                          veggie.seasons.contains(season)
-                              ? Styles.seasonColors[season]
-                              : const Color.fromRGBO(128, 128, 128, 1),
+                      color: veggie.seasons.contains(season)
+                          ? Styles.seasonColors[season]
+                          : const Color.fromRGBO(128, 128, 128, 1),
                       size: 24,
                     ),
                     const SizedBox(height: 4),

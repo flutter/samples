@@ -97,16 +97,15 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   void _showDialog(String message) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text(message),
-            actions: [
-              TextButton(
-                child: const Text('OK'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
+      builder: (context) => AlertDialog(
+        title: Text(message),
+        actions: [
+          TextButton(
+            child: const Text('OK'),
+            onPressed: () => Navigator.of(context).pop(),
           ),
+        ],
+      ),
     );
   }
 }

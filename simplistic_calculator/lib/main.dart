@@ -13,7 +13,8 @@ import 'package:math_expressions/math_expressions.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Simplistic Calculator');
     setWindowMinSize(const Size(600, 500));
@@ -107,14 +108,16 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
             mode: CalculatorEngineMode.result,
           );
         default:
-          final resultStr =
-              result.ceil() == result
-                  ? result.toInt().toString()
-                  : result.toString();
+          final resultStr = result.ceil() == result
+              ? result.toInt().toString()
+              : result.toString();
           state = state.copyWith(
             buffer: resultStr,
             mode: CalculatorEngineMode.result,
-            calcHistory: ['${state.buffer} = $resultStr', ...state.calcHistory],
+            calcHistory: [
+              '${state.buffer} = $resultStr',
+              ...state.calcHistory,
+            ],
           );
       }
     } catch (err) {
@@ -379,26 +382,25 @@ class CalculatorApp extends ConsumerWidget {
                         horizontal: 8,
                         vertical: 8,
                       ),
-                      child:
-                          state.error.isEmpty
-                              ? AutoSizeText(
-                                state.buffer,
-                                textAlign: TextAlign.end,
-                                style: const TextStyle(
-                                  fontSize: 80,
-                                  color: Colors.black,
-                                ),
-                                maxLines: 2,
-                              )
-                              : AutoSizeText(
-                                state.error,
-                                textAlign: TextAlign.start,
-                                style: const TextStyle(
-                                  fontSize: 80,
-                                  color: Colors.red,
-                                ),
-                                maxLines: 2,
+                      child: state.error.isEmpty
+                          ? AutoSizeText(
+                              state.buffer,
+                              textAlign: TextAlign.end,
+                              style: const TextStyle(
+                                fontSize: 80,
+                                color: Colors.black,
                               ),
+                              maxLines: 2,
+                            )
+                          : AutoSizeText(
+                              state.error,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(
+                                fontSize: 80,
+                                color: Colors.red,
+                              ),
+                              maxLines: 2,
+                            ),
                     ),
                   ),
                 ),

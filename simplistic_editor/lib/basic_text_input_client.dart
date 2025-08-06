@@ -63,8 +63,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     with TextSelectionDelegate, TextInputClient, DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
-  final ClipboardStatusNotifier? _clipboardStatus =
-      kIsWeb ? null : ClipboardStatusNotifier();
+  final ClipboardStatusNotifier? _clipboardStatus = kIsWeb
+      ? null
+      : ClipboardStatusNotifier();
 
   @override
   void initState() {
@@ -180,7 +181,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   @override
-  void updateEditingValueWithDeltas(List<TextEditingDelta> textEditingDeltas) {
+  void updateEditingValueWithDeltas(
+    List<TextEditingDelta> textEditingDeltas,
+  ) {
     TextEditingValue value = _value;
 
     for (final TextEditingDelta delta in textEditingDeltas) {
@@ -339,40 +342,40 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   // These actions have yet to be implemented for this sample.
-  static final Map<Type, Action<Intent>> _unsupportedActions =
-      <Type, Action<Intent>>{
-        DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
-        DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
-        ExtendSelectionToNextWordBoundaryIntent: DoNothingAction(
-          consumesKey: false,
-        ),
-        ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
-            DoNothingAction(consumesKey: false),
-        ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
-        ExtendSelectionVerticallyToAdjacentLineIntent: DoNothingAction(
-          consumesKey: false,
-        ),
-        ExtendSelectionVerticallyToAdjacentPageIntent: DoNothingAction(
-          consumesKey: false,
-        ),
-        ExtendSelectionToNextParagraphBoundaryIntent: DoNothingAction(
-          consumesKey: false,
-        ),
-        ExtendSelectionToDocumentBoundaryIntent: DoNothingAction(
-          consumesKey: false,
-        ),
-        ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
-        ExpandSelectionToDocumentBoundaryIntent: DoNothingAction(
-          consumesKey: false,
-        ),
-        ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
-        ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
-        RedoTextIntent: DoNothingAction(consumesKey: false),
-        ReplaceTextIntent: DoNothingAction(consumesKey: false),
-        UndoTextIntent: DoNothingAction(consumesKey: false),
-        UpdateSelectionIntent: DoNothingAction(consumesKey: false),
-        TransposeCharactersIntent: DoNothingAction(consumesKey: false),
-      };
+  static final Map<Type, Action<Intent>>
+  _unsupportedActions = <Type, Action<Intent>>{
+    DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
+    DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
+    ExtendSelectionToNextWordBoundaryIntent: DoNothingAction(
+      consumesKey: false,
+    ),
+    ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
+        DoNothingAction(consumesKey: false),
+    ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+    ExtendSelectionVerticallyToAdjacentLineIntent: DoNothingAction(
+      consumesKey: false,
+    ),
+    ExtendSelectionVerticallyToAdjacentPageIntent: DoNothingAction(
+      consumesKey: false,
+    ),
+    ExtendSelectionToNextParagraphBoundaryIntent: DoNothingAction(
+      consumesKey: false,
+    ),
+    ExtendSelectionToDocumentBoundaryIntent: DoNothingAction(
+      consumesKey: false,
+    ),
+    ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
+    ExpandSelectionToDocumentBoundaryIntent: DoNothingAction(
+      consumesKey: false,
+    ),
+    ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+    ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
+    RedoTextIntent: DoNothingAction(consumesKey: false),
+    ReplaceTextIntent: DoNothingAction(consumesKey: false),
+    UndoTextIntent: DoNothingAction(consumesKey: false),
+    UpdateSelectionIntent: DoNothingAction(consumesKey: false),
+    TransposeCharactersIntent: DoNothingAction(consumesKey: false),
+  };
 
   /// Keyboard text editing actions.
   // The Handling of the default text editing shortcuts with deltas
@@ -388,9 +391,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     ),
     ExtendSelectionByCharacterIntent:
         CallbackAction<ExtendSelectionByCharacterIntent>(
-          onInvoke:
-              (intent) =>
-                  _extendSelection(intent.forward, intent.collapseSelection),
+          onInvoke: (intent) =>
+              _extendSelection(intent.forward, intent.collapseSelection),
         ),
     SelectAllTextIntent: CallbackAction<SelectAllTextIntent>(
       onInvoke: (intent) => selectAll(intent.cause),
@@ -401,7 +403,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     PasteTextIntent: CallbackAction<PasteTextIntent>(
       onInvoke: (intent) => pasteText(intent.cause),
     ),
-    DoNothingAndStopPropagationTextIntent: DoNothingAction(consumesKey: false),
+    DoNothingAndStopPropagationTextIntent: DoNothingAction(
+      consumesKey: false,
+    ),
     ..._unsupportedActions,
   };
 
@@ -458,28 +462,29 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     if (collapseSelection) {
       if (!_selection.isCollapsed) {
-        final int firstOffset =
-            _selection.isNormalized ? _selection.start : _selection.end;
-        final int lastOffset =
-            _selection.isNormalized ? _selection.end : _selection.start;
+        final int firstOffset = _selection.isNormalized
+            ? _selection.start
+            : _selection.end;
+        final int lastOffset = _selection.isNormalized
+            ? _selection.end
+            : _selection.start;
         selection = TextSelection.collapsed(
           offset: forward ? lastOffset : firstOffset,
         );
       } else {
         if (forward && _selection.baseOffset == _value.text.length) return;
         if (!forward && _selection.baseOffset == 0) return;
-        final int adjustment =
-            forward
-                ? _value.text
-                    .substring(_selection.baseOffset)
-                    .characters
-                    .first
-                    .length
-                : -_value.text
-                    .substring(0, _selection.baseOffset)
-                    .characters
-                    .last
-                    .length;
+        final int adjustment = forward
+            ? _value.text
+                  .substring(_selection.baseOffset)
+                  .characters
+                  .first
+                  .length
+            : -_value.text
+                  .substring(0, _selection.baseOffset)
+                  .characters
+                  .last
+                  .length;
         selection = TextSelection.collapsed(
           offset: _selection.baseOffset + adjustment,
         );
@@ -487,18 +492,17 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     } else {
       if (forward && _selection.extentOffset == _value.text.length) return;
       if (!forward && _selection.extentOffset == 0) return;
-      final int adjustment =
-          forward
-              ? _value.text
-                  .substring(_selection.baseOffset)
-                  .characters
-                  .first
-                  .length
-              : -_value.text
-                  .substring(0, _selection.baseOffset)
-                  .characters
-                  .last
-                  .length;
+      final int adjustment = forward
+          ? _value.text
+                .substring(_selection.baseOffset)
+                .characters
+                .first
+                .length
+          : -_value.text
+                .substring(0, _selection.baseOffset)
+                .characters
+                .last
+                .length;
       selection = TextSelection(
         baseOffset: _selection.baseOffset,
         extentOffset: _selection.extentOffset + adjustment,
@@ -578,7 +582,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   void _updateCaretRectIfNeeded() {
     final TextSelection? selection = renderEditable.selection;
-    if (selection == null || !selection.isValid || !selection.isCollapsed) {
+    if (selection == null ||
+        !selection.isValid ||
+        !selection.isCollapsed) {
       return;
     }
     final TextPosition currentTextPosition = TextPosition(
@@ -691,7 +697,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final TextSelection pasteRange = textEditingValue.selection;
     if (!pasteRange.isValid) return;
 
-    final ClipboardData? data = await Clipboard.getData(Clipboard.kTextPlain);
+    final ClipboardData? data = await Clipboard.getData(
+      Clipboard.kTextPlain,
+    );
     if (data == null) return;
 
     // After the paste, the cursor should be collapsed and located after the
@@ -846,7 +854,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           requestKeyboard();
         }
     }
-    if (widget.selectionControls == null && widget.contextMenuBuilder == null) {
+    if (widget.selectionControls == null &&
+        widget.contextMenuBuilder == null) {
       _selectionOverlay?.dispose();
       _selectionOverlay = null;
     } else {
@@ -891,41 +900,43 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       onSelectionHandleTapped: () {
         _toggleToolbar();
       },
-      contextMenuBuilder:
-          widget.contextMenuBuilder == null || kIsWeb
-              ? null
-              : (context) {
-                return widget.contextMenuBuilder!(
-                  context,
-                  _clipboardStatus!.value,
-                  copyEnabled
-                      ? () => copySelection(SelectionChangedCause.toolbar)
-                      : null,
-                  cutEnabled
-                      ? () => cutSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  pasteEnabled
-                      ? () => pasteText(SelectionChangedCause.toolbar)
-                      : null,
-                  selectAllEnabled
-                      ? () => selectAll(SelectionChangedCause.toolbar)
-                      : null,
-                  lookUpEnabled
-                      ? () => _lookUpSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  liveTextInputEnabled
-                      ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
-                      : null,
-                  searchWebEnabled
-                      ? () =>
-                          _searchWebForSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  shareEnabled
-                      ? () => _shareSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  _contextMenuAnchors,
-                );
-              },
+      contextMenuBuilder: widget.contextMenuBuilder == null || kIsWeb
+          ? null
+          : (context) {
+              return widget.contextMenuBuilder!(
+                context,
+                _clipboardStatus!.value,
+                copyEnabled
+                    ? () => copySelection(SelectionChangedCause.toolbar)
+                    : null,
+                cutEnabled
+                    ? () => cutSelection(SelectionChangedCause.toolbar)
+                    : null,
+                pasteEnabled
+                    ? () => pasteText(SelectionChangedCause.toolbar)
+                    : null,
+                selectAllEnabled
+                    ? () => selectAll(SelectionChangedCause.toolbar)
+                    : null,
+                lookUpEnabled
+                    ? () => _lookUpSelection(SelectionChangedCause.toolbar)
+                    : null,
+                liveTextInputEnabled
+                    ? () => _startLiveTextInput(
+                        SelectionChangedCause.toolbar,
+                      )
+                    : null,
+                searchWebEnabled
+                    ? () => _searchWebForSelection(
+                        SelectionChangedCause.toolbar,
+                      )
+                    : null,
+                shareEnabled
+                    ? () => _shareSelection(SelectionChangedCause.toolbar)
+                    : null,
+                _contextMenuAnchors,
+              );
+            },
       magnifierConfiguration: TextMagnifierConfiguration.disabled,
     );
 
@@ -933,8 +944,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   void _toggleToolbar() {
-    final TextSelectionOverlay selectionOverlay =
-        _selectionOverlay ??= _createSelectionOverlay();
+    final TextSelectionOverlay selectionOverlay = _selectionOverlay ??=
+        _createSelectionOverlay();
 
     if (selectionOverlay.toolbarIsVisible) {
       hideToolbar(false);
@@ -971,7 +982,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final InlineSpan span = renderEditable.text!;
     final String prevText = span.toPlainText();
     final String currText = textEditingValue.text;
-    if (prevText != currText || !selection.isValid || selection.isCollapsed) {
+    if (prevText != currText ||
+        !selection.isValid ||
+        selection.isCollapsed) {
       return _GlyphHeights(
         start: renderEditable.preferredLineHeight,
         end: renderEditable.preferredLineHeight,
@@ -981,12 +994,13 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final String selectedGraphemes = selection.textInside(currText);
     final int firstSelectedGraphemeExtent =
         selectedGraphemes.characters.first.length;
-    final Rect? startCharacterRect = renderEditable.getRectForComposingRange(
-      TextRange(
-        start: selection.start,
-        end: selection.start + firstSelectedGraphemeExtent,
-      ),
-    );
+    final Rect? startCharacterRect = renderEditable
+        .getRectForComposingRange(
+          TextRange(
+            start: selection.start,
+            end: selection.start + firstSelectedGraphemeExtent,
+          ),
+        );
     final int lastSelectedGraphemeExtent =
         selectedGraphemes.characters.last.length;
     final Rect? endCharacterRect = renderEditable.getRectForComposingRange(
@@ -996,7 +1010,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       ),
     );
     return _GlyphHeights(
-      start: startCharacterRect?.height ?? renderEditable.preferredLineHeight,
+      start:
+          startCharacterRect?.height ?? renderEditable.preferredLineHeight,
       end: endCharacterRect?.height ?? renderEditable.preferredLineHeight,
     );
   }
@@ -1023,8 +1038,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   /// For OCR Support.
   /// Detects whether the Live Text input is enabled.
-  final LiveTextInputStatusNotifier? _liveTextInputStatus =
-      kIsWeb ? null : LiveTextInputStatusNotifier();
+  final LiveTextInputStatusNotifier? _liveTextInputStatus = kIsWeb
+      ? null
+      : LiveTextInputStatusNotifier();
 
   @override
   bool get liveTextInputEnabled {
@@ -1079,7 +1095,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     return !textEditingValue.selection.isCollapsed &&
-        textEditingValue.selection.textInside(textEditingValue.text).trim() !=
+        textEditingValue.selection
+                .textInside(textEditingValue.text)
+                .trim() !=
             '';
   }
 
@@ -1142,7 +1160,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 startHandleLayerLink: _startHandleLayerLink,
                 endHandleLayerLink: _endHandleLayerLink,
                 inlineSpan: _buildTextSpan(),
-                value: _value, // We pass value.selection to RenderEditable.
+                value:
+                    _value, // We pass value.selection to RenderEditable.
                 cursorColor: Colors.blue,
                 backgroundCursorColor: Colors.grey[100],
                 showCursor: ValueNotifier<bool>(_hasFocus),
@@ -1159,7 +1178,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 textAlign: TextAlign.left,
                 textDirection: _textDirection,
                 locale: Localizations.maybeLocaleOf(context),
-                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(context),
+                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(
+                  context,
+                ),
                 textWidthBasis: TextWidthBasis.parent,
                 obscuringCharacter: '•',
                 obscureText:
@@ -1321,7 +1342,10 @@ class _Editable extends MultiChildRenderObjectWidget {
   }
 
   @override
-  void updateRenderObject(BuildContext context, RenderEditable renderObject) {
+  void updateRenderObject(
+    BuildContext context,
+    RenderEditable renderObject,
+  ) {
     renderObject
       ..text = inlineSpan
       ..cursorColor = cursorColor

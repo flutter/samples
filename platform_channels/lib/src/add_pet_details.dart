@@ -31,7 +31,10 @@ class _AddPetDetailsState extends State<AddPetDetails> {
             icon: const Icon(Icons.add),
             onPressed: () {
               PetListMessageChannel.addPetDetails(
-                PetDetails(petType: petType, breed: breedTextController.text),
+                PetDetails(
+                  petType: petType,
+                  breed: breedTextController.text,
+                ),
               );
 
               context.pop();
@@ -61,8 +64,14 @@ class _AddPetDetailsState extends State<AddPetDetails> {
                 ),
               ),
               const SizedBox(height: 8),
-              RadioListTile<String>(title: const Text('Dog'), value: 'Dog'),
-              RadioListTile<String>(title: const Text('Cat'), value: 'Cat'),
+              RadioListTile<String>(
+                title: const Text('Dog'),
+                value: 'Dog',
+              ),
+              RadioListTile<String>(
+                title: const Text('Cat'),
+                value: 'Cat',
+              ),
             ],
           ),
         ),

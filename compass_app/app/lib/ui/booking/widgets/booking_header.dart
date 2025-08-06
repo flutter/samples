@@ -90,18 +90,17 @@ class _Tags extends StatelessWidget {
       child: Wrap(
         spacing: 6,
         runSpacing: 6,
-        children:
-            booking.destination.tags
-                .map(
-                  (tag) => TagChip(
-                    tag: tag,
-                    fontSize: 16,
-                    height: 32,
-                    chipColor: chipColor,
-                    onChipColor: Theme.of(context).colorScheme.onSurface,
-                  ),
-                )
-                .toList(),
+        children: booking.destination.tags
+            .map(
+              (tag) => TagChip(
+                tag: tag,
+                fontSize: 16,
+                height: 32,
+                chipColor: chipColor,
+                onChipColor: Theme.of(context).colorScheme.onSurface,
+              ),
+            )
+            .toList(),
       ),
     );
   }

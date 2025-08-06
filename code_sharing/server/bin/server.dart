@@ -9,10 +9,9 @@ import 'package:shelf_router/shelf_router.dart';
 int count = 0;
 
 // Configure routes.
-final _router =
-    Router()
-      ..post('/', _incrementHandler)
-      ..get('/', _getValueHandler);
+final _router = Router()
+  ..post('/', _incrementHandler)
+  ..get('/', _getValueHandler);
 
 Future<Response> _incrementHandler(Request request) async {
   final incr = Increment.fromJson(json.decode(await request.readAsString()));
