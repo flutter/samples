@@ -35,7 +35,7 @@ jobs:
       - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
         with:
           channel: ${{ matrix.channel }}
-      - run: ./tool/flutter_ci_script_stable.sh
+      - run: ./tool/ci_script.dart
   
   # Verify the Android add-to-app samples build and pass tests with the beta
   # channel.
