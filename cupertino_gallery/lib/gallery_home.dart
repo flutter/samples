@@ -3,7 +3,14 @@ import 'settings_page.dart';
 import 'widgets_page.dart';
 
 class GalleryHome extends StatelessWidget {
-  const GalleryHome({super.key});
+  const GalleryHome({
+    super.key,
+    required this.onThemeChange,
+    required this.isDarkMode,
+  });
+
+  final ValueChanged<bool> onThemeChange;
+  final bool isDarkMode;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,10 @@ class GalleryHome extends StatelessWidget {
           builder: (BuildContext context) {
             return switch (index) {
               0 => const WidgetsPage(),
-              1 => const SettingsPage(),
+              1 => SettingsPage(
+                    onThemeChange: onThemeChange,
+                    isDarkMode: isDarkMode,
+                  ),
               _ => const Center(child: Text('Widgets')),
             };
           },

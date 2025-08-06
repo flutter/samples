@@ -1,22 +1,39 @@
 import 'package:flutter/cupertino.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({
+    super.key,
+    required this.onThemeChange,
+    required this.isDarkMode,
+  });
+
+  final ValueChanged<bool> onThemeChange;
+  final bool isDarkMode;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _darkMode = false;
   double _textSize = 1.0;
+  late bool isDarkMode;
+
+  @override
+  void initState() {
+    isDarkMode = widget.isDarkMode;
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    isDarkMode = widget.isDarkMode;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Settings'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Settings')),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,10 +43,11 @@ class _SettingsPageState extends State<SettingsPage> {
               CupertinoListTile(
                 title: const Text('Dark Mode'),
                 trailing: CupertinoSwitch(
-                  value: _darkMode,
-                  onChanged: (bool value) {
+                  value: isDarkMode,
+                  onChanged: (bool isActive) {
                     setState(() {
-                      _darkMode = value;
+                      isDarkMode = isActive;
+                      widget.onThemeChange(isActive);
                     });
                   },
                 ),
@@ -75,7 +93,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     builder: (BuildContext context) => CupertinoAlertDialog(
                       title: const Text('Reset Settings'),
                       content: const Text(
-                          'Are you sure you want to reset all settings?'),
+                        'Are you sure you want to reset all settings?',
+                      ),
                       actions: <CupertinoDialogAction>[
                         CupertinoDialogAction(
                           child: const Text('Cancel'),
@@ -88,7 +107,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           child: const Text('Reset'),
                           onPressed: () {
                             setState(() {
-                              _darkMode = false;
+                              widget.onThemeChange(false);
                               _textSize = 1.0;
                             });
                             Navigator.pop(context);
