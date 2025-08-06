@@ -20,6 +20,7 @@ class CupertinoGalleryApp extends StatefulWidget {
 
 class _CupertinoGalleryAppState extends State<CupertinoGalleryApp> {
   ThemeMode _themeMode = ThemeMode.system;
+  double _textSize = 1.0;
 
   void _handleThemeChange(bool isDarkMode) {
     setState(() {
@@ -27,16 +28,44 @@ class _CupertinoGalleryAppState extends State<CupertinoGalleryApp> {
     });
   }
 
+  void _handleTextSizeChange(double newTextSize) {
+    setState(() {
+      _textSize = newTextSize;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final baseTheme = CupertinoThemeData(
+      brightness:
+          _themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
+    );
+    final textTheme = baseTheme.textTheme.copyWith(
+      textStyle:
+          baseTheme.textTheme.textStyle.copyWith(fontSize: 14 * _textSize),
+      actionTextStyle: baseTheme.textTheme.actionTextStyle
+          .copyWith(fontSize: 14 * _textSize),
+      tabLabelTextStyle: baseTheme.textTheme.tabLabelTextStyle
+          .copyWith(fontSize: 10 * _textSize),
+      navTitleTextStyle: baseTheme.textTheme.navTitleTextStyle
+          .copyWith(fontSize: 17 * _textSize),
+      navLargeTitleTextStyle: baseTheme.textTheme.navLargeTitleTextStyle
+          .copyWith(fontSize: 34 * _textSize),
+      navActionTextStyle: baseTheme.textTheme.navActionTextStyle
+          .copyWith(fontSize: 17 * _textSize),
+      pickerTextStyle: baseTheme.textTheme.pickerTextStyle
+          .copyWith(fontSize: 21 * _textSize),
+      dateTimePickerTextStyle: baseTheme.textTheme.dateTimePickerTextStyle
+          .copyWith(fontSize: 21 * _textSize),
+    );
     return CupertinoApp(
       title: 'Cupertino Gallery',
-      theme: CupertinoThemeData(
-        brightness: _themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
-      ),
+      theme: baseTheme.copyWith(textTheme: textTheme),
       home: GalleryHome(
         onThemeChange: _handleThemeChange,
         isDarkMode: _themeMode == ThemeMode.dark,
+        onTextSizeChange: _handleTextSizeChange,
+        textSize: _textSize,
       ),
     );
   }

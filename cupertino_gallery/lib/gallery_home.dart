@@ -7,10 +7,14 @@ class GalleryHome extends StatelessWidget {
     super.key,
     required this.onThemeChange,
     required this.isDarkMode,
+    required this.onTextSizeChange,
+    required this.textSize,
   });
 
   final ValueChanged<bool> onThemeChange;
   final bool isDarkMode;
+  final ValueChanged<double> onTextSizeChange;
+  final double textSize;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,8 @@ class GalleryHome extends StatelessWidget {
               1 => SettingsPage(
                     onThemeChange: onThemeChange,
                     isDarkMode: isDarkMode,
+                    onTextSizeChange: onTextSizeChange,
+                    textSize: textSize,
                   ),
               _ => const Center(child: Text('Widgets')),
             };

@@ -5,29 +5,39 @@ class SettingsPage extends StatefulWidget {
     super.key,
     required this.onThemeChange,
     required this.isDarkMode,
+    required this.onTextSizeChange,
+    required this.textSize,
   });
 
   final ValueChanged<bool> onThemeChange;
   final bool isDarkMode;
+  final ValueChanged<double> onTextSizeChange;
+  final double textSize;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  double _textSize = 1.0;
   late bool isDarkMode;
+  late double _textSize;
 
   @override
   void initState() {
-    isDarkMode = widget.isDarkMode;
     super.initState();
+    isDarkMode = widget.isDarkMode;
+    _textSize = widget.textSize;
   }
 
   @override
-  void didChangeDependencies() {
-    isDarkMode = widget.isDarkMode;
-    super.didChangeDependencies();
+  void didUpdateWidget(SettingsPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isDarkMode != oldWidget.isDarkMode) {
+      isDarkMode = widget.isDarkMode;
+    }
+    if (widget.textSize != oldWidget.textSize) {
+      _textSize = widget.textSize;
+    }
   }
 
   @override
@@ -58,10 +68,13 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               CupertinoSlider(
                 value: _textSize,
+                min: 0.5,
+                max: 1.5,
                 onChanged: (double value) {
                   setState(() {
                     _textSize = value;
                   });
+                  widget.onTextSizeChange(value);
                 },
               ),
             ],
@@ -107,8 +120,10 @@ class _SettingsPageState extends State<SettingsPage> {
                           child: const Text('Reset'),
                           onPressed: () {
                             setState(() {
-                              widget.onThemeChange(false);
+                              isDarkMode = false;
                               _textSize = 1.0;
+                              widget.onThemeChange(false);
+                              widget.onTextSizeChange(1.0);
                             });
                             Navigator.pop(context);
                           },
@@ -125,3 +140,4 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 }
+
