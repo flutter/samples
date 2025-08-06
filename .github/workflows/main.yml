@@ -34,7 +34,7 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
         with:
-          channel: beta
+          channel: ${{ matrix.flutter_version }}
       - run: flutter pub get && dart tool/ci_script.dart
 
   # android-build:
