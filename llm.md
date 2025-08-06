@@ -16,10 +16,10 @@ You are an AI developer specializing in Dart and Flutter. Your primary responsib
 
 ### Workflow 1: Updating for a New SDK Release
 
-This workflow is triggered when a new Flutter/Dart version is released.
+This workflow is triggered when a new Flutter/Dart version is released. Follow the instructions in `release.md` to perform the update. A summary of the steps is below:
 
 1.  **Analyze Release Notes:**
-    *   The user may provide a URL to the official release blog post. Read it carefully to understand breaking changes, new features, and migration guidelines. If no URL is provided, move onto the next step.
+    *   The user may provide a URL to the official release blog post. Read it carefully to understand breaking changes, new features, and migration guidelines. If no URL is provided, proceed to the next step.
 
 2.  **Prepare Your Environment:**
     *   Switch to the `beta` branch and ensure it's up-to-date:
@@ -33,19 +33,18 @@ This workflow is triggered when a new Flutter/Dart version is released.
         flutter upgrade
         ```
 
-3.  **Run the Release Tool:**
-    *   Execute the provided release script and pipe its output to a log file for analysis:
-        ```bash
-        dart tool/release.dart > release_log.txt
-        ```
+3.  **Update Projects and Address Issues:**
+    *   Follow the detailed steps in `release.md` to iterate through each project in the monorepo.
+    *   For each project, you will:
+        *   Update the SDK constraint in `pubspec.yaml`.
+        *   Apply code changes based on the release notes (if provided).
+        *   Run `dart analyze` and `dart format .` to identify and fix issues.
+        *   Run `flutter test` to ensure correctness.
+    *   Keep a log of any errors you cannot fix. If you are unable to resolve an issue for a project after a reasonable time, log it and move to the next one.
+    *   **Note:** When updating for a new release, you can ignore `flutter pub outdated` warnings. As long as `pub get` completes successfully, it's okay.
 
-4.  **Address Issues:**
-    *   Read the `release_log.txt` file.
-    *   Systematically address each error or warning reported in the log. This will involve navigating to the specified sample project directories and applying code changes.
-    *   When updating for a new release, we don't care about `flutter pub outdated` warnings. As long as `pub get` completes without failing, it's okay.
-
-5.  **Create a Pull Request:**
-    *   Once all issues from the log are resolved and the repository is in a clean state, create a pull request.
+4.  **Create a Pull Request:**
+    *   Once all projects are updated and the repository is in a clean state, create a pull request.
     *   Use the `gh` CLI to create the PR. The user will provide the necessary repository information if needed.
         ```bash
         # Example:
@@ -60,12 +59,11 @@ This workflow is triggered when a sample project is deemed obsolete.
     *   The user will specify the name of the sample project directory to be deleted.
 
 2.  **Check for Related Issues:**
-    *   The user will provide a link to the project's GitHub Issues.
-    *   Search for any open issues that mention the deletion or deprecation of the target sample. Note the issue number if you find one.
+    *   Search the repository's GitHub Issues for any open issues that mention the deletion or deprecation of the target sample. Note the issue number if you find one.
 
 3.  **Archive the Project:**
-    *   Navigate into the sample project's directory.
-    *   Remove all files and subdirectories within it.
+    *   Navigate to the parent directory of the sample project.
+    *   Remove all files and subdirectories within the target directory.
         ```bash
         # Example for a sample named 'old_sample'
         rm -rf old_sample/*
@@ -73,8 +71,9 @@ This workflow is triggered when a sample project is deemed obsolete.
 
 4.  **Create a Deprecation Notice:**
     *   In the now-empty directory, create a `README.md` file.
-    *   Add a clear and concise message explaining that the sample has been deprecated and removed.
+    *   Add a clear message explaining that the sample has been deprecated.
     *   If you found a related GitHub issue, link to it in the README.
+
     *   **Example `README.md` content:**
         ```markdown
         # Sample Deprecated
@@ -89,15 +88,15 @@ This workflow is triggered when a sample project is deemed obsolete.
 This workflow is performed periodically to maintain code health.
 
 1.  **Prepare the Log File:**
-    *   Check if a `stale_code.md` file exists in the root of the repository.
-    *   If it does not exist, create it and add a header:
+    *   Check if a `logs/stale_code.md` file exists in the root of the repository.
+    *   If it does not exist, create it and add the following header:
         ```markdown
         # Stale Code Log
 
         This file tracks sample projects that have not received meaningful code updates in over a year.
 
-        | Sample Name | Last Commit Author | Date of Last Commit |
-        |-------------|--------------------|---------------------|
+        | Sample Name                        | Last Commit Author | Date of Last Commit |
+        |------------------------------------|--------------------|---------------------|
         ```
 
 2.  **Analyze Git History:**
