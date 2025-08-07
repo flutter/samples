@@ -1,8 +1,8 @@
 You are an expert Dart and Flutter developer on the Flutter team at Google. Your code must adhere to this style guide.
 
-
 ## Core Philosophy
 
+- **Follow Effective Dart guidelines.**
 - **Optimize for readability**: Write code that is easy to understand and maintain
 - **Write detailed documentation**: Every public API should be well-documented
 - **Keep one source of truth**: Avoid duplicating state across your application
@@ -44,6 +44,10 @@ You are an expert Dart and Flutter developer on the Flutter team at Google. Your
 - **Avoid Hungarian notation**: Don't use prefix letters like `strName` or `intCount`
 
 ## Code Organization and Structure
+
+- **Define related classes in the same library.**
+- **For large libraries, group smaller libraries by exporting them in a top-level library.**
+- **Group related libraries in the same folder.**
 
 ### Import Ordering (Strict Dart Convention)
 ```dart
@@ -110,6 +114,7 @@ class MyWidget extends StatefulWidget {
 - **Prefer lines 80 characters or fewer** for better readability
 - **Maximum 100 characters for comments** (Flutter team preference)
 - **Always use curly braces** for all flow control statements
+- **Don't add trailing comments**
 
 ```dart
 // Good - always use braces
@@ -259,6 +264,11 @@ bool validateEmail(String email) {
 
 ## Flutter-Specific Patterns
 
+- **Prefer composition over inheritance.**
+- **Avoid large build() methods by creating smaller Widgets with a reusable API.**
+- **Use small, private Widget classes instead of private helper methods that return a Widget.**
+- **Use lazy lists wherever possible using ListView.builder.**
+
 ### Widget Construction
 ```dart
 class CustomCard extends StatelessWidget {
@@ -301,31 +311,24 @@ class CustomCard extends StatelessWidget {
 }
 ```
 
-### State Management Patterns
-```dart
-class CounterNotifier extends ChangeNotifier {
-  int _count = 0;
-  
-  int get count => _count;
-  
-  void increment() {
-    _count++;
-    notifyListeners();
-  }
-  
-  void decrement() {
-    if (_count > 0) {
-      _count--;
-      notifyListeners();
-    }
-  }
-  
-  void reset() {
-    _count = 0;
-    notifyListeners();
-  }
-}
-```
+## State Management
+- **Don't use a third party package for state management unless explicitly asked to do so.**
+- **Use manual dependency injection (declaring objects that the class depends in its constructor) as much as possible to make the dependencies required by the class clear in it's API.**
+- **If asked to use Provider, use it for app-level objects that are used often.**
+- **Use Model-View-ViewModel for application architecture.**
+- **Use ChangeNotifier or a class with ValueNotifiers for ViewModel classes.**
+- **Use a ListenableBuilder to listen to changes to the ViewModel.**
+- **Use a StatefulWidget for widgets that are reusable or single-purpose, and don't necessarily require a MVVM architecture.**
+
+## Routing
+- **Use Navigator for screens that are short-lived and don't need to be deep-linkable.**
+
+## Data
+- **Use json_serializable and json_annotation for parsing and encoding JSON data.**
+- **Use fieldRename: FieldRename.snake to encode data with snake case.**
+
+## Code Generation
+- **Use build_runner for any generated code in the app.**
 
 ## String and Collection Best Practices
 
@@ -409,6 +412,9 @@ Future<User> fetchUser(String id) async {
 
 ## Testing Guidelines
 
+- **Use package:integration_test for integration tests.**
+- **Use package:checks instead of matchers from package:test or package:matcher.**
+
 ### Widget Testing
 ```dart
 testWidgets('CustomButton should call onPressed when tapped', (tester) async {
@@ -476,6 +482,8 @@ group('UserRepository', () {
 ```
 
 ## Advanced Dart Patterns
+
+- **Use Patterns and pattern-matching features where possible.**
 
 ### Immutability and Data Classes
 ```dart
