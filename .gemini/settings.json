@@ -6,5 +6,6 @@
         "mcp-server"
       ]
     }
-  }
+  },
+  "contextFileName": "llm.md"
 }
