@@ -91,13 +91,12 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
             style: Theme.of(context).textTheme.titleLarge,
           ),
           DropdownButton<CurveChoice>(
-            items:
-                curves.map((curve) {
-                  return DropdownMenuItem<CurveChoice>(
-                    value: curve,
-                    child: Text(curve.name),
-                  );
-                }).toList(),
+            items: curves.map((curve) {
+              return DropdownMenuItem<CurveChoice>(
+                value: curve,
+                child: Text(curve.name),
+              );
+            }).toList(),
             onChanged: (newCurve) {
               if (newCurve != null) {
                 setState(() {
@@ -114,13 +113,12 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
             style: Theme.of(context).textTheme.titleLarge,
           ),
           DropdownButton<CurveChoice>(
-            items:
-                curves.map((curve) {
-                  return DropdownMenuItem<CurveChoice>(
-                    value: curve,
-                    child: Text(curve.name),
-                  );
-                }).toList(),
+            items: curves.map((curve) {
+              return DropdownMenuItem<CurveChoice>(
+                value: curve,
+                child: Text(curve.name),
+              );
+            }).toList(),
             onChanged: (newCurve) {
               if (newCurve != null) {
                 setState(() {

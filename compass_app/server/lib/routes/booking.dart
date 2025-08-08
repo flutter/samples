@@ -22,11 +22,10 @@ class BookingApi {
   BookingApi() {
     // Create a default booking
     final destination = Assets.destinations.first;
-    final activitiesRef =
-        Assets.activities
-            .where((activity) => activity.destinationRef == destination.ref)
-            .map((activity) => activity.ref)
-            .toList();
+    final activitiesRef = Assets.activities
+        .where((activity) => activity.destinationRef == destination.ref)
+        .map((activity) => activity.ref)
+        .toList();
     _bookings.add(
       Booking(
         id: _sequentialId++,
@@ -60,8 +59,9 @@ class BookingApi {
     // Get a booking by id
     router.get('/<id>', (Request request, String id) {
       final bookingId = int.parse(id);
-      final booking =
-          _bookings.where((booking) => booking.id == bookingId).firstOrNull;
+      final booking = _bookings
+          .where((booking) => booking.id == bookingId)
+          .firstOrNull;
 
       if (booking == null) {
         return Response.notFound('Invalid id');
@@ -102,8 +102,9 @@ class BookingApi {
     // Delete booking
     router.delete('/<id>', (Request request, String id) async {
       final bookingId = int.parse(id);
-      final booking =
-          _bookings.where((booking) => booking.id == bookingId).firstOrNull;
+      final booking = _bookings
+          .where((booking) => booking.id == bookingId)
+          .firstOrNull;
       if (booking == null) {
         return Response.notFound('Invalid id');
       }

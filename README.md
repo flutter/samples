@@ -7,7 +7,7 @@ A collection of open source samples that illustrate best practices for
 
 ## Contributing
 
-We're very appreciative of fixes and necessary improvements to the existing samples. **But in most cases, we're not currently adding new samples to this repository** while we rethink sample code in the post-LLM world.
+We appreciate fixes and necessary improvements to existing samples. **But in most cases, we're not currently adding new samples to this repository** while we rethink sample code in the new LLM world.
 
 Please read the [contributor's guide] if you have contributions.
 

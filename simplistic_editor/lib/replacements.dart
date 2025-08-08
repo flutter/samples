@@ -41,7 +41,11 @@ typedef InlineSpanGenerator = InlineSpan Function(String, TextRange);
 class TextEditingInlineSpanReplacement {
   /// Constructs a replacement that replaces matches of the [TextRange] with the
   /// output of the [generator].
-  TextEditingInlineSpanReplacement(this.range, this.generator, this.expand);
+  TextEditingInlineSpanReplacement(
+    this.range,
+    this.generator,
+    this.expand,
+  );
 
   /// The [TextRange] to replace.
   ///
@@ -54,7 +58,9 @@ class TextEditingInlineSpanReplacement {
 
   bool expand;
 
-  TextEditingInlineSpanReplacement? onDelete(TextEditingDeltaDeletion delta) {
+  TextEditingInlineSpanReplacement? onDelete(
+    TextEditingDeltaDeletion delta,
+  ) {
     final TextRange deletedRange = delta.deletedRange;
     final int deletedLength = delta.textDeleted.length;
 
@@ -75,7 +81,10 @@ class TextEditingInlineSpanReplacement {
     } else if (range.start < deletedRange.start &&
         range.end > deletedRange.end) {
       return copy(
-        range: TextRange(start: range.start, end: range.end - deletedLength),
+        range: TextRange(
+          start: range.start,
+          end: range.end - deletedLength,
+        ),
       );
     } else if (range.start >= deletedRange.start &&
         range.end <= deletedRange.end) {
@@ -90,7 +99,9 @@ class TextEditingInlineSpanReplacement {
       );
     } else if (range.end <= deletedRange.start &&
         range.end < deletedRange.end) {
-      return copy(range: TextRange(start: range.start, end: range.end));
+      return copy(
+        range: TextRange(start: range.start, end: range.end),
+      );
     }
 
     return null;
@@ -105,24 +116,36 @@ class TextEditingInlineSpanReplacement {
     if (range.end == insertionOffset) {
       if (expand) {
         return copy(
-          range: TextRange(start: range.start, end: range.end + insertedLength),
+          range: TextRange(
+            start: range.start,
+            end: range.end + insertedLength,
+          ),
         );
       } else {
-        return copy(range: TextRange(start: range.start, end: range.end));
+        return copy(
+          range: TextRange(start: range.start, end: range.end),
+        );
       }
     }
     if (range.start < insertionOffset && range.end < insertionOffset) {
-      return copy(range: TextRange(start: range.start, end: range.end));
-    } else if (range.start >= insertionOffset && range.end > insertionOffset) {
+      return copy(
+        range: TextRange(start: range.start, end: range.end),
+      );
+    } else if (range.start >= insertionOffset &&
+        range.end > insertionOffset) {
       return copy(
         range: TextRange(
           start: range.start + insertedLength,
           end: range.end + insertedLength,
         ),
       );
-    } else if (range.start < insertionOffset && range.end > insertionOffset) {
+    } else if (range.start < insertionOffset &&
+        range.end > insertionOffset) {
       return copy(
-        range: TextRange(start: range.start, end: range.end + insertedLength),
+        range: TextRange(
+          start: range.start,
+          end: range.end + insertedLength,
+        ),
       );
     }
 
@@ -139,13 +162,13 @@ class TextEditingInlineSpanReplacement {
         delta.replacementText.length > delta.textReplaced.length;
     final bool replacementEqualLength =
         delta.replacementText.length == delta.textReplaced.length;
-    final int changedOffset =
-        replacementShortenedText
-            ? delta.textReplaced.length - delta.replacementText.length
-            : delta.replacementText.length - delta.textReplaced.length;
+    final int changedOffset = replacementShortenedText
+        ? delta.textReplaced.length - delta.replacementText.length
+        : delta.replacementText.length - delta.textReplaced.length;
 
     if (range.start >= replacedRange.start &&
-        (range.start < replacedRange.end && range.end > replacedRange.end)) {
+        (range.start < replacedRange.end &&
+            range.end > replacedRange.end)) {
       if (replacementShortenedText) {
         return [
           copy(
@@ -166,20 +189,26 @@ class TextEditingInlineSpanReplacement {
         ];
       } else if (replacementEqualLength) {
         return [
-          copy(range: TextRange(start: replacedRange.end, end: range.end)),
+          copy(
+            range: TextRange(start: replacedRange.end, end: range.end),
+          ),
         ];
       }
     } else if ((range.start < replacedRange.start &&
             range.end > replacedRange.start) &&
         range.end <= replacedRange.end) {
       return [
-        copy(range: TextRange(start: range.start, end: replacedRange.start)),
+        copy(
+          range: TextRange(start: range.start, end: replacedRange.start),
+        ),
       ];
     } else if (range.start < replacedRange.start &&
         range.end > replacedRange.end) {
       if (replacementShortenedText) {
         return [
-          copy(range: TextRange(start: range.start, end: replacedRange.start)),
+          copy(
+            range: TextRange(start: range.start, end: replacedRange.start),
+          ),
           copy(
             range: TextRange(
               start: replacedRange.end - changedOffset,
@@ -189,7 +218,9 @@ class TextEditingInlineSpanReplacement {
         ];
       } else if (replacementLengthenedText) {
         return [
-          copy(range: TextRange(start: range.start, end: replacedRange.start)),
+          copy(
+            range: TextRange(start: range.start, end: replacedRange.start),
+          ),
           copy(
             range: TextRange(
               start: replacedRange.end + changedOffset,
@@ -199,8 +230,12 @@ class TextEditingInlineSpanReplacement {
         ];
       } else if (replacementEqualLength) {
         return [
-          copy(range: TextRange(start: range.start, end: replacedRange.start)),
-          copy(range: TextRange(start: replacedRange.end, end: range.end)),
+          copy(
+            range: TextRange(start: range.start, end: replacedRange.start),
+          ),
+          copy(
+            range: TextRange(start: replacedRange.end, end: range.end),
+          ),
         ];
       }
     } else if (range.start >= replacedRange.start &&
@@ -232,7 +267,11 @@ class TextEditingInlineSpanReplacement {
       }
     } else if (range.end <= replacedRange.start &&
         range.end < replacedRange.end) {
-      return [copy(range: TextRange(start: range.start, end: range.end))];
+      return [
+        copy(
+          range: TextRange(start: range.start, end: range.end),
+        ),
+      ];
     }
 
     return null;
@@ -250,15 +289,23 @@ class TextEditingInlineSpanReplacement {
     return this;
   }
 
-  List<TextEditingInlineSpanReplacement>? removeRange(TextRange removalRange) {
+  List<TextEditingInlineSpanReplacement>? removeRange(
+    TextRange removalRange,
+  ) {
     if (range.start >= removalRange.start &&
         (range.start < removalRange.end && range.end > removalRange.end)) {
-      return [copy(range: TextRange(start: removalRange.end, end: range.end))];
+      return [
+        copy(
+          range: TextRange(start: removalRange.end, end: range.end),
+        ),
+      ];
     } else if ((range.start < removalRange.start &&
             range.end > removalRange.start) &&
         range.end <= removalRange.end) {
       return [
-        copy(range: TextRange(start: range.start, end: removalRange.start)),
+        copy(
+          range: TextRange(start: range.start, end: removalRange.start),
+        ),
       ];
     } else if (range.start < removalRange.start &&
         range.end > removalRange.end) {
@@ -267,7 +314,9 @@ class TextEditingInlineSpanReplacement {
           range: TextRange(start: range.start, end: removalRange.start),
           expand: removalRange.isCollapsed ? false : expand,
         ),
-        copy(range: TextRange(start: removalRange.end, end: range.end)),
+        copy(
+          range: TextRange(start: removalRange.end, end: range.end),
+        ),
       ];
     } else if (range.start >= removalRange.start &&
         range.end <= removalRange.end) {
@@ -278,7 +327,8 @@ class TextEditingInlineSpanReplacement {
     } else if (range.end <= removalRange.start &&
         range.end < removalRange.end) {
       return [this];
-    } else if (removalRange.isCollapsed && range.end == removalRange.start) {
+    } else if (removalRange.isCollapsed &&
+        range.end == removalRange.start) {
       return [this];
     }
 
@@ -453,7 +503,9 @@ class ReplacementTextEditingController extends TextEditingController {
     required bool withComposing,
   }) {
     assert(
-      !value.composing.isValid || !withComposing || value.isComposingRangeValid,
+      !value.composing.isValid ||
+          !withComposing ||
+          value.isComposingRangeValid,
     );
 
     // Keep a mapping of TextRanges to the InlineSpan to replace it with.
@@ -467,7 +519,10 @@ class ReplacementTextEditingController extends TextEditingController {
           in replacements!) {
         _addToMappingWithOverlaps(
           replacement.generator,
-          TextRange(start: replacement.range.start, end: replacement.range.end),
+          TextRange(
+            start: replacement.range.start,
+            end: replacement.range.end,
+          ),
           rangeSpanMapping,
           value.text,
         );
@@ -484,12 +539,11 @@ class ReplacementTextEditingController extends TextEditingController {
         withComposing) {
       _addToMappingWithOverlaps(
         (value, range) {
-          final TextStyle composingStyle =
-              style != null
-                  ? style.merge(
-                    const TextStyle(decoration: TextDecoration.underline),
-                  )
-                  : const TextStyle(decoration: TextDecoration.underline);
+          final TextStyle composingStyle = style != null
+              ? style.merge(
+                  const TextStyle(decoration: TextDecoration.underline),
+                )
+              : const TextStyle(decoration: TextDecoration.underline);
           return TextSpan(style: composingStyle, text: value);
         },
         value.composing,
@@ -509,7 +563,9 @@ class ReplacementTextEditingController extends TextEditingController {
     for (final TextRange range in sortedRanges) {
       if (range.start > previousEndIndex) {
         spans.add(
-          TextSpan(text: value.text.substring(previousEndIndex, range.start)),
+          TextSpan(
+            text: value.text.substring(previousEndIndex, range.start),
+          ),
         );
       }
       spans.add(rangeSpanMapping[range]!);
@@ -624,8 +680,9 @@ class ReplacementTextEditingController extends TextEditingController {
       }
 
       Set<TextStyle> styles = <TextStyle>{};
-      List<int> otherEndPoints =
-          endPoints.getRange(1, endPoints.length).toList();
+      List<int> otherEndPoints = endPoints
+          .getRange(1, endPoints.length)
+          .toList();
       for (int i = 0; i < endPoints.length - 1; i++) {
         styles = styles.difference(end[endPoints[i]]!);
         styles.addAll(start[endPoints[i]]!);
@@ -671,7 +728,8 @@ class ReplacementTextEditingController extends TextEditingController {
     final List<TextEditingInlineSpanReplacement> toRemove = [];
     final List<TextEditingInlineSpanReplacement> toAdd = [];
 
-    for (final TextEditingInlineSpanReplacement replacement in replacements!) {
+    for (final TextEditingInlineSpanReplacement replacement
+        in replacements!) {
       if (replacement.range.end == selection.start) {
         TextStyle? replacementStyle =
             (replacement.generator('', const TextRange.collapsed(0))
@@ -689,7 +747,8 @@ class ReplacementTextEditingController extends TextEditingController {
       replacements!.remove(replacementToRemove);
     }
 
-    for (final TextEditingInlineSpanReplacement replacementWithExpandDisabled
+    for (final TextEditingInlineSpanReplacement
+        replacementWithExpandDisabled
         in toAdd) {
       replacements!.add(replacementWithExpandDisabled);
     }
@@ -704,7 +763,8 @@ class ReplacementTextEditingController extends TextEditingController {
     // should be enabled.
     final List<TextStyle> stylesAtSelection = <TextStyle>[];
 
-    for (final TextEditingInlineSpanReplacement replacement in replacements!) {
+    for (final TextEditingInlineSpanReplacement replacement
+        in replacements!) {
       if (selection.isCollapsed) {
         if (math.max(replacement.range.start, selection.start) <=
             math.min(replacement.range.end, selection.end)) {
@@ -738,7 +798,10 @@ class ReplacementTextEditingController extends TextEditingController {
     return stylesAtSelection;
   }
 
-  void removeReplacementsAtRange(TextRange removalRange, TextStyle? attribute) {
+  void removeReplacementsAtRange(
+    TextRange removalRange,
+    TextStyle? attribute,
+  ) {
     final List<TextEditingInlineSpanReplacement> toRemove = [];
     final List<TextEditingInlineSpanReplacement> toAdd = [];
 
@@ -755,8 +818,8 @@ class ReplacementTextEditingController extends TextEditingController {
               math.min(replacement.range.end, removalRange.end)) &&
           replacementStyle != null) {
         if (replacementStyle == attribute!) {
-          List<TextEditingInlineSpanReplacement>? newReplacements = replacement
-              .removeRange(removalRange);
+          List<TextEditingInlineSpanReplacement>? newReplacements =
+              replacement.removeRange(removalRange);
 
           if (newReplacements != null) {
             if (newReplacements.length == 1) {
@@ -782,7 +845,8 @@ class ReplacementTextEditingController extends TextEditingController {
       replacements!.add(replacementToAdd);
     }
 
-    for (TextEditingInlineSpanReplacement replacementToRemove in toRemove) {
+    for (TextEditingInlineSpanReplacement replacementToRemove
+        in toRemove) {
       replacements!.remove(replacementToRemove);
     }
   }

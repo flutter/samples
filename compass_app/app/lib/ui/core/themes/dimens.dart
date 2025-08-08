@@ -35,12 +35,11 @@ abstract final class Dimens {
   static const Dimens mobile = _DimensMobile();
 
   /// Get dimensions definition based on screen size
-  factory Dimens.of(BuildContext context) => switch (MediaQuery.sizeOf(
-    context,
-  ).width) {
-    > 600 && < 840 => desktop,
-    _ => mobile,
-  };
+  factory Dimens.of(BuildContext context) =>
+      switch (MediaQuery.sizeOf(context).width) {
+        > 600 && < 840 => desktop,
+        _ => mobile,
+      };
 }
 
 /// Mobile dimensions

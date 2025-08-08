@@ -64,36 +64,30 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
         '/': (context) => MyHomePage(onChangedPlatform: onChangedPlatform),
-        AnywherePage.route:
-            (context) => AnywherePage(onChangedPlatform: onChangedPlatform),
-        CustomButtonsPage.route:
-            (context) =>
-                CustomButtonsPage(onChangedPlatform: onChangedPlatform),
-        CustomMenuPage.route:
-            (context) => CustomMenuPage(onChangedPlatform: onChangedPlatform),
-        ReorderedButtonsPage.route:
-            (context) =>
-                ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
-        EmailButtonPage.route:
-            (context) => EmailButtonPage(onChangedPlatform: onChangedPlatform),
-        ImagePage.route:
-            (context) => ImagePage(onChangedPlatform: onChangedPlatform),
-        FieldTypesPage.route:
-            (context) => FieldTypesPage(onChangedPlatform: onChangedPlatform),
-        FullPage.route:
-            (context) => FullPage(onChangedPlatform: onChangedPlatform),
-        ModifiedActionPage.route:
-            (context) =>
-                ModifiedActionPage(onChangedPlatform: onChangedPlatform),
-        GlobalSelectionPage.route:
-            (context) =>
-                GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
-        DefaultValuesPage.route:
-            (context) =>
-                DefaultValuesPage(onChangedPlatform: onChangedPlatform),
-        CascadingMenuPage.route:
-            (context) =>
-                CascadingMenuPage(onChangedPlatform: onChangedPlatform),
+        AnywherePage.route: (context) =>
+            AnywherePage(onChangedPlatform: onChangedPlatform),
+        CustomButtonsPage.route: (context) =>
+            CustomButtonsPage(onChangedPlatform: onChangedPlatform),
+        CustomMenuPage.route: (context) =>
+            CustomMenuPage(onChangedPlatform: onChangedPlatform),
+        ReorderedButtonsPage.route: (context) =>
+            ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
+        EmailButtonPage.route: (context) =>
+            EmailButtonPage(onChangedPlatform: onChangedPlatform),
+        ImagePage.route: (context) =>
+            ImagePage(onChangedPlatform: onChangedPlatform),
+        FieldTypesPage.route: (context) =>
+            FieldTypesPage(onChangedPlatform: onChangedPlatform),
+        FullPage.route: (context) =>
+            FullPage(onChangedPlatform: onChangedPlatform),
+        ModifiedActionPage.route: (context) =>
+            ModifiedActionPage(onChangedPlatform: onChangedPlatform),
+        GlobalSelectionPage.route: (context) =>
+            GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
+        DefaultValuesPage.route: (context) =>
+            DefaultValuesPage(onChangedPlatform: onChangedPlatform),
+        CascadingMenuPage.route: (context) =>
+            CascadingMenuPage(onChangedPlatform: onChangedPlatform),
       },
     );
   }

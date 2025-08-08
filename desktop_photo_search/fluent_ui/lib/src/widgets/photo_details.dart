@@ -39,20 +39,18 @@ class _PhotoDetailsState extends State<PhotoDetails> {
           uri: Uri.parse(
             'https://unsplash.com/@${widget.photo.user!.username}?utm_source=$unsplashAppName&utm_medium=referral',
           ),
-          builder:
-              (context, followLink) => HyperlinkButton(
-                onPressed: followLink,
-                child: Text(widget.photo.user!.name),
-              ),
+          builder: (context, followLink) => HyperlinkButton(
+            onPressed: followLink,
+            child: Text(widget.photo.user!.name),
+          ),
         ),
         const Text('on'),
         Link(
           uri: _unsplashHomepage,
-          builder:
-              (context, followLink) => HyperlinkButton(
-                onPressed: followLink,
-                child: const Text('Unsplash'),
-              ),
+          builder: (context, followLink) => HyperlinkButton(
+            onPressed: followLink,
+            child: const Text('Unsplash'),
+          ),
         ),
       ],
     );

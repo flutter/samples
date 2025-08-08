@@ -62,7 +62,11 @@ class DefaultValuesPage extends StatelessWidget {
                 'This example simply shows what happens when contextMenuBuilder is given null, a custom value, or omitted altogether.',
               ),
               const SizedBox(height: 40.0),
-              TextField(maxLines: 2, minLines: 2, controller: _controllerNone),
+              TextField(
+                maxLines: 2,
+                minLines: 2,
+                controller: _controllerNone,
+              ),
               TextField(
                 maxLines: 2,
                 minLines: 2,

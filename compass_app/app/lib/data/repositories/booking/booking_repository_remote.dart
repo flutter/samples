@@ -27,8 +27,9 @@ class BookingRepositoryRemote implements BookingRepository {
         endDate: booking.endDate,
         name: '${booking.destination.name}, ${booking.destination.continent}',
         destinationRef: booking.destination.ref,
-        activitiesRef:
-            booking.activity.map((activity) => activity.ref).toList(),
+        activitiesRef: booking.activity
+            .map((activity) => activity.ref)
+            .toList(),
       );
       return _apiClient.postBooking(bookingApiModel);
     } on Exception catch (e) {
@@ -72,10 +73,9 @@ class BookingRepositoryRemote implements BookingRepository {
           return Result.error(resultActivities.error);
         case Ok<List<Activity>>():
       }
-      final activities =
-          resultActivities.value
-              .where((activity) => booking.activitiesRef.contains(activity.ref))
-              .toList();
+      final activities = resultActivities.value
+          .where((activity) => booking.activitiesRef.contains(activity.ref))
+          .toList();
 
       return Result.ok(
         Booking(

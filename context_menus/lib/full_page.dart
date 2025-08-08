@@ -107,7 +107,9 @@ class FullPage extends StatelessWidget {
                         editableTextState.textEditingValue;
                     final List<ContextMenuButtonItem> buttonItems =
                         editableTextState.contextMenuButtonItems;
-                    if (isValidEmail(value.selection.textInside(value.text))) {
+                    if (isValidEmail(
+                      value.selection.textInside(value.text),
+                    )) {
                       buttonItems.insert(
                         0,
                         ContextMenuButtonItem(
@@ -115,7 +117,10 @@ class FullPage extends StatelessWidget {
                           onPressed: () {
                             ContextMenuController.removeAny();
                             Navigator.of(context).push(
-                              _showDialog(context, 'You clicked send email'),
+                              _showDialog(
+                                context,
+                                'You clicked send email',
+                              ),
                             );
                           },
                         ),
@@ -126,26 +131,25 @@ class FullPage extends StatelessWidget {
                       // Build the default buttons, but make them look crazy.
                       // Note that in a real project you may want to build
                       // different buttons depending on the platform.
-                      children:
-                          buttonItems.map((buttonItem) {
-                            return CupertinoButton(
-                              borderRadius: null,
-                              color: const Color(0xffaaaa00),
-                              disabledColor: const Color(0xffaaaaff),
-                              onPressed: buttonItem.onPressed,
-                              padding: const EdgeInsets.all(10.0),
-                              pressedOpacity: 0.7,
-                              child: SizedBox(
-                                width: 200.0,
-                                child: Text(
-                                  CupertinoTextSelectionToolbarButton.getButtonLabel(
-                                    context,
-                                    buttonItem,
-                                  ),
-                                ),
+                      children: buttonItems.map((buttonItem) {
+                        return CupertinoButton(
+                          borderRadius: null,
+                          color: const Color(0xffaaaa00),
+                          disabledColor: const Color(0xffaaaaff),
+                          onPressed: buttonItem.onPressed,
+                          padding: const EdgeInsets.all(10.0),
+                          pressedOpacity: 0.7,
+                          child: SizedBox(
+                            width: 200.0,
+                            child: Text(
+                              CupertinoTextSelectionToolbarButton.getButtonLabel(
+                                context,
+                                buttonItem,
                               ),
-                            );
-                          }).toList(),
+                            ),
+                          ),
+                        );
+                      }).toList(),
                     );
                   },
                 ),

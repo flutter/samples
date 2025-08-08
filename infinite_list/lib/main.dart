@@ -22,7 +22,8 @@ const double windowWidth = 480;
 const double windowHeight = 854;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Infinite List');
     setWindowMinSize(const Size(windowWidth, windowHeight));
@@ -68,26 +69,25 @@ class MyHomePage extends StatelessWidget {
         // listening to the catalog's `itemCount`, because that's all we need
         // at this level.
         selector: (context, catalog) => catalog.itemCount,
-        builder:
-            (context, itemCount, child) => ListView.builder(
-              // When `itemCount` is null, `ListView` assumes an infinite list.
-              // Once we provide a value, it will stop the scrolling beyond
-              // the last element.
-              itemCount: itemCount,
-              padding: const EdgeInsets.symmetric(vertical: 18),
-              itemBuilder: (context, index) {
-                // Every item of the `ListView` is individually listening
-                // to the catalog.
-                var catalog = Provider.of<Catalog>(context);
+        builder: (context, itemCount, child) => ListView.builder(
+          // When `itemCount` is null, `ListView` assumes an infinite list.
+          // Once we provide a value, it will stop the scrolling beyond
+          // the last element.
+          itemCount: itemCount,
+          padding: const EdgeInsets.symmetric(vertical: 18),
+          itemBuilder: (context, index) {
+            // Every item of the `ListView` is individually listening
+            // to the catalog.
+            var catalog = Provider.of<Catalog>(context);
 
-                // Catalog provides a single synchronous method for getting the
-                // current data.
-                return switch (catalog.getByIndex(index)) {
-                  Item(isLoading: true) => const LoadingItemTile(),
-                  var item => ItemTile(item: item),
-                };
-              },
-            ),
+            // Catalog provides a single synchronous method for getting the
+            // current data.
+            return switch (catalog.getByIndex(index)) {
+              Item(isLoading: true) => const LoadingItemTile(),
+              var item => ItemTile(item: item),
+            };
+          },
+        ),
       ),
     );
   }

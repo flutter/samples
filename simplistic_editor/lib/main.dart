@@ -49,8 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _replacementTextEditingController =
-        AppStateManager.of(context).appState.replacementsController;
+    _replacementTextEditingController = AppStateManager.of(
+      context,
+    ).appState.replacementsController;
   }
 
   static Route<Object?> _aboutDialogBuilder(
@@ -67,11 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ' more powerful rich text editing applications such as this small example. This feature is supported on all platforms.';
     return DialogRoute<void>(
       context: context,
-      builder:
-          (context) => const AlertDialog(
-            title: Center(child: Text('About')),
-            content: Text(aboutContent),
-          ),
+      builder: (context) => const AlertDialog(
+        title: Center(child: Text('About')),
+        content: Text(aboutContent),
+      ),
     );
   }
 
@@ -100,7 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: BasicTextField(
                     controller: _replacementTextEditingController,
-                    style: const TextStyle(fontSize: 18.0, color: Colors.black),
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.black,
+                    ),
                     focusNode: _focusNode,
                   ),
                 ),

@@ -13,7 +13,10 @@ class MyCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart', style: Theme.of(context).textTheme.displayLarge),
+        title: Text(
+          'Cart',
+          style: Theme.of(context).textTheme.displayLarge,
+        ),
         backgroundColor: Colors.white,
       ),
       body: Container(
@@ -46,17 +49,16 @@ class _CartList extends StatelessWidget {
 
     return ListView.builder(
       itemCount: cart.items.length,
-      itemBuilder:
-          (context, index) => ListTile(
-            leading: const Icon(Icons.done),
-            trailing: IconButton(
-              icon: const Icon(Icons.remove_circle_outline),
-              onPressed: () {
-                cart.remove(cart.items[index]);
-              },
-            ),
-            title: Text(cart.items[index].name, style: itemNameStyle),
-          ),
+      itemBuilder: (context, index) => ListTile(
+        leading: const Icon(Icons.done),
+        trailing: IconButton(
+          icon: const Icon(Icons.remove_circle_outline),
+          onPressed: () {
+            cart.remove(cart.items[index]);
+          },
+        ),
+        title: Text(cart.items[index].name, style: itemNameStyle),
+      ),
     );
   }
 }
@@ -81,15 +83,16 @@ class _CartTotal extends StatelessWidget {
             // The important thing is that it will not rebuild
             // the rest of the widgets in this build method.
             Consumer<CartModel>(
-              builder:
-                  (context, cart, child) =>
-                      Text('\$${cart.totalPrice}', style: hugeStyle),
+              builder: (context, cart, child) =>
+                  Text('\$${cart.totalPrice}', style: hugeStyle),
             ),
             const SizedBox(width: 24),
             FilledButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Buying not supported yet.')),
+                  const SnackBar(
+                    content: Text('Buying not supported yet.'),
+                  ),
                 );
               },
               style: TextButton.styleFrom(foregroundColor: Colors.white),

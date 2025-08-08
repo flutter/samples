@@ -64,16 +64,14 @@ class _$LoginRequestCopyWithImpl<$Res, $Val extends LoginRequest>
   $Res call({Object? email = null, Object? password = null}) {
     return _then(
       _value.copyWith(
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
-            password:
-                null == password
-                    ? _value.password
-                    : password // ignore: cast_nullable_to_non_nullable
-                        as String,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+            password: null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -108,16 +106,14 @@ class __$$LoginRequestImplCopyWithImpl<$Res>
   $Res call({Object? email = null, Object? password = null}) {
     return _then(
       _$LoginRequestImpl(
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        password:
-            null == password
-                ? _value.password
-                : password // ignore: cast_nullable_to_non_nullable
-                    as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

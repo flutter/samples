@@ -21,7 +21,11 @@ Future<ItemPage> fetchPage(int startingIndex) async {
   // If the [startingIndex] is beyond the bounds of the catalog, an
   // empty page will be returned.
   if (startingIndex > catalogLength) {
-    return ItemPage(items: [], startingIndex: startingIndex, hasNext: false);
+    return ItemPage(
+      items: [],
+      startingIndex: startingIndex,
+      hasNext: false,
+    );
   }
 
   // The page of items is generated here.

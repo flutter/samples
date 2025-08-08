@@ -30,10 +30,9 @@ class ProductCategoryList extends StatelessWidget {
           value.toString().contains(state.pathParameters['category']!),
       orElse: () => Category.all,
     );
-    final List<Widget> children =
-        ProductsRepository.loadProducts(
-          category: category,
-        ).map<Widget>((Product p) => RowItem(product: p)).toList();
+    final List<Widget> children = ProductsRepository.loadProducts(
+      category: category,
+    ).map<Widget>((Product p) => RowItem(product: p)).toList();
     return Scaffold(
       backgroundColor: Styles.scaffoldBackground,
       body: CustomScrollView(

@@ -61,16 +61,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({Object? name = null, Object? picture = null}) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            picture:
-                null == picture
-                    ? _value.picture
-                    : picture // ignore: cast_nullable_to_non_nullable
-                        as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            picture: null == picture
+                ? _value.picture
+                : picture // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -102,16 +100,14 @@ class __$$UserImplCopyWithImpl<$Res>
   $Res call({Object? name = null, Object? picture = null}) {
     return _then(
       _$UserImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        picture:
-            null == picture
-                ? _value.picture
-                : picture // ignore: cast_nullable_to_non_nullable
-                    as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        picture: null == picture
+            ? _value.picture
+            : picture // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

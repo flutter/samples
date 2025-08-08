@@ -98,8 +98,9 @@ class _$Tags extends Tags {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Tags')
-      ..add('title', title)).toString();
+    return (newBuiltValueToStringHelper(
+      r'Tags',
+    )..add('title', title)).toString();
   }
 }
 
@@ -139,7 +140,11 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
     final _$result =
         _$v ??
         new _$Tags._(
-          title: BuiltValueNullFieldError.checkNotNull(title, r'Tags', 'title'),
+          title: BuiltValueNullFieldError.checkNotNull(
+            title,
+            r'Tags',
+            'title',
+          ),
         );
     replace(_$result);
     return _$result;

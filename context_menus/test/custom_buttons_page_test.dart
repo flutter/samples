@@ -37,7 +37,10 @@ void main() {
     expect(find.byType(AdaptiveTextSelectionToolbar), findsOneWidget);
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
-        expect(find.byType(CupertinoTextSelectionToolbarButton), findsNothing);
+        expect(
+          find.byType(CupertinoTextSelectionToolbarButton),
+          findsNothing,
+        );
         expect(find.byType(CupertinoButton), findsNWidgets(2));
       case TargetPlatform.macOS:
         expect(find.byType(CupertinoButton), findsNWidgets(2));
@@ -52,7 +55,10 @@ void main() {
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(find.byType(CupertinoButton), findsNWidgets(1));
-        expect(find.byType(DesktopTextSelectionToolbarButton), findsNothing);
+        expect(
+          find.byType(DesktopTextSelectionToolbarButton),
+          findsNothing,
+        );
     }
   });
 }

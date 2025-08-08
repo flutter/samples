@@ -39,7 +39,10 @@ class _$CurrentUserCollectionsSerializer
       result
         ..add('title')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.publishedAt;
@@ -47,7 +50,10 @@ class _$CurrentUserCollectionsSerializer
       result
         ..add('published_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.updatedAt;
@@ -55,7 +61,10 @@ class _$CurrentUserCollectionsSerializer
       result
         ..add('updated_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     return result;
@@ -134,7 +143,11 @@ class _$CurrentUserCollections extends CurrentUserCollections {
     this.publishedAt,
     this.updatedAt,
   }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'CurrentUserCollections', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+      id,
+      r'CurrentUserCollections',
+      'id',
+    );
   }
 
   @override

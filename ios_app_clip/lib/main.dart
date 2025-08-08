@@ -37,7 +37,9 @@ class _DemoState extends State<Demo> {
   Widget build(BuildContext context) {
     return CupertinoApp(
       home: CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(middle: Text('App Clip')),
+        navigationBar: const CupertinoNavigationBar(
+          middle: Text('App Clip'),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

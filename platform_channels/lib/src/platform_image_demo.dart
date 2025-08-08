@@ -45,7 +45,10 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
-                      return Image.memory(snapshot.data!, fit: BoxFit.fill);
+                      return Image.memory(
+                        snapshot.data!,
+                        fit: BoxFit.fill,
+                      );
                     }
                     return const CircularProgressIndicator();
                   },
@@ -54,14 +57,13 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
             ),
             const SizedBox(height: 16),
             FilledButton(
-              onPressed:
-                  imageData != null
-                      ? null
-                      : () {
-                        setState(() {
-                          imageData = PlatformImageFetcher.getImage();
-                        });
-                      },
+              onPressed: imageData != null
+                  ? null
+                  : () {
+                      setState(() {
+                        imageData = PlatformImageFetcher.getImage();
+                      });
+                    },
               child: const Text('Get Image'),
             ),
           ],

@@ -17,7 +17,10 @@ class MyLogin extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Welcome', style: Theme.of(context).textTheme.displayLarge),
+              Text(
+                'Welcome',
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
               TextFormField(
                 decoration: const InputDecoration(hintText: 'Username'),
               ),
@@ -30,7 +33,9 @@ class MyLogin extends StatelessWidget {
                 onPressed: () {
                   context.pushReplacement('/catalog');
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellow,
+                ),
                 child: const Text('ENTER'),
               ),
             ],

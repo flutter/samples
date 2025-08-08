@@ -31,7 +31,10 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
       result
         ..add('self')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.html;
@@ -39,7 +42,10 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
       result
         ..add('html')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.download;
@@ -47,7 +53,10 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
       result
         ..add('download')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.downloadLocation;
@@ -55,7 +64,10 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
       result
         ..add('download_location')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     return result;

@@ -95,8 +95,9 @@ class ApiClient {
       if (response.statusCode == 200) {
         final stringData = await response.transform(utf8.decoder).join();
         final json = jsonDecode(stringData) as List<dynamic>;
-        final activities =
-            json.map((element) => Activity.fromJson(element)).toList();
+        final activities = json
+            .map((element) => Activity.fromJson(element))
+            .toList();
         return Result.ok(activities);
       } else {
         return const Result.error(HttpException("Invalid response"));
@@ -117,8 +118,9 @@ class ApiClient {
       if (response.statusCode == 200) {
         final stringData = await response.transform(utf8.decoder).join();
         final json = jsonDecode(stringData) as List<dynamic>;
-        final bookings =
-            json.map((element) => BookingApiModel.fromJson(element)).toList();
+        final bookings = json
+            .map((element) => BookingApiModel.fromJson(element))
+            .toList();
         return Result.ok(bookings);
       } else {
         return const Result.error(HttpException("Invalid response"));

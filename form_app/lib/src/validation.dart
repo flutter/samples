@@ -38,19 +38,18 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
 
                 showDialog<void>(
                   context: context,
-                  builder:
-                      (context) => AlertDialog(
-                        title: const Text('Your story'),
-                        content: Text('The $adjective developer saw a $noun'),
-                        actions: [
-                          TextButton(
-                            child: const Text('Done'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
+                  builder: (context) => AlertDialog(
+                    title: const Text('Your story'),
+                    content: Text('The $adjective developer saw a $noun'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Done'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
                       ),
+                    ],
+                  ),
                 );
               },
             ),
@@ -138,18 +137,21 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                             ),
                             Text(
                               'I agree to the terms of service.',
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: Theme.of(
+                                context,
+                              ).textTheme.titleMedium,
                             ),
                           ],
                         ),
                         if (!formFieldState.isValid)
                           Text(
                             formFieldState.errorText ?? "",
-                            style: Theme.of(
-                              context,
-                            ).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).colorScheme.error,
-                            ),
+                            style: Theme.of(context).textTheme.bodySmall!
+                                .copyWith(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.error,
+                                ),
                           ),
                       ],
                     );

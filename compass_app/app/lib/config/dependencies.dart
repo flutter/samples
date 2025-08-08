@@ -36,12 +36,11 @@ import '../domain/use_cases/booking/booking_share_use_case.dart';
 List<SingleChildWidget> _sharedProviders = [
   Provider(
     lazy: true,
-    create:
-        (context) => BookingCreateUseCase(
-          destinationRepository: context.read(),
-          activityRepository: context.read(),
-          bookingRepository: context.read(),
-        ),
+    create: (context) => BookingCreateUseCase(
+      destinationRepository: context.read(),
+      activityRepository: context.read(),
+      bookingRepository: context.read(),
+    ),
   ),
   Provider(
     lazy: true,
@@ -57,46 +56,40 @@ List<SingleChildWidget> get providersRemote {
     Provider(create: (context) => ApiClient()),
     Provider(create: (context) => SharedPreferencesService()),
     ChangeNotifierProvider(
-      create:
-          (context) =>
-              AuthRepositoryRemote(
-                    authApiClient: context.read(),
-                    apiClient: context.read(),
-                    sharedPreferencesService: context.read(),
-                  )
-                  as AuthRepository,
+      create: (context) =>
+          AuthRepositoryRemote(
+                authApiClient: context.read(),
+                apiClient: context.read(),
+                sharedPreferencesService: context.read(),
+              )
+              as AuthRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              DestinationRepositoryRemote(apiClient: context.read())
-                  as DestinationRepository,
+      create: (context) =>
+          DestinationRepositoryRemote(apiClient: context.read())
+              as DestinationRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              ContinentRepositoryRemote(apiClient: context.read())
-                  as ContinentRepository,
+      create: (context) =>
+          ContinentRepositoryRemote(apiClient: context.read())
+              as ContinentRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              ActivityRepositoryRemote(apiClient: context.read())
-                  as ActivityRepository,
+      create: (context) =>
+          ActivityRepositoryRemote(apiClient: context.read())
+              as ActivityRepository,
     ),
     Provider.value(
       value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              BookingRepositoryRemote(apiClient: context.read())
-                  as BookingRepository,
+      create: (context) =>
+          BookingRepositoryRemote(apiClient: context.read())
+              as BookingRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              UserRepositoryRemote(apiClient: context.read()) as UserRepository,
+      create: (context) =>
+          UserRepositoryRemote(apiClient: context.read()) as UserRepository,
     ),
     ..._sharedProviders,
   ];
@@ -110,37 +103,32 @@ List<SingleChildWidget> get providersLocal {
     ChangeNotifierProvider.value(value: AuthRepositoryDev() as AuthRepository),
     Provider.value(value: LocalDataService()),
     Provider(
-      create:
-          (context) =>
-              DestinationRepositoryLocal(localDataService: context.read())
-                  as DestinationRepository,
+      create: (context) =>
+          DestinationRepositoryLocal(localDataService: context.read())
+              as DestinationRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              ContinentRepositoryLocal(localDataService: context.read())
-                  as ContinentRepository,
+      create: (context) =>
+          ContinentRepositoryLocal(localDataService: context.read())
+              as ContinentRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              ActivityRepositoryLocal(localDataService: context.read())
-                  as ActivityRepository,
+      create: (context) =>
+          ActivityRepositoryLocal(localDataService: context.read())
+              as ActivityRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              BookingRepositoryLocal(localDataService: context.read())
-                  as BookingRepository,
+      create: (context) =>
+          BookingRepositoryLocal(localDataService: context.read())
+              as BookingRepository,
     ),
     Provider.value(
       value: ItineraryConfigRepositoryMemory() as ItineraryConfigRepository,
     ),
     Provider(
-      create:
-          (context) =>
-              UserRepositoryLocal(localDataService: context.read())
-                  as UserRepository,
+      create: (context) =>
+          UserRepositoryLocal(localDataService: context.read())
+              as UserRepository,
     ),
     ..._sharedProviders,
   ];

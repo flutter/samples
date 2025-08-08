@@ -33,10 +33,9 @@ class BookstoreAuth extends ChangeNotifier {
   @override
   int get hashCode => _signedIn.hashCode;
 
-  static BookstoreAuth of(BuildContext context) =>
-      context
-          .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()!
-          .notifier!;
+  static BookstoreAuth of(BuildContext context) => context
+      .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()!
+      .notifier!;
 }
 
 class BookstoreAuthScope extends InheritedNotifier<BookstoreAuth> {

@@ -34,7 +34,10 @@ void main() {
       expect(tintIconOnBar, findsNothing);
       Finder selectedTintIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
-        matching: find.widgetWithIcon(NavigationDestination, Icons.opacity),
+        matching: find.widgetWithIcon(
+          NavigationDestination,
+          Icons.opacity,
+        ),
       );
       expect(selectedTintIconOnBar, findsOneWidget);
       expect(find.text('Surface Tint Color Only'), findsOneWidget);
@@ -69,14 +72,19 @@ void main() {
     },
   );
 
-  testWidgets('Surface Tones screen shows correct content', (tester) async {
+  testWidgets('Surface Tones screen shows correct content', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(body: Row(children: [ElevationScreen()])),
       ),
     );
     expect(find.text('Surface Tint Color Only'), findsOneWidget);
-    expect(find.text('Surface Tint Color and Shadow Color'), findsOneWidget);
+    expect(
+      find.text('Surface Tint Color and Shadow Color'),
+      findsOneWidget,
+    );
     expect(find.text('Shadow Color Only'), findsOneWidget);
     expect(find.byType(ElevationGrid), findsNWidgets(3));
     expect(find.byType(ElevationCard), findsNWidgets(18));

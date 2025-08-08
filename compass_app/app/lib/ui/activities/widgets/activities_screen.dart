@@ -71,10 +71,9 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                   Expanded(
                     child: Center(
                       child: ErrorIndicator(
-                        title:
-                            AppLocalization.of(
-                              context,
-                            ).errorWhileLoadingActivities,
+                        title: AppLocalization.of(
+                          context,
+                        ).errorWhileLoadingActivities,
                         label: AppLocalization.of(context).tryAgain,
                         onPressed: widget.viewModel.loadActivities.execute,
                       ),
@@ -171,10 +170,9 @@ class _BottomArea extends StatelessWidget {
               ),
               FilledButton(
                 key: const Key(confirmButtonKey),
-                onPressed:
-                    viewModel.selectedActivities.isNotEmpty
-                        ? viewModel.saveActivities.execute
-                        : null,
+                onPressed: viewModel.selectedActivities.isNotEmpty
+                    ? viewModel.saveActivities.execute
+                    : null,
                 child: Text(AppLocalization.of(context).confirm),
               ),
             ],

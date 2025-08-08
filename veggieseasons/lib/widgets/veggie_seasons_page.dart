@@ -19,7 +19,8 @@ class VeggieSeasonsPage<T> extends Page<T> {
 }
 
 class VeggieSeasonsPageRoute<T> extends PageRoute<T> {
-  VeggieSeasonsPageRoute(VeggieSeasonsPage<T> page) : super(settings: page);
+  VeggieSeasonsPageRoute(VeggieSeasonsPage<T> page)
+    : super(settings: page);
 
   VeggieSeasonsPage<T> get _page => settings as VeggieSeasonsPage<T>;
 

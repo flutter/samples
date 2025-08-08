@@ -9,7 +9,8 @@ class GlobalSelectionPage extends StatelessWidget {
 
   static const String route = 'global-selection';
   static const String title = 'Global Selection Example';
-  static const String subtitle = 'Context menus in and out of global selection';
+  static const String subtitle =
+      'Context menus in and out of global selection';
   static const String url = '$kCodeUrl/global_selection_page.dart';
 
   final PlatformCallback onChangedPlatform;

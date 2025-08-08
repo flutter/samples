@@ -42,8 +42,9 @@ class ResultCard extends StatelessWidget {
                   spacing: 4.0,
                   runSpacing: 4.0,
                   direction: Axis.horizontal,
-                  children:
-                      destination.tags.map((e) => TagChip(tag: e)).toList(),
+                  children: destination.tags
+                      .map((e) => TagChip(tag: e))
+                      .toList(),
                 ),
               ],
             ),

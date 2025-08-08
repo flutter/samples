@@ -31,9 +31,9 @@ class EventRow extends StatelessWidget {
             event.isComplete
                 ? const Icon(CupertinoIcons.check_mark)
                 : Text(
-                  '${event.remainingTaskCount}',
-                  style: const TextStyle(color: CupertinoColors.systemGrey),
-                ),
+                    '${event.remainingTaskCount}',
+                    style: const TextStyle(color: CupertinoColors.systemGrey),
+                  ),
             const CupertinoListTileChevron(),
           ],
         ),

@@ -99,7 +99,10 @@ class ProfileTab extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
   }
 }
 
@@ -243,6 +246,9 @@ class LogOutButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
   }
 }

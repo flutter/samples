@@ -27,7 +27,11 @@ class ListScreen extends StatelessWidget {
         future: prefs.preferredCategories,
         builder: (context, snapshot) {
           final data = snapshot.data ?? <VeggieCategory>{};
-          return VeggieCard(veggie, inSeason, data.contains(veggie.category));
+          return VeggieCard(
+            veggie,
+            inSeason,
+            data.contains(veggie.category),
+          );
         },
       ),
     );

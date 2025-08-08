@@ -11,7 +11,8 @@ Future<http.Response> _mockHandler(http.Request request) async {
     json.decode(request.body) as Map<String, dynamic>,
   );
 
-  if (decodedJson['email'] == 'root' && decodedJson['password'] == 'password') {
+  if (decodedJson['email'] == 'root' &&
+      decodedJson['password'] == 'password') {
     return http.Response('', 200);
   }
 

@@ -34,7 +34,9 @@ void main() {
 
             if (methodCall.method == 'listen') {
               // Emit new sensor values.
-              emitValues(standardMethod.encodeSuccessEnvelope(sensorValues));
+              emitValues(
+                standardMethod.encodeSuccessEnvelope(sensorValues),
+              );
               emitValues(null);
               return standardMethod.encodeSuccessEnvelope(null);
             } else if (methodCall.method == 'cancel') {

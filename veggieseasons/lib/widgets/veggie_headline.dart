@@ -67,6 +67,9 @@ class VeggieHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = CupertinoTheme.of(context);
+    final String location = GoRouter.of(
+      context,
+    ).routerDelegate.currentConfiguration.uri.toString();
 
     return GestureDetector(
       onTap: () {
@@ -74,7 +77,7 @@ class VeggieHeadline extends StatelessWidget {
         // so navigate to the absolute route, which can be either
         // `/favorites/details/${veggie.id}` or `/search/details/${veggie.id}`
         // see https://github.com/flutter/flutter/issues/108177
-        context.go('${GoRouter.of(context).location}/details/${veggie.id}');
+        context.go('$location/details/${veggie.id}');
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +96,10 @@ class VeggieHeadline extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(veggie.name, style: Styles.headlineName(themeData)),
+                    Text(
+                      veggie.name,
+                      style: Styles.headlineName(themeData),
+                    ),
                     ..._buildSeasonDots(veggie.seasons),
                   ],
                 ),

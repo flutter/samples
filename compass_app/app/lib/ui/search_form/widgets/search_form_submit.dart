@@ -65,10 +65,9 @@ class _SearchFormSubmitState extends State<SearchFormSubmit> {
         builder: (context, child) {
           return FilledButton(
             key: const ValueKey(searchFormSubmitButtonKey),
-            onPressed:
-                widget.viewModel.valid
-                    ? widget.viewModel.updateItineraryConfig.execute
-                    : null,
+            onPressed: widget.viewModel.valid
+                ? widget.viewModel.updateItineraryConfig.execute
+                : null,
             child: child,
           );
         },

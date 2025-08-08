@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Shows default buttons in a custom context menu', (tester) async {
+  testWidgets('Shows default buttons in a custom context menu', (
+    tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CustomMenuPage example.
@@ -33,7 +35,10 @@ void main() {
 
     // A custom context menu is shown, and the buttons are the default ones.
     expect(find.byType(AdaptiveTextSelectionToolbar), findsNothing);
-    expect(find.byType(CupertinoAdaptiveTextSelectionToolbar), findsNothing);
+    expect(
+      find.byType(CupertinoAdaptiveTextSelectionToolbar),
+      findsNothing,
+    );
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
         expect(
@@ -47,7 +52,10 @@ void main() {
         );
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
-        expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(1));
+        expect(
+          find.byType(TextSelectionToolbarTextButton),
+          findsNWidgets(1),
+        );
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(

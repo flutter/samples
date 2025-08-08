@@ -42,21 +42,19 @@ class SettingsScreen extends StatelessWidget {
             const _NameChangeLine('Name'),
             ValueListenableBuilder<bool>(
               valueListenable: settings.soundsOn,
-              builder:
-                  (context, soundsOn, child) => _SettingsLine(
-                    'Sound FX',
-                    Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
-                    onSelected: () => settings.toggleSoundsOn(),
-                  ),
+              builder: (context, soundsOn, child) => _SettingsLine(
+                'Sound FX',
+                Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
+                onSelected: () => settings.toggleSoundsOn(),
+              ),
             ),
             ValueListenableBuilder<bool>(
               valueListenable: settings.musicOn,
-              builder:
-                  (context, musicOn, child) => _SettingsLine(
-                    'Music',
-                    Icon(musicOn ? Icons.music_note : Icons.music_off),
-                    onSelected: () => settings.toggleMusicOn(),
-                  ),
+              builder: (context, musicOn, child) => _SettingsLine(
+                'Music',
+                Icon(musicOn ? Icons.music_note : Icons.music_off),
+                onSelected: () => settings.toggleMusicOn(),
+              ),
             ),
             Consumer<InAppPurchaseController?>(
               builder: (context, inAppPurchase, child) {
@@ -137,14 +135,13 @@ class _NameChangeLine extends StatelessWidget {
             const Spacer(),
             ValueListenableBuilder(
               valueListenable: settings.playerName,
-              builder:
-                  (context, name, child) => Text(
-                    '‘$name’',
-                    style: const TextStyle(
-                      fontFamily: 'Permanent Marker',
-                      fontSize: 30,
-                    ),
-                  ),
+              builder: (context, name, child) => Text(
+                '‘$name’',
+                style: const TextStyle(
+                  fontFamily: 'Permanent Marker',
+                  fontSize: 30,
+                ),
+              ),
             ),
           ],
         ),

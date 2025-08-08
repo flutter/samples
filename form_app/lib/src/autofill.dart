@@ -99,7 +99,9 @@ class _AutofillDemoState extends State<AutofillDemo> {
                       ),
                       autofillHints: [AutofillHints.countryCode],
                     ),
-                  ].expand((widget) => [widget, const SizedBox(height: 24)]),
+                  ].expand(
+                    (widget) => [widget, const SizedBox(height: 24)],
+                  ),
                 ],
               ),
             ),

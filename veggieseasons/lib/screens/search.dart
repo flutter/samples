@@ -18,7 +18,8 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
+class _SearchScreenState extends State<SearchScreen>
+    with RestorationMixin {
   final controller = RestorableTextEditingController();
   final focusNode = FocusNode();
   String? terms;
@@ -87,7 +88,11 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
           );
         } else {
           return Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              bottom: 24,
+            ),
             child: VeggieHeadline(veggies[i - 1]),
           );
         }
@@ -106,7 +111,9 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
         builder: (context) {
           return AnnotatedRegion<SystemUiOverlayStyle>(
             value: SystemUiOverlayStyle(
-              statusBarBrightness: MediaQuery.platformBrightnessOf(context),
+              statusBarBrightness: MediaQuery.platformBrightnessOf(
+                context,
+              ),
             ),
             child: SafeArea(
               bottom: false,

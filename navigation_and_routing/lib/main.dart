@@ -19,7 +19,8 @@ const double windowWidth = 480;
 const double windowHeight = 854;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Navigation and routing');
     setWindowMinSize(const Size(windowWidth, windowHeight));

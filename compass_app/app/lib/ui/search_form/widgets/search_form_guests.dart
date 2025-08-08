@@ -75,14 +75,12 @@ class _QuantitySelector extends StatelessWidget {
           ),
           ListenableBuilder(
             listenable: viewModel,
-            builder:
-                (context, _) => Text(
-                  viewModel.guests.toString(),
-                  style:
-                      viewModel.guests == 0
-                          ? Theme.of(context).inputDecorationTheme.hintStyle
-                          : Theme.of(context).textTheme.bodyMedium,
-                ),
+            builder: (context, _) => Text(
+              viewModel.guests.toString(),
+              style: viewModel.guests == 0
+                  ? Theme.of(context).inputDecorationTheme.hintStyle
+                  : Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
           InkWell(
             key: const ValueKey(addGuestsKey),

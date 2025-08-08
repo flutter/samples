@@ -2,9 +2,10 @@ name: server
 description: A server app using the shelf package and Docker.
 version: 1.0.0
 publish_to: "none"
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   args: ^2.0.0
@@ -14,6 +15,8 @@ dependencies:
     path: ../shared
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   http: ^1.0.0
   lints: ^6.0.0
   test: ^1.15.0

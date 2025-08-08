@@ -33,14 +33,14 @@ class MyApp extends StatelessWidget {
         routes: [
           GoRoute(
             path: '/',
-            builder: (_, __) => const ProductList(),
+            builder: (_, _) => const ProductList(),
             routes: [
-              GoRoute(path: ':id', builder: (_, __) => const ProductDetails()),
+              GoRoute(path: ':id', builder: (_, _) => const ProductDetails()),
             ],
           ),
           GoRoute(
             path: '/category/:category',
-            builder: (_, __) => const ProductCategoryList(),
+            builder: (_, _) => const ProductCategoryList(),
           ),
         ],
       ),

@@ -33,11 +33,10 @@ class _PlaceListState extends State<PlaceList> {
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children:
-                state.places
-                    .where((place) => place.category == state.selectedCategory)
-                    .map((place) => _PlaceListTile(place: place))
-                    .toList(),
+            children: state.places
+                .where((place) => place.category == state.selectedCategory)
+                .map((place) => _PlaceListTile(place: place))
+                .toList(),
           ),
         ),
       ],
@@ -158,17 +157,15 @@ class _PlaceListTile extends StatelessWidget {
               maxLines: 3,
             ),
             Row(
-              children:
-                  List.generate(5, (index) {
-                    return Icon(
-                      Icons.star,
-                      size: 28.0,
-                      color:
-                          place.starRating > index
-                              ? Colors.amber
-                              : Colors.grey[400],
-                    );
-                  }).toList(),
+              children: List.generate(5, (index) {
+                return Icon(
+                  Icons.star,
+                  size: 28.0,
+                  color: place.starRating > index
+                      ? Colors.amber
+                      : Colors.grey[400],
+                );
+              }).toList(),
             ),
             Text(
               place.description ?? '',

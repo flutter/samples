@@ -55,13 +55,12 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
         child: const Text('CANCEL'),
       ),
       TextButton(
-        onPressed:
-            _searchEnabled
-                ? () {
-                  widget.callback(_controller.text);
-                  Navigator.of(context).pop();
-                }
-                : null,
+        onPressed: _searchEnabled
+            ? () {
+                widget.callback(_controller.text);
+                Navigator.of(context).pop();
+              }
+            : null,
         child: const Text('SEARCH'),
       ),
     ],

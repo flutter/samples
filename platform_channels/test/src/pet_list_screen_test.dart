@@ -26,7 +26,9 @@ void main() {
     setUpAll(() {
       // Mock for the pet list received from the platform.
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockDecodedMessageHandler(basicMessageChannel, (message) async {
+          .setMockDecodedMessageHandler(basicMessageChannel, (
+            message,
+          ) async {
             petListModel = PetListModel.fromJson(message!);
             return null;
           });
@@ -78,7 +80,9 @@ void main() {
 
     testWidgets('BuildPetList test', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: Scaffold(body: BuildPetList(petListModel!.petList))),
+        MaterialApp(
+          home: Scaffold(body: BuildPetList(petListModel!.petList)),
+        ),
       );
 
       expect(find.text('Pet type: Dog'), findsOneWidget);

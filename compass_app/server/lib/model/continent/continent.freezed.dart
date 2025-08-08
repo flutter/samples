@@ -62,16 +62,14 @@ class _$ContinentCopyWithImpl<$Res, $Val extends Continent>
   $Res call({Object? name = null, Object? imageUrl = null}) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            imageUrl:
-                null == imageUrl
-                    ? _value.imageUrl
-                    : imageUrl // ignore: cast_nullable_to_non_nullable
-                        as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            imageUrl: null == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -106,16 +104,14 @@ class __$$ContinentImplCopyWithImpl<$Res>
   $Res call({Object? name = null, Object? imageUrl = null}) {
     return _then(
       _$ContinentImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        imageUrl:
-            null == imageUrl
-                ? _value.imageUrl
-                : imageUrl // ignore: cast_nullable_to_non_nullable
-                    as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        imageUrl: null == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

@@ -33,7 +33,9 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
       'results',
       serializers.serialize(
         object.results,
-        specifiedType: const FullType(BuiltList, const [const FullType(Photo)]),
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(Photo),
+        ]),
       ),
     ];
 

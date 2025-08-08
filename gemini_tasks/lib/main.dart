@@ -244,18 +244,19 @@ class _ExampleState extends State<Example> {
           actions.add(FunctionResponse(fn.name, task.toJson()));
           break;
         case 'get_completed_tasks':
-          var filter =
-              current.toList().where((e) => e.completed == true).toList();
+          var filter = current
+              .toList()
+              .where((e) => e.completed == true)
+              .toList();
           final name = args['name'] as String?;
           final description = args['description'] as String?;
           if (name != null) {
             filter = filter.where((e) => e.name.contains(name)).toList();
           }
           if (description != null) {
-            filter =
-                filter
-                    .where((e) => e.description?.contains(description) ?? false)
-                    .toList();
+            filter = filter
+                .where((e) => e.description?.contains(description) ?? false)
+                .toList();
           }
           actions.add(
             FunctionResponse(fn.name, {
@@ -264,18 +265,19 @@ class _ExampleState extends State<Example> {
           );
           break;
         case 'get_active_tasks':
-          var filter =
-              current.toList().where((e) => e.completed == false).toList();
+          var filter = current
+              .toList()
+              .where((e) => e.completed == false)
+              .toList();
           final name = args['name'] as String?;
           final description = args['description'] as String?;
           if (name != null) {
             filter = filter.where((e) => e.name.contains(name)).toList();
           }
           if (description != null) {
-            filter =
-                filter
-                    .where((e) => e.description?.contains(description) ?? false)
-                    .toList();
+            filter = filter
+                .where((e) => e.description?.contains(description) ?? false)
+                .toList();
           }
           actions.add(
             FunctionResponse(fn.name, {
@@ -336,21 +338,20 @@ class _ExampleState extends State<Example> {
         final reversed = messages.value.reversed;
         return Scaffold(
           appBar: AppBar(title: Text(widget.title)),
-          body:
-              messages.value.isEmpty
-                  ? const Center(child: Text('No tasks found'))
-                  : ListView.builder(
-                    padding: const EdgeInsets.all(8),
-                    reverse: true,
-                    itemCount: reversed.length,
-                    itemBuilder: (context, index) {
-                      final (sender, message) = reversed.elementAt(index);
-                      return MessageWidget(
-                        isFromUser: sender == Sender.user,
-                        text: message,
-                      );
-                    },
-                  ),
+          body: messages.value.isEmpty
+              ? const Center(child: Text('No tasks found'))
+              : ListView.builder(
+                  padding: const EdgeInsets.all(8),
+                  reverse: true,
+                  itemCount: reversed.length,
+                  itemBuilder: (context, index) {
+                    final (sender, message) = reversed.elementAt(index);
+                    return MessageWidget(
+                      isFromUser: sender == Sender.user,
+                      text: message,
+                    );
+                  },
+                ),
           bottomNavigationBar: BottomAppBar(
             padding: const EdgeInsets.all(8),
             child: Row(

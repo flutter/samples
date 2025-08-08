@@ -27,7 +27,9 @@ abstract class Location implements Built<Location, LocationBuilder> {
   Position? get position;
 
   String toJson() {
-    return json.encode(serializers.serializeWith(Location.serializer, this));
+    return json.encode(
+      serializers.serializeWith(Location.serializer, this),
+    );
   }
 
   static Location? fromJson(String jsonString) {

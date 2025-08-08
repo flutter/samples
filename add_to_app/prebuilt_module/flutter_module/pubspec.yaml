@@ -1,10 +1,10 @@
 name: flutter_module
 description: An example Flutter module.
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:

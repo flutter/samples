@@ -5,32 +5,31 @@
 import 'author.dart';
 import 'book.dart';
 
-final libraryInstance =
-    Library()
-      ..addBook(
-        title: 'Left Hand of Darkness',
-        authorName: 'Ursula K. Le Guin',
-        isPopular: true,
-        isNew: true,
-      )
-      ..addBook(
-        title: 'Too Like the Lightning',
-        authorName: 'Ada Palmer',
-        isPopular: false,
-        isNew: true,
-      )
-      ..addBook(
-        title: 'Kindred',
-        authorName: 'Octavia E. Butler',
-        isPopular: true,
-        isNew: false,
-      )
-      ..addBook(
-        title: 'The Lathe of Heaven',
-        authorName: 'Ursula K. Le Guin',
-        isPopular: false,
-        isNew: false,
-      );
+final libraryInstance = Library()
+  ..addBook(
+    title: 'Left Hand of Darkness',
+    authorName: 'Ursula K. Le Guin',
+    isPopular: true,
+    isNew: true,
+  )
+  ..addBook(
+    title: 'Too Like the Lightning',
+    authorName: 'Ada Palmer',
+    isPopular: false,
+    isNew: true,
+  )
+  ..addBook(
+    title: 'Kindred',
+    authorName: 'Octavia E. Butler',
+    isPopular: true,
+    isNew: false,
+  )
+  ..addBook(
+    title: 'The Lathe of Heaven',
+    authorName: 'Ursula K. Le Guin',
+    isPopular: false,
+    isNew: false,
+  );
 
 class Library {
   final List<Book> allBooks = [];
@@ -60,7 +59,9 @@ class Library {
     return allBooks[int.parse(id)];
   }
 
-  List<Book> get popularBooks => [...allBooks.where((book) => book.isPopular)];
+  List<Book> get popularBooks => [
+    ...allBooks.where((book) => book.isPopular),
+  ];
 
   List<Book> get newBooks => [...allBooks.where((book) => book.isNew)];
 }

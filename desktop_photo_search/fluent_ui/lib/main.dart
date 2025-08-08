@@ -24,7 +24,9 @@ void main() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((rec) {
     // ignore: avoid_print
-    print('${rec.loggerName} ${rec.level.name}: ${rec.time}: ${rec.message}');
+    print(
+      '${rec.loggerName} ${rec.level.name}: ${rec.time}: ${rec.message}',
+    );
   });
 
   if (unsplashAccessKey.isEmpty) {
@@ -39,8 +41,8 @@ void main() {
 
   runApp(
     ChangeNotifierProvider<PhotoSearchModel>(
-      create:
-          (context) => PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
+      create: (context) =>
+          PhotoSearchModel(Unsplash(accessKey: unsplashAccessKey)),
       child: const UnsplashSearchApp(),
     ),
   );
@@ -50,7 +52,8 @@ const double windowWidth = 1024;
 const double windowHeight = 800;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowMinSize(const Size(windowWidth, windowHeight));
   }
@@ -84,9 +87,9 @@ class UnsplashHomePage extends StatelessWidget {
             onSelected: () {
               showDialog<void>(
                 context: context,
-                builder:
-                    (context) =>
-                        PhotoSearchDialog(callback: photoSearchModel.addSearch),
+                builder: (context) => PhotoSearchDialog(
+                  callback: photoSearchModel.addSearch,
+                ),
               );
             },
           ),
@@ -118,12 +121,11 @@ class UnsplashHomePage extends StatelessWidget {
     return UnsplashNotice(
       child: Container(
         color: Colors.white,
-        child:
-            photoSearchModel.entries.isNotEmpty
-                ? const UnsplashSearchContent()
-                : const Center(
-                  child: Text('Search for Photos using the Search menu'),
-                ),
+        child: photoSearchModel.entries.isNotEmpty
+            ? const UnsplashSearchContent()
+            : const Center(
+                child: Text('Search for Photos using the Search menu'),
+              ),
       ),
     );
   }

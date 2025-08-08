@@ -44,7 +44,10 @@ void main() {
       expect(find.byType(AdaptiveTextSelectionToolbar), findsOneWidget);
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
-          expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
+          expect(
+            find.byType(CupertinoTextSelectionToolbar),
+            findsOneWidget,
+          );
         case TargetPlatform.android:
           expect(find.byType(TextSelectionToolbar), findsOneWidget);
         case TargetPlatform.fuchsia:
@@ -83,7 +86,10 @@ void main() {
         case TargetPlatform.iOS:
         case TargetPlatform.android:
         case TargetPlatform.fuchsia:
-          expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
+          expect(
+            find.byType(CupertinoTextSelectionToolbar),
+            findsOneWidget,
+          );
         case TargetPlatform.macOS:
         case TargetPlatform.linux:
         case TargetPlatform.windows:
@@ -96,7 +102,10 @@ void main() {
       // Tap the next field to hide the context menu.
       await tester.tap(find.byType(CupertinoTextField).at(1));
       await tester.pumpAndSettle();
-      expect(find.byType(CupertinoAdaptiveTextSelectionToolbar), findsNothing);
+      expect(
+        find.byType(CupertinoAdaptiveTextSelectionToolbar),
+        findsNothing,
+      );
 
       // Right click on the fixed CupertinoTextField.
       gesture = await tester.startGesture(
@@ -113,7 +122,10 @@ void main() {
       expect(find.byType(AdaptiveTextSelectionToolbar), findsOneWidget);
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
-          expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
+          expect(
+            find.byType(CupertinoTextSelectionToolbar),
+            findsOneWidget,
+          );
         case TargetPlatform.android:
           expect(find.byType(TextSelectionToolbar), findsOneWidget);
         case TargetPlatform.fuchsia:
@@ -145,7 +157,10 @@ void main() {
 
       // The DesktopTextSelectionToolbar is shown for all platforms.
       expect(find.byType(AdaptiveTextSelectionToolbar), findsNothing);
-      expect(find.byType(CupertinoAdaptiveTextSelectionToolbar), findsNothing);
+      expect(
+        find.byType(CupertinoAdaptiveTextSelectionToolbar),
+        findsNothing,
+      );
       expect(find.byType(DesktopTextSelectionToolbar), findsOneWidget);
 
       // Tap the next field to hide the context menu.
@@ -168,7 +183,10 @@ void main() {
       expect(find.byType(AdaptiveTextSelectionToolbar), findsOneWidget);
       switch (defaultTargetPlatform) {
         case TargetPlatform.iOS:
-          expect(find.byType(CupertinoTextSelectionToolbar), findsOneWidget);
+          expect(
+            find.byType(CupertinoTextSelectionToolbar),
+            findsOneWidget,
+          );
         case TargetPlatform.android:
           expect(find.byType(TextSelectionToolbar), findsOneWidget);
         case TargetPlatform.fuchsia:

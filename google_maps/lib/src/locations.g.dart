@@ -69,17 +69,16 @@ Map<String, dynamic> _$OfficeToJson(Office instance) => <String, dynamic>{
 };
 
 Locations _$LocationsFromJson(Map<String, dynamic> json) => Locations(
-  offices:
-      (json['offices'] as List<dynamic>)
-          .map((e) => Office.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  regions:
-      (json['regions'] as List<dynamic>)
-          .map((e) => Region.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  offices: (json['offices'] as List<dynamic>)
+      .map((e) => Office.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  regions: (json['regions'] as List<dynamic>)
+      .map((e) => Region.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
-Map<String, dynamic> _$LocationsToJson(Locations instance) => <String, dynamic>{
-  'offices': instance.offices,
-  'regions': instance.regions,
-};
+Map<String, dynamic> _$LocationsToJson(Locations instance) =>
+    <String, dynamic>{
+      'offices': instance.offices,
+      'regions': instance.regions,
+    };

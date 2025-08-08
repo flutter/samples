@@ -19,10 +19,9 @@ class ImagePage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder:
-          (context) => const AlertDialog(
-            title: Text('Image saved! (not really though)'),
-          ),
+      builder: (context) => const AlertDialog(
+        title: Text('Image saved! (not really though)'),
+      ),
     );
   }
 
@@ -49,7 +48,9 @@ class ImagePage extends StatelessWidget {
           ContextMenuRegion(
             contextMenuBuilder: (context, offset) {
               return AdaptiveTextSelectionToolbar.buttonItems(
-                anchors: TextSelectionToolbarAnchors(primaryAnchor: offset),
+                anchors: TextSelectionToolbarAnchors(
+                  primaryAnchor: offset,
+                ),
                 buttonItems: <ContextMenuButtonItem>[
                   ContextMenuButtonItem(
                     onPressed: () {

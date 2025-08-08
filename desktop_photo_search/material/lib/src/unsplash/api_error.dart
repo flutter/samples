@@ -21,7 +21,9 @@ abstract class ApiError implements Built<ApiError, ApiErrorBuilder> {
   BuiltList<String>? get errors;
 
   String toJson() {
-    return json.encode(serializers.serializeWith(ApiError.serializer, this));
+    return json.encode(
+      serializers.serializeWith(ApiError.serializer, this),
+    );
   }
 
   static ApiError? fromJson(String jsonString) {

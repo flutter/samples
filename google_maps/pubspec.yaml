@@ -1,10 +1,11 @@
 name: google_maps_in_flutter
 description: A new Flutter project.
+resolution: workspace
 publish_to: 'none' 
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:

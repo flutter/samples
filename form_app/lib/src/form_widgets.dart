@@ -77,11 +77,14 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   'Estimated value',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge,
                                 ),
                               ],
                             ),
@@ -90,7 +93,9 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                                 symbol: "\$",
                                 decimalDigits: 0,
                               ).format(maxValue),
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: Theme.of(
+                                context,
+                              ).textTheme.titleMedium,
                             ),
                             Slider(
                               min: 0,
@@ -119,7 +124,9 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             ),
                             Text(
                               'Brushed Teeth',
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: Theme.of(
+                                context,
+                              ).textTheme.titleMedium,
                             ),
                           ],
                         ),

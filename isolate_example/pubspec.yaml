@@ -2,9 +2,10 @@ name: isolate_example
 description: A Flutter sample to demonstrate isolates
 version: 1.0.0+1
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:
@@ -20,6 +21,5 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
 flutter:
   uses-material-design: true

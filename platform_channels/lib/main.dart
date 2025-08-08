@@ -22,7 +22,9 @@ class PlatformChannelSample extends StatelessWidget {
     return MaterialApp.router(
       title: 'Platform Channel Sample',
       theme: ThemeData(
-        snackBarTheme: SnackBarThemeData(backgroundColor: Colors.blue[500]),
+        snackBarTheme: SnackBarThemeData(
+          backgroundColor: Colors.blue[500],
+        ),
       ),
       routerConfig: router(),
     );

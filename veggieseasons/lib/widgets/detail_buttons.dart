@@ -86,11 +86,14 @@ class ShareButton extends _DetailPageButton {
 
 /// A favorite button that invokes a callback when pressed.
 class FavoriteButton extends _DetailPageButton {
-  const FavoriteButton(VoidCallback onPressed, bool isFavorite, {super.key})
-    : super(
-        onPressed,
-        isFavorite ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-      );
+  const FavoriteButton(
+    VoidCallback onPressed,
+    bool isFavorite, {
+    super.key,
+  }) : super(
+         onPressed,
+         isFavorite ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
+       );
 }
 
 class _DetailPageButton extends StatefulWidget {
@@ -124,15 +127,16 @@ class _DetailPageButtonState extends State<_DetailPageButton> {
           child: Container(
             width: 30,
             height: 30,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
             child: Center(
               child: ColorChangingIcon(
                 widget.icon,
                 duration: const Duration(milliseconds: 300),
-                color:
-                    tapInProgress
-                        ? Styles.closeButtonPressed
-                        : Styles.closeButtonUnpressed,
+                color: tapInProgress
+                    ? Styles.closeButtonPressed
+                    : Styles.closeButtonUnpressed,
                 size: 20,
               ),
             ),

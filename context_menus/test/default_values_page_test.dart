@@ -55,7 +55,10 @@ void main() {
         );
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
-        expect(find.byType(TextSelectionToolbarTextButton), findsNWidgets(1));
+        expect(
+          find.byType(TextSelectionToolbarTextButton),
+          findsNWidgets(1),
+        );
       case TargetPlatform.linux:
       case TargetPlatform.windows:
         expect(

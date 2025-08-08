@@ -75,26 +75,22 @@ class _$BookingSummaryCopyWithImpl<$Res, $Val extends BookingSummary>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            startDate:
-                null == startDate
-                    ? _value.startDate
-                    : startDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            endDate:
-                null == endDate
-                    ? _value.endDate
-                    : endDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            startDate: null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            endDate: null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
           )
           as $Val,
     );
@@ -134,26 +130,22 @@ class __$$BookingSummaryImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$BookingSummaryImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        startDate:
-            null == startDate
-                ? _value.startDate
-                : startDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        endDate:
-            null == endDate
-                ? _value.endDate
-                : endDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        startDate: null == startDate
+            ? _value.startDate
+            : startDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        endDate: null == endDate
+            ? _value.endDate
+            : endDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
       ),
     );
   }

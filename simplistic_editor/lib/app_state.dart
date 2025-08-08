@@ -53,7 +53,9 @@ class AppStateWidgetState extends State<AppStateWidget> {
     toggleButtonsState: <ToggleButtonsState>{},
   );
 
-  void updateTextEditingDeltaHistory(List<TextEditingDelta> textEditingDeltas) {
+  void updateTextEditingDeltaHistory(
+    List<TextEditingDelta> textEditingDeltas,
+  ) {
     _data = _data.copyWith(
       textEditingDeltaHistory: <TextEditingDelta>[
         ..._data.textEditingDeltaHistory,
@@ -76,11 +78,12 @@ class AppStateWidgetState extends State<AppStateWidget> {
 
     if (replacementStyles.isEmpty) {
       _data = _data.copyWith(
-        toggleButtonsState: Set.from(_data.toggleButtonsState)..removeAll({
-          ToggleButtonsState.bold,
-          ToggleButtonsState.italic,
-          ToggleButtonsState.underline,
-        }),
+        toggleButtonsState: Set.from(_data.toggleButtonsState)
+          ..removeAll({
+            ToggleButtonsState.bold,
+            ToggleButtonsState.italic,
+            ToggleButtonsState.underline,
+          }),
       );
     }
 
@@ -180,7 +183,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       controller.applyReplacement(
         TextEditingInlineSpanReplacement(
           replacementRange,
-          (string, range) => TextSpan(text: string, style: attributeMap[index]),
+          (string, range) =>
+              TextSpan(text: string, style: attributeMap[index]),
           true,
         ),
       );

@@ -31,7 +31,10 @@ class _NewsTabState extends State<NewsTab> {
   @override
   void initState() {
     colors = getRandomColors(_itemsLength);
-    titles = List.generate(_itemsLength, (index) => generateRandomHeadline());
+    titles = List.generate(
+      _itemsLength,
+      (index) => generateRandomHeadline(),
+    );
     contents = List.generate(
       _itemsLength,
       (index) => lorem(paragraphs: 1, words: 24),
@@ -46,11 +49,15 @@ class _NewsTabState extends State<NewsTab> {
       child: Card(
         elevation: 1.5,
         margin: const EdgeInsets.fromLTRB(6, 12, 6, 0),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+        ),
         child: InkWell(
           // Make it splash on Android. It would happen automatically if this
           // was a real card but this is just a demo. Skip the splash on iOS.
-          onTap: defaultTargetPlatform == TargetPlatform.iOS ? null : () {},
+          onTap: defaultTargetPlatform == TargetPlatform.iOS
+              ? null
+              : () {},
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(
@@ -114,6 +121,9 @@ class _NewsTabState extends State<NewsTab> {
 
   @override
   Widget build(context) {
-    return PlatformWidget(androidBuilder: _buildAndroid, iosBuilder: _buildIos);
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
   }
 }

@@ -71,7 +71,10 @@ void main() {
     );
 
     // About Dialog
-    expect(find.widgetWithIcon(IconButton, Icons.info_outline), findsOneWidget);
+    expect(
+      find.widgetWithIcon(IconButton, Icons.info_outline),
+      findsOneWidget,
+    );
     await tester.tap(find.widgetWithIcon(IconButton, Icons.info_outline));
     await tester.pumpAndSettle();
     expect(find.widgetWithText(Center, 'About'), findsOneWidget);

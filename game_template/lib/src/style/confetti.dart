@@ -188,17 +188,17 @@ class _PaperSnipping {
       paint.color = backColor;
     }
 
-    final path =
-        Path()..addPolygon(
-          List.generate(
-            4,
-            (index) => Offset(
-              position.x + corners[index].x * size,
-              position.y + corners[index].y * size * cosA,
-            ),
+    final path = Path()
+      ..addPolygon(
+        List.generate(
+          4,
+          (index) => Offset(
+            position.x + corners[index].x * size,
+            position.y + corners[index].y * size * cosA,
           ),
-          true,
-        );
+        ),
+        true,
+      );
     canvas.drawPath(path, paint);
   }
 

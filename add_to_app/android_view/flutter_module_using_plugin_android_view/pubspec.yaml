@@ -1,0 +1,34 @@
+name: flutter_module_using_plugin_android_view
+description: An example Flutter module that uses a plugin.
+version: 1.0.0+1
+resolution: workspace
+
+environment:
+  sdk: ^3.8.1-0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.5
+  url_launcher: ^6.3.2
+  sensors_plus: ^6.1.1
+
+dev_dependencies:
+  analysis_defaults:
+    path: ../../../analysis_defaults
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # This section identifies your Flutter project as a module meant for
+  # embedding in a native host app.  These identifiers should _not_ ordinarily
+  # be changed after generation - they are used to ensure that the tooling can
+  # maintain consistency when adding or modifying assets and plugins.
+  # They also do not have any bearing on your native host application's
+  # identifiers, which may be completely independent or the same as these.
+  module:
+    androidX: true
+    androidPackage: dev.flutter.example.flutter_module_using_plugin
+    iosBundleIdentifier: dev.flutter.example.flutterModuleUsingPlugin

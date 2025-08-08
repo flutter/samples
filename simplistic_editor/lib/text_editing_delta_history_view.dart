@@ -64,7 +64,10 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
 
   Widget _buildTextEditingDeltaViewHeader() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 10.0),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 35.0,
+        vertical: 10.0,
+      ),
       child: Row(
         children: [
           Expanded(
@@ -186,9 +189,15 @@ class TextEditingDeltaView extends StatelessWidget {
         children: [
           Expanded(child: Text(deltaType)),
           Expanded(child: Text(deltaText)),
-          Expanded(child: Text('(${deltaRange.start}, ${deltaRange.end})')),
-          Expanded(child: Text('(${newSelection.start}, ${newSelection.end})')),
-          Expanded(child: Text('(${newComposing.start}, ${newComposing.end})')),
+          Expanded(
+            child: Text('(${deltaRange.start}, ${deltaRange.end})'),
+          ),
+          Expanded(
+            child: Text('(${newSelection.start}, ${newSelection.end})'),
+          ),
+          Expanded(
+            child: Text('(${newComposing.start}, ${newComposing.end})'),
+          ),
         ],
       ),
     );

@@ -30,17 +30,17 @@ class MessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment:
-          isFromUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+      mainAxisAlignment: isFromUser
+          ? MainAxisAlignment.end
+          : MainAxisAlignment.start,
       children: [
         Flexible(
           child: Container(
             constraints: const BoxConstraints(maxWidth: 520),
             decoration: BoxDecoration(
-              color:
-                  isFromUser
-                      ? Theme.of(context).colorScheme.primaryContainer
-                      : Theme.of(context).colorScheme.surfaceContainerHighest,
+              color: isFromUser
+                  ? Theme.of(context).colorScheme.primaryContainer
+                  : Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(18),
             ),
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),

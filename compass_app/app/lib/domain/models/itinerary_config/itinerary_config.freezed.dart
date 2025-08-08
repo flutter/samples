@@ -90,36 +90,30 @@ class _$ItineraryConfigCopyWithImpl<$Res, $Val extends ItineraryConfig>
   }) {
     return _then(
       _value.copyWith(
-            continent:
-                freezed == continent
-                    ? _value.continent
-                    : continent // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            startDate:
-                freezed == startDate
-                    ? _value.startDate
-                    : startDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            endDate:
-                freezed == endDate
-                    ? _value.endDate
-                    : endDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            guests:
-                freezed == guests
-                    ? _value.guests
-                    : guests // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            destination:
-                freezed == destination
-                    ? _value.destination
-                    : destination // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            activities:
-                null == activities
-                    ? _value.activities
-                    : activities // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
+            continent: freezed == continent
+                ? _value.continent
+                : continent // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            startDate: freezed == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+            endDate: freezed == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+            guests: freezed == guests
+                ? _value.guests
+                : guests // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            destination: freezed == destination
+                ? _value.destination
+                : destination // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            activities: null == activities
+                ? _value.activities
+                : activities // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
           )
           as $Val,
     );
@@ -168,36 +162,30 @@ class __$$ItineraryConfigImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ItineraryConfigImpl(
-        continent:
-            freezed == continent
-                ? _value.continent
-                : continent // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        startDate:
-            freezed == startDate
-                ? _value.startDate
-                : startDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        endDate:
-            freezed == endDate
-                ? _value.endDate
-                : endDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        guests:
-            freezed == guests
-                ? _value.guests
-                : guests // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        destination:
-            freezed == destination
-                ? _value.destination
-                : destination // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        activities:
-            null == activities
-                ? _value._activities
-                : activities // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
+        continent: freezed == continent
+            ? _value.continent
+            : continent // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        startDate: freezed == startDate
+            ? _value.startDate
+            : startDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+        endDate: freezed == endDate
+            ? _value.endDate
+            : endDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+        guests: freezed == guests
+            ? _value.guests
+            : guests // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        destination: freezed == destination
+            ? _value.destination
+            : destination // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        activities: null == activities
+            ? _value._activities
+            : activities // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
       ),
     );
   }

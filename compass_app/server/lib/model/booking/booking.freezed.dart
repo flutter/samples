@@ -88,36 +88,30 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            startDate:
-                null == startDate
-                    ? _value.startDate
-                    : startDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            endDate:
-                null == endDate
-                    ? _value.endDate
-                    : endDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            destinationRef:
-                null == destinationRef
-                    ? _value.destinationRef
-                    : destinationRef // ignore: cast_nullable_to_non_nullable
-                        as String,
-            activitiesRef:
-                null == activitiesRef
-                    ? _value.activitiesRef
-                    : activitiesRef // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            startDate: null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            endDate: null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            destinationRef: null == destinationRef
+                ? _value.destinationRef
+                : destinationRef // ignore: cast_nullable_to_non_nullable
+                      as String,
+            activitiesRef: null == activitiesRef
+                ? _value.activitiesRef
+                : activitiesRef // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
           )
           as $Val,
     );
@@ -165,36 +159,30 @@ class __$$BookingImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$BookingImpl(
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        startDate:
-            null == startDate
-                ? _value.startDate
-                : startDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        endDate:
-            null == endDate
-                ? _value.endDate
-                : endDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        destinationRef:
-            null == destinationRef
-                ? _value.destinationRef
-                : destinationRef // ignore: cast_nullable_to_non_nullable
-                    as String,
-        activitiesRef:
-            null == activitiesRef
-                ? _value._activitiesRef
-                : activitiesRef // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        startDate: null == startDate
+            ? _value.startDate
+            : startDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        endDate: null == endDate
+            ? _value.endDate
+            : endDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        destinationRef: null == destinationRef
+            ? _value.destinationRef
+            : destinationRef // ignore: cast_nullable_to_non_nullable
+                  as String,
+        activitiesRef: null == activitiesRef
+            ? _value._activitiesRef
+            : activitiesRef // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
       ),
     );
   }

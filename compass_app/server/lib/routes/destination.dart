@@ -21,10 +21,9 @@ class DestinationApi {
     });
 
     router.get('/<id>/activity', (Request request, String id) {
-      final list =
-          Assets.activities
-              .where((activity) => activity.destinationRef == id)
-              .toList();
+      final list = Assets.activities
+          .where((activity) => activity.destinationRef == id)
+          .toList();
       return Response.ok(
         json.encode(list),
         headers: {'Content-Type': 'application/json'},

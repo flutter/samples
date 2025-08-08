@@ -39,7 +39,9 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
               FilledButton.icon(
                 onPressed: () async {
                   try {
-                    final value = await Counter.increment(counterValue: count);
+                    final value = await Counter.increment(
+                      counterValue: count,
+                    );
                     setState(() => count = value);
                   } catch (error) {
                     if (!context.mounted) return;
@@ -58,7 +60,9 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
               FilledButton.icon(
                 onPressed: () async {
                   try {
-                    final value = await Counter.decrement(counterValue: count);
+                    final value = await Counter.decrement(
+                      counterValue: count,
+                    );
                     setState(() => count = value);
                   } catch (error) {
                     if (!context.mounted) return;

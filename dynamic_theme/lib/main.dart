@@ -266,30 +266,29 @@ class _ExampleState extends State<Example> {
         final reversed = messages.value.reversed;
         return Scaffold(
           appBar: AppBar(title: Text(widget.title)),
-          body:
-              messages.value.isEmpty
-                  ? const Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(32.0),
-                      child: Text(
-                        'Start changing the theme! Try typing '
-                        'in requests like "Make the colors darker" or "Make the '
-                        'font larger" and see what happens.',
-                      ),
+          body: messages.value.isEmpty
+              ? const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(32.0),
+                    child: Text(
+                      'Start changing the theme! Try typing '
+                      'in requests like "Make the colors darker" or "Make the '
+                      'font larger" and see what happens.',
                     ),
-                  )
-                  : ListView.builder(
-                    padding: const EdgeInsets.all(8),
-                    reverse: true,
-                    itemCount: reversed.length,
-                    itemBuilder: (context, index) {
-                      final (sender, message) = reversed.elementAt(index);
-                      return MessageWidget(
-                        isFromUser: sender == Sender.user,
-                        text: message,
-                      );
-                    },
                   ),
+                )
+              : ListView.builder(
+                  padding: const EdgeInsets.all(8),
+                  reverse: true,
+                  itemCount: reversed.length,
+                  itemBuilder: (context, index) {
+                    final (sender, message) = reversed.elementAt(index);
+                    return MessageWidget(
+                      isFromUser: sender == Sender.user,
+                      text: message,
+                    );
+                  },
+                ),
           bottomNavigationBar: BottomAppBar(
             padding: const EdgeInsets.all(8),
             child: Row(

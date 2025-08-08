@@ -2,9 +2,10 @@ name: desktop_photo_search
 description: Search for Photos, using the Unsplash API.
 publish_to: 'none'
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   built_collection: ^5.1.1

@@ -1,7 +1,6 @@
-# Deprecation warning
+# Deprecated
 
-The `experimental` directory will be retired with the release of Flutter 3.32, 
-tentatively scheduled for May 2025. At that time, remaining samples will be deleted.
+The `experimental` directory has been deprecated. All samples within have been deleted or moved to [github.com/flutter/demos][]
 
 
 ---

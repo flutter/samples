@@ -48,8 +48,8 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
         title: const Text('AnimatedSwitcher'),
         actions: [
           TextButton(
-            onPressed:
-                () => setState(() => container = generateContainer(++keyCount)),
+            onPressed: () =>
+                setState(() => container = generateContainer(++keyCount)),
             child: const Text('Change Widget'),
           ),
         ],
@@ -61,9 +61,8 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
         child: AnimatedSwitcher(
           duration: const Duration(seconds: 1),
           child: container,
-          transitionBuilder:
-              (child, animation) =>
-                  ScaleTransition(scale: animation, child: child),
+          transitionBuilder: (child, animation) =>
+              ScaleTransition(scale: animation, child: child),
         ),
       ),
     );

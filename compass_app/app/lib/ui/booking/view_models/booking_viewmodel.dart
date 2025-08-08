@@ -50,8 +50,8 @@ class BookingViewModel extends ChangeNotifier {
 
   Future<Result<void>> _createBooking() async {
     _log.fine('Loading booking');
-    final itineraryConfig =
-        await _itineraryConfigRepository.getItineraryConfig();
+    final itineraryConfig = await _itineraryConfigRepository
+        .getItineraryConfig();
     switch (itineraryConfig) {
       case Ok<ItineraryConfig>():
         _log.fine('Loaded stored ItineraryConfig');

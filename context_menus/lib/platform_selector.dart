@@ -37,19 +37,18 @@ class _PlatformSelectorState extends State<PlatformSelector> {
           widget.onChangedPlatform(value);
           setState(() {});
         },
-        items:
-            TargetPlatform.values.map((platform) {
-              return DropdownMenuItem<TargetPlatform>(
-                value: platform,
-                child: Row(
-                  children: <Widget>[
-                    if (platform == originaPlatform)
-                      const Icon(Icons.home, color: Color(0xff616161)),
-                    Text(_platformToString(platform)),
-                  ],
-                ),
-              );
-            }).toList(),
+        items: TargetPlatform.values.map((platform) {
+          return DropdownMenuItem<TargetPlatform>(
+            value: platform,
+            child: Row(
+              children: <Widget>[
+                if (platform == originaPlatform)
+                  const Icon(Icons.home, color: Color(0xff616161)),
+                Text(_platformToString(platform)),
+              ],
+            ),
+          );
+        }).toList(),
       ),
     );
   }

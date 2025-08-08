@@ -49,18 +49,21 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
           children: [
             FadeTransition(
               opacity: _animation,
-              child: const Icon(Icons.star, color: Colors.amber, size: 300),
+              child: const Icon(
+                Icons.star,
+                color: Colors.amber,
+                size: 300,
+              ),
             ),
             ElevatedButton(
               child: const Text('animate'),
-              onPressed:
-                  () => setState(() {
-                    _controller
-                        .animateTo(1.0)
-                        .then<TickerFuture>(
-                          (value) => _controller.animateBack(0.0),
-                        );
-                  }),
+              onPressed: () => setState(() {
+                _controller
+                    .animateTo(1.0)
+                    .then<TickerFuture>(
+                      (value) => _controller.animateBack(0.0),
+                    );
+              }),
             ),
           ],
         ),

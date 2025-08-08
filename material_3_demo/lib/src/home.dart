@@ -133,32 +133,30 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   PreferredSizeWidget _createAppBar() {
     return AppBar(
-      title:
-          widget.useMaterial3
-              ? const Text('Material 3')
-              : const Text('Material 2'),
-      actions:
-          !showMediumSizeLayout && !showLargeSizeLayout
-              ? [
-                BrightnessButton(
-                  handleBrightnessChange: widget.handleBrightnessChange,
-                ),
-                Material3Button(
-                  handleMaterialVersionChange:
-                      widget.handleMaterialVersionChange,
-                ),
-                ColorSeedButton(
-                  handleColorSelect: widget.handleColorSelect,
-                  colorSelected: widget.colorSelected,
-                  colorSelectionMethod: widget.colorSelectionMethod,
-                ),
-                ColorImageButton(
-                  handleImageSelect: widget.handleImageSelect,
-                  imageSelected: widget.imageSelected,
-                  colorSelectionMethod: widget.colorSelectionMethod,
-                ),
-              ]
-              : [Container()],
+      title: widget.useMaterial3
+          ? const Text('Material 3')
+          : const Text('Material 2'),
+      actions: !showMediumSizeLayout && !showLargeSizeLayout
+          ? [
+              BrightnessButton(
+                handleBrightnessChange: widget.handleBrightnessChange,
+              ),
+              Material3Button(
+                handleMaterialVersionChange:
+                    widget.handleMaterialVersionChange,
+              ),
+              ColorSeedButton(
+                handleColorSelect: widget.handleColorSelect,
+                colorSelected: widget.colorSelected,
+                colorSelectionMethod: widget.colorSelectionMethod,
+              ),
+              ColorImageButton(
+                handleImageSelect: widget.handleImageSelect,
+                imageSelected: widget.imageSelected,
+                colorSelectionMethod: widget.colorSelectionMethod,
+              ),
+            ]
+          : [Container()],
     );
   }
 
@@ -221,21 +219,20 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             trailing: Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child:
-                    showLargeSizeLayout
-                        ? ExpandedTrailingActions(
-                          useLightMode: widget.useLightMode,
-                          handleBrightnessChange: widget.handleBrightnessChange,
-                          useMaterial3: widget.useMaterial3,
-                          handleMaterialVersionChange:
-                              widget.handleMaterialVersionChange,
-                          handleImageSelect: widget.handleImageSelect,
-                          handleColorSelect: widget.handleColorSelect,
-                          colorSelectionMethod: widget.colorSelectionMethod,
-                          imageSelected: widget.imageSelected,
-                          colorSelected: widget.colorSelected,
-                        )
-                        : _trailingActions(),
+                child: showLargeSizeLayout
+                    ? ExpandedTrailingActions(
+                        useLightMode: widget.useLightMode,
+                        handleBrightnessChange: widget.handleBrightnessChange,
+                        useMaterial3: widget.useMaterial3,
+                        handleMaterialVersionChange:
+                            widget.handleMaterialVersionChange,
+                        handleImageSelect: widget.handleImageSelect,
+                        handleColorSelect: widget.handleColorSelect,
+                        colorSelectionMethod: widget.colorSelectionMethod,
+                        imageSelected: widget.imageSelected,
+                        colorSelected: widget.colorSelected,
+                      )
+                    : _trailingActions(),
               ),
             ),
           ),
@@ -258,7 +255,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 final List<NavigationRailDestination> _navRailDestinations = appBarDestinations
     .map(
       (destination) => NavigationRailDestination(
-        icon: Tooltip(message: destination.label, child: destination.icon),
+        icon: Tooltip(
+          message: destination.label,
+          child: destination.icon,
+        ),
         selectedIcon: Tooltip(
           message: destination.label,
           child: destination.selectedIcon,

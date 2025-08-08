@@ -26,16 +26,16 @@ class FieldTypesPage extends StatelessWidget {
         "CupertinoTextField can't show Material menus by default. On non-Apple platforms, you'll still see a Cupertino menu here.",
   );
 
-  final TextEditingController _cupertinoControllerFixed = TextEditingController(
+  final TextEditingController
+  _cupertinoControllerFixed = TextEditingController(
     text:
         "But CupertinoTextField can be made to adaptively show any menu. You'll see the correct menu for your platform here.",
   );
 
-  final TextEditingController _cupertinoControllerForced =
-      TextEditingController(
-        text:
-            'Or forced to always show a specific menu (Material desktop menu).',
-      );
+  final TextEditingController
+  _cupertinoControllerForced = TextEditingController(
+    text: 'Or forced to always show a specific menu (Material desktop menu).',
+  );
 
   final TextEditingController _editableController = TextEditingController(
     text:
@@ -67,7 +67,10 @@ class FieldTypesPage extends StatelessWidget {
               const SizedBox(height: 20.0),
               TextField(maxLines: 3, controller: _controller),
               const SizedBox(height: 60.0),
-              CupertinoTextField(maxLines: 3, controller: _cupertinoController),
+              CupertinoTextField(
+                maxLines: 3,
+                controller: _cupertinoController,
+              ),
               const SizedBox(height: 20.0),
               CupertinoTextField(
                 maxLines: 3,
@@ -85,11 +88,10 @@ class FieldTypesPage extends StatelessWidget {
                 contextMenuBuilder: (context, editableTextState) {
                   return DesktopTextSelectionToolbar(
                     anchor: editableTextState.contextMenuAnchors.primaryAnchor,
-                    children:
-                        AdaptiveTextSelectionToolbar.getAdaptiveButtons(
-                          context,
-                          editableTextState.contextMenuButtonItems,
-                        ).toList(),
+                    children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
+                      context,
+                      editableTextState.contextMenuButtonItems,
+                    ).toList(),
                   );
                 },
               ),

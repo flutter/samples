@@ -61,16 +61,15 @@ class ColorPalettesScreen extends StatelessWidget {
           TextSpan(
             text: 'dynamic_color',
             style: const TextStyle(decoration: TextDecoration.underline),
-            recognizer:
-                TapGestureRecognizer()
-                  ..onTap = () async {
-                    final url = Uri.parse(
-                      'https://pub.dev/packages/dynamic_color',
-                    );
-                    if (!await launchUrl(url)) {
-                      throw Exception('Could not launch $url');
-                    }
-                  },
+            recognizer: TapGestureRecognizer()
+              ..onTap = () async {
+                final url = Uri.parse(
+                  'https://pub.dev/packages/dynamic_color',
+                );
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
+              },
           ),
           const TextSpan(text: ' package.'),
         ],
@@ -454,7 +453,9 @@ class ColorChip extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            Expanded(child: Text(label, style: TextStyle(color: labelColor))),
+            Expanded(
+              child: Text(label, style: TextStyle(color: labelColor)),
+            ),
           ],
         ),
       ),
