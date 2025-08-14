@@ -1,5 +1,0 @@
-include: package:analysis_defaults/flutter.yaml
-
-linter:
-  rules:
-    - prefer_relative_imports
