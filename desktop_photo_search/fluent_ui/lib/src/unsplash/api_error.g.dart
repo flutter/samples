@@ -106,8 +106,9 @@ class _$ApiError extends ApiError {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiError')
-      ..add('errors', errors)).toString();
+    return (newBuiltValueToStringHelper(
+      r'ApiError',
+    )..add('errors', errors)).toString();
   }
 }
 

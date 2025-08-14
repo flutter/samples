@@ -9,7 +9,8 @@ class RepeatingAnimationDemo extends StatefulWidget {
   static String routeName = 'misc/repeating_animation';
 
   @override
-  State<RepeatingAnimationDemo> createState() => _RepeatingAnimationDemoState();
+  State<RepeatingAnimationDemo> createState() =>
+      _RepeatingAnimationDemoState();
 }
 
 class _RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>

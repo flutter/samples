@@ -78,7 +78,9 @@ class _DraggableCardState extends State<DraggableCard>
   void initState() {
     super.initState();
     _controller = AnimationController.unbounded(vsync: this)
-      ..addListener(() => setState(() => _dragAlignment = _animation.value));
+      ..addListener(
+        () => setState(() => _dragAlignment = _animation.value),
+      );
   }
 
   @override
@@ -92,17 +94,18 @@ class _DraggableCardState extends State<DraggableCard>
     final size = MediaQuery.of(context).size;
     return GestureDetector(
       onPanStart: (details) => _controller.stop(canceled: true),
-      onPanUpdate:
-          (details) => setState(
-            () =>
-                _dragAlignment += Alignment(
-                  details.delta.dx / (size.width / 2),
-                  details.delta.dy / (size.height / 2),
-                ),
-          ),
-      onPanEnd:
-          (details) => _runAnimation(details.velocity.pixelsPerSecond, size),
-      child: Align(alignment: _dragAlignment, child: Card(child: widget.child)),
+      onPanUpdate: (details) => setState(
+        () => _dragAlignment += Alignment(
+          details.delta.dx / (size.width / 2),
+          details.delta.dy / (size.height / 2),
+        ),
+      ),
+      onPanEnd: (details) =>
+          _runAnimation(details.velocity.pixelsPerSecond, size),
+      child: Align(
+        alignment: _dragAlignment,
+        child: Card(child: widget.child),
+      ),
     );
   }
 }

@@ -188,7 +188,9 @@ class _SimpleDatabaseServer {
         // [BinaryMessenger] that the Platform Channels will communicate with on
         // the background isolate.
         // ----------------------------------------------------------------------
-        BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
+        BackgroundIsolateBinaryMessenger.ensureInitialized(
+          rootIsolateToken,
+        );
         _sendPort.send(const _Command(_Codes.ack, arg0: null));
       case _Codes.add:
         _doAddEntry(command.arg0 as String);

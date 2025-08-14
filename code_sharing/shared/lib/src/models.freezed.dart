@@ -52,11 +52,10 @@ class _$IncrementCopyWithImpl<$Res, $Val extends Increment>
   $Res call({Object? by = null}) {
     return _then(
       _value.copyWith(
-            by:
-                null == by
-                    ? _value.by
-                    : by // ignore: cast_nullable_to_non_nullable
-                        as int,
+            by: null == by
+                ? _value.by
+                : by // ignore: cast_nullable_to_non_nullable
+                      as int,
           )
           as $Val,
     );
@@ -89,11 +88,10 @@ class __$$IncrementImplCopyWithImpl<$Res>
   $Res call({Object? by = null}) {
     return _then(
       _$IncrementImpl(
-        by:
-            null == by
-                ? _value.by
-                : by // ignore: cast_nullable_to_non_nullable
-                    as int,
+        by: null == by
+            ? _value.by
+            : by // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }
@@ -189,11 +187,10 @@ class _$CountCopyWithImpl<$Res, $Val extends Count>
   $Res call({Object? value = null}) {
     return _then(
       _value.copyWith(
-            value:
-                null == value
-                    ? _value.value
-                    : value // ignore: cast_nullable_to_non_nullable
-                        as int,
+            value: null == value
+                ? _value.value
+                : value // ignore: cast_nullable_to_non_nullable
+                      as int,
           )
           as $Val,
     );
@@ -228,7 +225,7 @@ class __$$CountImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }

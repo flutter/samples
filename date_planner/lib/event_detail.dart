@@ -55,9 +55,8 @@ class _EventDetailState extends State<EventDetail> {
                           Navigator.of(context)
                               .push(
                                 CupertinoPageRoute<(IconData, ColorOptions)?>(
-                                  builder:
-                                      (_) =>
-                                          SymbolEditor(event.icon, event.color),
+                                  builder: (_) =>
+                                      SymbolEditor(event.icon, event.color),
                                 ),
                               )
                               .then(((IconData, ColorOptions)? data) {

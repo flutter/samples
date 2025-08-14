@@ -65,7 +65,11 @@ class ElevationScreen extends StatelessWidget {
 const double narrowScreenWidthThreshold = 450;
 
 class ElevationGrid extends StatelessWidget {
-  const ElevationGrid({super.key, this.shadowColor, this.surfaceTintColor});
+  const ElevationGrid({
+    super.key,
+    this.shadowColor,
+    this.surfaceTintColor,
+  });
 
   final Color? shadowColor;
   final Color? surfaceTintColor;
@@ -135,7 +139,9 @@ class _ElevationCardState extends State<ElevationCard> {
 
   @override
   Widget build(BuildContext context) {
-    const BorderRadius borderRadius = BorderRadius.all(Radius.circular(4.0));
+    const BorderRadius borderRadius = BorderRadius.all(
+      Radius.circular(4.0),
+    );
     final Color color = Theme.of(context).colorScheme.surface;
 
     return Padding(

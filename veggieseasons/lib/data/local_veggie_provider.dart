@@ -12,9 +12,15 @@ class LocalVeggieProvider {
       name: 'Apples',
       imageAssetPath: 'assets/images/apple.jpg',
       category: VeggieCategory.fruit,
-      shortDescription: 'Green or red, they\'re generally round and tasty.',
+      shortDescription:
+          'Green or red, they\'re generally round and tasty.',
       accentColor: const Color(0x40de8c66),
-      seasons: [Season.winter, Season.spring, Season.summer, Season.autumn],
+      seasons: [
+        Season.winter,
+        Season.spring,
+        Season.summer,
+        Season.autumn,
+      ],
       vitaminAPercentage: 2,
       vitaminCPercentage: 8,
       servingSize: 'One large apple',
@@ -75,16 +81,24 @@ class LocalVeggieProvider {
           'Root',
           'Seed',
         ], 0),
-        Trivia('"Jerusalem artichoke" is another term for which vegetable?', [
-          'Potato',
-          'Cabbage',
-          'Sunchoke',
-        ], 2),
-        Trivia('Which city claims to be The Artichoke Capital of the World?', [
-          'Castroville, California',
-          'Galveston, Texas',
-          'London, England',
-        ], 0),
+        Trivia(
+          '"Jerusalem artichoke" is another term for which vegetable?',
+          [
+            'Potato',
+            'Cabbage',
+            'Sunchoke',
+          ],
+          2,
+        ),
+        Trivia(
+          'Which city claims to be The Artichoke Capital of the World?',
+          [
+            'Castroville, California',
+            'Galveston, Texas',
+            'London, England',
+          ],
+          0,
+        ),
         Trivia('Artichokes are technically which type of plant?', [
           'Thistle',
           'Azalea',
@@ -97,7 +111,8 @@ class LocalVeggieProvider {
       name: 'Asparagus',
       imageAssetPath: 'assets/images/asparagus.jpg',
       category: VeggieCategory.fern,
-      shortDescription: 'It\'s been used a food and medicine for millenia.',
+      shortDescription:
+          'It\'s been used a food and medicine for millenia.',
       accentColor: const Color(0x408cb437),
       seasons: [Season.spring],
       vitaminAPercentage: 10,
@@ -132,7 +147,8 @@ class LocalVeggieProvider {
       name: 'Avocado',
       imageAssetPath: 'assets/images/avocado.jpg',
       category: VeggieCategory.stealthFruit,
-      shortDescription: 'One of the oiliest, richest fruits money can buy.',
+      shortDescription:
+          'One of the oiliest, richest fruits money can buy.',
       accentColor: const Color(0x40b0ba59),
       seasons: [Season.winter, Season.spring, Season.summer],
       vitaminAPercentage: 0,
@@ -167,7 +183,8 @@ class LocalVeggieProvider {
       name: 'Blackberries',
       imageAssetPath: 'assets/images/blackberry.jpg',
       category: VeggieCategory.berry,
-      shortDescription: 'Find them on backroads and fences in the Northwest.',
+      shortDescription:
+          'Find them on backroads and fences in the Northwest.',
       accentColor: const Color(0x409d5adb),
       seasons: [Season.summer],
       vitaminAPercentage: 6,
@@ -255,11 +272,15 @@ class LocalVeggieProvider {
           ['Mustard greens', 'Apples', 'Potatoes'],
           0,
         ),
-        Trivia('Cauliflower\'s green spiral-shaped cousin is known as what?', [
-          'Romesco',
-          'Brittany cabbage',
-          'Muscle sprouts',
-        ], 0),
+        Trivia(
+          'Cauliflower\'s green spiral-shaped cousin is known as what?',
+          [
+            'Romesco',
+            'Brittany cabbage',
+            'Muscle sprouts',
+          ],
+          0,
+        ),
         Trivia('Green cauliflower is sometimes called what?', [
           'Broccoflower',
           'Avocadoflower',
@@ -290,11 +311,15 @@ class LocalVeggieProvider {
           'By rhizome',
           'By packing up and moving to Des Moines',
         ], 0),
-        Trivia('Some farmers cover their endive with shade to reduce what?', [
-          'Size',
-          'Toughness',
-          'Bitterness',
-        ], 2),
+        Trivia(
+          'Some farmers cover their endive with shade to reduce what?',
+          [
+            'Size',
+            'Toughness',
+            'Bitterness',
+          ],
+          2,
+        ),
       ],
     ),
     Veggie(
@@ -385,11 +410,15 @@ class LocalVeggieProvider {
           'They\'re grown in the shade',
           'They\'re a distinct species',
         ], 0),
-        Trivia('How quickly can a green pepper grow from seed to harvest?', [
-          '10 weeks',
-          '20 weeks',
-          '30 weeks',
-        ], 0),
+        Trivia(
+          'How quickly can a green pepper grow from seed to harvest?',
+          [
+            '10 weeks',
+            '20 weeks',
+            '30 weeks',
+          ],
+          0,
+        ),
       ],
     ),
     Veggie(
@@ -427,7 +456,8 @@ class LocalVeggieProvider {
       name: 'Kale',
       imageAssetPath: 'assets/images/kale.jpg',
       category: VeggieCategory.cruciferous,
-      shortDescription: 'The meanest vegetable. Does not want to be eaten.',
+      shortDescription:
+          'The meanest vegetable. Does not want to be eaten.',
       accentColor: const Color(0x40a86bd8),
       seasons: [Season.winter, Season.autumn],
       vitaminAPercentage: 133,
@@ -440,11 +470,15 @@ class LocalVeggieProvider {
           'The first frost',
           'Reading it a sad story',
         ], 1),
-        Trivia('Which of these isn\'t a color in which Kale can be found?', [
-          'Purple',
-          'White',
-          'Orange',
-        ], 2),
+        Trivia(
+          'Which of these isn\'t a color in which Kale can be found?',
+          [
+            'Purple',
+            'White',
+            'Orange',
+          ],
+          2,
+        ),
         Trivia(
           'One serving of kale provides what percentage of a typical person\'s requirement for vitamin K?',
           ['100%', '300%', '900%'],
@@ -522,7 +556,8 @@ class LocalVeggieProvider {
       name: 'Limes',
       imageAssetPath: 'assets/images/lime.jpg',
       category: VeggieCategory.citrus,
-      shortDescription: 'Couldn\'t have ceviche and margaritas without them.',
+      shortDescription:
+          'Couldn\'t have ceviche and margaritas without them.',
       accentColor: const Color(0x4089b733),
       seasons: [Season.winter],
       vitaminAPercentage: 0,
@@ -552,7 +587,8 @@ class LocalVeggieProvider {
       name: 'Mangos',
       imageAssetPath: 'assets/images/mango.jpg',
       category: VeggieCategory.tropical,
-      shortDescription: 'A fun orange fruit popular with smoothie enthusiasts.',
+      shortDescription:
+          'A fun orange fruit popular with smoothie enthusiasts.',
       accentColor: const Color(0x40fcc93c),
       seasons: [Season.summer, Season.autumn],
       vitaminAPercentage: 72,
@@ -629,21 +665,29 @@ class LocalVeggieProvider {
       servingSize: '1 medium nectarine',
       caloriesPerServing: 60,
       trivia: const [
-        Trivia('Nectarines are technically a variety of which other fruit?', [
-          'Peach',
-          'Plum',
-          'Cherry',
-        ], 0),
+        Trivia(
+          'Nectarines are technically a variety of which other fruit?',
+          [
+            'Peach',
+            'Plum',
+            'Cherry',
+          ],
+          0,
+        ),
         Trivia('Nectarines are sometimes called what?', [
           'Neckless geese',
           'Giant grapes',
           'Shaved peaches',
         ], 2),
-        Trivia('Nectarines are thought to have originated in which country?', [
-          'China',
-          'Italy',
-          'Ethiopia',
-        ], 0),
+        Trivia(
+          'Nectarines are thought to have originated in which country?',
+          [
+            'China',
+            'Italy',
+            'Ethiopia',
+          ],
+          0,
+        ),
       ],
     ),
     Veggie(
@@ -651,7 +695,8 @@ class LocalVeggieProvider {
       name: 'Persimmons',
       imageAssetPath: 'assets/images/persimmon.jpg',
       category: VeggieCategory.fruit,
-      shortDescription: 'It\'s like a plum and an apple had a baby together.',
+      shortDescription:
+          'It\'s like a plum and an apple had a baby together.',
       accentColor: const Color(0x40979852),
       seasons: [Season.winter, Season.autumn],
       vitaminAPercentage: 0,
@@ -719,11 +764,15 @@ class LocalVeggieProvider {
       servingSize: '1 medium spud',
       caloriesPerServing: 110,
       trivia: const [
-        Trivia('Which country consumes the most fried potatoes per capita?', [
-          'United States',
-          'Belgium',
-          'Ireland',
-        ], 1),
+        Trivia(
+          'Which country consumes the most fried potatoes per capita?',
+          [
+            'United States',
+            'Belgium',
+            'Ireland',
+          ],
+          1,
+        ),
         Trivia(
           'Who is credited with introducing French Fries to the United States?',
           ['Thomas Jefferson', 'Betsy Ross', 'Alexander Hamilton'],
@@ -741,7 +790,8 @@ class LocalVeggieProvider {
       name: 'Radicchio',
       imageAssetPath: 'assets/images/radicchio.jpg',
       category: VeggieCategory.leafy,
-      shortDescription: 'It\'s that bitter taste in the salad you\'re eating.',
+      shortDescription:
+          'It\'s that bitter taste in the salad you\'re eating.',
       accentColor: const Color(0x40d75875),
       seasons: [Season.spring, Season.autumn],
       vitaminAPercentage: 0,
@@ -749,11 +799,15 @@ class LocalVeggieProvider {
       servingSize: '2 cups shredded',
       caloriesPerServing: 20,
       trivia: const [
-        Trivia('Radicchio is a particuarly good source of which mineral?', [
-          'Manganese',
-          'Mercury',
-          'Molybdenum',
-        ], 0),
+        Trivia(
+          'Radicchio is a particuarly good source of which mineral?',
+          [
+            'Manganese',
+            'Mercury',
+            'Molybdenum',
+          ],
+          0,
+        ),
         Trivia('Radicchio should be stored at what temperature?', [
           'Room temperature',
           'Refrigerator temperature',
@@ -775,7 +829,8 @@ class LocalVeggieProvider {
       name: 'Radishes',
       imageAssetPath: 'assets/images/radish.jpg',
       category: VeggieCategory.root,
-      shortDescription: 'Try roasting them in addition to slicing them up raw.',
+      shortDescription:
+          'Try roasting them in addition to slicing them up raw.',
       accentColor: const Color(0x40819e4e),
       seasons: [Season.spring, Season.autumn],
       vitaminAPercentage: 0,
@@ -783,11 +838,15 @@ class LocalVeggieProvider {
       servingSize: '7 radishes',
       caloriesPerServing: 10,
       trivia: const [
-        Trivia('Which ancient civilization is known to have used radish oil?', [
-          'Egyptian',
-          'Sumerian',
-          'Incan',
-        ], 0),
+        Trivia(
+          'Which ancient civilization is known to have used radish oil?',
+          [
+            'Egyptian',
+            'Sumerian',
+            'Incan',
+          ],
+          0,
+        ),
         Trivia(
           'What\'s the name of the radish commonly used in Japanese cuisine?',
           ['Daisuki', 'Daijin', 'Daikon'],
@@ -805,7 +864,8 @@ class LocalVeggieProvider {
       name: 'Squash',
       imageAssetPath: 'assets/images/squash.jpg',
       category: VeggieCategory.gourd,
-      shortDescription: 'Just slather them in butter and pop \'em in the oven.',
+      shortDescription:
+          'Just slather them in butter and pop \'em in the oven.',
       accentColor: const Color(0x40dbb721),
       seasons: [Season.winter, Season.autumn],
       vitaminAPercentage: 297,
@@ -823,11 +883,15 @@ class LocalVeggieProvider {
           'Furniture',
           'Musical instruments',
         ], 0),
-        Trivia('Which country is the world\'s largest importer of squashes?', [
-          'China',
-          'United States',
-          'Russia',
-        ], 1),
+        Trivia(
+          'Which country is the world\'s largest importer of squashes?',
+          [
+            'China',
+            'United States',
+            'Russia',
+          ],
+          1,
+        ),
       ],
     ),
     Veggie(
@@ -849,11 +913,15 @@ class LocalVeggieProvider {
           '100',
           '200',
         ], 2),
-        Trivia('Strawberries are closely related to which type of flower?', [
-          'The rose',
-          'The daisy',
-          'The tulip',
-        ], 0),
+        Trivia(
+          'Strawberries are closely related to which type of flower?',
+          [
+            'The rose',
+            'The daisy',
+            'The tulip',
+          ],
+          0,
+        ),
         Trivia('Strawberries are unique among fruit for what reason?', [
           'Their seeds are on the outside',
           'Their flowers are striped',
@@ -866,7 +934,8 @@ class LocalVeggieProvider {
       name: 'Tangelo',
       imageAssetPath: 'assets/images/tangelo.jpg',
       category: VeggieCategory.citrus,
-      shortDescription: 'No one\'s sure what they are or where they came from.',
+      shortDescription:
+          'No one\'s sure what they are or where they came from.',
       accentColor: const Color(0x40f88c06),
       seasons: [Season.winter, Season.autumn],
       vitaminAPercentage: 6,
@@ -904,21 +973,29 @@ class LocalVeggieProvider {
       servingSize: '1 medium tomato',
       caloriesPerServing: 25,
       trivia: const [
-        Trivia('French speakers sometimes refer to tomatoes with which name?', [
-          'Piet de terre',
-          'Mille-feuille',
-          'Pomme d\'amour',
-        ], 2),
+        Trivia(
+          'French speakers sometimes refer to tomatoes with which name?',
+          [
+            'Piet de terre',
+            'Mille-feuille',
+            'Pomme d\'amour',
+          ],
+          2,
+        ),
         Trivia(
           'The largest tomato known to have been grown weighed in at how many pounds?',
           ['8', '10', '12'],
           0,
         ),
-        Trivia('Which country is the world\'s largest producer of tomatoes?', [
-          'China',
-          'Italy',
-          'Ecuador',
-        ], 0),
+        Trivia(
+          'Which country is the world\'s largest producer of tomatoes?',
+          [
+            'China',
+            'Italy',
+            'Ecuador',
+          ],
+          0,
+        ),
       ],
     ),
     Veggie(
@@ -934,7 +1011,11 @@ class LocalVeggieProvider {
       servingSize: '2 cups diced',
       caloriesPerServing: 80,
       trivia: const [
-        Trivia('How much of a watermelon is water?', ['50%', '75%', '90%'], 2),
+        Trivia('How much of a watermelon is water?', [
+          '50%',
+          '75%',
+          '90%',
+        ], 2),
         Trivia(
           'Which nation is famous for growing watermelons in unsual shapes like cubes and hearts?',
           ['Armenia', 'Japan', 'Saudi Arabia'],
@@ -977,7 +1058,11 @@ class LocalVeggieProvider {
         ),
         Trivia(
           'Who is generally credited with giving bell peppers their peppery name?',
-          ['Christopher Columbus', 'Benjamin Franklin', 'Eleanor Roosevelt'],
+          [
+            'Christopher Columbus',
+            'Benjamin Franklin',
+            'Eleanor Roosevelt',
+          ],
           0,
         ),
       ],

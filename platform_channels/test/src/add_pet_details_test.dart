@@ -38,7 +38,10 @@ void main() {
 
       // Navigate back to /petListScreen
       await tester.pumpAndSettle();
-      expect(router.routeInformationProvider.value.uri.path, '/petListScreen');
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/petListScreen',
+      );
     });
   });
 }

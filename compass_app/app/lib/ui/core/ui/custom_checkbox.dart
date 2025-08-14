@@ -28,10 +28,9 @@ class CustomCheckbox extends StatelessWidget {
         ),
         child: Material(
           borderRadius: BorderRadius.circular(24),
-          color:
-              value
-                  ? Theme.of(context).colorScheme.primary
-                  : Colors.transparent,
+          color: value
+              ? Theme.of(context).colorScheme.primary
+              : Colors.transparent,
           child: SizedBox(
             width: 24,
             height: 24,

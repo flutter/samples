@@ -1,12 +1,13 @@
 name: background_isolate_channels
 description: A new Flutter project.
+resolution: workspace
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   cupertino_icons: ^1.0.2
@@ -23,6 +24,5 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
 flutter:
   uses-material-design: true

@@ -15,7 +15,9 @@ class AppState extends ChangeNotifier {
 
   List<Veggie> get availableVeggies {
     var currentSeason = _getSeasonForDate(DateTime.now());
-    return _veggies.where((v) => v.seasons.contains(currentSeason)).toList();
+    return _veggies
+        .where((v) => v.seasons.contains(currentSeason))
+        .toList();
   }
 
   List<Veggie> get favoriteVeggies =>
@@ -23,15 +25,16 @@ class AppState extends ChangeNotifier {
 
   List<Veggie> get unavailableVeggies {
     var currentSeason = _getSeasonForDate(DateTime.now());
-    return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
+    return _veggies
+        .where((v) => !v.seasons.contains(currentSeason))
+        .toList();
   }
 
   Veggie getVeggie(int? id) => _veggies.singleWhere((v) => v.id == id);
 
-  List<Veggie> searchVeggies(String? terms) =>
-      _veggies
-          .where((v) => v.name.toLowerCase().contains(terms!.toLowerCase()))
-          .toList();
+  List<Veggie> searchVeggies(String? terms) => _veggies
+      .where((v) => v.name.toLowerCase().contains(terms!.toLowerCase()))
+      .toList();
 
   void setFavorite(int? id, bool isFavorite) {
     var veggie = getVeggie(id);
@@ -75,7 +78,9 @@ class AppState extends ChangeNotifier {
       case 12:
         return date.day < 22 ? Season.autumn : Season.winter;
       default:
-        throw ArgumentError('Can\'t return a season for month #${date.month}.');
+        throw ArgumentError(
+          'Can\'t return a season for month #${date.month}.',
+        );
     }
   }
 }

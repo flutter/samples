@@ -31,7 +31,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       result
         ..add('city')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.country;
@@ -39,7 +42,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       result
         ..add('country')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.position;
@@ -47,7 +53,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       result
         ..add('position')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Position)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Position),
+          ),
         );
     }
     return result;

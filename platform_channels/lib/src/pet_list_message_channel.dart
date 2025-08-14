@@ -34,7 +34,9 @@ class PetListMessageChannel {
   /// we will throw a [PlatformException].
   static Future<void> removePet(int index) async {
     final uInt8List = utf8.encoder.convert(index.toString());
-    final reply = await _binaryCodecChannel.send(uInt8List.buffer.asByteData());
+    final reply = await _binaryCodecChannel.send(
+      uInt8List.buffer.asByteData(),
+    );
     if (reply == null) {
       throw PlatformException(
         code: 'INVALID INDEX',

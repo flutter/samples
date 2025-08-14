@@ -90,7 +90,10 @@ void main() {
     );
     expect(find.text('Light ColorScheme'), findsOneWidget);
     expect(find.text('Dark ColorScheme'), findsOneWidget);
-    expect(find.byType(SchemePreview, skipOffstage: false), findsNWidgets(2));
+    expect(
+      find.byType(SchemePreview, skipOffstage: false),
+      findsNWidgets(2),
+    );
   });
 
   testWidgets(
@@ -107,7 +110,9 @@ void main() {
       const testLabel = 'Test Label';
       const testTone = '50';
 
-      final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      final gesture = await tester.createGesture(
+        kind: PointerDeviceKind.mouse,
+      );
 
       // Wrap in MaterialApp + Scaffold so we can show SnackBars
       await tester.pumpWidget(

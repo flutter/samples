@@ -29,16 +29,15 @@ class PolicyDialog extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.lightBlue,
                   ),
-                  recognizer:
-                      TapGestureRecognizer()
-                        ..onTap = () async {
-                          final url = Uri.parse(
-                            'https://policies.google.com/terms',
-                          );
-                          if (await url_launcher.canLaunchUrl(url)) {
-                            await url_launcher.launchUrl(url);
-                          }
-                        },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      final url = Uri.parse(
+                        'https://policies.google.com/terms',
+                      );
+                      if (await url_launcher.canLaunchUrl(url)) {
+                        await url_launcher.launchUrl(url);
+                      }
+                    },
                 ),
               ],
             ),
@@ -55,14 +54,13 @@ class PolicyDialog extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.lightBlue,
                   ),
-                  recognizer:
-                      TapGestureRecognizer()
-                        ..onTap = () async {
-                          final url = Uri.parse('https://unsplash.com/terms');
-                          if (await url_launcher.canLaunchUrl(url)) {
-                            await url_launcher.launchUrl(url);
-                          }
-                        },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      final url = Uri.parse('https://unsplash.com/terms');
+                      if (await url_launcher.canLaunchUrl(url)) {
+                        await url_launcher.launchUrl(url);
+                      }
+                    },
                 ),
               ],
             ),

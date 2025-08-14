@@ -69,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
         .then(
           (sharedPreferences) => sharedPreferences.setBool('isDebug', true),
         );
-    final Future<Directory> tempDirFuture =
-        path_provider.getTemporaryDirectory();
+    final Future<Directory> tempDirFuture = path_provider
+        .getTemporaryDirectory();
 
     // Wait until the [SharedPreferences] value is set and the temporary
     // directory is received before opening the database. If
@@ -130,8 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: SearchBar(
               hintText: 'Search',
-              onChanged:
-                  _database == null ? null : (query) => _refresh(query: query),
+              onChanged: _database == null
+                  ? null
+                  : (query) => _refresh(query: query),
               trailing: const [Icon(Icons.search), SizedBox(width: 8)],
             ),
           ),

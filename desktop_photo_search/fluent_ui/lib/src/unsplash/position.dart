@@ -23,7 +23,9 @@ abstract class Position implements Built<Position, PositionBuilder> {
   double get longitude;
 
   String toJson() {
-    return json.encode(serializers.serializeWith(Position.serializer, this));
+    return json.encode(
+      serializers.serializeWith(Position.serializer, this),
+    );
   }
 
   static Position? fromJson(String jsonString) {

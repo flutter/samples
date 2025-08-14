@@ -26,7 +26,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
   }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.id,
+        specifiedType: const FullType(String),
+      ),
     ];
     Object? value;
     value = object.createdAt;
@@ -34,7 +37,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('created_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.updatedAt;
@@ -42,47 +48,64 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('updated_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.width;
     if (value != null) {
       result
         ..add('width')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.height;
     if (value != null) {
       result
         ..add('height')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.color;
     if (value != null) {
       result
         ..add('color')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.downloads;
     if (value != null) {
       result
         ..add('downloads')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.likes;
     if (value != null) {
       result
         ..add('likes')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.likedByUser;
     if (value != null) {
       result
         ..add('liked_by_user')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(bool)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(bool),
+          ),
         );
     }
     value = object.description;
@@ -90,7 +113,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('description')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.exif;
@@ -98,7 +124,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('exif')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Exif)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Exif),
+          ),
         );
     }
     value = object.location;
@@ -106,7 +135,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('location')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Location)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Location),
+          ),
         );
     }
     value = object.tags;
@@ -140,7 +172,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('urls')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Urls)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Urls),
+          ),
         );
     }
     value = object.links;
@@ -148,7 +183,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('links')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Links)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Links),
+          ),
         );
     }
     value = object.user;
@@ -156,7 +194,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       result
         ..add('user')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(User)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(User),
+          ),
         );
     }
     return result;
@@ -202,12 +243,18 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           break;
         case 'width':
           result.width =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'height':
           result.height =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'color':
@@ -220,12 +267,18 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           break;
         case 'downloads':
           result.downloads =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'likes':
           result.likes =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'liked_by_user':
@@ -246,7 +299,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           break;
         case 'exif':
           result.exif.replace(
-            serializers.deserialize(value, specifiedType: const FullType(Exif))!
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Exif),
+                )!
                 as Exif,
           );
           break;
@@ -283,7 +339,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           break;
         case 'urls':
           result.urls.replace(
-            serializers.deserialize(value, specifiedType: const FullType(Urls))!
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Urls),
+                )!
                 as Urls,
           );
           break;
@@ -298,7 +357,10 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           break;
         case 'user':
           result.user.replace(
-            serializers.deserialize(value, specifiedType: const FullType(User))!
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(User),
+                )!
                 as User,
           );
           break;

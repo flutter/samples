@@ -101,11 +101,10 @@ class _LoginScreenState extends State<LoginScreen> {
           content: Text(AppLocalization.of(context).errorWhileLogin),
           action: SnackBarAction(
             label: AppLocalization.of(context).tryAgain,
-            onPressed:
-                () => widget.viewModel.login.execute((
-                  _email.value.text,
-                  _password.value.text,
-                )),
+            onPressed: () => widget.viewModel.login.execute((
+              _email.value.text,
+              _password.value.text,
+            )),
           ),
         ),
       );
