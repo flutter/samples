@@ -46,6 +46,5 @@ workspace:
   - simplistic_editor
   - testing_app
   - tool
-
   - web_embedding/element_embedding_demo
   - web_embedding/ng-flutter/flutter
