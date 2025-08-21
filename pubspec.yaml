@@ -46,9 +46,6 @@ workspace:
   - simplistic_editor
   - testing_app
   - tool
-<<<<<<< HEAD
-  - veggieseasons
-=======
->>>>>>> d5184b5647bb39913724dcd73f34bf85eb14d7d5
+
   - web_embedding/element_embedding_demo
   - web_embedding/ng-flutter/flutter
