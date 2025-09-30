@@ -1,0 +1,21 @@
+name: cupertino_gallery
+description: A Flutter project showcasing supported Cupertino components.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0-0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
