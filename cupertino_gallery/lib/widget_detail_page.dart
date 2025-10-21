@@ -4,14 +4,17 @@ import 'widgets/action_sheet_page.dart';
 import 'widgets/activity_indicator_page.dart';
 import 'widgets/alert_dialog_page.dart';
 import 'widgets/button_page.dart';
+import 'widgets/checkbox_page.dart';
 import 'widgets/context_menu_page.dart';
 import 'widgets/date_picker_page.dart';
 import 'widgets/list_tile_page.dart';
 import 'widgets/picker_page.dart';
 import 'widgets/popup_surface_page.dart';
+import 'widgets/radio_page.dart';
 import 'widgets/scrollbar_page.dart';
 import 'widgets/search_text_field_page.dart';
 import 'widgets/segmented_control_page.dart';
+import 'widgets/sheet_page.dart';
 import 'widgets/slider_page.dart';
 import 'widgets/sliding_segmented_control_page.dart';
 import 'widgets/switch_page.dart';
@@ -35,6 +38,8 @@ class WidgetDetailPage extends StatelessWidget {
         return const AlertDialogPage();
       case 'Button':
         return const ButtonPage();
+      case 'Checkbox':
+        return const CheckboxPage();
       case 'Context Menu':
         return const ContextMenuPage();
       case 'Date Picker':
@@ -45,12 +50,16 @@ class WidgetDetailPage extends StatelessWidget {
         return const PickerPage();
       case 'Popup Surface':
         return const PopupSurfacePage();
+      case 'Radio':
+        return const RadioPage();
       case 'Scrollbar':
         return const ScrollbarPage();
       case 'Search Text Field':
         return const SearchTextFieldPage();
       case 'Segmented Control':
         return const SegmentedControlPage();
+      case 'Sheet':
+        return const SheetPage();
       case 'Slider':
         return const SliderPage();
       case 'Sliding Segmented Control':

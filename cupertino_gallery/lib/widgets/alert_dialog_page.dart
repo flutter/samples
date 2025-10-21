@@ -6,9 +6,7 @@ class AlertDialogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Alert Dialog'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Alert Dialog')),
       child: Center(
         child: CupertinoButton(
           child: const Text('Show Alert Dialog'),
@@ -21,6 +19,13 @@ class AlertDialogPage extends StatelessWidget {
                 actions: <CupertinoDialogAction>[
                   CupertinoDialogAction(
                     child: const Text('OK'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  CupertinoDialogAction(
+                    isDefaultAction: true,
+                    child: const Text('NO'),
                     onPressed: () {
                       Navigator.pop(context);
                     },

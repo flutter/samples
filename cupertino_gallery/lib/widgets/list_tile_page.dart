@@ -10,7 +10,7 @@ class ListTilePage extends StatelessWidget {
       child: Center(
         child: ListView(
           children: [
-            CupertinoListSection(
+            CupertinoListSection.insetGrouped(
               children: [
                 CupertinoListTile(
                   title: Text('Title'),

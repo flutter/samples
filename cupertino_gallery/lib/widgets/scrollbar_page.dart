@@ -5,13 +5,13 @@ class ScrollbarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScrollController _controller = ScrollController();
+    final ScrollController controller = ScrollController();
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(middle: Text('Scrollbar')),
       child: CupertinoScrollbar(
-        controller: _controller,
+        controller: controller,
         child: ListView.separated(
-          controller: _controller,
+          controller: controller,
           itemCount: 100,
           itemBuilder: (BuildContext context, int index) {
             return CupertinoListTile(title: Text('Item $index'));
