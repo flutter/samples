@@ -26,14 +26,20 @@ class _$UserSerializer implements StructuredSerializer<User> {
   }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.id,
+        specifiedType: const FullType(String),
+      ),
       'username',
       serializers.serialize(
         object.username,
         specifiedType: const FullType(String),
       ),
       'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.name,
+        specifiedType: const FullType(String),
+      ),
     ];
     Object? value;
     value = object.updatedAt;
@@ -41,7 +47,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('updated_at')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.portfolioUrl;
@@ -49,7 +58,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('portfolio_url')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.bio;
@@ -57,7 +69,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('bio')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.location;
@@ -65,33 +80,45 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('location')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(String),
+          ),
         );
     }
     value = object.totalLikes;
     if (value != null) {
       result
         ..add('total_likes')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.totalPhotos;
     if (value != null) {
       result
         ..add('total_photos')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.totalCollections;
     if (value != null) {
       result
         ..add('total_collections')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
     }
     value = object.links;
     if (value != null) {
       result
         ..add('links')
         ..add(
-          serializers.serialize(value, specifiedType: const FullType(Links)),
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Links),
+          ),
         );
     }
     return result;
@@ -169,17 +196,26 @@ class _$UserSerializer implements StructuredSerializer<User> {
           break;
         case 'total_likes':
           result.totalLikes =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'total_photos':
           result.totalPhotos =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'total_collections':
           result.totalCollections =
-              serializers.deserialize(value, specifiedType: const FullType(int))
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )
                   as int?;
           break;
         case 'links':
@@ -324,7 +360,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
 
   String? _portfolioUrl;
   String? get portfolioUrl => _$this._portfolioUrl;
-  set portfolioUrl(String? portfolioUrl) => _$this._portfolioUrl = portfolioUrl;
+  set portfolioUrl(String? portfolioUrl) =>
+      _$this._portfolioUrl = portfolioUrl;
 
   String? _bio;
   String? get bio => _$this._bio;
@@ -399,7 +436,11 @@ class UserBuilder implements Builder<User, UserBuilder> {
               r'User',
               'username',
             ),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'User', 'name'),
+            name: BuiltValueNullFieldError.checkNotNull(
+              name,
+              r'User',
+              'name',
+            ),
             portfolioUrl: portfolioUrl,
             bio: bio,
             location: location,

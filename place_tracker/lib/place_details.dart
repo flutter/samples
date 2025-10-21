@@ -240,10 +240,9 @@ class _Reviews extends StatelessWidget {
           ),
         ),
         Column(
-          children:
-              StubData.reviewStrings
-                  .map((reviewText) => _buildSingleReview(reviewText))
-                  .toList(),
+          children: StubData.reviewStrings
+              .map((reviewText) => _buildSingleReview(reviewText))
+              .toList(),
         ),
       ],
     );
@@ -308,17 +307,16 @@ class _StarBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children:
-          List.generate(maxStars, (index) {
-            return IconButton(
-              icon: const Icon(Icons.star),
-              iconSize: 40,
-              color: rating > index ? Colors.amber : Colors.grey[400],
-              onPressed: () {
-                onChanged(index + 1);
-              },
-            );
-          }).toList(),
+      children: List.generate(maxStars, (index) {
+        return IconButton(
+          icon: const Icon(Icons.star),
+          iconSize: 40,
+          color: rating > index ? Colors.amber : Colors.grey[400],
+          onPressed: () {
+            onChanged(index + 1);
+          },
+        );
+      }).toList(),
     );
   }
 }

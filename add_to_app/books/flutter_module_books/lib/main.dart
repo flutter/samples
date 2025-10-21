@@ -125,28 +125,26 @@ class _BookDetailState extends State<BookDetail> {
           IconButton(
             icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
-            onPressed:
-                book != null
-                    ? () {
-                      hostApi.finishEditingBook(book!);
-                      clear();
-                    }
-                    : null,
+            onPressed: book != null
+                ? () {
+                    hostApi.finishEditingBook(book!);
+                    clear();
+                  }
+                : null,
           ),
         ],
       ),
-      body:
-          book == null
-              // Draw a spinner until the platform gives us the book to show details
-              // for.
-              ? const Center(child: CircularProgressIndicator())
-              : BookForm(
-                book: book!,
-                focusNode: textFocusNode,
-                authorTextController: authorTextController,
-                subtitleTextController: subtitleTextController,
-                titleTextController: titleTextController,
-              ),
+      body: book == null
+          // Draw a spinner until the platform gives us the book to show details
+          // for.
+          ? const Center(child: CircularProgressIndicator())
+          : BookForm(
+              book: book!,
+              focusNode: textFocusNode,
+              authorTextController: authorTextController,
+              subtitleTextController: subtitleTextController,
+              titleTextController: titleTextController,
+            ),
     );
   }
 }

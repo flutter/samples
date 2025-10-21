@@ -47,11 +47,10 @@ class CustomMenuPage extends StatelessWidget {
             contextMenuBuilder: (context, editableTextState) {
               return _MyContextMenu(
                 anchor: editableTextState.contextMenuAnchors.primaryAnchor,
-                children:
-                    AdaptiveTextSelectionToolbar.getAdaptiveButtons(
-                      context,
-                      editableTextState.contextMenuButtonItems,
-                    ).toList(),
+                children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
+                  context,
+                  editableTextState.contextMenuButtonItems,
+                ).toList(),
               );
             },
           ),

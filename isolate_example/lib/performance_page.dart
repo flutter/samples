@@ -57,8 +57,9 @@ class _PerformancePageState extends State<PerformancePage> {
                     return ElevatedButton(
                       style: ElevatedButton.styleFrom(elevation: 8.0),
                       onPressed: switch (snapshot.connectionState) {
-                        ConnectionState.done =>
-                          () => handleComputeOnMain(context),
+                        ConnectionState.done => () => handleComputeOnMain(
+                          context,
+                        ),
                         _ => null,
                       },
                       child: const Text('Compute on Main'),
@@ -71,8 +72,9 @@ class _PerformancePageState extends State<PerformancePage> {
                     return ElevatedButton(
                       style: ElevatedButton.styleFrom(elevation: 8.0),
                       onPressed: switch (snapshot.connectionState) {
-                        ConnectionState.done =>
-                          () => handleComputeOnSecondary(context),
+                        ConnectionState.done => () => handleComputeOnSecondary(
+                          context,
+                        ),
                         _ => null,
                       },
                       child: const Text('Compute on Secondary'),
@@ -88,12 +90,12 @@ class _PerformancePageState extends State<PerformancePage> {
   }
 
   void handleComputeOnMain(BuildContext context) {
-    var future =
-        computeOnMainIsolate()..then((_) {
-          var snackBar = const SnackBar(content: Text('Main Isolate Done!'));
-          if (!context.mounted) return;
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        });
+    var future = computeOnMainIsolate()
+      ..then((_) {
+        var snackBar = const SnackBar(content: Text('Main Isolate Done!'));
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      });
 
     setState(() {
       computeFuture = future;
@@ -101,14 +103,14 @@ class _PerformancePageState extends State<PerformancePage> {
   }
 
   void handleComputeOnSecondary(BuildContext context) {
-    var future =
-        computeOnSecondaryIsolate()..then((_) {
-          var snackBar = const SnackBar(
-            content: Text('Secondary Isolate Done!'),
-          );
-          if (!context.mounted) return;
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        });
+    var future = computeOnSecondaryIsolate()
+      ..then((_) {
+        var snackBar = const SnackBar(
+          content: Text('Secondary Isolate Done!'),
+        );
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      });
 
     setState(() {
       computeFuture = future;

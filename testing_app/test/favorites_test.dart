@@ -11,12 +11,12 @@ import 'package:testing_app/screens/favorites.dart';
 late Favorites favoritesList;
 
 Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
-      create: (context) {
-        favoritesList = Favorites();
-        return favoritesList;
-      },
-      child: const MaterialApp(home: FavoritesPage()),
-    );
+  create: (context) {
+    favoritesList = Favorites();
+    return favoritesList;
+  },
+  child: const MaterialApp(home: FavoritesPage()),
+);
 
 void addItems() {
   for (var i = 0; i < 5; i++) {
@@ -52,7 +52,9 @@ void main() {
       await tester.pumpAndSettle();
 
       // Get the total number of items available.
-      final totalItems = tester.widgetList(find.byIcon(Icons.close)).length;
+      final totalItems = tester
+          .widgetList(find.byIcon(Icons.close))
+          .length;
 
       // Remove one item.
       await tester.tap(find.byIcon(Icons.close).first);

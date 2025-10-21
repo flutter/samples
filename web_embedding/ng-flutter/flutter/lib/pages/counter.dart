@@ -24,11 +24,10 @@ class _CounterDemoState extends State<CounterDemo> {
             const Text('You have pushed the button this many times:'),
             ValueListenableBuilder(
               valueListenable: widget.counter,
-              builder:
-                  (context, value, child) => Text(
-                    '$value',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
+              builder: (context, value, child) => Text(
+                '$value',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
           ],
         ),

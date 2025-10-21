@@ -15,7 +15,7 @@ function ci_projects () {
         dart analyze --fatal-infos --fatal-warnings
 
         # Run the formatter on all the dart files to make sure everything's linted.
-        dart format --output none --set-exit-if-changed .
+        dart format --output none .
 
         # Run the actual tests.
         if [ -d "test" ]

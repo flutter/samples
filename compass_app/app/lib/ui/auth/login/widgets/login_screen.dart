@@ -50,38 +50,40 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const TiltedCards(),
-          Padding(
-            padding: Dimens.of(context).edgeInsetsScreenSymmetric,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TextField(controller: _email),
-                const SizedBox(height: Dimens.paddingVertical),
-                TextField(controller: _password, obscureText: true),
-                const SizedBox(height: Dimens.paddingVertical),
-                ListenableBuilder(
-                  listenable: widget.viewModel.login,
-                  builder: (context, _) {
-                    return FilledButton(
-                      onPressed: () {
-                        widget.viewModel.login.execute((
-                          _email.value.text,
-                          _password.value.text,
-                        ));
-                      },
-                      child: Text(AppLocalization.of(context).login),
-                    );
-                  },
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const TiltedCards(),
+            Padding(
+              padding: Dimens.of(context).edgeInsetsScreenSymmetric,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextField(controller: _email),
+                  const SizedBox(height: Dimens.paddingVertical),
+                  TextField(controller: _password, obscureText: true),
+                  const SizedBox(height: Dimens.paddingVertical),
+                  ListenableBuilder(
+                    listenable: widget.viewModel.login,
+                    builder: (context, _) {
+                      return FilledButton(
+                        onPressed: () {
+                          widget.viewModel.login.execute((
+                            _email.value.text,
+                            _password.value.text,
+                          ));
+                        },
+                        child: Text(AppLocalization.of(context).login),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -99,11 +101,10 @@ class _LoginScreenState extends State<LoginScreen> {
           content: Text(AppLocalization.of(context).errorWhileLogin),
           action: SnackBarAction(
             label: AppLocalization.of(context).tryAgain,
-            onPressed:
-                () => widget.viewModel.login.execute((
-                  _email.value.text,
-                  _password.value.text,
-                )),
+            onPressed: () => widget.viewModel.login.execute((
+              _email.value.text,
+              _password.value.text,
+            )),
           ),
         ),
       );

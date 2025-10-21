@@ -113,7 +113,10 @@ class _PressableCardState extends State<PressableCard>
               scale: 1 - elevationAnimation.value * 0.03,
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16) *
+                    const EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 16,
+                    ) *
                     flatten,
                 child: PhysicalModel(
                   elevation:
@@ -310,7 +313,9 @@ void showChoices(BuildContext context, List<String> choices) {
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: List<Widget>.generate(choices.length, (index) {
+                    children: List<Widget>.generate(choices.length, (
+                      index,
+                    ) {
                       return RadioListTile<int?>(
                         title: Text(choices[index]),
                         value: index,
@@ -345,7 +350,9 @@ void showChoices(BuildContext context, List<String> choices) {
               useMagnifier: true,
               magnification: 1.1,
               itemExtent: 40,
-              scrollController: FixedExtentScrollController(initialItem: 1),
+              scrollController: FixedExtentScrollController(
+                initialItem: 1,
+              ),
               children: List<Widget>.generate(choices.length, (index) {
                 return Center(
                   child: Text(

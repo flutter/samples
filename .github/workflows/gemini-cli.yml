@@ -1,0 +1,331 @@
+name: '💬 Gemini CLI'
+
+on:
+  pull_request_review_comment:
+    types:
+      - 'created'
+  pull_request_review:
+    types:
+      - 'submitted'
+  issue_comment:
+    types:
+      - 'created'
+
+concurrency:
+  group: '${{ github.workflow }}-${{ github.event.issue.number }}'
+  cancel-in-progress: |-
+    ${{ github.event.sender.type == 'User' && ( github.event.issue.author_association == 'OWNER' || github.event.issue.author_association == 'MEMBER' || github.event.issue.author_association == 'COLLABORATOR') }}
+
+defaults:
+  run:
+    shell: 'bash'
+
+permissions:
+  contents: 'write'
+  id-token: 'write'
+  pull-requests: 'write'
+  issues: 'write'
+
+jobs:
+  gemini-cli:
+    # This condition is complex to ensure we only run when explicitly invoked.
+    if: |-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event_name == 'issues' && github.event.action == 'opened' &&
+        contains(github.event.issue.body, '@gemini-cli') &&
+        !contains(github.event.issue.body, '/review') &&
+        !contains(github.event.issue.body, '/triage') &&
+        (
+          github.event.sender.type == 'User' && (
+            github.event.issue.author_association == 'OWNER' ||
+            github.event.issue.author_association == 'MEMBER' ||
+            github.event.issue.author_association == 'COLLABORATOR'
+          )
+        )
+      ) ||
+      (
+        github.event_name == 'issue_comment' &&
+        contains(github.event.comment.body, '@gemini-cli') &&
+        !contains(github.event.comment.body, '/review') &&
+        !contains(github.event.comment.body, '/triage') &&
+        (
+          github.event.sender.type == 'User' && (
+            github.event.comment.author_association == 'OWNER' ||
+            github.event.comment.author_association == 'MEMBER' ||
+            github.event.comment.author_association == 'COLLABORATOR'
+          )
+        )
+      ) ||
+      (
+        github.event_name == 'pull_request_review' &&
+        contains(github.event.review.body, '@gemini-cli') &&
+        !contains(github.event.review.body, '/review') &&
+        !contains(github.event.review.body, '/triage') &&
+        (
+          github.event.sender.type == 'User' && (
+            github.event.review.author_association == 'OWNER' ||
+            github.event.review.author_association == 'MEMBER' ||
+            github.event.review.author_association == 'COLLABORATOR'
+          )
+        )
+      ) ||
+      (
+        github.event_name == 'pull_request_review_comment' &&
+        contains(github.event.comment.body, '@gemini-cli') &&
+        !contains(github.event.comment.body, '/review') &&
+        !contains(github.event.comment.body, '/triage') &&
+        (
+          github.event.sender.type == 'User' && (
+            github.event.comment.author_association == 'OWNER' ||
+            github.event.comment.author_association == 'MEMBER' ||
+            github.event.comment.author_association == 'COLLABORATOR'
+          )
+        )
+      )
+    timeout-minutes: 10
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: 'Generate GitHub App Token'
+        id: 'generate_token'
+        if: |-
+          ${{ vars.APP_ID }}
+        uses: 'actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e' # ratchet:actions/create-github-app-token@v2
+        with:
+          app-id: '${{ vars.APP_ID }}'
+          private-key: '${{ secrets.APP_PRIVATE_KEY }}'
+
+      - name: 'Get context from event'
+        id: 'get_context'
+        env:
+          EVENT_NAME: '${{ github.event_name }}'
+          EVENT_PAYLOAD: '${{ toJSON(github.event) }}'
+        run: |-
+          set -euo pipefail
+
+          USER_REQUEST=""
+          ISSUE_NUMBER=""
+          IS_PR="false"
+
+          if [[ "${EVENT_NAME}" == "issues" ]]; then
+            USER_REQUEST=$(echo "${EVENT_PAYLOAD}" | jq -r .issue.body)
+            ISSUE_NUMBER=$(echo "${EVENT_PAYLOAD}" | jq -r .issue.number)
+          elif [[ "${EVENT_NAME}" == "issue_comment" ]]; then
+            USER_REQUEST=$(echo "${EVENT_PAYLOAD}" | jq -r .comment.body)
+            ISSUE_NUMBER=$(echo "${EVENT_PAYLOAD}" | jq -r .issue.number)
+            if [[ $(echo "${EVENT_PAYLOAD}" | jq -r .issue.pull_request) != "null" ]]; then
+              IS_PR="true"
+            fi
+          elif [[ "${EVENT_NAME}" == "pull_request_review" ]]; then
+            USER_REQUEST=$(echo "${EVENT_PAYLOAD}" | jq -r .review.body)
+            ISSUE_NUMBER=$(echo "${EVENT_PAYLOAD}" | jq -r .pull_request.number)
+            IS_PR="true"
+          elif [[ "${EVENT_NAME}" == "pull_request_review_comment" ]]; then
+            USER_REQUEST=$(echo "${EVENT_PAYLOAD}" | jq -r .comment.body)
+            ISSUE_NUMBER=$(echo "${EVENT_PAYLOAD}" | jq -r .pull_request.number)
+            IS_PR="true"
+          fi
+
+          # Clean up user request
+          USER_REQUEST=$(echo "${USER_REQUEST}" | sed 's/.*@gemini-cli//' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+          {
+            echo "user_request=${USER_REQUEST}"
+            echo "issue_number=${ISSUE_NUMBER}"
+            echo "is_pr=${IS_PR}"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: 'Set up git user for commits'
+        run: |-
+          git config --global user.name 'gemini-cli[bot]'
+          git config --global user.email 'gemini-cli[bot]@users.noreply.github.com'
+
+      - name: 'Checkout PR branch'
+        if: |-
+          ${{  steps.get_context.outputs.is_pr == 'true' }}
+        uses: 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' # ratchet:actions/checkout@v4
+        with:
+          token: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          repository: '${{ github.repository }}'
+          ref: 'refs/pull/${{ steps.get_context.outputs.issue_number }}/head'
+          fetch-depth: 0
+
+      - name: 'Checkout main branch'
+        if: |-
+          ${{  steps.get_context.outputs.is_pr == 'false' }}
+        uses: 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' # ratchet:actions/checkout@v4
+        with:
+          token: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          repository: '${{ github.repository }}'
+          fetch-depth: 0
+
+      - name: 'Acknowledge request'
+        env:
+          GITHUB_TOKEN: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          ISSUE_NUMBER: '${{ steps.get_context.outputs.issue_number }}'
+          REPOSITORY: '${{ github.repository }}'
+          REQUEST_TYPE: '${{ steps.get_context.outputs.request_type }}'
+        run: |-
+          set -euo pipefail
+          MESSAGE="I've received your request and I'm working on it now! 🤖"
+          if [[ -n "${MESSAGE}" ]]; then
+            gh issue comment "${ISSUE_NUMBER}" \
+              --body "${MESSAGE}" \
+              --repo "${REPOSITORY}"
+          fi
+
+      - name: 'Get description'
+        id: 'get_description'
+        env:
+          GITHUB_TOKEN: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          IS_PR: '${{ steps.get_context.outputs.is_pr }}'
+          ISSUE_NUMBER: '${{ steps.get_context.outputs.issue_number }}'
+        run: |-
+          set -euo pipefail
+          if [[ "${IS_PR}" == "true" ]]; then
+            DESCRIPTION=$(gh pr view "${ISSUE_NUMBER}" --json body --template '{{.body}}')
+          else
+            DESCRIPTION=$(gh issue view "${ISSUE_NUMBER}" --json body --template '{{.body}}')
+          fi
+          {
+            echo "description<<EOF"
+            echo "${DESCRIPTION}"
+            echo "EOF"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: 'Get comments'
+        id: 'get_comments'
+        env:
+          GITHUB_TOKEN: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          IS_PR: '${{ steps.get_context.outputs.is_pr }}'
+          ISSUE_NUMBER: '${{ steps.get_context.outputs.issue_number }}'
+        run: |-
+          set -euo pipefail
+          if [[ "${IS_PR}" == "true" ]]; then
+            COMMENTS=$(gh pr view "${ISSUE_NUMBER}" --json comments --template '{{range .comments}}{{.author.login}}: {{.body}}{{"\n"}}{{end}}')
+          else
+            COMMENTS=$(gh issue view "${ISSUE_NUMBER}" --json comments --template '{{range .comments}}{{.author.login}}: {{.body}}{{"\n"}}{{end}}')
+          fi
+          {
+            echo "comments<<EOF"
+            echo "${COMMENTS}"
+            echo "EOF"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: 'Run Gemini'
+        id: 'run_gemini'
+        uses: 'google-github-actions/run-gemini-cli@v0'
+        env:
+          GITHUB_TOKEN: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          REPOSITORY: '${{ github.repository }}'
+          USER_REQUEST: '${{ steps.get_context.outputs.user_request }}'
+          ISSUE_NUMBER: '${{ steps.get_context.outputs.issue_number }}'
+          IS_PR: '${{ steps.get_context.outputs.is_pr }}'
+        with:
+          gemini_api_key: '${{ secrets.GEMINI_API_KEY }}'
+          gcp_workload_identity_provider: '${{ vars.GCP_WIF_PROVIDER }}'
+          gcp_project_id: '${{ vars.GOOGLE_CLOUD_PROJECT }}'
+          gcp_location: '${{ vars.GOOGLE_CLOUD_LOCATION }}'
+          gcp_service_account: '${{ vars.SERVICE_ACCOUNT_EMAIL }}'
+          use_vertex_ai: '${{ vars.GOOGLE_GENAI_USE_VERTEXAI }}'
+          use_gemini_code_assist: '${{ vars.GOOGLE_GENAI_USE_GCA }}'
+          settings: |-
+            {
+              "maxSessionTurns": 50,
+              "telemetry": {
+                "enabled": false,
+                "target": "gcp"
+              }
+            }
+          prompt: |-
+            ## Role
+
+            You are a helpful AI assistant invoked via a CLI interface in a GitHub workflow. You have access to tools to interact with the repository and respond to the user.
+
+            ## Context
+
+            - **Repository**: `${{ github.repository }}`
+            - **Triggering Event**: `${{ github.event_name }}`
+            - **Issue/PR Number**: `${{ steps.get_context.outputs.issue_number }}`
+            - **Is this a PR?**: `${{ steps.get_context.outputs.is_pr }}`
+            - **Issue/PR Description**:
+            `${{ steps.get_description.outputs.description }}`
+            - **Comments**:
+            `${{ steps.get_comments.outputs.comments }}`
+
+            ## User Request
+
+            The user has sent the following request:
+            `${{ steps.get_context.outputs.user_request }}`
+
+            ## How to Respond to Issues, PR Comments, and Questions
+
+            This workflow supports three main scenarios:
+
+            1. **Creating a Fix for an Issue**
+               - Carefully read the user request and the related issue or PR description.
+               - Use available tools to gather all relevant context (e.g., `gh issue view`, `gh pr view`, `gh pr diff`, `cat`, `head`, `tail`).
+               - Identify the root cause of the problem before proceeding.
+               - **Show and maintain a plan as a checklist**:
+                 - At the very beginning, outline the steps needed to resolve the issue or address the request and post them as a checklist comment on the issue or PR (use GitHub markdown checkboxes: `- [ ] Task`).
+                 - Example:
+                   ```
+                   ### Plan
+                   - [ ] Investigate the root cause
+                   - [ ] Implement the fix in `file.py`
+                   - [ ] Add/modify tests
+                   - [ ] Update documentation
+                   - [ ] Verify the fix and close the issue
+                   ```
+                 - Use: `gh pr comment "${ISSUE_NUMBER}" --body "<plan>"` or `gh issue comment "${ISSUE_NUMBER}" --body "<plan>"` to post the initial plan.
+                 - As you make progress, keep the checklist visible and up to date by editing the same comment (check off completed tasks with `- [x]`).
+                   - To update the checklist:
+                     1. Find the comment ID for the checklist (use `gh pr comment list "${ISSUE_NUMBER}"` or `gh issue comment list "${ISSUE_NUMBER}"`).
+                     2. Edit the comment with the updated checklist:
+                        - For PRs: `gh pr comment --edit <comment-id> --body "<updated plan>"`
+                        - For Issues: `gh issue comment --edit <comment-id> --body "<updated plan>"`
+                     3. The checklist should only be maintained as a comment on the issue or PR. Do not track or update the checklist in code files.
+               - If the fix requires code changes, determine which files and lines are affected. If clarification is needed, note any questions for the user.
+               - Make the necessary code or documentation changes using the available tools (e.g., `write_file`). Ensure all changes follow project conventions and best practices. Reference all shell variables as `"${VAR}"` (with quotes and braces) to prevent errors.
+               - Run any relevant tests or checks to verify the fix works as intended. If possible, provide evidence (test output, screenshots, etc.) that the issue is resolved.
+               - **Branching and Committing**:
+                 - **NEVER commit directly to the `main` branch.**
+                 - If you are working on a **pull request** (`IS_PR` is `true`), the correct branch is already checked out. Simply commit and push to it.
+                   - `git add .`
+                   - `git commit -m "feat: <describe the change>"`
+                   - `git push`
+                 - If you are working on an **issue** (`IS_PR` is `false`), create a new branch for your changes. A good branch name would be `issue/${ISSUE_NUMBER}/<short-description>`.
+                   - `git checkout -b issue/${ISSUE_NUMBER}/my-fix`
+                   - `git add .`
+                   - `git commit -m "feat: <describe the fix>"`
+                   - `git push origin issue/${ISSUE_NUMBER}/my-fix`
+                   - After pushing, you can create a pull request: `gh pr create --title "Fixes #${ISSUE_NUMBER}: <short title>" --body "This PR addresses issue #${ISSUE_NUMBER}."`
+               - Summarize what was changed and why in a markdown file: `write_file("response.md", "<your response here>")`
+               - Post the response as a comment:
+                 - For PRs: `gh pr comment "${ISSUE_NUMBER}" --body-file response.md`
+                 - For Issues: `gh issue comment "${ISSUE_NUMBER}" --body-file response.md`
+
+            2. **Addressing Comments on a Pull Request**
+               - Read the specific comment and the context of the PR.
+               - Use tools like `gh pr view`, `gh pr diff`, and `cat` to understand the code and discussion.
+               - If the comment requests a change or clarification, follow the same process as for fixing an issue: create a checklist plan, implement, test, and commit any required changes, updating the checklist as you go.
+               - **Committing Changes**: The correct PR branch is already checked out. Simply add, commit, and push your changes.
+                 - `git add .`
+                 - `git commit -m "fix: address review comments"`
+                 - `git push`
+               - If the comment is a question, answer it directly and clearly, referencing code or documentation as needed.
+               - Document your response in `response.md` and post it as a PR comment: `gh pr comment "${ISSUE_NUMBER}" --body-file response.md`
+
+            3. **Answering Any Question on an Issue**
+               - Read the question and the full issue context using `gh issue view` and related tools.
+               - Research or analyze the codebase as needed to provide an accurate answer.
+               - If the question requires code or documentation changes, follow the fix process above, including creating and updating a checklist plan and **creating a new branch for your changes as described in section 1.**
+               - Write a clear, concise answer in `response.md` and post it as an issue comment: `gh issue comment "${ISSUE_NUMBER}" --body-file response.md`
+
+            ## Guidelines
+
+            - **Be concise and actionable.** Focus on solving the user's problem efficiently.
+            - **Always commit and push your changes if you modify code or documentation.**
+            - **If you are unsure about the fix or answer, explain your reasoning and ask clarifying questions.**
+            - **Follow project conventions and best practices.**

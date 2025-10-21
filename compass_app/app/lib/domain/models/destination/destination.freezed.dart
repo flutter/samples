@@ -95,41 +95,34 @@ class _$DestinationCopyWithImpl<$Res, $Val extends Destination>
   }) {
     return _then(
       _value.copyWith(
-            ref:
-                null == ref
-                    ? _value.ref
-                    : ref // ignore: cast_nullable_to_non_nullable
-                        as String,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            country:
-                null == country
-                    ? _value.country
-                    : country // ignore: cast_nullable_to_non_nullable
-                        as String,
-            continent:
-                null == continent
-                    ? _value.continent
-                    : continent // ignore: cast_nullable_to_non_nullable
-                        as String,
-            knownFor:
-                null == knownFor
-                    ? _value.knownFor
-                    : knownFor // ignore: cast_nullable_to_non_nullable
-                        as String,
-            tags:
-                null == tags
-                    ? _value.tags
-                    : tags // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
-            imageUrl:
-                null == imageUrl
-                    ? _value.imageUrl
-                    : imageUrl // ignore: cast_nullable_to_non_nullable
-                        as String,
+            ref: null == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                      as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            country: null == country
+                ? _value.country
+                : country // ignore: cast_nullable_to_non_nullable
+                      as String,
+            continent: null == continent
+                ? _value.continent
+                : continent // ignore: cast_nullable_to_non_nullable
+                      as String,
+            knownFor: null == knownFor
+                ? _value.knownFor
+                : knownFor // ignore: cast_nullable_to_non_nullable
+                      as String,
+            tags: null == tags
+                ? _value.tags
+                : tags // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            imageUrl: null == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -180,41 +173,34 @@ class __$$DestinationImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$DestinationImpl(
-        ref:
-            null == ref
-                ? _value.ref
-                : ref // ignore: cast_nullable_to_non_nullable
-                    as String,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        country:
-            null == country
-                ? _value.country
-                : country // ignore: cast_nullable_to_non_nullable
-                    as String,
-        continent:
-            null == continent
-                ? _value.continent
-                : continent // ignore: cast_nullable_to_non_nullable
-                    as String,
-        knownFor:
-            null == knownFor
-                ? _value.knownFor
-                : knownFor // ignore: cast_nullable_to_non_nullable
-                    as String,
-        tags:
-            null == tags
-                ? _value._tags
-                : tags // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
-        imageUrl:
-            null == imageUrl
-                ? _value.imageUrl
-                : imageUrl // ignore: cast_nullable_to_non_nullable
-                    as String,
+        ref: null == ref
+            ? _value.ref
+            : ref // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        country: null == country
+            ? _value.country
+            : country // ignore: cast_nullable_to_non_nullable
+                  as String,
+        continent: null == continent
+            ? _value.continent
+            : continent // ignore: cast_nullable_to_non_nullable
+                  as String,
+        knownFor: null == knownFor
+            ? _value.knownFor
+            : knownFor // ignore: cast_nullable_to_non_nullable
+                  as String,
+        tags: null == tags
+            ? _value._tags
+            : tags // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        imageUrl: null == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

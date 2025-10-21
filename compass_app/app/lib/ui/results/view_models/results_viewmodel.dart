@@ -67,13 +67,12 @@ class ResultsViewModel extends ChangeNotifier {
       case Ok():
         {
           // If the result is Ok, update the list of destinations
-          _destinations =
-              result.value
-                  .where(
-                    (destination) =>
-                        destination.continent == _itineraryConfig!.continent,
-                  )
-                  .toList();
+          _destinations = result.value
+              .where(
+                (destination) =>
+                    destination.continent == _itineraryConfig!.continent,
+              )
+              .toList();
           _log.fine('Destinations (${_destinations.length}) loaded');
         }
       case Error():

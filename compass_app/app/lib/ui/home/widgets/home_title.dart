@@ -61,12 +61,11 @@ class _Title extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       blendMode: BlendMode.srcIn,
-      shaderCallback:
-          (bounds) => RadialGradient(
-            center: Alignment.bottomLeft,
-            radius: 2,
-            colors: [Colors.purple.shade700, Colors.purple.shade400],
-          ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+      shaderCallback: (bounds) => RadialGradient(
+        center: Alignment.bottomLeft,
+        radius: 2,
+        colors: [Colors.purple.shade700, Colors.purple.shade400],
+      ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
       child: Text(
         text,
         style: GoogleFonts.rubik(

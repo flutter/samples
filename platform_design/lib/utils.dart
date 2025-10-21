@@ -39,7 +39,8 @@ String generateRandomHeadline() {
     2 => '$artist releases ${capitalizePair(wordPairIterator.first)}',
     3 => '$artist talks about his ${nouns[_random.nextInt(nouns.length)]}',
     4 => '$artist talks about her ${nouns[_random.nextInt(nouns.length)]}',
-    5 => '$artist talks about their ${nouns[_random.nextInt(nouns.length)]}',
+    5 =>
+      '$artist talks about their ${nouns[_random.nextInt(nouns.length)]}',
     6 =>
       '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}',
     7 =>
@@ -54,7 +55,9 @@ String generateRandomHeadline() {
 
 List<MaterialColor> getRandomColors(int amount) {
   return List<MaterialColor>.generate(amount, (index) {
-    return _myListOfRandomColors[_random.nextInt(_myListOfRandomColors.length)];
+    return _myListOfRandomColors[_random.nextInt(
+      _myListOfRandomColors.length,
+    )];
   });
 }
 

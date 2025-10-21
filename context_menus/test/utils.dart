@@ -40,6 +40,9 @@ List<TextSelectionPoint> globalize(
   RenderBox box,
 ) {
   return points.map<TextSelectionPoint>((point) {
-    return TextSelectionPoint(box.localToGlobal(point.point), point.direction);
+    return TextSelectionPoint(
+      box.localToGlobal(point.point),
+      point.direction,
+    );
   }).toList();
 }

@@ -2,17 +2,17 @@ name: infinitelist
 description: >
   A sample implementation of an infinite list.
 publish_to: none
+resolution: workspace
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.2
-  meta: ^1.3.0
+  meta: ^1.16.0
   provider: ^6.0.2
   window_size:
     git:
@@ -24,6 +24,5 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
 flutter:
   uses-material-design: true

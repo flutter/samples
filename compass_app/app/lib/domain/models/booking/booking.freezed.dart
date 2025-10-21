@@ -85,31 +85,26 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            startDate:
-                null == startDate
-                    ? _value.startDate
-                    : startDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            endDate:
-                null == endDate
-                    ? _value.endDate
-                    : endDate // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            destination:
-                null == destination
-                    ? _value.destination
-                    : destination // ignore: cast_nullable_to_non_nullable
-                        as Destination,
-            activity:
-                null == activity
-                    ? _value.activity
-                    : activity // ignore: cast_nullable_to_non_nullable
-                        as List<Activity>,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            startDate: null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            endDate: null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            destination: null == destination
+                ? _value.destination
+                : destination // ignore: cast_nullable_to_non_nullable
+                      as Destination,
+            activity: null == activity
+                ? _value.activity
+                : activity // ignore: cast_nullable_to_non_nullable
+                      as List<Activity>,
           )
           as $Val,
     );
@@ -168,31 +163,26 @@ class __$$BookingImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$BookingImpl(
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        startDate:
-            null == startDate
-                ? _value.startDate
-                : startDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        endDate:
-            null == endDate
-                ? _value.endDate
-                : endDate // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        destination:
-            null == destination
-                ? _value.destination
-                : destination // ignore: cast_nullable_to_non_nullable
-                    as Destination,
-        activity:
-            null == activity
-                ? _value._activity
-                : activity // ignore: cast_nullable_to_non_nullable
-                    as List<Activity>,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        startDate: null == startDate
+            ? _value.startDate
+            : startDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        endDate: null == endDate
+            ? _value.endDate
+            : endDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        destination: null == destination
+            ? _value.destination
+            : destination // ignore: cast_nullable_to_non_nullable
+                  as Destination,
+        activity: null == activity
+            ? _value._activity
+            : activity // ignore: cast_nullable_to_non_nullable
+                  as List<Activity>,
       ),
     );
   }
