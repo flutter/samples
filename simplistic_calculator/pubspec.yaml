@@ -16,8 +16,8 @@ dependencies:
     sdk: flutter
   flutter_layout_grid: ^2.0.1
   flutter_riverpod: ^2.0.2
-  math_expressions: ^2.3.0
-  window_size: 
+  math_expressions: ^2.7.0
+  window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
