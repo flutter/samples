@@ -38,6 +38,7 @@ workspace:
   - navigation_and_routing
   - pedometer
   - pedometer/example
+  - place_tracker
   - platform_channels
   - platform_design
   - platform_view_swift
