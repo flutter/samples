@@ -342,40 +342,40 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   // These actions have yet to be implemented for this sample.
-  static final Map<Type, Action<Intent>>
-  _unsupportedActions = <Type, Action<Intent>>{
-    DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
-    DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
-    ExtendSelectionToNextWordBoundaryIntent: DoNothingAction(
-      consumesKey: false,
-    ),
-    ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
-        DoNothingAction(consumesKey: false),
-    ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
-    ExtendSelectionVerticallyToAdjacentLineIntent: DoNothingAction(
-      consumesKey: false,
-    ),
-    ExtendSelectionVerticallyToAdjacentPageIntent: DoNothingAction(
-      consumesKey: false,
-    ),
-    ExtendSelectionToNextParagraphBoundaryIntent: DoNothingAction(
-      consumesKey: false,
-    ),
-    ExtendSelectionToDocumentBoundaryIntent: DoNothingAction(
-      consumesKey: false,
-    ),
-    ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
-    ExpandSelectionToDocumentBoundaryIntent: DoNothingAction(
-      consumesKey: false,
-    ),
-    ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
-    ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
-    RedoTextIntent: DoNothingAction(consumesKey: false),
-    ReplaceTextIntent: DoNothingAction(consumesKey: false),
-    UndoTextIntent: DoNothingAction(consumesKey: false),
-    UpdateSelectionIntent: DoNothingAction(consumesKey: false),
-    TransposeCharactersIntent: DoNothingAction(consumesKey: false),
-  };
+  static final Map<Type, Action<Intent>> _unsupportedActions =
+      <Type, Action<Intent>>{
+        DeleteToNextWordBoundaryIntent: DoNothingAction(consumesKey: false),
+        DeleteToLineBreakIntent: DoNothingAction(consumesKey: false),
+        ExtendSelectionToNextWordBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionToNextParagraphBoundaryOrCaretLocationIntent:
+            DoNothingAction(consumesKey: false),
+        ExtendSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+        ExtendSelectionVerticallyToAdjacentLineIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionVerticallyToAdjacentPageIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionToNextParagraphBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionToDocumentBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExtendSelectionByPageIntent: DoNothingAction(consumesKey: false),
+        ExpandSelectionToDocumentBoundaryIntent: DoNothingAction(
+          consumesKey: false,
+        ),
+        ExpandSelectionToLineBreakIntent: DoNothingAction(consumesKey: false),
+        ScrollToDocumentBoundaryIntent: DoNothingAction(consumesKey: false),
+        RedoTextIntent: DoNothingAction(consumesKey: false),
+        ReplaceTextIntent: DoNothingAction(consumesKey: false),
+        UndoTextIntent: DoNothingAction(consumesKey: false),
+        UpdateSelectionIntent: DoNothingAction(consumesKey: false),
+        TransposeCharactersIntent: DoNothingAction(consumesKey: false),
+      };
 
   /// Keyboard text editing actions.
   // The Handling of the default text editing shortcuts with deltas
@@ -582,9 +582,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   void _updateCaretRectIfNeeded() {
     final TextSelection? selection = renderEditable.selection;
-    if (selection == null ||
-        !selection.isValid ||
-        !selection.isCollapsed) {
+    if (selection == null || !selection.isValid || !selection.isCollapsed) {
       return;
     }
     final TextPosition currentTextPosition = TextPosition(
@@ -982,9 +980,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final InlineSpan span = renderEditable.text!;
     final String prevText = span.toPlainText();
     final String currText = textEditingValue.text;
-    if (prevText != currText ||
-        !selection.isValid ||
-        selection.isCollapsed) {
+    if (prevText != currText || !selection.isValid || selection.isCollapsed) {
       return _GlyphHeights(
         start: renderEditable.preferredLineHeight,
         end: renderEditable.preferredLineHeight,
@@ -994,13 +990,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final String selectedGraphemes = selection.textInside(currText);
     final int firstSelectedGraphemeExtent =
         selectedGraphemes.characters.first.length;
-    final Rect? startCharacterRect = renderEditable
-        .getRectForComposingRange(
-          TextRange(
-            start: selection.start,
-            end: selection.start + firstSelectedGraphemeExtent,
-          ),
-        );
+    final Rect? startCharacterRect = renderEditable.getRectForComposingRange(
+      TextRange(
+        start: selection.start,
+        end: selection.start + firstSelectedGraphemeExtent,
+      ),
+    );
     final int lastSelectedGraphemeExtent =
         selectedGraphemes.characters.last.length;
     final Rect? endCharacterRect = renderEditable.getRectForComposingRange(
@@ -1010,8 +1005,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       ),
     );
     return _GlyphHeights(
-      start:
-          startCharacterRect?.height ?? renderEditable.preferredLineHeight,
+      start: startCharacterRect?.height ?? renderEditable.preferredLineHeight,
       end: endCharacterRect?.height ?? renderEditable.preferredLineHeight,
     );
   }
@@ -1095,9 +1089,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     return !textEditingValue.selection.isCollapsed &&
-        textEditingValue.selection
-                .textInside(textEditingValue.text)
-                .trim() !=
+        textEditingValue.selection.textInside(textEditingValue.text).trim() !=
             '';
   }
 
@@ -1160,8 +1152,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 startHandleLayerLink: _startHandleLayerLink,
                 endHandleLayerLink: _endHandleLayerLink,
                 inlineSpan: _buildTextSpan(),
-                value:
-                    _value, // We pass value.selection to RenderEditable.
+                value: _value, // We pass value.selection to RenderEditable.
                 cursorColor: Colors.blue,
                 backgroundCursorColor: Colors.grey[100],
                 showCursor: ValueNotifier<bool>(_hasFocus),
