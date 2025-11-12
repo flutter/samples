@@ -39,8 +39,7 @@ String generateRandomHeadline() {
     2 => '$artist releases ${capitalizePair(wordPairIterator.first)}',
     3 => '$artist talks about his ${nouns[_random.nextInt(nouns.length)]}',
     4 => '$artist talks about her ${nouns[_random.nextInt(nouns.length)]}',
-    5 =>
-      '$artist talks about their ${nouns[_random.nextInt(nouns.length)]}',
+    5 => '$artist talks about their ${nouns[_random.nextInt(nouns.length)]}',
     6 =>
       '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}',
     7 =>

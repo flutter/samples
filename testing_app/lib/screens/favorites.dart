@@ -41,8 +41,7 @@ class FavoriteItemTile extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor:
-              Colors.primaries[itemNo % Colors.primaries.length],
+          backgroundColor: Colors.primaries[itemNo % Colors.primaries.length],
         ),
         title: Text('Item $itemNo', key: Key('favorites_text_$itemNo')),
         trailing: IconButton(
