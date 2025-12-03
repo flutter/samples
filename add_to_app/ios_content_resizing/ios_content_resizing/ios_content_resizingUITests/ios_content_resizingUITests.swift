@@ -2,7 +2,7 @@
 //  ios_content_resizingUITests.swift
 //  ios_content_resizingUITests
 //
-//  Created by Louise Hsu on 12/2/25.
+//  Created by Louise Hsu on 12/3/25.
 //
 
 import XCTest
