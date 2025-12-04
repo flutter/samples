@@ -1,53 +1,44 @@
+// Copyright 2014 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ResizeApp());
 }
 
-/// The main application widget for the Fruit Catalog.
-class MyApp extends StatefulWidget {
-  /// Creates the [MyApp].
-  const MyApp({super.key});
+class ResizeApp extends StatefulWidget {
+  /// Creates the [ResizeApp].
+  const ResizeApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<ResizeApp> createState() => _ResizeAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  int _counter = 1;
-  void _incrementCounter() {
+class _ResizeAppState extends State<ResizeApp> {
+  int _listSize = 1;
+  void _addToList() {
     setState(() {
-      if (_counter > 40) {
-        _counter = 1;
-      }
-      _counter++;
+      _listSize++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Center(
-      heightFactor: 1,
-      child: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            for (int i = 0; i < _counter; i++)
-              Text(
-                "Hello from Flutter $i",
-                style: TextStyle(color: Colors.pink),
-              ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 50, 8.0, 8.0),
-              child: ElevatedButton(
-                onPressed: _incrementCounter,
-                child: Text("Add to list"),
-              ),
-            ),
-
-          ],
+    return GestureDetector(
+      onTap: _addToList, // The tap anywhere logic
+      child: Center(
+        heightFactor: 1,
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              for (int i = 0; i < _listSize; i++)
+                Container(color: HSVColor.fromAHSV(1, (10.0 * i), 1, 1).toColor(), height: 50, width: 100),
+            ],
+          ),
         ),
       ),
     );

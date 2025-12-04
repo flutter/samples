@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let stackView = UIStackView()
     stackView.axis = .vertical
     stackView.distribution = .fill
+    stackView.backgroundColor = .yellow
     stackView.translatesAutoresizingMaskIntoConstraints = false
 
     let engine1 = FlutterEngine(name: "one")
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         addChild(flutterViewController)
         stackView.addArrangedSubview(flutterViewController.view)
         flutterViewController.didMove(toParent: self)
+
       } else {
         let label = UILabel()
         label.text = "Hello from iOS \(index)"
