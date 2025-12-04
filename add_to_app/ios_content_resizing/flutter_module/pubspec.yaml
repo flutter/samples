@@ -18,7 +18,7 @@ description: "A new Flutter module project."
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.11.0-173.0.dev
+  sdk: ^3.11.0-200.1.beta
 
 dependencies:
   flutter:

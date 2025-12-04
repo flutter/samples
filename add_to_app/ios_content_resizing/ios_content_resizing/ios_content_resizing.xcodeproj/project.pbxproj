@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7CAC012226BEEB661A102697 /* Pods_ios_content_resizingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04F6A34F21CD3BE6A257DDB /* Pods_ios_content_resizingTests.framework */; };
+		7F699BB7742B5FAB4C12CE5C /* Pods_ios_content_resizing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636EB75E6827B94D35B9E15C /* Pods_ios_content_resizing.framework */; };
+		E843104071C29E6CE30D637B /* Pods_ios_content_resizing_ios_content_resizingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979B0953B3CB94157C961BB5 /* Pods_ios_content_resizing_ios_content_resizingUITests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F23EDFE72EE0E81C00A217AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +30,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21AF0E08BF01F3EA6AF43D73 /* Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing-ios_content_resizingUITests/Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FEEB1287F59F7D0F950708C /* Pods-ios_content_resizingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizingTests.release.xcconfig"; path = "Target Support Files/Pods-ios_content_resizingTests/Pods-ios_content_resizingTests.release.xcconfig"; sourceTree = "<group>"; };
+		5FED92584E697C8B2564E54E /* Pods-ios_content_resizingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizingTests.debug.xcconfig"; path = "Target Support Files/Pods-ios_content_resizingTests/Pods-ios_content_resizingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		636EB75E6827B94D35B9E15C /* Pods_ios_content_resizing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_content_resizing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979B0953B3CB94157C961BB5 /* Pods_ios_content_resizing_ios_content_resizingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_content_resizing_ios_content_resizingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C170EDA9CDBAFCCCE6D0E1C0 /* Pods-ios_content_resizing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing.release.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing/Pods-ios_content_resizing.release.xcconfig"; sourceTree = "<group>"; };
+		D301423152989400BB7B71AC /* Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing-ios_content_resizingUITests/Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D59E29ECBED0852D37A99053 /* Pods-ios_content_resizing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing.debug.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing/Pods-ios_content_resizing.debug.xcconfig"; sourceTree = "<group>"; };
+		E04F6A34F21CD3BE6A257DDB /* Pods_ios_content_resizingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_content_resizingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23EDFD02EE0E81A00A217AA /* ios_content_resizing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_content_resizing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23EDFE62EE0E81C00A217AA /* ios_content_resizingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_content_resizingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23EDFF02EE0E81C00A217AA /* ios_content_resizingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_content_resizingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F699BB7742B5FAB4C12CE5C /* Pods_ios_content_resizing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CAC012226BEEB661A102697 /* Pods_ios_content_resizingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +96,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E843104071C29E6CE30D637B /* Pods_ios_content_resizing_ios_content_resizingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26A2B7F96A58CC7941B47702 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				636EB75E6827B94D35B9E15C /* Pods_ios_content_resizing.framework */,
+				979B0953B3CB94157C961BB5 /* Pods_ios_content_resizing_ios_content_resizingUITests.framework */,
+				E04F6A34F21CD3BE6A257DDB /* Pods_ios_content_resizingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		429AA23544B1D6221E46F99C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D59E29ECBED0852D37A99053 /* Pods-ios_content_resizing.debug.xcconfig */,
+				C170EDA9CDBAFCCCE6D0E1C0 /* Pods-ios_content_resizing.release.xcconfig */,
+				21AF0E08BF01F3EA6AF43D73 /* Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig */,
+				D301423152989400BB7B71AC /* Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig */,
+				5FED92584E697C8B2564E54E /* Pods-ios_content_resizingTests.debug.xcconfig */,
+				2FEEB1287F59F7D0F950708C /* Pods-ios_content_resizingTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F23EDFC72EE0E81A00A217AA = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +133,8 @@
 				F23EDFE92EE0E81C00A217AA /* ios_content_resizingTests */,
 				F23EDFF32EE0E81C00A217AA /* ios_content_resizingUITests */,
 				F23EDFD12EE0E81A00A217AA /* Products */,
+				429AA23544B1D6221E46F99C /* Pods */,
+				26A2B7F96A58CC7941B47702 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F23EDFF92EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizing" */;
 			buildPhases = (
+				04B5F7353A97C8C66DB1345D /* [CP] Check Pods Manifest.lock */,
+				0096AB54D225CF9ABA303477 /* [CP-User] Run Flutter Build flutter_module Script */,
 				F23EDFCC2EE0E81A00A217AA /* Sources */,
 				F23EDFCD2EE0E81A00A217AA /* Frameworks */,
 				F23EDFCE2EE0E81A00A217AA /* Resources */,
+				81C6A5B8754ABF6932230914 /* [CP-User] Embed Flutter Build flutter_module Script */,
 			);
 			buildRules = (
 			);
@@ -124,8 +170,6 @@
 				F23EDFD22EE0E81A00A217AA /* ios_content_resizing */,
 			);
 			name = ios_content_resizing;
-			packageProductDependencies = (
-			);
 			productName = ios_content_resizing;
 			productReference = F23EDFD02EE0E81A00A217AA /* ios_content_resizing.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +178,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F23EDFFE2EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizingTests" */;
 			buildPhases = (
+				D845714EE96E84A345CC5AFB /* [CP] Check Pods Manifest.lock */,
 				F23EDFE22EE0E81C00A217AA /* Sources */,
 				F23EDFE32EE0E81C00A217AA /* Frameworks */,
 				F23EDFE42EE0E81C00A217AA /* Resources */,
@@ -147,8 +192,6 @@
 				F23EDFE92EE0E81C00A217AA /* ios_content_resizingTests */,
 			);
 			name = ios_content_resizingTests;
-			packageProductDependencies = (
-			);
 			productName = ios_content_resizingTests;
 			productReference = F23EDFE62EE0E81C00A217AA /* ios_content_resizingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F23EE0012EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizingUITests" */;
 			buildPhases = (
+				CD035F8822407F4FA59AE066 /* [CP] Check Pods Manifest.lock */,
 				F23EDFEC2EE0E81C00A217AA /* Sources */,
 				F23EDFED2EE0E81C00A217AA /* Frameworks */,
 				F23EDFEE2EE0E81C00A217AA /* Resources */,
@@ -170,8 +214,6 @@
 				F23EDFF32EE0E81C00A217AA /* ios_content_resizingUITests */,
 			);
 			name = ios_content_resizingUITests;
-			packageProductDependencies = (
-			);
 			productName = ios_content_resizingUITests;
 			productReference = F23EDFF02EE0E81C00A217AA /* ios_content_resizingUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -244,6 +286,103 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0096AB54D225CF9ABA303477 /* [CP-User] Run Flutter Build flutter_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] Run Flutter Build flutter_module Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
+		04B5F7353A97C8C66DB1345D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_content_resizing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C6A5B8754ABF6932230914 /* [CP-User] Embed Flutter Build flutter_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] Embed Flutter Build flutter_module Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
+		};
+		CD035F8822407F4FA59AE066 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_content_resizing-ios_content_resizingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D845714EE96E84A345CC5AFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_content_resizingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F23EDFCC2EE0E81A00A217AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,12 +423,14 @@
 /* Begin XCBuildConfiguration section */
 		F23EDFFA2EE0E81C00A217AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D59E29ECBED0852D37A99053 /* Pods-ios_content_resizing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ios_content_resizing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -312,12 +453,14 @@
 		};
 		F23EDFFB2EE0E81C00A217AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C170EDA9CDBAFCCCE6D0E1C0 /* Pods-ios_content_resizing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ios_content_resizing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -376,7 +519,7 @@
 				DEVELOPMENT_TEAM = S8QB4VV633;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -440,7 +583,7 @@
 				DEVELOPMENT_TEAM = S8QB4VV633;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -461,6 +604,7 @@
 		};
 		F23EDFFF2EE0E81C00A217AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FED92584E697C8B2564E54E /* Pods-ios_content_resizingTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -480,6 +624,7 @@
 		};
 		F23EE0002EE0E81C00A217AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FEEB1287F59F7D0F950708C /* Pods-ios_content_resizingTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +644,7 @@
 		};
 		F23EE0022EE0E81C00A217AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21AF0E08BF01F3EA6AF43D73 /* Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -516,6 +662,7 @@
 		};
 		F23EE0032EE0E81C00A217AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D301423152989400BB7B71AC /* Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
