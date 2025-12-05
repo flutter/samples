@@ -27,8 +27,8 @@ jobs:
         flutter_version: [stable, beta]
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
-      - uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+      - uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e
         with:
           distribution: 'zulu'
           java-version: '17'
