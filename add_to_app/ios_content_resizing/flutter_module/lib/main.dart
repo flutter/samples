@@ -9,7 +9,6 @@ void main() {
 }
 
 class ResizeApp extends StatefulWidget {
-  /// Creates the [ResizeApp].
   const ResizeApp({super.key});
 
   @override
@@ -26,19 +25,26 @@ class _ResizeAppState extends State<ResizeApp> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _addToList, // The tap anywhere logic
-      child: Center(
-        heightFactor: 1,
-        child: Directionality(
-          textDirection: TextDirection.ltr,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              for (int i = 0; i < _listSize; i++)
-                Container(color: HSVColor.fromAHSV(1, (10.0 * i), 1, 1).toColor(), height: 50, width: 100),
-            ],
-          ),
+    return Center(
+      heightFactor: 1,
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            for (int i = 0; i < _listSize; i++)
+              Container(color: HSVColor.fromAHSV(1, (10.0 * i), 1, 1).toColor(), height: 50, width: 200,
+                child: Center(
+                  child: Text(
+                    'Flutter Widget $i',
+                    style: const TextStyle(fontSize: 16, color: Colors.black),
+                  ),
+                )),
+            TextButton(
+              onPressed: _addToList,
+              child: Text('Listception!'),
+            )
+          ],
         ),
       ),
     );
