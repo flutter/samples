@@ -19,6 +19,8 @@ workspace:
   - code_sharing/client
   - code_sharing/server
   - code_sharing/shared
+  - compass_app/app
+  - compass_app/server
   - context_menus
   - date_planner
   - deeplink_store_example
@@ -36,6 +38,7 @@ workspace:
   - navigation_and_routing
   - pedometer
   - pedometer/example
+  - place_tracker
   - platform_channels
   - platform_design
   - platform_view_swift

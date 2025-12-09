@@ -135,8 +135,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
         _textSelectionControls = cupertinoTextSelectionHandleControls;
       case TargetPlatform.macOS:
         // ignore: deprecated_member_use
-        _textSelectionControls =
-            cupertinoDesktopTextSelectionHandleControls;
+        _textSelectionControls = cupertinoDesktopTextSelectionHandleControls;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         // ignore: deprecated_member_use
@@ -153,8 +152,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onPanStart: (dragStartDetails) => _onDragStart(dragStartDetails),
-        onPanUpdate: (dragUpdateDetails) =>
-            _onDragUpdate(dragUpdateDetails),
+        onPanUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
         onSecondaryTapDown: (secondaryTapDownDetails) {
           _renderEditable.selectWordsInRange(
             from: secondaryTapDownDetails.globalPosition,

@@ -15,8 +15,7 @@ class PlatformImageFetcher {
 
   /// Method responsible for providing the platform image.
   static Future<Uint8List> getImage() async {
-    final reply =
-        await _basicMessageChannel.send('getImage') as Uint8List?;
+    final reply = await _basicMessageChannel.send('getImage') as Uint8List?;
     if (reply == null) {
       throw PlatformException(
         code: 'Error',
