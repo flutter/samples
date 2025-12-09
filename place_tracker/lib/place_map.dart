@@ -273,13 +273,16 @@ class _PlaceMapState extends State<PlaceMap> {
               newConfiguration.selectedCategory) {
         // If the configuration change is only a category change, just update
         // the marker visibilities.
-        await _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
+        await _showPlacesForSelectedCategory(
+          newConfiguration.selectedCategory,
+        );
       } else {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
         for (final place in newConfiguration.places) {
-          final oldPlace =
-              _configuration!.places.where((p) => p.id == place.id).firstOrNull;
+          final oldPlace = _configuration!.places
+              .where((p) => p.id == place.id)
+              .firstOrNull;
           if (oldPlace == null || oldPlace != place) {
             // New place or updated place.
             _updateExistingPlaceMarker(place: place);
@@ -342,7 +345,10 @@ class _PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _switchSelectedCategory(PlaceCategory category) async {
-    Provider.of<AppState>(context, listen: false).setSelectedCategory(category);
+    Provider.of<AppState>(
+      context,
+      listen: false,
+    ).setSelectedCategory(category);
     await _showPlacesForSelectedCategory(category);
   }
 
@@ -355,11 +361,16 @@ class _PlaceMapState extends State<PlaceMap> {
       final updatedMarker = marker.copyWith(
         infoWindowParam: InfoWindow(
           title: place.name,
-          snippet:
-              place.starRating != 0 ? '${place.starRating} Star Rating' : null,
+          snippet: place.starRating != 0
+              ? '${place.starRating} Star Rating'
+              : null,
         ),
       );
-      _updateMarker(marker: marker, updatedMarker: updatedMarker, place: place);
+      _updateMarker(
+        marker: marker,
+        updatedMarker: updatedMarker,
+        place: place,
+      );
     });
   }
 
@@ -502,8 +513,8 @@ class _CategoryButtonBar extends StatelessWidget {
                 style: FilledButton.styleFrom(
                   backgroundColor:
                       selectedPlaceCategory == PlaceCategory.favorite
-                          ? Colors.green[700]
-                          : Colors.lightGreen,
+                      ? Colors.green[700]
+                      : Colors.lightGreen,
                 ),
                 onPressed: () => onChanged(PlaceCategory.favorite),
                 child: const Text(
@@ -515,8 +526,8 @@ class _CategoryButtonBar extends StatelessWidget {
                 style: FilledButton.styleFrom(
                   backgroundColor:
                       selectedPlaceCategory == PlaceCategory.visited
-                          ? Colors.green[700]
-                          : Colors.lightGreen,
+                      ? Colors.green[700]
+                      : Colors.lightGreen,
                 ),
                 onPressed: () => onChanged(PlaceCategory.visited),
                 child: const Text(
@@ -528,8 +539,8 @@ class _CategoryButtonBar extends StatelessWidget {
                 style: FilledButton.styleFrom(
                   backgroundColor:
                       selectedPlaceCategory == PlaceCategory.wantToGo
-                          ? Colors.green[700]
-                          : Colors.lightGreen,
+                      ? Colors.green[700]
+                      : Colors.lightGreen,
                 ),
                 onPressed: () => onChanged(PlaceCategory.wantToGo),
                 child: const Text(

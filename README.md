@@ -5,6 +5,14 @@
 A collection of open source samples that illustrate best practices for
 [Flutter].
 
+## Contributing
+
+We appreciate fixes and necessary improvements to existing samples. **But in most cases, we're not currently adding new samples to this repository** while we rethink sample code in the new LLM world.
+
+Please read the [contributor's guide] if you have contributions.
+
+Googler's, you can freely add samples to the [flutter/demos] repository.
+
 ## Index
 
 ### Quickstarts
@@ -97,23 +105,6 @@ See the [getting started guide] to install the `flutter` tool.
 > If you want to run an add-to-app sample, there are additional requirements.
 > We suggest reading the [add-to-app documentation].
 
-### Tip: minimize download size
-
-As this repository is quite big, you can use 
-[svn] to download a single example.
-For example:
-
-```
-svn co https://github.com/flutter/samples/trunk/provider_shopper
-```
-
-You can also use a [partial clone] to skip blob objects 
-that aren't currently checked out, while including the full commit history:
-
-```
-git clone --filter=blob:none https://github.com/flutter/samples.git
-```
-
 ## Interested in contributing?
 
 See the [contributor's guide]!
@@ -189,3 +180,4 @@ If you run into a bug in one of the samples, please file an issue in the
 [The FlutterDev Discord]: https://discord.gg/rflutterdev
 [The Flutter Community forum]: https://forum.itsallwidgets.com/latest
 [`flutter/samples` issue tracker]: https://github.com/flutter/samples/issues
+[flutter/demos]: https://github.com/flutter/demos

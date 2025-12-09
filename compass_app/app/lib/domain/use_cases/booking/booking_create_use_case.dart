@@ -63,12 +63,9 @@ class BookingCreateUseCase {
         return Result.error(activitiesResult.error);
       case Ok<List<Activity>>():
     }
-    final activities =
-        activitiesResult.value
-            .where(
-              (activity) => itineraryConfig.activities.contains(activity.ref),
-            )
-            .toList();
+    final activities = activitiesResult.value
+        .where((activity) => itineraryConfig.activities.contains(activity.ref))
+        .toList();
     _log.fine('Activities loaded (${activities.length})');
 
     // Check if dates are set

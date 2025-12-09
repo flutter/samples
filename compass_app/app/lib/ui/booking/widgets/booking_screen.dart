@@ -44,18 +44,16 @@ class _BookingScreenState extends State<BookingScreen> {
       child: Scaffold(
         floatingActionButton: ListenableBuilder(
           listenable: widget.viewModel,
-          builder:
-              (context, _) => FloatingActionButton.extended(
-                // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
-                heroTag: null,
-                key: const ValueKey('share-button'),
-                onPressed:
-                    widget.viewModel.booking != null
-                        ? widget.viewModel.shareBooking.execute
-                        : null,
-                label: Text(AppLocalization.of(context).shareTrip),
-                icon: const Icon(Icons.share_outlined),
-              ),
+          builder: (context, _) => FloatingActionButton.extended(
+            // Workaround for https://github.com/flutter/flutter/issues/115358#issuecomment-2117157419
+            heroTag: null,
+            key: const ValueKey('share-button'),
+            onPressed: widget.viewModel.booking != null
+                ? widget.viewModel.shareBooking.execute
+                : null,
+            label: Text(AppLocalization.of(context).shareTrip),
+            icon: const Icon(Icons.share_outlined),
+          ),
         ),
         body: ListenableBuilder(
           // Listen to changes in both commands

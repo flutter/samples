@@ -56,10 +56,9 @@ class _PetListScreenState extends State<PetListScreen> {
           context.go('/petListScreen/addPetDetails');
         },
       ),
-      body:
-          petListModel.petList.isEmpty
-              ? const Center(child: Text('Enter Pet Details'))
-              : BuildPetList(petListModel.petList),
+      body: petListModel.petList.isEmpty
+          ? const Center(child: Text('Enter Pet Details'))
+          : BuildPetList(petListModel.petList),
     );
   }
 }

@@ -31,10 +31,9 @@ class FormattingToolbar extends StatelessWidget {
                 ToggleButtonsState.underline,
               ),
             ],
-            onPressed:
-                (index) => AppStateWidget.of(
-                  context,
-                ).updateToggleButtonsStateOnButtonPressed(index),
+            onPressed: (index) => AppStateWidget.of(
+              context,
+            ).updateToggleButtonsStateOnButtonPressed(index),
             children: const [
               Icon(Icons.format_bold),
               Icon(Icons.format_italic),

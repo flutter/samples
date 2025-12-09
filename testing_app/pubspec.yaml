@@ -1,18 +1,17 @@
 name: testing_app
 description: A sample that shows testing in Flutter.
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.3
   provider: ^6.0.2
-  go_router: ">=10.0.0 <16.0.0"
+  go_router: ^16.0.0
 
 dev_dependencies:
   analysis_defaults:

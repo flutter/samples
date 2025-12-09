@@ -88,7 +88,10 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             label: SongsTab.title,
             icon: SongsTab.iosIcon,
           ),
-          BottomNavigationBarItem(label: NewsTab.title, icon: NewsTab.iosIcon),
+          BottomNavigationBarItem(
+            label: NewsTab.title,
+            icon: NewsTab.iosIcon,
+          ),
           BottomNavigationBarItem(
             label: ProfileTab.title,
             icon: ProfileTab.iosIcon,
@@ -168,7 +171,9 @@ class _AndroidDrawer extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push<void>(
                 context,
-                MaterialPageRoute(builder: (context) => const ProfileTab()),
+                MaterialPageRoute(
+                  builder: (context) => const ProfileTab(),
+                ),
               );
             },
           ),
@@ -184,7 +189,9 @@ class _AndroidDrawer extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push<void>(
                 context,
-                MaterialPageRoute(builder: (context) => const SettingsTab()),
+                MaterialPageRoute(
+                  builder: (context) => const SettingsTab(),
+                ),
               );
             },
           ),

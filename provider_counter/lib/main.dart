@@ -32,7 +32,8 @@ const double windowWidth = 360;
 const double windowHeight = 640;
 
 void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb &&
+      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Provider Counter');
     setWindowMinSize(const Size(windowWidth, windowHeight));
@@ -92,11 +93,10 @@ class MyHomePage extends StatelessWidget {
             // Then it uses that model to build widgets, and will trigger
             // rebuilds if the model is updated.
             Consumer<Counter>(
-              builder:
-                  (context, counter, child) => Text(
-                    '${counter.value}',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
+              builder: (context, counter, child) => Text(
+                '${counter.value}',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
           ],
         ),

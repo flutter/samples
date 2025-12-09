@@ -65,20 +65,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    final barGroups =
-        hourlySteps
-            .map(
-              (e) => BarChartGroupData(
-                x: int.parse(e.startHour),
-                barRods: [
-                  BarChartRodData(
-                    color: Colors.blue[900],
-                    toY: e.steps.toDouble() / 100,
-                  ),
-                ],
+    final barGroups = hourlySteps
+        .map(
+          (e) => BarChartGroupData(
+            x: int.parse(e.startHour),
+            barRods: [
+              BarChartRodData(
+                color: Colors.blue[900],
+                toY: e.steps.toDouble() / 100,
               ),
-            )
-            .toList();
+            ],
+          ),
+        )
+        .toList();
 
     return Scaffold(
       body: Stack(
@@ -99,14 +98,14 @@ class _HomeState extends State<Home> {
                 children: [
                   lastUpdated != null
                       ? Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 50.0),
-                        child: Text(
-                          DateFormat.yMMMMd('en_US').format(lastUpdated!),
-                          style: textTheme.titleLarge!.copyWith(
-                            color: Colors.blue[900],
+                          padding: const EdgeInsets.symmetric(vertical: 50.0),
+                          child: Text(
+                            DateFormat.yMMMMd('en_US').format(lastUpdated!),
+                            style: textTheme.titleLarge!.copyWith(
+                              color: Colors.blue[900],
+                            ),
                           ),
-                        ),
-                      )
+                        )
                       : const SizedBox(height: 0),
                   Text(
                     hourlySteps.fold(0, (t, e) => t + e.steps).toString(),

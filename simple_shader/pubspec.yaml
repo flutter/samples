@@ -2,9 +2,10 @@ name: simple_shader
 description: Using a shader, simply.
 publish_to: 'none'
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:
@@ -16,7 +17,6 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
 flutter:
   uses-material-design: true
   shaders:

@@ -35,7 +35,9 @@ class InfiniteProcessPage extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final controller = Provider.of<InfiniteProcessIsolateController>(context);
+    final controller = Provider.of<InfiniteProcessIsolateController>(
+      context,
+    );
 
     return SafeArea(
       child: Column(
@@ -78,25 +80,25 @@ class InfiniteProcessPage extends StatelessWidget {
                     value: !controller.paused,
                     onChanged: (_) => controller.pausedSwitch(),
                     activeTrackColor: Colors.lightGreenAccent,
-                    activeColor: Colors.black,
+                    activeThumbColor: Colors.black,
                     inactiveTrackColor: Colors.deepOrangeAccent,
                     inactiveThumbColor: Colors.black,
                   ),
                   const Text('Pause/Resume'),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  for (int i = 1; i <= 3; i++) ...[
-                    Radio<int>(
-                      value: i,
-                      groupValue: controller.currentMultiplier,
-                      onChanged: (val) => controller.setMultiplier(val!),
-                    ),
-                    Text('${i}x'),
+              RadioGroup(
+                groupValue: controller.currentMultiplier,
+                onChanged: (val) => controller.setMultiplier(val!),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (int i = 1; i <= 3; i++) ...[
+                      Radio<int>(value: i),
+                      Text('${i}x'),
+                    ],
                   ],
-                ],
+                ),
               ),
             ],
           ),
@@ -196,7 +198,9 @@ class RunningList extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final controller = Provider.of<InfiniteProcessIsolateController>(context);
+    final controller = Provider.of<InfiniteProcessIsolateController>(
+      context,
+    );
 
     var sums = controller.currentResults;
 
@@ -208,10 +212,9 @@ class RunningList extends StatelessWidget {
           return Column(
             children: [
               Card(
-                color:
-                    (controller.created && !controller.paused)
-                        ? Colors.lightGreenAccent
-                        : Colors.deepOrangeAccent,
+                color: (controller.created && !controller.paused)
+                    ? Colors.lightGreenAccent
+                    : Colors.deepOrangeAccent,
                 child: ListTile(
                   leading: Text('${sums.length - index}.'),
                   title: Text('${sums[index]}.'),

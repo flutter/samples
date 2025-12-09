@@ -44,11 +44,10 @@ class ApiKeyWidget extends StatelessWidget {
               Link(
                 uri: Uri.https('aistudio.google.com', '/app/apikey'),
                 target: LinkTarget.blank,
-                builder:
-                    (context, followLink) => TextButton(
-                      onPressed: followLink,
-                      child: const Text('Get an API Key'),
-                    ),
+                builder: (context, followLink) => TextButton(
+                  onPressed: followLink,
+                  child: const Text('Get an API Key'),
+                ),
               ),
             ],
           ),

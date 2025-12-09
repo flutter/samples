@@ -150,10 +150,9 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       // https://developers.google.com/admob/android/test-ads. When ready,
       // you replace this with your own, production ad unit ID,
       // created in https://apps.admob.com/.
-      adUnitId:
-          Theme.of(context).platform == TargetPlatform.android
-              ? 'ca-app-pub-3940256099942544/6300978111'
-              : 'ca-app-pub-3940256099942544/2934735716',
+      adUnitId: Theme.of(context).platform == TargetPlatform.android
+          ? 'ca-app-pub-3940256099942544/6300978111'
+          : 'ca-app-pub-3940256099942544/2934735716',
       size: size,
       request: const AdRequest(),
       listener: BannerAdListener(

@@ -144,7 +144,9 @@ class _SplitState extends State<Split> {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: Theme.of(context).dividerColor,
-                borderRadius: BorderRadius.circular(Split.dividerMainAxisSize),
+                borderRadius: BorderRadius.circular(
+                  Split.dividerMainAxisSize,
+                ),
               ),
               child: SizedBox(
                 height: isHorizontal ? 2.0 : Split.dividerMainAxisSize - 2.0,

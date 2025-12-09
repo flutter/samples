@@ -2,9 +2,10 @@ name: simplistic_calculator
 description: A new Flutter project.
 publish_to: 'none'
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   auto_size_text: ^3.0.0
@@ -15,10 +16,10 @@ dependencies:
     sdk: flutter
   flutter_layout_grid: ^2.0.1
   flutter_riverpod: ^2.0.2
-  math_expressions: ^2.3.0
-  window_size: 
+  math_expressions: ^2.7.0
+  window_size:
     git:
-      url: https://github.com/google/flutter-desktop-embedding
+      url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
 
 dev_dependencies:
@@ -26,6 +27,5 @@ dev_dependencies:
     path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
 flutter:
   uses-material-design: true

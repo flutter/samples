@@ -45,10 +45,11 @@ class _IOSStepsRepo implements StepsRepo {
     final dylib = ffi.DynamicLibrary.open("pedometer.framework/pedometer");
 
     // Initialize the Dart API
-    final initializeApi = dylib.lookupFunction<
-      ffi.IntPtr Function(ffi.Pointer<ffi.Void>),
-      int Function(ffi.Pointer<ffi.Void>)
-    >('Dart_InitializeApiDL');
+    final initializeApi = dylib
+        .lookupFunction<
+          ffi.IntPtr Function(ffi.Pointer<ffi.Void>),
+          int Function(ffi.Pointer<ffi.Void>)
+        >('Dart_InitializeApiDL');
 
     final initializeResult = initializeApi(ffi.NativeApi.initializeApiDLData);
     if (initializeResult != 0) {
@@ -106,8 +107,9 @@ class _IOSStepsRepo implements StepsRepo {
         ) {
           if (result != null) {
             final stepCount = result.numberOfSteps.intValue;
-            final startHour =
-                hourFormatter.stringFromDate_(result.startDate).toString();
+            final startHour = hourFormatter
+                .stringFromDate_(result.startDate)
+                .toString();
             completer.complete(Steps(startHour, stepCount));
           } else {
             debugPrint("Query error: ${error?.localizedDescription}");
@@ -136,8 +138,8 @@ class _AndroidStepsRepo implements StepsRepo {
     // ignore: invalid_use_of_internal_member
     activity = hc.Activity.fromReference(jni.Jni.getCurrentActivity());
     applicationContext =
-    // ignore: invalid_use_of_internal_member
-    hc.Context.fromReference(jni.Jni.getCachedApplicationContext());
+        // ignore: invalid_use_of_internal_member
+        hc.Context.fromReference(jni.Jni.getCachedApplicationContext());
     client = hc.HealthConnectClient.getOrCreate$1(applicationContext);
   }
 
@@ -147,10 +149,18 @@ class _AndroidStepsRepo implements StepsRepo {
     final now = DateTime.now();
 
     for (var h = 0; h <= now.hour; h++) {
-      final start =
-          DateTime(now.year, now.month, now.day, h).millisecondsSinceEpoch;
-      final end =
-          DateTime(now.year, now.month, now.day, h + 1).millisecondsSinceEpoch;
+      final start = DateTime(
+        now.year,
+        now.month,
+        now.day,
+        h,
+      ).millisecondsSinceEpoch;
+      final end = DateTime(
+        now.year,
+        now.month,
+        now.day,
+        h + 1,
+      ).millisecondsSinceEpoch;
       final request = hc.AggregateRequest(
         {
           hc.StepsRecord.COUNT_TOTAL,

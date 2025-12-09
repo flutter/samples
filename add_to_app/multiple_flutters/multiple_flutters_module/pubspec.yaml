@@ -1,10 +1,10 @@
 name: multiple_flutters_module
 description: A module that is embedded in the multiple_flutters_ios and multiple_flutters_android sample code.
-
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:

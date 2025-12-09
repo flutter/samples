@@ -1,21 +1,21 @@
 name: game_template
 description: A mobile game built in Flutter.
+version: 0.0.1+1
+resolution: workspace
 
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
 
-version: 0.0.1+1
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:
     sdk: flutter
-
   audioplayers: ^6.0.0
   cupertino_icons: ^1.0.2
-  go_router: ^15.0.0
+  go_router: ^16.0.0
   logging: ^1.1.0
   provider: ^6.0.2
   shared_preferences: ^2.0.13
@@ -23,14 +23,16 @@ dependencies:
   # If you don't need one of the following dependencies,
   # delete the relevant line below, and get rid of any Dart code
   # that references the dependency.
-  firebase_core: ^3.0.0  # Needed for Crashlytics below
-  firebase_crashlytics: ^4.0.0  # Error reporting
+  firebase_core: ^4.0.0  # Needed for Crashlytics below
+  firebase_crashlytics: ^5.0.0  # Error reporting
   games_services: ^4.0.0  # Achievements and leaderboards
   google_mobile_ads: ^6.0.0  # Ads
   in_app_purchase: ^3.0.1  # In-app purchases
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  analysis_defaults:
+    path: ../analysis_defaults
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.14.0

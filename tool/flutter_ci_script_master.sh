@@ -20,11 +20,11 @@ declare -ar PROJECT_NAMES=(
     "asset_transformation"
     "background_isolate_channels"
      "code_sharing/client"
-    #TODO(ewindmill): The integration tests are failing
+    # TODO(ewindmill): The integration tests are failing
     # "code_sharing/server"
      "code_sharing/shared"
     "compass_app/app"
-    #TODO(ewindmill): The integration tests are failing
+    # TODO(ewindmill): The integration tests are failing
     # "compass_app/server"
     "context_menus"
     "date_planner"
@@ -32,18 +32,6 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "dynamic_theme"
-    "experimental/federated_plugin/federated_plugin"
-    "experimental/federated_plugin/federated_plugin/example"
-    "experimental/federated_plugin/federated_plugin_macos"
-    "experimental/federated_plugin/federated_plugin_platform_interface"
-    # TODO(ewindmill): package:html needs to be replaced by package:web
-    # "experimental/federated_plugin/federated_plugin_web"
-    "experimental/federated_plugin/federated_plugin_windows"
-    # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
-    # "pedometer"
-    "pedometer/example"
-    "experimental/varfont_shader_puzzle"
-    "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
@@ -52,9 +40,13 @@ declare -ar PROJECT_NAMES=(
     "infinite_list"
     "ios_app_clip"
     # TODO(ewindmill): replace deprecated activeColor with activeThumbColor in 3.33
-#    "isolate_example"
-     "material_3_demo"
+    # "isolate_example"
+    # TODO(ewindmill) - RadioGroup api changed.
+    # "material_3_demo"
     "navigation_and_routing"
+    # TODO(domesticmouse): Angle brackets will be interpreted as HTML.
+    # "pedometer"
+    "pedometer/example"
     "place_tracker"
     "platform_channels"
     "platform_design"

@@ -1,0 +1,53 @@
+name: samples
+description: A collection of samples for Dart and Flutter.
+
+environment:
+  sdk: ^3.9.0-0
+
+workspace:
+  - add_to_app/android_view/flutter_module_using_plugin_android_view
+  - add_to_app/books/flutter_module_books
+  - add_to_app/fullscreen/flutter_module_fullscreen
+  - add_to_app/multiple_flutters/multiple_flutters_module
+  - add_to_app/plugin/flutter_module_using_plugin
+  - add_to_app/prebuilt_module/flutter_module
+  - analysis_defaults
+  - android_splash_screen
+  - animations
+  - asset_transformation
+  - background_isolate_channels
+  - code_sharing/client
+  - code_sharing/server
+  - code_sharing/shared
+  - compass_app/app
+  - compass_app/server
+  - context_menus
+  - date_planner
+  - deeplink_store_example
+  - desktop_photo_search/fluent_ui
+  - desktop_photo_search/material
+  - dynamic_theme
+  - form_app
+  - game_template
+  - gemini_tasks
+  - google_maps
+  - infinite_list
+  - ios_app_clip
+  - isolate_example
+  - material_3_demo
+  - navigation_and_routing
+  - pedometer
+  - pedometer/example
+  - place_tracker
+  - platform_channels
+  - platform_design
+  - platform_view_swift
+  - provider_counter
+  - provider_shopper
+  - simple_shader
+  - simplistic_calculator
+  - simplistic_editor
+  - testing_app
+  - tool
+  - web_embedding/element_embedding_demo
+  - web_embedding/ng-flutter/flutter

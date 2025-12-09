@@ -2,23 +2,26 @@ name: pedometer
 description: A new Flutter FFI plugin project.
 version: 0.0.1
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.7.0-0
+  sdk: ^3.9.0-0
 
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
-  jni: ^0.13.0
+  jni: ^0.14.2
   ffi: ^2.1.2
 
 dev_dependencies:
-  ffigen: ^16.0.0
-  jnigen: ^0.13.1
+  analysis_defaults:
+    path: ../analysis_defaults
+  ffigen: ^19.1.0
+  jnigen: ^0.14.2
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

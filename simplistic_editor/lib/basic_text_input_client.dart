@@ -63,8 +63,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     with TextSelectionDelegate, TextInputClient, DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
-  final ClipboardStatusNotifier? _clipboardStatus =
-      kIsWeb ? null : ClipboardStatusNotifier();
+  final ClipboardStatusNotifier? _clipboardStatus = kIsWeb
+      ? null
+      : ClipboardStatusNotifier();
 
   @override
   void initState() {
@@ -180,7 +181,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   @override
-  void updateEditingValueWithDeltas(List<TextEditingDelta> textEditingDeltas) {
+  void updateEditingValueWithDeltas(
+    List<TextEditingDelta> textEditingDeltas,
+  ) {
     TextEditingValue value = _value;
 
     for (final TextEditingDelta delta in textEditingDeltas) {
@@ -388,9 +391,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     ),
     ExtendSelectionByCharacterIntent:
         CallbackAction<ExtendSelectionByCharacterIntent>(
-          onInvoke:
-              (intent) =>
-                  _extendSelection(intent.forward, intent.collapseSelection),
+          onInvoke: (intent) =>
+              _extendSelection(intent.forward, intent.collapseSelection),
         ),
     SelectAllTextIntent: CallbackAction<SelectAllTextIntent>(
       onInvoke: (intent) => selectAll(intent.cause),
@@ -401,7 +403,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     PasteTextIntent: CallbackAction<PasteTextIntent>(
       onInvoke: (intent) => pasteText(intent.cause),
     ),
-    DoNothingAndStopPropagationTextIntent: DoNothingAction(consumesKey: false),
+    DoNothingAndStopPropagationTextIntent: DoNothingAction(
+      consumesKey: false,
+    ),
     ..._unsupportedActions,
   };
 
@@ -458,28 +462,29 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     if (collapseSelection) {
       if (!_selection.isCollapsed) {
-        final int firstOffset =
-            _selection.isNormalized ? _selection.start : _selection.end;
-        final int lastOffset =
-            _selection.isNormalized ? _selection.end : _selection.start;
+        final int firstOffset = _selection.isNormalized
+            ? _selection.start
+            : _selection.end;
+        final int lastOffset = _selection.isNormalized
+            ? _selection.end
+            : _selection.start;
         selection = TextSelection.collapsed(
           offset: forward ? lastOffset : firstOffset,
         );
       } else {
         if (forward && _selection.baseOffset == _value.text.length) return;
         if (!forward && _selection.baseOffset == 0) return;
-        final int adjustment =
-            forward
-                ? _value.text
-                    .substring(_selection.baseOffset)
-                    .characters
-                    .first
-                    .length
-                : -_value.text
-                    .substring(0, _selection.baseOffset)
-                    .characters
-                    .last
-                    .length;
+        final int adjustment = forward
+            ? _value.text
+                  .substring(_selection.baseOffset)
+                  .characters
+                  .first
+                  .length
+            : -_value.text
+                  .substring(0, _selection.baseOffset)
+                  .characters
+                  .last
+                  .length;
         selection = TextSelection.collapsed(
           offset: _selection.baseOffset + adjustment,
         );
@@ -487,18 +492,17 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     } else {
       if (forward && _selection.extentOffset == _value.text.length) return;
       if (!forward && _selection.extentOffset == 0) return;
-      final int adjustment =
-          forward
-              ? _value.text
-                  .substring(_selection.baseOffset)
-                  .characters
-                  .first
-                  .length
-              : -_value.text
-                  .substring(0, _selection.baseOffset)
-                  .characters
-                  .last
-                  .length;
+      final int adjustment = forward
+          ? _value.text
+                .substring(_selection.baseOffset)
+                .characters
+                .first
+                .length
+          : -_value.text
+                .substring(0, _selection.baseOffset)
+                .characters
+                .last
+                .length;
       selection = TextSelection(
         baseOffset: _selection.baseOffset,
         extentOffset: _selection.extentOffset + adjustment,
@@ -691,7 +695,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final TextSelection pasteRange = textEditingValue.selection;
     if (!pasteRange.isValid) return;
 
-    final ClipboardData? data = await Clipboard.getData(Clipboard.kTextPlain);
+    final ClipboardData? data = await Clipboard.getData(
+      Clipboard.kTextPlain,
+    );
     if (data == null) return;
 
     // After the paste, the cursor should be collapsed and located after the
@@ -846,7 +852,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           requestKeyboard();
         }
     }
-    if (widget.selectionControls == null && widget.contextMenuBuilder == null) {
+    if (widget.selectionControls == null &&
+        widget.contextMenuBuilder == null) {
       _selectionOverlay?.dispose();
       _selectionOverlay = null;
     } else {
@@ -891,41 +898,43 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       onSelectionHandleTapped: () {
         _toggleToolbar();
       },
-      contextMenuBuilder:
-          widget.contextMenuBuilder == null || kIsWeb
-              ? null
-              : (context) {
-                return widget.contextMenuBuilder!(
-                  context,
-                  _clipboardStatus!.value,
-                  copyEnabled
-                      ? () => copySelection(SelectionChangedCause.toolbar)
-                      : null,
-                  cutEnabled
-                      ? () => cutSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  pasteEnabled
-                      ? () => pasteText(SelectionChangedCause.toolbar)
-                      : null,
-                  selectAllEnabled
-                      ? () => selectAll(SelectionChangedCause.toolbar)
-                      : null,
-                  lookUpEnabled
-                      ? () => _lookUpSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  liveTextInputEnabled
-                      ? () => _startLiveTextInput(SelectionChangedCause.toolbar)
-                      : null,
-                  searchWebEnabled
-                      ? () =>
-                          _searchWebForSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  shareEnabled
-                      ? () => _shareSelection(SelectionChangedCause.toolbar)
-                      : null,
-                  _contextMenuAnchors,
-                );
-              },
+      contextMenuBuilder: widget.contextMenuBuilder == null || kIsWeb
+          ? null
+          : (context) {
+              return widget.contextMenuBuilder!(
+                context,
+                _clipboardStatus!.value,
+                copyEnabled
+                    ? () => copySelection(SelectionChangedCause.toolbar)
+                    : null,
+                cutEnabled
+                    ? () => cutSelection(SelectionChangedCause.toolbar)
+                    : null,
+                pasteEnabled
+                    ? () => pasteText(SelectionChangedCause.toolbar)
+                    : null,
+                selectAllEnabled
+                    ? () => selectAll(SelectionChangedCause.toolbar)
+                    : null,
+                lookUpEnabled
+                    ? () => _lookUpSelection(SelectionChangedCause.toolbar)
+                    : null,
+                liveTextInputEnabled
+                    ? () => _startLiveTextInput(
+                        SelectionChangedCause.toolbar,
+                      )
+                    : null,
+                searchWebEnabled
+                    ? () => _searchWebForSelection(
+                        SelectionChangedCause.toolbar,
+                      )
+                    : null,
+                shareEnabled
+                    ? () => _shareSelection(SelectionChangedCause.toolbar)
+                    : null,
+                _contextMenuAnchors,
+              );
+            },
       magnifierConfiguration: TextMagnifierConfiguration.disabled,
     );
 
@@ -933,8 +942,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   void _toggleToolbar() {
-    final TextSelectionOverlay selectionOverlay =
-        _selectionOverlay ??= _createSelectionOverlay();
+    final TextSelectionOverlay selectionOverlay = _selectionOverlay ??=
+        _createSelectionOverlay();
 
     if (selectionOverlay.toolbarIsVisible) {
       hideToolbar(false);
@@ -1023,8 +1032,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   /// For OCR Support.
   /// Detects whether the Live Text input is enabled.
-  final LiveTextInputStatusNotifier? _liveTextInputStatus =
-      kIsWeb ? null : LiveTextInputStatusNotifier();
+  final LiveTextInputStatusNotifier? _liveTextInputStatus = kIsWeb
+      ? null
+      : LiveTextInputStatusNotifier();
 
   @override
   bool get liveTextInputEnabled {
@@ -1159,7 +1169,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 textAlign: TextAlign.left,
                 textDirection: _textDirection,
                 locale: Localizations.maybeLocaleOf(context),
-                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(context),
+                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(
+                  context,
+                ),
                 textWidthBasis: TextWidthBasis.parent,
                 obscuringCharacter: '•',
                 obscureText:
@@ -1321,7 +1333,10 @@ class _Editable extends MultiChildRenderObjectWidget {
   }
 
   @override
-  void updateRenderObject(BuildContext context, RenderEditable renderObject) {
+  void updateRenderObject(
+    BuildContext context,
+    RenderEditable renderObject,
+  ) {
     renderObject
       ..text = inlineSpan
       ..cursorColor = cursorColor

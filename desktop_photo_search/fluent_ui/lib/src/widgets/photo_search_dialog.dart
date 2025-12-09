@@ -48,13 +48,12 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
     ),
     actions: [
       FilledButton(
-        onPressed:
-            _searchEnabled
-                ? () {
-                  widget.callback(_controller.text);
-                  Navigator.of(context).pop();
-                }
-                : null,
+        onPressed: _searchEnabled
+            ? () {
+                widget.callback(_controller.text);
+                Navigator.of(context).pop();
+              }
+            : null,
         child: const Text('Search'),
       ),
       Button(

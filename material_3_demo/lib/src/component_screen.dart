@@ -49,10 +49,9 @@ class FirstComponentList extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding:
-                showSecondList
-                    ? const EdgeInsetsDirectional.only(end: smallSpacing)
-                    : EdgeInsets.zero,
+            padding: showSecondList
+                ? const EdgeInsetsDirectional.only(end: smallSpacing)
+                : EdgeInsets.zero,
             sliver: SliverList(
               delegate: BuildSlivers(
                 heights: heights,
@@ -123,7 +122,11 @@ class SecondComponentList extends StatelessWidget {
 // as the contents of the list are exposed for the first time, and
 // then remain fixed.
 class _CacheHeight extends SingleChildRenderObjectWidget {
-  const _CacheHeight({super.child, required this.heights, required this.index});
+  const _CacheHeight({
+    super.child,
+    required this.heights,
+    required this.index,
+  });
 
   final List<double?> heights;
   final int index;
@@ -537,7 +540,9 @@ class Cards extends StatelessWidget {
             child: Card(
               elevation: 0,
               shape: RoundedRectangleBorder(
-                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
               child: Container(
@@ -626,7 +631,9 @@ class _TextFieldsState extends State<TextFields> {
                       controller: _controllerFilled,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
-                        suffixIcon: _ClearButton(controller: _controllerFilled),
+                        suffixIcon: _ClearButton(
+                          controller: _controllerFilled,
+                        ),
                         labelText: 'Filled',
                         hintText: 'hint text',
                         helperText: 'supporting text',
@@ -645,7 +652,9 @@ class _TextFieldsState extends State<TextFields> {
                       enabled: false,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
-                        suffixIcon: _ClearButton(controller: _controllerFilled),
+                        suffixIcon: _ClearButton(
+                          controller: _controllerFilled,
+                        ),
                         labelText: 'Disabled',
                         hintText: 'hint text',
                         helperText: 'supporting text',
@@ -737,51 +746,49 @@ class _DialogsState extends State<Dialogs> {
   void openDialog(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: const Text('What is a dialog?'),
-            content: const Text(
-              'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.',
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('Dismiss'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              FilledButton(
-                child: const Text('Okay'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
+      builder: (context) => AlertDialog(
+        title: const Text('What is a dialog?'),
+        content: const Text(
+          'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.',
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Dismiss'),
+            onPressed: () => Navigator.of(context).pop(),
           ),
+          FilledButton(
+            child: const Text('Okay'),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
+      ),
     );
   }
 
   void openFullscreenDialog(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => Dialog.fullscreen(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Scaffold(
-                appBar: AppBar(
-                  title: const Text('Full-screen dialog'),
-                  centerTitle: false,
-                  leading: IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  actions: [
-                    TextButton(
-                      child: const Text('Close'),
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ],
-                ),
+      builder: (context) => Dialog.fullscreen(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text('Full-screen dialog'),
+              centerTitle: false,
+              leading: IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.of(context).pop(),
               ),
+              actions: [
+                TextButton(
+                  child: const Text('Close'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
             ),
           ),
+        ),
+      ),
     );
   }
 
@@ -874,26 +881,24 @@ class _SwitchRowState extends State<SwitchRow> {
         // TODO: use SwitchListTile when thumbIcon is available https://github.com/flutter/flutter/issues/118616
         Switch(
           value: value0,
-          onChanged:
-              widget.isEnabled
-                  ? (value) {
-                    setState(() {
-                      value0 = value;
-                    });
-                  }
-                  : null,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value0 = value;
+                  });
+                }
+              : null,
         ),
         Switch(
           thumbIcon: thumbIcon,
           value: value1,
-          onChanged:
-              widget.isEnabled
-                  ? (value) {
-                    setState(() {
-                      value1 = value;
-                    });
-                  }
-                  : null,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value1 = value;
+                  });
+                }
+              : null,
         ),
       ],
     );
@@ -981,35 +986,30 @@ class _RadiosState extends State<Radios> {
     return ComponentDecoration(
       label: 'Radio buttons',
       tooltipMessage: 'Use RadioListTile<T> or Radio<T>',
-      child: Column(
-        children: <Widget>[
-          RadioListTile<Options>(
-            title: const Text('Option 1'),
-            value: Options.option1,
-            groupValue: _selectedOption,
-            onChanged: (value) {
-              setState(() {
-                _selectedOption = value;
-              });
-            },
-          ),
-          RadioListTile<Options>(
-            title: const Text('Option 2'),
-            value: Options.option2,
-            groupValue: _selectedOption,
-            onChanged: (value) {
-              setState(() {
-                _selectedOption = value;
-              });
-            },
-          ),
-          RadioListTile<Options>(
-            title: const Text('Option 3'),
-            value: Options.option3,
-            groupValue: _selectedOption,
-            onChanged: null,
-          ),
-        ],
+      child: RadioGroup(
+        groupValue: _selectedOption,
+        onChanged: (value) {
+          setState(() {
+            _selectedOption = value;
+          });
+        },
+        child: Column(
+          children: <Widget>[
+            RadioListTile<Options>(
+              title: const Text('Option 1'),
+              value: Options.option1,
+            ),
+            RadioListTile<Options>(
+              title: const Text('Option 2'),
+              value: Options.option2,
+            ),
+            RadioListTile<Options>(
+              title: const Text('Option 3'),
+              value: Options.option3,
+              enabled: false,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -1137,7 +1137,10 @@ List<Widget> barWithBadgeDestinations = [
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Badge.count(count: 3, child: const Icon(Icons.videocam_outlined)),
+    icon: Badge.count(
+      count: 3,
+      child: const Icon(Icons.videocam_outlined),
+    ),
     label: 'Meet',
     selectedIcon: Badge.count(count: 3, child: const Icon(Icons.videocam)),
   ),
@@ -1191,12 +1194,11 @@ class _NavigationBarsState extends State<NavigationBars> {
           });
           if (!widget.isExampleBar) widget.onSelectItem!(index);
         },
-        destinations:
-            widget.isExampleBar && widget.isBadgeExample
-                ? barWithBadgeDestinations
-                : widget.isExampleBar
-                ? exampleBarDestinations
-                : appBarDestinations,
+        destinations: widget.isExampleBar && widget.isBadgeExample
+            ? barWithBadgeDestinations
+            : widget.isExampleBar
+            ? exampleBarDestinations
+            : appBarDestinations,
       ),
     );
 
@@ -1374,7 +1376,10 @@ class _ChipsState extends State<Chips> {
                 onPressed: () {},
                 onDeleted: () {},
               ),
-              ActionChip(label: const Text('Suggestion'), onPressed: () {}),
+              ActionChip(
+                label: const Text('Suggestion'),
+                onPressed: () {},
+              ),
             ],
           ),
           colDivider,
@@ -1650,9 +1655,18 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
       IconButton(onPressed: () {}, icon: const Icon(Icons.share_outlined)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.delete_outline)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.archive_outlined)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.settings_outlined)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border)),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.archive_outlined),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.settings_outlined),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.favorite_border),
+      ),
     ];
     List<Text> labelList = const <Text>[
       Text('Share'),
@@ -1695,7 +1709,9 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
                   return SizedBox(
                     height: 150,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32.0,
+                      ),
                       child: ListView(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -1736,7 +1752,9 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
                   return SizedBox(
                     height: 150,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32.0,
+                      ),
                       child: ListView(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -1822,9 +1840,18 @@ class IconButtonAnchorExample extends StatelessWidget {
         MenuItemButton(child: const Text('Menu 2'), onPressed: () {}),
         SubmenuButton(
           menuChildren: <Widget>[
-            MenuItemButton(onPressed: () {}, child: const Text('Menu 3.1')),
-            MenuItemButton(onPressed: () {}, child: const Text('Menu 3.2')),
-            MenuItemButton(onPressed: () {}, child: const Text('Menu 3.3')),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.1'),
+            ),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.2'),
+            ),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.3'),
+            ),
           ],
           child: const Text('Menu 3'),
         ),
@@ -1925,7 +1952,10 @@ class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
-          child: Text('Mail', style: Theme.of(context).textTheme.titleSmall),
+          child: Text(
+            'Mail',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
         ),
         ...destinations.map((destination) {
           return NavigationDrawerDestination(
@@ -1937,7 +1967,10 @@ class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
         const Divider(indent: 28, endIndent: 28),
         Padding(
           padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
-          child: Text('Labels', style: Theme.of(context).textTheme.titleSmall),
+          child: Text(
+            'Labels',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
         ),
         ...labelDestinations.map((destination) {
           return NavigationDrawerDestination(
@@ -1960,14 +1993,26 @@ class ExampleDestination {
 }
 
 const List<ExampleDestination> destinations = <ExampleDestination>[
-  ExampleDestination('Inbox', Icon(Icons.inbox_outlined), Icon(Icons.inbox)),
-  ExampleDestination('Outbox', Icon(Icons.send_outlined), Icon(Icons.send)),
+  ExampleDestination(
+    'Inbox',
+    Icon(Icons.inbox_outlined),
+    Icon(Icons.inbox),
+  ),
+  ExampleDestination(
+    'Outbox',
+    Icon(Icons.send_outlined),
+    Icon(Icons.send),
+  ),
   ExampleDestination(
     'Favorites',
     Icon(Icons.favorite_outline),
     Icon(Icons.favorite),
   ),
-  ExampleDestination('Trash', Icon(Icons.delete_outline), Icon(Icons.delete)),
+  ExampleDestination(
+    'Trash',
+    Icon(Icons.delete_outline),
+    Icon(Icons.delete),
+  ),
 ];
 
 const List<ExampleDestination> labelDestinations = <ExampleDestination>[
@@ -1981,7 +2026,11 @@ const List<ExampleDestination> labelDestinations = <ExampleDestination>[
     Icon(Icons.bookmark_border),
     Icon(Icons.bookmark),
   ),
-  ExampleDestination('Work', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
+  ExampleDestination(
+    'Work',
+    Icon(Icons.bookmark_border),
+    Icon(Icons.bookmark),
+  ),
 ];
 
 class NavigationRails extends StatelessWidget {
@@ -2222,7 +2271,9 @@ class _MenusState extends State<Menus> {
                 label: const Text('Color'),
                 enableFilter: true,
                 dropdownMenuEntries: colorEntries,
-                inputDecorationTheme: const InputDecorationTheme(filled: true),
+                inputDecorationTheme: const InputDecorationTheme(
+                  filled: true,
+                ),
                 onSelected: (color) {
                   setState(() {
                     selectedColor = color;
@@ -2446,7 +2497,9 @@ class Carousels extends StatelessWidget {
             child: CarouselView(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
               ),
               shrinkExtent: 100,
               itemExtent: 180,
@@ -2466,7 +2519,9 @@ class Carousels extends StatelessWidget {
               itemSnapping: true,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: BorderSide(color: Theme.of(context).colorScheme.outline),
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
               ),
               shrinkExtent: 100,
               itemExtent: 180,
@@ -2541,9 +2596,13 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
-                        color: Theme.of(context).colorScheme.outlineVariant,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.outlineVariant,
                       ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12),
+                      ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(

@@ -48,9 +48,8 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create:
-              (context) =>
-                  LevelState(goal: widget.level.difficulty, onWin: _playerWon),
+          create: (context) =>
+              LevelState(goal: widget.level.difficulty, onWin: _playerWon),
         ),
       ],
       child: IgnorePointer(
@@ -80,17 +79,14 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                       ' or above!',
                     ),
                     Consumer<LevelState>(
-                      builder:
-                          (context, levelState, child) => Slider(
-                            label: 'Level Progress',
-                            autofocus: true,
-                            value: levelState.progress / 100,
-                            onChanged:
-                                (value) => levelState.setProgress(
-                                  (value * 100).round(),
-                                ),
-                            onChangeEnd: (value) => levelState.evaluate(),
-                          ),
+                      builder: (context, levelState, child) => Slider(
+                        label: 'Level Progress',
+                        autofocus: true,
+                        value: levelState.progress / 100,
+                        onChanged: (value) =>
+                            levelState.setProgress((value * 100).round()),
+                        onChangeEnd: (value) => levelState.evaluate(),
+                      ),
                     ),
                     const Spacer(),
                     Padding(

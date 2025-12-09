@@ -39,11 +39,8 @@ class _SymbolEditorState extends State<SymbolEditor> {
                   CupertinoButton(
                     padding: EdgeInsets.zero,
                     child: const Text('Done'),
-                    onPressed:
-                        () => Navigator.pop(context, (
-                          _currentIcon,
-                          _currentColor,
-                        )),
+                    onPressed: () =>
+                        Navigator.pop(context, (_currentIcon, _currentColor)),
                   ),
                 ],
               ),

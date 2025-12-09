@@ -32,9 +32,9 @@ class ExpandedImageColorAction extends StatelessWidget {
               index: i,
               select:
                   imageSelected == ColorImageProvider.values[i] &&
-                          colorSelectionMethod == ColorSelectionMethod.image
-                      ? null
-                      : () => handleImageSelect(i),
+                      colorSelectionMethod == ColorSelectionMethod.image
+                  ? null
+                  : () => handleImageSelect(i),
             ),
           ),
         ),
@@ -66,7 +66,9 @@ class _ImageButton extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4.0),
                 child: Image(
-                  image: NetworkImage(ColorImageProvider.values[index].url),
+                  image: NetworkImage(
+                    ColorImageProvider.values[index].url,
+                  ),
                 ),
               ),
             ),
