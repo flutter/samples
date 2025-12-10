@@ -1,0 +1,6 @@
+framework module Pods_ios_content_resizingTests {
+  umbrella header "Pods-ios_content_resizingTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
