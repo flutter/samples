@@ -18,8 +18,6 @@ you're building for both iOS and Android, with both toolchains installed):
 
   cd flutter_module/
   flutter pub get
-
-  # For iOS builds:
   cd ../ios_content_resizing
   pod install
   open ios_content_resizing.xcworkspace
