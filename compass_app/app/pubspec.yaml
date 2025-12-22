@@ -16,13 +16,13 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.16
   freezed_annotation: ^3.0.0
-  go_router: ^16.0.0
+  go_router: ^17.0.1
   google_fonts: ^6.2.1
   intl: any
   json_annotation: ^4.9.0
   logging: ^1.3.0
   provider: ^6.1.2
-  share_plus: ^10.1.3
+  share_plus: ^12.0.1
   shared_preferences: ^2.3.5
 
 dev_dependencies:
