@@ -15,7 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_layout_grid: ^2.0.1
-  flutter_riverpod: ^2.0.2
+  flutter_riverpod: ^3.0.3
   math_expressions: ^2.7.0
   window_size:
     git:

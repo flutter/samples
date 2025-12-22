@@ -11,14 +11,14 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
-  jni: ^0.14.2
+  jni: ^0.15.2
   ffi: ^2.1.2
 
 dev_dependencies:
   analysis_defaults:
     path: ../analysis_defaults
-  ffigen: ^19.1.0
-  jnigen: ^0.14.2
+  ffigen: ^20.1.1
+  jnigen: ^0.15.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
