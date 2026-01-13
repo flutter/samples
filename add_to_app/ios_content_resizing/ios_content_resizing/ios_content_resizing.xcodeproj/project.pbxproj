@@ -1,0 +1,719 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7CAC012226BEEB661A102697 /* Pods_ios_content_resizingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04F6A34F21CD3BE6A257DDB /* Pods_ios_content_resizingTests.framework */; };
+		7F699BB7742B5FAB4C12CE5C /* Pods_ios_content_resizing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636EB75E6827B94D35B9E15C /* Pods_ios_content_resizing.framework */; };
+		E843104071C29E6CE30D637B /* Pods_ios_content_resizing_ios_content_resizingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979B0953B3CB94157C961BB5 /* Pods_ios_content_resizing_ios_content_resizingUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F23EDFE72EE0E81C00A217AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F23EDFC82EE0E81A00A217AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F23EDFCF2EE0E81A00A217AA;
+			remoteInfo = ios_content_resizing;
+		};
+		F23EDFF12EE0E81C00A217AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F23EDFC82EE0E81A00A217AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F23EDFCF2EE0E81A00A217AA;
+			remoteInfo = ios_content_resizing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21AF0E08BF01F3EA6AF43D73 /* Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing-ios_content_resizingUITests/Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FEEB1287F59F7D0F950708C /* Pods-ios_content_resizingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizingTests.release.xcconfig"; path = "Target Support Files/Pods-ios_content_resizingTests/Pods-ios_content_resizingTests.release.xcconfig"; sourceTree = "<group>"; };
+		5FED92584E697C8B2564E54E /* Pods-ios_content_resizingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizingTests.debug.xcconfig"; path = "Target Support Files/Pods-ios_content_resizingTests/Pods-ios_content_resizingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		636EB75E6827B94D35B9E15C /* Pods_ios_content_resizing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_content_resizing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979B0953B3CB94157C961BB5 /* Pods_ios_content_resizing_ios_content_resizingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_content_resizing_ios_content_resizingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C170EDA9CDBAFCCCE6D0E1C0 /* Pods-ios_content_resizing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing.release.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing/Pods-ios_content_resizing.release.xcconfig"; sourceTree = "<group>"; };
+		D301423152989400BB7B71AC /* Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing-ios_content_resizingUITests/Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D59E29ECBED0852D37A99053 /* Pods-ios_content_resizing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_content_resizing.debug.xcconfig"; path = "Target Support Files/Pods-ios_content_resizing/Pods-ios_content_resizing.debug.xcconfig"; sourceTree = "<group>"; };
+		E04F6A34F21CD3BE6A257DDB /* Pods_ios_content_resizingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_content_resizingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23EDFD02EE0E81A00A217AA /* ios_content_resizing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_content_resizing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23EDFE62EE0E81C00A217AA /* ios_content_resizingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_content_resizingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23EDFF02EE0E81C00A217AA /* ios_content_resizingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_content_resizingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F23EDFF82EE0E81C00A217AA /* Exceptions for "ios_content_resizing" folder in "ios_content_resizing" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F23EDFCF2EE0E81A00A217AA /* ios_content_resizing */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F23EDFD22EE0E81A00A217AA /* ios_content_resizing */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F23EDFF82EE0E81C00A217AA /* Exceptions for "ios_content_resizing" folder in "ios_content_resizing" target */,
+			);
+			path = ios_content_resizing;
+			sourceTree = "<group>";
+		};
+		F23EDFE92EE0E81C00A217AA /* ios_content_resizingTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = ios_content_resizingTests;
+			sourceTree = "<group>";
+		};
+		F23EDFF32EE0E81C00A217AA /* ios_content_resizingUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = ios_content_resizingUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F23EDFCD2EE0E81A00A217AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F699BB7742B5FAB4C12CE5C /* Pods_ios_content_resizing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23EDFE32EE0E81C00A217AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CAC012226BEEB661A102697 /* Pods_ios_content_resizingTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23EDFED2EE0E81C00A217AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E843104071C29E6CE30D637B /* Pods_ios_content_resizing_ios_content_resizingUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26A2B7F96A58CC7941B47702 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				636EB75E6827B94D35B9E15C /* Pods_ios_content_resizing.framework */,
+				979B0953B3CB94157C961BB5 /* Pods_ios_content_resizing_ios_content_resizingUITests.framework */,
+				E04F6A34F21CD3BE6A257DDB /* Pods_ios_content_resizingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		429AA23544B1D6221E46F99C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D59E29ECBED0852D37A99053 /* Pods-ios_content_resizing.debug.xcconfig */,
+				C170EDA9CDBAFCCCE6D0E1C0 /* Pods-ios_content_resizing.release.xcconfig */,
+				21AF0E08BF01F3EA6AF43D73 /* Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig */,
+				D301423152989400BB7B71AC /* Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig */,
+				5FED92584E697C8B2564E54E /* Pods-ios_content_resizingTests.debug.xcconfig */,
+				2FEEB1287F59F7D0F950708C /* Pods-ios_content_resizingTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F23EDFC72EE0E81A00A217AA = {
+			isa = PBXGroup;
+			children = (
+				F23EDFD22EE0E81A00A217AA /* ios_content_resizing */,
+				F23EDFE92EE0E81C00A217AA /* ios_content_resizingTests */,
+				F23EDFF32EE0E81C00A217AA /* ios_content_resizingUITests */,
+				F23EDFD12EE0E81A00A217AA /* Products */,
+				429AA23544B1D6221E46F99C /* Pods */,
+				26A2B7F96A58CC7941B47702 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F23EDFD12EE0E81A00A217AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F23EDFD02EE0E81A00A217AA /* ios_content_resizing.app */,
+				F23EDFE62EE0E81C00A217AA /* ios_content_resizingTests.xctest */,
+				F23EDFF02EE0E81C00A217AA /* ios_content_resizingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F23EDFCF2EE0E81A00A217AA /* ios_content_resizing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23EDFF92EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizing" */;
+			buildPhases = (
+				04B5F7353A97C8C66DB1345D /* [CP] Check Pods Manifest.lock */,
+				0096AB54D225CF9ABA303477 /* [CP-User] Run Flutter Build flutter_module Script */,
+				F23EDFCC2EE0E81A00A217AA /* Sources */,
+				F23EDFCD2EE0E81A00A217AA /* Frameworks */,
+				F23EDFCE2EE0E81A00A217AA /* Resources */,
+				81C6A5B8754ABF6932230914 /* [CP-User] Embed Flutter Build flutter_module Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F23EDFD22EE0E81A00A217AA /* ios_content_resizing */,
+			);
+			name = ios_content_resizing;
+			productName = ios_content_resizing;
+			productReference = F23EDFD02EE0E81A00A217AA /* ios_content_resizing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F23EDFE52EE0E81C00A217AA /* ios_content_resizingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23EDFFE2EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizingTests" */;
+			buildPhases = (
+				D845714EE96E84A345CC5AFB /* [CP] Check Pods Manifest.lock */,
+				F23EDFE22EE0E81C00A217AA /* Sources */,
+				F23EDFE32EE0E81C00A217AA /* Frameworks */,
+				F23EDFE42EE0E81C00A217AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F23EDFE82EE0E81C00A217AA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F23EDFE92EE0E81C00A217AA /* ios_content_resizingTests */,
+			);
+			name = ios_content_resizingTests;
+			productName = ios_content_resizingTests;
+			productReference = F23EDFE62EE0E81C00A217AA /* ios_content_resizingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F23EDFEF2EE0E81C00A217AA /* ios_content_resizingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23EE0012EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizingUITests" */;
+			buildPhases = (
+				CD035F8822407F4FA59AE066 /* [CP] Check Pods Manifest.lock */,
+				F23EDFEC2EE0E81C00A217AA /* Sources */,
+				F23EDFED2EE0E81C00A217AA /* Frameworks */,
+				F23EDFEE2EE0E81C00A217AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F23EDFF22EE0E81C00A217AA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F23EDFF32EE0E81C00A217AA /* ios_content_resizingUITests */,
+			);
+			name = ios_content_resizingUITests;
+			productName = ios_content_resizingUITests;
+			productReference = F23EDFF02EE0E81C00A217AA /* ios_content_resizingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F23EDFC82EE0E81A00A217AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					F23EDFCF2EE0E81A00A217AA = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					F23EDFE52EE0E81C00A217AA = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F23EDFCF2EE0E81A00A217AA;
+					};
+					F23EDFEF2EE0E81C00A217AA = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F23EDFCF2EE0E81A00A217AA;
+					};
+				};
+			};
+			buildConfigurationList = F23EDFCB2EE0E81A00A217AA /* Build configuration list for PBXProject "ios_content_resizing" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F23EDFC72EE0E81A00A217AA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F23EDFD12EE0E81A00A217AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F23EDFCF2EE0E81A00A217AA /* ios_content_resizing */,
+				F23EDFE52EE0E81C00A217AA /* ios_content_resizingTests */,
+				F23EDFEF2EE0E81C00A217AA /* ios_content_resizingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F23EDFCE2EE0E81A00A217AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23EDFE42EE0E81C00A217AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23EDFEE2EE0E81C00A217AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0096AB54D225CF9ABA303477 /* [CP-User] Run Flutter Build flutter_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Run Flutter Build flutter_module Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
+		04B5F7353A97C8C66DB1345D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_content_resizing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C6A5B8754ABF6932230914 /* [CP-User] Embed Flutter Build flutter_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Embed Flutter Build flutter_module Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
+		};
+		CD035F8822407F4FA59AE066 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_content_resizing-ios_content_resizingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D845714EE96E84A345CC5AFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_content_resizingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F23EDFCC2EE0E81A00A217AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23EDFE22EE0E81C00A217AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23EDFEC2EE0E81C00A217AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F23EDFE82EE0E81C00A217AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F23EDFCF2EE0E81A00A217AA /* ios_content_resizing */;
+			targetProxy = F23EDFE72EE0E81C00A217AA /* PBXContainerItemProxy */;
+		};
+		F23EDFF22EE0E81C00A217AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F23EDFCF2EE0E81A00A217AA /* ios_content_resizing */;
+			targetProxy = F23EDFF12EE0E81C00A217AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F23EDFFA2EE0E81C00A217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D59E29ECBED0852D37A99053 /* Pods-ios_content_resizing.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ios_content_resizing/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.flutter.plugins.ios-content-resizing";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F23EDFFB2EE0E81C00A217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C170EDA9CDBAFCCCE6D0E1C0 /* Pods-ios_content_resizing.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ios_content_resizing/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.flutter.plugins.ios-content-resizing";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F23EDFFC2EE0E81C00A217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F23EDFFD2EE0E81C00A217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F23EDFFF2EE0E81C00A217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FED92584E697C8B2564E54E /* Pods-ios_content_resizingTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.flutter.plugins.ios-content-resizingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios_content_resizing.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios_content_resizing";
+			};
+			name = Debug;
+		};
+		F23EE0002EE0E81C00A217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FEEB1287F59F7D0F950708C /* Pods-ios_content_resizingTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.flutter.plugins.ios-content-resizingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios_content_resizing.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios_content_resizing";
+			};
+			name = Release;
+		};
+		F23EE0022EE0E81C00A217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21AF0E08BF01F3EA6AF43D73 /* Pods-ios_content_resizing-ios_content_resizingUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.flutter.plugins.ios-content-resizingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ios_content_resizing;
+			};
+			name = Debug;
+		};
+		F23EE0032EE0E81C00A217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D301423152989400BB7B71AC /* Pods-ios_content_resizing-ios_content_resizingUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8QB4VV633;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.flutter.plugins.ios-content-resizingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ios_content_resizing;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F23EDFCB2EE0E81A00A217AA /* Build configuration list for PBXProject "ios_content_resizing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23EDFFC2EE0E81C00A217AA /* Debug */,
+				F23EDFFD2EE0E81C00A217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F23EDFF92EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23EDFFA2EE0E81C00A217AA /* Debug */,
+				F23EDFFB2EE0E81C00A217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F23EDFFE2EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23EDFFF2EE0E81C00A217AA /* Debug */,
+				F23EE0002EE0E81C00A217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F23EE0012EE0E81C00A217AA /* Build configuration list for PBXNativeTarget "ios_content_resizingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23EE0022EE0E81C00A217AA /* Debug */,
+				F23EE0032EE0E81C00A217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F23EDFC82EE0E81A00A217AA /* Project object */;
+}
