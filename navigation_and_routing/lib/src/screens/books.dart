@@ -32,6 +32,14 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   @override
+  void didUpdateWidget(covariant BooksScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedIndex != widget.selectedIndex) {
+      _tabController.index = widget.selectedIndex;
+    }
+  }
+
+  @override
   void dispose() {
     _tabController.removeListener(_handleTabIndexChanged);
     super.dispose();
@@ -39,7 +47,6 @@ class _BooksScreenState extends State<BooksScreen>
 
   @override
   Widget build(BuildContext context) {
-    _tabController.index = widget.selectedIndex;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Books'),
