@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "dev.flutter.example.androidView"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdk 36
         versionCode 1
         versionName "1.0"
