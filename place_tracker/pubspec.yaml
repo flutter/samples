@@ -13,7 +13,7 @@ dependencies:
   google_maps_flutter: ^2.2.0
   provider: ^6.0.2
   uuid: ^4.0.0
-  go_router: ^16.0.0
+  go_router: ^17.0.1
 
 dev_dependencies:
   analysis_defaults:
