@@ -38,7 +38,7 @@ page.
   * If the `schema.dart` is modified, the generated classes can be updated with
 
       ```bash
-      flutter pub run pigeon --input pigeon/schema.dart \
+      dart run pigeon --input pigeon/schema.dart \
         --dart_out lib/api.dart \
         --objc_header_out ../ios_books/IosBooks/api.h \
         --objc_source_out ../ios_books/IosBooks/api.m \
