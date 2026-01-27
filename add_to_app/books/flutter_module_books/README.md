@@ -16,7 +16,7 @@ in `pigeon/schema.dart` is updated, the generated classes can also be re-
 generated using:
 
 ```shell
-flutter pub run pigeon --input pigeon/schema.dart \
+dart run pigeon --input pigeon/schema.dart \
   --dart_out lib/api.dart \
   --objc_header_out ../ios_books/IosBooks/api.h \
   --objc_source_out ../ios_books/IosBooks/api.m \
