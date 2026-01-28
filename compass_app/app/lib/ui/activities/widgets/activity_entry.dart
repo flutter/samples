@@ -30,6 +30,7 @@ class ActivityEntry extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: CachedNetworkImage(
+              errorWidget: (context, url, error) => _ActivityErrorPlaceholder(),
               imageUrl: activity.imageUrl,
               height: 80,
               width: 80,
@@ -62,6 +63,26 @@ class ActivityEntry extends StatelessWidget {
             onChanged: onChanged,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _ActivityErrorPlaceholder extends StatelessWidget {
+  const _ActivityErrorPlaceholder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Icon(
+        Icons.broken_image_outlined,
+        color: Theme.of(context).colorScheme.onSurfaceVariant,
       ),
     );
   }
