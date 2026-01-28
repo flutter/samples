@@ -6,6 +6,7 @@ environment:
 
 workspace:
   - add_to_app/android_view/flutter_module_using_plugin_android_view
+  - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
   - add_to_app/books/flutter_module_books
   - add_to_app/fullscreen/flutter_module_fullscreen
   - add_to_app/multiple_flutters/multiple_flutters_module
