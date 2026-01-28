@@ -69,7 +69,7 @@ lib
 
 The state management approach is intentionally low-level. That way, it's easy to
 take this project and run with it, without having to learn new paradigms, or having
-to remember to run `flutter pub run build_runner watch`. You are,
+to remember to run `dart run build_runner watch`. You are,
 of course, encouraged to use whatever paradigm, helper package or code generation
 scheme that you prefer.
 
@@ -522,7 +522,7 @@ To update the launcher icon, first change the files
 Then, run the following:
 
 ```bash
-flutter pub run flutter_launcher_icons:main
+dart run flutter_launcher_icons:main
 ```
 
 You can [configure](https://github.com/fluttercommunity/flutter_launcher_icons#book-guide)
