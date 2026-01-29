@@ -18,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="io.flutter.embedding.android.EnableContentSizing"
+            android:value="true" />
     </application>
 
 </manifest>
