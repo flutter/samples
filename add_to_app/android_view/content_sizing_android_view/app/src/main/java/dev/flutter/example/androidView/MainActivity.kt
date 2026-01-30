@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         engine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint(
             FlutterInjector.instance().flutterLoader().findAppBundlePath(),
-            "showCell"))
+            "main"))
 
         flutterViewEngine = FlutterViewEngine(engine)
         // The activity and FlutterView have different lifecycles.

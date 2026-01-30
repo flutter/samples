@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.flutter.example.androidView.databinding.AndroidCardBinding
 import io.flutter.embedding.android.FlutterView
-import io.flutter.plugin.common.MethodChannel
 import java.util.*
 import kotlin.random.Random
 
@@ -29,12 +28,10 @@ class ListAdapter(context: Context, private val flutterViewEngine: FlutterViewEn
     // that the Flutter cells change position when scrolling back.
     var previousFlutterCells = TreeSet<Int>();
 
-    private val matchParentLayout = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+    private val wrapContentLayout = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
     private val random = Random.Default
     private val flutterView = FlutterView(context)
-    private val flutterChannel = MethodChannel(flutterViewEngine.engine.dartExecutor, "dev.flutter.example/cell")
-
     private var flutterCell: Cell? = null
 
     /**
@@ -77,7 +74,7 @@ class ListAdapter(context: Context, private val flutterViewEngine: FlutterViewEn
 
             // Add the Flutter card and hide the Android card for the cells chosen to be Flutter
             // cells.
-            cell.binding.root.addView(flutterView, matchParentLayout)
+            cell.binding.root.addView(flutterView, wrapContentLayout)
             cell.binding.androidCard.visibility = View.GONE
 
             // Keep track of the cell so we know which one to restore back to the "Android cell"
@@ -89,9 +86,6 @@ class ListAdapter(context: Context, private val flutterViewEngine: FlutterViewEn
 
             // This is what makes the Flutter cell start rendering.
             flutterViewEngine.attachFlutterView(flutterView)
-            // Tell Flutter which index it's at so Flutter could show the cell number too in its
-            // own widget tree.
-            flutterChannel.invokeMethod("setCellNumber", position)
         } else {
             // If it's not selected as a Flutter cell, just show the Android card.
             cell.binding.androidCard.visibility = View.VISIBLE
