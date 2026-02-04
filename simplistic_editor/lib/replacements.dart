@@ -131,16 +131,14 @@ class TextEditingInlineSpanReplacement {
       return copy(
         range: TextRange(start: range.start, end: range.end),
       );
-    } else if (range.start >= insertionOffset &&
-        range.end > insertionOffset) {
+    } else if (range.start >= insertionOffset && range.end > insertionOffset) {
       return copy(
         range: TextRange(
           start: range.start + insertedLength,
           end: range.end + insertedLength,
         ),
       );
-    } else if (range.start < insertionOffset &&
-        range.end > insertionOffset) {
+    } else if (range.start < insertionOffset && range.end > insertionOffset) {
       return copy(
         range: TextRange(
           start: range.start,
@@ -167,8 +165,7 @@ class TextEditingInlineSpanReplacement {
         : delta.replacementText.length - delta.textReplaced.length;
 
     if (range.start >= replacedRange.start &&
-        (range.start < replacedRange.end &&
-            range.end > replacedRange.end)) {
+        (range.start < replacedRange.end && range.end > replacedRange.end)) {
       if (replacementShortenedText) {
         return [
           copy(
@@ -327,8 +324,7 @@ class TextEditingInlineSpanReplacement {
     } else if (range.end <= removalRange.start &&
         range.end < removalRange.end) {
       return [this];
-    } else if (removalRange.isCollapsed &&
-        range.end == removalRange.start) {
+    } else if (removalRange.isCollapsed && range.end == removalRange.start) {
       return [this];
     }
 
@@ -728,8 +724,7 @@ class ReplacementTextEditingController extends TextEditingController {
     final List<TextEditingInlineSpanReplacement> toRemove = [];
     final List<TextEditingInlineSpanReplacement> toAdd = [];
 
-    for (final TextEditingInlineSpanReplacement replacement
-        in replacements!) {
+    for (final TextEditingInlineSpanReplacement replacement in replacements!) {
       if (replacement.range.end == selection.start) {
         TextStyle? replacementStyle =
             (replacement.generator('', const TextRange.collapsed(0))
@@ -747,8 +742,7 @@ class ReplacementTextEditingController extends TextEditingController {
       replacements!.remove(replacementToRemove);
     }
 
-    for (final TextEditingInlineSpanReplacement
-        replacementWithExpandDisabled
+    for (final TextEditingInlineSpanReplacement replacementWithExpandDisabled
         in toAdd) {
       replacements!.add(replacementWithExpandDisabled);
     }
@@ -763,8 +757,7 @@ class ReplacementTextEditingController extends TextEditingController {
     // should be enabled.
     final List<TextStyle> stylesAtSelection = <TextStyle>[];
 
-    for (final TextEditingInlineSpanReplacement replacement
-        in replacements!) {
+    for (final TextEditingInlineSpanReplacement replacement in replacements!) {
       if (selection.isCollapsed) {
         if (math.max(replacement.range.start, selection.start) <=
             math.min(replacement.range.end, selection.end)) {
@@ -818,8 +811,8 @@ class ReplacementTextEditingController extends TextEditingController {
               math.min(replacement.range.end, removalRange.end)) &&
           replacementStyle != null) {
         if (replacementStyle == attribute!) {
-          List<TextEditingInlineSpanReplacement>? newReplacements =
-              replacement.removeRange(removalRange);
+          List<TextEditingInlineSpanReplacement>? newReplacements = replacement
+              .removeRange(removalRange);
 
           if (newReplacements != null) {
             if (newReplacements.length == 1) {
@@ -845,8 +838,7 @@ class ReplacementTextEditingController extends TextEditingController {
       replacements!.add(replacementToAdd);
     }
 
-    for (TextEditingInlineSpanReplacement replacementToRemove
-        in toRemove) {
+    for (TextEditingInlineSpanReplacement replacementToRemove in toRemove) {
       replacements!.remove(replacementToRemove);
     }
   }

@@ -273,7 +273,9 @@ class _PlaceMapState extends State<PlaceMap> {
               newConfiguration.selectedCategory) {
         // If the configuration change is only a category change, just update
         // the marker visibilities.
-        await _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
+        await _showPlacesForSelectedCategory(
+          newConfiguration.selectedCategory,
+        );
       } else {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
@@ -343,7 +345,10 @@ class _PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _switchSelectedCategory(PlaceCategory category) async {
-    Provider.of<AppState>(context, listen: false).setSelectedCategory(category);
+    Provider.of<AppState>(
+      context,
+      listen: false,
+    ).setSelectedCategory(category);
     await _showPlacesForSelectedCategory(category);
   }
 
@@ -361,7 +366,11 @@ class _PlaceMapState extends State<PlaceMap> {
               : null,
         ),
       );
-      _updateMarker(marker: marker, updatedMarker: updatedMarker, place: place);
+      _updateMarker(
+        marker: marker,
+        updatedMarker: updatedMarker,
+        place: place,
+      );
     });
   }
 
