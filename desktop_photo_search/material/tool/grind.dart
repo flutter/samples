@@ -32,7 +32,7 @@ Future<void> generateJsonBindings() async => _logProcessOutput(
 
 @Task()
 Future<void> watch() async => _logProcessOutput(
-  Process.start('flutter', ['pub', 'run', 'build_runner', 'watch']),
+  Process.start('dart', ['run', 'build_runner', 'watch']),
 );
 
 @Task()
