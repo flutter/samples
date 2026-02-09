@@ -21,27 +21,30 @@ class MockCounterModel extends ChangeNotifier implements CounterModel {
 }
 
 void main() {
-  testWidgets('MiniView smoke test', (tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(
-      MaterialApp(
-        home: ChangeNotifierProvider<CounterModel>.value(
-          value: MockCounterModel(),
-          child: const Contents(),
+  testWidgets(
+    'MiniView smoke test',
+    (tester) async {
+      // Build our app and trigger a frame.
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ChangeNotifierProvider<CounterModel>.value(
+            value: MockCounterModel(),
+            child: const Contents(),
+          ),
         ),
-      ),
-    );
+      );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('Taps: 0'), findsOneWidget);
-    expect(find.text('Taps: 1'), findsNothing);
+      // Verify that our counter starts at 0.
+      expect(find.text('Taps: 0'), findsOneWidget);
+      expect(find.text('Taps: 1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.text('Tap me!'));
-    await tester.pump();
+      // Tap the '+' icon and trigger a frame.
+      await tester.tap(find.text('Tap me!'));
+      await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('Taps: 0'), findsNothing);
-    expect(find.text('Taps: 1'), findsOneWidget);
-  }, skip: true);
+      // Verify that our counter has incremented.
+      expect(find.text('Taps: 0'), findsNothing);
+      expect(find.text('Taps: 1'), findsOneWidget);
+    },
+  );
 }

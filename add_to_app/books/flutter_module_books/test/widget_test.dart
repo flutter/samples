@@ -18,7 +18,7 @@ void main() {
     await tester.tap(find.byIcon(Icons.clear));
 
     expect(mockHostApi.cancelCalls, 1);
-  }, skip: true);
+  });
 
   testWidgets('Pressing done calls the finish editing API', (
     tester,
@@ -34,7 +34,7 @@ void main() {
     await tester.tap(find.byIcon(Icons.check));
 
     expect(mockHostApi.booksFinished.length, 1);
-  }, skip: true);
+  });
 }
 
 // A super-simple mock for testing that calls are made to the API.
