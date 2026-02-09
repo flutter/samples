@@ -16,6 +16,7 @@ workspace:
   - android_splash_screen
   - animations
   - asset_transformation
+  - asset_transformation/grayscale_transformer
   - background_isolate_channels
   - code_sharing/client
   - code_sharing/server
@@ -52,3 +53,12 @@ workspace:
   - tool
   - web_embedding/element_embedding_demo
   - web_embedding/ng-flutter/flutter
+
+skip_ci:
+  - add_to_app/android_view/flutter_module_using_plugin_android_view
+  - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
+  - add_to_app/books/flutter_module_books
+  - add_to_app/fullscreen/flutter_module_fullscreen
+  - add_to_app/multiple_flutters/multiple_flutters_module
+  - add_to_app/plugin/flutter_module_using_plugin
+  - add_to_app/prebuilt_module/flutter_module
