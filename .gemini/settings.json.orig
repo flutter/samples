@@ -1,7 +1,4 @@
 {
-  "context": {
-    "fileName": "/.prompts/llm.md"
-  },
   "mcpServers": {
     "dart": {
       "command": "dart",
@@ -9,5 +6,6 @@
         "mcp-server"
       ]
     }
-  }
+  },
+  "contextFileName": "/.prompts/llm.md"
 }
