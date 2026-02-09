@@ -1,6 +1,7 @@
 name: grayscale_transformer
 description: A sample command-line application.
 version: 1.0.0
+resolution: workspace
 
 environment:
   sdk: ^3.9.0-0
@@ -10,5 +11,5 @@ dependencies:
   image: ^4.1.7
 
 dev_dependencies:
-  lints: ^5.0.0
+  lints: ^6.0.0
   test: ^1.24.0
