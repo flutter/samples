@@ -14,10 +14,15 @@ Future<void> main() async {
     exit(1);
   }
 
+  final skipCiList = pubspecYaml['skip_ci'] as YamlList?;
+
   // pub workspace, only run 'get' once
   await _runCommand('flutter', ['pub', 'get'], workingDirectory: rootDir.path);
 
-  final packages = workspace.map((e) => e.toString()).toList();
+  final packages = workspace
+      .where((e) => skipCiList == null || !skipCiList.contains(e))
+      .map((e) => e.toString())
+      .toList();
 
   for (final package in packages) {
     final packagePath = path.join(rootDir.path, package);
