@@ -1,4 +1,4 @@
-# Run with `flutter pub run ffigen --config ffigen.yaml`.
+# Run with `dart run ffigen --config ffigen.yaml`.
 name: PedometerBindings
 description: "Bindings for CM pedometers"
 language: objc

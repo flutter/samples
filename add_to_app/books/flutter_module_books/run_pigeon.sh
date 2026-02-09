@@ -1,5 +1,5 @@
 #!/bin/sh
-flutter pub run pigeon --input pigeon/schema.dart \
+dart run pigeon --input pigeon/schema.dart \
   --dart_out lib/api.dart \
   --objc_header_out ../ios_books/IosBooks/api.h \
   --objc_source_out ../ios_books/IosBooks/api.m \
