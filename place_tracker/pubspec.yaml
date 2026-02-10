@@ -1,27 +1,19 @@
 name: place_tracker
-description: A new Flutter project.
-version: 1.0.0+1
+description: A sample place tracking app.
 resolution: workspace
-
+publish_to: 'none'
+version: 1.0.1+2
 environment:
-  sdk: ^3.9.0-0
-
+  sdk: ">=3.0.0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
-  google_maps_flutter: ^2.2.0
-  provider: ^6.0.2
-  uuid: ^4.0.0
-  go_router: ^16.0.0
-
+  google_maps_flutter: ^2.5.0
+  provider: ^6.0.0
+  go_router: ^12.0.0
+  google_maps_webservice: ^0.0.20-nullsafety.5
+  uuid: ^4.3.3
 dev_dependencies:
-  analysis_defaults:
-    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-flutter:
-  assets:
-    - assets/
-
-  uses-material-design: true
+  flutter_lints: ^3.0.0

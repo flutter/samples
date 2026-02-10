@@ -303,8 +303,8 @@ class _PlaceMapState extends State<PlaceMap> {
   Future<void> _onAddPlacePressed() async {
     setState(() {
       final newMarker = Marker(
-        markerId: MarkerId(_lastMapPosition.toString()),
-        position: _lastMapPosition!,
+        markerId: MarkerId((_lastMapPosition ?? widget.center!).toString()),
+        position: _lastMapPosition ?? widget.center!,
         infoWindow: const InfoWindow(title: 'New Place'),
         draggable: true,
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
