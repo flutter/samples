@@ -1,5 +1,6 @@
 name: place_tracker
 description: A sample place tracking app.
+resolution: workspace
 publish_to: 'none'
 version: 1.0.1+2
 environment:
