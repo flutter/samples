@@ -46,6 +46,10 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
           bookingRepository: context.read(),
           userRepository: context.read(),
         );
+        // Currently HomeViewModel does not manage any disposable resources.
+        // If you add streams, controllers, or other resources in the future,
+        // remember to dispose it properly to prevent memory leaks.
+
         return HomeScreen(viewModel: viewModel);
       },
       routes: [
