@@ -25,6 +25,7 @@ workspace:
   - compass_app/server
   - context_menus
   - date_planner
+  - deeplink_store_example
   - desktop_photo_search/fluent_ui
   - desktop_photo_search/material
   - dynamic_theme
@@ -63,9 +64,13 @@ skip_ci:
 
 skip_ci_beta:
   # TODO: lots of shader arg failures in the tests on beta branch
-  - animations
-  - compass_app/app
-  - compass_app/server
-  - deeplink_store_example
+  # - animations
+  # - compass_app/app
+  # - compass_app/server
+  # - deeplink_store_example
+  # - desktop_photo_search/fluent_ui
+  # - desktop_photo_search/material
+  # - form_app
+  - material_3_demo
   # TODO(ewindmill): info - lib/basic_text_input_client.dart:262:11 - 'setStyle' is deprecated and shouldn't be used. Use updateStyle instead. This feature was deprecated after v3.41.0-0.0.pre. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use on beta branch
   - simplistic_editor
