@@ -28,6 +28,5 @@ void main() {
       var newPosition = tester.getTopLeft(button);
       expect(newPosition, isNot(offsetMoreOrLessEquals(initialPosition)));
     });
-    // TODO: Exception: Asset 'shaders/ink_sparkle.frag' manifest could not be decoded: INVALID_ARGUMENT:Unsupported runtime stages format version. Expected 2, got 1.
-  }, skip: true);
+  });
 }
