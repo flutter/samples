@@ -61,3 +61,8 @@ skip_ci:
   - add_to_app/multiple_flutters/multiple_flutters_module
   - add_to_app/plugin/flutter_module_using_plugin
   - add_to_app/prebuilt_module/flutter_module
+
+skip_ci_beta:
+  - material_3_demo
+  # TODO(ewindmill): info - lib/basic_text_input_client.dart:262:11 - 'setStyle' is deprecated and shouldn't be used. Use updateStyle instead. This feature was deprecated after v3.41.0-0.0.pre. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use on beta branch
+  - simplistic_editor
