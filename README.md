@@ -17,7 +17,7 @@ Googler's, you can freely add samples to the [flutter/demos] repository.
 
 ### Quickstarts
 
-* [`asset_transformation`] - Demonstrates how to transform images' color scales and formats. 
+* [`asset_transformation`] - Demonstrates how to transform images' color scales and formats.
 * [`background_isolate_channels`] - Demonstrates how to use long-lived isolates.
 * [`code_sharing`] - Demonstrates how to share business logic between Flutter client and Dart server using [`package:shelf`] )
 * [`context_menus`] - This sample shows how to create and customize cross-platform context menus, such as the text selection toolbar on mobile or the right click menu on desktop.
@@ -25,7 +25,6 @@ Googler's, you can freely add samples to the [flutter/demos] repository.
 * [`dynamic_theme`] - A developer sample demonstrating how to call on-device Flutter APIs based on output from the Gemini API.
 * [`form_app`] - A sample demonstrating different types of forms and best practices.
 * [`game_template`] - (**note: deprecated!**) A starter game in Flutter with all the bells and whistles of a mobile (iOS & Android) game.
-* [`gemini_tasks`] - A developer sample written in Flutter demonstrating how to interact with a to-do list in natural language using the Gemini API.
 * [`google_maps`] - Demonstrates the Google Maps for Flutter plugin.
 * [`infinite_list`] - A Flutter sample app that shows an implementation of the "infinite list" UX pattern.
 * [`isolate_example`] - A sample application that demonstrate best practices when using [isolates].
@@ -78,10 +77,10 @@ Googler's, you can freely add samples to the [flutter/demos] repository.
 
 ## Flutter sample code
 
-Samples are **correct and concise code** that developers 
-can **quickly understand** and **easily reuse** with minimal side effects. 
-Samples teach developers how to be successful using Flutter and Dart. 
-They are maintained on an ongoing basis 
+Samples are **correct and concise code** that developers
+can **quickly understand** and **easily reuse** with minimal side effects.
+Samples teach developers how to be successful using Flutter and Dart.
+They are maintained on an ongoing basis
 to reflect changing APIs and best practices.
 
 ### Types of samples
@@ -90,18 +89,18 @@ There are two types of sample code in this repository:
 
 * **Quickstarts** provide a starting point to extend. They answer the question,
   "What is the minimal amount of code needed to implement this feature?"
-* **Demo apps** are meant to be built and ran. They demo the _product_, 
+* **Demo apps** are meant to be built and ran. They demo the _product_,
    not how to write code.
 
 A majority of samples in this repository are quickstarts.
 
 ## Usage
 
-Every sample in this repo is fully runnable. To run an example, 
-use `flutter run` inside that example's directory. 
+Every sample in this repo is fully runnable. To run an example,
+use `flutter run` inside that example's directory.
 See the [getting started guide] to install the `flutter` tool.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > If you want to run an add-to-app sample, there are additional requirements.
 > We suggest reading the [add-to-app documentation].
 
@@ -129,7 +128,6 @@ If you run into a bug in one of the samples, please file an issue in the
 [`dynamic_theme`]: ./dynamic_theme
 [`form_app`]: ./form_app
 [`game_template`]: ./game_template
-[`gemini_tasks`]: ./gemini_tasks
 [`google_maps`]: ./google_maps
 [`infinite_list`]: ./infinite_list
 [`isolate_example`]: ./isolate_example
