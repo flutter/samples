@@ -3,5 +3,5 @@ rootProject.name='AndroidFullScreen'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir.parentFile,
-        'flutter_module/.android/include_flutter.groovy'
+        'flutter_module_fullscreen/.android/include_flutter.groovy'
 ))
