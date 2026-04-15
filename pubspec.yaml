@@ -32,7 +32,6 @@ workspace:
   - form_app
   - game_template
   - google_maps
-  - infinite_list
   - ios_app_clip
   - isolate_example
   - material_3_demo
