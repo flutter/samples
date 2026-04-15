@@ -30,7 +30,6 @@ workspace:
   - desktop_photo_search/material
   - dynamic_theme
   - form_app
-  - game_template
   - google_maps
   - infinite_list
   - ios_app_clip
