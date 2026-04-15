@@ -10,7 +10,6 @@ import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:provider/provider.dart';
-import 'package:window_size/window_size.dart';
 
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
@@ -37,7 +36,7 @@ void main() {
     exit(1);
   }
 
-  setupWindow();
+  // Removed setupWindow() call
 
   runApp(
     ChangeNotifierProvider<PhotoSearchModel>(
@@ -48,16 +47,6 @@ void main() {
   );
 }
 
-const double windowWidth = 1024;
-const double windowHeight = 800;
-
-void setupWindow() {
-  if (!kIsWeb &&
-      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    WidgetsFlutterBinding.ensureInitialized();
-    setWindowMinSize(const Size(windowWidth, windowHeight));
-  }
-}
 
 class UnsplashSearchApp extends StatelessWidget {
   const UnsplashSearchApp({super.key});
