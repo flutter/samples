@@ -18,11 +18,9 @@ workspace:
   - asset_transformation
   - asset_transformation/grayscale_transformer
   - background_isolate_channels
-  - code_sharing/client
-  - code_sharing/server
-  - code_sharing/shared
   - compass_app/app
   - compass_app/server
+  - cupertino_gallery
   - date_planner
   - desktop_photo_search/fluent_ui
   - desktop_photo_search/material
@@ -34,7 +32,6 @@ workspace:
   - navigation_and_routing
   - pedometer
   - pedometer/example
-  - place_tracker
   - platform_channels
   - platform_design
   - platform_view_swift
