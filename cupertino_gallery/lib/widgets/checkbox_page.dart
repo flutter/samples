@@ -13,9 +13,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Checkbox'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Checkbox')),
       child: Center(
         child: CupertinoCheckbox(
           value: _value,

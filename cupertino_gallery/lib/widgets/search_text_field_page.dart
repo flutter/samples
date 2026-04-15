@@ -6,9 +6,7 @@ class SearchTextFieldPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Search Text Field'),
-      ),
+      navigationBar: CupertinoNavigationBar(middle: Text('Search Text Field')),
       child: Center(
         child: Padding(
           padding: EdgeInsets.all(16.0),

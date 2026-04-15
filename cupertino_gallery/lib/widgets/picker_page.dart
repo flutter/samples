@@ -6,20 +6,14 @@ class PickerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Picker'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Picker')),
       child: Center(
         child: SizedBox(
           height: 200,
           child: CupertinoPicker(
             itemExtent: 32,
             onSelectedItemChanged: (int index) {},
-            children: const <Widget>[
-              Text('One'),
-              Text('Two'),
-              Text('Three'),
-            ],
+            children: const <Widget>[Text('One'), Text('Two'), Text('Three')],
           ),
         ),
       ),
