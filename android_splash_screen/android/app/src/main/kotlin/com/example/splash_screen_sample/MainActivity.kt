@@ -203,9 +203,9 @@ class MainActivity : FlutterActivity() {
   }
 
   private companion object {
-    const val SPLASHSCREEN_ALPHA_ANIMATION_DURATION = 500 as Long
-    const val SPLASHSCREEN_TY_ANIMATION_DURATION = 500 as Long
-    const val SPLASHSCREEN_FINAL_ANIMATION_ALPHA_ANIMATION_DURATION = 250 as Long
-    const val WAIT_FOR_AVD_TO_FINISH = false
+      const val SPLASHSCREEN_ALPHA_ANIMATION_DURATION = 500L
+      const val SPLASHSCREEN_TY_ANIMATION_DURATION = 500L
+      const val SPLASHSCREEN_FINAL_ANIMATION_ALPHA_ANIMATION_DURATION = 250L
+      const val WAIT_FOR_AVD_TO_FINISH = false
   }
 }

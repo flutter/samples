@@ -20,7 +20,7 @@ _See also: [Flutter's code of conduct]_
 ## Is this the right place for your sample?
 
 In most cases, if you've written a great sample app, it should be maintained 
-in your own repoistory. You can maintain your sample app in your own repo 
+in your own repository. You can maintain your sample app in your own repo 
 (or with another source control provider) and still be as important a part of 
 the Flutter-verse as anything you see here.
 
@@ -99,7 +99,7 @@ Validate your idea against the following criteria:
 
 1. **The sample solves a single problem or set of tightly coupled problems.** <br/>
     If not, you're either writing a Demo app or an extended sample. These might 
-    still be appropriate for the samples repos, but need to be justified.
+    still be appropriate for the sample repos, but need to be justified.
 
 2. **The target audience for the sample isn’t beginners.**
 3. **The sample code isn’t so complex that it needs video or text explanation.** <br />
@@ -115,10 +115,10 @@ Validate your idea against the following criteria:
 6. **The topic doesn’t have crossover with any existing samples.** <br />
     If it does, ensure that it wouldn't be better to update the existing sample.
 
-## What are your ongoing maintenance resposibilities?
+## What are your ongoing maintenance responsibilities?
 
 All sample code has an unbound maintenance cost. If you cannot commit to maintaining a sample 
-(for the forseeable future, barring changes in life circumstances), then you should talk to the
+(for the foreseeable future, barring changes in life circumstances), then you should talk to the
 [primary maintainers] of this project, particularly @ericwindmill, before submitting a PR.
 
 Any new sample **must** have a CODEOWNER, and that owner is most likely you (the author).
