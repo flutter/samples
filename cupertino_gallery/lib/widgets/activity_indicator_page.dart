@@ -6,12 +6,8 @@ class ActivityIndicatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Activity Indicator'),
-      ),
-      child: Center(
-        child: CupertinoActivityIndicator(),
-      ),
+      navigationBar: CupertinoNavigationBar(middle: Text('Activity Indicator')),
+      child: Center(child: CupertinoActivityIndicator()),
     );
   }
 }

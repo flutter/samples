@@ -15,10 +15,6 @@ dependencies:
   http: ^1.0.0
   json_annotation: any
   english_words: ^4.0.0
-  window_size:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
   go_router: ^16.0.0
 
 dev_dependencies:

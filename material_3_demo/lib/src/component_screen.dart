@@ -251,8 +251,6 @@ class Containment extends StatelessWidget {
         Carousels(),
         Dialogs(),
         Dividers(),
-        // TODO: Add Lists, https://github.com/flutter/flutter/issues/114006
-        // TODO: Add Side sheets, https://github.com/flutter/flutter/issues/119328
       ],
     );
   }
@@ -878,7 +876,6 @@ class _SwitchRowState extends State<SwitchRow> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        // TODO: use SwitchListTile when thumbIcon is available https://github.com/flutter/flutter/issues/118616
         Switch(
           value: value0,
           onChanged: widget.isEnabled
@@ -948,7 +945,6 @@ class _CheckboxesState extends State<Checkboxes> {
             tristate: true,
             value: isChecked2,
             title: const Text('Option 3'),
-            // TODO: showcase error state https://github.com/flutter/flutter/issues/118616
             onChanged: (value) {
               setState(() {
                 isChecked2 = value;
@@ -1703,7 +1699,6 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
               showModalBottomSheet<void>(
                 showDragHandle: true,
                 context: context,
-                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
                 constraints: const BoxConstraints(maxWidth: 640),
                 builder: (context) {
                   return SizedBox(
@@ -1746,7 +1741,6 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
               _nonModalBottomSheetController = showBottomSheet(
                 elevation: 8.0,
                 context: context,
-                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
                 constraints: const BoxConstraints(maxWidth: 640),
                 builder: (context) {
                   return SizedBox(
@@ -2132,7 +2126,6 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin {
                 ),
               ],
             ),
-            // TODO: Showcase secondary tab bar https://github.com/flutter/flutter/issues/111962
           ),
         ),
       ),

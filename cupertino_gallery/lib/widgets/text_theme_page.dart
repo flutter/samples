@@ -6,9 +6,7 @@ class TextThemePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Text Theme'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Text Theme')),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,9 +33,9 @@ class TextThemePage extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               'This is the nav large title text style',
-              style: CupertinoTheme.of(context)
-                  .textTheme
-                  .navLargeTitleTextStyle,
+              style: CupertinoTheme.of(
+                context,
+              ).textTheme.navLargeTitleTextStyle,
             ),
             const SizedBox(height: 16),
             Text(
@@ -47,8 +45,9 @@ class TextThemePage extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               'This is the date time picker text style',
-              style:
-                  CupertinoTheme.of(context).textTheme.dateTimePickerTextStyle,
+              style: CupertinoTheme.of(
+                context,
+              ).textTheme.dateTimePickerTextStyle,
             ),
           ],
         ),

@@ -62,9 +62,6 @@ class EventList extends StatelessWidget {
                       ),
                       children: [
                         for (Event e in events.sorted(p))
-                          // TODO: Support swipe action for deleting.
-                          // Should probably use Dismissable?
-                          // https://api.flutter.dev/flutter/widgets/Dismissible-class.html
                           EventRow(
                             event: e,
                             onTap: () async {
