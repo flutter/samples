@@ -37,11 +37,11 @@ class GalleryHome extends StatelessWidget {
             return switch (index) {
               0 => const WidgetsPage(),
               1 => SettingsPage(
-                    onThemeChange: onThemeChange,
-                    isDarkMode: isDarkMode,
-                    onTextSizeChange: onTextSizeChange,
-                    textSize: textSize,
-                  ),
+                onThemeChange: onThemeChange,
+                isDarkMode: isDarkMode,
+                onTextSizeChange: onTextSizeChange,
+                textSize: textSize,
+              ),
               _ => const Center(child: Text('Widgets')),
             };
           },

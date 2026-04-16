@@ -6,9 +6,7 @@ class TimePickerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Time Picker'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Time Picker')),
       child: Center(
         child: SizedBox(
           height: 200,

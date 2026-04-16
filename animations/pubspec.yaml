@@ -12,10 +12,6 @@ dependencies:
     sdk: flutter
   flutter_animate: ^4.1.0
   go_router: ^16.0.0
-  window_size: # plugin is not yet part of the flutter framework
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
 
 dev_dependencies:
   analysis_defaults:

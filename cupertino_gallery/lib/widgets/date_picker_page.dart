@@ -6,15 +6,11 @@ class DatePickerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Date Picker'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Date Picker')),
       child: Center(
         child: SizedBox(
           height: 200,
-          child: CupertinoDatePicker(
-            onDateTimeChanged: (DateTime newDate) {},
-          ),
+          child: CupertinoDatePicker(onDateTimeChanged: (DateTime newDate) {}),
         ),
       ),
     );

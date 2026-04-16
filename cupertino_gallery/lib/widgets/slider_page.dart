@@ -13,9 +13,7 @@ class _SliderPageState extends State<SliderPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Slider'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Slider')),
       child: Center(
         child: CupertinoSlider(
           value: _value,

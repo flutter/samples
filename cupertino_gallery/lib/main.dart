@@ -37,24 +37,31 @@ class _CupertinoGalleryAppState extends State<CupertinoGalleryApp> {
   @override
   Widget build(BuildContext context) {
     final baseTheme = CupertinoThemeData(
-      brightness:
-          _themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
+      brightness: _themeMode == ThemeMode.dark
+          ? Brightness.dark
+          : Brightness.light,
     );
     final textTheme = baseTheme.textTheme.copyWith(
-      textStyle:
-          baseTheme.textTheme.textStyle.copyWith(fontSize: 14 * _textSize),
-      actionTextStyle: baseTheme.textTheme.actionTextStyle
-          .copyWith(fontSize: 14 * _textSize),
-      tabLabelTextStyle: baseTheme.textTheme.tabLabelTextStyle
-          .copyWith(fontSize: 10 * _textSize),
-      navTitleTextStyle: baseTheme.textTheme.navTitleTextStyle
-          .copyWith(fontSize: 17 * _textSize),
+      textStyle: baseTheme.textTheme.textStyle.copyWith(
+        fontSize: 14 * _textSize,
+      ),
+      actionTextStyle: baseTheme.textTheme.actionTextStyle.copyWith(
+        fontSize: 14 * _textSize,
+      ),
+      tabLabelTextStyle: baseTheme.textTheme.tabLabelTextStyle.copyWith(
+        fontSize: 10 * _textSize,
+      ),
+      navTitleTextStyle: baseTheme.textTheme.navTitleTextStyle.copyWith(
+        fontSize: 17 * _textSize,
+      ),
       navLargeTitleTextStyle: baseTheme.textTheme.navLargeTitleTextStyle
           .copyWith(fontSize: 34 * _textSize),
-      navActionTextStyle: baseTheme.textTheme.navActionTextStyle
-          .copyWith(fontSize: 17 * _textSize),
-      pickerTextStyle: baseTheme.textTheme.pickerTextStyle
-          .copyWith(fontSize: 21 * _textSize),
+      navActionTextStyle: baseTheme.textTheme.navActionTextStyle.copyWith(
+        fontSize: 17 * _textSize,
+      ),
+      pickerTextStyle: baseTheme.textTheme.pickerTextStyle.copyWith(
+        fontSize: 21 * _textSize,
+      ),
       dateTimePickerTextStyle: baseTheme.textTheme.dateTimePickerTextStyle
           .copyWith(fontSize: 21 * _textSize),
     );

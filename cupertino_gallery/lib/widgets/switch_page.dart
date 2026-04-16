@@ -13,9 +13,7 @@ class _SwitchPageState extends State<SwitchPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Switch'),
-      ),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Switch')),
       child: Center(
         child: CupertinoSwitch(
           value: _value,

@@ -2,6 +2,7 @@ name: cupertino_gallery
 description: A Flutter project showcasing supported Cupertino components.
 publish_to: "none"
 version: 1.0.0+1
+resolution: workspace
 
 environment:
   sdk: ^3.9.0-0

@@ -26,10 +26,6 @@ dependencies:
   transparent_image: ^2.0.1
   url_launcher: ^6.1.12
   uuid: ^4.0.0
-  window_size:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
 
 dev_dependencies:
   analysis_defaults:
