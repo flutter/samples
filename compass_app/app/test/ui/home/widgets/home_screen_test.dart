@@ -7,6 +7,7 @@ import 'package:compass_app/ui/auth/logout/view_models/logout_viewmodel.dart';
 import 'package:compass_app/ui/home/view_models/home_viewmodel.dart';
 import 'package:compass_app/ui/home/widgets/home_screen.dart';
 import 'package:compass_app/utils/result.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

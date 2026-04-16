@@ -7,11 +7,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../routing/routes.dart';
+import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
 import '../../core/ui/date_format_start_end.dart';
-import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../../core/ui/error_indicator.dart';
 import '../view_models/home_viewmodel.dart';
 import 'home_title.dart';
