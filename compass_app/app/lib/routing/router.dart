@@ -42,6 +42,9 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
     GoRoute(
       path: Routes.home,
       builder: (context, state) {
+        // Note: HomeViewModel currently does not require disposal.
+        // If disposable resources are introduced, lifecycle ownership
+        // would need to be addressed (e.g. via Provider/Riverpod or a StatefulWidget).
         final viewModel = HomeViewModel(
           bookingRepository: context.read(),
           userRepository: context.read(),
