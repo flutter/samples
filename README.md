@@ -11,7 +11,7 @@ We appreciate fixes and necessary improvements to existing samples. **But in mos
 
 Please read the [contributor's guide] if you have contributions.
 
-Googler's, you can freely add samples to the [flutter/demos] repository.
+Googlers, you can freely add samples to the [flutter/demos] repository.
 
 ## Index
 
@@ -36,7 +36,7 @@ Googler's, you can freely add samples to the [flutter/demos] repository.
 
 ### Native platform samples
 
-* [`add-to-app`] - Collection of samples that demonstrate embedding Flutter a view into a native app.
+* [`add-to-app`] - Collection of samples that demonstrate embedding a Flutter view into a native app.
   * [`fullscreen`] — Embeds a full screen instance of
   Flutter into an existing iOS or Android app.
   * [`prebuilt_module`] — Embeds a full screen
@@ -81,7 +81,7 @@ There are two types of sample code in this repository:
 
 * **Quickstarts** provide a starting point to extend. They answer the question,
   "What is the minimal amount of code needed to implement this feature?"
-* **Demo apps** are meant to be built and ran. They demo the _product_,
+* **Demo apps** are meant to be built and run. They demo the _product_,
    not how to write code.
 
 A majority of samples in this repository are quickstarts.
