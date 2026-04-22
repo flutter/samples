@@ -20,4 +20,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   shaders:
-    - shaders/simple.frag
+    - shaders/SDF.frag
