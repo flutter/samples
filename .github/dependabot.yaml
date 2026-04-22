@@ -282,6 +282,12 @@ updates:
     labels:
       - "autosubmit"
   - package-ecosystem: "pub"
+    directory: "simple_sdf/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
     directory: "simple_shader/"
     schedule:
       interval: "daily"
