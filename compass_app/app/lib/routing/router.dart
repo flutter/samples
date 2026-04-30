@@ -42,6 +42,16 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
     GoRoute(
       path: Routes.home,
       builder: (context, state) {
+        // NOTE:
+        // HomeViewModel is created here and is not disposed.
+        // This is safe in this sample because HomeViewModel does not
+        // manage any resources that require disposal.
+        //
+        // In real applications, if a ViewModel manages streams,
+        // controllers, or subscriptions, it should be properly disposed.
+        // This can be handled using state management solutions such as
+        // Provider or Riverpod, or by managing lifecycle within a
+        // StatefulWidget.
         final viewModel = HomeViewModel(
           bookingRepository: context.read(),
           userRepository: context.read(),
