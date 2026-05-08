@@ -54,7 +54,6 @@ List<SingleChildWidget> get providersRemote {
   return [
     Provider(create: (context) => AuthApiClient()),
     Provider(create: (context) => ApiClient()),
-    Provider(create: (context) => SharedPreferencesService()),
     ChangeNotifierProvider(
       create: (context) =>
           AuthRepositoryRemote(

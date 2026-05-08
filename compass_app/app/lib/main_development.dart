@@ -7,13 +7,29 @@ import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 
 import 'config/dependencies.dart';
+import 'data/services/shared_preferences_service.dart';
 import 'main.dart';
 
 /// Development config entry point.
 /// Launch with `flutter run --target lib/main_development.dart`.
 /// Uses local data.
-void main() {
-  Logger.root.level = Level.ALL;
+Future<void> main() async { 
+  WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MultiProvider(providers: providersLocal, child: const MainApp()));
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((record) {
+    print('${record.time}: [${record.level.name}] ${record.loggerName}: ${record.message}');
+  });
+
+  final sharedPrefsService = await SharedPreferencesService.create();
+
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider.value(value: sharedPrefsService),
+        ...providersRemote, 
+      ],
+      child: const MainApp(),
+    ),
+  );
 }

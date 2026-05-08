@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'main_development.dart' as development;
+import 'main_staging.dart' as staging;
 import 'routing/router.dart';
 import 'ui/core/localization/applocalization.dart';
 import 'ui/core/themes/theme.dart';
@@ -14,6 +15,8 @@ import 'ui/core/ui/scroll_behavior.dart';
 
 /// Default main method
 void main() {
+  // print('main_staging');
+
   // Launch development config by default
   development.main();
 }
