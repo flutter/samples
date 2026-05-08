@@ -17,10 +17,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((record) {
-    print('${record.time}: [${record.level.name}] ${record.loggerName}: ${record.message}');
-  });
-
   final sharedPrefsService = await SharedPreferencesService.create();
 
   runApp(
