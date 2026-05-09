@@ -30,7 +30,7 @@ void main() {
 
     setUpAll(() async {
       // Clear any stored shared preferences
-      final sharedPreferences = await SharedPreferences.getInstance();
+      final sharedPreferences = SharedPreferencesAsync();
       await sharedPreferences.clear();
 
       // Start the dart server
