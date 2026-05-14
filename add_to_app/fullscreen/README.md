@@ -5,7 +5,7 @@ Embeds a full screen instance of Flutter into an existing iOS or Android app.
 ## Description
 
 These apps showcase a relatively straightforward integration of
-`flutter_module`:
+`flutter_module_fullscreen`:
 
 * The Flutter module is built along with the app when the app is built.
 * The Flutter engine is warmed up at app launch.
@@ -27,7 +27,7 @@ you're building for both iOS and Android, with both toolchains installed):
   #!/bin/bash
   set -e
 
-  cd flutter_module/
+  cd flutter_module_fullscreen/
   flutter pub get
 
   # For Android builds:

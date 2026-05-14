@@ -49,6 +49,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
               parent: animation,
               curve: const Interval(0.0, 1.0),
             ),
+            // ignore: deprecated_member_use
             axisAlignment: 0.0,
             child: _buildItem(user),
           ),

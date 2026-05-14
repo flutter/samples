@@ -18,37 +18,25 @@ workspace:
   - asset_transformation
   - asset_transformation/grayscale_transformer
   - background_isolate_channels
-  - code_sharing/client
-  - code_sharing/server
-  - code_sharing/shared
   - compass_app/app
   - compass_app/server
-  - context_menus
+  - cupertino_gallery
   - date_planner
-  - deeplink_store_example
   - desktop_photo_search/fluent_ui
   - desktop_photo_search/material
   - dynamic_theme
   - form_app
-  - game_template
-  - gemini_tasks
   - google_maps
-  - infinite_list
   - ios_app_clip
-  - isolate_example
   - material_3_demo
   - navigation_and_routing
   - pedometer
   - pedometer/example
-  - place_tracker
   - platform_channels
   - platform_design
   - platform_view_swift
-  - provider_counter
-  - provider_shopper
+  - simple_sdf
   - simple_shader
-  - simplistic_calculator
-  - simplistic_editor
   - testing_app
   - tool
   - web_embedding/element_embedding_demo
@@ -62,3 +50,8 @@ skip_ci:
   - add_to_app/multiple_flutters/multiple_flutters_module
   - add_to_app/plugin/flutter_module_using_plugin
   - add_to_app/prebuilt_module/flutter_module
+  # remove after 3.44 release
+  - cupertino_gallery
+
+skip_ci_beta:
+  - material_3_demo

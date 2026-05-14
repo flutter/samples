@@ -14,10 +14,6 @@ dependencies:
     sdk: flutter
   go_router: ^16.0.0
   url_launcher: ^6.1.1
-  window_size:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
 
 dev_dependencies:
   analysis_defaults:
