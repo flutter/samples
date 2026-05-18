@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Simple Shader Demo',
+      title: 'Simple SDF Demo',
       theme: ThemeData(colorSchemeSeed: Colors.blue),
       home: const MyHomePage(),
     );
@@ -30,9 +30,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Simple Shader Demo')),
+      appBar: AppBar(title: const Text('Simple SDF Demo')),
       body: ShaderBuilder(
-        assetKey: 'shaders/simple.frag',
+        assetKey: 'shaders/SDF.frag',
         (context, shader, child) => CustomPaint(
           size: MediaQuery.of(context).size,
           painter: ShaderPainter(shader: shader),

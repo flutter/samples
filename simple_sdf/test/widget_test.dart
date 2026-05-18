@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simple_shader/main.dart';
+import 'package:simple_sdf/main.dart';
 
 void main() {
   testWidgets('Smoke test', (tester) async {

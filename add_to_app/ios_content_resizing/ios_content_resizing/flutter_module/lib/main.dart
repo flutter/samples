@@ -26,7 +26,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return Center(
       heightFactor: 1,
       child: Directionality(
@@ -46,7 +45,6 @@ class _MyAppState extends State<MyApp> {
                 child: Text("Add to list"),
               ),
             ),
-
           ],
         ),
       ),
