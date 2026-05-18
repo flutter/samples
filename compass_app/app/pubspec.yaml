@@ -23,7 +23,7 @@ dependencies:
   logging: ^1.3.0
   provider: ^6.1.2
   share_plus: ^10.1.3
-  shared_preferences: ^2.3.5
+  shared_preferences: ^2.5.5 
 
 dev_dependencies:
   analysis_defaults:

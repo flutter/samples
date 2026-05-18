@@ -14,6 +14,8 @@ import 'ui/core/ui/scroll_behavior.dart';
 
 /// Default main method
 void main() {
+  // print('main_staging');
+
   // Launch development config by default
   development.main();
 }
