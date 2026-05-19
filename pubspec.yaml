@@ -35,6 +35,7 @@ workspace:
   - platform_channels
   - platform_design
   - platform_view_swift
+  - simple_sdf
   - simple_shader
   - testing_app
   - tool
