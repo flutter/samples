@@ -13,8 +13,7 @@ import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
 import '../ui/booking/widgets/booking_screen.dart';
-import '../ui/home/view_models/home_viewmodel.dart';
-import '../ui/home/widgets/home_screen.dart';
+import '../ui/home/widgets/home_screen_container.dart';
 import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
 import '../ui/search_form/view_models/search_form_viewmodel.dart';
@@ -42,11 +41,7 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
     GoRoute(
       path: Routes.home,
       builder: (context, state) {
-        final viewModel = HomeViewModel(
-          bookingRepository: context.read(),
-          userRepository: context.read(),
-        );
-        return HomeScreen(viewModel: viewModel);
+        return const HomeScreenContainer();
       },
       routes: [
         GoRoute(
