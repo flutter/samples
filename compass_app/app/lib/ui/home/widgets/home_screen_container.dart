@@ -27,13 +27,13 @@ class _HomeScreenContainerState extends State<HomeScreenContainer> {
   }
 
   @override
-  void dispose() {
-    _viewModel.dispose();
-    super.dispose();
+  Widget build(BuildContext context) {
+    return HomeScreen(viewModel: _viewModel);
   }
 
   @override
-  Widget build(BuildContext context) {
-    return HomeScreen(viewModel: _viewModel);
+  void dispose() {
+    _viewModel.dispose();
+    super.dispose();
   }
 }
