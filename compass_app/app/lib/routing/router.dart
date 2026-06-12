@@ -11,6 +11,7 @@ import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
 import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
+import '../ui/auth/logout/view_models/logout_viewmodel.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
 import '../ui/booking/widgets/booking_screen.dart';
 import '../ui/home/view_models/home_viewmodel.dart';
@@ -46,7 +47,14 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
           bookingRepository: context.read(),
           userRepository: context.read(),
         );
-        return HomeScreen(viewModel: viewModel);
+        final logoutViewModel = LogoutViewModel(
+          authRepository: context.read(),
+          itineraryConfigRepository: context.read(),
+        );
+        return HomeScreen(
+          viewModel: viewModel,
+          logoutViewModel: logoutViewModel,
+        );
       },
       routes: [
         GoRoute(
