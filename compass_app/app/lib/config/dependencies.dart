@@ -28,7 +28,6 @@ import '../data/repositories/user/user_repository_remote.dart';
 import '../data/services/api/api_client.dart';
 import '../data/services/api/auth_api_client.dart';
 import '../data/services/local/local_data_service.dart';
-import '../data/services/shared_preferences_service.dart';
 import '../domain/use_cases/booking/booking_create_use_case.dart';
 import '../domain/use_cases/booking/booking_share_use_case.dart';
 
@@ -54,7 +53,6 @@ List<SingleChildWidget> get providersRemote {
   return [
     Provider(create: (context) => AuthApiClient()),
     Provider(create: (context) => ApiClient()),
-    Provider(create: (context) => SharedPreferencesService()),
     ChangeNotifierProvider(
       create: (context) =>
           AuthRepositoryRemote(

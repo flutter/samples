@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // Copyright 2024 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -10,12 +11,20 @@ import '../../utils/result.dart';
 class SharedPreferencesService {
   static const _tokenKey = 'TOKEN';
   final _log = Logger('SharedPreferencesService');
+  final SharedPreferencesWithCache _prefs;
+  SharedPreferencesService(this._prefs);
+
+  static Future<SharedPreferencesService> create() async {
+    final prefs = await SharedPreferencesWithCache.create(
+      cacheOptions: SharedPreferencesWithCacheOptions(allowList: {_tokenKey}),
+    );
+    return SharedPreferencesService(prefs);
+  }
 
   Future<Result<String?>> fetchToken() async {
     try {
-      final sharedPreferences = await SharedPreferences.getInstance();
       _log.finer('Got token from SharedPreferences');
-      return Result.ok(sharedPreferences.getString(_tokenKey));
+      return Result.ok(_prefs.getString(_tokenKey));
     } on Exception catch (e) {
       _log.warning('Failed to get token', e);
       return Result.error(e);
@@ -24,13 +33,12 @@ class SharedPreferencesService {
 
   Future<Result<void>> saveToken(String? token) async {
     try {
-      final sharedPreferences = await SharedPreferences.getInstance();
       if (token == null) {
         _log.finer('Removed token');
-        await sharedPreferences.remove(_tokenKey);
+         _prefs.remove(_tokenKey);
       } else {
         _log.finer('Replaced token');
-        await sharedPreferences.setString(_tokenKey, token);
+         _prefs.setString(_tokenKey, token);
       }
       return const Result.ok(null);
     } on Exception catch (e) {
