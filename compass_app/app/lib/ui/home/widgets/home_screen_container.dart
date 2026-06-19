@@ -3,11 +3,17 @@ import 'package:provider/provider.dart';
 
 import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/user/user_repository.dart';
+import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../view_models/home_viewmodel.dart';
 import 'home_screen.dart';
 
 class HomeScreenContainer extends StatefulWidget {
-  const HomeScreenContainer({super.key});
+  const HomeScreenContainer({
+    super.key,
+    required this.logoutViewModel,
+  });
+
+  final LogoutViewModel logoutViewModel;
 
   @override
   State<HomeScreenContainer> createState() => _HomeScreenContainerState();
@@ -28,7 +34,10 @@ class _HomeScreenContainerState extends State<HomeScreenContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return HomeScreen(viewModel: _viewModel);
+    return HomeScreen(
+      viewModel: _viewModel,
+      logoutViewModel: widget.logoutViewModel,
+    );
   }
 
   @override
