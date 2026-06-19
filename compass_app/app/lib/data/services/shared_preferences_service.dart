@@ -13,9 +13,11 @@ class SharedPreferencesService {
 
   Future<Result<String?>> fetchToken() async {
     try {
-      final sharedPreferences = await SharedPreferences.getInstance();
+      final sharedPreferences = SharedPreferencesAsync();
+
       _log.finer('Got token from SharedPreferences');
-      return Result.ok(sharedPreferences.getString(_tokenKey));
+
+      return Result.ok(await sharedPreferences.getString(_tokenKey));
     } on Exception catch (e) {
       _log.warning('Failed to get token', e);
       return Result.error(e);
@@ -24,14 +26,18 @@ class SharedPreferencesService {
 
   Future<Result<void>> saveToken(String? token) async {
     try {
-      final sharedPreferences = await SharedPreferences.getInstance();
+      final sharedPreferences = SharedPreferencesAsync();
+
       if (token == null) {
         _log.finer('Removed token');
+
         await sharedPreferences.remove(_tokenKey);
       } else {
         _log.finer('Replaced token');
+
         await sharedPreferences.setString(_tokenKey, token);
       }
+
       return const Result.ok(null);
     } on Exception catch (e) {
       _log.warning('Failed to set token', e);
