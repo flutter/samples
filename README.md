@@ -28,6 +28,7 @@ Googler's, you can freely add samples to the [flutter/demos] repository.
 * [`navigation_and_routing`] - A sample that shows how to use [go_router] API to handle common navigation scenarios.
 * [`pedometer`] - A demo of a plugin that leverages FFIgen & JNIgen to call platform APIs directly from Dart code.
 * [`platform_design`] - This sample project shows a Flutter app that maximizes application code reuse while adhering to different design patterns on Android and iOS.
+* [`simple_sdf`] - A simple [Flutter fragment shaders] sample project showing how to draw Signed Distance Functions with the FragmentShader API.
 * [`simple_shader`] - A simple [Flutter fragment shaders] sample project.
 * [`testing_app`] - A sample app that shows different types of testing in Flutter.
 * [`web_embedding`] - This directory contains examples of how to embed Flutter in web apps (without iframes).
@@ -123,6 +124,7 @@ If you run into a bug in one of the samples, please file an issue in the
 [`navigation_and_routing`]: ./navigation_and_routing
 [`pedometer`]: ./pedometer
 [`platform_design`]: ./platform_design
+[`simple_sdf`]: ./simple_sdf
 [`simple_shader`]: ./simple_shader
 [`testing_app`]: ./testing_app
 [`web_embedding`]: ./web_embedding
