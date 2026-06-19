@@ -69,7 +69,7 @@ class ActivityEntry extends StatelessWidget {
 }
 
 class _ActivityErrorPlaceholder extends StatelessWidget {
-  const _ActivityErrorPlaceholder({super.key});
+  const _ActivityErrorPlaceholder();
 
   @override
   Widget build(BuildContext context) {
