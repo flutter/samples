@@ -65,31 +65,27 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   Future<Result<void>> _deleteBooking(int id) async {
-    try {
-      final resultDelete = await _bookingRepository.delete(id);
-      switch (resultDelete) {
-        case Ok<void>():
-          _log.fine('Deleted booking $id');
-        case Error<void>():
-          _log.warning('Failed to delete booking $id', resultDelete.error);
-          return resultDelete;
-      }
-
-      // After deleting the booking, we need to reload the bookings list.
-      // BookingRepository is the source of truth for bookings.
-      final resultLoadBookings = await _bookingRepository.getBookingsList();
-      switch (resultLoadBookings) {
-        case Ok<List<BookingSummary>>():
-          _bookings = resultLoadBookings.value;
-          _log.fine('Loaded bookings');
-        case Error<List<BookingSummary>>():
-          _log.warning('Failed to load bookings', resultLoadBookings.error);
-          return resultLoadBookings;
-      }
-
-      return resultLoadBookings;
-    } finally {
-      notifyListeners();
+    final resultDelete = await _bookingRepository.delete(id);
+    switch (resultDelete) {
+      case Ok<void>():
+        _log.fine('Deleted booking $id');
+      case Error<void>():
+        _log.warning('Failed to delete booking $id', resultDelete.error);
+        return resultDelete;
     }
+
+    // After deleting the booking, reload the bookings list.
+    final resultLoadBookings = await _bookingRepository.getBookingsList();
+    switch (resultLoadBookings) {
+      case Ok<List<BookingSummary>>():
+        _bookings = resultLoadBookings.value;
+        _log.fine('Loaded bookings');
+        notifyListeners(); // notify only when data changes
+      case Error<List<BookingSummary>>():
+        _log.warning('Failed to load bookings', resultLoadBookings.error);
+        return resultLoadBookings;
+    }
+
+    return resultLoadBookings;
   }
 }
