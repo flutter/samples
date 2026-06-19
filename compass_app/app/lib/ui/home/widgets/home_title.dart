@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../../auth/logout/widgets/logout_button.dart';
@@ -13,9 +12,14 @@ import '../../core/themes/dimens.dart';
 import '../view_models/home_viewmodel.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key, required this.viewModel});
+  const HomeHeader({
+    super.key,
+    required this.viewModel,
+    required this.logoutViewModel,
+  });
 
   final HomeViewModel viewModel;
+  final LogoutViewModel logoutViewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +41,7 @@ class HomeHeader extends StatelessWidget {
                 height: Dimens.of(context).profilePictureSize,
               ),
             ),
-            LogoutButton(
-              viewModel: LogoutViewModel(
-                authRepository: context.read(),
-                itineraryConfigRepository: context.read(),
-              ),
-            ),
+            LogoutButton(viewModel: logoutViewModel),
           ],
         ),
         const SizedBox(height: Dimens.paddingVertical),

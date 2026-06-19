@@ -44,13 +44,15 @@ class MyHomePage extends StatelessWidget {
 }
 
 class ShaderPainter extends CustomPainter {
-  ShaderPainter({required this.shader});
-  ui.FragmentShader shader;
+  ShaderPainter({required this.shader})
+    : _resolution = shader.getUniformVec2('resolution');
+
+  final ui.FragmentShader shader;
+  final ui.UniformVec2Slot _resolution;
 
   @override
   void paint(Canvas canvas, Size size) {
-    shader.setFloat(0, size.width);
-    shader.setFloat(1, size.height);
+    _resolution.set(size.width, size.height);
 
     final paint = Paint()..shader = shader;
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
