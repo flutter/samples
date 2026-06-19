@@ -45993,9 +45993,7 @@ class ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool extends _ObjCBlockBase {
                       ffi.UnsignedLong,
                       ffi.Pointer<ffi.Bool>,
                     )
-                  >(
-                    _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureTrampoline,
-                  )
+                  >(_ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureTrampoline)
                   .cast(),
           _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_registerClosure(
             (
