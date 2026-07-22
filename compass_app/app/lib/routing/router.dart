@@ -46,9 +46,7 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
           authRepository: context.read(),
           itineraryConfigRepository: context.read(),
         );
-        return HomeScreenContainer(
-          logoutViewModel: logoutViewModel,
-        );
+        return HomeScreenContainer(logoutViewModel: logoutViewModel);
       },
       routes: [
         GoRoute(

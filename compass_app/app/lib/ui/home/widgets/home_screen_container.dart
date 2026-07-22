@@ -8,10 +8,7 @@ import '../view_models/home_viewmodel.dart';
 import 'home_screen.dart';
 
 class HomeScreenContainer extends StatefulWidget {
-  const HomeScreenContainer({
-    super.key,
-    required this.logoutViewModel,
-  });
+  const HomeScreenContainer({super.key, required this.logoutViewModel});
 
   final LogoutViewModel logoutViewModel;
 
