@@ -54,7 +54,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: const Text('Dark Mode'),
                 trailing: CupertinoSwitch(
                   value: isDarkMode,
-                  onChanged: (bool isActive) {
+                  onChanged: (isActive) {
                     setState(() {
                       isDarkMode = isActive;
                       widget.onThemeChange(isActive);
@@ -70,7 +70,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 value: _textSize,
                 min: 0.5,
                 max: 1.5,
-                onChanged: (double value) {
+                onChanged: (value) {
                   setState(() {
                     _textSize = value;
                   });
@@ -103,7 +103,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 onTap: () {
                   showCupertinoDialog<void>(
                     context: context,
-                    builder: (BuildContext context) => CupertinoAlertDialog(
+                    builder: (context) => CupertinoAlertDialog(
                       title: const Text('Reset Settings'),
                       content: const Text(
                         'Are you sure you want to reset all settings?',

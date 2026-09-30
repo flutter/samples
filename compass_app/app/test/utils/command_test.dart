@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:compass_app/utils/command.dart';
 import 'package:compass_app/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -53,10 +55,10 @@ void main() {
       final future = command.execute();
 
       // Run multiple times
-      command.execute();
-      command.execute();
-      command.execute();
-      command.execute();
+      unawaited(command.execute());
+      unawaited(command.execute());
+      unawaited(command.execute());
+      unawaited(command.execute());
 
       // Await execution
       await future;

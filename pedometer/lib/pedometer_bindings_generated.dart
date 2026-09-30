@@ -17,7 +17,8 @@ class PedometerBindings {
 
   /// The symbols are looked up with [lookup].
   PedometerBindings.fromLookup(
-    ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) lookup,
+    ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
+    lookup,
   ) : _lookup = lookup;
 
   ffi.Pointer<ObjCSel> _registerName1(String name) {
@@ -33,7 +34,9 @@ class PedometerBindings {
 
   late final __sel_registerNamePtr =
       _lookup<
-        ffi.NativeFunction<ffi.Pointer<ObjCSel> Function(ffi.Pointer<ffi.Char>)>
+        ffi.NativeFunction<
+          ffi.Pointer<ObjCSel> Function(ffi.Pointer<ffi.Char>)
+        >
       >('sel_registerName');
   late final __sel_registerName = __sel_registerNamePtr
       .asFunction<ffi.Pointer<ObjCSel> Function(ffi.Pointer<ffi.Char>)>();
@@ -424,7 +427,10 @@ class PedometerBindings {
 
   late final _sel_frameLength1 = _registerName1("frameLength");
   late final _sel_isOneway1 = _registerName1("isOneway");
-  bool _objc_msgSend_12(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  bool _objc_msgSend_12(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_12(obj, sel);
   }
 
@@ -2592,9 +2598,10 @@ class PedometerBindings {
   late final _objc_releaseFinalizer11 = ffi.NativeFinalizer(
     __Block_releasePtr.cast(),
   );
-  late final _sel_setUserInfoValueProviderForDomain_provider_1 = _registerName1(
-    "setUserInfoValueProviderForDomain:provider:",
-  );
+  late final _sel_setUserInfoValueProviderForDomain_provider_1 =
+      _registerName1(
+        "setUserInfoValueProviderForDomain:provider:",
+      );
   void _objc_msgSend_78(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -3073,9 +3080,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_enumerateIndexesInRange_options_usingBlock_1 = _registerName1(
-    "enumerateIndexesInRange:options:usingBlock:",
-  );
+  late final _sel_enumerateIndexesInRange_options_usingBlock_1 =
+      _registerName1(
+        "enumerateIndexesInRange:options:usingBlock:",
+      );
   void _objc_msgSend_93(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -3594,9 +3602,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_indexOfObjectAtIndexes_options_passingTest_1 = _registerName1(
-    "indexOfObjectAtIndexes:options:passingTest:",
-  );
+  late final _sel_indexOfObjectAtIndexes_options_passingTest_1 =
+      _registerName1(
+        "indexOfObjectAtIndexes:options:passingTest:",
+      );
   int _objc_msgSend_109(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -4276,7 +4285,9 @@ class PedometerBindings {
       >();
 
   late final _sel_removeObserver_fromObjectsAtIndexes_forKeyPath_context_1 =
-      _registerName1("removeObserver:fromObjectsAtIndexes:forKeyPath:context:");
+      _registerName1(
+        "removeObserver:fromObjectsAtIndexes:forKeyPath:context:",
+      );
   void _objc_msgSend_129(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -5201,7 +5212,10 @@ class PedometerBindings {
       >();
 
   late final _sel_fileSize1 = _registerName1("fileSize");
-  int _objc_msgSend_156(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_156(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_156(obj, sel);
   }
 
@@ -5563,7 +5577,10 @@ class PedometerBindings {
   );
   late final _sel_fileExtensionHidden1 = _registerName1("fileExtensionHidden");
   late final _sel_fileHFSCreatorCode1 = _registerName1("fileHFSCreatorCode");
-  int _objc_msgSend_166(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_166(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_166(obj, sel);
   }
 
@@ -6116,7 +6133,10 @@ class PedometerBindings {
     "initWithUnsignedInteger:",
   );
   late final _sel_charValue1 = _registerName1("charValue");
-  int _objc_msgSend_185(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_185(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_185(obj, sel);
   }
 
@@ -6132,7 +6152,10 @@ class PedometerBindings {
       >();
 
   late final _sel_unsignedCharValue1 = _registerName1("unsignedCharValue");
-  int _objc_msgSend_186(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_186(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_186(obj, sel);
   }
 
@@ -6151,7 +6174,10 @@ class PedometerBindings {
       >();
 
   late final _sel_shortValue1 = _registerName1("shortValue");
-  int _objc_msgSend_187(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_187(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_187(obj, sel);
   }
 
@@ -6167,7 +6193,10 @@ class PedometerBindings {
       >();
 
   late final _sel_unsignedShortValue1 = _registerName1("unsignedShortValue");
-  int _objc_msgSend_188(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_188(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_188(obj, sel);
   }
 
@@ -6186,7 +6215,10 @@ class PedometerBindings {
       >();
 
   late final _sel_intValue1 = _registerName1("intValue");
-  int _objc_msgSend_189(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_189(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_189(obj, sel);
   }
 
@@ -6205,7 +6237,10 @@ class PedometerBindings {
   late final _sel_longValue1 = _registerName1("longValue");
   late final _sel_unsignedLongValue1 = _registerName1("unsignedLongValue");
   late final _sel_longLongValue1 = _registerName1("longLongValue");
-  int _objc_msgSend_190(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_190(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_190(obj, sel);
   }
 
@@ -6780,9 +6815,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_URLByResolvingAliasFileAtURL_options_error_1 = _registerName1(
-    "URLByResolvingAliasFileAtURL:options:error:",
-  );
+  late final _sel_URLByResolvingAliasFileAtURL_options_error_1 =
+      _registerName1(
+        "URLByResolvingAliasFileAtURL:options:error:",
+      );
   instancetype _objc_msgSend_205(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -6858,9 +6894,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_checkPromisedItemIsReachableAndReturnError_1 = _registerName1(
-    "checkPromisedItemIsReachableAndReturnError:",
-  );
+  late final _sel_checkPromisedItemIsReachableAndReturnError_1 =
+      _registerName1(
+        "checkPromisedItemIsReachableAndReturnError:",
+      );
   bool _objc_msgSend_207(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -7032,9 +7069,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_loadResourceDataNotifyingClient_usingCache_1 = _registerName1(
-    "loadResourceDataNotifyingClient:usingCache:",
-  );
+  late final _sel_loadResourceDataNotifyingClient_usingCache_1 =
+      _registerName1(
+        "loadResourceDataNotifyingClient:usingCache:",
+      );
   void _objc_msgSend_212(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -8788,9 +8826,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_decodeTopLevelObjectOfClasses_forKey_error_1 = _registerName1(
-    "decodeTopLevelObjectOfClasses:forKey:error:",
-  );
+  late final _sel_decodeTopLevelObjectOfClasses_forKey_error_1 =
+      _registerName1(
+        "decodeTopLevelObjectOfClasses:forKey:error:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_262(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -8953,7 +8992,10 @@ class PedometerBindings {
   late final _sel_decodingFailurePolicy1 = _registerName1(
     "decodingFailurePolicy",
   );
-  int _objc_msgSend_267(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_267(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_267(obj, sel);
   }
 
@@ -9156,7 +9198,13 @@ class PedometerBindings {
     int mask,
     _NSRange rangeOfReceiverToCompare,
   ) {
-    return __objc_msgSend_274(obj, sel, string, mask, rangeOfReceiverToCompare);
+    return __objc_msgSend_274(
+      obj,
+      sel,
+      string,
+      mask,
+      rangeOfReceiverToCompare,
+    );
   }
 
   late final __objc_msgSend_274Ptr =
@@ -10665,9 +10713,10 @@ class PedometerBindings {
       >();
 
   late final _sel_lineRangeForRange_1 = _registerName1("lineRangeForRange:");
-  late final _sel_getParagraphStart_end_contentsEnd_forRange_1 = _registerName1(
-    "getParagraphStart:end:contentsEnd:forRange:",
-  );
+  late final _sel_getParagraphStart_end_contentsEnd_forRange_1 =
+      _registerName1(
+        "getParagraphStart:end:contentsEnd:forRange:",
+      );
   late final _sel_paragraphRangeForRange_1 = _registerName1(
     "paragraphRangeForRange:",
   );
@@ -12096,9 +12145,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_stringWithContentsOfURL_usedEncoding_error_1 = _registerName1(
-    "stringWithContentsOfURL:usedEncoding:error:",
-  );
+  late final _sel_stringWithContentsOfURL_usedEncoding_error_1 =
+      _registerName1(
+        "stringWithContentsOfURL:usedEncoding:error:",
+      );
   late final _sel_stringWithContentsOfFile_usedEncoding_error_1 =
       _registerName1("stringWithContentsOfFile:usedEncoding:error:");
   late final _sel_stringEncodingForData_encodingOptions_convertedString_usedLossyConversion_1 =
@@ -13881,7 +13931,9 @@ class PedometerBindings {
       >();
 
   late final _sel_getRelationship_ofDirectory_inDomain_toItemAtURL_error_1 =
-      _registerName1("getRelationship:ofDirectory:inDomain:toItemAtURL:error:");
+      _registerName1(
+        "getRelationship:ofDirectory:inDomain:toItemAtURL:error:",
+      );
   bool _objc_msgSend_394(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -15395,9 +15447,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_replaceObjectsInRange_withObjectsFromArray_1 = _registerName1(
-    "replaceObjectsInRange:withObjectsFromArray:",
-  );
+  late final _sel_replaceObjectsInRange_withObjectsFromArray_1 =
+      _registerName1(
+        "replaceObjectsInRange:withObjectsFromArray:",
+      );
   void _objc_msgSend_435(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -16675,7 +16728,9 @@ class PedometerBindings {
     "initRequiringSecureCoding:",
   );
   late final _sel_archivedDataWithRootObject_requiringSecureCoding_error_1 =
-      _registerName1("archivedDataWithRootObject:requiringSecureCoding:error:");
+      _registerName1(
+        "archivedDataWithRootObject:requiringSecureCoding:error:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_471(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -16945,7 +17000,10 @@ class PedometerBindings {
     "archiveRootObject:toFile:",
   );
   late final _sel_outputFormat1 = _registerName1("outputFormat");
-  int _objc_msgSend_479(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_479(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_479(obj, sel);
   }
 
@@ -17536,7 +17594,10 @@ class PedometerBindings {
       >();
 
   late final _sel_qualityOfService1 = _registerName1("qualityOfService");
-  int _objc_msgSend_499(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_499(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_499(obj, sel);
   }
 
@@ -17995,7 +18056,10 @@ class PedometerBindings {
       >();
 
   late final _sel_totalUnitCount1 = _registerName1("totalUnitCount");
-  int _objc_msgSend_513(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_513(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_513(obj, sel);
   }
 
@@ -19325,7 +19389,9 @@ class PedometerBindings {
       >();
 
   late final _sel_URLForResource_withExtension_subdirectory_localization_1 =
-      _registerName1("URLForResource:withExtension:subdirectory:localization:");
+      _registerName1(
+        "URLForResource:withExtension:subdirectory:localization:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_550(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -19362,9 +19428,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_URLsForResourcesWithExtension_subdirectory_1 = _registerName1(
-    "URLsForResourcesWithExtension:subdirectory:",
-  );
+  late final _sel_URLsForResourcesWithExtension_subdirectory_1 =
+      _registerName1(
+        "URLsForResourcesWithExtension:subdirectory:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_551(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -19999,7 +20066,10 @@ class PedometerBindings {
     "setAllowsExtendedAttributes:",
   );
   late final _sel_interpretedSyntax1 = _registerName1("interpretedSyntax");
-  int _objc_msgSend_569(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_569(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_569(obj, sel);
   }
 
@@ -20041,7 +20111,10 @@ class PedometerBindings {
       >();
 
   late final _sel_failurePolicy1 = _registerName1("failurePolicy");
-  int _objc_msgSend_571(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_571(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_571(obj, sel);
   }
 
@@ -20999,7 +21072,9 @@ class PedometerBindings {
       >();
 
   late final _sel_isPartialStringValid_newEditingString_errorDescription_1 =
-      _registerName1("isPartialStringValid:newEditingString:errorDescription:");
+      _registerName1(
+        "isPartialStringValid:newEditingString:errorDescription:",
+      );
   bool _objc_msgSend_598(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -21085,7 +21160,10 @@ class PedometerBindings {
       >();
 
   late final _sel_formattingContext1 = _registerName1("formattingContext");
-  int _objc_msgSend_600(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_600(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_600(obj, sel);
   }
 
@@ -21295,7 +21373,10 @@ class PedometerBindings {
   late final _sel_defaultFormatterBehavior1 = _registerName1(
     "defaultFormatterBehavior",
   );
-  int _objc_msgSend_607(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_607(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_607(obj, sel);
   }
 
@@ -21342,7 +21423,10 @@ class PedometerBindings {
   late final _sel_dateFormat1 = _registerName1("dateFormat");
   late final _sel_setDateFormat_1 = _registerName1("setDateFormat:");
   late final _sel_dateStyle1 = _registerName1("dateStyle");
-  int _objc_msgSend_609(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_609(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_609(obj, sel);
   }
 
@@ -22874,7 +22958,9 @@ class PedometerBindings {
       >();
 
   late final _sel_components_fromDateComponents_toDateComponents_options_1 =
-      _registerName1("components:fromDateComponents:toDateComponents:options:");
+      _registerName1(
+        "components:fromDateComponents:toDateComponents:options:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_651(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -23437,7 +23523,10 @@ class PedometerBindings {
         )
       >();
 
-  int _objc_msgSend_665(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_665(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_665(obj, sel);
   }
 
@@ -23476,7 +23565,10 @@ class PedometerBindings {
       >();
 
   late final _sel_numberStyle1 = _registerName1("numberStyle");
-  int _objc_msgSend_667(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_667(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_667(obj, sel);
   }
 
@@ -23706,7 +23798,10 @@ class PedometerBindings {
     "setPaddingCharacter:",
   );
   late final _sel_paddingPosition1 = _registerName1("paddingPosition");
-  int _objc_msgSend_671(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_671(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_671(obj, sel);
   }
 
@@ -23746,7 +23841,10 @@ class PedometerBindings {
       >();
 
   late final _sel_roundingMode1 = _registerName1("roundingMode");
-  int _objc_msgSend_673(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_673(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_673(obj, sel);
   }
 
@@ -24680,7 +24778,9 @@ class PedometerBindings {
   late final _sel_scheduledTimerWithTimeInterval_invocation_repeats_1 =
       _registerName1("scheduledTimerWithTimeInterval:invocation:repeats:");
   late final _sel_timerWithTimeInterval_target_selector_userInfo_repeats_1 =
-      _registerName1("timerWithTimeInterval:target:selector:userInfo:repeats:");
+      _registerName1(
+        "timerWithTimeInterval:target:selector:userInfo:repeats:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_700(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -26019,7 +26119,10 @@ class PedometerBindings {
       >();
 
   late final _sel_cookieAcceptPolicy1 = _registerName1("cookieAcceptPolicy");
-  int _objc_msgSend_737(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_737(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_737(obj, sel);
   }
 
@@ -26097,9 +26200,10 @@ class PedometerBindings {
   late final _sel_supportsSecureCoding1 = _registerName1(
     "supportsSecureCoding",
   );
-  late final _sel_requestWithURL_cachePolicy_timeoutInterval_1 = _registerName1(
-    "requestWithURL:cachePolicy:timeoutInterval:",
-  );
+  late final _sel_requestWithURL_cachePolicy_timeoutInterval_1 =
+      _registerName1(
+        "requestWithURL:cachePolicy:timeoutInterval:",
+      );
   instancetype _objc_msgSend_740(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -26138,7 +26242,10 @@ class PedometerBindings {
   );
   late final _sel_URL1 = _registerName1("URL");
   late final _sel_cachePolicy1 = _registerName1("cachePolicy");
-  int _objc_msgSend_741(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_741(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_741(obj, sel);
   }
 
@@ -26156,7 +26263,10 @@ class PedometerBindings {
   late final _sel_timeoutInterval1 = _registerName1("timeoutInterval");
   late final _sel_mainDocumentURL1 = _registerName1("mainDocumentURL");
   late final _sel_networkServiceType1 = _registerName1("networkServiceType");
-  int _objc_msgSend_742(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_742(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_742(obj, sel);
   }
 
@@ -26182,7 +26292,10 @@ class PedometerBindings {
   );
   late final _sel_assumesHTTP3Capable1 = _registerName1("assumesHTTP3Capable");
   late final _sel_attribution1 = _registerName1("attribution");
-  int _objc_msgSend_743(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_743(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_743(obj, sel);
   }
 
@@ -26241,7 +26354,10 @@ class PedometerBindings {
       >();
 
   late final _sel_streamStatus1 = _registerName1("streamStatus");
-  int _objc_msgSend_745(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_745(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_745(obj, sel);
   }
 
@@ -26371,7 +26487,9 @@ class PedometerBindings {
     "outputStreamWithURL:append:",
   );
   late final _sel_getStreamsToHostWithName_port_inputStream_outputStream_1 =
-      _registerName1("getStreamsToHostWithName:port:inputStream:outputStream:");
+      _registerName1(
+        "getStreamsToHostWithName:port:inputStream:outputStream:",
+      );
   void _objc_msgSend_749(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -26455,7 +26573,9 @@ class PedometerBindings {
       >();
 
   late final _sel_getBoundStreamsWithBufferSize_inputStream_outputStream_1 =
-      _registerName1("getBoundStreamsWithBufferSize:inputStream:outputStream:");
+      _registerName1(
+        "getBoundStreamsWithBufferSize:inputStream:outputStream:",
+      );
   void _objc_msgSend_751(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -26740,7 +26860,10 @@ class PedometerBindings {
   late final _sel_taskDescription1 = _registerName1("taskDescription");
   late final _sel_setTaskDescription_1 = _registerName1("setTaskDescription:");
   late final _sel_state1 = _registerName1("state");
-  int _objc_msgSend_759(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_759(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_759(obj, sel);
   }
 
@@ -27067,7 +27190,10 @@ class PedometerBindings {
   );
   late final _class_NSMorphology1 = _getClass1("NSMorphology");
   late final _sel_grammaticalGender1 = _registerName1("grammaticalGender");
-  int _objc_msgSend_770(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_770(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_770(obj, sel);
   }
 
@@ -27109,7 +27235,10 @@ class PedometerBindings {
       >();
 
   late final _sel_partOfSpeech1 = _registerName1("partOfSpeech");
-  int _objc_msgSend_772(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_772(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_772(obj, sel);
   }
 
@@ -27149,7 +27278,10 @@ class PedometerBindings {
       >();
 
   late final _sel_number1 = _registerName1("number");
-  int _objc_msgSend_774(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_774(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_774(obj, sel);
   }
 
@@ -27189,7 +27321,10 @@ class PedometerBindings {
       >();
 
   late final _sel_grammaticalCase1 = _registerName1("grammaticalCase");
-  int _objc_msgSend_776(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_776(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_776(obj, sel);
   }
 
@@ -27229,7 +27364,10 @@ class PedometerBindings {
       >();
 
   late final _sel_determination1 = _registerName1("determination");
-  int _objc_msgSend_778(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_778(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_778(obj, sel);
   }
 
@@ -27269,7 +27407,10 @@ class PedometerBindings {
       >();
 
   late final _sel_grammaticalPerson1 = _registerName1("grammaticalPerson");
-  int _objc_msgSend_780(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_780(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_780(obj, sel);
   }
 
@@ -27311,7 +27452,10 @@ class PedometerBindings {
       >();
 
   late final _sel_pronounType1 = _registerName1("pronounType");
-  int _objc_msgSend_782(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_782(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_782(obj, sel);
   }
 
@@ -27351,7 +27495,10 @@ class PedometerBindings {
       >();
 
   late final _sel_definiteness1 = _registerName1("definiteness");
-  int _objc_msgSend_784(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_784(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_784(obj, sel);
   }
 
@@ -27541,7 +27688,10 @@ class PedometerBindings {
   late final _sel_removeDependency_1 = _registerName1("removeDependency:");
   late final _sel_dependencies1 = _registerName1("dependencies");
   late final _sel_queuePriority1 = _registerName1("queuePriority");
-  int _objc_msgSend_790(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_790(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_790(obj, sel);
   }
 
@@ -27857,7 +28007,9 @@ class PedometerBindings {
         ffi.UnsignedLong Function(
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >
@@ -27971,7 +28123,9 @@ class PedometerBindings {
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >
@@ -28036,7 +28190,9 @@ class PedometerBindings {
       _lookup<
         ffi.NativeFunction<
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >
           Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)
         >
@@ -28081,7 +28237,9 @@ class PedometerBindings {
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >();
@@ -28219,7 +28377,9 @@ class PedometerBindings {
         ffi.Void Function(
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >
@@ -28332,7 +28492,9 @@ class PedometerBindings {
         ffi.Pointer<ffi.Void> Function(
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
           ffi.Bool,
         )
@@ -28871,7 +29033,10 @@ class PedometerBindings {
   late final _sel_userName1 = _registerName1("userName");
   late final _sel_fullUserName1 = _registerName1("fullUserName");
   late final _sel_thermalState1 = _registerName1("thermalState");
-  int _objc_msgSend_824(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_824(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_824(obj, sel);
   }
 
@@ -28893,7 +29058,10 @@ class PedometerBindings {
   late final _sel_isiOSAppOnMac1 = _registerName1("isiOSAppOnMac");
   late final _class_NSTextCheckingResult1 = _getClass1("NSTextCheckingResult");
   late final _sel_resultType1 = _registerName1("resultType");
-  int _objc_msgSend_825(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_825(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_825(obj, sel);
   }
 
@@ -28940,9 +29108,10 @@ class PedometerBindings {
   late final _sel_replacementString1 = _registerName1("replacementString");
   late final _sel_alternativeStrings1 = _registerName1("alternativeStrings");
   late final _class_NSRegularExpression1 = _getClass1("NSRegularExpression");
-  late final _sel_regularExpressionWithPattern_options_error_1 = _registerName1(
-    "regularExpressionWithPattern:options:error:",
-  );
+  late final _sel_regularExpressionWithPattern_options_error_1 =
+      _registerName1(
+        "regularExpressionWithPattern:options:error:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_827(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -29014,7 +29183,10 @@ class PedometerBindings {
 
   late final _sel_pattern1 = _registerName1("pattern");
   late final _sel_options1 = _registerName1("options");
-  int _objc_msgSend_829(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_829(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_829(obj, sel);
   }
 
@@ -30020,7 +30192,10 @@ class PedometerBindings {
       >();
 
   late final _sel_storagePolicy1 = _registerName1("storagePolicy");
-  int _objc_msgSend_857(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_857(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_857(obj, sel);
   }
 
@@ -30494,7 +30669,10 @@ class PedometerBindings {
 
   late final _class_NSURLCredential1 = _getClass1("NSURLCredential");
   late final _sel_persistence1 = _registerName1("persistence");
-  int _objc_msgSend_872(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_872(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_872(obj, sel);
   }
 
@@ -30786,7 +30964,9 @@ class PedometerBindings {
       >();
 
   late final _sel_initWithProxyHost_port_type_realm_authenticationMethod_1 =
-      _registerName1("initWithProxyHost:port:type:realm:authenticationMethod:");
+      _registerName1(
+        "initWithProxyHost:port:type:realm:authenticationMethod:",
+      );
   late final _sel_realm1 = _registerName1("realm");
   late final _sel_receivesCredentialSecurely1 = _registerName1(
     "receivesCredentialSecurely",
@@ -31713,7 +31893,10 @@ class PedometerBindings {
   late final _sel_externalEntityResolvingPolicy1 = _registerName1(
     "externalEntityResolvingPolicy",
   );
-  int _objc_msgSend_908(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_908(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_908(obj, sel);
   }
 
@@ -32251,7 +32434,10 @@ class PedometerBindings {
   late final _sel_TLSMinimumSupportedProtocol1 = _registerName1(
     "TLSMinimumSupportedProtocol",
   );
-  int _objc_msgSend_922(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_922(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_922(obj, sel);
   }
 
@@ -32301,7 +32487,10 @@ class PedometerBindings {
   late final _sel_TLSMinimumSupportedProtocolVersion1 = _registerName1(
     "TLSMinimumSupportedProtocolVersion",
   );
-  int _objc_msgSend_924(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_924(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_924(obj, sel);
   }
 
@@ -32575,7 +32764,10 @@ class PedometerBindings {
   late final _sel_multipathServiceType1 = _registerName1(
     "multipathServiceType",
   );
-  int _objc_msgSend_933(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_933(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_933(obj, sel);
   }
 
@@ -33467,7 +33659,10 @@ class PedometerBindings {
   late final _class_NSURLSessionWebSocketMessage1 = _getClass1(
     "NSURLSessionWebSocketMessage",
   );
-  int _objc_msgSend_960(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_960(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_960(obj, sel);
   }
 
@@ -33613,7 +33808,10 @@ class PedometerBindings {
     "setMaximumMessageSize:",
   );
   late final _sel_closeCode1 = _registerName1("closeCode");
-  int _objc_msgSend_965(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_965(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_965(obj, sel);
   }
 
@@ -33858,9 +34056,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_uploadTaskWithResumeData_completionHandler_1 = _registerName1(
-    "uploadTaskWithResumeData:completionHandler:",
-  );
+  late final _sel_uploadTaskWithResumeData_completionHandler_1 =
+      _registerName1(
+        "uploadTaskWithResumeData:completionHandler:",
+      );
   ffi.Pointer<ObjCObject> _objc_msgSend_973(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -34003,7 +34202,10 @@ class PedometerBindings {
     "isPedometerEventTrackingAvailable",
   );
   late final _sel_authorizationStatus1 = _registerName1("authorizationStatus");
-  int _objc_msgSend_977(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_977(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_977(obj, sel);
   }
 
@@ -34100,7 +34302,10 @@ class PedometerBindings {
     "stopPedometerUpdates",
   );
   late final _class_CMPedometerEvent1 = _getClass1("CMPedometerEvent");
-  int _objc_msgSend_980(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_980(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_980(obj, sel);
   }
 
@@ -34165,7 +34370,10 @@ class PedometerBindings {
     "regionMonitoringEnabled",
   );
   late final _sel_isRangingAvailable1 = _registerName1("isRangingAvailable");
-  int _objc_msgSend_982(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_982(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_982(obj, sel);
   }
 
@@ -34183,7 +34391,10 @@ class PedometerBindings {
   late final _sel_accuracyAuthorization1 = _registerName1(
     "accuracyAuthorization",
   );
-  int _objc_msgSend_983(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_983(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_983(obj, sel);
   }
 
@@ -34204,7 +34415,10 @@ class PedometerBindings {
   late final _sel_purpose1 = _registerName1("purpose");
   late final _sel_setPurpose_1 = _registerName1("setPurpose:");
   late final _sel_activityType1 = _registerName1("activityType");
-  int _objc_msgSend_984(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_984(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_984(obj, sel);
   }
 
@@ -34789,7 +35003,10 @@ class PedometerBindings {
   late final _sel_headingFilter1 = _registerName1("headingFilter");
   late final _sel_setHeadingFilter_1 = _registerName1("setHeadingFilter:");
   late final _sel_headingOrientation1 = _registerName1("headingOrientation");
-  int _objc_msgSend_997(ffi.Pointer<ObjCObject> obj, ffi.Pointer<ObjCSel> sel) {
+  int _objc_msgSend_997(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
     return __objc_msgSend_997(obj, sel);
   }
 
@@ -35847,9 +36064,10 @@ class PedometerBindings {
         )
       >();
 
-  late final _sel_geocodeAddressDictionary_completionHandler_1 = _registerName1(
-    "geocodeAddressDictionary:completionHandler:",
-  );
+  late final _sel_geocodeAddressDictionary_completionHandler_1 =
+      _registerName1(
+        "geocodeAddressDictionary:completionHandler:",
+      );
   void _objc_msgSend_1028(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -36036,7 +36254,9 @@ class PedometerBindings {
       >();
 
   late final _sel_geocodePostalAddress_preferredLocale_completionHandler_1 =
-      _registerName1("geocodePostalAddress:preferredLocale:completionHandler:");
+      _registerName1(
+        "geocodePostalAddress:preferredLocale:completionHandler:",
+      );
   void _objc_msgSend_1033(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
@@ -37732,7 +37952,11 @@ class NSSet extends NSObject {
   }
 
   bool intersectsSet_(NSSet otherSet) {
-    return _lib._objc_msgSend_359(_id, _lib._sel_intersectsSet_1, otherSet._id);
+    return _lib._objc_msgSend_359(
+      _id,
+      _lib._sel_intersectsSet_1,
+      otherSet._id,
+    );
   }
 
   bool isEqualToSet_(NSSet otherSet) {
@@ -37740,7 +37964,11 @@ class NSSet extends NSObject {
   }
 
   bool isSubsetOfSet_(NSSet otherSet) {
-    return _lib._objc_msgSend_359(_id, _lib._sel_isSubsetOfSet_1, otherSet._id);
+    return _lib._objc_msgSend_359(
+      _id,
+      _lib._sel_isSubsetOfSet_1,
+      otherSet._id,
+    );
   }
 
   void makeObjectsPerformSelector_(ffi.Pointer<ObjCSel> aSelector) {
@@ -38380,7 +38608,12 @@ class NSString extends NSObject {
     ffi.Pointer<ffi.UnsignedShort> buffer,
     _NSRange range,
   ) {
-    _lib._objc_msgSend_271(_id, _lib._sel_getCharacters_range_1, buffer, range);
+    _lib._objc_msgSend_271(
+      _id,
+      _lib._sel_getCharacters_range_1,
+      buffer,
+      range,
+    );
   }
 
   int compare_(NSString string) {
@@ -38459,7 +38692,11 @@ class NSString extends NSObject {
   }
 
   bool isEqualToString_(NSString aString) {
-    return _lib._objc_msgSend_56(_id, _lib._sel_isEqualToString_1, aString._id);
+    return _lib._objc_msgSend_56(
+      _id,
+      _lib._sel_isEqualToString_1,
+      aString._id,
+    );
   }
 
   bool hasPrefix_(NSString str) {
@@ -39469,7 +39706,10 @@ class NSString extends NSObject {
   }
 
   static NSString string(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSString1, _lib._sel_string1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSString1,
+      _lib._sel_string1,
+    );
     return NSString._(_ret, _lib, retain: true, release: true);
   }
 
@@ -39867,7 +40107,10 @@ class NSString extends NSObject {
         : NSObject._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSObject? stringWithContentsOfURL_(PedometerBindings _lib, NSURL url) {
+  static NSObject? stringWithContentsOfURL_(
+    PedometerBindings _lib,
+    NSURL url,
+  ) {
     final _ret = _lib._objc_msgSend_223(
       _lib._class_NSString1,
       _lib._sel_stringWithContentsOfURL_1,
@@ -40548,15 +40791,30 @@ class NSCoder extends NSObject {
   }
 
   void encodeInt32_forKey_(int value, NSString key) {
-    _lib._objc_msgSend_244(_id, _lib._sel_encodeInt32_forKey_1, value, key._id);
+    _lib._objc_msgSend_244(
+      _id,
+      _lib._sel_encodeInt32_forKey_1,
+      value,
+      key._id,
+    );
   }
 
   void encodeInt64_forKey_(int value, NSString key) {
-    _lib._objc_msgSend_245(_id, _lib._sel_encodeInt64_forKey_1, value, key._id);
+    _lib._objc_msgSend_245(
+      _id,
+      _lib._sel_encodeInt64_forKey_1,
+      value,
+      key._id,
+    );
   }
 
   void encodeFloat_forKey_(double value, NSString key) {
-    _lib._objc_msgSend_246(_id, _lib._sel_encodeFloat_forKey_1, value, key._id);
+    _lib._objc_msgSend_246(
+      _id,
+      _lib._sel_encodeFloat_forKey_1,
+      value,
+      key._id,
+    );
   }
 
   void encodeDouble_forKey_(double value, NSString key) {
@@ -40583,7 +40841,11 @@ class NSCoder extends NSObject {
   }
 
   bool containsValueForKey_(NSString key) {
-    return _lib._objc_msgSend_56(_id, _lib._sel_containsValueForKey_1, key._id);
+    return _lib._objc_msgSend_56(
+      _id,
+      _lib._sel_containsValueForKey_1,
+      key._id,
+    );
   }
 
   NSObject? decodeObjectForKey_(NSString key) {
@@ -41942,7 +42204,10 @@ class NSURL extends NSObject {
         : NSURL._(_ret, _lib, retain: true, release: true);
   }
 
-  NSURL initWithDataRepresentation_relativeToURL_(NSData data, NSURL? baseURL) {
+  NSURL initWithDataRepresentation_relativeToURL_(
+    NSData data,
+    NSURL? baseURL,
+  ) {
     final _ret = _lib._objc_msgSend_41(
       _id,
       _lib._sel_initWithDataRepresentation_relativeToURL_1,
@@ -42828,7 +43093,11 @@ class NSNumber extends NSValue {
   }
 
   NSNumber initWithDouble_(double value) {
-    final _ret = _lib._objc_msgSend_183(_id, _lib._sel_initWithDouble_1, value);
+    final _ret = _lib._objc_msgSend_183(
+      _id,
+      _lib._sel_initWithDouble_1,
+      value,
+    );
     return NSNumber._(_ret, _lib, retain: true, release: true);
   }
 
@@ -42929,7 +43198,11 @@ class NSNumber extends NSValue {
   }
 
   bool isEqualToNumber_(NSNumber number) {
-    return _lib._objc_msgSend_193(_id, _lib._sel_isEqualToNumber_1, number._id);
+    return _lib._objc_msgSend_193(
+      _id,
+      _lib._sel_isEqualToNumber_1,
+      number._id,
+    );
   }
 
   NSString descriptionWithLocale_(NSObject? locale) {
@@ -43752,7 +44025,10 @@ class NSArray extends NSObject {
   }
 
   NSEnumerator reverseObjectEnumerator() {
-    final _ret = _lib._objc_msgSend_69(_id, _lib._sel_reverseObjectEnumerator1);
+    final _ret = _lib._objc_msgSend_69(
+      _id,
+      _lib._sel_reverseObjectEnumerator1,
+    );
     return NSEnumerator._(_ret, _lib, retain: true, release: true);
   }
 
@@ -44633,7 +44909,8 @@ class NSError extends NSObject {
     );
   }
 
-  static ObjCBlock_ObjCObject_NSError_NSString? userInfoValueProviderForDomain_(
+  static ObjCBlock_ObjCObject_NSError_NSString?
+  userInfoValueProviderForDomain_(
     PedometerBindings _lib,
     NSError err,
     NSString userInfoKey,
@@ -45131,7 +45408,11 @@ class NSIndexSet extends NSObject {
   }
 
   int indexGreaterThanIndex_(int value) {
-    return _lib._objc_msgSend_86(_id, _lib._sel_indexGreaterThanIndex_1, value);
+    return _lib._objc_msgSend_86(
+      _id,
+      _lib._sel_indexGreaterThanIndex_1,
+      value,
+    );
   }
 
   int indexLessThanIndex_(int value) {
@@ -45169,7 +45450,11 @@ class NSIndexSet extends NSObject {
   }
 
   int countOfIndexesInRange_(_NSRange range) {
-    return _lib._objc_msgSend_88(_id, _lib._sel_countOfIndexesInRange_1, range);
+    return _lib._objc_msgSend_88(
+      _id,
+      _lib._sel_countOfIndexesInRange_1,
+      range,
+    );
   }
 
   bool containsIndex_(int value) {
@@ -45688,7 +45973,10 @@ class ObjCBlock_bool_ffiUnsignedLong_bool extends _ObjCBlockBase {
                       ffi.UnsignedLong,
                       ffi.Pointer<ffi.Bool>,
                     )
-                  >(_ObjCBlock_bool_ffiUnsignedLong_bool_fnPtrTrampoline, false)
+                  >(
+                    _ObjCBlock_bool_ffiUnsignedLong_bool_fnPtrTrampoline,
+                    false,
+                  )
                   .cast(),
           ptr.cast(),
         ),
@@ -45767,10 +46055,11 @@ void _ObjCBlock_ffiVoid_NSRange_bool_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   _NSRange arg0,
   ffi.Pointer<ffi.Bool> arg1,
-) => _ObjCBlock_ffiVoid_NSRange_bool_closureRegistry[block.ref.target.address]!(
-  arg0,
-  arg1,
-);
+) =>
+    _ObjCBlock_ffiVoid_NSRange_bool_closureRegistry[block.ref.target.address]!(
+      arg0,
+      arg1,
+    );
 
 class ObjCBlock_ffiVoid_NSRange_bool extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSRange_bool._(
@@ -45909,8 +46198,12 @@ void _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_fnPtrTrampoline(
       void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)
     >()(arg0, arg1, arg2);
 final _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureRegistry =
-    <int, void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)>{};
-int _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureRegistryIndex = 0;
+    <
+      int,
+      void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)
+    >{};
+int _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureRegistryIndex =
+    0;
 ffi.Pointer<ffi.Void>
 _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_registerClosure(
   void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>) fn,
@@ -45932,7 +46225,8 @@ void _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureTrampoline(
         .target
         .address]!(arg0, arg1, arg2);
 
-class ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool extends _ObjCBlockBase {
+class ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool
+    extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool._(
     ffi.Pointer<_ObjCBlock> id,
     PedometerBindings lib, {
@@ -45993,7 +46287,9 @@ class ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool extends _ObjCBlockBase {
                       ffi.UnsignedLong,
                       ffi.Pointer<ffi.Bool>,
                     )
-                  >(_ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureTrampoline)
+                  >(
+                    _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_closureTrampoline,
+                  )
                   .cast(),
           _ObjCBlock_ffiVoid_ObjCObject_ffiUnsignedLong_bool_registerClosure(
             (
@@ -46105,7 +46401,10 @@ bool _ObjCBlock_bool_ObjCObject_ffiUnsignedLong_bool_fnPtrTrampoline(
       bool Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)
     >()(arg0, arg1, arg2);
 final _ObjCBlock_bool_ObjCObject_ffiUnsignedLong_bool_closureRegistry =
-    <int, bool Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)>{};
+    <
+      int,
+      bool Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)
+    >{};
 int _ObjCBlock_bool_ObjCObject_ffiUnsignedLong_bool_closureRegistryIndex = 0;
 ffi.Pointer<ffi.Void>
 _ObjCBlock_bool_ObjCObject_ffiUnsignedLong_bool_registerClosure(
@@ -46393,8 +46692,8 @@ abstract class NSBinarySearchingOptions {
 /// Options supported by methods that produce difference objects.
 abstract class NSOrderedCollectionDifferenceCalculationOptions {
   /// Insertion changes do not store a reference to the inserted object.
-  static const int NSOrderedCollectionDifferenceCalculationOmitInsertedObjects =
-      1;
+  static const int
+  NSOrderedCollectionDifferenceCalculationOmitInsertedObjects = 1;
 
   /// Insertion changes do not store a reference to the removed object.
   static const int NSOrderedCollectionDifferenceCalculationOmitRemovedObjects =
@@ -46697,7 +46996,10 @@ class NSPredicate extends NSObject {
   }
 
   static NSPredicate new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSPredicate1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSPredicate1,
+      _lib._sel_new1,
+    );
     return NSPredicate._(_ret, _lib, retain: false, release: true);
   }
 
@@ -46989,7 +47291,11 @@ class NSDictionary extends NSObject {
   }
 
   NSObject? objectForKey_(NSObject aKey) {
-    final _ret = _lib._objc_msgSend_16(_id, _lib._sel_objectForKey_1, aKey._id);
+    final _ret = _lib._objc_msgSend_16(
+      _id,
+      _lib._sel_objectForKey_1,
+      aKey._id,
+    );
     return _ret.address == 0
         ? null
         : NSObject._(_ret, _lib, retain: true, release: true);
@@ -48460,7 +48766,8 @@ abstract class NSURLBookmarkCreationOptions {
   static const int NSURLBookmarkCreationMinimalBookmark = 512;
   static const int NSURLBookmarkCreationSuitableForBookmarkFile = 1024;
   static const int NSURLBookmarkCreationWithSecurityScope = 2048;
-  static const int NSURLBookmarkCreationSecurityScopeAllowOnlyReadAccess = 4096;
+  static const int NSURLBookmarkCreationSecurityScopeAllowOnlyReadAccess =
+      4096;
   static const int NSURLBookmarkCreationWithoutImplicitSecurityScope =
       536870912;
 }
@@ -48469,7 +48776,8 @@ abstract class NSURLBookmarkResolutionOptions {
   static const int NSURLBookmarkResolutionWithoutUI = 256;
   static const int NSURLBookmarkResolutionWithoutMounting = 512;
   static const int NSURLBookmarkResolutionWithSecurityScope = 1024;
-  static const int NSURLBookmarkResolutionWithoutImplicitStartAccessing = 32768;
+  static const int NSURLBookmarkResolutionWithoutImplicitStartAccessing =
+      32768;
 }
 
 abstract class NSDataWritingOptions {
@@ -49067,7 +49375,9 @@ class NSLocale extends NSObject {
     return NSString._(_ret, _lib, retain: true, release: true);
   }
 
-  NSString? localizedStringForCalendarIdentifier_(NSString calendarIdentifier) {
+  NSString? localizedStringForCalendarIdentifier_(
+    NSString calendarIdentifier,
+  ) {
     final _ret = _lib._objc_msgSend_281(
       _id,
       _lib._sel_localizedStringForCalendarIdentifier_1,
@@ -49140,7 +49450,9 @@ class NSLocale extends NSObject {
     return NSString._(_ret, _lib, retain: true, release: true);
   }
 
-  NSString? localizedStringForCollatorIdentifier_(NSString collatorIdentifier) {
+  NSString? localizedStringForCollatorIdentifier_(
+    NSString collatorIdentifier,
+  ) {
     final _ret = _lib._objc_msgSend_281(
       _id,
       _lib._sel_localizedStringForCollatorIdentifier_1,
@@ -49152,7 +49464,10 @@ class NSLocale extends NSObject {
   }
 
   NSString get quotationBeginDelimiter {
-    final _ret = _lib._objc_msgSend_21(_id, _lib._sel_quotationBeginDelimiter1);
+    final _ret = _lib._objc_msgSend_21(
+      _id,
+      _lib._sel_quotationBeginDelimiter1,
+    );
     return NSString._(_ret, _lib, retain: true, release: true);
   }
 
@@ -49487,7 +49802,12 @@ class NSCharacterSet extends NSObject {
 
   /// Returns a [NSCharacterSet] that points to the same underlying object as [other].
   static NSCharacterSet castFrom<T extends _ObjCWrapper>(T other) {
-    return NSCharacterSet._(other._id, other._lib, retain: true, release: true);
+    return NSCharacterSet._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [NSCharacterSet] that wraps the given raw object pointer.
@@ -49551,7 +49871,9 @@ class NSCharacterSet extends NSObject {
     return NSCharacterSet._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSCharacterSet getLowercaseLetterCharacterSet(PedometerBindings _lib) {
+  static NSCharacterSet getLowercaseLetterCharacterSet(
+    PedometerBindings _lib,
+  ) {
     final _ret = _lib._objc_msgSend_282(
       _lib._class_NSCharacterSet1,
       _lib._sel_lowercaseLetterCharacterSet1,
@@ -49559,7 +49881,9 @@ class NSCharacterSet extends NSObject {
     return NSCharacterSet._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSCharacterSet getUppercaseLetterCharacterSet(PedometerBindings _lib) {
+  static NSCharacterSet getUppercaseLetterCharacterSet(
+    PedometerBindings _lib,
+  ) {
     final _ret = _lib._objc_msgSend_282(
       _lib._class_NSCharacterSet1,
       _lib._sel_uppercaseLetterCharacterSet1,
@@ -49764,7 +50088,9 @@ class NSCharacterSet extends NSObject {
     return NSCharacterSet._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSCharacterSet getURLQueryAllowedCharacterSet(PedometerBindings _lib) {
+  static NSCharacterSet getURLQueryAllowedCharacterSet(
+    PedometerBindings _lib,
+  ) {
     final _ret = _lib._objc_msgSend_282(
       _lib._class_NSCharacterSet1,
       _lib._sel_URLQueryAllowedCharacterSet1,
@@ -50198,7 +50524,10 @@ void _ObjCBlock_ffiVoid_NSString_bool_closureTrampoline(
   ffi.Pointer<ObjCObject> arg0,
   ffi.Pointer<ffi.Bool> arg1,
 ) =>
-    _ObjCBlock_ffiVoid_NSString_bool_closureRegistry[block.ref.target.address]!(
+    _ObjCBlock_ffiVoid_NSString_bool_closureRegistry[block
+        .ref
+        .target
+        .address]!(
       arg0,
       arg1,
     );
@@ -50976,10 +51305,11 @@ bool _ObjCBlock_bool_ObjCObject_bool_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
   ffi.Pointer<ffi.Bool> arg1,
-) => _ObjCBlock_bool_ObjCObject_bool_closureRegistry[block.ref.target.address]!(
-  arg0,
-  arg1,
-);
+) =>
+    _ObjCBlock_bool_ObjCObject_bool_closureRegistry[block.ref.target.address]!(
+      arg0,
+      arg1,
+    );
 
 class ObjCBlock_bool_ObjCObject_bool extends _ObjCBlockBase {
   ObjCBlock_bool_ObjCObject_bool._(
@@ -52108,7 +52438,9 @@ void _ObjCBlock_ffiVoid_NSError_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSError_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -52124,8 +52456,9 @@ ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_registerClosure(
 void _ObjCBlock_ffiVoid_NSError_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
-) =>
-    _ObjCBlock_ffiVoid_NSError_closureRegistry[block.ref.target.address]!(arg0);
+) => _ObjCBlock_ffiVoid_NSError_closureRegistry[block.ref.target.address]!(
+  arg0,
+);
 
 class ObjCBlock_ffiVoid_NSError extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSError._(
@@ -52619,7 +52952,12 @@ class NSMutableArray extends NSArray {
 
   /// Returns a [NSMutableArray] that points to the same underlying object as [other].
   static NSMutableArray castFrom<T extends _ObjCWrapper>(T other) {
-    return NSMutableArray._(other._id, other._lib, retain: true, release: true);
+    return NSMutableArray._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [NSMutableArray] that wraps the given raw object pointer.
@@ -53026,7 +53364,10 @@ class NSMutableArray extends NSArray {
     return NSMutableArray._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSMutableArray arrayWithArray_(PedometerBindings _lib, NSArray array) {
+  static NSMutableArray arrayWithArray_(
+    PedometerBindings _lib,
+    NSArray array,
+  ) {
     final _ret = _lib._objc_msgSend_117(
       _lib._class_NSMutableArray1,
       _lib._sel_arrayWithArray_1,
@@ -54013,7 +54354,10 @@ class NSOrderedSet extends NSObject {
   }
 
   NSEnumerator reverseObjectEnumerator() {
-    final _ret = _lib._objc_msgSend_69(_id, _lib._sel_reverseObjectEnumerator1);
+    final _ret = _lib._objc_msgSend_69(
+      _id,
+      _lib._sel_reverseObjectEnumerator1,
+    );
     return NSEnumerator._(_ret, _lib, retain: true, release: true);
   }
 
@@ -55237,17 +55581,32 @@ class NSKeyedArchiver extends NSCoder {
 
   @override
   void encodeInt32_forKey_(int value, NSString key) {
-    _lib._objc_msgSend_244(_id, _lib._sel_encodeInt32_forKey_1, value, key._id);
+    _lib._objc_msgSend_244(
+      _id,
+      _lib._sel_encodeInt32_forKey_1,
+      value,
+      key._id,
+    );
   }
 
   @override
   void encodeInt64_forKey_(int value, NSString key) {
-    _lib._objc_msgSend_245(_id, _lib._sel_encodeInt64_forKey_1, value, key._id);
+    _lib._objc_msgSend_245(
+      _id,
+      _lib._sel_encodeInt64_forKey_1,
+      value,
+      key._id,
+    );
   }
 
   @override
   void encodeFloat_forKey_(double value, NSString key) {
-    _lib._objc_msgSend_246(_id, _lib._sel_encodeFloat_forKey_1, value, key._id);
+    _lib._objc_msgSend_246(
+      _id,
+      _lib._sel_encodeFloat_forKey_1,
+      value,
+      key._id,
+    );
   }
 
   @override
@@ -55689,7 +56048,10 @@ class NSMutableData extends NSData {
   }
 
   @override
-  NSMutableData initWithBytes_length_(ffi.Pointer<ffi.Void> bytes, int length) {
+  NSMutableData initWithBytes_length_(
+    ffi.Pointer<ffi.Void> bytes,
+    int length,
+  ) {
     final _ret = _lib._objc_msgSend_219(
       _id,
       _lib._sel_initWithBytes_length_1,
@@ -56559,11 +56921,19 @@ class NSMutableDictionary extends NSDictionary {
   }
 
   void removeObjectsForKeys_(NSArray keyArray) {
-    _lib._objc_msgSend_429(_id, _lib._sel_removeObjectsForKeys_1, keyArray._id);
+    _lib._objc_msgSend_429(
+      _id,
+      _lib._sel_removeObjectsForKeys_1,
+      keyArray._id,
+    );
   }
 
   void setDictionary_(NSDictionary otherDictionary) {
-    _lib._objc_msgSend_466(_id, _lib._sel_setDictionary_1, otherDictionary._id);
+    _lib._objc_msgSend_466(
+      _id,
+      _lib._sel_setDictionary_1,
+      otherDictionary._id,
+    );
   }
 
   void setObject_forKeyedSubscript_(NSObject? obj, NSObject key) {
@@ -56959,7 +57329,12 @@ class NSItemProvider extends NSObject {
 
   /// Returns a [NSItemProvider] that points to the same underlying object as [other].
   static NSItemProvider castFrom<T extends _ObjCWrapper>(T other) {
-    return NSItemProvider._(other._id, other._lib, retain: true, release: true);
+    return NSItemProvider._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [NSItemProvider] that wraps the given raw object pointer.
@@ -57826,7 +58201,10 @@ class NSProgress extends NSObject {
   }
 
   NSNumber? get estimatedTimeRemaining {
-    final _ret = _lib._objc_msgSend_167(_id, _lib._sel_estimatedTimeRemaining1);
+    final _ret = _lib._objc_msgSend_167(
+      _id,
+      _lib._sel_estimatedTimeRemaining1,
+    );
     return _ret.address == 0
         ? null
         : NSNumber._(_ret, _lib, retain: true, release: true);
@@ -58779,7 +59157,10 @@ void _ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline(
   ffi.Pointer<ObjCObject> arg0,
   ffi.Pointer<ObjCObject> arg1,
 ) =>
-    _ObjCBlock_ffiVoid_NSURL_NSError_closureRegistry[block.ref.target.address]!(
+    _ObjCBlock_ffiVoid_NSURL_NSError_closureRegistry[block
+        .ref
+        .target
+        .address]!(
       arg0,
       arg1,
     );
@@ -59372,7 +59753,11 @@ class ObjCBlock_ffiVoid_ffiVoidObjCObjectNSError_ObjCObject_NSDictionary
   /// will result in a crash.
   ObjCBlock_ffiVoid_ffiVoidObjCObjectNSError_ObjCObject_NSDictionary.fromFunction(
     PedometerBindings lib,
-    void Function(ObjCBlock_ffiVoid_ObjCObject_NSError1, NSObject, NSDictionary)
+    void Function(
+      ObjCBlock_ffiVoid_ObjCObject_NSError1,
+      NSObject,
+      NSDictionary,
+    )
     fn,
   ) : this._(
         lib._newBlock1(
@@ -59420,7 +59805,11 @@ class ObjCBlock_ffiVoid_ffiVoidObjCObjectNSError_ObjCObject_NSDictionary
   /// blocks do not keep the isolate alive.
   ObjCBlock_ffiVoid_ffiVoidObjCObjectNSError_ObjCObject_NSDictionary.listener(
     PedometerBindings lib,
-    void Function(ObjCBlock_ffiVoid_ObjCObject_NSError1, NSObject, NSDictionary)
+    void Function(
+      ObjCBlock_ffiVoid_ObjCObject_NSError1,
+      NSObject,
+      NSDictionary,
+    )
     fn,
   ) : this._(
         lib._newBlock1(
@@ -60430,7 +60819,10 @@ class NSMutableString extends NSString {
         : NSObject._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSObject? stringWithContentsOfURL_(PedometerBindings _lib, NSURL url) {
+  static NSObject? stringWithContentsOfURL_(
+    PedometerBindings _lib,
+    NSURL url,
+  ) {
     final _ret = _lib._objc_msgSend_223(
       _lib._class_NSMutableString1,
       _lib._sel_stringWithContentsOfURL_1,
@@ -60615,7 +61007,12 @@ class NSNotification extends NSObject {
 
   /// Returns a [NSNotification] that points to the same underlying object as [other].
   static NSNotification castFrom<T extends _ObjCWrapper>(T other) {
-    return NSNotification._(other._id, other._lib, retain: true, release: true);
+    return NSNotification._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [NSNotification] that wraps the given raw object pointer.
@@ -60891,7 +61288,11 @@ class NSBundle extends NSObject {
   }
 
   NSBundle? initWithPath_(NSString path) {
-    final _ret = _lib._objc_msgSend_38(_id, _lib._sel_initWithPath_1, path._id);
+    final _ret = _lib._objc_msgSend_38(
+      _id,
+      _lib._sel_initWithPath_1,
+      path._id,
+    );
     return _ret.address == 0
         ? null
         : NSBundle._(_ret, _lib, retain: true, release: true);
@@ -61391,7 +61792,10 @@ class NSBundle extends NSObject {
   }
 
   NSString? get developmentLocalization {
-    final _ret = _lib._objc_msgSend_44(_id, _lib._sel_developmentLocalization1);
+    final _ret = _lib._objc_msgSend_44(
+      _id,
+      _lib._sel_developmentLocalization1,
+    );
     return _ret.address == 0
         ? null
         : NSString._(_ret, _lib, retain: true, release: true);
@@ -61424,7 +61828,10 @@ class NSBundle extends NSObject {
   }
 
   NSArray? get executableArchitectures {
-    final _ret = _lib._objc_msgSend_76(_id, _lib._sel_executableArchitectures1);
+    final _ret = _lib._objc_msgSend_76(
+      _id,
+      _lib._sel_executableArchitectures1,
+    );
     return _ret.address == 0
         ? null
         : NSArray._(_ret, _lib, retain: true, release: true);
@@ -62273,27 +62680,26 @@ class ObjCBlock_ffiVoid_NSDictionary_NSRange_bool extends _ObjCBlockBase {
   >?
   _dartFuncListenerTrampoline;
 
-  void call(NSDictionary arg0, _NSRange arg1, ffi.Pointer<ffi.Bool> arg2) => _id
-      .ref
-      .invoke
-      .cast<
-        ffi.NativeFunction<
-          ffi.Void Function(
-            ffi.Pointer<_ObjCBlock> block,
-            ffi.Pointer<ObjCObject> arg0,
-            _NSRange arg1,
-            ffi.Pointer<ffi.Bool> arg2,
-          )
-        >
-      >()
-      .asFunction<
-        void Function(
-          ffi.Pointer<_ObjCBlock>,
-          ffi.Pointer<ObjCObject>,
-          _NSRange,
-          ffi.Pointer<ffi.Bool>,
-        )
-      >()(_id, arg0._id, arg1, arg2);
+  void call(NSDictionary arg0, _NSRange arg1, ffi.Pointer<ffi.Bool> arg2) =>
+      _id.ref.invoke
+          .cast<
+            ffi.NativeFunction<
+              ffi.Void Function(
+                ffi.Pointer<_ObjCBlock> block,
+                ffi.Pointer<ObjCObject> arg0,
+                _NSRange arg1,
+                ffi.Pointer<ffi.Bool> arg2,
+              )
+            >
+          >()
+          .asFunction<
+            void Function(
+              ffi.Pointer<_ObjCBlock>,
+              ffi.Pointer<ObjCObject>,
+              _NSRange,
+              ffi.Pointer<ffi.Bool>,
+            )
+          >()(_id, arg0._id, arg1, arg2);
 }
 
 void _ObjCBlock_ffiVoid_ObjCObject_NSRange_bool_fnPtrTrampoline(
@@ -62569,7 +62975,11 @@ class NSAttributedStringMarkdownParsingOptions extends NSObject {
   }
 
   set interpretedSyntax(int value) {
-    return _lib._objc_msgSend_570(_id, _lib._sel_setInterpretedSyntax_1, value);
+    return _lib._objc_msgSend_570(
+      _id,
+      _lib._sel_setInterpretedSyntax_1,
+      value,
+    );
   }
 
   int get failurePolicy {
@@ -62610,7 +63020,9 @@ class NSAttributedStringMarkdownParsingOptions extends NSObject {
     );
   }
 
-  static NSAttributedStringMarkdownParsingOptions new1(PedometerBindings _lib) {
+  static NSAttributedStringMarkdownParsingOptions new1(
+    PedometerBindings _lib,
+  ) {
     final _ret = _lib._objc_msgSend_2(
       _lib._class_NSAttributedStringMarkdownParsingOptions1,
       _lib._sel_new1,
@@ -62752,7 +63164,8 @@ abstract class NSAttributedStringMarkdownInterpretedSyntax {
   static const int NSAttributedStringMarkdownInterpretedSyntaxFull = 0;
   static const int NSAttributedStringMarkdownInterpretedSyntaxInlineOnly = 1;
   static const int
-  NSAttributedStringMarkdownInterpretedSyntaxInlineOnlyPreservingWhitespace = 2;
+  NSAttributedStringMarkdownInterpretedSyntaxInlineOnlyPreservingWhitespace =
+      2;
 }
 
 abstract class NSAttributedStringMarkdownParsingFailurePolicy {
@@ -62877,7 +63290,10 @@ class NSMutableAttributedString extends NSAttributedString {
     );
   }
 
-  void insertAttributedString_atIndex_(NSAttributedString attrString, int loc) {
+  void insertAttributedString_atIndex_(
+    NSAttributedString attrString,
+    int loc,
+  ) {
     _lib._objc_msgSend_593(
       _id,
       _lib._sel_insertAttributedString_atIndex_1,
@@ -62927,7 +63343,12 @@ class NSMutableAttributedString extends NSAttributedString {
       _lib._sel_initWithString_1,
       str._id,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   @override
@@ -62941,7 +63362,12 @@ class NSMutableAttributedString extends NSAttributedString {
       str._id,
       attrs?._id ?? ffi.nullptr,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   @override
@@ -62953,7 +63379,12 @@ class NSMutableAttributedString extends NSAttributedString {
       _lib._sel_initWithAttributedString_1,
       attrStr._id,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   @override
@@ -63031,7 +63462,12 @@ class NSMutableAttributedString extends NSAttributedString {
       options,
       locale?._id ?? ffi.nullptr,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the arguments list and the specified locale (or the canonical one, if nil).
@@ -63050,7 +63486,12 @@ class NSMutableAttributedString extends NSAttributedString {
       locale?._id ?? ffi.nullptr,
       arguments,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the current locale and default options.
@@ -63063,11 +63504,17 @@ class NSMutableAttributedString extends NSAttributedString {
       _lib._sel_localizedAttributedStringWithFormat_1,
       format._id,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the current locale and the specified options.
-  static NSMutableAttributedString localizedAttributedStringWithFormat_options_(
+  static NSMutableAttributedString
+  localizedAttributedStringWithFormat_options_(
     PedometerBindings _lib,
     NSAttributedString format,
     int options,
@@ -63078,7 +63525,12 @@ class NSMutableAttributedString extends NSAttributedString {
       format._id,
       options,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the specified locale (or the canonical one, if nil).
@@ -63097,7 +63549,12 @@ class NSMutableAttributedString extends NSAttributedString {
       locale?._id ?? ffi.nullptr,
       context._id,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the arguments list and the specified locale (or the canonical one, if nil).
@@ -63118,11 +63575,17 @@ class NSMutableAttributedString extends NSAttributedString {
       context._id,
       arguments,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the current locale and default options.
-  static NSMutableAttributedString localizedAttributedStringWithFormat_context_(
+  static NSMutableAttributedString
+  localizedAttributedStringWithFormat_context_(
     PedometerBindings _lib,
     NSAttributedString format,
     NSDictionary context,
@@ -63133,7 +63596,12 @@ class NSMutableAttributedString extends NSAttributedString {
       format._id,
       context._id,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Formats the string using the current locale and the specified options.
@@ -63151,13 +63619,23 @@ class NSMutableAttributedString extends NSAttributedString {
       options,
       context._id,
     );
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   @override
   NSMutableAttributedString init() {
     final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
-    return NSMutableAttributedString._(_ret, _lib, retain: true, release: true);
+    return NSMutableAttributedString._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSMutableAttributedString new1(PedometerBindings _lib) {
@@ -63338,7 +63816,11 @@ class NSDateFormatter extends NSFormatter {
   }
 
   set formattingContext(int value) {
-    return _lib._objc_msgSend_601(_id, _lib._sel_setFormattingContext_1, value);
+    return _lib._objc_msgSend_601(
+      _id,
+      _lib._sel_setFormattingContext_1,
+      value,
+    );
   }
 
   bool getObjectValue_forString_range_error_(
@@ -63485,7 +63967,11 @@ class NSDateFormatter extends NSFormatter {
   }
 
   set formatterBehavior(int value) {
-    return _lib._objc_msgSend_608(_id, _lib._sel_setFormatterBehavior_1, value);
+    return _lib._objc_msgSend_608(
+      _id,
+      _lib._sel_setFormatterBehavior_1,
+      value,
+    );
   }
 
   NSTimeZone get timeZone {
@@ -63691,7 +64177,10 @@ class NSDateFormatter extends NSFormatter {
   }
 
   NSArray get veryShortWeekdaySymbols {
-    final _ret = _lib._objc_msgSend_77(_id, _lib._sel_veryShortWeekdaySymbols1);
+    final _ret = _lib._objc_msgSend_77(
+      _id,
+      _lib._sel_veryShortWeekdaySymbols1,
+    );
     return NSArray._(_ret, _lib, retain: true, release: true);
   }
 
@@ -64103,7 +64592,10 @@ class NSFormatter extends NSObject {
   }
 
   static NSFormatter new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSFormatter1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSFormatter1,
+      _lib._sel_new1,
+    );
     return NSFormatter._(_ret, _lib, retain: false, release: true);
   }
 
@@ -64428,7 +64920,10 @@ class NSTimeZone extends NSObject {
 
   double get daylightSavingTimeOffset {
     return _lib._objc_msgSend_useVariants1
-        ? _lib._objc_msgSend_157_fpret(_id, _lib._sel_daylightSavingTimeOffset1)
+        ? _lib._objc_msgSend_157_fpret(
+            _id,
+            _lib._sel_daylightSavingTimeOffset1,
+          )
         : _lib._objc_msgSend_157(_id, _lib._sel_daylightSavingTimeOffset1);
   }
 
@@ -64864,7 +65359,10 @@ class NSCalendar extends NSObject {
   }
 
   NSArray get veryShortWeekdaySymbols {
-    final _ret = _lib._objc_msgSend_77(_id, _lib._sel_veryShortWeekdaySymbols1);
+    final _ret = _lib._objc_msgSend_77(
+      _id,
+      _lib._sel_veryShortWeekdaySymbols1,
+    );
     return NSArray._(_ret, _lib, retain: true, release: true);
   }
 
@@ -65245,7 +65743,11 @@ class NSCalendar extends NSObject {
   }
 
   bool isDateInYesterday_(NSDate date) {
-    return _lib._objc_msgSend_162(_id, _lib._sel_isDateInYesterday_1, date._id);
+    return _lib._objc_msgSend_162(
+      _id,
+      _lib._sel_isDateInYesterday_1,
+      date._id,
+    );
   }
 
   bool isDateInTomorrow_(NSDate date) {
@@ -65773,7 +66275,11 @@ class NSDateComponents extends NSObject {
   }
 
   set yearForWeekOfYear(int value) {
-    return _lib._objc_msgSend_634(_id, _lib._sel_setYearForWeekOfYear_1, value);
+    return _lib._objc_msgSend_634(
+      _id,
+      _lib._sel_setYearForWeekOfYear_1,
+      value,
+    );
   }
 
   bool get leapMonth {
@@ -65800,7 +66306,12 @@ class NSDateComponents extends NSObject {
   }
 
   void setValue_forComponent_(int value, int unit) {
-    _lib._objc_msgSend_635(_id, _lib._sel_setValue_forComponent_1, value, unit);
+    _lib._objc_msgSend_635(
+      _id,
+      _lib._sel_setValue_forComponent_1,
+      value,
+      unit,
+    );
   }
 
   int valueForComponent_(int unit) {
@@ -66200,7 +66711,11 @@ class NSNumberFormatter extends NSFormatter {
   }
 
   set formattingContext(int value) {
-    return _lib._objc_msgSend_601(_id, _lib._sel_setFormattingContext_1, value);
+    return _lib._objc_msgSend_601(
+      _id,
+      _lib._sel_setFormattingContext_1,
+      value,
+    );
   }
 
   bool getObjectValue_forString_range_error_(
@@ -66307,7 +66822,11 @@ class NSNumberFormatter extends NSFormatter {
   }
 
   set formatterBehavior(int value) {
-    return _lib._objc_msgSend_669(_id, _lib._sel_setFormatterBehavior_1, value);
+    return _lib._objc_msgSend_669(
+      _id,
+      _lib._sel_setFormatterBehavior_1,
+      value,
+    );
   }
 
   NSString get negativeFormat {
@@ -66689,7 +67208,11 @@ class NSNumberFormatter extends NSFormatter {
   }
 
   set percentSymbol(NSString value) {
-    return _lib._objc_msgSend_515(_id, _lib._sel_setPercentSymbol_1, value._id);
+    return _lib._objc_msgSend_515(
+      _id,
+      _lib._sel_setPercentSymbol_1,
+      value._id,
+    );
   }
 
   NSString get perMillSymbol {
@@ -66698,7 +67221,11 @@ class NSNumberFormatter extends NSFormatter {
   }
 
   set perMillSymbol(NSString value) {
-    return _lib._objc_msgSend_515(_id, _lib._sel_setPerMillSymbol_1, value._id);
+    return _lib._objc_msgSend_515(
+      _id,
+      _lib._sel_setPerMillSymbol_1,
+      value._id,
+    );
   }
 
   NSString get minusSign {
@@ -67029,7 +67556,10 @@ class NSNumberFormatter extends NSFormatter {
   }
 
   NSAttributedString get attributedStringForNil {
-    final _ret = _lib._objc_msgSend_583(_id, _lib._sel_attributedStringForNil1);
+    final _ret = _lib._objc_msgSend_583(
+      _id,
+      _lib._sel_attributedStringForNil1,
+    );
     return NSAttributedString._(_ret, _lib, retain: true, release: true);
   }
 
@@ -67654,7 +68184,10 @@ class NSScanner extends NSObject {
     return _lib._objc_msgSend_12(_id, _lib._sel_isAtEnd1);
   }
 
-  static NSScanner scannerWithString_(PedometerBindings _lib, NSString string) {
+  static NSScanner scannerWithString_(
+    PedometerBindings _lib,
+    NSString string,
+  ) {
     final _ret = _lib._objc_msgSend_31(
       _lib._class_NSScanner1,
       _lib._sel_scannerWithString_1,
@@ -67703,7 +68236,10 @@ class NSScanner extends NSObject {
   }
 
   static NSScanner alloc(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSScanner1, _lib._sel_alloc1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSScanner1,
+      _lib._sel_alloc1,
+    );
     return NSScanner._(_ret, _lib, retain: false, release: true);
   }
 
@@ -67936,7 +68472,10 @@ class NSException extends NSObject {
   }
 
   static NSException new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSException1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSException1,
+      _lib._sel_new1,
+    );
     return NSException._(_ret, _lib, retain: false, release: true);
   }
 
@@ -68262,7 +68801,10 @@ class NSRunLoop extends NSObject {
   }
 
   static NSRunLoop alloc(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSRunLoop1, _lib._sel_alloc1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSRunLoop1,
+      _lib._sel_alloc1,
+    );
     return NSRunLoop._(_ret, _lib, retain: false, release: true);
   }
 
@@ -68718,7 +69260,9 @@ void _ObjCBlock_ffiVoid_NSTimer_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSTimer_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -68734,8 +69278,9 @@ ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSTimer_registerClosure(
 void _ObjCBlock_ffiVoid_NSTimer_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
-) =>
-    _ObjCBlock_ffiVoid_NSTimer_closureRegistry[block.ref.target.address]!(arg0);
+) => _ObjCBlock_ffiVoid_NSTimer_closureRegistry[block.ref.target.address]!(
+  arg0,
+);
 
 class ObjCBlock_ffiVoid_NSTimer extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSTimer._(
@@ -69460,7 +70005,10 @@ class NSFileHandle extends NSObject {
   }
 
   void acceptConnectionInBackgroundAndNotify() {
-    _lib._objc_msgSend_1(_id, _lib._sel_acceptConnectionInBackgroundAndNotify1);
+    _lib._objc_msgSend_1(
+      _id,
+      _lib._sel_acceptConnectionInBackgroundAndNotify1,
+    );
   }
 
   void waitForDataInBackgroundAndNotifyForModes_(NSArray? modes) {
@@ -69701,7 +70249,9 @@ void _ObjCBlock_ffiVoid_NSFileHandle_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSFileHandle_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -69717,9 +70267,10 @@ ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSFileHandle_registerClosure(
 void _ObjCBlock_ffiVoid_NSFileHandle_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
-) => _ObjCBlock_ffiVoid_NSFileHandle_closureRegistry[block.ref.target.address]!(
-  arg0,
-);
+) =>
+    _ObjCBlock_ffiVoid_NSFileHandle_closureRegistry[block.ref.target.address]!(
+      arg0,
+    );
 
 class ObjCBlock_ffiVoid_NSFileHandle extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSFileHandle._(
@@ -71703,7 +72254,12 @@ class NSInputStream extends NSStream {
   }
 
   int read_maxLength_(ffi.Pointer<ffi.Uint8> buffer, int len) {
-    return _lib._objc_msgSend_746(_id, _lib._sel_read_maxLength_1, buffer, len);
+    return _lib._objc_msgSend_746(
+      _id,
+      _lib._sel_read_maxLength_1,
+      buffer,
+      len,
+    );
   }
 
   bool getBuffer_length_(
@@ -71777,7 +72333,10 @@ class NSInputStream extends NSStream {
         : NSInputStream._(_ret, _lib, retain: true, release: true);
   }
 
-  static NSInputStream? inputStreamWithURL_(PedometerBindings _lib, NSURL url) {
+  static NSInputStream? inputStreamWithURL_(
+    PedometerBindings _lib,
+    NSURL url,
+  ) {
     final _ret = _lib._objc_msgSend_223(
       _lib._class_NSInputStream1,
       _lib._sel_inputStreamWithURL_1,
@@ -72259,7 +72818,12 @@ class NSOutputStream extends NSStream {
 
   /// Returns a [NSOutputStream] that points to the same underlying object as [other].
   static NSOutputStream castFrom<T extends _ObjCWrapper>(T other) {
-    return NSOutputStream._(other._id, other._lib, retain: true, release: true);
+    return NSOutputStream._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [NSOutputStream] that wraps the given raw object pointer.
@@ -72878,7 +73442,9 @@ void _ObjCBlock_ffiVoid_NSArray_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSArray_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -72894,8 +73460,9 @@ ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSArray_registerClosure(
 void _ObjCBlock_ffiVoid_NSArray_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
-) =>
-    _ObjCBlock_ffiVoid_NSArray_closureRegistry[block.ref.target.address]!(arg0);
+) => _ObjCBlock_ffiVoid_NSArray_closureRegistry[block.ref.target.address]!(
+  arg0,
+);
 
 class ObjCBlock_ffiVoid_NSArray extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSArray._(
@@ -73147,7 +73714,10 @@ class NSIndexPath extends NSObject {
   }
 
   static NSIndexPath new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSIndexPath1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSIndexPath1,
+      _lib._sel_new1,
+    );
     return NSIndexPath._(_ret, _lib, retain: false, release: true);
   }
 
@@ -73488,7 +74058,11 @@ class NSMorphology extends NSObject {
   }
 
   set grammaticalGender(int value) {
-    return _lib._objc_msgSend_771(_id, _lib._sel_setGrammaticalGender_1, value);
+    return _lib._objc_msgSend_771(
+      _id,
+      _lib._sel_setGrammaticalGender_1,
+      value,
+    );
   }
 
   int get partOfSpeech {
@@ -73528,7 +74102,11 @@ class NSMorphology extends NSObject {
   }
 
   set grammaticalPerson(int value) {
-    return _lib._objc_msgSend_781(_id, _lib._sel_setGrammaticalPerson_1, value);
+    return _lib._objc_msgSend_781(
+      _id,
+      _lib._sel_setGrammaticalPerson_1,
+      value,
+    );
   }
 
   int get pronounType {
@@ -73901,7 +74479,10 @@ class NSMorphologyCustomPronoun extends NSObject {
   }
 
   NSString? get possessiveAdjectiveForm {
-    final _ret = _lib._objc_msgSend_44(_id, _lib._sel_possessiveAdjectiveForm1);
+    final _ret = _lib._objc_msgSend_44(
+      _id,
+      _lib._sel_possessiveAdjectiveForm1,
+    );
     return _ret.address == 0
         ? null
         : NSString._(_ret, _lib, retain: true, release: true);
@@ -73933,7 +74514,12 @@ class NSMorphologyCustomPronoun extends NSObject {
   @override
   NSMorphologyCustomPronoun init() {
     final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
-    return NSMorphologyCustomPronoun._(_ret, _lib, retain: true, release: true);
+    return NSMorphologyCustomPronoun._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSMorphologyCustomPronoun new1(PedometerBindings _lib) {
@@ -74517,7 +75103,10 @@ class NSOperation extends NSObject {
   }
 
   static NSOperation new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSOperation1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSOperation1,
+      _lib._sel_new1,
+    );
     return NSOperation._(_ret, _lib, retain: false, release: true);
   }
 
@@ -74654,7 +75243,12 @@ class NSPointerArray extends NSObject {
 
   /// Returns a [NSPointerArray] that points to the same underlying object as [other].
   static NSPointerArray castFrom<T extends _ObjCWrapper>(T other) {
-    return NSPointerArray._(other._id, other._lib, retain: true, release: true);
+    return NSPointerArray._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [NSPointerArray] that wraps the given raw object pointer.
@@ -75021,7 +75615,9 @@ class NSPointerFunctions extends NSObject {
         ffi.UnsignedLong Function(
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >
@@ -75053,7 +75649,9 @@ class NSPointerFunctions extends NSObject {
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >
@@ -75121,7 +75719,9 @@ class NSPointerFunctions extends NSObject {
         ffi.Void Function(
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
         )
       >
@@ -75156,7 +75756,9 @@ class NSPointerFunctions extends NSObject {
         ffi.Pointer<ffi.Void> Function(
           ffi.Pointer<ffi.Void>,
           ffi.Pointer<
-            ffi.NativeFunction<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)>
+            ffi.NativeFunction<
+              ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>)
+            >
           >,
           ffi.Bool,
         )
@@ -75784,8 +76386,10 @@ class ObjCBlock_ffiVoid_bool extends _ObjCBlockBase {
   ///
   /// Note that unlike the default behavior of NativeCallable.listener, listener
   /// blocks do not keep the isolate alive.
-  ObjCBlock_ffiVoid_bool.listener(PedometerBindings lib, void Function(bool) fn)
-    : this._(
+  ObjCBlock_ffiVoid_bool.listener(
+    PedometerBindings lib,
+    void Function(bool) fn,
+  ) : this._(
         lib._newBlock1(
           (_dartFuncListenerTrampoline ??=
                   ffi.NativeCallable<
@@ -75844,7 +76448,12 @@ class NSTextCheckingResult extends NSObject {
     bool retain = false,
     bool release = false,
   }) {
-    return NSTextCheckingResult._(other, lib, retain: retain, release: release);
+    return NSTextCheckingResult._(
+      other,
+      lib,
+      retain: retain,
+      release: release,
+    );
   }
 
   /// Returns whether [obj] is an instance of [NSTextCheckingResult].
@@ -76767,7 +77376,10 @@ _ObjCBlock_ffiVoid_NSTextCheckingResult_NSMatchingFlags_bool_fnPtrTrampoline(
       void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)
     >()(arg0, arg1, arg2);
 final _ObjCBlock_ffiVoid_NSTextCheckingResult_NSMatchingFlags_bool_closureRegistry =
-    <int, void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)>{};
+    <
+      int,
+      void Function(ffi.Pointer<ObjCObject>, int, ffi.Pointer<ffi.Bool>)
+    >{};
 int
 _ObjCBlock_ffiVoid_NSTextCheckingResult_NSMatchingFlags_bool_closureRegistryIndex =
     0;
@@ -76944,26 +77556,29 @@ class ObjCBlock_ffiVoid_NSTextCheckingResult_NSMatchingFlags_bool
   >?
   _dartFuncListenerTrampoline;
 
-  void call(NSTextCheckingResult? arg0, int arg1, ffi.Pointer<ffi.Bool> arg2) =>
-      _id.ref.invoke
-          .cast<
-            ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Pointer<_ObjCBlock> block,
-                ffi.Pointer<ObjCObject> arg0,
-                ffi.Int32 arg1,
-                ffi.Pointer<ffi.Bool> arg2,
-              )
-            >
-          >()
-          .asFunction<
-            void Function(
-              ffi.Pointer<_ObjCBlock>,
-              ffi.Pointer<ObjCObject>,
-              int,
-              ffi.Pointer<ffi.Bool>,
-            )
-          >()(_id, arg0?._id ?? ffi.nullptr, arg1, arg2);
+  void call(
+    NSTextCheckingResult? arg0,
+    int arg1,
+    ffi.Pointer<ffi.Bool> arg2,
+  ) => _id.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<_ObjCBlock> block,
+            ffi.Pointer<ObjCObject> arg0,
+            ffi.Int32 arg1,
+            ffi.Pointer<ffi.Bool> arg2,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<_ObjCBlock>,
+          ffi.Pointer<ObjCObject>,
+          int,
+          ffi.Pointer<ffi.Bool>,
+        )
+      >()(_id, arg0?._id ?? ffi.nullptr, arg1, arg2);
 }
 
 abstract class NSMatchingFlags {
@@ -77702,7 +78317,12 @@ class NSURLSessionDataTask extends NSURLSessionTask {
     bool retain = false,
     bool release = false,
   }) {
-    return NSURLSessionDataTask._(other, lib, retain: retain, release: release);
+    return NSURLSessionDataTask._(
+      other,
+      lib,
+      retain: retain,
+      release: release,
+    );
   }
 
   /// Returns whether [obj] is an instance of [NSURLSessionDataTask].
@@ -77845,7 +78465,9 @@ void _ObjCBlock_ffiVoid_NSCachedURLResponse_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSCachedURLResponse_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -79075,7 +79697,12 @@ class NSURLProtectionSpace extends NSObject {
     bool retain = false,
     bool release = false,
   }) {
-    return NSURLProtectionSpace._(other, lib, retain: retain, release: release);
+    return NSURLProtectionSpace._(
+      other,
+      lib,
+      retain: retain,
+      release: release,
+    );
   }
 
   /// Returns whether [obj] is an instance of [NSURLProtectionSpace].
@@ -79752,7 +80379,9 @@ void _ObjCBlock_ffiVoid_NSDictionary_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSDictionary_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -79768,9 +80397,10 @@ ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSDictionary_registerClosure(
 void _ObjCBlock_ffiVoid_NSDictionary_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
-) => _ObjCBlock_ffiVoid_NSDictionary_closureRegistry[block.ref.target.address]!(
-  arg0,
-);
+) =>
+    _ObjCBlock_ffiVoid_NSDictionary_closureRegistry[block.ref.target.address]!(
+      arg0,
+    );
 
 class ObjCBlock_ffiVoid_NSDictionary extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSDictionary._(
@@ -79896,7 +80526,9 @@ void _ObjCBlock_ffiVoid_NSURLCredential_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSURLCredential_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -80331,7 +80963,10 @@ class NSURLProtocol extends NSObject {
   /// @discussion After unregistration, a protocol class is no longer
   /// consulted in calls to NSURLProtocol class methods.
   /// @param protocolClass The class to unregister.
-  static void unregisterClass_(PedometerBindings _lib, NSObject protocolClass) {
+  static void unregisterClass_(
+    PedometerBindings _lib,
+    NSObject protocolClass,
+  ) {
     _lib._objc_msgSend_15(
       _lib._class_NSURLProtocol1,
       _lib._sel_unregisterClass_1,
@@ -81346,7 +81981,10 @@ class NSXMLParser extends NSObject {
   }
 
   bool get shouldReportNamespacePrefixes {
-    return _lib._objc_msgSend_12(_id, _lib._sel_shouldReportNamespacePrefixes1);
+    return _lib._objc_msgSend_12(
+      _id,
+      _lib._sel_shouldReportNamespacePrefixes1,
+    );
   }
 
   set shouldReportNamespacePrefixes(bool value) {
@@ -81406,7 +82044,10 @@ class NSXMLParser extends NSObject {
   }
 
   bool get shouldResolveExternalEntities {
-    return _lib._objc_msgSend_12(_id, _lib._sel_shouldResolveExternalEntities1);
+    return _lib._objc_msgSend_12(
+      _id,
+      _lib._sel_shouldResolveExternalEntities1,
+    );
   }
 
   set shouldResolveExternalEntities(bool value) {
@@ -81446,7 +82087,10 @@ class NSXMLParser extends NSObject {
   }
 
   static NSXMLParser new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NSXMLParser1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_NSXMLParser1,
+      _lib._sel_new1,
+    );
     return NSXMLParser._(_ret, _lib, retain: false, release: true);
   }
 
@@ -81837,7 +82481,11 @@ class NSFileWrapper extends NSObject {
   }
 
   NSObject? initWithPath_(NSString path) {
-    final _ret = _lib._objc_msgSend_38(_id, _lib._sel_initWithPath_1, path._id);
+    final _ret = _lib._objc_msgSend_38(
+      _id,
+      _lib._sel_initWithPath_1,
+      path._id,
+    );
     return _ret.address == 0
         ? null
         : NSObject._(_ret, _lib, retain: true, release: true);
@@ -81901,7 +82549,10 @@ class NSFileWrapper extends NSObject {
   }
 
   NSString symbolicLinkDestination() {
-    final _ret = _lib._objc_msgSend_21(_id, _lib._sel_symbolicLinkDestination1);
+    final _ret = _lib._objc_msgSend_21(
+      _id,
+      _lib._sel_symbolicLinkDestination1,
+    );
     return NSString._(_ret, _lib, retain: true, release: true);
   }
 
@@ -82124,7 +82775,12 @@ class NSURLSession extends NSObject {
 
   NSURLSessionConfiguration get configuration {
     final _ret = _lib._objc_msgSend_920(_id, _lib._sel_configuration1);
-    return NSURLSessionConfiguration._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionConfiguration._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   NSString? get sessionDescription {
@@ -82311,7 +82967,12 @@ class NSURLSession extends NSObject {
       _lib._sel_webSocketTaskWithURL_1,
       url._id,
     );
-    return NSURLSessionWebSocketTask._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionWebSocketTask._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   NSURLSessionWebSocketTask webSocketTaskWithURL_protocols_(
@@ -82324,7 +82985,12 @@ class NSURLSession extends NSObject {
       url._id,
       protocols._id,
     );
-    return NSURLSessionWebSocketTask._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionWebSocketTask._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   NSURLSessionWebSocketTask webSocketTaskWithRequest_(NSURLRequest request) {
@@ -82333,7 +82999,12 @@ class NSURLSession extends NSObject {
       _lib._sel_webSocketTaskWithRequest_1,
       request._id,
     );
-    return NSURLSessionWebSocketTask._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionWebSocketTask._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   @override
@@ -82626,7 +83297,12 @@ class NSURLSessionConfiguration extends NSObject {
       _lib._class_NSURLSessionConfiguration1,
       _lib._sel_defaultSessionConfiguration1,
     );
-    return NSURLSessionConfiguration._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionConfiguration._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSURLSessionConfiguration getEphemeralSessionConfiguration(
@@ -82636,7 +83312,12 @@ class NSURLSessionConfiguration extends NSObject {
       _lib._class_NSURLSessionConfiguration1,
       _lib._sel_ephemeralSessionConfiguration1,
     );
-    return NSURLSessionConfiguration._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionConfiguration._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSURLSessionConfiguration
@@ -82649,7 +83330,12 @@ class NSURLSessionConfiguration extends NSObject {
       _lib._sel_backgroundSessionConfigurationWithIdentifier_1,
       identifier._id,
     );
-    return NSURLSessionConfiguration._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionConfiguration._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   NSString? get identifier {
@@ -82942,7 +83628,10 @@ class NSURLSessionConfiguration extends NSObject {
   }
 
   int get HTTPMaximumConnectionsPerHost {
-    return _lib._objc_msgSend_75(_id, _lib._sel_HTTPMaximumConnectionsPerHost1);
+    return _lib._objc_msgSend_75(
+      _id,
+      _lib._sel_HTTPMaximumConnectionsPerHost1,
+    );
   }
 
   set HTTPMaximumConnectionsPerHost(int value) {
@@ -83043,7 +83732,12 @@ class NSURLSessionConfiguration extends NSObject {
   @override
   NSURLSessionConfiguration init() {
     final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
-    return NSURLSessionConfiguration._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionConfiguration._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSURLSessionConfiguration new1(PedometerBindings _lib) {
@@ -83068,7 +83762,12 @@ class NSURLSessionConfiguration extends NSObject {
       _lib._sel_backgroundSessionConfiguration_1,
       identifier._id,
     );
-    return NSURLSessionConfiguration._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionConfiguration._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSURLSessionConfiguration allocWithZone_(
@@ -83476,7 +84175,9 @@ void _ObjCBlock_ffiVoid_NSArray1_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSArray1_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -83797,7 +84498,9 @@ void _ObjCBlock_ffiVoid_NSData_fnPtrTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
 ) => block.ref.target
-    .cast<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>
+    >()
     .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
 final _ObjCBlock_ffiVoid_NSData_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>)>{};
@@ -83813,7 +84516,8 @@ ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSData_registerClosure(
 void _ObjCBlock_ffiVoid_NSData_closureTrampoline(
   ffi.Pointer<_ObjCBlock> block,
   ffi.Pointer<ObjCObject> arg0,
-) => _ObjCBlock_ffiVoid_NSData_closureRegistry[block.ref.target.address]!(arg0);
+) =>
+    _ObjCBlock_ffiVoid_NSData_closureRegistry[block.ref.target.address]!(arg0);
 
 class ObjCBlock_ffiVoid_NSData extends _ObjCBlockBase {
   ObjCBlock_ffiVoid_NSData._(
@@ -83996,7 +84700,12 @@ class NSURLSessionDownloadTask extends NSURLSessionTask {
       _lib._class_NSURLSessionDownloadTask1,
       _lib._sel_new1,
     );
-    return NSURLSessionDownloadTask._(_ret, _lib, retain: false, release: true);
+    return NSURLSessionDownloadTask._(
+      _ret,
+      _lib,
+      retain: false,
+      release: true,
+    );
   }
 
   static NSURLSessionDownloadTask allocWithZone_(
@@ -84008,7 +84717,12 @@ class NSURLSessionDownloadTask extends NSURLSessionTask {
       _lib._sel_allocWithZone_1,
       zone,
     );
-    return NSURLSessionDownloadTask._(_ret, _lib, retain: false, release: true);
+    return NSURLSessionDownloadTask._(
+      _ret,
+      _lib,
+      retain: false,
+      release: true,
+    );
   }
 
   static NSURLSessionDownloadTask alloc(PedometerBindings _lib) {
@@ -84016,7 +84730,12 @@ class NSURLSessionDownloadTask extends NSURLSessionTask {
       _lib._class_NSURLSessionDownloadTask1,
       _lib._sel_alloc1,
     );
-    return NSURLSessionDownloadTask._(_ret, _lib, retain: false, release: true);
+    return NSURLSessionDownloadTask._(
+      _ret,
+      _lib,
+      retain: false,
+      release: true,
+    );
   }
 
   static void cancelPreviousPerformRequestsWithTarget_selector_object_(
@@ -84992,7 +85711,12 @@ class NSURLSessionWebSocketTask extends NSURLSessionTask {
   @override
   NSURLSessionWebSocketTask init() {
     final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
-    return NSURLSessionWebSocketTask._(_ret, _lib, retain: true, release: true);
+    return NSURLSessionWebSocketTask._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static NSURLSessionWebSocketTask new1(PedometerBindings _lib) {
@@ -85554,7 +86278,9 @@ class ObjCBlock_ffiVoid_NSURLSessionWebSocketMessage_NSError
   >?
   _dartFuncListenerTrampoline;
 
-  void call(NSURLSessionWebSocketMessage? arg0, NSError? arg1) => _id.ref.invoke
+  void call(NSURLSessionWebSocketMessage? arg0, NSError? arg1) => _id
+      .ref
+      .invoke
       .cast<
         ffi.NativeFunction<
           ffi.Void Function(
@@ -85581,7 +86307,8 @@ abstract class NSURLSessionWebSocketCloseCode {
   static const int NSURLSessionWebSocketCloseCodeUnsupportedData = 1003;
   static const int NSURLSessionWebSocketCloseCodeNoStatusReceived = 1005;
   static const int NSURLSessionWebSocketCloseCodeAbnormalClosure = 1006;
-  static const int NSURLSessionWebSocketCloseCodeInvalidFramePayloadData = 1007;
+  static const int NSURLSessionWebSocketCloseCodeInvalidFramePayloadData =
+      1007;
   static const int NSURLSessionWebSocketCloseCodePolicyViolation = 1008;
   static const int NSURLSessionWebSocketCloseCodeMessageTooBig = 1009;
   static const int NSURLSessionWebSocketCloseCodeMandatoryExtensionMissing =
@@ -86178,7 +86905,10 @@ class CMPedometer extends NSObject {
   }
 
   static CMPedometer new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_CMPedometer1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_CMPedometer1,
+      _lib._sel_new1,
+    );
     return CMPedometer._(_ret, _lib, retain: false, release: true);
   }
 
@@ -86727,7 +87457,8 @@ ffi.Pointer<ffi.Void>
 _ObjCBlock_ffiVoid_CMPedometerEvent_NSError_registerClosure(
   void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>) fn,
 ) {
-  final id = ++_ObjCBlock_ffiVoid_CMPedometerEvent_NSError_closureRegistryIndex;
+  final id =
+      ++_ObjCBlock_ffiVoid_CMPedometerEvent_NSError_closureRegistryIndex;
   _ObjCBlock_ffiVoid_CMPedometerEvent_NSError_closureRegistry[id] = fn;
   return ffi.Pointer<ffi.Void>.fromAddress(id);
 }
@@ -87441,7 +88172,11 @@ class CLLocationManager extends NSObject {
   }
 
   void requestStateForRegion_(CLRegion region) {
-    _lib._objc_msgSend_1005(_id, _lib._sel_requestStateForRegion_1, region._id);
+    _lib._objc_msgSend_1005(
+      _id,
+      _lib._sel_requestStateForRegion_1,
+      region._id,
+    );
   }
 
   void startRangingBeaconsInRegion_(CLBeaconRegion region) {
@@ -88065,7 +88800,9 @@ class CLLocationSourceInformation extends NSObject {
   }) : super._(id, lib, retain: retain, release: release);
 
   /// Returns a [CLLocationSourceInformation] that points to the same underlying object as [other].
-  static CLLocationSourceInformation castFrom<T extends _ObjCWrapper>(T other) {
+  static CLLocationSourceInformation castFrom<T extends _ObjCWrapper>(
+    T other,
+  ) {
     return CLLocationSourceInformation._(
       other._id,
       other._lib,
@@ -88536,7 +89273,10 @@ class CLHeading extends NSObject {
   }
 
   static CLHeading alloc(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_CLHeading1, _lib._sel_alloc1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_CLHeading1,
+      _lib._sel_alloc1,
+    );
     return CLHeading._(_ret, _lib, retain: false, release: true);
   }
 
@@ -88852,7 +89592,12 @@ class CLBeaconRegion extends CLRegion {
 
   /// Returns a [CLBeaconRegion] that points to the same underlying object as [other].
   static CLBeaconRegion castFrom<T extends _ObjCWrapper>(T other) {
-    return CLBeaconRegion._(other._id, other._lib, retain: true, release: true);
+    return CLBeaconRegion._(
+      other._id,
+      other._lib,
+      retain: true,
+      release: true,
+    );
   }
 
   /// Returns a [CLBeaconRegion] that wraps the given raw object pointer.
@@ -89676,7 +90421,12 @@ class CLBeaconIdentityCondition extends CLCondition {
       _lib._sel_initWithUUID_1,
       uuid._id,
     );
-    return CLBeaconIdentityCondition._(_ret, _lib, retain: true, release: true);
+    return CLBeaconIdentityCondition._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   CLBeaconIdentityCondition initWithUUID_major_(NSUUID uuid, int major) {
@@ -89686,7 +90436,12 @@ class CLBeaconIdentityCondition extends CLCondition {
       uuid._id,
       major,
     );
-    return CLBeaconIdentityCondition._(_ret, _lib, retain: true, release: true);
+    return CLBeaconIdentityCondition._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   CLBeaconIdentityCondition initWithUUID_major_minor_(
@@ -89701,13 +90456,23 @@ class CLBeaconIdentityCondition extends CLCondition {
       major,
       minor,
     );
-    return CLBeaconIdentityCondition._(_ret, _lib, retain: true, release: true);
+    return CLBeaconIdentityCondition._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   @override
   CLBeaconIdentityCondition init() {
     final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
-    return CLBeaconIdentityCondition._(_ret, _lib, retain: true, release: true);
+    return CLBeaconIdentityCondition._(
+      _ret,
+      _lib,
+      retain: true,
+      release: true,
+    );
   }
 
   static CLBeaconIdentityCondition new1(PedometerBindings _lib) {
@@ -89885,7 +90650,10 @@ class CLCondition extends NSObject {
   }
 
   static CLCondition new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_CLCondition1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_CLCondition1,
+      _lib._sel_new1,
+    );
     return CLCondition._(_ret, _lib, retain: false, release: true);
   }
 
@@ -90217,7 +90985,10 @@ class CLPlacemark extends NSObject {
   }
 
   static CLPlacemark new1(PedometerBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_CLPlacemark1, _lib._sel_new1);
+    final _ret = _lib._objc_msgSend_2(
+      _lib._class_CLPlacemark1,
+      _lib._sel_new1,
+    );
     return CLPlacemark._(_ret, _lib, retain: false, release: true);
   }
 

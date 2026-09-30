@@ -43,10 +43,7 @@ void main() {
     Future<void> loadWidget(WidgetTester tester) async {
       await testApp(
         tester,
-        HomeScreen(
-          viewModel: viewModel,
-          logoutViewModel: logoutViewModel,
-        ),
+        HomeScreen(viewModel: viewModel, logoutViewModel: logoutViewModel),
         goRouter: goRouter,
       );
     }

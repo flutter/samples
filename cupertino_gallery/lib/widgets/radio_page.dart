@@ -17,7 +17,7 @@ class _RadioPageState extends State<RadioPage> {
       child: Center(
         child: RadioGroup(
           groupValue: _selectedValue,
-          onChanged: (int? value) {
+          onChanged: (value) {
             setState(() {
               _selectedValue = value!;
             });

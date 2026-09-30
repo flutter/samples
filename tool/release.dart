@@ -163,7 +163,7 @@ class ReleaseScriptRunner {
   Future<bool> _processProject(String projectPath, String dartVersion) async {
     final projectName = p.basename(projectPath);
     final projectDir = Directory(projectPath);
-    final issues = [];
+    final issues = <String>[];
 
     if (!projectDir.existsSync()) {
       log(red.wrap('Project directory not found: $projectPath'), stderr);
@@ -174,7 +174,10 @@ class ReleaseScriptRunner {
     log(styleBold.wrap('Processing project: $projectName'), stdout);
     log(styleBold.wrap('=========================================')!, stdout);
 
-    log(blue.wrap('Updating SDK constraints to use Dart $dartVersion'), stdout);
+    log(
+      blue.wrap('Updating SDK constraints to use Dart $dartVersion'),
+      stdout,
+    );
     if (!_isDryRun) {
       if (!await _updateSdkConstraints(projectPath, dartVersion)) {
         log(
@@ -191,7 +194,10 @@ class ReleaseScriptRunner {
         '--fatal-infos',
         '--fatal-warnings',
       ]),
-      Command('dart format', 'Running dart format...', 'dart', ['format', '.']),
+      Command('dart format', 'Running dart format...', 'dart', [
+        'format',
+        '.',
+      ]),
     ];
 
     final testDir = Directory(p.join(projectPath, 'test'));
@@ -211,7 +217,10 @@ class ReleaseScriptRunner {
       );
 
       if (!didPass) {
-        log(red.wrap('${command.displayName} failed for $projectName'), stderr);
+        log(
+          red.wrap('${command.displayName} failed for $projectName'),
+          stderr,
+        );
 
         if (command.displayName == 'pub upgrade' ||
             command.displayName == 'pub get' &&
@@ -255,7 +264,7 @@ class ReleaseScriptRunner {
     }
 
     try {
-      final newConstraint = '^${versionString}-0';
+      final newConstraint = '^$versionString-0';
 
       final content = await pubspecFile.readAsString();
       final editor = YamlEditor(content);
@@ -307,16 +316,18 @@ class ReleaseScriptRunner {
         .transform(SystemEncoding().decoder)
         .forEach((line) {
           log(line, stdout);
-          if (!_isOnlyWhitespace(line))
-            output.writeln('${line.trim().padLeft(2)}');
+          if (!_isOnlyWhitespace(line)) {
+            output.writeln(line.trim().padLeft(2));
+          }
         });
 
     final stderrFuture = process.stderr
         .transform(SystemEncoding().decoder)
         .forEach((line) {
           log(red.wrap(line), stderr);
-          if (!_isOnlyWhitespace(line))
-            output.writeln('${line.trim().padLeft(2)}');
+          if (!_isOnlyWhitespace(line)) {
+            output.writeln(line.trim().padLeft(2));
+          }
         });
 
     await Future.wait([stdoutFuture, stderrFuture]);
@@ -325,7 +336,10 @@ class ReleaseScriptRunner {
   }
 
   void _printSummary(int total, List<String> failed) {
-    log(styleBold.wrap('\n=========================================')!, stdout);
+    log(
+      styleBold.wrap('\n=========================================')!,
+      stdout,
+    );
     log(styleBold.wrap('Update Summary')!, stdout);
     log(styleBold.wrap('=========================================')!, stdout);
     log(blue.wrap('Total projects processed: $total'), stdout);

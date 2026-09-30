@@ -34,7 +34,7 @@ void main() {
       );
     }
 
-    testWidgets('Should be enabled and allow tap', (WidgetTester tester) async {
+    testWidgets('Should be enabled and allow tap', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormSubmit), findsOneWidget);
 

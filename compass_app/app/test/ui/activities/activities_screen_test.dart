@@ -45,14 +45,14 @@ void main() {
       );
     }
 
-    testWidgets('should load screen', (WidgetTester tester) async {
+    testWidgets('should load screen', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         expect(find.byType(ActivitiesScreen), findsOneWidget);
       });
     });
 
-    testWidgets('should list activity', (WidgetTester tester) async {
+    testWidgets('should list activity', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         expect(find.byType(ActivityEntry), findsOneWidget);
@@ -60,9 +60,7 @@ void main() {
       });
     });
 
-    testWidgets('should select activity and confirm', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('should select activity and confirm', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         // Select one activity
