@@ -32,10 +32,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     configuration.delegateClass = FlutterSceneDelegate.self
     return configuration
   }
-
-  func application(
-    _ application: UIApplication,
-    didDiscardSceneSessions sceneSessions: Set<UISceneSession>
-  ) {
-  }
 }
