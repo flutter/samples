@@ -23,7 +23,7 @@ import 'routes.dart';
 
 /// Top go_router entry point.
 ///
-/// Listens to changes in [AuthTokenRepository] to redirect the user
+/// Listens to changes in [AuthRepository] to redirect the user
 /// to /login when the user logs out.
 GoRouter router(AuthRepository authRepository) => GoRouter(
   initialLocation: Routes.home,
