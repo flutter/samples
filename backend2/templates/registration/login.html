@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend2 Login</title>
+</head>
+<body>
+
+    <h1>Backend2 Login</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Login
+        </button>
+    </form>
+
+</body>
+</html>
