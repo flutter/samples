@@ -11,7 +11,7 @@ We appreciate fixes and necessary improvements to existing samples. **But in mos
 
 Please read the [contributor's guide] if you have contributions.
 
-Googler's, you can freely add samples to the [flutter/demos] repository.
+Googlers, you can freely add samples to the [flutter/demos] repository.
 
 ## Index
 
