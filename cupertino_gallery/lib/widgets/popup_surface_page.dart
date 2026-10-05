@@ -15,7 +15,7 @@ class PopupSurfacePage extends StatelessWidget {
           onPressed: () {
             showCupertinoModalPopup<void>(
               context: context,
-              builder: (BuildContext context) {
+              builder: (context) {
                 return CupertinoPopupSurface(
                   child: Container(
                     color: CupertinoColors.white,

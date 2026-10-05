@@ -43,14 +43,14 @@ void main() {
       );
     }
 
-    testWidgets('should load widget', (WidgetTester tester) async {
+    testWidgets('should load widget', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         expect(find.byType(LogoutButton), findsOneWidget);
       });
     });
 
-    testWidgets('should perform logout', (WidgetTester tester) async {
+    testWidgets('should perform logout', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
 

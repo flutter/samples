@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
-  void runPedometer() async {
+  Future<void> runPedometer() async {
     final now = DateTime.now();
     hourlySteps = await StepsRepo.instance.getSteps();
     lastUpdated = now;

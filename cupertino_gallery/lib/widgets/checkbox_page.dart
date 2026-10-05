@@ -17,7 +17,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
       child: Center(
         child: CupertinoCheckbox(
           value: _value,
-          onChanged: (bool? value) {
+          onChanged: (value) {
             setState(() {
               _value = value!;
             });

@@ -16,7 +16,7 @@ class EventList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<EventData>(
-      builder: (BuildContext context, EventData events, Widget? child) {
+      builder: (context, events, child) {
         return CupertinoPageScaffold(
           // TODO(mit-mit): Avoid having to pass nav bar manually.
           //

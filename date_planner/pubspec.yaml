@@ -8,9 +8,9 @@ environment:
   sdk: ^3.9.0-0
 
 dependencies:
+  cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
   intl:
   provider:
   uuid:

@@ -16,8 +16,8 @@ int main(List<String> arguments) {
     ..addOption(outputOptionName, mandatory: true, abbr: 'o');
 
   ArgResults argResults = parser.parse(arguments);
-  final String inputFilePath = argResults[inputOptionName];
-  final String outputFilePath = argResults[outputOptionName];
+  final String inputFilePath = argResults[inputOptionName] as String;
+  final String outputFilePath = argResults[outputOptionName] as String;
 
   try {
     final Image image = decodeImage(File(inputFilePath).readAsBytesSync())!;

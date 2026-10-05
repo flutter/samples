@@ -4,6 +4,9 @@ description: A collection of samples for Dart and Flutter.
 environment:
   sdk: ^3.9.0-0
 
+dependencies: 
+  flutter_lints: ^6.0.0
+
 workspace:
   - add_to_app/android_view/flutter_module_using_plugin_android_view
   - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view

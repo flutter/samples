@@ -52,7 +52,7 @@ class SearchFormContinent extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: viewModel.continents.length,
               padding: Dimens.of(context).edgeInsetsScreenHorizontal,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (context, index) {
                 final Continent(:imageUrl, :name) = viewModel.continents[index];
                 return _CarouselItem(
                   key: ValueKey(name),
@@ -61,7 +61,7 @@ class SearchFormContinent extends StatelessWidget {
                   viewModel: viewModel,
                 );
               },
-              separatorBuilder: (BuildContext context, int index) {
+              separatorBuilder: (context, index) {
                 return const SizedBox(width: 8);
               },
             );

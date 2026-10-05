@@ -10,7 +10,7 @@ class DatePickerPage extends StatelessWidget {
       child: Center(
         child: SizedBox(
           height: 200,
-          child: CupertinoDatePicker(onDateTimeChanged: (DateTime newDate) {}),
+          child: CupertinoDatePicker(onDateTimeChanged: (newDate) {}),
         ),
       ),
     );

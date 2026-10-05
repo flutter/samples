@@ -26,7 +26,7 @@ void main() {
       await testApp(tester, SearchFormGuests(viewModel: viewModel));
     }
 
-    testWidgets('Increase number of guests', (WidgetTester tester) async {
+    testWidgets('Increase number of guests', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormGuests), findsOneWidget);
 
@@ -39,7 +39,7 @@ void main() {
       expect(find.text('1'), findsOneWidget);
     });
 
-    testWidgets('Decrease number of guests', (WidgetTester tester) async {
+    testWidgets('Decrease number of guests', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormGuests), findsOneWidget);
 

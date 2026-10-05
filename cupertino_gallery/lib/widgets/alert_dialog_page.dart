@@ -13,7 +13,7 @@ class AlertDialogPage extends StatelessWidget {
           onPressed: () {
             showCupertinoDialog<void>(
               context: context,
-              builder: (BuildContext context) => CupertinoAlertDialog(
+              builder: (context) => CupertinoAlertDialog(
                 title: const Text('Alert'),
                 content: const Text('This is a sample alert dialog.'),
                 actions: <CupertinoDialogAction>[

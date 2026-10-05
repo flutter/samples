@@ -21,7 +21,7 @@ class ApiKeyWidget extends StatelessWidget {
   ApiKeyWidget({super.key, required this.onSubmitted, required this.title});
 
   final String title;
-  final ValueChanged onSubmitted;
+  final ValueChanged<String> onSubmitted;
   final _textController = TextEditingController();
 
   @override
