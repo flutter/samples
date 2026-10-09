@@ -75,6 +75,17 @@ void main() {
       expect(command.error, true);
       expect(command.result, isA<Error>());
     });
+
+    test('should handle action exceptions', () async {
+      final command = Command0<int>(
+        () => Future.delayed(Duration(milliseconds: 64), () {
+          throw Exception('Action exceptions are captured also as Result');
+        }),
+      );
+      await command.execute();
+      expect(command.error, true);
+      expect(command.result, isA<Error>());
+    });
   });
 
   group('Command1 tests', () {
