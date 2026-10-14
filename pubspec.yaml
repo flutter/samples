@@ -58,3 +58,13 @@ skip_ci:
 skip_ci_beta:
   # - sample_name_to_skip
 
+
+dependency_overrides:
+  deltasync_core:
+    path: ../deltasync/packages/deltasync_core
+  deltasync_storage:
+    path: ../deltasync/packages/deltasync_storage
+  deltasync_sync:
+    path: ../deltasync/packages/deltasync_sync
+  deltasync_transport:
+    path: ../deltasync/packages/deltasync_transport

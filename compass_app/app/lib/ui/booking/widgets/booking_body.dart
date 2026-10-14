@@ -4,12 +4,15 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../data/repositories/notes/trip_notes_repository.dart';
 import '../../../domain/models/activity/activity.dart';
 import '../../../utils/image_error_listener.dart';
 import '../../core/themes/dimens.dart';
 import '../view_models/booking_viewmodel.dart';
 import 'booking_header.dart';
+import 'trip_notes_card.dart';
 
 class BookingBody extends StatelessWidget {
   const BookingBody({super.key, required this.viewModel});
@@ -26,6 +29,14 @@ class BookingBody extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: BookingHeader(booking: booking)),
+            if (context.read<TripNotesRepository?>() case final notes?)
+              SliverToBoxAdapter(
+                child: TripNotesCard(
+                  key: ValueKey(tripNotesKey(booking)),
+                  booking: booking,
+                  repository: notes,
+                ),
+              ),
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
                 final activity = booking.activity[index];

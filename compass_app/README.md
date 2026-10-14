@@ -1,5 +1,7 @@
 # compass_app
 
+For durable offline trip notes synchronized over HTTP, see [DeltaSync integration](README_DELTASYNC.md).
+
 The Compass sample application is an app that helps users build and book
 itineraries for trips. It’s a robust sample application with many features, routes, and screens. The app communicates
 with an HTTP server, has development and production environments, brand-specific styling, and high test coverage. In

@@ -9,6 +9,11 @@ environment:
   sdk: ^3.9.0-0
 
 dependencies:
+  deltasync:
+    path: ../../../deltasync
+  deltasync_storage_sqflite:
+    path: ../../../deltasync/packages/deltasync_storage_sqflite
+  sqflite: ^2.4.4
   cached_network_image: ^3.4.1
   flutter:
     sdk: flutter
@@ -26,6 +31,7 @@ dependencies:
   shared_preferences: ^2.3.5
 
 dev_dependencies:
+  sqflite_common_ffi: ^2.3.6
   analysis_defaults:
     path: ../../analysis_defaults
   flutter_test:

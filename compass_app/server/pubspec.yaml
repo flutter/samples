@@ -8,6 +8,11 @@ environment:
   sdk: ^3.9.0-0
 
 dependencies:
+  deltasync:
+    path: ../../../deltasync
+  deltasync_storage_sqflite:
+    path: ../../../deltasync/packages/deltasync_storage_sqflite
+  sqflite_common_ffi: ^2.3.6
   args: ^2.4.0
   shelf: ^1.4.0
   shelf_router: ^1.1.0
