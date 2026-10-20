@@ -63,6 +63,8 @@ abstract class Command<T> extends ChangeNotifier {
 
     try {
       _result = await action();
+    } on Exception catch (e) {
+      _result = Result<T>.error(e);
     } finally {
       _running = false;
       notifyListeners();
