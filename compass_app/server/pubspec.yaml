@@ -20,5 +20,5 @@ dev_dependencies:
     path: ../../analysis_defaults
   test: ^1.24.0
   build_runner: ^2.4.11
-  freezed: ^3.0.0
+  freezed: '>=3.0.0 <5.0.0'
   json_serializable: ^6.8.0
