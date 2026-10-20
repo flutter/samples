@@ -169,15 +169,53 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.titleLarge;
+    final theme = Theme.of(context);
+    final headerStyle = theme.textTheme.titleMedium?.copyWith(
+      fontWeight: FontWeight.bold,
+    );
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Animation Samples')),
+      appBar: AppBar(
+        title: const Text(
+          'Animation Samples',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: false,
+      ),
       body: ListView(
+        padding: const EdgeInsets.all(20),
         children: [
-          ListTile(title: Text('Basics', style: headerStyle)),
-          ...basicDemos.map((d) => DemoTile(demo: d)),
-          ListTile(title: Text('Misc', style: headerStyle)),
-          ...miscDemos.map((d) => DemoTile(demo: d)),
+          Text(
+            'Explore Animation',
+            style: theme.textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(
+            height: 8,
+          ),
+
+          Text(
+            'Discover interactive animation example in flutter',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+
+          const SizedBox(
+            height: 28,
+          ),
+
+          Text('Basics', style: headerStyle),
+          const SizedBox(height: 12),
+          ...basicDemos.map((demo) => DemoTile(demo: demo)),
+
+          const SizedBox(height: 28),
+          Text('Miscellaneous', style: headerStyle),
+          const SizedBox(height: 12),
+          ...miscDemos.map((demo) => DemoTile(demo: demo)),
+          const SizedBox(height: 25),
         ],
       ),
     );
@@ -191,11 +229,32 @@ class DemoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(demo.name),
-      onTap: () {
-        context.go('/${demo.route}');
-      },
+    final theme = Theme.of(context);
+
+    return Material(
+      color: theme.colorScheme.surfaceContainerLow,
+      borderRadius: BorderRadius.circular(16),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 18,
+          vertical: 6,
+        ),
+        leading: CircleAvatar(
+          backgroundColor: theme.colorScheme.primaryContainer,
+          child: Icon(
+            Icons.animation,
+            color: theme.colorScheme.onPrimaryContainer,
+          ),
+        ),
+        title: Text(
+          demo.name,
+          style: const TextStyle(fontWeight: FontWeight.w600),
+        ),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        onTap: () {
+          context.go('/${demo.route}');
+        },
+      ),
     );
   }
 }
