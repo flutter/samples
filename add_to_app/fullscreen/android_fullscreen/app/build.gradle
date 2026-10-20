@@ -1,13 +1,14 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdk 33
+    compileSdk 36
     defaultConfig {
         applicationId "dev.flutter.example.androidfullscreen"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdk 36
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
