@@ -166,7 +166,9 @@ class _ExampleState extends State<Example> {
     try {
       final prompt = StringBuffer();
       prompt.writeln(message);
-      final response = await callWithActions([Content.text(prompt.toString())]);
+      final response = await callWithActions([
+        Content.text(prompt.toString()),
+      ]);
       if (response.text != null) {
         addMessage(Sender.system, response.text!);
       } else {
@@ -209,7 +211,6 @@ class _ExampleState extends State<Example> {
               }),
             );
           }
-          break;
         case 'change_theme_mode':
           final mode = args['mode'] as String;
           themeMode.value = switch (mode) {
@@ -224,7 +225,6 @@ class _ExampleState extends State<Example> {
               'message': 'theme mode updated',
             }),
           );
-          break;
         case 'change_text_scale_factor':
           final value = args['scale'] as num;
           textScaleFactor.value = value.toDouble();
@@ -234,7 +234,6 @@ class _ExampleState extends State<Example> {
               'message': 'font scale updated',
             }),
           );
-          break;
         default:
       }
     }

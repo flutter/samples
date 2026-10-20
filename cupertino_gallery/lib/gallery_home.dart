@@ -31,9 +31,9 @@ class GalleryHome extends StatelessWidget {
           ),
         ],
       ),
-      tabBuilder: (BuildContext context, int index) {
+      tabBuilder: (context, index) {
         return CupertinoTabView(
-          builder: (BuildContext context) {
+          builder: (context) {
             return switch (index) {
               0 => const WidgetsPage(),
               1 => SettingsPage(

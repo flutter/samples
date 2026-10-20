@@ -23,7 +23,7 @@ class _SegmentedControlPageState extends State<SegmentedControlPage> {
             1: Text('Two'),
             2: Text('Three'),
           },
-          onValueChanged: (int val) {
+          onValueChanged: (val) {
             setState(() {
               _selectedIndex = val;
             });

@@ -85,7 +85,6 @@ class BookingCreateUseCase {
     switch (saveBookingResult) {
       case Ok<void>():
         _log.fine('Booking saved successfully');
-        break;
       case Error<void>():
         _log.warning('Failed to save booking', saveBookingResult.error);
         return Result.error(saveBookingResult.error);

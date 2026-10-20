@@ -26,9 +26,7 @@ void main() {
       await testApp(tester, SearchFormDate(viewModel: viewModel));
     }
 
-    testWidgets('should display date in different month', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('should display date in different month', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormDate), findsOneWidget);
 
@@ -45,9 +43,7 @@ void main() {
       expect(find.text('12 Jun - 23 Jul'), findsOneWidget);
     });
 
-    testWidgets('should display date in same month', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('should display date in same month', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormDate), findsOneWidget);
 

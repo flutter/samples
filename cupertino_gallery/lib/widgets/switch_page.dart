@@ -17,7 +17,7 @@ class _SwitchPageState extends State<SwitchPage> {
       child: Center(
         child: CupertinoSwitch(
           value: _value,
-          onChanged: (bool value) {
+          onChanged: (value) {
             setState(() {
               _value = value;
             });

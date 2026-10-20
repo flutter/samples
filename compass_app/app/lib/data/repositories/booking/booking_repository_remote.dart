@@ -31,7 +31,7 @@ class BookingRepositoryRemote implements BookingRepository {
             .map((activity) => activity.ref)
             .toList(),
       );
-      return _apiClient.postBooking(bookingApiModel);
+      return await _apiClient.postBooking(bookingApiModel);
     } on Exception catch (e) {
       return Result.error(e);
     }
@@ -121,7 +121,7 @@ class BookingRepositoryRemote implements BookingRepository {
   @override
   Future<Result<void>> delete(int id) async {
     try {
-      return _apiClient.deleteBooking(id);
+      return await _apiClient.deleteBooking(id);
     } on Exception catch (e) {
       return Result.error(e);
     }

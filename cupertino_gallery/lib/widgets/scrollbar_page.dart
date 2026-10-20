@@ -13,10 +13,10 @@ class ScrollbarPage extends StatelessWidget {
         child: ListView.separated(
           controller: controller,
           itemCount: 100,
-          itemBuilder: (BuildContext context, int index) {
+          itemBuilder: (context, index) {
             return CupertinoListTile(title: Text('Item $index'));
           },
-          separatorBuilder: (BuildContext context, int index) {
+          separatorBuilder: (context, index) {
             return Container(height: 1, color: CupertinoColors.opaqueSeparator);
           },
         ),

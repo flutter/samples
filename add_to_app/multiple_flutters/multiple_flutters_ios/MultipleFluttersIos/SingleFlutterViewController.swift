@@ -39,7 +39,7 @@ class SingleFlutterViewController: FlutterViewController, DataModelObserver {
   override func viewDidLoad() {
     super.viewDidLoad()
     channel = FlutterMethodChannel(
-      name: "multiple-flutters", binaryMessenger: self.engine!.binaryMessenger)
+      name: "multiple-flutters", binaryMessenger: self.engine.binaryMessenger)
     channel!.invokeMethod("setCount", arguments: DataModel.shared.count)
     let navController = self.navigationController!
     channel!.setMethodCallHandler { (call: FlutterMethodCall, result: @escaping FlutterResult) in

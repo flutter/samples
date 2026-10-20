@@ -25,9 +25,7 @@ void main() {
       await testApp(tester, SearchFormContinent(viewModel: viewModel));
     }
 
-    testWidgets('Should load and select continent', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('Should load and select continent', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormContinent), findsOneWidget);
 

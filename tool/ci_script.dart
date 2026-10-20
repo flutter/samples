@@ -1,5 +1,8 @@
+// ignore_for_file: avoid_print,
+
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:path/path.dart' as path;
 import 'package:yaml/yaml.dart';
 
@@ -38,8 +41,9 @@ Future<void> main() async {
   final packages = workspace
       .where((e) {
         if (skipCiList != null && skipCiList.contains(e)) return false;
-        if (channelSkipList != null && channelSkipList.contains(e))
+        if (channelSkipList != null && channelSkipList.contains(e)) {
           return false;
+        }
         return true;
       })
       .map((e) => e.toString())
@@ -99,7 +103,9 @@ Future<String> _getFlutterChannel() async {
       '--machine',
     ], runInShell: true);
     if (result.exitCode != 0) {
-      print('Flutter version command failed with exit code ${result.exitCode}');
+      print(
+        'Flutter version command failed with exit code ${result.exitCode}',
+      );
       print('Stdout: ${result.stdout}');
       print('Stderr: ${result.stderr}');
       return 'unknown';

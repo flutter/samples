@@ -13,7 +13,7 @@ class ActionSheetPage extends StatelessWidget {
           onPressed: () {
             showCupertinoModalPopup<void>(
               context: context,
-              builder: (BuildContext context) => CupertinoActionSheet(
+              builder: (context) => CupertinoActionSheet(
                 title: const Text('Title'),
                 message: const Text('Message'),
                 actions: <CupertinoActionSheetAction>[

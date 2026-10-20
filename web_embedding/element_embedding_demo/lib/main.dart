@@ -90,16 +90,12 @@ class _MyAppState extends State<MyApp> {
       switch (screenString) {
         case 'counter':
           _currentDemoScreen = DemoScreen.counter;
-          break;
         case 'textField':
           _currentDemoScreen = DemoScreen.textField;
-          break;
         case 'custom':
           _currentDemoScreen = DemoScreen.custom;
-          break;
         default:
           _currentDemoScreen = DemoScreen.counter;
-          break;
       }
     });
   }

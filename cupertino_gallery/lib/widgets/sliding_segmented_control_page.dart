@@ -25,7 +25,7 @@ class _SlidingSegmentedControlPageState
             1: Text('Two'),
             2: Text('Three'),
           },
-          onValueChanged: (int? value) {
+          onValueChanged: (value) {
             setState(() {
               _groupValue = value;
             });

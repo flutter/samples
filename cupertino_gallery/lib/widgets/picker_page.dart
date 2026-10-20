@@ -12,7 +12,7 @@ class PickerPage extends StatelessWidget {
           height: 200,
           child: CupertinoPicker(
             itemExtent: 32,
-            onSelectedItemChanged: (int index) {},
+            onSelectedItemChanged: (index) {},
             children: const <Widget>[Text('One'), Text('Two'), Text('Three')],
           ),
         ),

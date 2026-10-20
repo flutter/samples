@@ -54,7 +54,7 @@ class CustomCupertinoListTile extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           CupertinoPageRoute<void>(
-            builder: (BuildContext context) {
+            builder: (context) {
               return WidgetDetailPage(title: title);
             },
           ),

@@ -11,7 +11,7 @@ class TimePickerPage extends StatelessWidget {
         child: SizedBox(
           height: 200,
           child: CupertinoTimerPicker(
-            onTimerDurationChanged: (Duration newDuration) {},
+            onTimerDurationChanged: (newDuration) {},
           ),
         ),
       ),

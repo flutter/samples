@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class AppLocalization {
   static AppLocalization of(BuildContext context) {
-    return Localizations.of(context, AppLocalization);
+    return Localizations.of<AppLocalization>(context, AppLocalization)!;
   }
 
   static const _strings = <String, String>{

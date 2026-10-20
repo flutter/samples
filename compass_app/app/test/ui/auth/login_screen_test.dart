@@ -32,14 +32,14 @@ void main() {
       );
     }
 
-    testWidgets('should load screen', (WidgetTester tester) async {
+    testWidgets('should load screen', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         expect(find.byType(LoginScreen), findsOneWidget);
       });
     });
 
-    testWidgets('should perform login', (WidgetTester tester) async {
+    testWidgets('should perform login', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
 

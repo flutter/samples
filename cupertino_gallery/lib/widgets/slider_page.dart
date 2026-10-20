@@ -17,7 +17,7 @@ class _SliderPageState extends State<SliderPage> {
       child: Center(
         child: CupertinoSlider(
           value: _value,
-          onChanged: (double value) {
+          onChanged: (value) {
             setState(() {
               _value = value;
             });
