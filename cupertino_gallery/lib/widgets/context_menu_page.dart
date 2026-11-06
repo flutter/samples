@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class ContextMenuPage extends StatelessWidget {
   const ContextMenuPage({super.key});
@@ -6,7 +6,9 @@ class ContextMenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(middle: Text('Context Menu')),
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Context Menu'),
+      ),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

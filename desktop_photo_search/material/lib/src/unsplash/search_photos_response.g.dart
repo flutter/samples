@@ -73,20 +73,16 @@ class _$SearchPhotosResponseSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'total':
-          result.total =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.total = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'total_pages':
-          result.totalPages =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.totalPages = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'results':
           result.results.replace(

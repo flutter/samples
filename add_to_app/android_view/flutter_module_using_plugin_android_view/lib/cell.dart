@@ -4,8 +4,8 @@
 
 import 'dart:math';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 // This is on alternate entrypoint for this module to display Flutter UI in

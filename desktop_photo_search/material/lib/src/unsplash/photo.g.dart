@@ -226,76 +226,58 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
                   as String;
           break;
         case 'created_at':
-          result.createdAt =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.createdAt = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'updated_at':
-          result.updatedAt =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updatedAt = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'width':
-          result.width =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.width = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'height':
-          result.height =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.height = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'color':
-          result.color =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.color = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'downloads':
-          result.downloads =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.downloads = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'likes':
-          result.likes =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.likes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'liked_by_user':
-          result.likedByUser =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )
-                  as bool?;
+          result.likedByUser = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool?;
           break;
         case 'description':
-          result.description =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.description = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'exif':
           result.exif.replace(

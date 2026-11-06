@@ -5,26 +5,44 @@ permissions: read-all
 
 on:
   push:
-    branches: [beta]
+    branches: [main, beta]
   pull_request:
-    branches: [beta]
+    branches: [main, beta]
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # Every day at midnight
 
 defaults:
   run:
     shell: bash
-  
+
+# A push that lands while an earlier run is still going supersedes it. Native
+# builds are the slowest jobs in the repo, so don't queue up duplicates.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   android-build:
+    # Gradle assembles every add_to_app host app, which is slow but not
+    # parallel-friendly; a generous timeout beats a mysterious 6-hour hang.
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
+    strategy:
+      fail-fast: false
+      matrix:
+        # Keep this matrix in sync with main.yml. During release prep the beta
+        # leg is the one that matters; after promotion both should be green.
+        flutter_version: [stable, beta]
+    name: Test Flutter ${{ matrix.flutter_version }} on Android
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
-          channel: stable
+          channel: ${{ matrix.flutter_version }}
       - run: ./tool/android_ci_script.sh

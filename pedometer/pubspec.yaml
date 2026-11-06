@@ -5,12 +5,13 @@ publish_to: none
 resolution: workspace
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
+  material_ui: any
   jni: ^0.14.2
   ffi: ^2.1.2
 

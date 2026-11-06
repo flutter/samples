@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:js_interop' as js;
 import 'dart:js_interop_unsafe' as js_util;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   runApp(const MyApp());

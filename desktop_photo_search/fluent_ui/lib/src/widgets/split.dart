@@ -5,7 +5,7 @@
 import 'dart:math';
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A widget that takes two children, lays them out along [axis], and allows
 /// the user to resize them.

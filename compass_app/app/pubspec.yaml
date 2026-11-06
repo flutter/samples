@@ -6,7 +6,7 @@ version: 0.1.0
 resolution: workspace
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies:
   cached_network_image: ^3.4.1
@@ -19,8 +19,9 @@ dependencies:
   go_router: ^16.0.0
   google_fonts: ^6.2.1
   intl: any
-  json_annotation: ^4.9.0
+  json_annotation: ^4.12.0
   logging: ^1.3.0
+  material_ui: any
   provider: ^6.1.2
   share_plus: ^10.1.3
   shared_preferences: ^2.3.5

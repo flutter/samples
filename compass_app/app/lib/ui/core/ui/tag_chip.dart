@@ -4,8 +4,8 @@
 
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../themes/colors.dart';
 
@@ -51,9 +51,9 @@ class TagChip extends StatelessWidget {
                     _iconFrom(tag),
                     color:
                         onChipColor ??
-                        Theme.of(
-                          context,
-                        ).extension<TagChipTheme>()?.onChipColor ??
+                        Theme.of(context)
+                            .extension<TagChipTheme>()
+                            ?.onChipColor ??
                         Colors.white,
                     size: fontSize,
                   ),

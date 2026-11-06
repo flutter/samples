@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:animations/src/misc/card_swipe.dart';
-import 'package:flutter/material.dart' hide Card;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart' hide Card;
 
 Widget createCardSwipeScreen() => const MaterialApp(home: CardSwipeDemo());
 

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class AlertDialogPage extends StatelessWidget {
   const AlertDialogPage({super.key});
@@ -6,7 +6,9 @@ class AlertDialogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(middle: Text('Alert Dialog')),
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Alert Dialog'),
+      ),
       child: Center(
         child: CupertinoButton(
           child: const Text('Show Alert Dialog'),

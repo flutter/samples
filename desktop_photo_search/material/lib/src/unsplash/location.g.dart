@@ -77,20 +77,16 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
       final Object? value = iterator.current;
       switch (key) {
         case 'city':
-          result.city =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.city = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'country':
-          result.country =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.country = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'position':
           result.position.replace(

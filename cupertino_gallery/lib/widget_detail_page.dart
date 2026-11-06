@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 import 'widgets/action_sheet_page.dart';
 import 'widgets/activity_indicator_page.dart';

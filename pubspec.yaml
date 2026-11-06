@@ -2,7 +2,7 @@ name: samples
 description: A collection of samples for Dart and Flutter.
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies: 
   flutter_lints: ^6.0.0
@@ -12,6 +12,7 @@ workspace:
   - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
   - add_to_app/books/flutter_module_books
   - add_to_app/fullscreen/flutter_module_fullscreen
+  - add_to_app/ios_content_resizing/flutter_module
   - add_to_app/multiple_flutters/multiple_flutters_module
   - add_to_app/plugin/flutter_module_using_plugin
   - add_to_app/prebuilt_module/flutter_module
@@ -45,16 +46,28 @@ workspace:
   - web_embedding/element_embedding_demo
   - web_embedding/ng-flutter/flutter
 
+# Read by tool/ci_script.dart and tool/release.dart. See tool/README.md.
+#
+# skip_ci:          always skipped, every channel
+# skip_ci_<channel>: skipped only on that channel (beta, stable, main). This is
+#                   the release valve -- park a sample here when it needs an API
+#                   that has not reached stable yet, with a comment naming the
+#                   issue, and empty it again once the version promotes.
 skip_ci:
-  - add_to_app/android_view/flutter_module_using_plugin_android_view
-  - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
-  - add_to_app/books/flutter_module_books
-  - add_to_app/fullscreen/flutter_module_fullscreen
-  - add_to_app/multiple_flutters/multiple_flutters_module
-  - add_to_app/plugin/flutter_module_using_plugin
-  - add_to_app/prebuilt_module/flutter_module
-  - cupertino_gallery
+  # - add_to_app/android_view/flutter_module_using_plugin_android_view
+  # - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
+  # - add_to_app/books/flutter_module_books
+  # - add_to_app/fullscreen/flutter_module_fullscreen
+  # - add_to_app/multiple_flutters/multiple_flutters_module
+  # - add_to_app/plugin/flutter_module_using_plugin
+  # - add_to_app/prebuilt_module/flutter_module
 
 skip_ci_beta:
   # - sample_name_to_skip
+
+# Packages that live on disk but are deliberately not workspace members.
+# Listing one here exempts it from the drift check in tool/ci_script.dart --
+# which also means CI never analyzes, formats, or tests it. Keep this empty.
+excluded_from_workspace:
+  # - some/package  # reason it cannot be a workspace member
 

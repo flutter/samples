@@ -56,13 +56,11 @@ List<SingleChildWidget> get providersRemote {
     Provider(create: (context) => ApiClient()),
     Provider(create: (context) => SharedPreferencesService()),
     ChangeNotifierProvider(
-      create: (context) =>
-          AuthRepositoryRemote(
-                authApiClient: context.read(),
-                apiClient: context.read(),
-                sharedPreferencesService: context.read(),
-              )
-              as AuthRepository,
+      create: (context) => AuthRepositoryRemote(
+        authApiClient: context.read(),
+        apiClient: context.read(),
+        sharedPreferencesService: context.read(),
+      ) as AuthRepository,
     ),
     Provider(
       create: (context) =>

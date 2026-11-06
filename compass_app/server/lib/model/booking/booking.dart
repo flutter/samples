@@ -8,7 +8,7 @@ part 'booking.freezed.dart';
 part 'booking.g.dart';
 
 @freezed
-class Booking with _$Booking {
+abstract class Booking with _$Booking {
   const factory Booking({
     /// Booking ID. Generated when stored in server.
     int? id,

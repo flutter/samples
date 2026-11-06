@@ -1,8 +1,17 @@
 #!/bin/bash
 
-set -e
+# `pipefail` matters here: every xcodebuild invocation below is piped
+# through xcpretty, and without it the pipeline reports xcpretty's exit
+# code and a failing build can pass CI.
+set -eo pipefail
 
 flutter doctor -v
+
+# Referenced in the progress output below. The workflow picks the
+# channel via subosito/flutter-action, so read it back from the SDK.
+FLUTTER_VERSION="$(flutter --version --machine | tr -d '\n' \
+  | sed -n 's/.*"channel"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
+echo "Running on Flutter channel: ${FLUTTER_VERSION}"
 
 ###############################################################################
 # Helper functions
@@ -55,9 +64,10 @@ flutter build ios-framework --xcframework --output="$(pwd)/../ios_using_prebuilt
 popd
 
 flutter_packages_get "add_to_app/books/flutter_module_books"
-flutter_packages_get "add_to_app/fullscreen/flutter_module"
+flutter_packages_get "add_to_app/fullscreen/flutter_module_fullscreen"
 flutter_packages_get "add_to_app/multiple_flutters/multiple_flutters_module"
 flutter_packages_get "add_to_app/plugin/flutter_module_using_plugin"
+flutter_packages_get "add_to_app/ios_content_resizing/flutter_module"
 
 ###############################################################################
 # Build projects
@@ -67,6 +77,7 @@ build "add_to_app/books/ios_books" "IosBooks.xcworkspace" "IosBooks"
 build "add_to_app/fullscreen/ios_fullscreen" "IOSFullScreen.xcworkspace" "IOSFullScreen"
 build "add_to_app/multiple_flutters/multiple_flutters_ios" "MultipleFluttersIos.xcworkspace" "MultipleFluttersIos"
 build "add_to_app/plugin/ios_using_plugin" "IOSUsingPlugin.xcworkspace" "IOSUsingPlugin"
+build "add_to_app/ios_content_resizing/ios_content_resizing" "ios_content_resizing.xcworkspace" "ios_content_resizing"
 
 echo "== Testing 'add_to_app/prebuilt_module/ios_using_prebuilt_module' on Flutter's $FLUTTER_VERSION channel =="
 pushd "add_to_app/prebuilt_module/ios_using_prebuilt_module"

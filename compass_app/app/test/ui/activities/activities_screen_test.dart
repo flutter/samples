@@ -6,8 +6,8 @@ import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart
 import 'package:compass_app/ui/activities/view_models/activities_viewmodel.dart';
 import 'package:compass_app/ui/activities/widgets/activities_screen.dart';
 import 'package:compass_app/ui/activities/widgets/activity_entry.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class SlidingSegmentedControlPage extends StatefulWidget {
   const SlidingSegmentedControlPage({super.key});

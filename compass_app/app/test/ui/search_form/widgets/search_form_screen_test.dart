@@ -8,8 +8,8 @@ import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dar
 import 'package:compass_app/ui/search_form/widgets/search_form_guests.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_screen.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_submit.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 
