@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: ^1.10.0
   provider: ^6.0.2
 
 dev_dependencies:
