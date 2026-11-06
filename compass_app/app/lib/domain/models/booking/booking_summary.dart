@@ -14,7 +14,7 @@ part 'booking_summary.g.dart';
 /// Use the [BookingRepository] to obtain a full [Booking]
 /// using the [BookingSummary.id].
 @freezed
-class BookingSummary with _$BookingSummary {
+abstract class BookingSummary with _$BookingSummary {
   const factory BookingSummary({
     /// Booking id
     required int id,

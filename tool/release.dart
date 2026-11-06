@@ -1,3 +1,31 @@
+// Copyright 2025 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// ignore_for_file: avoid_print
+
+/// Prepares every sample in the workspace for a new Flutter release.
+///
+/// For each package in the root `pubspec.yaml` workspace this script:
+///   1. rewrites `environment.sdk` to the active SDK's Dart version,
+///   2. re-resolves the workspace once,
+///   3. runs the analyzer, rewrites formatting, and runs the tests,
+///   4. writes every problem it saw to `logs/release_logs_<timestamp>.log`.
+///
+/// Unlike `tool/ci_script.dart`, this script *fixes* formatting instead of
+/// checking it -- it is meant to be run by a maintainer who will review and
+/// commit the diff. Run it on the channel you are releasing for:
+///
+/// ```
+/// flutter channel beta && flutter upgrade
+/// dart tool/release.dart --dry-run   # preview
+/// dart tool/release.dart
+/// ```
+///
+/// See `docs/release_process.md` for where this fits in the release.
+library;
+
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
@@ -13,20 +41,71 @@ void main(List<String> arguments) async {
   await runner.run(arguments);
 }
 
+/// The outcome of processing a single package.
+class ProjectResult {
+  ProjectResult(this.path, this.issues);
+
+  final String path;
+
+  /// Human-readable descriptions of what failed. Empty means success.
+  final List<String> issues;
+
+  bool get passed => issues.isEmpty;
+}
+
 class ReleaseScriptRunner {
   late final File _logFile;
   bool _isDryRun = false;
+  bool _skipTests = false;
 
   Future<void> run(List<String> arguments) async {
     final parser = ArgParser()
       ..addFlag(
+        'help',
+        abbr: 'h',
+        negatable: false,
+        help: 'Print this usage information.',
+      )
+      ..addFlag(
         'dry-run',
         negatable: false,
-        help:
-            'Prints the commands that would be executed, but does not run them.',
+        help: 'Prints the commands that would be executed, but does not run them.',
+      )
+      ..addFlag(
+        'skip-tests',
+        negatable: false,
+        help: 'Only update constraints, analyze, and format. Skips tests.',
+      )
+      ..addFlag(
+        'no-bump',
+        negatable: false,
+        help: 'Leave `environment.sdk` alone and only analyze, format, and test.',
       );
-    final argResults = parser.parse(arguments);
+
+    final ArgResults argResults;
+    try {
+      argResults = parser.parse(arguments);
+    } on FormatException catch (e) {
+      print('${e.message}\n');
+      print(parser.usage);
+      exit(64);
+    }
+    if (argResults['help'] as bool) {
+      print('Prepares every sample in the workspace for a Flutter release.\n');
+      print(parser.usage);
+      return;
+    }
     _isDryRun = argResults['dry-run'] as bool;
+    _skipTests = argResults['skip-tests'] as bool;
+    final noBump = argResults['no-bump'] as bool;
+
+    if (!File('pubspec.yaml').existsSync()) {
+      log(
+        red.wrap('No pubspec.yaml here. Run this from the repo root.'),
+        stderr,
+      );
+      exit(1);
+    }
 
     _setupLogging();
 
@@ -52,7 +131,11 @@ class ReleaseScriptRunner {
       log(red.wrap('Failed to get Dart SDK version.'), stderr);
       exit(1);
     }
-    log(blue.wrap('Using Dart SDK version: $dartVersion'), stdout);
+    final channel = await _getChannel();
+    log(
+      blue.wrap('Using Dart SDK version: $dartVersion (channel: $channel)'),
+      stdout,
+    );
 
     final packages = await _getWorkspacePackages();
     if (packages.isEmpty) {
@@ -63,22 +146,68 @@ class ReleaseScriptRunner {
       exit(0);
     }
 
+    // Honor the same skip lists CI uses, so this script and CI agree about
+    // which samples are expected to be green.
+    final skips = await _getSkips(channel);
+    final targets = packages.where((p) => !skips.contains(p)).toList();
+    final skipped = packages.where(skips.contains).toList();
+
     log(
       blue.wrap(
-        'Found ${packages.length} Flutter project(s): ${packages.join(', ')}',
+        'Found ${packages.length} package(s); processing ${targets.length}.',
       ),
       stdout,
     );
+    if (skipped.isNotEmpty) {
+      log(
+        yellow.wrap('Skipping (per skip lists): ${skipped.join(', ')}'),
+        stdout,
+      );
+    }
 
-    final failedProjects = <String>[];
-    for (final packagePath in packages) {
-      final success = await _processProject(packagePath, dartVersion);
-      if (!success) {
-        failedProjects.add(packagePath);
+    // Rewrite constraints for every package first, then resolve the workspace
+    // once. Resolving per package would fail on the packages not yet bumped.
+    if (!noBump) {
+      log(
+        blue.wrap('\nUpdating SDK constraints to use Dart $dartVersion'),
+        stdout,
+      );
+      // The root pubspec is part of the workspace resolution and needs the
+      // same floor, but it is not listed inside its own `workspace:` key.
+      for (final target in ['.', ...targets]) {
+        if (!await _updateSdkConstraints(target, dartVersion)) {
+          log(
+            red.wrap('Failed to update SDK constraints for $target'),
+            stderr,
+          );
+          exit(1);
+        }
+      }
+      final (resolved, output) = await _runCommand('flutter', [
+        'pub',
+        'get',
+      ], workingDirectory: '.');
+      if (!resolved) {
+        log(
+          red.wrap(
+            '`flutter pub get` failed after bumping constraints. The SDK '
+            'floor is probably higher than the active SDK, or a dependency '
+            'has no compatible version. Aborting.',
+          ),
+          stderr,
+        );
+        logToFile('- Workspace resolution failed after bump');
+        logToFile('-- $output');
+        exit(1);
       }
     }
 
-    _printSummary(packages.length, failedProjects);
+    final results = <ProjectResult>[];
+    for (final packagePath in targets) {
+      results.add(await _processProject(packagePath));
+    }
+
+    _printSummary(results, skipped);
 
     log(
       styleBold.wrap(
@@ -87,7 +216,7 @@ class ReleaseScriptRunner {
       stdout,
     );
 
-    if (failedProjects.isNotEmpty) {
+    if (results.any((r) => !r.passed)) {
       exit(1);
     }
   }
@@ -123,36 +252,38 @@ class ReleaseScriptRunner {
     }
   }
 
-  Future<String?> _getDartVersion() async {
+  Future<Map<String, Object?>?> _flutterMachineInfo() async {
     try {
-      final result = await Process.run('flutter', ['--version', '--machine']);
-      if (result.exitCode == 0) {
-        final json = loadYaml(result.stdout as String) as YamlMap;
-        final fullDartVersion = json['dartSdkVersion'] as String?;
-        if (fullDartVersion != null) {
-          return fullDartVersion.split(' ').first;
-        }
-        return null;
-      }
+      final result = await Process.run('flutter', [
+        '--version',
+        '--machine',
+      ], runInShell: true);
+      if (result.exitCode != 0) return null;
+      return jsonDecode(result.stdout as String) as Map<String, Object?>;
     } catch (e) {
-      log(red.wrap('Error getting Dart SDK version: $e'), stderr);
+      log(red.wrap('Error reading Flutter version info: $e'), stderr);
+      return null;
     }
-    return null;
+  }
+
+  Future<String?> _getDartVersion() async {
+    final info = await _flutterMachineInfo();
+    // e.g. "3.14.0 (build 3.14.0-315.3.beta)" -> "3.14.0"
+    return (info?['dartSdkVersion'] as String?)?.split(' ').first;
+  }
+
+  Future<String> _getChannel() async {
+    final info = await _flutterMachineInfo();
+    return (info?['channel'] as String?) ?? 'unknown';
   }
 
   Future<List<String>> _getWorkspacePackages() async {
-    final rootPubspec = File('pubspec.yaml');
-    if (!rootPubspec.existsSync()) {
-      log(red.wrap('Root pubspec.yaml not found!'), stderr);
-      return [];
-    }
-
     try {
-      final content = await rootPubspec.readAsString();
-      final yaml = loadYaml(content) as YamlMap;
+      final yaml =
+          loadYaml(await File('pubspec.yaml').readAsString()) as YamlMap;
       final workspace = yaml['workspace'] as YamlList?;
       if (workspace != null) {
-        return workspace.nodes.map((node) => node.value as String).toList();
+        return workspace.map((node) => node.toString()).toList();
       }
     } catch (e) {
       log(red.wrap('Error reading workspace packages: $e'), stderr);
@@ -160,33 +291,34 @@ class ReleaseScriptRunner {
     return [];
   }
 
-  Future<bool> _processProject(String projectPath, String dartVersion) async {
+  /// `skip_ci` plus `skip_ci_<channel>` from the root pubspec.
+  Future<Set<String>> _getSkips(String channel) async {
+    try {
+      final yaml =
+          loadYaml(await File('pubspec.yaml').readAsString()) as YamlMap;
+      return {
+        for (final key in ['skip_ci', 'skip_ci_$channel'])
+          if (yaml[key] case final YamlList list)
+            ...list.map((e) => e.toString()),
+      };
+    } catch (e) {
+      log(yellow.wrap('Could not read skip lists: $e'), stderr);
+      return const {};
+    }
+  }
+
+  Future<ProjectResult> _processProject(String projectPath) async {
     final projectName = p.basename(projectPath);
-    final projectDir = Directory(projectPath);
     final issues = <String>[];
 
-    if (!projectDir.existsSync()) {
+    if (!Directory(projectPath).existsSync()) {
       log(red.wrap('Project directory not found: $projectPath'), stderr);
-      return false;
+      return ProjectResult(projectPath, ['directory not found']);
     }
 
     log(styleBold.wrap('\n========================================='), stdout);
     log(styleBold.wrap('Processing project: $projectName'), stdout);
     log(styleBold.wrap('=========================================')!, stdout);
-
-    log(
-      blue.wrap('Updating SDK constraints to use Dart $dartVersion'),
-      stdout,
-    );
-    if (!_isDryRun) {
-      if (!await _updateSdkConstraints(projectPath, dartVersion)) {
-        log(
-          red.wrap('Failed to update SDK constraints for $projectName'),
-          stderr,
-        );
-        return false;
-      }
-    }
 
     final commands = [
       Command('dart analyze', 'Running dart analyze...', 'dart', [
@@ -194,16 +326,24 @@ class ReleaseScriptRunner {
         '--fatal-infos',
         '--fatal-warnings',
       ]),
+      // Rewrites files on purpose. This script produces a diff to review.
       Command('dart format', 'Running dart format...', 'dart', [
         'format',
         '.',
       ]),
     ];
 
-    final testDir = Directory(p.join(projectPath, 'test'));
-    if (projectName != 'material_3_demo' && testDir.existsSync()) {
+    if (!_skipTests && Directory(p.join(projectPath, 'test')).existsSync()) {
+      final pubspec = File(
+        p.join(projectPath, 'pubspec.yaml'),
+      ).readAsStringSync();
       commands.add(
-        Command('flutter test', 'Running tests...', 'flutter', ['test']),
+        pubspec.contains('sdk: flutter')
+            ? Command('flutter test', 'Running tests...', 'flutter', [
+                'test',
+                '--no-pub',
+              ])
+            : Command('dart test', 'Running tests...', 'dart', ['test']),
       );
     }
 
@@ -221,36 +361,21 @@ class ReleaseScriptRunner {
           red.wrap('${command.displayName} failed for $projectName'),
           stderr,
         );
-
-        if (command.displayName == 'pub upgrade' ||
-            command.displayName == 'pub get' &&
-                output.contains('Failed to update packages.')) {
-          issues.add(output);
-        }
-
-        if (command.displayName == 'dart analyze' &&
-                output.contains('issue found.') ||
-            output.contains('issues found.')) {
-          issues.add(output);
-        }
-
-        if (command.displayName == 'flutter test' &&
-            !output.contains('All tests passed!')) {
-          issues.add(output);
-        }
+        issues.add('${command.displayName} failed');
+        logToFile('- ${command.displayName} failed in $projectName');
+        if (!_isOnlyWhitespace(output)) logToFile('-- $output');
       }
     }
 
-    if (issues.isNotEmpty) {
-      logToFile('- Issues found in $projectName');
-      for (final issue in issues) {
-        if (_isOnlyWhitespace(issue)) continue;
-        logToFile('-- $issue');
-      }
+    if (issues.isEmpty) {
+      log(green.wrap('Successfully processed $projectName'), stdout);
+    } else {
+      log(
+        red.wrap('$projectName finished with ${issues.length} issue(s)'),
+        stderr,
+      );
     }
-
-    log(green.wrap('Successfully processed $projectName'), stdout);
-    return true;
+    return ProjectResult(projectPath, issues);
   }
 
   Future<bool> _updateSdkConstraints(
@@ -263,18 +388,32 @@ class ReleaseScriptRunner {
       return false;
     }
 
+    final newConstraint = '^$versionString-0';
+    if (_isDryRun) {
+      log(
+        yellow.wrap(
+          '  [DRY RUN] Would set environment.sdk to `$newConstraint` in '
+          '`$projectDir/pubspec.yaml`',
+        ),
+        stdout,
+      );
+      return true;
+    }
+
     try {
-      final newConstraint = '^$versionString-0';
-
-      final content = await pubspecFile.readAsString();
-      final editor = YamlEditor(content);
+      final editor = YamlEditor(await pubspecFile.readAsString());
+      final current = editor.parseAt([
+        'environment',
+        'sdk',
+      ], orElse: () => wrapAsYamlNode(null)).value;
+      if (current == newConstraint) {
+        log(blue.wrap('  $projectDir already at $newConstraint'), stdout);
+        return true;
+      }
       editor.update(['environment', 'sdk'], newConstraint);
-
       await pubspecFile.writeAsString(editor.toString());
       log(
-        blue.wrap(
-          'Updated Dart SDK constraint in $projectDir to: $newConstraint',
-        ),
+        blue.wrap('  $projectDir: $current -> $newConstraint'),
         stdout,
       );
       return true;
@@ -310,14 +449,14 @@ class ReleaseScriptRunner {
       runInShell: true,
     );
 
-    StringBuffer output = StringBuffer('');
+    final output = StringBuffer();
 
     final stdoutFuture = process.stdout
         .transform(SystemEncoding().decoder)
         .forEach((line) {
           log(line, stdout);
           if (!_isOnlyWhitespace(line)) {
-            output.writeln(line.trim().padLeft(2));
+            output.writeln(line.trim());
           }
         });
 
@@ -326,7 +465,7 @@ class ReleaseScriptRunner {
         .forEach((line) {
           log(red.wrap(line), stderr);
           if (!_isOnlyWhitespace(line)) {
-            output.writeln(line.trim().padLeft(2));
+            output.writeln(line.trim());
           }
         });
 
@@ -335,20 +474,28 @@ class ReleaseScriptRunner {
     return (await process.exitCode == 0, output.toString());
   }
 
-  void _printSummary(int total, List<String> failed) {
+  void _printSummary(List<ProjectResult> results, List<String> skipped) {
+    final failed = results.where((r) => !r.passed).toList();
+
     log(
       styleBold.wrap('\n=========================================')!,
       stdout,
     );
     log(styleBold.wrap('Update Summary')!, stdout);
     log(styleBold.wrap('=========================================')!, stdout);
-    log(blue.wrap('Total projects processed: $total'), stdout);
-    log(green.wrap('Successful: ${total - failed.length}'), stdout);
-
-    if (failed.isNotEmpty) {
-      log(red.wrap('Failed: ${failed.length}'), stderr);
-      log(red.wrap('Failed projects: ${failed.join(', ')}'), stderr);
+    log(blue.wrap('Total projects processed: ${results.length}'), stdout);
+    log(green.wrap('Successful: ${results.length - failed.length}'), stdout);
+    if (skipped.isNotEmpty) {
+      log(yellow.wrap('Skipped: ${skipped.length}'), stdout);
     }
+
+    if (failed.isEmpty) return;
+
+    log(red.wrap('Failed: ${failed.length}'), stderr);
+    for (final result in failed) {
+      log(red.wrap('  - ${result.path}: ${result.issues.join(', ')}'), stderr);
+    }
+    log(blue.wrap('\nDetails in ${_logFile.path}'), stdout);
   }
 
   String _stripAnsiCodes(String text) {

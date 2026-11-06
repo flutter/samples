@@ -13,21 +13,20 @@ class SheetPage extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               CupertinoSheetRoute<void>(
-                scrollableBuilder:
-                    (context, controller) {
-                      return CupertinoPageScaffold(
-                        navigationBar: CupertinoNavigationBar(
-                          middle: const Text('Sheet'),
-                          trailing: GestureDetector(
-                            child: const Icon(CupertinoIcons.xmark),
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ),
-                        child: const Center(child: Text('This is a sheet')),
-                      );
-                    },
+                scrollableBuilder: (context, controller) {
+                  return CupertinoPageScaffold(
+                    navigationBar: CupertinoNavigationBar(
+                      middle: const Text('Sheet'),
+                      trailing: GestureDetector(
+                        child: const Icon(CupertinoIcons.xmark),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+                    child: const Center(child: Text('This is a sheet')),
+                  );
+                },
               ),
             );
           },

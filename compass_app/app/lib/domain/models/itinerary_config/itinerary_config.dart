@@ -9,7 +9,7 @@ part 'itinerary_config.freezed.dart';
 part 'itinerary_config.g.dart';
 
 @freezed
-class ItineraryConfig with _$ItineraryConfig {
+abstract class ItineraryConfig with _$ItineraryConfig {
   const factory ItineraryConfig({
     /// [Continent] name
     String? continent,

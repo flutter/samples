@@ -67,9 +67,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   Expanded(
                     child: Center(
                       child: ErrorIndicator(
-                        title: AppLocalization.of(
-                          context,
-                        ).errorWhileLoadingDestinations,
+                        title: AppLocalization.of(context)
+                            .errorWhileLoadingDestinations,
                         label: AppLocalization.of(context).tryAgain,
                         onPressed: widget.viewModel.search.execute,
                       ),

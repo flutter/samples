@@ -4,6 +4,12 @@ set -e
 
 flutter doctor -v
 
+# Referenced in the progress output below. The workflow picks the
+# channel via subosito/flutter-action, so read it back from the SDK.
+FLUTTER_VERSION="$(flutter --version --machine | tr -d '\n' \
+  | sed -n 's/.*"channel"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
+echo "Running on Flutter channel: ${FLUTTER_VERSION}"
+
 echo "Fetching dependencies and building 'prebuilt_module/flutter_module/'."
 pushd add_to_app/prebuilt_module/flutter_module/
 flutter packages get
@@ -16,7 +22,7 @@ flutter packages get
 popd
 
 echo "Fetching dependencies for 'fullscreen/'."
-pushd add_to_app/fullscreen/flutter_module
+pushd add_to_app/fullscreen/flutter_module_fullscreen
 flutter packages get
 popd
 
@@ -34,7 +40,7 @@ declare -ar ANDROID_PROJECT_NAMES=(
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's stable channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
     pushd "${PROJECT_NAME}"
 
     ./gradlew --stacktrace assembleDebug
@@ -59,8 +65,8 @@ fi
 echo "== Espresso testing 'android_fullscreen' on Flutter's ${FLUTTER_VERSION} channel =="
 pushd "add_to_app/fullscreen/android_fullscreen"
 ./gradlew app:assembleAndroidTest
-./gradlew app:assembleDebug -Ptarget=../flutter_module/test_driver/example.dart
-gcloud auth activate-service-account --key-file=../../svc-keyfile.json
+./gradlew app:assembleDebug -Ptarget=../flutter_module_fullscreen/test_driver/example.dart
+gcloud auth activate-service-account --key-file=../../../svc-keyfile.json
 gcloud --quiet config set project test-lab-project-ccbec
 gcloud firebase test android run --type instrumentation \
   --app app/build/outputs/apk/debug/app-debug.apk \

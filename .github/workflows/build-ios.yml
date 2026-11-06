@@ -5,29 +5,44 @@ permissions: read-all
 
 on:
   push:
-    branches: [beta]
+    branches: [main, beta]
   pull_request:
-    branches: [beta]
+    branches: [main, beta]
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # Every day at midnight
 
 defaults:
   run:
     shell: bash
-  
+
+# macOS runners are the most expensive in the matrix, so supersede superseded
+# runs rather than letting them pile up.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   ios-build:
-    name: Test flutter beta channel
+    name: Test Flutter ${{ matrix.flutter_version }} on iOS
+    # `pod install` plus a Debug and Release xcodebuild for every add_to_app
+    # host app. Slow, but it should never approach an hour.
+    timeout-minutes: 90
     runs-on: macos-latest
     if: github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
+      matrix:
+        # Keep this matrix in sync with main.yml. During release prep the beta
+        # leg is the one that matters; after promotion both should be green.
+        flutter_version: [stable, beta]
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
-          channel: beta
+          channel: ${{ matrix.flutter_version }}
       - run: ./tool/ios_ci_script.sh

@@ -61,8 +61,7 @@ class FakeApiClient implements ApiClient {
       return Result.ok([
         const Activity(
           name: 'Glacier Trekking and Ice Climbing',
-          description:
-              'Embark on a thrilling adventure exploring the awe-inspiring glaciers of Alaska. Hike across the icy terrain, marvel at the deep blue crevasses, and even try your hand at ice climbing for an unforgettable experience.',
+          description: 'Embark on a thrilling adventure exploring the awe-inspiring glaciers of Alaska. Hike across the icy terrain, marvel at the deep blue crevasses, and even try your hand at ice climbing for an unforgettable experience.',
           locationName: 'Matanuska Glacier or Mendenhall Glacier',
           duration: 8,
           timeOfDay: TimeOfDay.morning,
@@ -70,8 +69,7 @@ class FakeApiClient implements ApiClient {
           price: 4,
           destinationRef: 'alaska',
           ref: 'glacier-trekking-and-ice-climbing',
-          imageUrl:
-              'https://storage.googleapis.com/tripedia-images/activities/alaska_glacier-trekking-and-ice-climbing.jpg',
+          imageUrl: 'https://storage.googleapis.com/tripedia-images/activities/alaska_glacier-trekking-and-ice-climbing.jpg',
         ),
       ]);
     }

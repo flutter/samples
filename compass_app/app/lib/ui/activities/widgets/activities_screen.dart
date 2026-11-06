@@ -71,9 +71,8 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                   Expanded(
                     child: Center(
                       child: ErrorIndicator(
-                        title: AppLocalization.of(
-                          context,
-                        ).errorWhileLoadingActivities,
+                        title: AppLocalization.of(context)
+                            .errorWhileLoadingActivities,
                         label: AppLocalization.of(context).tryAgain,
                         onPressed: widget.viewModel.loadActivities.execute,
                       ),
@@ -163,9 +162,8 @@ class _BottomArea extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppLocalization.of(
-                  context,
-                ).selected(viewModel.selectedActivities.length),
+                AppLocalization.of(context)
+                    .selected(viewModel.selectedActivities.length),
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               FilledButton(
