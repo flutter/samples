@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+
 import 'package:web/web.dart';
 
 /// Locates the root of the flutter app (for now, the first element that has

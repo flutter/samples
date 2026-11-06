@@ -147,12 +147,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
                   as String;
           break;
         case 'updated_at':
-          result.updatedAt =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updatedAt = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'username':
           result.username =
@@ -171,52 +169,40 @@ class _$UserSerializer implements StructuredSerializer<User> {
                   as String;
           break;
         case 'portfolio_url':
-          result.portfolioUrl =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.portfolioUrl = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'bio':
-          result.bio =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.bio = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'location':
-          result.location =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.location = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String?;
           break;
         case 'total_likes':
-          result.totalLikes =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.totalLikes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'total_photos':
-          result.totalPhotos =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.totalPhotos = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'total_collections':
-          result.totalCollections =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )
-                  as int?;
+          result.totalCollections = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int?;
           break;
         case 'links':
           result.links.replace(

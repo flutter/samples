@@ -712,13 +712,9 @@ class HealthConnectClient extends jni$_.JObject {
     ReadRecordsRequest<$T> readRecordsRequest, {
     jni$_.JObjType<$T>? T,
   }) async {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (readRecordsRequest.$type
-                      as $ReadRecordsRequest$Type<core$_.dynamic>)
-                  .T,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (readRecordsRequest.$type as $ReadRecordsRequest$Type<core$_.dynamic>).T,
+    ]) as jni$_.JObjType<$T>;
     final $p = jni$_.ReceivePort();
     final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
       $p,
@@ -2141,10 +2137,11 @@ class PermissionController$Companion extends jni$_.JObject {
   /// The type which includes information such as the signature of this class.
   static const nullableType = $PermissionController$Companion$NullableType();
   static const type = $PermissionController$Companion$Type();
-  static final _id_createRequestPermissionResultContract = _class.instanceMethodId(
-    r'createRequestPermissionResultContract',
-    r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
-  );
+  static final _id_createRequestPermissionResultContract = _class
+      .instanceMethodId(
+        r'createRequestPermissionResultContract',
+        r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
+      );
 
   static final _createRequestPermissionResultContract =
       jni$_.ProtectedJniExtensions.lookup<
@@ -2419,10 +2416,11 @@ class PermissionController extends jni$_.JObject {
     return const jni$_.JObjectType().fromReference($o);
   }
 
-  static final _id_createRequestPermissionResultContract = _class.staticMethodId(
-    r'createRequestPermissionResultContract',
-    r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
-  );
+  static final _id_createRequestPermissionResultContract = _class
+      .staticMethodId(
+        r'createRequestPermissionResultContract',
+        r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
+      );
 
   static final _createRequestPermissionResultContract =
       jni$_.ProtectedJniExtensions.lookup<
@@ -30561,12 +30559,9 @@ class AggregationResult extends jni$_.JObject {
     AggregateMetric<$T> aggregateMetric, {
     jni$_.JObjType<$T>? T,
   }) {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>)
-                  .T,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>).T,
+    ]) as jni$_.JObjType<$T>;
     final _$aggregateMetric = aggregateMetric.reference;
     return _getMetric(
       reference.pointer,
@@ -30604,12 +30599,9 @@ class AggregationResult extends jni$_.JObject {
     AggregateMetric<$T> aggregateMetric, {
     jni$_.JObjType<$T>? T,
   }) {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>)
-                  .T,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>).T,
+    ]) as jni$_.JObjType<$T>;
     final _$aggregateMetric = aggregateMetric.reference;
     return _get(
       reference.pointer,
@@ -31850,16 +31842,14 @@ class AggregateMetric<$T extends jni$_.JObject> extends jni$_.JObject {
     jni$_.JString? string1, {
     jni$_.JObjType<$T>? T,
   }) {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (converter.$type
-                      as $AggregateMetric$Converter$Type<
-                        core$_.dynamic,
-                        core$_.dynamic
-                      >)
-                  .R,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (converter.$type
+              as $AggregateMetric$Converter$Type<
+                core$_.dynamic,
+                core$_.dynamic
+              >)
+          .R,
+    ]) as jni$_.JObjType<$T>;
     final _$converter = converter.reference;
     final _$string = string.reference;
     final _$aggregationType = aggregationType.reference;

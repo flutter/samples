@@ -9,7 +9,7 @@ part 'continent.freezed.dart';
 part 'continent.g.dart';
 
 @freezed
-class Continent with _$Continent {
+abstract class Continent with _$Continent {
   const factory Continent({
     /// e.g. 'Europe'
     required String name,

@@ -323,8 +323,7 @@ class _ButtonsState extends State<Buttons> {
   Widget build(BuildContext context) {
     return const ComponentDecoration(
       label: 'Common buttons',
-      tooltipMessage:
-          'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
+      tooltipMessage: 'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
@@ -794,8 +793,7 @@ class _DialogsState extends State<Dialogs> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Dialog',
-      tooltipMessage:
-          'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
+      tooltipMessage: 'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: [
@@ -1233,8 +1231,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Icon buttons',
-      tooltipMessage:
-          'Use IconButton, IconButton.filled, IconButton.filledTonal, and IconButton.outlined',
+      tooltipMessage: 'Use IconButton, IconButton.filled, IconButton.filledTonal, and IconButton.outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -1346,8 +1343,7 @@ class _ChipsState extends State<Chips> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Chips',
-      tooltipMessage:
-          'Use ActionChip, FilterChip, or InputChip. \nActionChip can also be used for suggestion chip',
+      tooltipMessage: 'Use ActionChip, FilterChip, or InputChip. \nActionChip can also be used for suggestion chip',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -1901,8 +1897,7 @@ class NavigationDrawers extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Navigation drawer',
-      tooltipMessage:
-          'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
+      tooltipMessage: 'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
       child: Column(
         children: [
           const SizedBox(height: 520, child: NavigationDrawerSection()),
@@ -2146,8 +2141,7 @@ class TopAppBars extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Top app bars',
-      tooltipMessage:
-          'Use AppBar, SliverAppBar, SliverAppBar.medium, or  SliverAppBar.large',
+      tooltipMessage: 'Use AppBar, SliverAppBar, SliverAppBar.medium, or  SliverAppBar.large',
       child: Column(
         children: [
           AppBar(

@@ -12,7 +12,7 @@ dependencies:
   shelf: ^1.4.0
   shelf_router: ^1.1.0
   freezed_annotation: ^3.0.0
-  json_annotation: ^4.9.0
+  json_annotation: ^4.12.0
 
 dev_dependencies:
   http: ^1.1.0
