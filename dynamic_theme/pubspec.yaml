@@ -13,6 +13,7 @@ dependencies:
   google_generative_ai: ^0.4.0
   url_launcher: ^6.2.6
 
+  material_ui: any
 dev_dependencies:
   analysis_defaults:
     path: ../analysis_defaults

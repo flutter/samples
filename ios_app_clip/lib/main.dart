@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:device_info/device_info.dart';
-import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(const Demo());

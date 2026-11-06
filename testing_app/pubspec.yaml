@@ -13,6 +13,7 @@ dependencies:
   provider: ^6.0.2
   go_router: ^16.0.0
 
+  material_ui: any
 dev_dependencies:
   analysis_defaults:
     path: ../analysis_defaults

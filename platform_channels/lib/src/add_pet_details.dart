@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:platform_channels/src/pet_list_message_channel.dart';
 
 /// Demonstrates how to use [BasicMessageChannel] to send a message to platform.

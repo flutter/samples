@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 Future<void> main() async {
   runApp(const MyApp());

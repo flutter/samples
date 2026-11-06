@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:ui' as ui;
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class CarouselDemo extends StatelessWidget {
   CarouselDemo({super.key});

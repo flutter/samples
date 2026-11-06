@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: any
 dev_dependencies:
   analysis_defaults:
     path: ../analysis_defaults

@@ -13,6 +13,7 @@ dependencies:
   url_launcher: ^6.3.2
   sensors_plus: ^6.1.1
 
+  material_ui: any
 dev_dependencies:
   analysis_defaults:
     path: ../../../analysis_defaults

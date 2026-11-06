@@ -4,7 +4,7 @@
 
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 Color generateColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 

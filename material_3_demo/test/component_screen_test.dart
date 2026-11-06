@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// ignore_for_file: avoid_types_on_closure_parameters
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_3_demo/main.dart';
 import 'package:material_3_demo/src/component_screen.dart';
+// ignore_for_file: avoid_types_on_closure_parameters
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   testWidgets('Default main page shows all M3 components', (tester) async {
