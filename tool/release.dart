@@ -22,7 +22,7 @@
 /// dart tool/release.dart
 /// ```
 ///
-/// See `docs/release_process.md` for where this fits in the release.
+/// See `RELEASE.md` for where this fits in the release.
 library;
 
 import 'dart:convert';

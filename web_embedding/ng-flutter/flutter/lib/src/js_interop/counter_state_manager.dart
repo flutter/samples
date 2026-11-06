@@ -22,12 +22,10 @@ enum DemoScreen {
 class DemoAppStateManager {
   // Creates a DemoAppStateManager wrapping a ValueNotifier.
   DemoAppStateManager({
-    required ValueNotifier<DemoScreen> screen,
-    required ValueNotifier<int> counter,
-    required ValueNotifier<String> text,
-  }) : _counter = counter,
-       _text = text,
-       _screen = screen;
+    required this._screen,
+    required this._counter,
+    required this._text,
+  });
 
   final ValueNotifier<DemoScreen> _screen;
   final ValueNotifier<int> _counter;

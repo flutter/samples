@@ -32,7 +32,7 @@ jobs:
         # The `beta` leg is expected to go red during a release cycle whenever
         # a sample needs an API that has not reached stable yet. Use the
         # `skip_ci_beta` list in the root pubspec.yaml to park a sample, and
-        # see docs/release_process.md.
+        # see RELEASE.md.
         flutter_version: [stable, beta]
         os: [ubuntu-latest, macos-latest]
     steps:

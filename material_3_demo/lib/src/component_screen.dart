@@ -148,10 +148,7 @@ class _CacheHeight extends SingleChildRenderObjectWidget {
 }
 
 class _RenderCacheHeight extends RenderProxyBox {
-  _RenderCacheHeight({required List<double?> heights, required int index})
-    : _heights = heights,
-      _index = index,
-      super();
+  _RenderCacheHeight({required this._heights, required this._index});
 
   List<double?> _heights;
   List<double?> get heights => _heights;
