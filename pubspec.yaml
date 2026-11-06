@@ -2,7 +2,7 @@ name: samples
 description: A collection of samples for Dart and Flutter.
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies: 
   flutter_lints: ^6.0.0
@@ -12,6 +12,7 @@ workspace:
   - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
   - add_to_app/books/flutter_module_books
   - add_to_app/fullscreen/flutter_module_fullscreen
+  - add_to_app/ios_content_resizing/flutter_module
   - add_to_app/multiple_flutters/multiple_flutters_module
   - add_to_app/plugin/flutter_module_using_plugin
   - add_to_app/prebuilt_module/flutter_module
@@ -46,13 +47,13 @@ workspace:
   - web_embedding/ng-flutter/flutter
 
 skip_ci:
-  - add_to_app/android_view/flutter_module_using_plugin_android_view
-  - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
-  - add_to_app/books/flutter_module_books
-  - add_to_app/fullscreen/flutter_module_fullscreen
-  - add_to_app/multiple_flutters/multiple_flutters_module
-  - add_to_app/plugin/flutter_module_using_plugin
-  - add_to_app/prebuilt_module/flutter_module
+  # - add_to_app/android_view/flutter_module_using_plugin_android_view
+  # - add_to_app/android_view/flutter_module_using_plugin_content_sizing_android_view
+  # - add_to_app/books/flutter_module_books
+  # - add_to_app/fullscreen/flutter_module_fullscreen
+  # - add_to_app/multiple_flutters/multiple_flutters_module
+  # - add_to_app/plugin/flutter_module_using_plugin
+  # - add_to_app/prebuilt_module/flutter_module
 
 skip_ci_beta:
   # - sample_name_to_skip

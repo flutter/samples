@@ -5,7 +5,7 @@ version: 0.1.0
 resolution: workspace
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies:
   cupertino_icons: ^1.0.8
