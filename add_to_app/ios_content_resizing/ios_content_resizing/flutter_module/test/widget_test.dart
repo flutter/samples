@@ -2,46 +2,24 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:material_ui/material_ui.dart';
 import 'package:flutter_module/main.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
-
-class MockCounterModel extends ChangeNotifier implements CounterModel {
-  int _count = 0;
-
-  @override
-  int get count => _count;
-
-  @override
-  void increment() {
-    _count++;
-    notifyListeners();
-  }
-}
 
 void main() {
-  testWidgets('MiniView smoke test', (tester) async {
+  testWidgets('MyApp smoke test', (tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(
-      MaterialApp(
-        home: ChangeNotifierProvider<CounterModel>.value(
-          value: MockCounterModel(),
-          child: const Contents(),
-        ),
-      ),
-    );
+    await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('Taps: 0'), findsOneWidget);
-    expect(find.text('Taps: 1'), findsNothing);
+    // Verify that the list starts with a single entry.
+    expect(find.text('Hello from Flutter 0'), findsOneWidget);
+    expect(find.text('Hello from Flutter 1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.text('Tap me!'));
+    // Tap the button and trigger a frame.
+    await tester.tap(find.text('Add to list'));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('Taps: 0'), findsNothing);
-    expect(find.text('Taps: 1'), findsOneWidget);
+    // Verify that another entry was added to the list.
+    expect(find.text('Hello from Flutter 0'), findsOneWidget);
+    expect(find.text('Hello from Flutter 1'), findsOneWidget);
   });
 }
