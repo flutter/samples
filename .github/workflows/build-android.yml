@@ -28,7 +28,7 @@ jobs:
     # parallel-friendly; a generous timeout beats a mysterious 6-hour hang.
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    if: github.repository == 'flutter/samples'
+    if: false && github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
       matrix:

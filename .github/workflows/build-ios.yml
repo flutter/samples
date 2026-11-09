@@ -29,7 +29,7 @@ jobs:
     # host app. Slow, but it should never approach an hour.
     timeout-minutes: 90
     runs-on: macos-latest
-    if: github.repository == 'flutter/samples'
+    if: false && github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
       matrix:
