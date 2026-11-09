@@ -60,7 +60,7 @@ flutter precache --no-web --no-linux --no-windows --no-fuchsia --no-android --no
 echo "Fetching dependencies and building 'prebuilt_module/flutter_module'."
 pushd add_to_app/prebuilt_module/flutter_module
 flutter packages get
-flutter build ios-framework --xcframework --output="$(pwd)/../ios_using_prebuilt_module/Flutter"
+flutter build ios-framework --xcframework --no-codesign --output="$(pwd)/../ios_using_prebuilt_module/Flutter"
 popd
 
 flutter_packages_get "add_to_app/books/flutter_module_books"
