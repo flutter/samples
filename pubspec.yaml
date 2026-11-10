@@ -58,3 +58,11 @@ skip_ci:
 skip_ci_beta:
   # - sample_name_to_skip
 
+# Packages that live on disk but are deliberately not workspace members.
+# Read by the drift check in tool/ci_script.dart (from v3.50).
+excluded_from_workspace:
+  # TEMP (ci-test branch): not a workspace member on main; added to the
+  # workspace on v3.50.
+  - add_to_app/ios_content_resizing/flutter_module
+  - add_to_app/ios_content_resizing/ios_content_resizing/flutter_module
+

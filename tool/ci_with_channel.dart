@@ -1,15 +1,30 @@
-// ignore_for_file: avoid_print,
+// Copyright 2025 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// ignore_for_file: avoid_print
+
+/// Runs the CI suite locally against one or more Flutter channels.
+///
+/// Do not use this in GitHub Actions -- the workflow sets the channel itself
+/// with `subosito/flutter-action` and calls `tool/ci_script.dart` directly.
+/// This script exists so a maintainer can reproduce both legs of the CI matrix
+/// on one machine before a release.
+///
+/// Usage, from the repo root:
+///
+/// ```
+/// dart tool/ci_with_channel.dart -c stable,beta
+/// ```
+///
+/// Switching channels redownloads the SDK, so the first run on a new channel
+/// is slow. The original channel is always restored, including on failure.
+library;
 
 import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
-import 'package:yaml/yaml.dart';
-
-/// Do not use this with GitHub Actions. It is a convenience script for running
-/// CI locally.
-///
-/// Usage: dart tool/ci_with_channel.dart -c stable,beta
 
 Future<void> main(List<String> args) async {
   final parser = ArgParser()
@@ -23,102 +38,98 @@ Future<void> main(List<String> args) async {
       'channels',
       abbr: 'c',
       help:
-          'Comma-separated list of channels to run on (e.g., stable,beta,main)',
+          'Comma-separated list of channels to run on (e.g., stable,beta,main). '
+          'Defaults to whichever channel is currently active.',
     );
 
-  final results = parser.parse(args);
+  final ArgResults results;
+  try {
+    results = parser.parse(args);
+  } on FormatException catch (e) {
+    print('${e.message}\n');
+    print(parser.usage);
+    exit(64);
+  }
 
   if (results['help'] as bool) {
+    print('Runs tool/ci_script.dart against one or more Flutter channels.\n');
     print(parser.usage);
     return;
   }
 
-  final channelsArg = results['channels'] as String?;
-
-  List<String> channels;
-  if (channelsArg != null) {
-    channels = channelsArg.split(',').map((c) => c.trim()).toList();
-  } else {
-    // Default to current channel if none specified
-    channels = [];
-  }
-
   final rootDir = Directory.current;
-  final originalChannel = await _getCurrentChannel();
-
-  try {
-    if (channels.isEmpty) {
-      print('Running on current channel: $originalChannel');
-      await _runCI(rootDir);
-    } else {
-      for (final channel in channels) {
-        print('\n=== Switching to channel: $channel ===');
-        await _runCommand('flutter', ['channel', channel]);
-        await _runCommand('flutter', ['doctor']);
-        await _runCI(rootDir);
-      }
-    }
-  } finally {
-    if (channels.isNotEmpty && originalChannel != null) {
-      print('\n=== Switching back to original channel: $originalChannel ===');
-      await _runCommand('flutter', ['channel', originalChannel]);
-    }
-  }
-}
-
-Future<String?> _getCurrentChannel() async {
-  final result = await Process.run('flutter', ['channel']);
-  if (result.exitCode != 0) {
-    return null;
-  }
-  final output = result.stdout as String;
-  final match = RegExp(r'\* (\w+)').firstMatch(output);
-  return match?.group(1);
-}
-
-Future<void> _runCI(Directory rootDir) async {
-  final pubspecFile = File(path.join(rootDir.path, 'pubspec.yaml'));
-  final pubspecContent = await pubspecFile.readAsString();
-  final pubspecYaml = loadYaml(pubspecContent);
-
-  final workspace = pubspecYaml['workspace'] as YamlList?;
-  if (workspace == null) {
-    print('No workspace found in pubspec.yaml');
+  if (!File(path.join(rootDir.path, 'pubspec.yaml')).existsSync()) {
+    print('No pubspec.yaml in ${rootDir.path}. Run this from the repo root.');
     exit(1);
   }
 
-  // pub workspace, only run 'get' once
-  await _runCommand('flutter', ['pub', 'get'], workingDirectory: rootDir.path);
+  final channelsArg = results['channels'] as String?;
+  final channels =
+      channelsArg
+          ?.split(',')
+          .map((c) => c.trim())
+          .where((c) => c.isNotEmpty)
+          .toList() ??
+      const <String>[];
 
-  final packages = workspace.map((e) => e.toString()).toList();
+  final originalChannel = await _getCurrentChannel();
+  final failedChannels = <String>[];
 
-  for (final package in packages) {
-    final packagePath = path.join(rootDir.path, package);
-    print('== Testing \'$package\' ==');
-    await _runCommand('dart', [
-      'analyze',
-      '--fatal-infos',
-      '--fatal-warnings',
-    ], workingDirectory: packagePath);
-
-    await _runCommand('dart', ['format', '.'], workingDirectory: packagePath);
-
-    if (await Directory(path.join(packagePath, 'test')).exists()) {
-      final packagePubspecFile = File(path.join(packagePath, 'pubspec.yaml'));
-      final packagePubspecContent = await packagePubspecFile.readAsString();
-      if (packagePubspecContent.contains('flutter:')) {
-        await _runCommand('flutter', [
-          'test',
-          '--no-pub',
-        ], workingDirectory: packagePath);
-      } else {
-        await _runCommand('dart', ['test'], workingDirectory: packagePath);
+  try {
+    if (channels.isEmpty) {
+      print('Running on current channel: ${originalChannel ?? 'unknown'}');
+      if (!await _runCI(rootDir)) {
+        failedChannels.add(originalChannel ?? 'current');
+      }
+    } else {
+      for (final channel in channels) {
+        print('\n=== Switching to channel: $channel ===');
+        if (!await _run('flutter', ['channel', channel]) ||
+            !await _run('flutter', ['upgrade'])) {
+          print('Could not switch to "$channel". Skipping it.');
+          failedChannels.add('$channel (switch failed)');
+          continue;
+        }
+        await _run('flutter', ['doctor']);
+        // Keep going after a failing channel so one run reports both legs.
+        if (!await _runCI(rootDir)) failedChannels.add(channel);
       }
     }
+  } finally {
+    if (channels.isNotEmpty &&
+        originalChannel != null &&
+        !channels.contains(originalChannel)) {
+      print('\n=== Switching back to original channel: $originalChannel ===');
+      await _run('flutter', ['channel', originalChannel]);
+    }
   }
+
+  if (failedChannels.isNotEmpty) {
+    print('\nCI failed on: ${failedChannels.join(', ')}');
+    exit(1);
+  }
+  print('\nCI passed on every requested channel.');
 }
 
-Future<void> _runCommand(
+/// Delegates to `tool/ci_script.dart`, the same entrypoint GitHub Actions runs.
+///
+/// Shelling out rather than reimplementing the sweep is deliberate: an earlier
+/// version of this script had its own copy of the loop, which silently ignored
+/// the `skip_ci` lists and so disagreed with real CI.
+Future<bool> _runCI(Directory rootDir) => _run('dart', [
+  path.join('tool', 'ci_script.dart'),
+], workingDirectory: rootDir.path);
+
+Future<String?> _getCurrentChannel() async {
+  final result = await Process.run('flutter', ['channel'], runInShell: true);
+  if (result.exitCode != 0) return null;
+  return RegExp(
+    r'^\*\s+(\S+)',
+    multiLine: true,
+  ).firstMatch(result.stdout as String)?.group(1);
+}
+
+Future<bool> _run(
   String executable,
   List<String> arguments, {
   String? workingDirectory,
@@ -133,8 +144,10 @@ Future<void> _runCommand(
   final exitCode = await process.exitCode;
   if (exitCode != 0) {
     print(
-      'Command "$executable ${arguments.join(' ')}" failed with exit code $exitCode in $workingDirectory',
+      'Command "$executable ${arguments.join(' ')}" failed with exit code '
+      '$exitCode',
     );
-    exit(exitCode);
+    return false;
   }
+  return true;
 }
