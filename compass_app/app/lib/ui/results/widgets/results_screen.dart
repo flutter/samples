@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../routing/routes.dart';
 import '../../core/localization/applocalization.dart';
@@ -67,9 +67,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   Expanded(
                     child: Center(
                       child: ErrorIndicator(
-                        title: AppLocalization.of(
-                          context,
-                        ).errorWhileLoadingDestinations,
+                        title: AppLocalization.of(context)
+                            .errorWhileLoadingDestinations,
                         label: AppLocalization.of(context).tryAgain,
                         onPressed: widget.viewModel.search.execute,
                       ),

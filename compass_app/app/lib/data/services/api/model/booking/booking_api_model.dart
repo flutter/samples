@@ -8,7 +8,7 @@ part 'booking_api_model.freezed.dart';
 part 'booking_api_model.g.dart';
 
 @freezed
-class BookingApiModel with _$BookingApiModel {
+abstract class BookingApiModel with _$BookingApiModel {
   const factory BookingApiModel({
     /// Booking ID. Generated when stored in server.
     int? id,

@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:animations/src/misc/animated_list.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 Widget createAnimatedListDemoScreen() =>
     const MaterialApp(home: AnimatedListDemo());

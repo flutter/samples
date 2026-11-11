@@ -19,9 +19,8 @@ final _unsplashBaseUrl = Uri.parse('https://api.unsplash.com/');
 /// [Unsplash API](https://unsplash.com/developers) `accessKey` to make
 /// requests to the Unsplash API.
 class Unsplash {
-  Unsplash({required String accessKey, http.BaseClient? httpClient})
-    : _accessKey = accessKey,
-      _client = httpClient ?? http.Client();
+  Unsplash({required this._accessKey, http.BaseClient? httpClient})
+    : _client = httpClient ?? http.Client();
 
   final String _accessKey;
   final http.Client _client;

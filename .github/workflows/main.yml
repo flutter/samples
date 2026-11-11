@@ -16,23 +16,32 @@ defaults:
   run:
     shell: bash
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   flutter-tests:
     name: Test Flutter ${{ matrix.flutter_version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
     if: github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
       matrix:
+        # The `beta` leg is expected to go red during a release cycle whenever
+        # a sample needs an API that has not reached stable yet. Use the
+        # `skip_ci_beta` list in the root pubspec.yaml to park a sample, and
+        # see RELEASE.md.
         flutter_version: [stable, beta]
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           channel: ${{ matrix.flutter_version }}
       - run: flutter pub get && dart tool/ci_script.dart

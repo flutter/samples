@@ -26,9 +26,8 @@ extension HttpMethodMocks on MockHttpClient {
       when(() => request.close()).thenAnswer((_) => Future.value(response));
       when(() => request.headers).thenReturn(MockHttpHeaders());
       when(() => response.statusCode).thenReturn(200);
-      when(
-        () => response.transform(utf8.decoder),
-      ).thenAnswer((_) => Stream.value(jsonEncode(object)));
+      when(() => response.transform(utf8.decoder))
+          .thenAnswer((_) => Stream.value(jsonEncode(object)));
       return Future.value(request);
     });
   }
@@ -40,9 +39,8 @@ extension HttpMethodMocks on MockHttpClient {
       when(() => request.close()).thenAnswer((_) => Future.value(response));
       when(() => request.headers).thenReturn(MockHttpHeaders());
       when(() => response.statusCode).thenReturn(statusCode);
-      when(
-        () => response.transform(utf8.decoder),
-      ).thenAnswer((_) => Stream.value(jsonEncode(object)));
+      when(() => response.transform(utf8.decoder))
+          .thenAnswer((_) => Stream.value(jsonEncode(object)));
       return Future.value(request);
     });
   }

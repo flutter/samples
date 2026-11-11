@@ -24,6 +24,12 @@ updates:
     labels:
       - "autosubmit"
   - package-ecosystem: "pub"
+    directory: "add_to_app/ios_content_resizing/flutter_module/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "autosubmit"
+  - package-ecosystem: "pub"
     directory: "add_to_app/multiple_flutters/multiple_flutters_module/"
     schedule:
       interval: "daily"

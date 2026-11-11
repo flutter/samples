@@ -14,8 +14,8 @@
 
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'widgets/api_key_widget.dart';
 import 'widgets/message_widget.dart';

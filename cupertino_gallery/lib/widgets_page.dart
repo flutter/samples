@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
+
 import 'widget_detail_page.dart';
 
 class WidgetsPage extends StatelessWidget {

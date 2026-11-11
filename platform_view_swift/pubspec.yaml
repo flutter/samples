@@ -4,13 +4,14 @@ version: 1.0.0+1
 resolution: workspace
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.4
 
+  material_ui: any
 dev_dependencies:
   analysis_defaults:
     path: ../analysis_defaults

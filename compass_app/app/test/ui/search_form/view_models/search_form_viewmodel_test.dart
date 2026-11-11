@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../../testing/fakes/repositories/fake_continent_repository.dart';
 import '../../../../testing/fakes/repositories/fake_itinerary_config_repository.dart';

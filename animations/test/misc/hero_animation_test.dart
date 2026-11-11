@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:animations/src/misc/hero_animation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 Widget createHeroAnimationDemoScreen() =>
     const MaterialApp(home: HeroAnimationDemo());

@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:english_words/english_words.dart' as english_words;
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class FormValidationDemo extends StatefulWidget {
   const FormValidationDemo({super.key});

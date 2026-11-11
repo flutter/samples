@@ -10,6 +10,9 @@ Do you work at Google? Great! You should **definitely** read this page before su
 * [Writing a new sample]
 * [Sample checklist]
 
+_Maintainers: see [RELEASE.md](RELEASE.md) for the Flutter release process and
+[tool/README.md](tool/README.md) for the repo scripts._
+
 _See also: [Flutter's code of conduct]_
 
 <br />
@@ -192,9 +195,14 @@ Use this checklist to write new samples and evaluate existing ones.
 
 * Tests, style and maintenance
     - [ ] Sample has Dart tests that cover the business logic
-    - [ ] Sample is wired into the list of projects in the CI scripts for [stable](tool/flutter_ci_script_stable.sh), 
-      [beta](tool/flutter_ci_script_beta.sh), and [master](tool/flutter_ci_script_master.sh), 
-      which runs the analyzer, the formatter, and `flutter test`.
+    - [ ] Sample is added to the `workspace:` list in the root [`pubspec.yaml`](pubspec.yaml),
+      which is what [`tool/ci_script.dart`](tool/ci_script.dart) iterates to run the analyzer,
+      the formatter, and `flutter test`. CI fails if a package on disk is missing from that list.
+    - [ ] Sample's package `name:` is unique across the repo (a pub workspace cannot
+      contain two packages with the same name).
+    - [ ] Every package the sample imports is declared in its own `pubspec.yaml`. The
+      workspace shares one package config, so an undeclared import still compiles --
+      but assets and shaders from that package go missing at runtime. See [`RELEASE.md`](RELEASE.md#5-known-gotchas).
     - [ ] Sample has a codeowner (it's likely you, the author)
     - [ ] Sample is formatted with `dart format`.
     - [ ] Sample has no analyzer errors or warnings.
@@ -213,10 +221,11 @@ Use this checklist to write new samples and evaluate existing ones.
 
 ## File headers
 
-All files in the project must start with the following header.
+All files in the project must start with the following header, using the year
+the file was created (don't update the year on existing files).
 
 ```
-// Copyright 2024 The Flutter team. All rights reserved.
+// Copyright 2025 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 ```

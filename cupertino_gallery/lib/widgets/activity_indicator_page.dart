@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class ActivityIndicatorPage extends StatelessWidget {
   const ActivityIndicatorPage({super.key});
@@ -6,7 +6,9 @@ class ActivityIndicatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(middle: Text('Activity Indicator')),
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('Activity Indicator'),
+      ),
       child: Center(child: CupertinoActivityIndicator()),
     );
   }

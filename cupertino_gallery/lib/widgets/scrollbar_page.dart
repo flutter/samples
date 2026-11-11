@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class ScrollbarPage extends StatelessWidget {
   const ScrollbarPage({super.key});
@@ -17,7 +17,10 @@ class ScrollbarPage extends StatelessWidget {
             return CupertinoListTile(title: Text('Item $index'));
           },
           separatorBuilder: (context, index) {
-            return Container(height: 1, color: CupertinoColors.opaqueSeparator);
+            return Container(
+              height: 1,
+              color: CupertinoColors.opaqueSeparator,
+            );
           },
         ),
       ),
